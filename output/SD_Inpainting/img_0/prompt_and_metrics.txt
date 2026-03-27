@@ -1,0 +1,18 @@
+--- Prompt ---
+a person in a garden
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 56.9707
+SSIM: 0.9998
+FSIM: 0.9946
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 38.7758
+SSIM: 0.9910
+FSIM: 0.9088
+
+CLIP score (Image vs Prompt)
+Edited Original:  25.9576
+Edited Immunized: 25.9785
