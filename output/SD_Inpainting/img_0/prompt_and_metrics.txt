@@ -4,15 +4,15 @@ a person in a football stadium
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.8712
-SSIM: 0.9302
-FSIM: 0.9337
+PSNR: 31.1035
+SSIM: 0.9369
+FSIM: 0.9364
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 16.8752
-SSIM: 0.5581
-FSIM: 0.4685
+PSNR: 16.0648
+SSIM: 0.5391
+FSIM: 0.4323
 
 CLIP score (Image vs Prompt)
 Edited Original:  30.1644
-Edited Immunized: 32.5567
+Edited Immunized: 32.0347
