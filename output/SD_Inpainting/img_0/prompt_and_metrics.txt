@@ -1,18 +1,18 @@
 --- Prompt ---
-a person in a garden
+a person in a football stadium
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 56.9707
-SSIM: 0.9998
-FSIM: 0.9946
+PSNR: 30.8712
+SSIM: 0.9302
+FSIM: 0.9337
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 38.7758
-SSIM: 0.9910
-FSIM: 0.9088
+PSNR: 16.8752
+SSIM: 0.5581
+FSIM: 0.4685
 
 CLIP score (Image vs Prompt)
-Edited Original:  25.9576
-Edited Immunized: 25.9785
+Edited Original:  30.1644
+Edited Immunized: 32.5567

@@ -87,8 +87,9 @@ class DynamicWeighter:
         self.W_init       = W_init
         self.T_temp       = T_temp
         self.prev_losses  = [1.0] * n_surrogates
+        self.prev_weights = [1.0] * n_surrogates
 
-    def step(self, current_losses: List[float], t: int) -> List[float]:
+    def step(self, current_losses: List[float]) -> List[float]:
         """
         Args:
             current_losses : loss corrente per ogni surrogato
@@ -96,19 +97,22 @@ class DynamicWeighter:
         Returns:
             weights : pesi W_i aggiornati
         """
-        t = max(t, 1)
-
         S     = [curr / (prev + 1e-8) for curr, prev in zip(current_losses, self.prev_losses)]
         exp_S = [np.exp(s / self.T_temp) for s in S]
         sum_e = sum(exp_S) + 1e-8
         weights = [self.W_init * (self.n_surrogates * e) / sum_e for e in exp_S]
 
         self.prev_losses = current_losses.copy()
+        self.prev_weights = weights.copy()
+
         return weights
 
     def reset(self):
         """Resetta le loss precedenti (utile a inizio epoca)."""
         self.prev_losses = [1.0] * self.n_surrogates
+
+    def get_weights(self):
+        return self.prev_weights
 
 
 # ─────────────────────────────────────────────
@@ -132,7 +136,6 @@ def total_loss(
     log_var:   Tensor,
     # ── weighter ──
     dyn_weighter: DynamicWeighter,
-    global_step:  int,
     # ── iperparametri ──
     alpha: float = 1.0,
     beta:  float = 1.0,
@@ -165,7 +168,7 @@ def total_loss(
     per_surrogate_terms.append(l_vae)
 
     # ── 3. Pesi dinamici calcolati sulla loss completa ──
-    weights = dyn_weighter.step(per_surrogate_losses, t=global_step)
+    weights = dyn_weighter.get_weights()
 
     # ── 4. Loss surrogati pesata ──
     l_surrogates = torch.tensor(0.0, device=I.device)

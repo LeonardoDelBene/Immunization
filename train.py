@@ -107,7 +107,6 @@ def validation_loop(
     surrogate_clip_models,
     vae,
     dyn_weighter,
-    global_step: int,
     alpha:       float = 1.0,
     beta:        float = 1.0,
     eta:         float = 0.2,
@@ -153,16 +152,10 @@ def validation_loop(
             log_var  = posterior_im.logvar
 
             # ── Loss — total_loss gestisce pesi e dyn_weighter internamente ──
-            _, log = total_loss(
-                I_im=I_im, I=I, M=M,
-                X_cls_list=X_cls_list,     Y_cls_list=Y_cls_list,
-                X_patch_list=X_patch_list, Y_patch_list=Y_patch_list,
-                z_im=z_im, z_target=z_target,
-                mu=mu, log_var=log_var,
-                dyn_weighter=dyn_weighter,
-                global_step=global_step,
-                alpha=alpha, beta=beta, eta=eta, lambda_vae=lambda_vae,
-            )
+            _, log = total_loss(I_im=I_im, I=I, M=1 -M, X_cls_list=X_cls_list, Y_cls_list=Y_cls_list,
+                                X_patch_list=X_patch_list, Y_patch_list=Y_patch_list, z_im=z_im, z_target= z_target,
+                                mu= mu, log_var= log_var, dyn_weighter=dyn_weighter, alpha=alpha, beta=beta, eta=eta,
+                                lambda_vae=lambda_vae)
 
             for k in val_metrics:
                 val_metrics[k] += log[k]
@@ -193,6 +186,7 @@ def training_loop(
         best_checkpoint_path: str = "checkpoints/unet_best.pth",
         training_checkpoint_dir: str = "checkpoints/training",
         device: str = "cuda",
+        resume_from_checkpoint: bool = True,
 ):
     # ── Surrogate CLIP ──
     surrogate_clip_configs = [
@@ -200,10 +194,12 @@ def training_loop(
         "openai/clip-vit-base-patch16",
         "openai/clip-vit-large-patch14",
     ]
-    print_gpu_memory("start")
     surrogate_clip_models = []
     for model_name in surrogate_clip_configs:
         model = CLIPModel.from_pretrained(model_name).to(device).eval()
+        # Congela i parametri dei modelli surrogati
+        for param in model.parameters():
+            param.requires_grad = False
         surrogate_clip_models.append(model)
 
 
@@ -211,7 +207,9 @@ def training_loop(
     vae = AutoencoderKL.from_pretrained(
         "runwayml/stable-diffusion-inpainting", subfolder="vae"
     ).to(device).eval()
-    print_gpu_memory("end")
+    # Congela i parametri del VAE
+    for param in vae.parameters():
+        param.requires_grad = False
 
     n_surrogates = len(surrogate_clip_models) + 1
 
@@ -220,10 +218,19 @@ def training_loop(
     optimizer = optim.Adam(unet.parameters(), lr=lr)
     dyn_weighter = DynamicWeighter(n_surrogates=n_surrogates)
 
-    # ── Carica checkpoint se esiste ──
-    state = load_training_checkpoint(
-        training_checkpoint_dir, unet, optimizer, dyn_weighter, device
-    )
+    # ── Carica checkpoint se esiste e se resume_from_checkpoint è True ──
+    if resume_from_checkpoint:
+        state = load_training_checkpoint(
+            training_checkpoint_dir, unet, optimizer, dyn_weighter, device
+        )
+    else:
+        print("resume_from_checkpoint=False, starting from scratch.")
+        state = {
+            "start_epoch":    0,
+            "global_step":    0,
+            "best_val_loss":  float("inf"),
+            "patience_count": 0,
+        }
     start_epoch = state["start_epoch"]
     global_step = state["global_step"]
     best_val_loss = state["best_val_loss"]
@@ -244,13 +251,18 @@ def training_loop(
         }
     )
 
+    # ── Genera nome distintivo per il best model usando run ID di wandb ──
+    run_id = wandb.run.id
+    best_checkpoint_path = str(Path(best_checkpoint_path).parent / f"unet_best_{run_id}.pth")
+
     if start_epoch >= n_epochs:
         print(f"Training già completato ({start_epoch}/{n_epochs} epoche).")
         return unet
 
+    unet.train()
+    dyn_weighter.reset()
     for epoch in range(start_epoch, n_epochs):
-        unet.train()
-        dyn_weighter.reset()
+        #dyn_weighter.reset()
 
         train_metrics = defaultdict(float)
         train_weights = []
@@ -267,18 +279,14 @@ def training_loop(
             unet_out = torch.clamp(unet_out, -eps,eps)
             unet_out = unet_out * (1 - M) # il rumore viene aggiunto solo al soggetto
             I_im = torch.clamp(I + unet_out, -1.0, 1.0)
-            # Aggiungi questi print nel training loop dopo il forward
-            #print(f"M min={M.min():.3f} max={M.max():.3f} mean={M.mean():.3f}")
-            #print(f"unet_out min={unet_out.min():.4f} max={unet_out.max():.4f} mean={unet_out.mean():.4f}")
-            #print(f"I_im - I: min={(I_im - I).min():.4f} max={(I_im - I).max():.4f}")
 
             X_cls_list, Y_cls_list = [], []
             X_patch_list, Y_patch_list = [], []
 
             I_im_clip = to_clip_space(I_im)
             I_target_clip = to_clip_space(I_target)
-            with torch.no_grad():
-                for clip_model in surrogate_clip_models:
+            
+            for clip_model in surrogate_clip_models:
                     X_cls, X_patch = get_visual_tokens(clip_model, I_im_clip)
                     Y_cls, Y_patch = get_visual_tokens(clip_model, I_target_clip)
 
@@ -287,23 +295,17 @@ def training_loop(
                     X_patch_list.append(X_patch)
                     Y_patch_list.append(Y_patch)
 
-                posterior_im = vae.encode(I_im).latent_dist
-                posterior_target = vae.encode(I_target).latent_dist
-                z_im = posterior_im.sample()
-                z_target = posterior_target.sample()
-                mu = posterior_im.mean
-                log_var = posterior_im.logvar
+            posterior_im = vae.encode(I_im).latent_dist
+            posterior_target = vae.encode(I_target).latent_dist
+            z_im = posterior_im.sample()
+            z_target = posterior_target.sample()
+            mu = posterior_im.mean
+            log_var = posterior_im.logvar
 
-            loss, log = total_loss(
-                I_im=I_im, I=I, M=1-M,
-                X_cls_list=X_cls_list, Y_cls_list=Y_cls_list,
-                X_patch_list=X_patch_list, Y_patch_list=Y_patch_list,
-                z_im=z_im, z_target=z_target,
-                mu=mu, log_var=log_var,
-                dyn_weighter=dyn_weighter,
-                global_step=global_step,
-                alpha=alpha, beta=beta, eta=eta, lambda_vae=lambda_vae,
-            )
+            loss, log = total_loss(I_im=I_im, I=I, M=1 - M, X_cls_list=X_cls_list, Y_cls_list=Y_cls_list,
+                                   X_patch_list=X_patch_list, Y_patch_list=Y_patch_list, z_im=z_im, z_target= z_target,
+                                   mu=mu, log_var=log_var, dyn_weighter=dyn_weighter, alpha=alpha, beta=beta, eta=eta,
+                                   lambda_vae=lambda_vae)
 
             loss.backward()
             torch.nn.utils.clip_grad_norm_(unet.parameters(), max_norm=1.0)
@@ -318,10 +320,10 @@ def training_loop(
             global_step += 1
 
 
+
         # ── Medie training ──
         n_train = len(dataloader)
         train_metrics = {k: v / n_train for k, v in train_metrics.items()}
-        mean_weights = np.mean(train_weights, axis=0).tolist()
 
         # Surrogati dinamici
         n_surrogates = sum(1 for k in train_metrics if k.startswith("l_surrogate_"))
@@ -330,15 +332,22 @@ def training_loop(
             for i in range(n_surrogates)
         )
 
+        # aggiornamento dynamic weighter
+        current_loss_surrogates = []
+        for i in range(n_surrogates):
+            current_loss_surrogates.append(train_metrics[f"l_surrogate_{i}"])
+        dyn_weighter.step(current_loss_surrogates)
+        weights = dyn_weighter.get_weights()
+
         # Pesi dinamici (lista di float)
-        weights_str = "[" + ", ".join(f"{w:.3f}" for w in mean_weights) + "]"
+
         print(
             f"\n── Epoch {epoch + 1} Train ──  "
             f"loss={train_metrics['l_tot']:.4f}  "
             f"l_noise={train_metrics['l_noise']:.4f}  "
             f"l_surrogates={train_metrics['l_surrogates']:.4f}  "
             f"{surrogate_str}  "
-            f"weights={weights_str}"
+            f"weights={weights}"
         )
 
 
@@ -346,16 +355,10 @@ def training_loop(
 
         # ── Validation ──
         if (epoch + 1) % val_every == 0:
-            val_metrics = validation_loop(
-                unet=unet,
-                val_dataloader=val_dataloader,
-                surrogate_clip_models=surrogate_clip_models,
-                vae=vae,
-                dyn_weighter=dyn_weighter,
-                global_step=global_step,
-                alpha=alpha, beta=beta, eta=eta, lambda_vae=lambda_vae,
-                device=device,
-            )
+            val_metrics = validation_loop(unet=unet, val_dataloader=val_dataloader,
+                                          surrogate_clip_models=surrogate_clip_models, vae=vae,
+                                          dyn_weighter=dyn_weighter, alpha=alpha, beta=beta, eta=eta,
+                                          lambda_vae=lambda_vae, device=device)
 
             print(
                 f"── Epoch {epoch + 1} Val ──    "
@@ -383,7 +386,7 @@ def training_loop(
                     **{f"train/l_surrogate_{i}": train_metrics[f"l_surrogate_{i}"]
                        for i in range(n_surrogates)},
                     **{f"train/weight_{i}": w
-                       for i, w in enumerate(mean_weights)},
+                       for i, w in enumerate(weights)},
                     "val/loss": val_metrics["l_tot"],
                     "val/l_noise": val_metrics["l_noise"],
                     "val/l_surrogates": val_metrics["l_surrogates"],
@@ -481,17 +484,17 @@ if __name__ == "__main__":
 
     train_loader = DataLoader(
         train_dataset,
-        batch_size=4,
+        batch_size=2,
         shuffle=True,
-        num_workers=4,
+        num_workers=2,
         worker_init_fn=seed_worker,
         generator=g,
     )
     val_loader = DataLoader(
         val_dataset,
-        batch_size=4,
+        batch_size=2,
         shuffle=False,
-        num_workers=4,
+        num_workers=2,
         worker_init_fn=seed_worker,
     )
 
@@ -501,16 +504,17 @@ if __name__ == "__main__":
         unet=unet,
         dataloader=train_loader,
         val_dataloader=val_loader,
-        n_epochs=100,
-        lr=1e-1,
+        n_epochs=1000,
+        lr=1e-4,
         alpha=1.0,
         beta=1.0,
         eta=0.2,
         lambda_vae = 0.03,
-        eps= 32 / 255 * 2,
+        eps= (32 / 255 * 2),
         val_every=1,
-        patience=30,
+        patience=40,
         best_checkpoint_path="checkpoints/unet_best.pth",
         training_checkpoint_dir="checkpoints/training",
         device=device,
+        resume_from_checkpoint=False,  # Cambia a False per ricominciare da zero
     )

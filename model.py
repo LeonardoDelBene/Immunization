@@ -1,4 +1,3 @@
-import os
 from torch import nn
 from PIL import Image
 import torch
@@ -276,9 +275,7 @@ class Attack:
                 noise_pred_text - noise_pred_uncond
             )
 
-            latents = diffusion_model.scheduler.step(
-                noise_pred, t, latents, eta=eta
-            ).prev_sample
+            latents = diffusion_model.scheduler.step(noise_pred).prev_sample
 
         latents = 1 / 0.18215 * latents
         image = diffusion_model.vae.decode(latents).sample
