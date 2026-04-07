@@ -131,6 +131,11 @@ def save_metrics(output_dir, edit_prompt, metrics: dict):
         f.write(f"Edited Original:  {metrics['clip_orig']:.4f}\n")
         f.write(f"Edited Immunized: {metrics['clip_adv']:.4f}\n")
 
+        f.write(f"Caption similarity (Edited Original vs Edited Immunized)\n")
+        f.write(f"score: {metrics['caption_sim']:.4f}\n")
+        f.write("caption orig : " + metrics['caption_orig'])
+        f.write("caption adv : " + metrics['caption_adv'])
+
     print(f"Metrics saved in {prompt_file}")
 
 
@@ -347,7 +352,7 @@ def get_config():
         "base_output_dir":      "output",
         "dataset_path":         "./DiffVaxDataset_local",
         "dataset_split":        "validation",
-        "sample_idx":           0,
+        "sample_idx":           1,
         "run_full_dataset":     False,
     }
 
