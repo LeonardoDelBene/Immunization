@@ -135,13 +135,13 @@ def validation_loop(
             I_im_clip = to_clip_space(I_im)
             I_target_clip = to_clip_space(I_target)
 
-            for clip_model in surrogate_clip_models:
+            '''for clip_model in surrogate_clip_models:
                 X_cls, X_patch = get_visual_tokens(clip_model, I_im_clip)
                 Y_cls, Y_patch = get_visual_tokens(clip_model, I_target_clip)
                 X_cls_list.append(X_cls)
                 Y_cls_list.append(Y_cls)
                 X_patch_list.append(X_patch)
-                Y_patch_list.append(Y_patch)
+                Y_patch_list.append(Y_patch)'''
 
             # ── VAE ──
             posterior_im     = vae.encode(I_im).latent_dist
@@ -190,17 +190,17 @@ def training_loop(
 ):
     # ── Surrogate CLIP ──
     surrogate_clip_configs = [
-        "openai/clip-vit-base-patch32",
-        "openai/clip-vit-base-patch16",
-        "openai/clip-vit-large-patch14",
+        #"openai/clip-vit-base-patch32",
+        #"openai/clip-vit-base-patch16",
+        #"openai/clip-vit-large-patch14",
     ]
     surrogate_clip_models = []
-    for model_name in surrogate_clip_configs:
+    '''for model_name in surrogate_clip_configs:
         model = CLIPModel.from_pretrained(model_name).to(device).eval()
         # Congela i parametri dei modelli surrogati
         for param in model.parameters():
             param.requires_grad = False
-        surrogate_clip_models.append(model)
+        surrogate_clip_models.append(model)'''
 
 
     # ── VAE ──
@@ -286,14 +286,14 @@ def training_loop(
             I_im_clip = to_clip_space(I_im)
             I_target_clip = to_clip_space(I_target)
             
-            for clip_model in surrogate_clip_models:
+            '''for clip_model in surrogate_clip_models:
                     X_cls, X_patch = get_visual_tokens(clip_model, I_im_clip)
                     Y_cls, Y_patch = get_visual_tokens(clip_model, I_target_clip)
 
                     X_cls_list.append(X_cls)
                     Y_cls_list.append(Y_cls)
                     X_patch_list.append(X_patch)
-                    Y_patch_list.append(Y_patch)
+                    Y_patch_list.append(Y_patch)'''
 
             posterior_im = vae.encode(I_im).latent_dist
             posterior_target = vae.encode(I_target).latent_dist
@@ -464,10 +464,10 @@ def print_gpu_memory(label: str = ""):
 
 if __name__ == "__main__":
 
-    SEED = 42
+    SEED = 5
     set_seed_lib(SEED)
 
-    device = "cuda:1" if torch.cuda.is_available() else "cpu"
+    device = "cuda:0" if torch.cuda.is_available() else "cpu"
 
     DEBUG = False
     N_DEBUG = 20
@@ -506,7 +506,7 @@ if __name__ == "__main__":
         val_dataloader=val_loader,
         n_epochs=1000,
         lr=1e-4,
-        alpha=1.0,
+        alpha=1.5,
         beta=1.0,
         eta=0.2,
         lambda_vae = 0.03,

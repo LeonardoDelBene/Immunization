@@ -150,7 +150,7 @@ def total_loss(
     per_surrogate_losses = []   # L_θi completa per ogni surrogato → S_i
     per_surrogate_terms  = []   # termini da pesare nella total loss
 
-    for X_cls, Y_cls, X_patch, Y_patch in zip(
+    '''for X_cls, Y_cls, X_patch, Y_patch in zip(
         X_cls_list, Y_cls_list, X_patch_list, Y_patch_list
     ):
         l_coa_i = coarse_loss(X_cls, Y_cls)
@@ -160,7 +160,7 @@ def total_loss(
         l_i = l_coa_i + eta * l_fin_i
 
         per_surrogate_losses.append(l_i.item())   # scalare per il weighter
-        per_surrogate_terms.append(l_i)           # tensore per il backward
+        per_surrogate_terms.append(l_i)           # tensore per il backward'''
 
     l_vae = vae_align_loss(z_im, z_target) + vae_pca_loss(mu, log_var)
     l_vae = lambda_vae * l_vae
