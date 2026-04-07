@@ -129,12 +129,12 @@ def save_metrics(output_dir, edit_prompt, metrics: dict):
 
         f.write("CLIP score (Image vs Prompt)\n")
         f.write(f"Edited Original:  {metrics['clip_orig']:.4f}\n")
-        f.write(f"Edited Immunized: {metrics['clip_adv']:.4f}\n")
+        f.write(f"Edited Immunized: {metrics['clip_adv']:.4f}\n\n")
 
         f.write(f"Caption similarity (Edited Original vs Edited Immunized)\n")
-        f.write(f"score: {metrics['caption_sim']:.4f}\n")
-        f.write("caption orig : " + metrics['caption_orig'])
-        f.write("caption adv : " + metrics['caption_adv'])
+        f.write(f"Score: {metrics['caption_sim']:.4f}\n")
+        f.write("Caption orig : " + metrics['caption_orig'] + "\n")
+        f.write("Caption adv : " + metrics['caption_adv'])
 
     print(f"Metrics saved in {prompt_file}")
 
@@ -343,16 +343,16 @@ def save_global_summary(output_dir, all_metrics):
 def get_config():
     return {
         "use_instruct_pix2pix": False,
-        "edit_prompt":          "a person in a football stadium",
+        "edit_prompt":          "a person with blue jacket",
         "seed":                 5,
-        "edit_background":      True,
+        "edit_background":      False,
         "load_existing":        True,
         "checkpoint_path":      os.path.join("checkpoints", "unet_best_VAE.pth"),
         "attack_model":         "runwayml/stable-diffusion-inpainting",
         "base_output_dir":      "output",
         "dataset_path":         "./DiffVaxDataset_local",
         "dataset_split":        "validation",
-        "sample_idx":           1,
+        "sample_idx":           2,
         "run_full_dataset":     False,
     }
 

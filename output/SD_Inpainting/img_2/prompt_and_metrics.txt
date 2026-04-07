@@ -1,0 +1,23 @@
+--- Prompt ---
+a person with blue jacket
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 21.4921
+SSIM: 0.8690
+FSIM: 0.8166
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 16.1493
+SSIM: 0.6779
+FSIM: 0.5765
+
+CLIP score (Image vs Prompt)
+Edited Original:  27.3113
+Edited Immunized: 29.2556
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.4568
+Caption orig : A woman wearing a blue jacket with a fur trim and blue jean shorts.
+Caption adv : A cartoon figure of a person wearing a purple jacket and a blue hat.
