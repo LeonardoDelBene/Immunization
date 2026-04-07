@@ -342,12 +342,12 @@ def save_global_summary(output_dir, all_metrics):
 
 def get_config():
     return {
-        "use_instruct_pix2pix": False,
-        "edit_prompt":          "a person with blue jacket",
+        "use_instruct_pix2pix": True,
+        "edit_prompt":          "put a blue cap on the person",
         "seed":                 5,
         "edit_background":      False,
         "load_existing":        True,
-        "checkpoint_path":      os.path.join("checkpoints", "unet_best_VAE.pth"),
+        "checkpoint_path":      os.path.join("checkpoints", "unet_best_3CLIP_VAE.pth"),
         "attack_model":         "runwayml/stable-diffusion-inpainting",
         "base_output_dir":      "output",
         "dataset_path":         "./DiffVaxDataset_local",

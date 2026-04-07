@@ -1,0 +1,23 @@
+--- Prompt ---
+put a blue cap on the person
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 24.2106
+SSIM: 0.8071
+FSIM: 0.7330
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 22.4268
+SSIM: 0.7202
+FSIM: 0.5815
+
+CLIP score (Image vs Prompt)
+Edited Original:  24.4266
+Edited Immunized: 25.4482
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.7260
+Caption orig : A woman wearing a blue wig and a brown jacket.
+Caption adv : A woman wearing a blue headband and a brown jacket.
