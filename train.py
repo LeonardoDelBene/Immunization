@@ -474,22 +474,22 @@ if __name__ == "__main__":
 
     device = "cuda:0" if torch.cuda.is_available() else "cpu"
 
-    DEBUG = False
-    N_DEBUG = 20
+    DEBUG = True
+    N_DEBUG = 100
 
     train_dataset = ImmunizationDataset(split="train", target_dataset="cifar10")
     val_dataset = ImmunizationDataset(split="validation", target_dataset="cifar10")
 
     if DEBUG:
         train_dataset = Subset(train_dataset, range(N_DEBUG))
-        val_dataset = Subset(val_dataset, range(N_DEBUG))
+        val_dataset = Subset(val_dataset, range(N_DEBUG // 4))  # meno campioni per la validazione in debug
     # Generator con lo stesso seed per lo shuffle
     g = torch.Generator()
     g.manual_seed(SEED)
 
     train_loader = DataLoader(
         train_dataset,
-        batch_size=2,
+        batch_size=4,
         shuffle=True,
         num_workers=2,
         worker_init_fn=seed_worker,
@@ -497,7 +497,7 @@ if __name__ == "__main__":
     )
     val_loader = DataLoader(
         val_dataset,
-        batch_size=2,
+        batch_size=4,
         shuffle=False,
         num_workers=2,
         worker_init_fn=seed_worker,
@@ -515,9 +515,9 @@ if __name__ == "__main__":
         beta=1.0,
         eta=0.2,
         lambda_vae = 0.03,
-        eps= (32 / 255 * 2),
+        eps= (16 / 255 * 2),
         val_every=1,
-        patience=40,
+        patience=10,
         best_checkpoint_path="checkpoints/unet_best.pth",
         training_checkpoint_dir="checkpoints/training",
         device=device,

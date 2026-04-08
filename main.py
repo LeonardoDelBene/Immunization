@@ -75,7 +75,7 @@ def immunize(image, image_mask, immunization_mdl, seed):
 
     adv_X = (immunized_img / 2 + 0.5).clamp(0, 1)
     adv_image_png = to_pil(adv_X[0]).convert("RGB")
-    #adv_image_png = recover_image(adv_image_png, image, image_mask, background=True)
+    adv_image_png = recover_image(adv_image_png, image, image_mask, background=True)
     return adv_image_png
 
 
@@ -354,7 +354,7 @@ def get_config():
         "base_output_dir":      "output",
         "dataset_path":         "./DiffVaxDataset_local",
         "dataset_split":        "validation",
-        "sample_idx":           4,
+        "sample_idx":           3,
         "run_full_dataset":     False,
     }
 
