@@ -1,0 +1,23 @@
+--- Prompt ---
+person in a bakery
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 33.7502
+SSIM: 0.9440
+FSIM: 0.9288
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 13.0430
+SSIM: 0.4955
+FSIM: 0.4825
+
+CLIP score (Image vs Prompt)
+Edited Original:  27.5387
+Edited Immunized: 30.2039
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.8404
+Caption orig : A woman standing in front of a display of bread.
+Caption adv : A woman standing in front of a bakery display with various pastries.

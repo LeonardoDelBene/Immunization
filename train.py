@@ -477,8 +477,23 @@ if __name__ == "__main__":
     DEBUG = True
     N_DEBUG = 100
 
-    train_dataset = ImmunizationDataset(split="train", target_dataset="cifar10")
-    val_dataset = ImmunizationDataset(split="validation", target_dataset="cifar10")
+    # ── Configurazione del dataset target ──
+    TARGET_DATASET = "cifar10"  # "cifar10" o "coco"
+    
+    # Se usi COCO, specifica il percorso alle immagini:
+    COCO_ROOT = "/andromeda/datasets/COCO/COCO2017_val/val2017"  # Percorso immagini COCO
+
+    # Crea i dataset con la configurazione scelta
+    if TARGET_DATASET == "cifar10":
+        train_dataset = ImmunizationDataset(split="train", target_dataset="cifar10")
+        val_dataset = ImmunizationDataset(split="validation", target_dataset="cifar10")
+    elif TARGET_DATASET == "coco":
+        train_dataset = ImmunizationDataset(split="train", target_dataset="coco", 
+                                           coco_root=COCO_ROOT)
+        val_dataset = ImmunizationDataset(split="validation", target_dataset="coco",
+                                         coco_root=COCO_ROOT)
+    else:
+        raise ValueError(f"TARGET_DATASET non supportato: {TARGET_DATASET}")
 
     if DEBUG:
         train_dataset = Subset(train_dataset, range(N_DEBUG))
