@@ -10,9 +10,14 @@ from sklearn.cluster import KMeans
 # 1. LOSS DI IMPERCETTIBILITÀ
 # ─────────────────────────────────────────────
 
-def noise_loss(I_im: Tensor, I: Tensor, M: Tensor) -> Tensor:
-    diff = (I_im - I) * M
-    return torch.abs(diff).sum() / M.sum().clamp(min=1.0)
+def noise_loss(I_im: Tensor, I: Tensor, M: Tensor, noise_on_mask: bool = False) -> Tensor:
+    if noise_on_mask:
+        diff = (I_im - I) * M
+        norm = M.sum().clamp(min=1.0)
+    else:
+        diff = I_im - I
+        norm = torch.tensor(diff.numel(), dtype=torch.float, device=diff.device)
+    return torch.abs(diff).sum() / norm
 
 
 # ─────────────────────────────────────────────
@@ -141,10 +146,11 @@ def total_loss(
     beta:  float = 1.0,
     eta:   float = 0.2,
     lambda_vae: float = 0.03,
+    noise_on_mask: bool = False,
 ) -> Tuple[Tensor, dict]:
 
     # ── 1. Loss impercettibilità ──
-    l_noise = noise_loss(I_im, I, M)
+    l_noise = noise_loss(I_im, I, M, noise_on_mask)
 
     # ── 2. Loss per surrogato + raccolta per il weighter ──
     per_surrogate_losses = []   # L_θi completa per ogni surrogato → S_i

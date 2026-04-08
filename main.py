@@ -40,6 +40,7 @@ def load_models(config):
     immunization_mdl = DiffVaxImmunization(
         load_existing=config["load_existing"],
         load_path=config["checkpoint_path"],
+        noise_on_mask=config["noise_on_mask"],
     )
     print("Done.")
     return attack_model, immunization_mdl
@@ -74,7 +75,7 @@ def immunize(image, image_mask, immunization_mdl, seed):
 
     adv_X = (immunized_img / 2 + 0.5).clamp(0, 1)
     adv_image_png = to_pil(adv_X[0]).convert("RGB")
-    adv_image_png = recover_image(adv_image_png, image, image_mask, background=True)
+    #adv_image_png = recover_image(adv_image_png, image, image_mask, background=True)
     return adv_image_png
 
 
@@ -342,17 +343,18 @@ def save_global_summary(output_dir, all_metrics):
 
 def get_config():
     return {
-        "use_instruct_pix2pix": True,
-        "edit_prompt":          "put a blue cap on the person",
+        "use_instruct_pix2pix": False,
+        "edit_prompt":          "person in a bakery",
         "seed":                 5,
-        "edit_background":      False,
+        "edit_background":      True,
         "load_existing":        True,
-        "checkpoint_path":      os.path.join("checkpoints", "unet_best_3CLIP_VAE.pth"),
+        "checkpoint_path":      os.path.join("checkpoints", "unet_best_sc2ujw6w.pth"),
+        "noise_on_mask":        False,
         "attack_model":         "runwayml/stable-diffusion-inpainting",
         "base_output_dir":      "output",
         "dataset_path":         "./DiffVaxDataset_local",
         "dataset_split":        "validation",
-        "sample_idx":           2,
+        "sample_idx":           4,
         "run_full_dataset":     False,
     }
 

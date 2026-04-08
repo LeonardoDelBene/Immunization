@@ -146,10 +146,12 @@ class DiffVaxImmunization:
         clamp_max:      float =  1.0,
         load_existing:  bool  = False,
         load_path:      str   = None,
+        noise_on_mask:  bool = True,
     ):
         self.device    = device
         self.clamp_min = clamp_min
         self.clamp_max = clamp_max
+        self.noise_on_mask = noise_on_mask
 
         self.model = NestedUNet(num_classes=3).to(device)
 
@@ -176,7 +178,8 @@ class DiffVaxImmunization:
 
         with torch.no_grad():
             unet_out = self.model(img_f)
-            unet_out = unet_out * (1 - mask_f)
+            if(self.noise_on_mask):
+                unet_out = unet_out * (1 - mask_f)
 
         img_adv = torch.clamp(img_f + unet_out, self.clamp_min, self.clamp_max)
         return img_adv

@@ -111,6 +111,7 @@ def validation_loop(
     beta:        float = 1.0,
     eta:         float = 0.2,
     lambda_vae: float = 0.03,
+    noise_on_mask: bool = False,
     device:      str   = "cuda",
 ) -> dict:
 
@@ -125,7 +126,8 @@ def validation_loop(
 
             # ── Forward ──
             unet_out = unet(I)
-            unet_out = unet_out * (1 - M)
+            if noise_on_mask:
+                unet_out = unet_out * (1 - M)
             I_im     = torch.clamp(I + unet_out, -1.0, 1.0)
 
             # ── Feature CLIP ──
@@ -155,7 +157,7 @@ def validation_loop(
             _, log = total_loss(I_im=I_im, I=I, M=1 -M, X_cls_list=X_cls_list, Y_cls_list=Y_cls_list,
                                 X_patch_list=X_patch_list, Y_patch_list=Y_patch_list, z_im=z_im, z_target= z_target,
                                 mu= mu, log_var= log_var, dyn_weighter=dyn_weighter, alpha=alpha, beta=beta, eta=eta,
-                                lambda_vae=lambda_vae)
+                                lambda_vae=lambda_vae, noise_on_mask=noise_on_mask)
 
             for k in val_metrics:
                 val_metrics[k] += log[k]
@@ -187,6 +189,7 @@ def training_loop(
         training_checkpoint_dir: str = "checkpoints/training",
         device: str = "cuda",
         resume_from_checkpoint: bool = True,
+        noise_on_mask: bool = False,
 ):
     # ── Surrogate CLIP ──
     surrogate_clip_configs = [
@@ -277,7 +280,9 @@ def training_loop(
             optimizer.zero_grad()
             unet_out = unet(I)
             unet_out = torch.clamp(unet_out, -eps,eps)
-            unet_out = unet_out * (1 - M) # il rumore viene aggiunto solo al soggetto
+            if noise_on_mask:
+                unet_out = unet_out * (1 - M)  # il rumore viene aggiunto solo al soggetto
+                
             I_im = torch.clamp(I + unet_out, -1.0, 1.0)
 
             X_cls_list, Y_cls_list = [], []
@@ -305,7 +310,7 @@ def training_loop(
             loss, log = total_loss(I_im=I_im, I=I, M=1 - M, X_cls_list=X_cls_list, Y_cls_list=Y_cls_list,
                                    X_patch_list=X_patch_list, Y_patch_list=Y_patch_list, z_im=z_im, z_target= z_target,
                                    mu=mu, log_var=log_var, dyn_weighter=dyn_weighter, alpha=alpha, beta=beta, eta=eta,
-                                   lambda_vae=lambda_vae)
+                                   lambda_vae=lambda_vae, noise_on_mask=noise_on_mask)
 
             loss.backward()
             torch.nn.utils.clip_grad_norm_(unet.parameters(), max_norm=1.0)
@@ -358,7 +363,7 @@ def training_loop(
             val_metrics = validation_loop(unet=unet, val_dataloader=val_dataloader,
                                           surrogate_clip_models=surrogate_clip_models, vae=vae,
                                           dyn_weighter=dyn_weighter, alpha=alpha, beta=beta, eta=eta,
-                                          lambda_vae=lambda_vae, device=device)
+                                          lambda_vae=lambda_vae, device=device, noise_on_mask=noise_on_mask)
 
             print(
                 f"── Epoch {epoch + 1} Val ──    "
@@ -516,5 +521,6 @@ if __name__ == "__main__":
         best_checkpoint_path="checkpoints/unet_best.pth",
         training_checkpoint_dir="checkpoints/training",
         device=device,
-        resume_from_checkpoint=False,  # Cambia a False per ricominciare da zero
+        resume_from_checkpoint=False, # Cambia a False per ricominciare da zero
+        noise_on_mask=False,
     )
