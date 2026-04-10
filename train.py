@@ -194,12 +194,12 @@ def training_loop(
         #"openai/clip-vit-large-patch14",
     ]
     surrogate_clip_models = []
-    '''for model_name in surrogate_clip_configs:
+    for model_name in surrogate_clip_configs:
         model = CLIPModel.from_pretrained(model_name).to(device).eval()
         # Congela i parametri dei modelli surrogati
         for param in model.parameters():
             param.requires_grad = False
-        surrogate_clip_models.append(model)'''
+        surrogate_clip_models.append(model)
 
 
     # ── VAE ──
@@ -462,12 +462,12 @@ def print_gpu_memory(label: str = ""):
 
 if __name__ == "__main__":
 
-    SEED = 5
+    SEED = 2023
     set_seed_lib(SEED)
 
     device = "cuda:1" if torch.cuda.is_available() else "cpu"
 
-    DEBUG = True
+    DEBUG = False
     N_DEBUG = 100
 
     # ── Configurazione del dataset target ──
@@ -490,7 +490,7 @@ if __name__ == "__main__":
 
     if DEBUG:
         train_dataset = Subset(train_dataset, range(N_DEBUG))
-        val_dataset = Subset(val_dataset, range(N_DEBUG // 4))  # meno campioni per la validazione in debug
+        val_dataset = Subset(val_dataset, range(N_DEBUG))
     # Generator con lo stesso seed per lo shuffle
     g = torch.Generator()
     g.manual_seed(SEED)
@@ -518,15 +518,15 @@ if __name__ == "__main__":
         dataloader=train_loader,
         val_dataloader=val_loader,
         n_epochs=1000,
-        lr=1e-3,
-        alpha=10,
+        lr=1e-4,
+        alpha=1.0,
         beta=1.0,
         eta=0.2,
-        lambda_vae = 0.1,
+        lambda_vae = 1,
         eps= (32 / 255 * 2),
         val_every=1,
         patience=50,
-        best_checkpoint_path="checkpoints/unet_best.pth",
+        best_checkpoint_path="checkpoints/",
         training_checkpoint_dir="checkpoints/training",
         device=device,
         resume_from_checkpoint=False, # Cambia a False per ricominciare da zero

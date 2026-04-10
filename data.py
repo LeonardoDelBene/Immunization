@@ -41,7 +41,7 @@ class ImmunizationDataset(Dataset):
         self,
         split:          str = "train",
         target_dataset: str = "cifar10",  # "cifar10" | "coco"
-        coco_root:      str = None,
+        coco_root:      str = "/andromeda/datasets/COCO/COCO2017_val/val2017",
         image_size:     int = 512,
         seed:           int = 5,
     ):
@@ -181,7 +181,7 @@ def show_batch_example(I, M, I_target, idx=0):
 if __name__ == "__main__":
     from torch.utils.data import DataLoader
 
-    train_dataset = ImmunizationDataset(split="train", target_dataset="cifar10")
+    train_dataset = ImmunizationDataset(split="train", target_dataset="coco")
     train_loader = DataLoader(train_dataset, batch_size=4, shuffle=True, num_workers=4)
 
     I, M, I_target = next(iter(train_loader))
