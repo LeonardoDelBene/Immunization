@@ -10,14 +10,11 @@ from sklearn.cluster import KMeans
 # 1. LOSS DI IMPERCETTIBILITÀ
 # ─────────────────────────────────────────────
 
-def noise_loss(I_im: Tensor, I: Tensor, M: Tensor, noise_on_mask: bool = False) -> Tensor:
+def noise_loss(I_im, I, M, noise_on_mask=False):
+    diff = I_im - I
     if noise_on_mask:
-        diff = (I_im - I) * M
-        norm = M.sum().clamp(min=1.0)
-    else:
-        diff = I_im - I
-        norm = torch.tensor(diff.numel(), dtype=torch.float, device=diff.device)
-    return torch.abs(diff).sum() / norm
+        diff = diff * M
+    return diff.abs().mean()
 
 
 # ─────────────────────────────────────────────
@@ -66,13 +63,31 @@ def fine_loss(X_tokens: Tensor, Y_tokens: Tensor,
 # 3. LOSS VAE
 # ─────────────────────────────────────────────
 
-def vae_align_loss(z_im: Tensor, z_target: Tensor) -> Tensor:
-    return F.mse_loss(z_im, z_target)
+def vae_align_loss(posterior_im, posterior_target) -> Tensor:
+    mu_im,  lv_im  = posterior_im.mean,    posterior_im.logvar
+    mu_tgt, lv_tgt = posterior_target.mean, posterior_target.logvar
 
+    # Clamp logvar per evitare exp() che esplode o var ≈ 0
+    lv_im  = lv_im.clamp(-10, 10)
+    lv_tgt = lv_tgt.clamp(-10, 10)
 
-def vae_pca_loss(mu: Tensor, log_var: Tensor) -> Tensor:
-    kl = -0.5 * (1 + log_var - mu.pow(2) - log_var.exp())
-    return -kl.mean()
+    l_mu = F.mse_loss(mu_im, mu_tgt)
+
+    var_im  = lv_im.exp()
+    var_tgt = lv_tgt.exp().clamp(min=1e-6)  # evita divisione per zero
+
+    kl = 0.5 * (
+          var_im / var_tgt
+        + (mu_tgt - mu_im).pow(2) / var_tgt
+        + lv_tgt - lv_im
+        - 1
+    )
+
+    # Clamp la KL per evitare valori esplosivi nel backward
+    l_kl = kl.clamp(max=100).mean()
+
+    return l_mu + 0.1 * l_kl
+
 
 
 # ─────────────────────────────────────────────
@@ -135,10 +150,8 @@ def total_loss(
     X_patch_list:  List[Tensor],
     Y_patch_list:  List[Tensor],
     # ── VAE ──
-    z_im:      Tensor,
-    z_target:  Tensor,
-    mu:        Tensor,
-    log_var:   Tensor,
+    posterior_im,  # DiagonalGaussianDistribution di I_im
+    posterior_target,
     # ── weighter ──
     dyn_weighter: DynamicWeighter,
     # ── iperparametri ──
@@ -168,7 +181,7 @@ def total_loss(
         per_surrogate_losses.append(l_i.item())   # scalare per il weighter
         per_surrogate_terms.append(l_i)           # tensore per il backward'''
 
-    l_vae = vae_align_loss(z_im, z_target) + vae_pca_loss(mu, log_var)
+    l_vae = vae_align_loss(posterior_im, posterior_target)
     l_vae = lambda_vae * l_vae
     per_surrogate_losses.append(l_vae.item())
     per_surrogate_terms.append(l_vae)

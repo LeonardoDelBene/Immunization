@@ -81,7 +81,6 @@ class ImmunizationDataset(Dataset):
             )
         else:
             raise ValueError(f"target_dataset non supportato: {target_dataset}")
-        self.rng = np.random.default_rng(seed)
 
 
     def _get_target_image(self, idx: int) -> torch.Tensor:

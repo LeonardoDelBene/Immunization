@@ -134,10 +134,10 @@ def validation_loop(
             X_cls_list,   Y_cls_list   = [], []
             X_patch_list, Y_patch_list = [], []
 
-            I_im_clip = to_clip_space(I_im)
+            '''I_im_clip = to_clip_space(I_im)
             I_target_clip = to_clip_space(I_target)
 
-            '''for clip_model in surrogate_clip_models:
+            for clip_model in surrogate_clip_models:
                 X_cls, X_patch = get_visual_tokens(clip_model, I_im_clip)
                 Y_cls, Y_patch = get_visual_tokens(clip_model, I_target_clip)
                 X_cls_list.append(X_cls)
@@ -148,15 +148,11 @@ def validation_loop(
             # ── VAE ──
             posterior_im     = vae.encode(I_im).latent_dist
             posterior_target = vae.encode(I_target).latent_dist
-            z_im     = posterior_im.sample()
-            z_target = posterior_target.sample()
-            mu       = posterior_im.mean
-            log_var  = posterior_im.logvar
 
             # ── Loss — total_loss gestisce pesi e dyn_weighter internamente ──
             _, log = total_loss(I_im=I_im, I=I, M=1 -M, X_cls_list=X_cls_list, Y_cls_list=Y_cls_list,
-                                X_patch_list=X_patch_list, Y_patch_list=Y_patch_list, z_im=z_im, z_target= z_target,
-                                mu= mu, log_var= log_var, dyn_weighter=dyn_weighter, alpha=alpha, beta=beta, eta=eta,
+                                X_patch_list=X_patch_list, Y_patch_list=Y_patch_list, posterior_im= posterior_im,
+                                posterior_target= posterior_target, dyn_weighter=dyn_weighter, alpha=alpha, beta=beta, eta=eta,
                                 lambda_vae=lambda_vae, noise_on_mask=noise_on_mask)
 
             for k in val_metrics:
@@ -251,6 +247,7 @@ def training_loop(
             "lambda_vae": lambda_vae,
             "eps": eps,
             "patience": patience,
+            "noise_on_mask": noise_on_mask,
         }
     )
 
@@ -288,10 +285,10 @@ def training_loop(
             X_cls_list, Y_cls_list = [], []
             X_patch_list, Y_patch_list = [], []
 
-            I_im_clip = to_clip_space(I_im)
+            '''I_im_clip = to_clip_space(I_im)
             I_target_clip = to_clip_space(I_target)
             
-            '''for clip_model in surrogate_clip_models:
+            for clip_model in surrogate_clip_models:
                     X_cls, X_patch = get_visual_tokens(clip_model, I_im_clip)
                     Y_cls, Y_patch = get_visual_tokens(clip_model, I_target_clip)
 
@@ -302,14 +299,10 @@ def training_loop(
 
             posterior_im = vae.encode(I_im).latent_dist
             posterior_target = vae.encode(I_target).latent_dist
-            z_im = posterior_im.sample()
-            z_target = posterior_target.sample()
-            mu = posterior_im.mean
-            log_var = posterior_im.logvar
 
             loss, log = total_loss(I_im=I_im, I=I, M=1 - M, X_cls_list=X_cls_list, Y_cls_list=Y_cls_list,
-                                   X_patch_list=X_patch_list, Y_patch_list=Y_patch_list, z_im=z_im, z_target= z_target,
-                                   mu=mu, log_var=log_var, dyn_weighter=dyn_weighter, alpha=alpha, beta=beta, eta=eta,
+                                   X_patch_list=X_patch_list, Y_patch_list=Y_patch_list, posterior_im= posterior_im,
+                                   posterior_target= posterior_target, dyn_weighter=dyn_weighter, alpha=alpha, beta=beta, eta=eta,
                                    lambda_vae=lambda_vae, noise_on_mask=noise_on_mask)
 
             loss.backward()
@@ -472,13 +465,13 @@ if __name__ == "__main__":
     SEED = 5
     set_seed_lib(SEED)
 
-    device = "cuda:0" if torch.cuda.is_available() else "cpu"
+    device = "cuda:1" if torch.cuda.is_available() else "cpu"
 
     DEBUG = True
     N_DEBUG = 100
 
     # ── Configurazione del dataset target ──
-    TARGET_DATASET = "cifar10"  # "cifar10" o "coco"
+    TARGET_DATASET = "coco"  # "cifar10" o "coco"
     
     # Se usi COCO, specifica il percorso alle immagini:
     COCO_ROOT = "/andromeda/datasets/COCO/COCO2017_val/val2017"  # Percorso immagini COCO
@@ -504,7 +497,7 @@ if __name__ == "__main__":
 
     train_loader = DataLoader(
         train_dataset,
-        batch_size=4,
+        batch_size=2,
         shuffle=True,
         num_workers=2,
         worker_init_fn=seed_worker,
@@ -512,7 +505,7 @@ if __name__ == "__main__":
     )
     val_loader = DataLoader(
         val_dataset,
-        batch_size=4,
+        batch_size=2,
         shuffle=False,
         num_workers=2,
         worker_init_fn=seed_worker,
@@ -525,17 +518,17 @@ if __name__ == "__main__":
         dataloader=train_loader,
         val_dataloader=val_loader,
         n_epochs=1000,
-        lr=1e-4,
-        alpha=1.5,
+        lr=1e-3,
+        alpha=10,
         beta=1.0,
         eta=0.2,
-        lambda_vae = 0.03,
-        eps= (16 / 255 * 2),
+        lambda_vae = 0.1,
+        eps= (32 / 255 * 2),
         val_every=1,
-        patience=10,
+        patience=50,
         best_checkpoint_path="checkpoints/unet_best.pth",
         training_checkpoint_dir="checkpoints/training",
         device=device,
         resume_from_checkpoint=False, # Cambia a False per ricominciare da zero
-        noise_on_mask=False,
+        noise_on_mask=True,
     )
