@@ -473,7 +473,7 @@ if __name__ == "__main__":
     SEED = 2023
     set_seed_lib(SEED)
 
-    device = "cuda:1" if torch.cuda.is_available() else "cpu"
+    device = "cuda:0" if torch.cuda.is_available() else "cpu"
 
     DEBUG = False
     N_DEBUG = 100
@@ -522,7 +522,7 @@ if __name__ == "__main__":
         lr=1e-4,
         batch=batch,
         weight_decay=1e-2,
-        alpha=1.0,
+        alpha=100,
         beta=1.0,
         eta=0.2,
         lambda_vae = 1,
@@ -532,6 +532,6 @@ if __name__ == "__main__":
         best_checkpoint_path="checkpoints/unet_best_amomint5.pth",
         training_checkpoint_dir="checkpoints/training",
         device=device,
-        resume_from_checkpoint=True, # Cambia a False per ricominciare da zero
+        resume_from_checkpoint=False, # Cambia a False per ricominciare da zero
         noise_on_mask=True,
     )
