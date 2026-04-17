@@ -4,20 +4,20 @@ person in a bakery
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 27.5430
-SSIM: 0.8986
-FSIM: 0.9012
+PSNR: 24.4921
+SSIM: 0.8503
+FSIM: 0.7907
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 14.6917
-SSIM: 0.4339
-FSIM: 0.4847
+PSNR: 12.4223
+SSIM: 0.3060
+FSIM: 0.3808
 
 CLIP score (Image vs Prompt)
 Edited Original:  29.9825
-Edited Immunized: 29.0094
+Edited Immunized: 33.7041
 
 Caption similarity (Edited Original vs Edited Immunized)
-Score: 0.9347
+Score: 0.8103
 Caption orig : A woman wearing sunglasses and a green dress stands in front of a bakery display.
-Caption adv : A woman wearing sunglasses and a black dress stands in front of a bakery display.
+Caption adv : A woman in a green dress stands in front of a display of bread.

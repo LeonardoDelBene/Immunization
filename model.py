@@ -68,10 +68,11 @@ class UNet(nn.Module):
 
 
 class NestedUNet(nn.Module):
-    def __init__(self, num_classes, input_channels=3, deep_supervision=False, **kwargs):
+    def __init__(self, num_classes, input_channels=3, deep_supervision=False, nb_filter=None, **kwargs):
         super().__init__()
 
-        nb_filter = [32, 64, 128, 256, 512]
+        if nb_filter is None:
+            nb_filter = [32, 64, 128, 256, 512]
 
         self.deep_supervision = deep_supervision
 

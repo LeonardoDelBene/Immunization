@@ -170,10 +170,14 @@ def validation_loop(
 
 def training_loop(
         unet,
+        nb_filter,
         dataloader,
         val_dataloader,
+        dataset: str,
         n_epochs: int = 10,
         lr: float = 1e-4,
+        batch: int = 2,
+        weight_decay: float = 0.01,
         alpha: float = 1.0,
         beta: float = 1.0,
         lambda_vae: float = 0.03,
@@ -194,12 +198,12 @@ def training_loop(
         #"openai/clip-vit-large-patch14",
     ]
     surrogate_clip_models = []
-    for model_name in surrogate_clip_configs:
+    '''for model_name in surrogate_clip_configs:
         model = CLIPModel.from_pretrained(model_name).to(device).eval()
         # Congela i parametri dei modelli surrogati
         for param in model.parameters():
             param.requires_grad = False
-        surrogate_clip_models.append(model)
+        surrogate_clip_models.append(model)'''
 
 
     # ── VAE ──
@@ -214,7 +218,7 @@ def training_loop(
 
 
     # ── Ottimizzatore e weighter ──
-    optimizer = optim.Adam(unet.parameters(), lr=lr)
+    optimizer = optim.AdamW(unet.parameters(), lr=lr, weight_decay=weight_decay)
     dyn_weighter = DynamicWeighter(n_surrogates=n_surrogates)
 
     # ── Carica checkpoint se esiste e se resume_from_checkpoint è True ──
@@ -239,8 +243,11 @@ def training_loop(
     wandb.init(
         project="immunization",
         config={
+            "dataset": dataset,
             "n_epochs": n_epochs,
             "lr": lr,
+            "batch size": batch,
+            "weight_decay": weight_decay,
             "alpha": alpha,
             "beta": beta,
             "eta": eta,
@@ -248,6 +255,7 @@ def training_loop(
             "eps": eps,
             "patience": patience,
             "noise_on_mask": noise_on_mask,
+            "nb_filter": nb_filter,
         }
     )
 
@@ -470,23 +478,10 @@ if __name__ == "__main__":
     DEBUG = False
     N_DEBUG = 100
 
-    # ── Configurazione del dataset target ──
-    TARGET_DATASET = "coco"  # "cifar10" o "coco"
-    
-    # Se usi COCO, specifica il percorso alle immagini:
-    COCO_ROOT = "/andromeda/datasets/COCO/COCO2017_val/val2017"  # Percorso immagini COCO
+    dataset = "DiffVax" #DiffVax | Oxford-Pet
 
-    # Crea i dataset con la configurazione scelta
-    if TARGET_DATASET == "cifar10":
-        train_dataset = ImmunizationDataset(split="train", target_dataset="cifar10")
-        val_dataset = ImmunizationDataset(split="validation", target_dataset="cifar10")
-    elif TARGET_DATASET == "coco":
-        train_dataset = ImmunizationDataset(split="train", target_dataset="coco", 
-                                           coco_root=COCO_ROOT)
-        val_dataset = ImmunizationDataset(split="validation", target_dataset="coco",
-                                         coco_root=COCO_ROOT)
-    else:
-        raise ValueError(f"TARGET_DATASET non supportato: {TARGET_DATASET}")
+    train_dataset = ImmunizationDataset(dataset= dataset, split="train")
+    val_dataset = ImmunizationDataset(dataset= dataset, split="validation")
 
     if DEBUG:
         train_dataset = Subset(train_dataset, range(N_DEBUG))
@@ -495,30 +490,38 @@ if __name__ == "__main__":
     g = torch.Generator()
     g.manual_seed(SEED)
 
+    batch=16
+
     train_loader = DataLoader(
         train_dataset,
-        batch_size=2,
+        batch_size=batch,
         shuffle=True,
-        num_workers=2,
+        num_workers=4,
         worker_init_fn=seed_worker,
         generator=g,
     )
     val_loader = DataLoader(
         val_dataset,
-        batch_size=2,
+        batch_size=batch,
         shuffle=False,
-        num_workers=2,
+        num_workers=4,
         worker_init_fn=seed_worker,
     )
 
-    unet = NestedUNet(num_classes=3).to(device)
+    nb_filter = [32,64,128,256,512]
+
+    unet = NestedUNet(num_classes=3, nb_filter=nb_filter).to(device)
 
     trained_unet = training_loop(
         unet=unet,
+        nb_filter= nb_filter,
         dataloader=train_loader,
         val_dataloader=val_loader,
+        dataset= dataset,
         n_epochs=1000,
         lr=1e-4,
+        batch=batch,
+        weight_decay=1e-2,
         alpha=1.0,
         beta=1.0,
         eta=0.2,
@@ -526,7 +529,7 @@ if __name__ == "__main__":
         eps= (32 / 255 * 2),
         val_every=1,
         patience=50,
-        best_checkpoint_path="checkpoints/",
+        best_checkpoint_path="checkpoints/unet.pth",
         training_checkpoint_dir="checkpoints/training",
         device=device,
         resume_from_checkpoint=False, # Cambia a False per ricominciare da zero

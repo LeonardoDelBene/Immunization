@@ -1,56 +1,71 @@
 import torch
-import numpy as np
-import random
+from torchvision.transforms import InterpolationMode
 from torch.utils.data import Dataset
 from torchvision import transforms
 from torchvision.datasets import CIFAR10
 from datasets import load_from_disk
-from PIL import Image
+from PIL import Image, ImageOps
 from pathlib import Path
+from utils import load_sample_from_hf, prepare_mask_and_masked_image
 
-from utils import load_sample_from_hf, prepare_mask_and_masked_image, set_seed_lib
 
 
-class SimpleImageFolder(Dataset):
-    """Carica immagini da una cartella senza annotazioni."""
-    
-    def __init__(self, root_dir: str, transform=None):
-        self.root_dir = Path(root_dir)
-        self.transform = transform
-        self.image_paths = sorted(self.root_dir.glob("*.jpg")) + sorted(self.root_dir.glob("*.png"))
-    
+class OxfordPetLocal(Dataset):
+    """
+    Carica Oxford-Pet da cartella locale con struttura:
+    Oxford-Pet/
+        train/
+            img/
+            mask/
+        validation/
+            img/
+            mask/
+    """
+
+    def __init__(self, root: str, split: str = "train", image_size: int = 224):
+        self.image_size = image_size
+
+        split_folder = "validation" if split == "val" else split
+        img_dir = Path(root) / split_folder / "img"
+        mask_dir = Path(root) / split_folder / "mask"
+
+        self.img_paths = sorted(img_dir.glob("*"))
+        self.mask_paths = sorted(mask_dir.glob("*"))
+
+        assert len(self.img_paths) == len(self.mask_paths), \
+            f"Mismatch: {len(self.img_paths)} immagini vs {len(self.mask_paths)} maschere"
+
     def __len__(self):
-        return len(self.image_paths)
-    
-    def __getitem__(self, idx):
-        img_path = self.image_paths[idx]
-        img = Image.open(img_path).convert("RGB")
-        if self.transform:
-            img = self.transform(img)
-        return img
+        return len(self.img_paths)
 
+    def __getitem__(self, idx: int):
+        image = Image.open(self.img_paths[idx]).convert("RGB")
+        mask = Image.open(self.mask_paths[idx]).convert("L")
+
+        return image, mask
 
 class ImmunizationDataset(Dataset):
-    """
-    Dataset per il training di DiffVax.
-    - Immagine + maschera: da ozdentarikcan/DiffVaxDataset  (via load_sample_from_hf)
-    - Immagine target:     da CIFAR-10 o COCO (random sample)
-    """
-
     def __init__(
         self,
+        dataset:        str = "DiffVax",  # DiffVax | Oxford-Pet
         split:          str = "train",
-        target_dataset: str = "cifar10",  # "cifar10" | "coco"
-        coco_root:      str = "/andromeda/datasets/COCO/COCO2017_val/val2017",
-        image_size:     int = 512,
-        seed:           int = 5,
+        target:          str = "./data/target.png",
+        image_size:     int = 224,
     ):
         self.split      = split
         self.image_size = image_size
+        self.target = target
 
-        # ── Carica DiffVaxDataset ──
-        dataset = load_from_disk("DiffVaxDataset_local")
-        self.dataset = dataset[split]
+        if dataset == "DiffVax":
+            dataset = load_from_disk("data/DiffVaxDataset_local")
+            self.dataset = dataset[split]
+        elif dataset == "Oxford-Pet":
+            self.dataset = OxfordPetLocal(root="./data/Oxford-Pet", split=split, image_size=image_size)
+        else:
+            raise ValueError(f"dataset non supportato: {dataset}")
+
+
+
 
         # ── Transform per l'immagine target ──
         # prepare_mask_and_masked_image gestisce già I e M → [-1,1] e [0,1]
@@ -62,63 +77,35 @@ class ImmunizationDataset(Dataset):
                                  [0.5, 0.5, 0.5]),  # → [-1, 1]
         ])
 
-        # ── Carica dataset target ──
-        self.target_dataset_name = target_dataset
+        self.image_transform = transforms.Resize(
+            (image_size, image_size),
+            interpolation=InterpolationMode.BILINEAR
+        )
 
-        if target_dataset == "cifar10":
-            self.target_data = CIFAR10(
-                root="data/cifar10",
-                train=(split == "train"),
-                download=True,
-                transform=self.target_transform,
-            )
-        elif target_dataset == "coco":
-            if coco_root is None:
-                raise ValueError("coco_root è necessario per COCO")
-            self.target_data = SimpleImageFolder(
-                root_dir=coco_root,
-                transform=self.target_transform,
-            )
-        else:
-            raise ValueError(f"target_dataset non supportato: {target_dataset}")
-
-
-    def _get_target_image(self, idx: int) -> torch.Tensor:
-        """
-        Ritorna un'immagine target con mapping 1-to-1 in base all'indice.
-        Immagine 0 → target 0, immagine 1 → target 1, ecc.
-        """
-        target_idx = idx % len(self.target_data)  # wrap around se necessario
-
-        if self.target_dataset_name == "cifar10":
-            img, _ = self.target_data[target_idx]  # CIFAR10 ritorna (img, label)
-        elif self.target_dataset_name == "coco":
-            img = self.target_data[target_idx]  # SimpleImageFolder ritorna solo img
-            if isinstance(img, torch.Tensor) and img.shape[0] == 1:
-                img = img.repeat(3, 1, 1)  # grayscale → RGB
-
-        return img  # (3, H, W) in [-1, 1]
+        self.mask_transform = transforms.Resize(
+            (image_size, image_size),
+            interpolation=InterpolationMode.NEAREST
+        )
 
     def __len__(self) -> int:
         return len(self.dataset)
 
     def __getitem__(self, idx: int):
-        sample = self.dataset[idx]
+        if isinstance(self.dataset, OxfordPetLocal):
+            image, mask = self.dataset[idx]
+        else:
+            sample = self.dataset[idx]
+            image, mask = load_sample_from_hf(sample, split=self.split)
 
-        # ── Immagine e maschera tramite load_sample_from_hf ──
-        image, mask = load_sample_from_hf(sample, split=self.split)
+        image = self.image_transform(image)
+        mask = self.mask_transform(mask)
 
-        # ── Prepara tensori con prepare_mask_and_masked_image ──
-        # M     : (1, H, W)  in [0, 1]  binaria
-        # I     : (1, 3, H, W) in [-1, 1]
+        mask = ImageOps.invert(mask)
+
         M, _, I = prepare_mask_and_masked_image(image, mask)
-
-        # Rimuove la dimensione batch aggiunta da prepare_mask_and_masked_image
-        I = I.squeeze(0)  # (3, H, W)
-        M = M.squeeze(0)  # (1, H, W)
-
-        # ── Target con mapping 1-to-1 per indice ──
-        I_target = self._get_target_image(idx)  # (3, H, W)
+        I = I.squeeze(0) # rimuove dimensione batch aggiunta da prepare_mask
+        M = M.squeeze(0)
+        I_target = self.target_transform(Image.open(self.target).convert("RGB"))  # target è l'immagine originale trasformata
 
         return I, M, I_target
 
@@ -154,7 +141,7 @@ def show_batch_example(I, M, I_target, idx=0):
     fig = plt.figure(figsize=(10, 3.5))
     gs = gridspec.GridSpec(1, 3, wspace=0.05)
 
-    titles = ["I  (immunizzata)", "M  (maschera)", "I_target  (CIFAR-10)"]
+    titles = ["I  (immunizzata)", "M  (maschera)", "I_target  (coco)"]
     images = [img, mask, target]
     cmaps = [None, "gray", None]
 
@@ -181,7 +168,7 @@ def show_batch_example(I, M, I_target, idx=0):
 if __name__ == "__main__":
     from torch.utils.data import DataLoader
 
-    train_dataset = ImmunizationDataset(split="train", target_dataset="coco")
+    train_dataset = ImmunizationDataset(dataset="Oxford-Pet",split="train")
     train_loader = DataLoader(train_dataset, batch_size=4, shuffle=True, num_workers=4)
 
     I, M, I_target = next(iter(train_loader))

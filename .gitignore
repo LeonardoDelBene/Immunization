@@ -9,7 +9,6 @@ __pycache__/
 
 # Output e immagini generate
 data/
-DiffVaxDataset_local/
 wandb/
 
 # Pesi dei modelli (file pesanti)
