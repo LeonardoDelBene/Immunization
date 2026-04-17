@@ -349,7 +349,7 @@ def get_config():
         "edit_background":      True,
         "load_existing":        True,
         "checkpoint_path":      os.path.join("checkpoints", "diffvax_trained.pth"),
-        "noise_on_mask":        False,
+        "noise_on_mask":        True,
         "attack_model":         "runwayml/stable-diffusion-inpainting",
         "base_output_dir":      "output",
         "dataset_path":         "./data/DiffVaxDataset_local",
