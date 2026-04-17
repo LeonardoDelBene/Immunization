@@ -4,20 +4,20 @@ person in a fast food
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 34.1506
-SSIM: 0.9892
-FSIM: 0.9598
+PSNR: 22.7587
+SSIM: 0.8276
+FSIM: 0.7632
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 14.2292
+PSNR: 15.9306
 SSIM: 0.5426
-FSIM: 0.5203
+FSIM: 0.4800
 
 CLIP score (Image vs Prompt)
 Edited Original:  23.0250
-Edited Immunized: 21.5924
+Edited Immunized: 28.1136
 
 Caption similarity (Edited Original vs Edited Immunized)
-Score: 0.6822
+Score: 0.3544
 Caption orig : A man wearing a hat and a plaid shirt is standing on a sidewalk.
-Caption adv : A man wearing a hat and a plaid shirt stands in front of a pink and green polka dot wallpaper.
+Caption adv : A man in a white shirt and blue jeans stands in a restaurant.

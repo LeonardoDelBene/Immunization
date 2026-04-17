@@ -40,7 +40,6 @@ def load_models(config):
     immunization_mdl = DiffVaxImmunization(
         load_existing=config["load_existing"],
         load_path=config["checkpoint_path"],
-        noise_on_mask=config["noise_on_mask"],
     )
     print("Done.")
     return attack_model, immunization_mdl
@@ -348,8 +347,7 @@ def get_config():
         "seed":                 5,
         "edit_background":      True,
         "load_existing":        True,
-        "checkpoint_path":      os.path.join("checkpoints", "diffvax_trained.pth"),
-        "noise_on_mask":        True,
+        "checkpoint_path":      os.path.join("checkpoints", "unet_best_amomint5.pth"),
         "attack_model":         "runwayml/stable-diffusion-inpainting",
         "base_output_dir":      "output",
         "dataset_path":         "./data/DiffVaxDataset_local",
