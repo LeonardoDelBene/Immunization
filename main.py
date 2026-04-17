@@ -73,7 +73,7 @@ def immunize(image, image_mask, immunization_mdl, seed):
     set_seed_lib(seed)
     immunized_img = immunization_mdl.immunize_img(image_torch, mask_torch)
 
-    adv_X = (immunized_img / 2 + 0.5).clamp(0, 1)
+    adv_X = (immunized_img / 2 + 0.5).clamp(0, 1) # porta l'img in [0,1]
     adv_image_png = to_pil(adv_X[0]).convert("RGB")
     adv_image_png = recover_image(adv_image_png, image, image_mask, background=True)
     return adv_image_png
@@ -348,7 +348,7 @@ def get_config():
         "seed":                 5,
         "edit_background":      True,
         "load_existing":        True,
-        "checkpoint_path":      os.path.join("checkpoints", "unet_best_amomint5.pth"),
+        "checkpoint_path":      os.path.join("checkpoints", "diffvax_trained.pth"),
         "noise_on_mask":        True,
         "attack_model":         "runwayml/stable-diffusion-inpainting",
         "base_output_dir":      "output",
