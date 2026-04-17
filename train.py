@@ -528,10 +528,10 @@ if __name__ == "__main__":
         lambda_vae = 1,
         eps= (32 / 255 * 2),
         val_every=1,
-        patience=50,
-        best_checkpoint_path="checkpoints/unet.pth",
+        patience=100,
+        best_checkpoint_path="checkpoints/unet_best_amomint5.pth",
         training_checkpoint_dir="checkpoints/training",
         device=device,
-        resume_from_checkpoint=False, # Cambia a False per ricominciare da zero
+        resume_from_checkpoint=True, # Cambia a False per ricominciare da zero
         noise_on_mask=True,
     )
