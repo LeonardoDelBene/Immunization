@@ -473,12 +473,12 @@ if __name__ == "__main__":
     SEED = 2023
     set_seed_lib(SEED)
 
-    device = "cuda:0" if torch.cuda.is_available() else "cpu"
+    device = "cuda:1" if torch.cuda.is_available() else "cpu"
 
     DEBUG = False
     N_DEBUG = 100
 
-    dataset = "DiffVax" #DiffVax | Oxford-Pet
+    dataset = "Oxford-Pet" #DiffVax | Oxford-Pet
 
     train_dataset = ImmunizationDataset(dataset= dataset, split="train")
     val_dataset = ImmunizationDataset(dataset= dataset, split="validation")
@@ -518,18 +518,18 @@ if __name__ == "__main__":
         dataloader=train_loader,
         val_dataloader=val_loader,
         dataset= dataset,
-        n_epochs=1000,
+        n_epochs=10000,
         lr=1e-4,
         batch=batch,
         weight_decay=1e-2,
-        alpha=100,
+        alpha=1.0,
         beta=1.0,
         eta=0.2,
-        lambda_vae = 1,
+        lambda_vae = 0.03,
         eps= (32 / 255 * 2),
         val_every=1,
         patience=100,
-        best_checkpoint_path="checkpoints/unet_best_amomint5.pth",
+        best_checkpoint_path="checkpoints/unet_best_x5her5v2.pth",
         training_checkpoint_dir="checkpoints/training",
         device=device,
         resume_from_checkpoint=False, # Cambia a False per ricominciare da zero
