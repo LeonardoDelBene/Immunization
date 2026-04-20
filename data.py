@@ -9,6 +9,55 @@ from pathlib import Path
 from utils import load_sample_from_hf, prepare_mask_and_masked_image
 
 
+class COCOLocal(Dataset):
+    """
+    Carica COCO da cartella locale con struttura:
+
+    Immagini:
+        /andromeda/datasets/COCO/COCO2017_train/train2017/
+        /andromeda/datasets/COCO/COCO2017_val/val2017/
+    Maschere:
+        /equilibrium/ldelbene/Immunization/data/COCO_mask/train/
+        /equilibrium/ldelbene/Immunization/data/COCO_mask/val/
+    """
+
+    IMAGES_DIRS = {
+        "train": "/andromeda/datasets/COCO/COCO2017_train/train2017",
+        "val": "/andromeda/datasets/COCO/COCO2017_val/val2017",
+    }
+    MASKS_DIRS = {
+        "train": "/equilibrium/ldelbene/Immunization/data/COCO_mask/train",
+        "val": "/equilibrium/ldelbene/Immunization/data/COCO_mask/val",
+    }
+
+    def __init__(self, split: str = "train"):
+        assert split in ("train", "val"), f"split deve essere 'train' o 'val', ricevuto: {split}"
+
+        img_dir = Path(self.IMAGES_DIRS[split])
+        mask_dir = Path(self.MASKS_DIRS[split])
+
+        # Indicizza le maschere per stem (nome senza estensione) per match rapido
+        mask_by_stem = {p.stem: p for p in mask_dir.glob("*.png")}
+
+        # Tieni solo le immagini per cui esiste la maschera corrispondente
+        self.pairs = []
+        for img_path in sorted(img_dir.glob("*.jpg")):
+            if img_path.stem in mask_by_stem:
+                self.pairs.append((img_path, mask_by_stem[img_path.stem]))
+
+        print(f"[COCOLocal] split={split} | coppie immagine-maschera: {len(self.pairs)}")
+
+        assert len(self.pairs) > 0, \
+            f"Nessuna coppia immagine-maschera trovata per split='{split}'"
+
+    def __len__(self):
+        return len(self.pairs)
+
+    def __getitem__(self, idx: int):
+        img_path, mask_path = self.pairs[idx]
+        image = Image.open(img_path).convert("RGB")
+        mask = Image.open(mask_path).convert("L")
+        return image, mask
 
 class OxfordPetLocal(Dataset):
     """
@@ -61,6 +110,8 @@ class ImmunizationDataset(Dataset):
             self.dataset = dataset[split]
         elif dataset == "Oxford-Pet":
             self.dataset = OxfordPetLocal(root="./data/Oxford-Pet", split=split, image_size=image_size)
+        elif dataset == "COCO":
+            self.dataset = COCOLocal(split=split)
         else:
             raise ValueError(f"dataset non supportato: {dataset}")
 

@@ -262,6 +262,7 @@ def training_loop(
     # ── Genera nome distintivo per il best model usando run ID di wandb ──
     run_id = wandb.run.id
     best_checkpoint_path = str(Path(best_checkpoint_path).parent / f"unet_best_{run_id}.pth")
+    training_checkpoint_dir = str(Path(training_checkpoint_dir) / run_id)
 
     if start_epoch >= n_epochs:
         print(f"Training già completato ({start_epoch}/{n_epochs} epoche).")
@@ -473,12 +474,12 @@ if __name__ == "__main__":
     SEED = 2023
     set_seed_lib(SEED)
 
-    device = "cuda:1" if torch.cuda.is_available() else "cpu"
+    device = "cuda:0" if torch.cuda.is_available() else "cpu"
 
     DEBUG = False
     N_DEBUG = 100
 
-    dataset = "Oxford-Pet" #DiffVax | Oxford-Pet
+    dataset = "DiffVax" #DiffVax | Oxford-Pet | COCO
 
     train_dataset = ImmunizationDataset(dataset= dataset, split="train")
     val_dataset = ImmunizationDataset(dataset= dataset, split="validation")

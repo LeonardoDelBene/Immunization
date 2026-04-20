@@ -1,0 +1,23 @@
+--- Prompt ---
+person in a hall of hotel
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 26.6471
+SSIM: 0.8755
+FSIM: 0.8991
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 15.9826
+SSIM: 0.5414
+FSIM: 0.4984
+
+CLIP score (Image vs Prompt)
+Edited Original:  27.5020
+Edited Immunized: 29.7816
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.9344
+Caption orig : A woman wearing a red shirt and red pants is walking down a hallway.
+Caption adv : A woman in a red outfit is walking down a hallway.
