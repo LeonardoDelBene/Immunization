@@ -347,12 +347,12 @@ def get_config():
         "seed":                 5,
         "edit_background":      True,
         "load_existing":        True,
-        "checkpoint_path":      os.path.join("checkpoints", "unet_best_qyon0vk7.pth"),
+        "checkpoint_path":      os.path.join("checkpoints", "unet_best_zcc7yv8u.pth"),
         "attack_model":         "runwayml/stable-diffusion-inpainting",
         "base_output_dir":      "output",
         "dataset_path":         "./data/DiffVaxDataset_local",
         "dataset_split":        "validation",
-        "sample_idx":           0,
+        "sample_idx":           1,
         "run_full_dataset":     False,
     }
 

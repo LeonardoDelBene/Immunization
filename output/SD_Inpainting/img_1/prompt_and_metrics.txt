@@ -4,18 +4,20 @@ a person in a football stadium
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 39.0744
-SSIM: 0.9743
-FSIM: 0.9748
+PSNR: 24.2422
+SSIM: 0.8387
+FSIM: 0.8524
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 20.4266
-SSIM: 0.7213
-FSIM: 0.5917
+PSNR: 14.3311
+SSIM: 0.4090
+FSIM: 0.3973
 
 CLIP score (Image vs Prompt)
 Edited Original:  27.0506
-Edited Immunized: 28.0243
+Edited Immunized: 30.7702
+
 Caption similarity (Edited Original vs Edited Immunized)
-score: 0.8623
-caption orig : A man wearing a gray coat and a hat stands on a football field.caption adv : A man wearing a hat and a jacket stands on a football field.
+Score: 0.8623
+Caption orig : A man wearing a gray coat and a hat stands on a football field.
+Caption adv : A man wearing a hat and a jacket stands on a football field.
