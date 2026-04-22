@@ -1,0 +1,23 @@
+--- Prompt ---
+person in a garden
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 18.7175
+SSIM: 0.8144
+FSIM: 0.7033
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 14.8693
+SSIM: 0.3719
+FSIM: 0.4226
+
+CLIP score (Image vs Prompt)
+Edited Original:  25.8725
+Edited Immunized: 26.3624
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.4829
+Caption orig : A woman in a blue jacket and black shirt stands on a path between two rows of trees.
+Caption adv : A woman in a black and yellow dress stands in a grassy area.
