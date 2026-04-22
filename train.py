@@ -523,7 +523,7 @@ if __name__ == "__main__":
         lr=1e-4,
         batch=batch,
         weight_decay=1e-2,
-        alpha=1.0,
+        alpha=10.0,
         beta=1.0,
         eta=0.2,
         lambda_vae = 1,
