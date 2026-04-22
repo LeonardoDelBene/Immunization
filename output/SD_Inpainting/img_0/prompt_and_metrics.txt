@@ -1,23 +1,23 @@
 --- Prompt ---
-a person in a football stadium
+person in a shop
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 19.7712
-SSIM: 0.8046
-FSIM: 0.8331
+PSNR: 24.6424
+SSIM: 0.8260
+FSIM: 0.8699
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 14.1510
-SSIM: 0.4236
-FSIM: 0.4106
+PSNR: 12.9176
+SSIM: 0.3167
+FSIM: 0.4133
 
 CLIP score (Image vs Prompt)
-Edited Original:  30.1644
-Edited Immunized: 29.1823
+Edited Original:  27.5467
+Edited Immunized: 30.3464
 
 Caption similarity (Edited Original vs Edited Immunized)
-Score: 0.9129
-Caption orig : A woman wearing a black leather jacket and black skirt stands on a football field.
-Caption adv : A woman wearing a black shirt and a black skirt stands on a football field.
+Score: 0.6108
+Caption orig : A young woman wearing a leather jacket and black skirt stands in front of a store with a variety of colorful fabrics.
+Caption adv : A woman in a black coat and black hair is walking through a store.

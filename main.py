@@ -352,7 +352,7 @@ def get_config():
         "base_output_dir":      "output",
         "dataset_path":         "./data/DiffVaxDataset_local",
         "dataset_split":        "validation",
-        "sample_idx":           1,
+        "sample_idx":           0,
         "run_full_dataset":     False,
     }
 
