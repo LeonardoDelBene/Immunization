@@ -343,7 +343,7 @@ def save_global_summary(output_dir, all_metrics):
 def get_config():
     return {
         "use_instruct_pix2pix": False,
-        "edit_prompt":          "person in a shop",
+        "edit_prompt":          "person in a garden",
         "seed":                 2043,
         "edit_background":      True,
         "load_existing":        True,
@@ -351,8 +351,8 @@ def get_config():
         "attack_model":         "runwayml/stable-diffusion-inpainting",
         "base_output_dir":      "output",
         "dataset_path":         "./data/DiffVaxDataset_local",
-        "dataset_split":        "train",
-        "sample_idx":           10,
+        "dataset_split":        "validation",
+        "sample_idx":           6,
         "run_full_dataset":     False,
     }
 

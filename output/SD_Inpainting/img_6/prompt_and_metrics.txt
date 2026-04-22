@@ -1,5 +1,5 @@
 --- Prompt ---
-person in a shop
+person in a garden
 
 --- Metrics ---
 
@@ -9,15 +9,15 @@ SSIM: 0.8959
 FSIM: 0.8587
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 13.7848
-SSIM: 0.3951
-FSIM: 0.4314
+PSNR: 7.6683
+SSIM: 0.0873
+FSIM: 0.2503
 
 CLIP score (Image vs Prompt)
-Edited Original:  25.3249
-Edited Immunized: 26.6998
+Edited Original:  28.4263
+Edited Immunized: 26.8301
 
 Caption similarity (Edited Original vs Edited Immunized)
-Score: 0.6111
-Caption orig : A woman in a white shirt is looking at a rack of clothes.
-Caption adv : A woman in a white dress is walking through a clothing store.
+Score: 0.5584
+Caption orig : A woman in a white dress is standing in a garden, holding a cell phone.
+Caption adv : A woman in a white dress is standing in front of a black background.
