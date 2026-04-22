@@ -343,7 +343,7 @@ def save_global_summary(output_dir, all_metrics):
 def get_config():
     return {
         "use_instruct_pix2pix": False,
-        "edit_prompt":          "person in a hall of hotel",
+        "edit_prompt":          "person in a garden",
         "seed":                 5,
         "edit_background":      True,
         "load_existing":        True,
@@ -352,7 +352,7 @@ def get_config():
         "base_output_dir":      "output",
         "dataset_path":         "./data/DiffVaxDataset_local",
         "dataset_split":        "validation",
-        "sample_idx":           6,
+        "sample_idx":           7,
         "run_full_dataset":     False,
     }
 

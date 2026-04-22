@@ -1,23 +1,23 @@
 --- Prompt ---
-person in a hall of hotel
+person in a garden
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 26.6471
-SSIM: 0.8755
-FSIM: 0.8991
+PSNR: 22.9342
+SSIM: 0.8458
+FSIM: 0.8526
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 15.9826
-SSIM: 0.5414
-FSIM: 0.4984
+PSNR: 16.3760
+SSIM: 0.4277
+FSIM: 0.4596
 
 CLIP score (Image vs Prompt)
-Edited Original:  27.5020
-Edited Immunized: 29.7816
+Edited Original:  25.2299
+Edited Immunized: 27.2674
 
 Caption similarity (Edited Original vs Edited Immunized)
-Score: 0.9344
-Caption orig : A woman wearing a red shirt and red pants is walking down a hallway.
-Caption adv : A woman in a red outfit is walking down a hallway.
+Score: 0.8244
+Caption orig : A woman wearing a red dress and a red jacket is standing in a grassy area.
+Caption adv : A woman wearing a red dress stands in a field.
