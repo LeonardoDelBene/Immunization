@@ -1,0 +1,23 @@
+--- Prompt ---
+person in a shop
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 23.6951
+SSIM: 0.8292
+FSIM: 0.7958
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 12.4979
+SSIM: 0.3795
+FSIM: 0.4349
+
+CLIP score (Image vs Prompt)
+Edited Original:  27.5975
+Edited Immunized: 27.0892
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.6015
+Caption orig : A woman wearing a hat and a blue coat is standing in a store.
+Caption adv : A person wearing a hat and a coat is standing in front of a clothing rack.

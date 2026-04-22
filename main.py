@@ -344,15 +344,15 @@ def get_config():
     return {
         "use_instruct_pix2pix": False,
         "edit_prompt":          "person in a shop",
-        "seed":                 5,
+        "seed":                 2043,
         "edit_background":      True,
         "load_existing":        True,
         "checkpoint_path":      os.path.join("checkpoints", "unet_best_zcc7yv8u.pth"),
         "attack_model":         "runwayml/stable-diffusion-inpainting",
         "base_output_dir":      "output",
         "dataset_path":         "./data/DiffVaxDataset_local",
-        "dataset_split":        "validation",
-        "sample_idx":           6,
+        "dataset_split":        "train",
+        "sample_idx":           10,
         "run_full_dataset":     False,
     }
 
