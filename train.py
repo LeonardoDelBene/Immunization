@@ -474,7 +474,7 @@ if __name__ == "__main__":
     SEED = 2023
     set_seed_lib(SEED)
 
-    device = "cuda:0" if torch.cuda.is_available() else "cpu"
+    device = "cuda:1" if torch.cuda.is_available() else "cpu"
 
     DEBUG = False
     N_DEBUG = 100
@@ -526,7 +526,7 @@ if __name__ == "__main__":
         alpha=1.0,
         beta=1.0,
         eta=0.2,
-        lambda_vae = 0.03,
+        lambda_vae = 1,
         eps= (32 / 255 * 2),
         val_every=1,
         patience=100,

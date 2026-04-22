@@ -1,0 +1,23 @@
+--- Prompt ---
+person in a hall of hotel
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 27.8342
+SSIM: 0.8959
+FSIM: 0.8587
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 14.3294
+SSIM: 0.4625
+FSIM: 0.3750
+
+CLIP score (Image vs Prompt)
+Edited Original:  27.4882
+Edited Immunized: 28.2958
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.7721
+Caption orig : A woman in a white dress is standing in front of a door, holding a cell phone.
+Caption adv : A woman in a white dress is looking at her cell phone.

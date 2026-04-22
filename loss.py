@@ -71,7 +71,7 @@ def vae_align_loss(posterior_im, posterior_target) -> Tensor:
     lv_im  = lv_im.clamp(-10, 10)
     lv_tgt = lv_tgt.clamp(-10, 10)
 
-    l_mu = F.mse_loss(mu_im, mu_tgt)
+    #l_mu = F.mse_loss(mu_im, mu_tgt)
 
     var_im  = lv_im.exp()
     var_tgt = lv_tgt.exp().clamp(min=1e-6)  # evita divisione per zero
@@ -84,9 +84,13 @@ def vae_align_loss(posterior_im, posterior_target) -> Tensor:
     )
 
     # Clamp la KL per evitare valori esplosivi nel backward
-    l_kl = kl.clamp(max=100).mean()
+    # log1p: gradiente sempre vivo, cresce lentamente per valori grandi
+    l_kl = torch.log1p(kl.clamp(min=0)).mean()
 
-    return l_mu + 0.1 * l_kl
+    return l_kl
+
+def vae_mse(posterior_im, posterior_target) -> Tensor:
+    return F.mse_loss(posterior_im, posterior_target)
 
 
 
@@ -181,7 +185,8 @@ def total_loss(
         per_surrogate_losses.append(l_i.item())   # scalare per il weighter
         per_surrogate_terms.append(l_i)           # tensore per il backward'''
 
-    l_vae = vae_align_loss(posterior_im, posterior_target)
+    #l_vae = vae_align_loss(posterior_im, posterior_target)
+    l_vae = vae_mse(posterior_im.mean, posterior_target.mean)
     l_vae = lambda_vae * l_vae
     per_surrogate_losses.append(l_vae.item())
     per_surrogate_terms.append(l_vae)
