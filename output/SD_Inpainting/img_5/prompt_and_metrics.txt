@@ -1,23 +1,23 @@
 --- Prompt ---
-person in a bakery
+person in a garden
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 33.7502
-SSIM: 0.9440
-FSIM: 0.9288
+PSNR: 23.2232
+SSIM: 0.8458
+FSIM: 0.8517
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 13.0430
-SSIM: 0.4955
-FSIM: 0.4825
+PSNR: 14.8127
+SSIM: 0.3685
+FSIM: 0.4339
 
 CLIP score (Image vs Prompt)
-Edited Original:  27.5387
-Edited Immunized: 30.2039
+Edited Original:  24.6881
+Edited Immunized: 27.3544
 
 Caption similarity (Edited Original vs Edited Immunized)
-Score: 0.8404
-Caption orig : A woman standing in front of a display of bread.
-Caption adv : A woman standing in front of a bakery display with various pastries.
+Score: 0.5595
+Caption orig : A woman wearing a black and white shirt is standing in a field of flowers.
+Caption adv : A woman wearing a black and white shirt and a necklace stands in front of a green background.
