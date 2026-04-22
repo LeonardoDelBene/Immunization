@@ -343,7 +343,7 @@ def save_global_summary(output_dir, all_metrics):
 def get_config():
     return {
         "use_instruct_pix2pix": False,
-        "edit_prompt":          "a person in a football stadium",
+        "edit_prompt":          "person in a shop",
         "seed":                 5,
         "edit_background":      True,
         "load_existing":        True,

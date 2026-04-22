@@ -1,5 +1,5 @@
 --- Prompt ---
-a person in a football stadium
+person in a shop
 
 --- Metrics ---
 
@@ -9,15 +9,15 @@ SSIM: 0.8387
 FSIM: 0.8524
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 14.3311
-SSIM: 0.4090
-FSIM: 0.3973
+PSNR: 13.8156
+SSIM: 0.3895
+FSIM: 0.4402
 
 CLIP score (Image vs Prompt)
-Edited Original:  27.0506
-Edited Immunized: 30.7702
+Edited Original:  26.7081
+Edited Immunized: 28.4055
 
 Caption similarity (Edited Original vs Edited Immunized)
-Score: 0.8623
-Caption orig : A man wearing a gray coat and a hat stands on a football field.
-Caption adv : A man wearing a hat and a jacket stands on a football field.
+Score: 0.4873
+Caption orig : A man wearing a gray coat and white pants is standing in a fabric store.
+Caption adv : A man wearing a green jacket and a hat stands in front of a wall of fabric.
