@@ -1,23 +1,23 @@
 --- Prompt ---
-person in a fast food
+person in a party
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 33.5450
-SSIM: 0.9653
-FSIM: 0.9222
+PSNR: 29.5335
+SSIM: 0.9272
+FSIM: 0.8665
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 15.1372
-SSIM: 0.6355
-FSIM: 0.5731
+PSNR: 14.9524
+SSIM: 0.5269
+FSIM: 0.4869
 
 CLIP score (Image vs Prompt)
-Edited Original:  23.0250
-Edited Immunized: 25.3577
+Edited Original:  25.2297
+Edited Immunized: 26.3660
 
 Caption similarity (Edited Original vs Edited Immunized)
-Score: 0.6041
-Caption orig : A man wearing a hat and a plaid shirt is standing on a sidewalk.
-Caption adv : A man wearing a hat and a plaid shirt is standing in a restaurant.
+Score: 0.3749
+Caption orig : A group of people are standing together, with some of them wearing hats.
+Caption adv : A man in a plaid shirt stands in a crowded room, surrounded by other people.
