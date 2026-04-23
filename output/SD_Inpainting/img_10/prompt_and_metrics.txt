@@ -1,23 +1,23 @@
 --- Prompt ---
-person in a shop
+person in a garden
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 23.6951
-SSIM: 0.8292
-FSIM: 0.7958
+PSNR: 24.4239
+SSIM: 0.8913
+FSIM: 0.7577
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 12.4979
-SSIM: 0.3795
-FSIM: 0.4349
+PSNR: 16.7534
+SSIM: 0.4068
+FSIM: 0.4432
 
 CLIP score (Image vs Prompt)
-Edited Original:  27.5975
-Edited Immunized: 27.0892
+Edited Original:  26.8505
+Edited Immunized: 26.7793
 
 Caption similarity (Edited Original vs Edited Immunized)
-Score: 0.6015
-Caption orig : A woman wearing a hat and a blue coat is standing in a store.
-Caption adv : A person wearing a hat and a coat is standing in front of a clothing rack.
+Score: 0.4683
+Caption orig : A young girl wearing a pink jacket and a blue skirt stands in a garden.
+Caption adv : A woman wearing a pink vest and a skirt stands in front of a green background.
