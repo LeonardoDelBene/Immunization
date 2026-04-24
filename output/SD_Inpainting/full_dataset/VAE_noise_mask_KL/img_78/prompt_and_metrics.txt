@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a shipping yard
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 29.2054
+SSIM: 0.9427
+FSIM: 0.8469
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 13.1603
+SSIM: 0.5344
+FSIM: 0.4782
+
+CLIP score (Image vs Prompt)
+Edited Original:  27.4037
+Edited Immunized: 28.4812
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.7057
+Caption orig : A woman wearing a black and white dress stands in front of a large red building.
+Caption adv : A woman wearing a black and white dress stands in front of a large ship.

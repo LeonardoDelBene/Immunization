@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a hot dog stand
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 29.7497
+SSIM: 0.9385
+FSIM: 0.8759
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 15.9709
+SSIM: 0.5764
+FSIM: 0.5116
+
+CLIP score (Image vs Prompt)
+Edited Original:  28.7099
+Edited Immunized: 28.0505
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.5396
+Caption orig : A woman wearing a colorful shirt stands in front of a food truck.
+Caption adv : A woman wearing a tie-dye shirt stands in front of a counter.

@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a beach shack
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 29.0775
+SSIM: 0.9092
+FSIM: 0.8455
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 13.4515
+SSIM: 0.4400
+FSIM: 0.4972
+
+CLIP score (Image vs Prompt)
+Edited Original:  28.9013
+Edited Immunized: 27.7349
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.3590
+Caption orig : A man wearing a black jacket and a hat is standing in front of a hut.
+Caption adv : A man wearing a suit and tie is standing outside, smiling and looking at the camera.

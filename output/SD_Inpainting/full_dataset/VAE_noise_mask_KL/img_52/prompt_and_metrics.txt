@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a refugee camp
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 31.2700
+SSIM: 0.9395
+FSIM: 0.8719
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 16.7734
+SSIM: 0.5412
+FSIM: 0.5108
+
+CLIP score (Image vs Prompt)
+Edited Original:  27.9442
+Edited Immunized: 28.0947
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.7892
+Caption orig : A woman wearing a brown sweater and a plaid hat stands in front of a shack.
+Caption adv : A woman wearing a brown sweater and a plaid hat stands in front of a tent.

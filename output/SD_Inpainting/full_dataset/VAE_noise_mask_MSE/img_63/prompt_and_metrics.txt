@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a TV studio
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 29.7339
+SSIM: 0.8940
+FSIM: 0.8283
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 14.1535
+SSIM: 0.5373
+FSIM: 0.4526
+
+CLIP score (Image vs Prompt)
+Edited Original:  24.4013
+Edited Immunized: 27.8721
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.6252
+Caption orig : A woman wearing a dress and a necklace is standing in front of a large screen.
+Caption adv : A woman wearing a white dress and a headscarf is standing in front of a TV camera.

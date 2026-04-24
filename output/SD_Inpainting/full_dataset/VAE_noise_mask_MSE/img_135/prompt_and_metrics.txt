@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a public park
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 30.0705
+SSIM: 0.9087
+FSIM: 0.8904
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 18.3156
+SSIM: 0.6436
+FSIM: 0.5443
+
+CLIP score (Image vs Prompt)
+Edited Original:  24.0306
+Edited Immunized: 24.6028
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.4769
+Caption orig : A man wearing a black leather jacket and black pants stands in a grassy field.
+Caption adv : A woman with a green face paint stands in a grassy field.

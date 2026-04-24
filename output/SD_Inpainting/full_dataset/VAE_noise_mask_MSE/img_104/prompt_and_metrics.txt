@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a craft beer festival
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 26.0436
+SSIM: 0.8687
+FSIM: 0.8261
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 15.8204
+SSIM: 0.5739
+FSIM: 0.5432
+
+CLIP score (Image vs Prompt)
+Edited Original:  25.9742
+Edited Immunized: 27.1163
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.8608
+Caption orig : A woman wearing a blue and white striped sweater is standing in a crowd.
+Caption adv : A woman wearing a blue and white striped shirt and black shorts stands in a crowd.

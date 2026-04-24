@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a refugee camp
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 28.7379
+SSIM: 0.8698
+FSIM: 0.8490
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 18.8930
+SSIM: 0.6155
+FSIM: 0.5283
+
+CLIP score (Image vs Prompt)
+Edited Original:  29.1463
+Edited Immunized: 30.6823
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.7984
+Caption orig : A man wearing a blue jacket and a red, white, and blue striped shirt stands in front of a tent.
+Caption adv : A man wearing a black jacket and a backpack is standing in front of a tent.

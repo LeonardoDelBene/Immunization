@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a pet adoption center
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 30.8335
+SSIM: 0.9490
+FSIM: 0.8696
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 14.9693
+SSIM: 0.4666
+FSIM: 0.4694
+
+CLIP score (Image vs Prompt)
+Edited Original:  21.2412
+Edited Immunized: 23.2570
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.2536
+Caption orig : A woman wearing a colorful jacket and holding a stuffed animal.
+Caption adv : A mannequin wearing a shirt and tie is displayed in a store window.

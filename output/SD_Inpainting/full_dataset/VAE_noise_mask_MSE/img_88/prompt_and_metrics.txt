@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a local bakery
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 30.2928
+SSIM: 0.9146
+FSIM: 0.8895
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 12.5507
+SSIM: 0.4071
+FSIM: 0.4209
+
+CLIP score (Image vs Prompt)
+Edited Original:  30.8093
+Edited Immunized: 31.4101
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.7587
+Caption orig : A woman in a blue jacket is standing in front of a bakery display, smiling and pointing at the pastries.
+Caption adv : A woman in a green jacket stands in front of a bakery display, smiling at the camera.

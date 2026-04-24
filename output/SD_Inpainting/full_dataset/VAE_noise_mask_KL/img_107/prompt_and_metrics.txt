@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a tech store
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 29.6235
+SSIM: 0.9241
+FSIM: 0.9077
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 14.2763
+SSIM: 0.4631
+FSIM: 0.4630
+
+CLIP score (Image vs Prompt)
+Edited Original:  23.9737
+Edited Immunized: 25.8548
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.6672
+Caption orig : A woman wearing sunglasses and a green shirt stands in front of a wall of televisions.
+Caption adv : A woman wearing sunglasses and a striped skirt stands in front of a display of cell phones.

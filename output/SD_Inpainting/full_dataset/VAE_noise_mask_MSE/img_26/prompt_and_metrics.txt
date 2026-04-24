@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a tram stop
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 29.8095
+SSIM: 0.8828
+FSIM: 0.9124
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 13.3994
+SSIM: 0.4764
+FSIM: 0.4529
+
+CLIP score (Image vs Prompt)
+Edited Original:  28.8797
+Edited Immunized: 30.2812
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.7432
+Caption orig : A woman wearing a brown coat and sunglasses is standing in a subway car.
+Caption adv : A woman wearing a brown coat and sunglasses is standing in front of a bus stop.

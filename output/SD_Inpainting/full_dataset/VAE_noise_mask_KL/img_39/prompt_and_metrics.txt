@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a casino lounge
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 28.2503
+SSIM: 0.9248
+FSIM: 0.9259
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 11.1215
+SSIM: 0.3554
+FSIM: 0.3982
+
+CLIP score (Image vs Prompt)
+Edited Original:  28.4783
+Edited Immunized: 23.5997
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.5113
+Caption orig : A woman wearing a black jacket and white shirt is standing in a casino.
+Caption adv : A woman wearing a black jacket and shorts is standing in front of a row of televisions.

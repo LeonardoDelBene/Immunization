@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a public park
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 30.2442
+SSIM: 0.9120
+FSIM: 0.8842
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 19.5027
+SSIM: 0.6322
+FSIM: 0.5294
+
+CLIP score (Image vs Prompt)
+Edited Original:  24.0306
+Edited Immunized: 27.3143
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.4493
+Caption orig : A man wearing a black leather jacket and black pants stands in a grassy field.
+Caption adv : A person wearing a black jacket and holding a cell phone.

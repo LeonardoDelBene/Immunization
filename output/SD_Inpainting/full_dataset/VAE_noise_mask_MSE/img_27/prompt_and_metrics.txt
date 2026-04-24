@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a basement
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 31.6181
+SSIM: 0.9200
+FSIM: 0.8830
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 18.9154
+SSIM: 0.5388
+FSIM: 0.4817
+
+CLIP score (Image vs Prompt)
+Edited Original:  25.7196
+Edited Immunized: 25.7884
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.3206
+Caption orig : A woman wearing a white shirt and blue jeans is standing in a room with a wooden floor.
+Caption adv : A woman with green goo on her face is standing in front of a mirror.

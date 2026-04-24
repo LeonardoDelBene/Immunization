@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a charity art auction
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 28.8793
+SSIM: 0.8505
+FSIM: 0.7244
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 14.7840
+SSIM: 0.4876
+FSIM: 0.4191
+
+CLIP score (Image vs Prompt)
+Edited Original:  27.4294
+Edited Immunized: 25.1355
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.3833
+Caption orig : A woman wearing a gray coat and holding a brown purse.
+Caption adv : A woman wearing a white shirt and a black coat is smiling for the camera.

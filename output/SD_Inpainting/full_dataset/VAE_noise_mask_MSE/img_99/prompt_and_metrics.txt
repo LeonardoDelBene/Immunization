@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a creative writing event
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 31.1842
+SSIM: 0.9219
+FSIM: 0.8922
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 12.7569
+SSIM: 0.3870
+FSIM: 0.4382
+
+CLIP score (Image vs Prompt)
+Edited Original:  21.6731
+Edited Immunized: 25.7242
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.6606
+Caption orig : A woman wearing a brown coat and holding a book stands in front of a colorful wall.
+Caption adv : A woman wearing a brown coat stands in front of a group of people.

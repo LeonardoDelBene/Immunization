@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a travel kiosk
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 26.7130
+SSIM: 0.8874
+FSIM: 0.8769
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 14.5306
+SSIM: 0.5304
+FSIM: 0.4657
+
+CLIP score (Image vs Prompt)
+Edited Original:  32.3913
+Edited Immunized: 32.7791
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.5933
+Caption orig : A man wearing a plaid jacket and red pants stands in front of a large screen.
+Caption adv : A man wearing a plaid jacket and a beard stands in front of a machine.

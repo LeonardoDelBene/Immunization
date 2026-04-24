@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a butcher’s shop
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 30.0503
+SSIM: 0.9490
+FSIM: 0.8687
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 15.3511
+SSIM: 0.5367
+FSIM: 0.4933
+
+CLIP score (Image vs Prompt)
+Edited Original:  28.4838
+Edited Immunized: 29.3604
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.6310
+Caption orig : A woman wearing a grey jacket and a brown belt stands in front of a meat counter.
+Caption adv : A woman in a white coat stands in front of a deli counter.

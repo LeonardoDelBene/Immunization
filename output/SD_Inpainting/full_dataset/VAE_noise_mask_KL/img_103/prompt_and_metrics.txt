@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a creative writing event
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 27.4055
+SSIM: 0.8874
+FSIM: 0.8266
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 13.9344
+SSIM: 0.4693
+FSIM: 0.4537
+
+CLIP score (Image vs Prompt)
+Edited Original:  23.4773
+Edited Immunized: 21.8807
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.6040
+Caption orig : A woman wearing a white coat stands in front of a crowd of people.
+Caption adv : A woman wearing a white coat and holding a microphone.

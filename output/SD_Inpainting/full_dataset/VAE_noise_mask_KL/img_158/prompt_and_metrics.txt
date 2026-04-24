@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a ice cream parlor
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 29.2647
+SSIM: 0.8798
+FSIM: 0.8451
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 15.5929
+SSIM: 0.4851
+FSIM: 0.4673
+
+CLIP score (Image vs Prompt)
+Edited Original:  30.4990
+Edited Immunized: 26.1476
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.5610
+Caption orig : A woman wearing a black jacket and a black skirt is standing in front of a large ice cream cone.
+Caption adv : A woman wearing a black jacket and a black skirt is standing in a room.

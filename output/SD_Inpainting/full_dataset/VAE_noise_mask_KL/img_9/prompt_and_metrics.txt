@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a local art market
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 30.0801
+SSIM: 0.9372
+FSIM: 0.9003
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 15.0340
+SSIM: 0.4729
+FSIM: 0.4931
+
+CLIP score (Image vs Prompt)
+Edited Original:  28.3164
+Edited Immunized: 22.2736
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.7020
+Caption orig : A woman wearing sunglasses and a necklace stands in front of a wall filled with colorful paintings.
+Caption adv : A woman wearing sunglasses and a white shirt stands in front of a colorful display of clothing.

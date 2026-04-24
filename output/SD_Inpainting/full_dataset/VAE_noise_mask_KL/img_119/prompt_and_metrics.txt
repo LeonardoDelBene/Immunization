@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a kite festival
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 30.5237
+SSIM: 0.9078
+FSIM: 0.8641
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 16.9583
+SSIM: 0.6369
+FSIM: 0.4718
+
+CLIP score (Image vs Prompt)
+Edited Original:  30.6493
+Edited Immunized: 34.4280
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.7543
+Caption orig : A woman wearing a fur coat and holding a kite.
+Caption adv : A woman is holding a colorful kite in the air.

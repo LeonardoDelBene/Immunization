@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a swimming pool
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 29.6299
+SSIM: 0.9402
+FSIM: 0.8676
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 13.5521
+SSIM: 0.5111
+FSIM: 0.4517
+
+CLIP score (Image vs Prompt)
+Edited Original:  28.3834
+Edited Immunized: 31.1776
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.7520
+Caption orig : A woman wearing a brown dress is walking in a pool area.
+Caption adv : A woman in a gold dress is walking through a swimming pool.

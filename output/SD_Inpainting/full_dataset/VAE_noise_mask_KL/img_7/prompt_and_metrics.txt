@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a shelter
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 32.2608
+SSIM: 0.9534
+FSIM: 0.9411
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 18.0239
+SSIM: 0.6096
+FSIM: 0.5062
+
+CLIP score (Image vs Prompt)
+Edited Original:  20.6088
+Edited Immunized: 23.0714
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.7303
+Caption orig : A woman wearing a red shirt and red pants stands against a wall.
+Caption adv : A woman wearing a red shirt and red pants is standing in a hallway.

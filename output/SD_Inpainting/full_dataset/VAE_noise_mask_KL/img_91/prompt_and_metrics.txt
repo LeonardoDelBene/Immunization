@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a summer camp
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 29.8690
+SSIM: 0.9169
+FSIM: 0.8914
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 17.5608
+SSIM: 0.6593
+FSIM: 0.5595
+
+CLIP score (Image vs Prompt)
+Edited Original:  27.2669
+Edited Immunized: 26.2439
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.4360
+Caption orig : A woman wearing a black and white shirt and carrying a blue backpack.
+Caption adv : A woman in a black and white shirt is standing in a field, smiling and holding a cell phone.

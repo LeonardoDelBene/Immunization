@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a hot dog stand
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 28.9554
+SSIM: 0.9197
+FSIM: 0.8562
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 16.5253
+SSIM: 0.5564
+FSIM: 0.5255
+
+CLIP score (Image vs Prompt)
+Edited Original:  28.0738
+Edited Immunized: 28.2578
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.8667
+Caption orig : A man wearing a hat and a plaid shirt stands in front of a food stand.
+Caption adv : A man wearing a hat and a plaid shirt is standing in front of a table with food on it.

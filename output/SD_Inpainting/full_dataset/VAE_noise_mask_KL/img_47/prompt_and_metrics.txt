@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a summer camp
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 30.2338
+SSIM: 0.9145
+FSIM: 0.8936
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 15.6104
+SSIM: 0.5786
+FSIM: 0.5084
+
+CLIP score (Image vs Prompt)
+Edited Original:  28.5976
+Edited Immunized: 26.5637
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.4332
+Caption orig : A woman wearing a black shirt and green pants is standing in front of a red tent.
+Caption adv : A woman in a black shirt and black pants is smiling at the camera.

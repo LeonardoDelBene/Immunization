@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a customs checkpoint
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 30.2170
+SSIM: 0.8900
+FSIM: 0.8754
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 14.7780
+SSIM: 0.5185
+FSIM: 0.4305
+
+CLIP score (Image vs Prompt)
+Edited Original:  28.7472
+Edited Immunized: 25.5698
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.5917
+Caption orig : A woman wearing a black dress and sunglasses walks past a blue sign with a yellow arrow.
+Caption adv : A woman in a black dress walks down a hallway.

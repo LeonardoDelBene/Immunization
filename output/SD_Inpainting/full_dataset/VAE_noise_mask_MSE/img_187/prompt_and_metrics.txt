@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a convenience store
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 29.3926
+SSIM: 0.8837
+FSIM: 0.8971
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 13.8045
+SSIM: 0.3934
+FSIM: 0.4784
+
+CLIP score (Image vs Prompt)
+Edited Original:  28.3747
+Edited Immunized: 30.9655
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.6939
+Caption orig : A woman in a red sweater and black pants is standing in front of a grocery store, looking at the items on the shelves.
+Caption adv : A woman in a red shirt and black pants is walking down an aisle in a grocery store.

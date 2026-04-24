@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a street parade
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 32.1090
+SSIM: 0.9847
+FSIM: 0.9000
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 18.2842
+SSIM: 0.7017
+FSIM: 0.6456
+
+CLIP score (Image vs Prompt)
+Edited Original:  29.7662
+Edited Immunized: 28.8927
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.4415
+Caption orig : A woman wearing a plaid shirt and a hat is walking down the street.
+Caption adv : A woman wearing a purple shirt and a plaid jacket is smiling at the camera.

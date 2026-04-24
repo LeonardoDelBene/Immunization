@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a beach resort
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 33.7360
+SSIM: 0.9423
+FSIM: 0.9140
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 11.3947
+SSIM: 0.5734
+FSIM: 0.4300
+
+CLIP score (Image vs Prompt)
+Edited Original:  26.2360
+Edited Immunized: 27.7619
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.6261
+Caption orig : A woman wearing a white shirt and sunglasses is standing in front of palm trees.
+Caption adv : A woman wearing a white outfit and sunglasses is walking on a beach.

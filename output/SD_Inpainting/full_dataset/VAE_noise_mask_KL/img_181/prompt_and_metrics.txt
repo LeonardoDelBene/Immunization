@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a shopping center
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 29.7335
+SSIM: 0.9565
+FSIM: 0.8863
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 14.2176
+SSIM: 0.4898
+FSIM: 0.4937
+
+CLIP score (Image vs Prompt)
+Edited Original:  27.5458
+Edited Immunized: 25.9998
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.5284
+Caption orig : A woman wearing sunglasses and a checkered shirt stands in a crowded mall.
+Caption adv : A woman in a checkered shirt is walking through a grocery store.

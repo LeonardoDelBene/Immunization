@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a city food tour
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 28.4148
+SSIM: 0.8695
+FSIM: 0.8712
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 13.3338
+SSIM: 0.4986
+FSIM: 0.4913
+
+CLIP score (Image vs Prompt)
+Edited Original:  28.2783
+Edited Immunized: 23.8042
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.6673
+Caption orig : A woman in a black dress and a gold belt is standing in front of a table filled with food.
+Caption adv : A woman in a black dress and gold belt stands on a sidewalk.

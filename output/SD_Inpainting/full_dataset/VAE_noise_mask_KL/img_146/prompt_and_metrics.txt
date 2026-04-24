@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a prison shower
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 30.4859
+SSIM: 0.9219
+FSIM: 0.8580
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 18.2067
+SSIM: 0.4495
+FSIM: 0.4495
+
+CLIP score (Image vs Prompt)
+Edited Original:  26.4887
+Edited Immunized: 25.9124
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.7270
+Caption orig : A woman in a blue shirt and orange pants stands in a shower stall.
+Caption adv : A woman with red hair and a blue shirt is standing in a bathroom.

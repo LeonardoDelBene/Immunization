@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a gym class
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 29.2872
+SSIM: 0.8845
+FSIM: 0.8162
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 13.9448
+SSIM: 0.4906
+FSIM: 0.4129
+
+CLIP score (Image vs Prompt)
+Edited Original:  24.5607
+Edited Immunized: 28.8457
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.9341
+Caption orig : A man wearing glasses and a blue jacket is standing in a gym.
+Caption adv : A man wearing glasses and a black jacket is standing in a gym.

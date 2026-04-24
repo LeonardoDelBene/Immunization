@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a lobby
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 25.1609
+SSIM: 0.8780
+FSIM: 0.8956
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 13.9017
+SSIM: 0.5165
+FSIM: 0.4329
+
+CLIP score (Image vs Prompt)
+Edited Original:  21.2184
+Edited Immunized: 21.2266
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.7072
+Caption orig : A woman wearing a hat and sunglasses, standing in a room.
+Caption adv : A woman wearing a hat and sunglasses is standing in a group of people.

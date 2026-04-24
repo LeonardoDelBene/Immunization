@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a shopping center
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 30.3459
+SSIM: 0.8958
+FSIM: 0.8509
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 15.8602
+SSIM: 0.5836
+FSIM: 0.5078
+
+CLIP score (Image vs Prompt)
+Edited Original:  27.1941
+Edited Immunized: 29.2788
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.4689
+Caption orig : A woman wearing sunglasses and a black and blue dress is holding a shopping bag.
+Caption adv : A woman wearing a blue and white dress and sunglasses is walking down a hallway.

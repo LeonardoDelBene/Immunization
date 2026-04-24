@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a jail
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 31.4916
+SSIM: 0.9470
+FSIM: 0.8671
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 19.2492
+SSIM: 0.5300
+FSIM: 0.5836
+
+CLIP score (Image vs Prompt)
+Edited Original:  25.9586
+Edited Immunized: 27.7464
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.8666
+Caption orig : A woman wearing a striped shirt and sunglasses is standing in a hallway.
+Caption adv : A woman wearing a striped shirt and sunglasses is walking down a hallway.

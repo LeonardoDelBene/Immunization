@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a dance school
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 30.1019
+SSIM: 0.9101
+FSIM: 0.8862
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 12.6240
+SSIM: 0.4622
+FSIM: 0.4218
+
+CLIP score (Image vs Prompt)
+Edited Original:  27.2043
+Edited Immunized: 24.6593
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.3302
+Caption orig : A young woman wearing a red shirt and a flower crown is standing on a stage, surrounded by other dancers.
+Caption adv : A group of young women are posing for a picture.

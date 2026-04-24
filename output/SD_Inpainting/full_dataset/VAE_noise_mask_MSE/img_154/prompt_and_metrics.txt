@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a mall
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 33.6215
+SSIM: 0.9638
+FSIM: 0.9470
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 15.9695
+SSIM: 0.6280
+FSIM: 0.5174
+
+CLIP score (Image vs Prompt)
+Edited Original:  25.1855
+Edited Immunized: 25.7656
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.3073
+Caption orig : A woman wearing a brown jacket and a scarf around her neck, standing in a shopping mall.
+Caption adv : A woman in a brown jacket is eating a hot dog while walking down a busy street.

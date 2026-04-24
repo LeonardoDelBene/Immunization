@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a pet adoption center
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 28.4712
+SSIM: 0.9330
+FSIM: 0.8522
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 14.2171
+SSIM: 0.5177
+FSIM: 0.4839
+
+CLIP score (Image vs Prompt)
+Edited Original:  21.2412
+Edited Immunized: 21.5852
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.4063
+Caption orig : A woman wearing a colorful jacket and holding a stuffed animal.
+Caption adv : A woman wearing a colorful jacket and pants walks down a hallway.

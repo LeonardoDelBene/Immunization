@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a children’s theater
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 28.6412
+SSIM: 0.8888
+FSIM: 0.8133
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 14.5532
+SSIM: 0.4420
+FSIM: 0.4546
+
+CLIP score (Image vs Prompt)
+Edited Original:  27.7390
+Edited Immunized: 27.0538
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.7648
+Caption orig : A woman wearing a white shirt and black skirt stands in front of a group of children.
+Caption adv : A woman wearing sunglasses stands in front of a group of children.

@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a concert hall
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 29.8139
+SSIM: 0.8932
+FSIM: 0.8680
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 15.0491
+SSIM: 0.4525
+FSIM: 0.4325
+
+CLIP score (Image vs Prompt)
+Edited Original:  26.6701
+Edited Immunized: 24.3872
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.5541
+Caption orig : A man wearing a hat and a blue jacket stands in front of a row of empty seats.
+Caption adv : A man wearing a hat and a jacket is standing on a stage.

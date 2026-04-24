@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a weekend market
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 30.4986
+SSIM: 0.9204
+FSIM: 0.8966
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 15.6924
+SSIM: 0.5323
+FSIM: 0.5103
+
+CLIP score (Image vs Prompt)
+Edited Original:  29.3934
+Edited Immunized: 30.3592
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.5488
+Caption orig : A woman in a marketplace, surrounded by various fruits and vegetables.
+Caption adv : A woman in a white shirt and black skirt is standing in front of a fruit stand.

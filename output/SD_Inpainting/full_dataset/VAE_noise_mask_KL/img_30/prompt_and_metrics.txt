@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a music studio
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 30.3945
+SSIM: 0.9169
+FSIM: 0.8739
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 12.6315
+SSIM: 0.3351
+FSIM: 0.3782
+
+CLIP score (Image vs Prompt)
+Edited Original:  27.0421
+Edited Immunized: 22.5041
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.2826
+Caption orig : A woman wearing a grey sweater and holding a green notebook stands in front of a wall full of electronic equipment.
+Caption adv : A woman wearing a brown shirt and black skirt is smiling at the camera.

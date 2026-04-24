@@ -23,11 +23,12 @@ warnings.filterwarnings("ignore", message="QuickGELU mismatch", category=UserWar
 # SETUP
 # ─────────────────────────────────────────────
 
-def get_output_dir(base_output_dir, use_instruct_pix2pix,run_wandb, sample_idx):
+def get_output_dir(base_output_dir, use_instruct_pix2pix, run_wandb, sample_idx):
     subfolder = "InstructionPix2Pix" if use_instruct_pix2pix else "SD_Inpainting"
-    output_dir = os.path.join(base_output_dir, subfolder, f"img_{sample_idx}")
-    if sample_idx == "ful_dataset":
-        output_dir = os.path.join(base_output_dir, run_wandb)
+    if sample_idx == "full_dataset":
+        output_dir = os.path.join(base_output_dir, subfolder, "full_dataset", run_wandb)
+    else:
+        output_dir = os.path.join(base_output_dir, subfolder, f"img_{sample_idx}")
     os.makedirs(output_dir, exist_ok=True)
     return output_dir
 
@@ -145,12 +146,24 @@ def save_metrics(output_dir, edit_prompt, metrics: dict):
 # METRICS
 # ─────────────────────────────────────────────
 
-def compute_metrics(image, adv_image_png, edited_orig_recovered, edited_adv_recovered, edit_prompt):
-    psnr_metric = create_metric(MetricType.PSNR)
-    ssim_metric = create_metric(MetricType.SSIM)
-    fsim_metric = create_metric(MetricType.FSIM)
-    clip_metric = create_metric(MetricType.CLIP, model="ViT-B-32", pretrained_on="openai")
-    caption_metric = create_metric(MetricType.CAP, load_in_4bit=True)
+def load_metrics_models():
+    print("Loading metric models...")
+    metrics_models = {
+        "psnr":    create_metric(MetricType.PSNR),
+        "ssim":    create_metric(MetricType.SSIM),
+        "fsim":    create_metric(MetricType.FSIM),
+        "clip":    create_metric(MetricType.CLIP, model="ViT-B-32", pretrained_on="openai"),
+        "caption": create_metric(MetricType.CAP, load_in_4bit=True),
+    }
+    print("Metric models loaded.")
+    return metrics_models
+
+def compute_metrics(image, adv_image_png, edited_orig_recovered, edited_adv_recovered, edit_prompt, metrics_models):
+    psnr_metric    = metrics_models["psnr"]
+    ssim_metric    = metrics_models["ssim"]
+    fsim_metric    = metrics_models["fsim"]
+    clip_metric    = metrics_models["clip"]
+    caption_metric = metrics_models["caption"]
 
     cap_score = caption_metric.compute(edited_orig_recovered, edited_adv_recovered)
     metrics = {
@@ -162,9 +175,10 @@ def compute_metrics(image, adv_image_png, edited_orig_recovered, edited_adv_reco
         "fsim_edit":     fsim_metric.calculate_metric_between_images(edited_orig_recovered, edited_adv_recovered),
         "clip_orig":     clip_metric.calculate_clip_score(edited_orig_recovered, edit_prompt),
         "clip_adv":      clip_metric.calculate_clip_score(edited_adv_recovered,  edit_prompt),
-        "caption_sim":   cap_score["caption_similarity"],
+        "caption_sim": cap_score["caption_similarity"],
         "caption_orig": cap_score["caption_1"],
         "caption_adv": cap_score["caption_2"],
+
     }
 
     print("\n--- Image Quality (Original vs Immunized) ---")
@@ -185,9 +199,8 @@ def compute_metrics(image, adv_image_png, edited_orig_recovered, edited_adv_reco
     print(f"score : {metrics['caption_sim']:.4f}")
     print("caption orig : " + metrics['caption_orig'])
     print("caption adv : " + metrics['caption_adv'])
-
-
     return metrics
+
 
 
 # ─────────────────────────────────────────────
@@ -222,6 +235,7 @@ def run_on_full_dataset(config):
     )
 
     attack_model, immunization_mdl = load_models(config)
+    metrics_models = load_metrics_models()
 
     dataset = load_from_disk(config["dataset_path"])
     dataset = dataset[config["dataset_split"]]
@@ -265,7 +279,8 @@ def run_on_full_dataset(config):
             metrics = compute_metrics(
                 image, adv_image_png,
                 edited_orig_recovered, edited_adv_recovered,
-                edit_prompt
+                edit_prompt,
+                metrics_models
             )
             save_metrics(sample_output_dir, edit_prompt, metrics)
 
@@ -350,14 +365,14 @@ def get_config():
         "seed":                 2043,
         "edit_background":      True,
         "load_existing":        True,
-        "checkpoint_path":      os.path.join("checkpoints", "unet_best_4mqsak4z.pth"),
+        "checkpoint_path":      os.path.join("checkpoints", "unet_best_erz5lidf.pth"),
         "attack_model":         "runwayml/stable-diffusion-inpainting",
         "base_output_dir":      "output",
         "dataset_path":         "./data/DiffVaxDataset_local",
         "dataset_split":        "validation",
         "sample_idx":           12,
         "run_full_dataset":     True,
-        "run_wandb":            "VAE_noise_mask_MSE"
+        "run_wandb":            "VAE_noise_mask_KL"
     }
 
 

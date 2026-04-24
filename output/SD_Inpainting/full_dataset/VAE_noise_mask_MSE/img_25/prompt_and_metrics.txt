@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a gym sauna
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 30.6556
+SSIM: 0.8930
+FSIM: 0.8785
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 13.9699
+SSIM: 0.4017
+FSIM: 0.4088
+
+CLIP score (Image vs Prompt)
+Edited Original:  27.8856
+Edited Immunized: 25.8847
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.4581
+Caption orig : A woman wearing a leather jacket and black pants stands in front of a row of exercise machines.
+Caption adv : A woman wearing a brown jacket and black pants is standing in front of a mirror.

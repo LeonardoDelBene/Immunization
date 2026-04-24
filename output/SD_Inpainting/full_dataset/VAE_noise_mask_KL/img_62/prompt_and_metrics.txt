@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a festival ground
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 30.7008
+SSIM: 0.9707
+FSIM: 0.8776
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 19.1391
+SSIM: 0.7146
+FSIM: 0.6331
+
+CLIP score (Image vs Prompt)
+Edited Original:  32.5543
+Edited Immunized: 31.1990
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.5891
+Caption orig : A woman in a red and white shirt is looking at her cell phone.
+Caption adv : A woman in a flowered dress is holding a cup and looking at her phone.

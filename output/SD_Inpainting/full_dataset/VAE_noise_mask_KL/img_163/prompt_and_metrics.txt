@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a community theater production
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 29.4925
+SSIM: 0.9308
+FSIM: 0.8888
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 14.3901
+SSIM: 0.4499
+FSIM: 0.4827
+
+CLIP score (Image vs Prompt)
+Edited Original:  26.4827
+Edited Immunized: 29.9032
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.3823
+Caption orig : A man wearing a green jacket and a bow tie stands on a stage.
+Caption adv : A group of children wearing costumes and standing on a stage.

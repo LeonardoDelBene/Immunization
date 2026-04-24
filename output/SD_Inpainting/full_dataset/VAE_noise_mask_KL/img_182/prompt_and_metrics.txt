@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a city center plaza
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 28.9433
+SSIM: 0.9100
+FSIM: 0.8563
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 15.8894
+SSIM: 0.6235
+FSIM: 0.4928
+
+CLIP score (Image vs Prompt)
+Edited Original:  28.1113
+Edited Immunized: 28.0528
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.7083
+Caption orig : A woman wearing a brown coat and a striped shirt is standing on a sidewalk.
+Caption adv : A woman wearing a brown coat and a red and white striped shirt is walking down the street.

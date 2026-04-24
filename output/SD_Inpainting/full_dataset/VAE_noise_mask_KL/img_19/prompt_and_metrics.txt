@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a locker room
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 29.3922
+SSIM: 0.9138
+FSIM: 0.8926
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 11.8361
+SSIM: 0.3580
+FSIM: 0.4152
+
+CLIP score (Image vs Prompt)
+Edited Original:  24.1956
+Edited Immunized: 25.2819
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.5238
+Caption orig : A woman wearing a brown coat and holding a coat stand in front of a blue door.
+Caption adv : A woman wearing a black coat and holding her arm out.

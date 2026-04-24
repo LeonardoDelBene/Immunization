@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a dance festival
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 29.0072
+SSIM: 0.9054
+FSIM: 0.8677
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 16.3833
+SSIM: 0.6020
+FSIM: 0.5352
+
+CLIP score (Image vs Prompt)
+Edited Original:  29.7314
+Edited Immunized: 31.8283
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.5264
+Caption orig : A woman wearing a blue dress and an orange hat stands on the street.
+Caption adv : A woman wearing a hat and sunglasses stands out in a crowd of people.

@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a festival ground
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 26.3198
+SSIM: 0.9452
+FSIM: 0.8343
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 18.4548
+SSIM: 0.6800
+FSIM: 0.6072
+
+CLIP score (Image vs Prompt)
+Edited Original:  32.5543
+Edited Immunized: 32.8223
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.2124
+Caption orig : A woman in a red and white shirt is looking at her cell phone.
+Caption adv : A woman in a flowered dress is holding a bag of chips.

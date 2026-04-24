@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a community arts and crafts market
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 29.7773
+SSIM: 0.9375
+FSIM: 0.9046
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 14.8709
+SSIM: 0.4652
+FSIM: 0.4982
+
+CLIP score (Image vs Prompt)
+Edited Original:  28.6175
+Edited Immunized: 27.8655
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.5642
+Caption orig : A woman wearing a white shirt and a black bow tie stands in front of a table with colorful pencils.
+Caption adv : A woman wearing a white shirt and a black and red plaid skirt stands in front of a colorful umbrella display.

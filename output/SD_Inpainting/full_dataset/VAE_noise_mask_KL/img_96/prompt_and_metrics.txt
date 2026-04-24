@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a street food court
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 30.6948
+SSIM: 0.9109
+FSIM: 0.8967
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 16.0277
+SSIM: 0.5028
+FSIM: 0.4857
+
+CLIP score (Image vs Prompt)
+Edited Original:  29.5574
+Edited Immunized: 31.3973
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.6980
+Caption orig : A woman wearing sunglasses and a grey shirt is standing in front of a food stand.
+Caption adv : A woman wearing sunglasses and a black shirt is standing in front of a table with a bowl of noodles on it.

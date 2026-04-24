@@ -1,0 +1,1220 @@
+Global Summary — 200 samples
+==================================================
+
+Average Image Quality (Original vs Immunized)
+PSNR: 30.0723
+SSIM: 0.9202
+FSIM: 0.8753
+
+Average Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 15.0182
+SSIM: 0.5049
+FSIM: 0.4741
+
+Average CLIP score
+Edited Original:  27.1691
+Edited Immunized: 27.5748
+
+==================================================
+Per-sample detail
+
+[0] A person in a weekend market
+  PSNR orig/adv: 29.8355 | edit: 15.1258
+  SSIM orig/adv: 0.8773 | edit: 0.4303
+  FSIM orig/adv: 0.9083 | edit: 0.4495
+  CLIP orig: 28.4158 | adv: 31.3670
+
+[1] A person in a weekend market
+  PSNR orig/adv: 29.2191 | edit: 15.7514
+  SSIM orig/adv: 0.8947 | edit: 0.5320
+  FSIM orig/adv: 0.8938 | edit: 0.5206
+  CLIP orig: 29.6139 | adv: 31.7317
+
+[2] A person in a church sanctuary
+  PSNR orig/adv: 29.1567 | edit: 14.0255
+  SSIM orig/adv: 0.9004 | edit: 0.4330
+  FSIM orig/adv: 0.8287 | edit: 0.4590
+  CLIP orig: 28.3546 | adv: 29.0448
+
+[3] A person in a sports field
+  PSNR orig/adv: 31.0162 | edit: 16.8339
+  SSIM orig/adv: 0.9286 | edit: 0.6391
+  FSIM orig/adv: 0.8905 | edit: 0.4602
+  CLIP orig: 27.7392 | adv: 28.1524
+
+[4] A person in a drive-in theater
+  PSNR orig/adv: 30.8600 | edit: 14.3306
+  SSIM orig/adv: 0.9240 | edit: 0.4233
+  FSIM orig/adv: 0.8583 | edit: 0.4368
+  CLIP orig: 21.5072 | adv: 23.8092
+
+[5] A person in a food truck park
+  PSNR orig/adv: 29.5515 | edit: 12.2544
+  SSIM orig/adv: 0.9096 | edit: 0.4264
+  FSIM orig/adv: 0.9035 | edit: 0.4062
+  CLIP orig: 27.1622 | adv: 27.0811
+
+[6] A person in a betting shop
+  PSNR orig/adv: 31.8595 | edit: 13.0877
+  SSIM orig/adv: 0.9407 | edit: 0.4476
+  FSIM orig/adv: 0.9078 | edit: 0.4284
+  CLIP orig: 27.3173 | adv: 27.1344
+
+[7] A person in a shelter
+  PSNR orig/adv: 32.2608 | edit: 18.0239
+  SSIM orig/adv: 0.9534 | edit: 0.6096
+  FSIM orig/adv: 0.9411 | edit: 0.5062
+  CLIP orig: 20.6088 | adv: 23.0714
+
+[8] A person in a historic landmark event
+  PSNR orig/adv: 30.0182 | edit: 18.3069
+  SSIM orig/adv: 0.8952 | edit: 0.5180
+  FSIM orig/adv: 0.8016 | edit: 0.4737
+  CLIP orig: 22.8094 | adv: 22.8084
+
+[9] A person in a local art market
+  PSNR orig/adv: 30.0801 | edit: 15.0340
+  SSIM orig/adv: 0.9372 | edit: 0.4729
+  FSIM orig/adv: 0.9003 | edit: 0.4931
+  CLIP orig: 28.3164 | adv: 22.2736
+
+[10] A person in a basement
+  PSNR orig/adv: 30.6042 | edit: 16.7446
+  SSIM orig/adv: 0.9351 | edit: 0.4991
+  FSIM orig/adv: 0.8336 | edit: 0.4634
+  CLIP orig: 21.2357 | adv: 26.5350
+
+[11] A person in a garage
+  PSNR orig/adv: 29.3727 | edit: 14.1230
+  SSIM orig/adv: 0.9100 | edit: 0.4163
+  FSIM orig/adv: 0.8550 | edit: 0.4213
+  CLIP orig: 28.4025 | adv: 27.2460
+
+[12] A person in a hot dog stand
+  PSNR orig/adv: 29.8313 | edit: 16.0556
+  SSIM orig/adv: 0.9232 | edit: 0.5201
+  FSIM orig/adv: 0.8626 | edit: 0.5178
+  CLIP orig: 28.0738 | adv: 25.9067
+
+[13] A person in a music and arts festival
+  PSNR orig/adv: 29.5976 | edit: 13.8556
+  SSIM orig/adv: 0.8979 | edit: 0.5305
+  FSIM orig/adv: 0.8637 | edit: 0.4791
+  CLIP orig: 26.5066 | adv: 26.1565
+
+[14] A person in a parking structure
+  PSNR orig/adv: 29.8586 | edit: 14.3700
+  SSIM orig/adv: 0.9258 | edit: 0.5254
+  FSIM orig/adv: 0.9021 | edit: 0.3954
+  CLIP orig: 24.0007 | adv: 25.0411
+
+[15] A person in a gym sauna
+  PSNR orig/adv: 29.3805 | edit: 13.9587
+  SSIM orig/adv: 0.9187 | edit: 0.3395
+  FSIM orig/adv: 0.8302 | edit: 0.4107
+  CLIP orig: 26.2613 | adv: 26.7180
+
+[16] A person in a costume shop
+  PSNR orig/adv: 33.4271 | edit: 20.6035
+  SSIM orig/adv: 0.9636 | edit: 0.7450
+  FSIM orig/adv: 0.9166 | edit: 0.6739
+  CLIP orig: 24.9876 | adv: 28.1636
+
+[17] A person in a gym sauna
+  PSNR orig/adv: 31.0158 | edit: 14.9407
+  SSIM orig/adv: 0.9099 | edit: 0.3935
+  FSIM orig/adv: 0.8334 | edit: 0.4159
+  CLIP orig: 23.3877 | adv: 24.7843
+
+[18] A person in a butcher’s shop
+  PSNR orig/adv: 30.0503 | edit: 15.3511
+  SSIM orig/adv: 0.9490 | edit: 0.5367
+  FSIM orig/adv: 0.8687 | edit: 0.4933
+  CLIP orig: 28.4838 | adv: 29.3604
+
+[19] A person in a locker room
+  PSNR orig/adv: 29.3922 | edit: 11.8361
+  SSIM orig/adv: 0.9138 | edit: 0.3580
+  FSIM orig/adv: 0.8926 | edit: 0.4152
+  CLIP orig: 24.1956 | adv: 25.2819
+
+[20] A person in a hot dog stand
+  PSNR orig/adv: 29.7497 | edit: 15.9709
+  SSIM orig/adv: 0.9385 | edit: 0.5764
+  FSIM orig/adv: 0.8759 | edit: 0.5116
+  CLIP orig: 28.7099 | adv: 28.0505
+
+[21] A person in a beach resort
+  PSNR orig/adv: 30.7135 | edit: 14.4192
+  SSIM orig/adv: 0.9468 | edit: 0.6090
+  FSIM orig/adv: 0.9003 | edit: 0.4699
+  CLIP orig: 26.2360 | adv: 28.0140
+
+[22] A person in a motel room
+  PSNR orig/adv: 28.3959 | edit: 16.8863
+  SSIM orig/adv: 0.9196 | edit: 0.6554
+  FSIM orig/adv: 0.8612 | edit: 0.5775
+  CLIP orig: 27.0520 | adv: 29.3550
+
+[23] A person in a computer lab
+  PSNR orig/adv: 30.5077 | edit: 15.3056
+  SSIM orig/adv: 0.9416 | edit: 0.6146
+  FSIM orig/adv: 0.8492 | edit: 0.4966
+  CLIP orig: 28.2139 | adv: 27.2027
+
+[24] A person in a pet festival
+  PSNR orig/adv: 30.3719 | edit: 15.9467
+  SSIM orig/adv: 0.9079 | edit: 0.5169
+  FSIM orig/adv: 0.8599 | edit: 0.4976
+  CLIP orig: 29.9114 | adv: 33.8170
+
+[25] A person in a gym sauna
+  PSNR orig/adv: 29.4661 | edit: 13.8412
+  SSIM orig/adv: 0.8905 | edit: 0.3434
+  FSIM orig/adv: 0.8625 | edit: 0.3913
+  CLIP orig: 27.8856 | adv: 25.9026
+
+[26] A person in a tram stop
+  PSNR orig/adv: 29.4058 | edit: 13.8051
+  SSIM orig/adv: 0.8845 | edit: 0.4778
+  FSIM orig/adv: 0.9049 | edit: 0.4662
+  CLIP orig: 28.8797 | adv: 30.4759
+
+[27] A person in a basement
+  PSNR orig/adv: 29.2990 | edit: 19.5938
+  SSIM orig/adv: 0.9077 | edit: 0.4836
+  FSIM orig/adv: 0.8578 | edit: 0.4613
+  CLIP orig: 25.7196 | adv: 25.9541
+
+[28] A person in a tech startup
+  PSNR orig/adv: 30.5563 | edit: 17.6890
+  SSIM orig/adv: 0.8801 | edit: 0.5852
+  FSIM orig/adv: 0.9166 | edit: 0.4153
+  CLIP orig: 20.7768 | adv: 24.4893
+
+[29] A person in a laundry room
+  PSNR orig/adv: 29.7306 | edit: 13.5920
+  SSIM orig/adv: 0.9516 | edit: 0.5465
+  FSIM orig/adv: 0.8499 | edit: 0.5173
+  CLIP orig: 29.9629 | adv: 26.8759
+
+[30] A person in a music studio
+  PSNR orig/adv: 30.3945 | edit: 12.6315
+  SSIM orig/adv: 0.9169 | edit: 0.3351
+  FSIM orig/adv: 0.8739 | edit: 0.3782
+  CLIP orig: 27.0421 | adv: 22.5041
+
+[31] A person in a bowling alley
+  PSNR orig/adv: 30.4589 | edit: 12.1066
+  SSIM orig/adv: 0.8910 | edit: 0.3658
+  FSIM orig/adv: 0.9022 | edit: 0.4074
+  CLIP orig: 31.2439 | adv: 31.9233
+
+[32] A person in a music and arts festival
+  PSNR orig/adv: 30.1942 | edit: 14.4951
+  SSIM orig/adv: 0.9259 | edit: 0.5117
+  FSIM orig/adv: 0.8808 | edit: 0.4639
+  CLIP orig: 29.1659 | adv: 27.9099
+
+[33] A person in a charity art auction
+  PSNR orig/adv: 28.8793 | edit: 14.7840
+  SSIM orig/adv: 0.8505 | edit: 0.4876
+  FSIM orig/adv: 0.7244 | edit: 0.4191
+  CLIP orig: 27.4294 | adv: 25.1355
+
+[34] A person in a city food tour
+  PSNR orig/adv: 29.8205 | edit: 14.1529
+  SSIM orig/adv: 0.8875 | edit: 0.4842
+  FSIM orig/adv: 0.8827 | edit: 0.4722
+  CLIP orig: 28.2783 | adv: 22.1050
+
+[35] A person in a flower garden
+  PSNR orig/adv: 32.3517 | edit: 15.2779
+  SSIM orig/adv: 0.9435 | edit: 0.4452
+  FSIM orig/adv: 0.8961 | edit: 0.4987
+  CLIP orig: 27.8157 | adv: 29.9304
+
+[36] A person in a slum
+  PSNR orig/adv: 29.4678 | edit: 15.2314
+  SSIM orig/adv: 0.9282 | edit: 0.4677
+  FSIM orig/adv: 0.9126 | edit: 0.4556
+  CLIP orig: 28.2799 | adv: 31.2668
+
+[37] A person in a digital art gallery
+  PSNR orig/adv: 29.5700 | edit: 11.5835
+  SSIM orig/adv: 0.8806 | edit: 0.3146
+  FSIM orig/adv: 0.8644 | edit: 0.4007
+  CLIP orig: 29.3013 | adv: 30.0356
+
+[38] A person in a technology fair
+  PSNR orig/adv: 31.3961 | edit: 13.7505
+  SSIM orig/adv: 0.9505 | edit: 0.5613
+  FSIM orig/adv: 0.9130 | edit: 0.4686
+  CLIP orig: 31.0264 | adv: 30.9603
+
+[39] A person in a casino lounge
+  PSNR orig/adv: 28.2503 | edit: 11.1215
+  SSIM orig/adv: 0.9248 | edit: 0.3554
+  FSIM orig/adv: 0.9259 | edit: 0.3982
+  CLIP orig: 28.4783 | adv: 23.5997
+
+[40] A person in a rooftop lounge
+  PSNR orig/adv: 32.0274 | edit: 17.2326
+  SSIM orig/adv: 0.9585 | edit: 0.6540
+  FSIM orig/adv: 0.9559 | edit: 0.5152
+  CLIP orig: 27.1476 | adv: 29.6021
+
+[41] A person in a butcher shop
+  PSNR orig/adv: 32.4385 | edit: 14.9604
+  SSIM orig/adv: 0.9448 | edit: 0.4829
+  FSIM orig/adv: 0.9001 | edit: 0.4328
+  CLIP orig: 29.0402 | adv: 31.3839
+
+[42] A person in a golf course clubhouse
+  PSNR orig/adv: 30.1643 | edit: 15.0785
+  SSIM orig/adv: 0.9050 | edit: 0.4671
+  FSIM orig/adv: 0.9232 | edit: 0.3969
+  CLIP orig: 27.5540 | adv: 25.3433
+
+[43] A person in a community arts and crafts market
+  PSNR orig/adv: 27.8203 | edit: 14.4338
+  SSIM orig/adv: 0.9385 | edit: 0.5213
+  FSIM orig/adv: 0.8800 | edit: 0.5371
+  CLIP orig: 26.2227 | adv: 27.2382
+
+[44] A person in a vintage arts fair
+  PSNR orig/adv: 30.0055 | edit: 13.8133
+  SSIM orig/adv: 0.9372 | edit: 0.4994
+  FSIM orig/adv: 0.9020 | edit: 0.4969
+  CLIP orig: 29.8335 | adv: 29.6967
+
+[45] A person in a high-end restaurant
+  PSNR orig/adv: 32.3333 | edit: 14.3687
+  SSIM orig/adv: 0.9474 | edit: 0.4362
+  FSIM orig/adv: 0.9050 | edit: 0.4163
+  CLIP orig: 29.9959 | adv: 27.6290
+
+[46] A person in a gymnasium
+  PSNR orig/adv: 30.1313 | edit: 15.1081
+  SSIM orig/adv: 0.9134 | edit: 0.4426
+  FSIM orig/adv: 0.8453 | edit: 0.4230
+  CLIP orig: 25.4550 | adv: 24.2017
+
+[47] A person in a summer camp
+  PSNR orig/adv: 30.2338 | edit: 15.6104
+  SSIM orig/adv: 0.9145 | edit: 0.5786
+  FSIM orig/adv: 0.8936 | edit: 0.5084
+  CLIP orig: 28.5976 | adv: 26.5637
+
+[48] A person in a street vendor stand
+  PSNR orig/adv: 29.4350 | edit: 14.0562
+  SSIM orig/adv: 0.9216 | edit: 0.4398
+  FSIM orig/adv: 0.8027 | edit: 0.4799
+  CLIP orig: 28.3296 | adv: 28.4598
+
+[49] A person in a science museum exhibit
+  PSNR orig/adv: 30.2190 | edit: 18.6094
+  SSIM orig/adv: 0.9207 | edit: 0.5206
+  FSIM orig/adv: 0.8811 | edit: 0.4210
+  CLIP orig: 28.7754 | adv: 30.5456
+
+[50] A person in a car dealership
+  PSNR orig/adv: 29.1341 | edit: 12.9017
+  SSIM orig/adv: 0.8792 | edit: 0.4624
+  FSIM orig/adv: 0.8404 | edit: 0.4238
+  CLIP orig: 27.8894 | adv: 28.8336
+
+[51] A person in a yoga class
+  PSNR orig/adv: 29.4786 | edit: 15.2037
+  SSIM orig/adv: 0.9056 | edit: 0.5174
+  FSIM orig/adv: 0.8901 | edit: 0.4146
+  CLIP orig: 23.3736 | adv: 29.9970
+
+[52] A person in a refugee camp
+  PSNR orig/adv: 31.2700 | edit: 16.7734
+  SSIM orig/adv: 0.9395 | edit: 0.5412
+  FSIM orig/adv: 0.8719 | edit: 0.5108
+  CLIP orig: 27.9442 | adv: 28.0947
+
+[53] A person in a rooftop lounge
+  PSNR orig/adv: 31.4945 | edit: 15.3144
+  SSIM orig/adv: 0.9482 | edit: 0.5318
+  FSIM orig/adv: 0.9130 | edit: 0.5032
+  CLIP orig: 27.0886 | adv: 27.7782
+
+[54] A person in a church hall
+  PSNR orig/adv: 30.0813 | edit: 13.5581
+  SSIM orig/adv: 0.9217 | edit: 0.4719
+  FSIM orig/adv: 0.8925 | edit: 0.4269
+  CLIP orig: 24.3386 | adv: 28.0003
+
+[55] A person in a historic landmark event
+  PSNR orig/adv: 30.8466 | edit: 13.4643
+  SSIM orig/adv: 0.9504 | edit: 0.4368
+  FSIM orig/adv: 0.9070 | edit: 0.4293
+  CLIP orig: 22.5303 | adv: 25.0043
+
+[56] A person in a mall
+  PSNR orig/adv: 30.0792 | edit: 16.2757
+  SSIM orig/adv: 0.9314 | edit: 0.6393
+  FSIM orig/adv: 0.8645 | edit: 0.5499
+  CLIP orig: 26.6592 | adv: 26.9400
+
+[57] A person in a dance school
+  PSNR orig/adv: 29.9802 | edit: 16.1098
+  SSIM orig/adv: 0.9081 | edit: 0.4980
+  FSIM orig/adv: 0.9041 | edit: 0.4286
+  CLIP orig: 22.5138 | adv: 24.6636
+
+[58] A person in a bowling alley
+  PSNR orig/adv: 30.8954 | edit: 13.5295
+  SSIM orig/adv: 0.9287 | edit: 0.4201
+  FSIM orig/adv: 0.8800 | edit: 0.4342
+  CLIP orig: 31.7944 | adv: 31.9882
+
+[59] A person in a cocktail bar
+  PSNR orig/adv: 29.7436 | edit: 16.2472
+  SSIM orig/adv: 0.9241 | edit: 0.5315
+  FSIM orig/adv: 0.8517 | edit: 0.5121
+  CLIP orig: 29.0101 | adv: 28.8065
+
+[60] A person in a youth hostel
+  PSNR orig/adv: 30.1810 | edit: 16.9235
+  SSIM orig/adv: 0.9529 | edit: 0.6140
+  FSIM orig/adv: 0.9020 | edit: 0.4789
+  CLIP orig: 20.7628 | adv: 22.0611
+
+[61] A person in a customs office
+  PSNR orig/adv: 31.5296 | edit: 16.4496
+  SSIM orig/adv: 0.9235 | edit: 0.6107
+  FSIM orig/adv: 0.8923 | edit: 0.4670
+  CLIP orig: 27.6559 | adv: 26.4247
+
+[62] A person in a festival ground
+  PSNR orig/adv: 30.7008 | edit: 19.1391
+  SSIM orig/adv: 0.9707 | edit: 0.7146
+  FSIM orig/adv: 0.8776 | edit: 0.6331
+  CLIP orig: 32.5543 | adv: 31.1990
+
+[63] A person in a TV studio
+  PSNR orig/adv: 28.0425 | edit: 15.7857
+  SSIM orig/adv: 0.8853 | edit: 0.5427
+  FSIM orig/adv: 0.8088 | edit: 0.4719
+  CLIP orig: 24.4013 | adv: 30.6832
+
+[64] A person in a news van
+  PSNR orig/adv: 31.3687 | edit: 12.1332
+  SSIM orig/adv: 0.9539 | edit: 0.4816
+  FSIM orig/adv: 0.9210 | edit: 0.4197
+  CLIP orig: 29.6258 | adv: 28.5035
+
+[65] A person in a basement
+  PSNR orig/adv: 31.7727 | edit: 17.9575
+  SSIM orig/adv: 0.9620 | edit: 0.5469
+  FSIM orig/adv: 0.8958 | edit: 0.4691
+  CLIP orig: 24.3508 | adv: 24.9219
+
+[66] A person in a climbing wall
+  PSNR orig/adv: 30.7004 | edit: 11.5434
+  SSIM orig/adv: 0.9540 | edit: 0.4308
+  FSIM orig/adv: 0.8665 | edit: 0.4736
+  CLIP orig: 29.4958 | adv: 26.5719
+
+[67] A person in a shopping center
+  PSNR orig/adv: 29.2834 | edit: 15.6933
+  SSIM orig/adv: 0.9065 | edit: 0.5831
+  FSIM orig/adv: 0.8807 | edit: 0.4936
+  CLIP orig: 26.1101 | adv: 28.3966
+
+[68] A person in a prison shower
+  PSNR orig/adv: 29.8424 | edit: 17.9469
+  SSIM orig/adv: 0.9038 | edit: 0.4320
+  FSIM orig/adv: 0.8572 | edit: 0.4841
+  CLIP orig: 29.9053 | adv: 30.7093
+
+[69] A person in a swimming pool
+  PSNR orig/adv: 29.6299 | edit: 13.5521
+  SSIM orig/adv: 0.9402 | edit: 0.5111
+  FSIM orig/adv: 0.8676 | edit: 0.4517
+  CLIP orig: 28.3834 | adv: 31.1776
+
+[70] A person in a frozen yogurt shop
+  PSNR orig/adv: 31.2146 | edit: 12.8964
+  SSIM orig/adv: 0.9437 | edit: 0.5806
+  FSIM orig/adv: 0.8860 | edit: 0.4984
+  CLIP orig: 28.3602 | adv: 28.8008
+
+[71] A person in a bowling alley
+  PSNR orig/adv: 29.5802 | edit: 12.3519
+  SSIM orig/adv: 0.9161 | edit: 0.4495
+  FSIM orig/adv: 0.8744 | edit: 0.4576
+  CLIP orig: 30.2693 | adv: 31.8267
+
+[72] A person in a parking garage
+  PSNR orig/adv: 27.8027 | edit: 16.3533
+  SSIM orig/adv: 0.9767 | edit: 0.5979
+  FSIM orig/adv: 0.8998 | edit: 0.5771
+  CLIP orig: 26.0117 | adv: 25.0745
+
+[73] A person in a boxing ring
+  PSNR orig/adv: 30.2227 | edit: 14.4627
+  SSIM orig/adv: 0.9135 | edit: 0.4555
+  FSIM orig/adv: 0.8173 | edit: 0.4584
+  CLIP orig: 29.2361 | adv: 27.4460
+
+[74] A person in a quilt shop
+  PSNR orig/adv: 30.9197 | edit: 15.3312
+  SSIM orig/adv: 0.9201 | edit: 0.4459
+  FSIM orig/adv: 0.8885 | edit: 0.4403
+  CLIP orig: 28.1227 | adv: 30.0921
+
+[75] A person in a butcher’s shop
+  PSNR orig/adv: 29.2210 | edit: 16.2339
+  SSIM orig/adv: 0.9230 | edit: 0.5463
+  FSIM orig/adv: 0.8529 | edit: 0.5710
+  CLIP orig: 29.7592 | adv: 28.7971
+
+[76] A person in a local wine festival
+  PSNR orig/adv: 29.1077 | edit: 15.8338
+  SSIM orig/adv: 0.8516 | edit: 0.5274
+  FSIM orig/adv: 0.8203 | edit: 0.4801
+  CLIP orig: 28.5636 | adv: 28.3978
+
+[77] A person in a bridal fitting room
+  PSNR orig/adv: 29.6460 | edit: 13.6707
+  SSIM orig/adv: 0.9070 | edit: 0.5250
+  FSIM orig/adv: 0.9018 | edit: 0.4313
+  CLIP orig: 25.7813 | adv: 27.3373
+
+[78] A person in a shipping yard
+  PSNR orig/adv: 29.2054 | edit: 13.1603
+  SSIM orig/adv: 0.9427 | edit: 0.5344
+  FSIM orig/adv: 0.8469 | edit: 0.4782
+  CLIP orig: 27.4037 | adv: 28.4812
+
+[79] A person in a beach shack
+  PSNR orig/adv: 30.0134 | edit: 13.7465
+  SSIM orig/adv: 0.9182 | edit: 0.4371
+  FSIM orig/adv: 0.8483 | edit: 0.4957
+  CLIP orig: 28.9013 | adv: 29.1267
+
+[80] A person in a gym class
+  PSNR orig/adv: 29.2872 | edit: 13.9448
+  SSIM orig/adv: 0.8845 | edit: 0.4906
+  FSIM orig/adv: 0.8162 | edit: 0.4129
+  CLIP orig: 24.5607 | adv: 28.8457
+
+[81] A person in a bridal fitting room
+  PSNR orig/adv: 28.1093 | edit: 7.7692
+  SSIM orig/adv: 0.8791 | edit: 0.2312
+  FSIM orig/adv: 0.8805 | edit: 0.5060
+  CLIP orig: 22.5963 | adv: 19.8204
+
+[82] A person in a fire drill
+  PSNR orig/adv: 30.2106 | edit: 15.4080
+  SSIM orig/adv: 0.9361 | edit: 0.5538
+  FSIM orig/adv: 0.9076 | edit: 0.5744
+  CLIP orig: 24.2137 | adv: 25.8833
+
+[83] A person in a strip club
+  PSNR orig/adv: 29.4292 | edit: 16.9204
+  SSIM orig/adv: 0.9103 | edit: 0.5097
+  FSIM orig/adv: 0.8588 | edit: 0.4682
+  CLIP orig: 22.7374 | adv: 22.6177
+
+[84] A person in a pastry shop
+  PSNR orig/adv: 29.6615 | edit: 14.9321
+  SSIM orig/adv: 0.9362 | edit: 0.5063
+  FSIM orig/adv: 0.8685 | edit: 0.4824
+  CLIP orig: 27.3791 | adv: 30.0847
+
+[85] A person in a high-end restaurant
+  PSNR orig/adv: 29.4852 | edit: 14.2028
+  SSIM orig/adv: 0.8550 | edit: 0.4550
+  FSIM orig/adv: 0.8668 | edit: 0.4587
+  CLIP orig: 31.5517 | adv: 31.6390
+
+[86] A person in a shopping center
+  PSNR orig/adv: 30.3459 | edit: 15.8602
+  SSIM orig/adv: 0.8958 | edit: 0.5836
+  FSIM orig/adv: 0.8509 | edit: 0.5078
+  CLIP orig: 27.1941 | adv: 29.2788
+
+[87] A person in a church hall
+  PSNR orig/adv: 28.5752 | edit: 15.3606
+  SSIM orig/adv: 0.9492 | edit: 0.5164
+  FSIM orig/adv: 0.9175 | edit: 0.5075
+  CLIP orig: 24.3567 | adv: 27.3385
+
+[88] A person in a local bakery
+  PSNR orig/adv: 30.4541 | edit: 12.2473
+  SSIM orig/adv: 0.9169 | edit: 0.3990
+  FSIM orig/adv: 0.8762 | edit: 0.4160
+  CLIP orig: 30.8093 | adv: 33.4328
+
+[89] A person in a gym class
+  PSNR orig/adv: 28.5782 | edit: 14.2885
+  SSIM orig/adv: 0.8993 | edit: 0.4904
+  FSIM orig/adv: 0.8452 | edit: 0.4166
+  CLIP orig: 27.9331 | adv: 28.8022
+
+[90] A person in a dance school
+  PSNR orig/adv: 28.5994 | edit: 15.5990
+  SSIM orig/adv: 0.9154 | edit: 0.6051
+  FSIM orig/adv: 0.8830 | edit: 0.4946
+  CLIP orig: 22.6343 | adv: 27.2210
+
+[91] A person in a summer camp
+  PSNR orig/adv: 29.8690 | edit: 17.5608
+  SSIM orig/adv: 0.9169 | edit: 0.6593
+  FSIM orig/adv: 0.8914 | edit: 0.5595
+  CLIP orig: 27.2669 | adv: 26.2439
+
+[92] A person in a digital art gallery
+  PSNR orig/adv: 30.1754 | edit: 14.2481
+  SSIM orig/adv: 0.9187 | edit: 0.3537
+  FSIM orig/adv: 0.8697 | edit: 0.3922
+  CLIP orig: 29.8861 | adv: 27.2396
+
+[93] A person in a customs checkpoint
+  PSNR orig/adv: 30.3164 | edit: 18.7628
+  SSIM orig/adv: 0.9350 | edit: 0.6901
+  FSIM orig/adv: 0.8624 | edit: 0.5831
+  CLIP orig: 24.7080 | adv: 26.4555
+
+[94] A person in a butcher’s block
+  PSNR orig/adv: 31.7210 | edit: 16.6173
+  SSIM orig/adv: 0.9528 | edit: 0.5318
+  FSIM orig/adv: 0.9039 | edit: 0.4616
+  CLIP orig: 27.0173 | adv: 26.5219
+
+[95] A person in a flower stall
+  PSNR orig/adv: 29.1620 | edit: 16.6651
+  SSIM orig/adv: 0.9250 | edit: 0.5524
+  FSIM orig/adv: 0.8778 | edit: 0.5946
+  CLIP orig: 31.9631 | adv: 31.5446
+
+[96] A person in a street food court
+  PSNR orig/adv: 30.6948 | edit: 16.0277
+  SSIM orig/adv: 0.9109 | edit: 0.5028
+  FSIM orig/adv: 0.8967 | edit: 0.4857
+  CLIP orig: 29.5574 | adv: 31.3973
+
+[97] A person in a car dealership
+  PSNR orig/adv: 30.2214 | edit: 12.5631
+  SSIM orig/adv: 0.9135 | edit: 0.5188
+  FSIM orig/adv: 0.8162 | edit: 0.4472
+  CLIP orig: 26.1956 | adv: 29.1942
+
+[98] A person in a city parade
+  PSNR orig/adv: 30.6184 | edit: 13.1634
+  SSIM orig/adv: 0.9330 | edit: 0.4820
+  FSIM orig/adv: 0.8961 | edit: 0.5040
+  CLIP orig: 27.9746 | adv: 31.0640
+
+[99] A person in a creative writing event
+  PSNR orig/adv: 30.3975 | edit: 14.7624
+  SSIM orig/adv: 0.9243 | edit: 0.4256
+  FSIM orig/adv: 0.8781 | edit: 0.4498
+  CLIP orig: 21.6731 | adv: 21.8254
+
+[100] A person in a festival ground
+  PSNR orig/adv: 29.2709 | edit: 22.2338
+  SSIM orig/adv: 0.9024 | edit: 0.7268
+  FSIM orig/adv: 0.8668 | edit: 0.6519
+  CLIP orig: 29.2696 | adv: 30.8285
+
+[101] A person in a bridal fitting room
+  PSNR orig/adv: 30.5763 | edit: 14.9745
+  SSIM orig/adv: 0.9283 | edit: 0.5773
+  FSIM orig/adv: 0.8265 | edit: 0.4573
+  CLIP orig: 26.1359 | adv: 26.9025
+
+[102] A person in a high school
+  PSNR orig/adv: 29.5167 | edit: 16.2887
+  SSIM orig/adv: 0.8901 | edit: 0.5621
+  FSIM orig/adv: 0.8910 | edit: 0.5010
+  CLIP orig: 19.8843 | adv: 21.3944
+
+[103] A person in a creative writing event
+  PSNR orig/adv: 27.4055 | edit: 13.9344
+  SSIM orig/adv: 0.8874 | edit: 0.4693
+  FSIM orig/adv: 0.8266 | edit: 0.4537
+  CLIP orig: 23.4773 | adv: 21.8807
+
+[104] A person in a craft beer festival
+  PSNR orig/adv: 29.1472 | edit: 17.1513
+  SSIM orig/adv: 0.9037 | edit: 0.6162
+  FSIM orig/adv: 0.8544 | edit: 0.5752
+  CLIP orig: 25.9742 | adv: 29.5089
+
+[105] A person in a drive-thru
+  PSNR orig/adv: 29.9171 | edit: 10.7621
+  SSIM orig/adv: 0.9037 | edit: 0.4092
+  FSIM orig/adv: 0.9026 | edit: 0.4189
+  CLIP orig: 23.6818 | adv: 21.7484
+
+[106] A person in a nightclub
+  PSNR orig/adv: 29.6495 | edit: 14.8307
+  SSIM orig/adv: 0.8950 | edit: 0.5034
+  FSIM orig/adv: 0.9095 | edit: 0.4550
+  CLIP orig: 24.8708 | adv: 26.5286
+
+[107] A person in a tech store
+  PSNR orig/adv: 29.6235 | edit: 14.2763
+  SSIM orig/adv: 0.9241 | edit: 0.4631
+  FSIM orig/adv: 0.9077 | edit: 0.4630
+  CLIP orig: 23.9737 | adv: 25.8548
+
+[108] A person in a refugee camp
+  PSNR orig/adv: 28.7379 | edit: 18.8930
+  SSIM orig/adv: 0.8698 | edit: 0.6155
+  FSIM orig/adv: 0.8490 | edit: 0.5283
+  CLIP orig: 29.1463 | adv: 30.6823
+
+[109] A person in a motel room
+  PSNR orig/adv: 32.4956 | edit: 11.4147
+  SSIM orig/adv: 0.9580 | edit: 0.5687
+  FSIM orig/adv: 0.9167 | edit: 0.4522
+  CLIP orig: 27.7484 | adv: 28.4998
+
+[110] A person in a farmers' cooperative
+  PSNR orig/adv: 29.7305 | edit: 15.3744
+  SSIM orig/adv: 0.9142 | edit: 0.4415
+  FSIM orig/adv: 0.8750 | edit: 0.4592
+  CLIP orig: 27.7335 | adv: 27.0356
+
+[111] A person in a vintage record shop
+  PSNR orig/adv: 30.9099 | edit: 13.9001
+  SSIM orig/adv: 0.9305 | edit: 0.4500
+  FSIM orig/adv: 0.8413 | edit: 0.4650
+  CLIP orig: 28.8454 | adv: 31.4376
+
+[112] A person in a jail
+  PSNR orig/adv: 31.4916 | edit: 19.2492
+  SSIM orig/adv: 0.9470 | edit: 0.5300
+  FSIM orig/adv: 0.8671 | edit: 0.5836
+  CLIP orig: 25.9586 | adv: 27.7464
+
+[113] A person in a butcher’s shop
+  PSNR orig/adv: 29.0334 | edit: 12.6419
+  SSIM orig/adv: 0.8858 | edit: 0.3778
+  FSIM orig/adv: 0.9154 | edit: 0.4184
+  CLIP orig: 30.9046 | adv: 29.9181
+
+[114] A person in a farmers’ co-op
+  PSNR orig/adv: 29.4227 | edit: 13.9594
+  SSIM orig/adv: 0.8992 | edit: 0.4508
+  FSIM orig/adv: 0.8332 | edit: 0.5026
+  CLIP orig: 27.6750 | adv: 27.6287
+
+[115] A person in a charity art auction
+  PSNR orig/adv: 31.3554 | edit: 14.3889
+  SSIM orig/adv: 0.9577 | edit: 0.5962
+  FSIM orig/adv: 0.8620 | edit: 0.4858
+  CLIP orig: 26.2576 | adv: 25.2207
+
+[116] A person in a street parade
+  PSNR orig/adv: 29.4816 | edit: 13.1504
+  SSIM orig/adv: 0.8946 | edit: 0.4821
+  FSIM orig/adv: 0.8921 | edit: 0.5006
+  CLIP orig: 28.4108 | adv: 27.8033
+
+[117] A person in a soap store
+  PSNR orig/adv: 28.6714 | edit: 10.5832
+  SSIM orig/adv: 0.8573 | edit: 0.3577
+  FSIM orig/adv: 0.8653 | edit: 0.3981
+  CLIP orig: 25.9495 | adv: 24.4627
+
+[118] A person in a technology trade show
+  PSNR orig/adv: 30.7168 | edit: 13.0521
+  SSIM orig/adv: 0.9071 | edit: 0.4492
+  FSIM orig/adv: 0.8033 | edit: 0.4000
+  CLIP orig: 29.6679 | adv: 32.4719
+
+[119] A person in a kite festival
+  PSNR orig/adv: 30.5237 | edit: 16.9583
+  SSIM orig/adv: 0.9078 | edit: 0.6369
+  FSIM orig/adv: 0.8641 | edit: 0.4718
+  CLIP orig: 30.6493 | adv: 34.4280
+
+[120] A person in a flower stall
+  PSNR orig/adv: 30.9448 | edit: 15.6312
+  SSIM orig/adv: 0.9548 | edit: 0.4726
+  FSIM orig/adv: 0.8791 | edit: 0.5534
+  CLIP orig: 32.1636 | adv: 32.4579
+
+[121] A person in a music and arts festival
+  PSNR orig/adv: 29.5023 | edit: 18.6801
+  SSIM orig/adv: 0.9232 | edit: 0.6756
+  FSIM orig/adv: 0.8497 | edit: 0.5541
+  CLIP orig: 28.9382 | adv: 29.2952
+
+[122] A person in a science lab
+  PSNR orig/adv: 29.2507 | edit: 13.3275
+  SSIM orig/adv: 0.9268 | edit: 0.4986
+  FSIM orig/adv: 0.8541 | edit: 0.4988
+  CLIP orig: 25.8915 | adv: 27.8354
+
+[123] A person in a vintage arts fair
+  PSNR orig/adv: 30.0290 | edit: 15.6117
+  SSIM orig/adv: 0.8864 | edit: 0.4452
+  FSIM orig/adv: 0.8525 | edit: 0.4500
+  CLIP orig: 31.2276 | adv: 32.9347
+
+[124] A person in a rooftop bar
+  PSNR orig/adv: 28.8561 | edit: 16.5345
+  SSIM orig/adv: 0.9200 | edit: 0.5653
+  FSIM orig/adv: 0.9044 | edit: 0.5045
+  CLIP orig: 26.0844 | adv: 25.5950
+
+[125] A person in a ceramic art exhibit
+  PSNR orig/adv: 28.8575 | edit: 15.1175
+  SSIM orig/adv: 0.9040 | edit: 0.4971
+  FSIM orig/adv: 0.8425 | edit: 0.4383
+  CLIP orig: 30.5467 | adv: 31.5854
+
+[126] A person in a digital art gallery
+  PSNR orig/adv: 29.6066 | edit: 13.1302
+  SSIM orig/adv: 0.9232 | edit: 0.4065
+  FSIM orig/adv: 0.9036 | edit: 0.4391
+  CLIP orig: 31.0771 | adv: 30.8898
+
+[127] A person in a music studio
+  PSNR orig/adv: 29.0442 | edit: 13.4133
+  SSIM orig/adv: 0.9303 | edit: 0.3978
+  FSIM orig/adv: 0.8772 | edit: 0.4027
+  CLIP orig: 26.2198 | adv: 24.4017
+
+[128] A person in a vintage arcade
+  PSNR orig/adv: 28.6680 | edit: 11.5230
+  SSIM orig/adv: 0.9210 | edit: 0.3610
+  FSIM orig/adv: 0.8466 | edit: 0.4258
+  CLIP orig: 30.5407 | adv: 32.0930
+
+[129] A person in a historic landmark event
+  PSNR orig/adv: 29.5567 | edit: 16.5803
+  SSIM orig/adv: 0.9508 | edit: 0.4892
+  FSIM orig/adv: 0.9227 | edit: 0.3922
+  CLIP orig: 24.5600 | adv: 24.3562
+
+[130] A person in a travel agency
+  PSNR orig/adv: 29.2222 | edit: 17.4050
+  SSIM orig/adv: 0.8921 | edit: 0.6218
+  FSIM orig/adv: 0.9192 | edit: 0.5654
+  CLIP orig: 21.8369 | adv: 24.2020
+
+[131] A person in a church hall
+  PSNR orig/adv: 29.8572 | edit: 11.7350
+  SSIM orig/adv: 0.9149 | edit: 0.3393
+  FSIM orig/adv: 0.9133 | edit: 0.3885
+  CLIP orig: 24.1826 | adv: 27.3686
+
+[132] A person in a shopping center
+  PSNR orig/adv: 29.6932 | edit: 15.6594
+  SSIM orig/adv: 0.8991 | edit: 0.6248
+  FSIM orig/adv: 0.8800 | edit: 0.5501
+  CLIP orig: 24.6315 | adv: 27.7503
+
+[133] A person in a local crafts market
+  PSNR orig/adv: 29.9779 | edit: 17.9972
+  SSIM orig/adv: 0.9454 | edit: 0.5702
+  FSIM orig/adv: 0.9002 | edit: 0.5662
+  CLIP orig: 29.0418 | adv: 28.8294
+
+[134] A person in a public botanical garden
+  PSNR orig/adv: 31.2239 | edit: 18.1763
+  SSIM orig/adv: 0.8938 | edit: 0.4266
+  FSIM orig/adv: 0.7579 | edit: 0.4530
+  CLIP orig: 29.4525 | adv: 29.2220
+
+[135] A person in a public park
+  PSNR orig/adv: 30.2442 | edit: 19.5027
+  SSIM orig/adv: 0.9120 | edit: 0.6322
+  FSIM orig/adv: 0.8842 | edit: 0.5294
+  CLIP orig: 24.0306 | adv: 27.3143
+
+[136] A person in a tech launch event
+  PSNR orig/adv: 29.7726 | edit: 13.1225
+  SSIM orig/adv: 0.9329 | edit: 0.4894
+  FSIM orig/adv: 0.8296 | edit: 0.4558
+  CLIP orig: 29.1313 | adv: 27.9957
+
+[137] A person in a street parade
+  PSNR orig/adv: 32.1090 | edit: 18.2842
+  SSIM orig/adv: 0.9847 | edit: 0.7017
+  FSIM orig/adv: 0.9000 | edit: 0.6456
+  CLIP orig: 29.7662 | adv: 28.8927
+
+[138] A person in a dance school
+  PSNR orig/adv: 30.1019 | edit: 12.6240
+  SSIM orig/adv: 0.9101 | edit: 0.4622
+  FSIM orig/adv: 0.8862 | edit: 0.4218
+  CLIP orig: 27.2043 | adv: 24.6593
+
+[139] A person in a community arts and crafts market
+  PSNR orig/adv: 29.7773 | edit: 14.8709
+  SSIM orig/adv: 0.9375 | edit: 0.4652
+  FSIM orig/adv: 0.9046 | edit: 0.4982
+  CLIP orig: 28.6175 | adv: 27.8655
+
+[140] A person in a concert hall
+  PSNR orig/adv: 29.8139 | edit: 15.0491
+  SSIM orig/adv: 0.8932 | edit: 0.4525
+  FSIM orig/adv: 0.8680 | edit: 0.4325
+  CLIP orig: 26.6701 | adv: 24.3872
+
+[141] A person in a lobby
+  PSNR orig/adv: 28.9863 | edit: 13.5031
+  SSIM orig/adv: 0.9081 | edit: 0.4648
+  FSIM orig/adv: 0.9090 | edit: 0.4498
+  CLIP orig: 21.2185 | adv: 21.3687
+
+[142] A person in a children’s theater
+  PSNR orig/adv: 29.1762 | edit: 12.8525
+  SSIM orig/adv: 0.9105 | edit: 0.4168
+  FSIM orig/adv: 0.8255 | edit: 0.4288
+  CLIP orig: 27.7390 | adv: 24.0110
+
+[143] A person in a church sanctuary
+  PSNR orig/adv: 29.0226 | edit: 13.1139
+  SSIM orig/adv: 0.9339 | edit: 0.4242
+  FSIM orig/adv: 0.8862 | edit: 0.4207
+  CLIP orig: 27.2293 | adv: 26.5699
+
+[144] A person in a festival ground
+  PSNR orig/adv: 31.4015 | edit: 20.2490
+  SSIM orig/adv: 0.9415 | edit: 0.6920
+  FSIM orig/adv: 0.8873 | edit: 0.5529
+  CLIP orig: 30.7217 | adv: 30.6275
+
+[145] A person in a jail
+  PSNR orig/adv: 30.1400 | edit: 15.4055
+  SSIM orig/adv: 0.9199 | edit: 0.3741
+  FSIM orig/adv: 0.9122 | edit: 0.5046
+  CLIP orig: 21.2950 | adv: 25.6168
+
+[146] A person in a prison shower
+  PSNR orig/adv: 30.4859 | edit: 18.2067
+  SSIM orig/adv: 0.9219 | edit: 0.4495
+  FSIM orig/adv: 0.8580 | edit: 0.4495
+  CLIP orig: 26.4887 | adv: 25.9124
+
+[147] A person in a sandwich shop
+  PSNR orig/adv: 31.8566 | edit: 15.6310
+  SSIM orig/adv: 0.9339 | edit: 0.5089
+  FSIM orig/adv: 0.9364 | edit: 0.4626
+  CLIP orig: 26.7911 | adv: 28.4543
+
+[148] A person in a refugee camp
+  PSNR orig/adv: 28.7444 | edit: 16.1985
+  SSIM orig/adv: 0.9152 | edit: 0.6226
+  FSIM orig/adv: 0.8546 | edit: 0.5423
+  CLIP orig: 32.9732 | adv: 26.9102
+
+[149] A person in a gymnasium
+  PSNR orig/adv: 32.7307 | edit: 16.8415
+  SSIM orig/adv: 0.9516 | edit: 0.5390
+  FSIM orig/adv: 0.8938 | edit: 0.4759
+  CLIP orig: 28.0680 | adv: 23.2558
+
+[150] A person in a charity art auction
+  PSNR orig/adv: 32.9735 | edit: 13.2115
+  SSIM orig/adv: 0.9833 | edit: 0.4603
+  FSIM orig/adv: 0.9438 | edit: 0.4556
+  CLIP orig: 27.1945 | adv: 26.8914
+
+[151] A person in a probation office
+  PSNR orig/adv: 30.0919 | edit: 14.3304
+  SSIM orig/adv: 0.9019 | edit: 0.5248
+  FSIM orig/adv: 0.8553 | edit: 0.4317
+  CLIP orig: 27.8003 | adv: 26.5488
+
+[152] A person in a soap store
+  PSNR orig/adv: 29.2840 | edit: 11.6147
+  SSIM orig/adv: 0.9182 | edit: 0.4203
+  FSIM orig/adv: 0.8053 | edit: 0.4502
+  CLIP orig: 23.5692 | adv: 28.8623
+
+[153] A person in a parking garage
+  PSNR orig/adv: 29.5819 | edit: 16.8424
+  SSIM orig/adv: 0.8631 | edit: 0.4641
+  FSIM orig/adv: 0.7880 | edit: 0.4188
+  CLIP orig: 26.5037 | adv: 26.8880
+
+[154] A person in a mall
+  PSNR orig/adv: 31.8642 | edit: 15.0192
+  SSIM orig/adv: 0.9664 | edit: 0.5827
+  FSIM orig/adv: 0.9433 | edit: 0.4932
+  CLIP orig: 25.1855 | adv: 27.4781
+
+[155] A person in a weekend market
+  PSNR orig/adv: 30.4986 | edit: 15.6924
+  SSIM orig/adv: 0.9204 | edit: 0.5323
+  FSIM orig/adv: 0.8966 | edit: 0.5103
+  CLIP orig: 29.3934 | adv: 30.3592
+
+[156] A person in a beachside boardwalk
+  PSNR orig/adv: 30.4168 | edit: 13.4967
+  SSIM orig/adv: 0.9304 | edit: 0.5462
+  FSIM orig/adv: 0.9114 | edit: 0.4635
+  CLIP orig: 27.5987 | adv: 26.7805
+
+[157] A person in a local art market
+  PSNR orig/adv: 29.9507 | edit: 15.0619
+  SSIM orig/adv: 0.9296 | edit: 0.4747
+  FSIM orig/adv: 0.8890 | edit: 0.4717
+  CLIP orig: 29.6562 | adv: 26.8895
+
+[158] A person in a ice cream parlor
+  PSNR orig/adv: 29.2647 | edit: 15.5929
+  SSIM orig/adv: 0.8798 | edit: 0.4851
+  FSIM orig/adv: 0.8451 | edit: 0.4673
+  CLIP orig: 30.4990 | adv: 26.1476
+
+[159] A person in a TV newsroom
+  PSNR orig/adv: 30.1556 | edit: 12.3303
+  SSIM orig/adv: 0.9234 | edit: 0.4502
+  FSIM orig/adv: 0.9167 | edit: 0.4334
+  CLIP orig: 28.3771 | adv: 27.9265
+
+[160] A person in a slum
+  PSNR orig/adv: 28.4894 | edit: 16.6427
+  SSIM orig/adv: 0.9139 | edit: 0.5607
+  FSIM orig/adv: 0.9119 | edit: 0.5166
+  CLIP orig: 26.6016 | adv: 29.6598
+
+[161] A person in a tech store
+  PSNR orig/adv: 33.6416 | edit: 11.0898
+  SSIM orig/adv: 0.9551 | edit: 0.4077
+  FSIM orig/adv: 0.9268 | edit: 0.4198
+  CLIP orig: 24.7791 | adv: 24.4821
+
+[162] A person in a swimming pool
+  PSNR orig/adv: 29.4943 | edit: 16.2221
+  SSIM orig/adv: 0.8948 | edit: 0.5619
+  FSIM orig/adv: 0.8383 | edit: 0.4171
+  CLIP orig: 30.1524 | adv: 33.3447
+
+[163] A person in a community theater production
+  PSNR orig/adv: 29.4925 | edit: 14.3901
+  SSIM orig/adv: 0.9308 | edit: 0.4499
+  FSIM orig/adv: 0.8888 | edit: 0.4827
+  CLIP orig: 26.4827 | adv: 29.9032
+
+[164] A person in a customs checkpoint
+  PSNR orig/adv: 30.5616 | edit: 16.4641
+  SSIM orig/adv: 0.9066 | edit: 0.5694
+  FSIM orig/adv: 0.8692 | edit: 0.4395
+  CLIP orig: 28.7472 | adv: 25.8071
+
+[165] A person in a fast food drive-in
+  PSNR orig/adv: 29.4665 | edit: 12.5026
+  SSIM orig/adv: 0.9009 | edit: 0.4576
+  FSIM orig/adv: 0.7936 | edit: 0.4039
+  CLIP orig: 26.5827 | adv: 27.7699
+
+[166] A person in a pet adoption center
+  PSNR orig/adv: 30.8335 | edit: 14.9693
+  SSIM orig/adv: 0.9490 | edit: 0.4666
+  FSIM orig/adv: 0.8696 | edit: 0.4694
+  CLIP orig: 21.2412 | adv: 23.2570
+
+[167] A person in a ceramic art exhibit
+  PSNR orig/adv: 28.7524 | edit: 14.2341
+  SSIM orig/adv: 0.8798 | edit: 0.4491
+  FSIM orig/adv: 0.8257 | edit: 0.4309
+  CLIP orig: 30.3773 | adv: 29.0158
+
+[168] A person in a tech startup launch
+  PSNR orig/adv: 29.3132 | edit: 14.5758
+  SSIM orig/adv: 0.9001 | edit: 0.4726
+  FSIM orig/adv: 0.8208 | edit: 0.3730
+  CLIP orig: 24.4056 | adv: 22.4378
+
+[169] A person in a strip club
+  PSNR orig/adv: 30.3304 | edit: 9.1609
+  SSIM orig/adv: 0.9171 | edit: 0.1679
+  FSIM orig/adv: 0.8667 | edit: 0.2993
+  CLIP orig: 24.0495 | adv: 22.5415
+
+[170] A person in a game room
+  PSNR orig/adv: 30.3250 | edit: 13.9515
+  SSIM orig/adv: 0.8819 | edit: 0.3788
+  FSIM orig/adv: 0.8627 | edit: 0.4230
+  CLIP orig: 24.2900 | adv: 27.1324
+
+[171] A person in a call center
+  PSNR orig/adv: 29.7261 | edit: 14.1919
+  SSIM orig/adv: 0.9039 | edit: 0.5976
+  FSIM orig/adv: 0.9089 | edit: 0.4764
+  CLIP orig: 27.4458 | adv: 23.4805
+
+[172] A person in a stadium tunnel
+  PSNR orig/adv: 28.3582 | edit: 13.1302
+  SSIM orig/adv: 0.8847 | edit: 0.3947
+  FSIM orig/adv: 0.7710 | edit: 0.4295
+  CLIP orig: 30.2298 | adv: 30.7559
+
+[173] A person in a vintage arts fair
+  PSNR orig/adv: 30.0701 | edit: 14.9752
+  SSIM orig/adv: 0.9231 | edit: 0.5098
+  FSIM orig/adv: 0.8861 | edit: 0.4655
+  CLIP orig: 29.2873 | adv: 29.8935
+
+[174] A person in a high-end restaurant
+  PSNR orig/adv: 30.5883 | edit: 15.4097
+  SSIM orig/adv: 0.9144 | edit: 0.5812
+  FSIM orig/adv: 0.8962 | edit: 0.5073
+  CLIP orig: 29.2284 | adv: 29.2541
+
+[175] A person in a butcher’s shop
+  PSNR orig/adv: 30.7200 | edit: 16.6879
+  SSIM orig/adv: 0.9384 | edit: 0.5398
+  FSIM orig/adv: 0.8925 | edit: 0.4776
+  CLIP orig: 29.7696 | adv: 29.0327
+
+[176] A person in a church sanctuary
+  PSNR orig/adv: 28.8972 | edit: 14.4754
+  SSIM orig/adv: 0.8950 | edit: 0.3944
+  FSIM orig/adv: 0.8793 | edit: 0.4280
+  CLIP orig: 25.6009 | adv: 27.5364
+
+[177] A person in a rehab facility
+  PSNR orig/adv: 29.5245 | edit: 13.6583
+  SSIM orig/adv: 0.9431 | edit: 0.4262
+  FSIM orig/adv: 0.8742 | edit: 0.5659
+  CLIP orig: 24.1795 | adv: 23.5144
+
+[178] A person in a summer camp
+  PSNR orig/adv: 29.6947 | edit: 17.5303
+  SSIM orig/adv: 0.9126 | edit: 0.5894
+  FSIM orig/adv: 0.9211 | edit: 0.4611
+  CLIP orig: 24.9440 | adv: 21.9594
+
+[179] A person in a frozen yogurt shop
+  PSNR orig/adv: 36.4534 | edit: 12.8678
+  SSIM orig/adv: 0.9736 | edit: 0.4626
+  FSIM orig/adv: 0.9668 | edit: 0.3523
+  CLIP orig: 33.0347 | adv: 31.6652
+
+[180] A person in a gym sauna
+  PSNR orig/adv: 29.8913 | edit: 14.8359
+  SSIM orig/adv: 0.8869 | edit: 0.4128
+  FSIM orig/adv: 0.8217 | edit: 0.4055
+  CLIP orig: 24.9926 | adv: 24.1068
+
+[181] A person in a shopping center
+  PSNR orig/adv: 29.7335 | edit: 14.2176
+  SSIM orig/adv: 0.9565 | edit: 0.4898
+  FSIM orig/adv: 0.8863 | edit: 0.4937
+  CLIP orig: 27.5458 | adv: 25.9998
+
+[182] A person in a city center plaza
+  PSNR orig/adv: 28.9433 | edit: 15.8894
+  SSIM orig/adv: 0.9100 | edit: 0.6235
+  FSIM orig/adv: 0.8563 | edit: 0.4928
+  CLIP orig: 28.1113 | adv: 28.0528
+
+[183] A person in a sports field
+  PSNR orig/adv: 29.7745 | edit: 19.9911
+  SSIM orig/adv: 0.9821 | edit: 0.7758
+  FSIM orig/adv: 0.9095 | edit: 0.6105
+  CLIP orig: 24.5068 | adv: 24.9925
+
+[184] A person in a farmers' cooperative
+  PSNR orig/adv: 29.9784 | edit: 15.6847
+  SSIM orig/adv: 0.9543 | edit: 0.4506
+  FSIM orig/adv: 0.8410 | edit: 0.4941
+  CLIP orig: 20.8449 | adv: 22.8052
+
+[185] A person in a dog agility course
+  PSNR orig/adv: 30.1905 | edit: 13.0284
+  SSIM orig/adv: 0.9192 | edit: 0.5396
+  FSIM orig/adv: 0.9081 | edit: 0.4034
+  CLIP orig: 33.8668 | adv: 30.1727
+
+[186] A person in a garage
+  PSNR orig/adv: 28.7235 | edit: 15.6247
+  SSIM orig/adv: 0.8909 | edit: 0.5032
+  FSIM orig/adv: 0.8772 | edit: 0.5004
+  CLIP orig: 26.9376 | adv: 25.0122
+
+[187] A person in a convenience store
+  PSNR orig/adv: 31.4893 | edit: 15.7482
+  SSIM orig/adv: 0.9108 | edit: 0.4934
+  FSIM orig/adv: 0.9142 | edit: 0.5551
+  CLIP orig: 28.3747 | adv: 30.4432
+
+[188] A person in a dance festival
+  PSNR orig/adv: 30.1171 | edit: 15.9454
+  SSIM orig/adv: 0.9063 | edit: 0.5527
+  FSIM orig/adv: 0.8835 | edit: 0.4705
+  CLIP orig: 31.9314 | adv: 28.9881
+
+[189] A person in a lighthouse
+  PSNR orig/adv: 28.6174 | edit: 12.8194
+  SSIM orig/adv: 0.8819 | edit: 0.5043
+  FSIM orig/adv: 0.7572 | edit: 0.4409
+  CLIP orig: 24.2302 | adv: 30.0244
+
+[190] A person in a sandwich shop
+  PSNR orig/adv: 30.5775 | edit: 16.6696
+  SSIM orig/adv: 0.9153 | edit: 0.5915
+  FSIM orig/adv: 0.8885 | edit: 0.4961
+  CLIP orig: 26.4396 | adv: 27.5127
+
+[191] A person in a dormitory
+  PSNR orig/adv: 32.4958 | edit: 17.7838
+  SSIM orig/adv: 0.9390 | edit: 0.6315
+  FSIM orig/adv: 0.9456 | edit: 0.5337
+  CLIP orig: 28.4166 | adv: 29.3722
+
+[192] A person in a butcher’s block
+  PSNR orig/adv: 32.5755 | edit: 17.6145
+  SSIM orig/adv: 0.9872 | edit: 0.6237
+  FSIM orig/adv: 0.9008 | edit: 0.6290
+  CLIP orig: 26.8447 | adv: 25.3965
+
+[193] A person in a drive-in theater
+  PSNR orig/adv: 29.4648 | edit: 15.0071
+  SSIM orig/adv: 0.9487 | edit: 0.5605
+  FSIM orig/adv: 0.8731 | edit: 0.5936
+  CLIP orig: 22.3525 | adv: 26.6611
+
+[194] A person in a hotel lobby
+  PSNR orig/adv: 29.6873 | edit: 14.3178
+  SSIM orig/adv: 0.9320 | edit: 0.4504
+  FSIM orig/adv: 0.8869 | edit: 0.4325
+  CLIP orig: 25.6405 | adv: 30.1617
+
+[195] A person in a travel kiosk
+  PSNR orig/adv: 28.9592 | edit: 14.1630
+  SSIM orig/adv: 0.9055 | edit: 0.5311
+  FSIM orig/adv: 0.8849 | edit: 0.4692
+  CLIP orig: 32.3913 | adv: 32.4535
+
+[196] A person in a dance festival
+  PSNR orig/adv: 30.0341 | edit: 16.2239
+  SSIM orig/adv: 0.9213 | edit: 0.6374
+  FSIM orig/adv: 0.8618 | edit: 0.5562
+  CLIP orig: 29.7314 | adv: 29.6893
+
+[197] A person in a beach resort
+  PSNR orig/adv: 28.8448 | edit: 15.3331
+  SSIM orig/adv: 0.9327 | edit: 0.6379
+  FSIM orig/adv: 0.8428 | edit: 0.5597
+  CLIP orig: 26.0667 | adv: 26.7312
+
+[198] A person in a call center
+  PSNR orig/adv: 29.2747 | edit: 13.9152
+  SSIM orig/adv: 0.9361 | edit: 0.4826
+  FSIM orig/adv: 0.8932 | edit: 0.4373
+  CLIP orig: 27.7899 | adv: 26.0525
+
+[199] A person in a glass factory
+  PSNR orig/adv: 30.8716 | edit: 16.9903
+  SSIM orig/adv: 0.9394 | edit: 0.4869
+  FSIM orig/adv: 0.8776 | edit: 0.5204
+  CLIP orig: 28.2983 | adv: 28.0490
+

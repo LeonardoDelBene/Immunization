@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a travel agency
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 27.5337
+SSIM: 0.8757
+FSIM: 0.9100
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 16.8240
+SSIM: 0.6171
+FSIM: 0.5471
+
+CLIP score (Image vs Prompt)
+Edited Original:  21.8369
+Edited Immunized: 23.4325
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.2925
+Caption orig : A woman wearing a fur coat and carrying a purse walks down a street.
+Caption adv : A woman in a black and blue dress is walking down a hallway.

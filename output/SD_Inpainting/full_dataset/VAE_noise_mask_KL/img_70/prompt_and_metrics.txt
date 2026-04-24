@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a frozen yogurt shop
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 31.2146
+SSIM: 0.9437
+FSIM: 0.8860
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 12.8964
+SSIM: 0.5806
+FSIM: 0.4984
+
+CLIP score (Image vs Prompt)
+Edited Original:  28.3602
+Edited Immunized: 28.8008
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.7792
+Caption orig : A man wearing a blue jacket and a green sweater stands in front of a display of candy.
+Caption adv : A man wearing a blue jacket and a green sweater stands in front of a display of donuts.

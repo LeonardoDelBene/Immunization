@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a car dealership
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 30.2611
+SSIM: 0.9133
+FSIM: 0.8756
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 13.5309
+SSIM: 0.5582
+FSIM: 0.4518
+
+CLIP score (Image vs Prompt)
+Edited Original:  27.8894
+Edited Immunized: 27.7427
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.7250
+Caption orig : A woman wearing a grey sweater and holding a purse stands in front of a car.
+Caption adv : A woman wearing a grey coat and holding a cigarette, standing in front of a row of cars.

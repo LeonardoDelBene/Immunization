@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a fire drill
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 30.2106
+SSIM: 0.9361
+FSIM: 0.9076
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 15.4080
+SSIM: 0.5538
+FSIM: 0.5744
+
+CLIP score (Image vs Prompt)
+Edited Original:  24.2137
+Edited Immunized: 25.8833
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.9163
+Caption orig : A woman wearing a black and gold dress stands out in a crowd of people.
+Caption adv : A woman in a black and purple dress stands out in a crowd of people.

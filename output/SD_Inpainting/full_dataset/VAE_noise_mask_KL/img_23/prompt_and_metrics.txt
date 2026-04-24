@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a computer lab
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 30.5077
+SSIM: 0.9416
+FSIM: 0.8492
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 15.3056
+SSIM: 0.6146
+FSIM: 0.4966
+
+CLIP score (Image vs Prompt)
+Edited Original:  28.2139
+Edited Immunized: 27.2027
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.3495
+Caption orig : A woman with red hair and a blue jacket is smiling for the camera.
+Caption adv : A woman wearing a blue jacket and a striped dress stands in an office.

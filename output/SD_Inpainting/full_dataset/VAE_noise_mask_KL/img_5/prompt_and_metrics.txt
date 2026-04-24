@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a food truck park
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 29.5515
+SSIM: 0.9096
+FSIM: 0.9035
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 12.2544
+SSIM: 0.4264
+FSIM: 0.4062
+
+CLIP score (Image vs Prompt)
+Edited Original:  27.1622
+Edited Immunized: 27.0811
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.5103
+Caption orig : A woman wearing a black and white shirt is holding a cup of juice.
+Caption adv : A woman wearing a black and white shirt and black pants is standing in front of a refrigerator.

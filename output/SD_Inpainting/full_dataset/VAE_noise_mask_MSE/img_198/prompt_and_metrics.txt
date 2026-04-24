@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a call center
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 30.4324
+SSIM: 0.9211
+FSIM: 0.9012
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 12.8087
+SSIM: 0.4567
+FSIM: 0.4357
+
+CLIP score (Image vs Prompt)
+Edited Original:  27.7899
+Edited Immunized: 23.7597
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.5200
+Caption orig : A woman wearing glasses and a hat is standing in an office.
+Caption adv : A woman wearing a white hat and glasses is walking down a hallway.

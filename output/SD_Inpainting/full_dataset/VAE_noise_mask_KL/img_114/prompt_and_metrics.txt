@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a farmers’ co-op
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 29.4227
+SSIM: 0.8992
+FSIM: 0.8332
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 13.9594
+SSIM: 0.4508
+FSIM: 0.5026
+
+CLIP score (Image vs Prompt)
+Edited Original:  27.6750
+Edited Immunized: 27.6287
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.3955
+Caption orig : A woman wearing a coat and sunglasses stands in a field.
+Caption adv : A woman wearing a hooded jacket and sunglasses is walking down a hallway.

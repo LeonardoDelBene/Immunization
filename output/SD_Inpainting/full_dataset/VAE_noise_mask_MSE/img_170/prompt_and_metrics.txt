@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a game room
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 29.7366
+SSIM: 0.8755
+FSIM: 0.8677
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 13.7454
+SSIM: 0.3494
+FSIM: 0.4063
+
+CLIP score (Image vs Prompt)
+Edited Original:  24.2900
+Edited Immunized: 24.9422
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.6176
+Caption orig : A man wearing sunglasses and a black jacket stands in front of a bookshelf.
+Caption adv : A man wearing a black jacket and sunglasses stands in front of a wall of pictures.

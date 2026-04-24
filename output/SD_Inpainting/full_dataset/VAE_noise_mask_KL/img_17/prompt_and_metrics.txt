@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a gym sauna
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 31.0158
+SSIM: 0.9099
+FSIM: 0.8334
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 14.9407
+SSIM: 0.3935
+FSIM: 0.4159
+
+CLIP score (Image vs Prompt)
+Edited Original:  23.3877
+Edited Immunized: 24.7843
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.6979
+Caption orig : A man wearing a leopard print shirt and a black jacket stands in front of a mirror.
+Caption adv : A man wearing a suit and tie stands in front of a mirror.

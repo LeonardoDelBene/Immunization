@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a nightclub
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 29.6495
+SSIM: 0.8950
+FSIM: 0.9095
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 14.8307
+SSIM: 0.5034
+FSIM: 0.4550
+
+CLIP score (Image vs Prompt)
+Edited Original:  24.8708
+Edited Immunized: 26.5286
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.5330
+Caption orig : A woman wearing a black jacket and a striped shirt is walking down a hallway.
+Caption adv : A woman wearing a black jacket and a blue wig stands in a room with a red background.

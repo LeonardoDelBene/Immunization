@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a garage
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 29.3200
+SSIM: 0.9032
+FSIM: 0.8632
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 14.7143
+SSIM: 0.4749
+FSIM: 0.4435
+
+CLIP score (Image vs Prompt)
+Edited Original:  28.4025
+Edited Immunized: 26.2111
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.5840
+Caption orig : A woman wearing a black and white polka dot sweater stands in front of a car.
+Caption adv : A woman wearing a black and white sweater and a white collar.

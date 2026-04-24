@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a church hall
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 29.8572
+SSIM: 0.9149
+FSIM: 0.9133
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 11.7350
+SSIM: 0.3393
+FSIM: 0.3885
+
+CLIP score (Image vs Prompt)
+Edited Original:  24.1826
+Edited Immunized: 27.3686
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.9527
+Caption orig : A woman wearing sunglasses and a black jacket is standing in a church.
+Caption adv : A woman wearing sunglasses and a black jacket is standing in front of a church.

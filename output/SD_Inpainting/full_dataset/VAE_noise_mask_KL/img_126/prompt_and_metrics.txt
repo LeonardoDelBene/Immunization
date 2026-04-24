@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a digital art gallery
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 29.6066
+SSIM: 0.9232
+FSIM: 0.9036
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 13.1302
+SSIM: 0.4065
+FSIM: 0.4391
+
+CLIP score (Image vs Prompt)
+Edited Original:  31.0771
+Edited Immunized: 30.8898
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.4404
+Caption orig : A woman with glasses and a green cell phone standing in front of a collection of artwork.
+Caption adv : A woman wearing glasses and a flowered shirt is walking down a hallway.

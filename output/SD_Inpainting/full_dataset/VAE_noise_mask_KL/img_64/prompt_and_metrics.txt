@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a news van
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 31.3687
+SSIM: 0.9539
+FSIM: 0.9210
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 12.1332
+SSIM: 0.4816
+FSIM: 0.4197
+
+CLIP score (Image vs Prompt)
+Edited Original:  29.6258
+Edited Immunized: 28.5035
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.5417
+Caption orig : A woman wearing a grey coat and orange shirt is standing in an airplane.
+Caption adv : A woman wearing a red shirt and a brown coat is standing in the back of a van.

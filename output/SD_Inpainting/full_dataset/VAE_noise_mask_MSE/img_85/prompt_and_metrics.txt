@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a high-end restaurant
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 29.0730
+SSIM: 0.8373
+FSIM: 0.8680
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 14.7439
+SSIM: 0.4817
+FSIM: 0.4665
+
+CLIP score (Image vs Prompt)
+Edited Original:  31.5517
+Edited Immunized: 33.4947
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.8647
+Caption orig : A woman in a black suit stands in a restaurant, surrounded by wine glasses and dining tables.
+Caption adv : A woman in a black suit stands in front of a dining table with several wine glasses on it.

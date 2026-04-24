@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a city parade
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 30.6184
+SSIM: 0.9330
+FSIM: 0.8961
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 13.1634
+SSIM: 0.4820
+FSIM: 0.5040
+
+CLIP score (Image vs Prompt)
+Edited Original:  27.9746
+Edited Immunized: 31.0640
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.6773
+Caption orig : A woman wearing sunglasses and a striped shirt stands out in a crowd of people.
+Caption adv : A woman wearing sunglasses and a black and white striped shirt walks down a crowded street.

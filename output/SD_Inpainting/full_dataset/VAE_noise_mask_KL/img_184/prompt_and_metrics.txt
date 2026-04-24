@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a farmers' cooperative
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 29.9784
+SSIM: 0.9543
+FSIM: 0.8410
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 15.6847
+SSIM: 0.4506
+FSIM: 0.4941
+
+CLIP score (Image vs Prompt)
+Edited Original:  20.8449
+Edited Immunized: 22.8052
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.8484
+Caption orig : A woman wearing a flowered jacket and sunglasses stands in a field of plants.
+Caption adv : A woman wearing a white dress and sunglasses stands in a field of green plants.

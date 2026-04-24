@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a charity art auction
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 31.1480
+SSIM: 0.9504
+FSIM: 0.8564
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 14.3534
+SSIM: 0.5999
+FSIM: 0.4643
+
+CLIP score (Image vs Prompt)
+Edited Original:  26.2576
+Edited Immunized: 27.0667
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.8952
+Caption orig : A woman wearing sunglasses and a colorful jacket stands in front of two colorful paintings.
+Caption adv : A woman wearing a colorful coat and sunglasses stands in front of a painting.

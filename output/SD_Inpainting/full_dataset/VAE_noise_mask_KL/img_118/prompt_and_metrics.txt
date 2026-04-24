@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a technology trade show
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 30.7168
+SSIM: 0.9071
+FSIM: 0.8033
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 13.0521
+SSIM: 0.4492
+FSIM: 0.4000
+
+CLIP score (Image vs Prompt)
+Edited Original:  29.6679
+Edited Immunized: 32.4719
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.6011
+Caption orig : A woman wearing a jacket and headphones stands in front of a display.
+Caption adv : A woman in a black jacket and a white shirt is standing in front of a sign that says "technology think".

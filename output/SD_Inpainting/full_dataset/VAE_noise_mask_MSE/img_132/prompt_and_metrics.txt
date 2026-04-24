@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a shopping center
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 29.7879
+SSIM: 0.9001
+FSIM: 0.8896
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 16.6471
+SSIM: 0.6596
+FSIM: 0.5774
+
+CLIP score (Image vs Prompt)
+Edited Original:  24.6315
+Edited Immunized: 27.2136
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.6809
+Caption orig : A man wearing a gray suit with white lace on the sleeves and a white vest.
+Caption adv : A man wearing a suit with a jacket that has a design on it.

@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a motel room
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 25.4071
+SSIM: 0.9007
+FSIM: 0.8389
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 14.6143
+SSIM: 0.6523
+FSIM: 0.5478
+
+CLIP score (Image vs Prompt)
+Edited Original:  27.0520
+Edited Immunized: 29.5728
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.6813
+Caption orig : A woman wearing a blue and white dress stands in front of a bed.
+Caption adv : A woman wearing a black jacket and a scarf is standing in front of a bed.

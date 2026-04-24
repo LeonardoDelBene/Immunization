@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a basement
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 30.9421
+SSIM: 0.9299
+FSIM: 0.8733
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 17.2424
+SSIM: 0.5370
+FSIM: 0.4743
+
+CLIP score (Image vs Prompt)
+Edited Original:  24.3508
+Edited Immunized: 24.3485
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.4985
+Caption orig : A woman wearing a red dress and holding a yellow purse.
+Caption adv : A woman in a red dress stands in a hallway.

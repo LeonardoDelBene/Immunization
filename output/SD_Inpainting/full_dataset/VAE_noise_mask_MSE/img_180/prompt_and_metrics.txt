@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a gym sauna
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 29.6679
+SSIM: 0.8792
+FSIM: 0.8287
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 14.7592
+SSIM: 0.4270
+FSIM: 0.4288
+
+CLIP score (Image vs Prompt)
+Edited Original:  24.9926
+Edited Immunized: 21.7520
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.7421
+Caption orig : A man wearing a brown hat and a jacket stands in front of a row of exercise machines.
+Caption adv : A man wearing a hat and sunglasses stands in front of a gym machine.

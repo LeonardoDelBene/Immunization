@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a basement
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 29.2990
+SSIM: 0.9077
+FSIM: 0.8578
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 19.5938
+SSIM: 0.4836
+FSIM: 0.4613
+
+CLIP score (Image vs Prompt)
+Edited Original:  25.7196
+Edited Immunized: 25.9541
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.6518
+Caption orig : A woman wearing a white shirt and blue jeans is standing in a room with a wooden floor.
+Caption adv : A woman wearing a white shirt and black pants is standing in front of a wall.

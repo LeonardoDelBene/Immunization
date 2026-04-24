@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a local art market
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 29.9507
+SSIM: 0.9296
+FSIM: 0.8890
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 15.0619
+SSIM: 0.4747
+FSIM: 0.4717
+
+CLIP score (Image vs Prompt)
+Edited Original:  29.6562
+Edited Immunized: 26.8895
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.5766
+Caption orig : A woman wearing a black jacket and jeans stands in front of a collection of paintings.
+Caption adv : A woman wearing a black jacket and a black belt is standing in a crowded area.

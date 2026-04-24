@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a soap store
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 28.6714
+SSIM: 0.8573
+FSIM: 0.8653
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 10.5832
+SSIM: 0.3577
+FSIM: 0.3981
+
+CLIP score (Image vs Prompt)
+Edited Original:  25.9495
+Edited Immunized: 24.4627
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.2632
+Caption orig : A woman wearing a black coat and holding a black umbrella.
+Caption adv : A woman in a blue jacket stands in front of a hair salon.

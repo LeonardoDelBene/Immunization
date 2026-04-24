@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a weekend market
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 29.2191
+SSIM: 0.8947
+FSIM: 0.8938
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 15.7514
+SSIM: 0.5320
+FSIM: 0.5206
+
+CLIP score (Image vs Prompt)
+Edited Original:  29.6139
+Edited Immunized: 31.7317
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.7886
+Caption orig : A man wearing a gray coat and a backpack is standing in front of a fruit stand.
+Caption adv : A man wearing a hat and a jacket is standing in front of a fruit stand.

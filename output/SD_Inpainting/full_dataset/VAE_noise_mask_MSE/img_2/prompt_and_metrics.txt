@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a church sanctuary
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 28.5598
+SSIM: 0.8963
+FSIM: 0.8190
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 15.2369
+SSIM: 0.5158
+FSIM: 0.4919
+
+CLIP score (Image vs Prompt)
+Edited Original:  28.3546
+Edited Immunized: 28.8681
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.5497
+Caption orig : A woman wearing a brown jacket and a gray shirt is standing in front of a church.
+Caption adv : A person wearing a brown jacket and a white shirt.

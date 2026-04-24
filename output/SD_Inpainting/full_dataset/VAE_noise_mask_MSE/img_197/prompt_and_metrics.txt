@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a beach resort
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 28.9037
+SSIM: 0.9287
+FSIM: 0.8424
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 12.4581
+SSIM: 0.5934
+FSIM: 0.5054
+
+CLIP score (Image vs Prompt)
+Edited Original:  26.0667
+Edited Immunized: 27.1324
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.7919
+Caption orig : A woman in a black jacket and a purple dress stands on a beach.
+Caption adv : A woman wearing a hat and a dress is standing on a beach.

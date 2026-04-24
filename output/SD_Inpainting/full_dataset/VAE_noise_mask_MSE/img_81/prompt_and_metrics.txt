@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a bridal fitting room
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 29.2147
+SSIM: 0.8875
+FSIM: 0.8939
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 12.1422
+SSIM: 0.5935
+FSIM: 0.5109
+
+CLIP score (Image vs Prompt)
+Edited Original:  22.5963
+Edited Immunized: 24.2670
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.3492
+Caption orig : A woman wearing a green jacket and blue pants stands in a doorway.
+Caption adv : A woman wearing a brown coat and blue jeans stands in front of a mirror.

@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a pastry shop
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 28.2281
+SSIM: 0.9165
+FSIM: 0.8454
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 14.0626
+SSIM: 0.4793
+FSIM: 0.4672
+
+CLIP score (Image vs Prompt)
+Edited Original:  27.3791
+Edited Immunized: 30.7608
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.7371
+Caption orig : A woman in a blue jacket and black pants stands in front of a display of pastries.
+Caption adv : A woman in a blue jacket and a skirt is standing in front of a bakery display.

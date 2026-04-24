@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a summer camp
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 31.9720
+SSIM: 0.9115
+FSIM: 0.9309
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 17.1436
+SSIM: 0.5828
+FSIM: 0.4346
+
+CLIP score (Image vs Prompt)
+Edited Original:  24.9440
+Edited Immunized: 23.2995
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.4471
+Caption orig : A woman wearing a black shirt and a yellow skirt is walking down a path.
+Caption adv : A woman wearing a black shirt and a brown skirt is smiling and holding a white bag.

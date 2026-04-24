@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a dormitory
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 32.4958
+SSIM: 0.9390
+FSIM: 0.9456
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 17.7838
+SSIM: 0.6315
+FSIM: 0.5337
+
+CLIP score (Image vs Prompt)
+Edited Original:  28.4166
+Edited Immunized: 29.3722
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.8518
+Caption orig : A woman wearing a blue dress with polka dots is standing in a doorway.
+Caption adv : A woman wearing a blue dress with polka dots is standing in a hallway.

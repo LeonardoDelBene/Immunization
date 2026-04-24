@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a youth hostel
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 30.2131
+SSIM: 0.9442
+FSIM: 0.9037
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 15.6241
+SSIM: 0.6481
+FSIM: 0.4758
+
+CLIP score (Image vs Prompt)
+Edited Original:  20.7628
+Edited Immunized: 21.8236
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.6617
+Caption orig : A woman wearing a brown jacket and sunglasses is standing in front of a sign.
+Caption adv : A woman wearing a brown jacket and sunglasses is standing in front of a mirror.

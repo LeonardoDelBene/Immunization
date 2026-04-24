@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a bowling alley
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 29.5893
+SSIM: 0.9097
+FSIM: 0.8674
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 14.1694
+SSIM: 0.4841
+FSIM: 0.4846
+
+CLIP score (Image vs Prompt)
+Edited Original:  31.7944
+Edited Immunized: 31.5483
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.8692
+Caption orig : A woman wearing a red shirt and sunglasses is walking down a bowling alley.
+Caption adv : A woman wearing a red shirt and sunglasses is standing in a bowling alley.

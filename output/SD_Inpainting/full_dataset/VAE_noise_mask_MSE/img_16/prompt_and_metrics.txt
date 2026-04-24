@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a costume shop
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 25.7859
+SSIM: 0.8767
+FSIM: 0.8363
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 14.6195
+SSIM: 0.4397
+FSIM: 0.5153
+
+CLIP score (Image vs Prompt)
+Edited Original:  24.9876
+Edited Immunized: 28.7145
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.5787
+Caption orig : A woman in a colorful striped sweater is walking through a clothing store, smiling and holding a cup.
+Caption adv : A woman wearing a colorful striped shirt and holding a toothbrush is smiling.

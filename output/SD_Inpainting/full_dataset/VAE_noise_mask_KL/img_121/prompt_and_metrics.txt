@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a music and arts festival
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 29.5023
+SSIM: 0.9232
+FSIM: 0.8497
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 18.6801
+SSIM: 0.6756
+FSIM: 0.5541
+
+CLIP score (Image vs Prompt)
+Edited Original:  28.9382
+Edited Immunized: 29.2952
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.4058
+Caption orig : A woman wearing a pink shirt and a white jacket is standing in a crowd of people.
+Caption adv : A woman in a white shirt and a brown coat is smiling at the camera.

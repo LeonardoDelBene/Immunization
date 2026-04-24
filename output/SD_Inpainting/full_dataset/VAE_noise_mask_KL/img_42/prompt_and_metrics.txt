@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a golf course clubhouse
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 30.1643
+SSIM: 0.9050
+FSIM: 0.9232
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 15.0785
+SSIM: 0.4671
+FSIM: 0.3969
+
+CLIP score (Image vs Prompt)
+Edited Original:  27.5540
+Edited Immunized: 25.3433
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.4913
+Caption orig : A man wearing a black shirt and shorts stands on a lush green golf course.
+Caption adv : A man wearing a black tank top and black shorts stands in front of a red building.

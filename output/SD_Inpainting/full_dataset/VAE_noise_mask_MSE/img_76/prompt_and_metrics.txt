@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a local wine festival
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 28.4057
+SSIM: 0.8361
+FSIM: 0.8151
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 14.6105
+SSIM: 0.4479
+FSIM: 0.4409
+
+CLIP score (Image vs Prompt)
+Edited Original:  28.5636
+Edited Immunized: 28.4616
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.3437
+Caption orig : A man wearing a hat and a blue jacket stands in a crowd of people.
+Caption adv : A man wearing a hat and a black jacket is walking down a path between rows of grape vines.

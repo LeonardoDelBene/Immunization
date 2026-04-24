@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a digital art gallery
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 29.5700
+SSIM: 0.8806
+FSIM: 0.8644
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 11.5835
+SSIM: 0.3146
+FSIM: 0.4007
+
+CLIP score (Image vs Prompt)
+Edited Original:  29.3013
+Edited Immunized: 30.0356
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.8212
+Caption orig : A woman wearing sunglasses and a scarf stands in front of a wall of colorful pictures.
+Caption adv : A woman wearing sunglasses and a scarf is standing in front of a dark background.

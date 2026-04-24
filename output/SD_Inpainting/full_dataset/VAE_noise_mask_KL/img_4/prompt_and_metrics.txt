@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a drive-in theater
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 30.8600
+SSIM: 0.9240
+FSIM: 0.8583
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 14.3306
+SSIM: 0.4233
+FSIM: 0.4368
+
+CLIP score (Image vs Prompt)
+Edited Original:  21.5072
+Edited Immunized: 23.8092
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.5510
+Caption orig : A woman wearing a green dress and sunglasses stands in a field.
+Caption adv : A woman wearing a black dress and sunglasses is standing in front of a red screen.

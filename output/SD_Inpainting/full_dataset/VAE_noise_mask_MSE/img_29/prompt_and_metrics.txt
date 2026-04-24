@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a laundry room
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 28.9843
+SSIM: 0.9411
+FSIM: 0.8339
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 14.6096
+SSIM: 0.5812
+FSIM: 0.5257
+
+CLIP score (Image vs Prompt)
+Edited Original:  29.9629
+Edited Immunized: 29.9698
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.8442
+Caption orig : A woman wearing a green and white dress stands in front of a washer and dryer.
+Caption adv : A woman wearing a flowered dress and sunglasses is standing in front of a washer and dryer.

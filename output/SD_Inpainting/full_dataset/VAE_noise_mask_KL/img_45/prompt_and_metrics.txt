@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a high-end restaurant
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 32.3333
+SSIM: 0.9474
+FSIM: 0.9050
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 14.3687
+SSIM: 0.4362
+FSIM: 0.4163
+
+CLIP score (Image vs Prompt)
+Edited Original:  29.9959
+Edited Immunized: 27.6290
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.3114
+Caption orig : A woman in a blue dress stands in a restaurant, holding a brown purse.
+Caption adv : A woman is sitting at a table with a wine glass in front of her.

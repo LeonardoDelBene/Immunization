@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a lighthouse
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 27.3832
+SSIM: 0.8714
+FSIM: 0.7593
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 12.4252
+SSIM: 0.5005
+FSIM: 0.4378
+
+CLIP score (Image vs Prompt)
+Edited Original:  24.2302
+Edited Immunized: 31.2733
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.6053
+Caption orig : A man wearing a suit and tie stands in front of a red fire hydrant.
+Caption adv : A man wearing a suit and tie is standing in front of a lighthouse.

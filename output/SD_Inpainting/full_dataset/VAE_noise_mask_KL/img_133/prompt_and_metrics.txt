@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a local crafts market
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 29.9779
+SSIM: 0.9454
+FSIM: 0.9002
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 17.9972
+SSIM: 0.5702
+FSIM: 0.5662
+
+CLIP score (Image vs Prompt)
+Edited Original:  29.0418
+Edited Immunized: 28.8294
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.8808
+Caption orig : A woman wearing a floral shirt stands in front of a colorful display of scarves.
+Caption adv : A woman is standing in front of a colorful display of items, including a variety of scarves.

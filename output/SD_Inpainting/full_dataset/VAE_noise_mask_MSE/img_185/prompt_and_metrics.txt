@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a dog agility course
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 31.6870
+SSIM: 0.9202
+FSIM: 0.9161
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 15.1387
+SSIM: 0.6007
+FSIM: 0.4282
+
+CLIP score (Image vs Prompt)
+Edited Original:  33.8668
+Edited Immunized: 31.5552
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.6558
+Caption orig : A woman wearing a black dress is standing on a green carpet.
+Caption adv : A woman wearing a black dress is standing on a green surface, with a dog standing on a pink object in front of her.

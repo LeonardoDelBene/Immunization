@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a travel kiosk
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 28.9592
+SSIM: 0.9055
+FSIM: 0.8849
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 14.1630
+SSIM: 0.5311
+FSIM: 0.4692
+
+CLIP score (Image vs Prompt)
+Edited Original:  32.3913
+Edited Immunized: 32.4535
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.4611
+Caption orig : A man wearing a plaid jacket and red pants stands in front of a large screen.
+Caption adv : A man wearing a plaid shirt and khaki pants stands in front of a tooth fairy machine.

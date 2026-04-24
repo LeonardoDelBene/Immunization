@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a rehab facility
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 29.5245
+SSIM: 0.9431
+FSIM: 0.8742
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 13.6583
+SSIM: 0.4262
+FSIM: 0.5659
+
+CLIP score (Image vs Prompt)
+Edited Original:  24.1795
+Edited Immunized: 23.5144
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.6668
+Caption orig : A woman wearing a leopard print jacket and sunglasses is standing in a yard.
+Caption adv : A woman wearing a leopard jacket and sunglasses is smiling.

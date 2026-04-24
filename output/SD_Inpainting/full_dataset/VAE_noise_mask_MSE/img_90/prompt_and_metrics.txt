@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a dance school
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 31.1527
+SSIM: 0.9223
+FSIM: 0.8970
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 15.7540
+SSIM: 0.6623
+FSIM: 0.5070
+
+CLIP score (Image vs Prompt)
+Edited Original:  22.6343
+Edited Immunized: 25.1204
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.6312
+Caption orig : A man wearing sunglasses and a white shirt stands in front of a brick wall.
+Caption adv : A man wearing sunglasses and a white shirt is walking down the street.

@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a rooftop bar
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 28.8561
+SSIM: 0.9200
+FSIM: 0.9044
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 16.5345
+SSIM: 0.5653
+FSIM: 0.5045
+
+CLIP score (Image vs Prompt)
+Edited Original:  26.0844
+Edited Immunized: 25.5950
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.7888
+Caption orig : A woman wearing a white and blue dress stands on a rooftop, looking out over the city.
+Caption adv : A woman wearing a dress with a floral pattern stands on a rooftop.

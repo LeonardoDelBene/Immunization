@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a high school
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 29.5167
+SSIM: 0.8901
+FSIM: 0.8910
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 16.2887
+SSIM: 0.5621
+FSIM: 0.5010
+
+CLIP score (Image vs Prompt)
+Edited Original:  19.8843
+Edited Immunized: 21.3944
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.6079
+Caption orig : A woman wearing a black jacket and a ring on her finger.
+Caption adv : A woman wearing a black coat and holding a purse.

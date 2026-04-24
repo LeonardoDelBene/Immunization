@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a technology fair
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 31.3961
+SSIM: 0.9505
+FSIM: 0.9130
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 13.7505
+SSIM: 0.5613
+FSIM: 0.4686
+
+CLIP score (Image vs Prompt)
+Edited Original:  31.0264
+Edited Immunized: 30.9603
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.5285
+Caption orig : A woman in an orange dress is holding a yellow purse.
+Caption adv : A woman in an orange dress is standing in a crowd of people.

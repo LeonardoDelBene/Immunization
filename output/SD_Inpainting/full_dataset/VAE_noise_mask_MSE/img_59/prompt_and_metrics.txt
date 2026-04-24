@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a cocktail bar
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 30.8011
+SSIM: 0.9171
+FSIM: 0.8591
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 14.6449
+SSIM: 0.5329
+FSIM: 0.5097
+
+CLIP score (Image vs Prompt)
+Edited Original:  29.0101
+Edited Immunized: 27.7877
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.6903
+Caption orig : A woman wearing a blue jacket and a ponytail is standing in front of a bar with numerous bottles on the shelves.
+Caption adv : A woman wearing a black and white jacket and a hat is standing in front of a bar.

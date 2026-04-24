@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a quilt shop
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 32.8744
+SSIM: 0.9190
+FSIM: 0.9017
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 15.8990
+SSIM: 0.4413
+FSIM: 0.4421
+
+CLIP score (Image vs Prompt)
+Edited Original:  28.1227
+Edited Immunized: 29.4450
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.5676
+Caption orig : A woman wearing sunglasses and a white sweater stands in front of a colorful quilt.
+Caption adv : A woman wearing sunglasses and a white shirt walks down a hallway with colorful wallpaper.

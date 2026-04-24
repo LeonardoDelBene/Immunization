@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a historic landmark event
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 30.8466
+SSIM: 0.9504
+FSIM: 0.9070
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 13.4643
+SSIM: 0.4368
+FSIM: 0.4293
+
+CLIP score (Image vs Prompt)
+Edited Original:  22.5303
+Edited Immunized: 25.0043
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.7095
+Caption orig : A woman wearing sunglasses and a pink shirt stands in front of a large building.
+Caption adv : A woman wearing a white shirt and white pants is standing in front of a building.

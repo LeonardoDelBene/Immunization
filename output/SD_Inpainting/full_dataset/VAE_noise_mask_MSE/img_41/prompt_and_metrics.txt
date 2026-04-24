@@ -1,0 +1,23 @@
+--- Prompt ---
+A person in a butcher shop
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 32.4314
+SSIM: 0.9410
+FSIM: 0.9033
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 15.6766
+SSIM: 0.5343
+FSIM: 0.4868
+
+CLIP score (Image vs Prompt)
+Edited Original:  29.0402
+Edited Immunized: 28.7834
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.5850
+Caption orig : A man wearing sunglasses and a blue shirt stands in front of a meat counter.
+Caption adv : A man wearing sunglasses and a black shirt is standing in front of a bakery display.
