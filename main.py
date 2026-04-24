@@ -516,7 +516,7 @@ def update_global_summary_with_caption(output_dir):
 
 if __name__ == "__main__":
     # Modifica questo path con la tua cartella run
-    OUTPUT_DIR = "output/SD_Inpainting/full_dataset/VAE_noise_mask_MSE"
+    OUTPUT_DIR = "output/SD_Inpainting/full_dataset/VAE_noise_mask_KL"
     update_global_summary_with_caption(OUTPUT_DIR)
 
 
