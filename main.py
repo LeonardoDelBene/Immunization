@@ -23,9 +23,11 @@ warnings.filterwarnings("ignore", message="QuickGELU mismatch", category=UserWar
 # SETUP
 # ─────────────────────────────────────────────
 
-def get_output_dir(base_output_dir, use_instruct_pix2pix, sample_idx):
+def get_output_dir(base_output_dir, use_instruct_pix2pix,run_wandb, sample_idx):
     subfolder = "InstructionPix2Pix" if use_instruct_pix2pix else "SD_Inpainting"
     output_dir = os.path.join(base_output_dir, subfolder, f"img_{sample_idx}")
+    if sample_idx == "ful_dataset":
+        output_dir = os.path.join(base_output_dir, run_wandb)
     os.makedirs(output_dir, exist_ok=True)
     return output_dir
 
@@ -215,6 +217,7 @@ def run_on_full_dataset(config):
     output_dir_base = get_output_dir(
         config["base_output_dir"],
         config["use_instruct_pix2pix"],
+        config["run_wandb"],
         sample_idx="full_dataset"
     )
 
@@ -353,7 +356,8 @@ def get_config():
         "dataset_path":         "./data/DiffVaxDataset_local",
         "dataset_split":        "validation",
         "sample_idx":           12,
-        "run_full_dataset":     False,
+        "run_full_dataset":     True,
+        "run_wandb":            "VAE_noise_mask_MSE"
     }
 
 
@@ -372,6 +376,7 @@ if __name__ == "__main__":
         output_dir = get_output_dir(
             config["base_output_dir"],
             config["use_instruct_pix2pix"],
+            config["run_wandb"],
             config["sample_idx"]
         )
         attack_model, immunization_mdl = load_models(config)

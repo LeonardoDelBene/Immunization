@@ -189,6 +189,7 @@ def training_loop(
         training_checkpoint_dir: str = "checkpoints/training",
         device: str = "cuda",
         resume_from_checkpoint: bool = True,
+        resume_only_weights=False,
         noise_on_mask: bool = False,
 ):
     # ── Surrogate CLIP ──
@@ -226,6 +227,15 @@ def training_loop(
         state = load_training_checkpoint(
             training_checkpoint_dir, unet, optimizer, dyn_weighter, device
         )
+    elif resume_only_weights:
+        unet.load_state_dict(torch.load(best_checkpoint_path, map_location=device, weights_only=True))
+        print("resume_only_weights=True, starting fine-tuning...")
+        state = {
+            "start_epoch": 0,
+            "global_step": 0,
+            "best_val_loss": float("inf"),
+            "patience_count": 0,
+        }
     else:
         print("resume_from_checkpoint=False, starting from scratch.")
         state = {
@@ -474,7 +484,7 @@ if __name__ == "__main__":
     SEED = 2023
     set_seed_lib(SEED)
 
-    device = "cuda:1" if torch.cuda.is_available() else "cpu"
+    device = "cuda:0" if torch.cuda.is_available() else "cpu"
 
     DEBUG = False
     N_DEBUG = 100
@@ -523,16 +533,17 @@ if __name__ == "__main__":
         lr=1e-4,
         batch=batch,
         weight_decay=1e-2,
-        alpha=50.0,
+        alpha=10.0,
         beta=1.0,
         eta=0.2,
         lambda_vae = 1,
         eps= (32 / 255 * 2),
         val_every=1,
         patience=100,
-        best_checkpoint_path="checkpoints/unet_best_x5her5v2.pth",
-        training_checkpoint_dir="checkpoints/training",
+        best_checkpoint_path="checkpoints/unet_best_qyon0vk7.pth",
+        training_checkpoint_dir="checkpoints/training/qyon0vk7",
         device=device,
         resume_from_checkpoint=False, # Cambia a False per ricominciare da zero
+        resume_only_weights = True, # True per caricare i pesi dal checkpoint
         noise_on_mask=True,
     )
