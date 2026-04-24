@@ -305,8 +305,8 @@ def save_global_summary(output_dir, all_metrics):
         return
 
     keys = ["psnr_orig_adv", "ssim_orig_adv", "fsim_orig_adv",
-            "psnr_edit", "ssim_edit", "fsim_edit",
-            "clip_orig", "clip_adv"]
+            "psnr_edit",     "ssim_edit",      "fsim_edit",
+            "clip_orig",     "clip_adv",        "caption_sim"]
 
     averages = {k: sum(m[k] for m in all_metrics) / len(all_metrics) for k in keys}
 
@@ -329,6 +329,9 @@ def save_global_summary(output_dir, all_metrics):
         f.write(f"Edited Original:  {averages['clip_orig']:.4f}\n")
         f.write(f"Edited Immunized: {averages['clip_adv']:.4f}\n\n")
 
+        f.write("Average Caption Similarity (Edited Original vs Edited Immunized)\n")
+        f.write(f"Score: {averages['caption_sim']:.4f}\n\n")
+
         f.write("=" * 50 + "\n")
         f.write("Per-sample detail\n\n")
         for m in all_metrics:
@@ -336,11 +339,13 @@ def save_global_summary(output_dir, all_metrics):
             f.write(f"  PSNR orig/adv: {m['psnr_orig_adv']:.4f} | edit: {m['psnr_edit']:.4f}\n")
             f.write(f"  SSIM orig/adv: {m['ssim_orig_adv']:.4f} | edit: {m['ssim_edit']:.4f}\n")
             f.write(f"  FSIM orig/adv: {m['fsim_orig_adv']:.4f} | edit: {m['fsim_edit']:.4f}\n")
-            f.write(f"  CLIP orig: {m['clip_orig']:.4f} | adv: {m['clip_adv']:.4f}\n\n")
+            f.write(f"  CLIP orig: {m['clip_orig']:.4f} | adv: {m['clip_adv']:.4f}\n")
+            f.write(f"  Caption similarity: {m['caption_sim']:.4f}\n")
+            f.write(f"  Caption orig: {m['caption_orig']}\n")
+            f.write(f"  Caption adv:  {m['caption_adv']}\n\n")
 
     print(f"\nGlobal summary saved in {summary_path}")
 
-    # Stampa anche a schermo
     print("\n" + "=" * 50)
     print(f"GLOBAL AVERAGES ({len(all_metrics)} samples)")
     print("=" * 50)
@@ -352,6 +357,7 @@ def save_global_summary(output_dir, all_metrics):
     print(f"FSIM edit     : {averages['fsim_edit']:.4f}")
     print(f"CLIP orig     : {averages['clip_orig']:.4f}")
     print(f"CLIP adv      : {averages['clip_adv']:.4f}")
+    print(f"Caption sim   : {averages['caption_sim']:.4f}")
 
 
 # ─────────────────────────────────────────────
@@ -375,13 +381,7 @@ def get_config():
         "run_wandb":            "VAE_noise_mask_KL"
     }
 
-
-
-
-# ─────────────────────────────────────────────
-# MAIN
-# ─────────────────────────────────────────────
-if __name__ == "__main__":
+def main():
     config = get_config()
 
     if config["run_full_dataset"]:
@@ -404,11 +404,120 @@ if __name__ == "__main__":
             config["edit_prompt"], config["use_instruct_pix2pix"]
         )
         save_images(output_dir, image, adv_image_png, edited_orig_recovered, edited_adv_recovered)
-        metrics = compute_metrics(image, adv_image_png, edited_orig_recovered, edited_adv_recovered, config["edit_prompt"])
+        metrics = compute_metrics(image, adv_image_png, edited_orig_recovered, edited_adv_recovered,
+                                  config["edit_prompt"])
         save_metrics(output_dir, config["edit_prompt"], metrics)
         plot_results(image, adv_image_png, edited_orig_recovered, edited_adv_recovered,
                      config["edit_prompt"], config["use_instruct_pix2pix"])
 
+
+# ─────────────────────────────────────────────
+# MAIN
+# ─────────────────────────────────────────────
+import os
+import re
+
+def update_global_summary_with_caption(output_dir):
+    """
+    Legge i file prompt_and_metrics.txt di ogni sample,
+    estrae la caption similarity e la aggiunge al global_summary.txt.
+    """
+
+    summary_path = os.path.join(output_dir, "global_summary.txt")
+    if not os.path.exists(summary_path):
+        print(f"[ERROR] Global summary not found: {summary_path}")
+        return
+
+    # ── Raccolta caption similarity da ogni sample ─────────────────────────
+    caption_data = {}   # {sample_idx: {"score": float, "orig": str, "adv": str}}
+
+    for entry in sorted(os.listdir(output_dir)):
+        sample_dir = os.path.join(output_dir, entry)
+        if not (os.path.isdir(sample_dir) and entry.startswith("img_")):
+            continue
+
+        metrics_path = os.path.join(sample_dir, "prompt_and_metrics.txt")
+        if not os.path.exists(metrics_path):
+            print(f"[WARN] Missing metrics file: {metrics_path}")
+            continue
+
+        with open(metrics_path, "r") as f:
+            content = f.read()
+
+        score_match   = re.search(r"Score:\s*([\d.]+)",         content)
+        orig_match    = re.search(r"Caption orig\s*:\s*(.+)",   content)
+        adv_match     = re.search(r"Caption adv\s*:\s*(.+)",    content)
+
+        if not all([score_match, orig_match, adv_match]):
+            print(f"[WARN] Caption similarity not found in {metrics_path}")
+            continue
+
+        idx = int(entry.replace("img_", ""))
+        caption_data[idx] = {
+            "score": float(score_match.group(1)),
+            "orig":  orig_match.group(1).strip(),
+            "adv":   adv_match.group(1).strip(),
+        }
+
+    if not caption_data:
+        print("[ERROR] No caption similarity data found.")
+        return
+
+    avg_caption_sim = sum(v["score"] for v in caption_data.values()) / len(caption_data)
+    print(f"Collected caption similarity for {len(caption_data)} samples. Average: {avg_caption_sim:.4f}")
+
+    # ── Aggiorna global_summary.txt ────────────────────────────────────────
+    with open(summary_path, "r") as f:
+        content = f.read()
+
+    # 1. Aggiungi media nella sezione CLIP (se non già presente)
+    caption_avg_block = (
+        f"Average Caption Similarity (Edited Original vs Edited Immunized)\n"
+        f"Score: {avg_caption_sim:.4f}\n\n"
+    )
+    if "Caption Similarity" not in content:
+        content = content.replace(
+            "=" * 50 + "\n" + "Per-sample detail",
+            caption_avg_block + "=" * 50 + "\n" + "Per-sample detail"
+        )
+
+    # 2. Aggiungi per-sample
+    def add_caption_to_sample(match):
+        block     = match.group(0)
+        idx_match = re.search(r"\[(\d+)\]", block)
+        if not idx_match:
+            return block
+        idx = int(idx_match.group(1))
+        if idx not in caption_data or "Caption similarity" in block:
+            return block  # già presente, skip
+        data = caption_data[idx]
+        addition = (
+            f"  Caption similarity: {data['score']:.4f}\n"
+            f"  Caption orig: {data['orig']}\n"
+            f"  Caption adv:  {data['adv']}\n"
+        )
+        return block.rstrip("\n") + "\n" + addition
+
+    content = re.sub(
+        r"\[\d+\] .+\n(?:  .+\n)+",
+        add_caption_to_sample,
+        content
+    )
+
+    # 3. Aggiorna/aggiungi la riga nella stampa finale
+    if "Caption sim" not in content:
+        content = content.rstrip() + f"\nCaption sim   : {avg_caption_sim:.4f}\n"
+
+    with open(summary_path, "w") as f:
+        f.write(content)
+
+    print(f"Global summary updated: {summary_path}")
+
+
+if __name__ == "__main__":
+    # Modifica questo path con la tua cartella run
+    OUTPUT_DIR = "output/SD_Inpainting/full_dataset/VAE_noise_mask_MSE"
+    update_global_summary_with_caption(OUTPUT_DIR)
 
 
 
