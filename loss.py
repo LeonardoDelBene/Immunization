@@ -185,8 +185,8 @@ def total_loss(
         per_surrogate_losses.append(l_i.item())   # scalare per il weighter
         per_surrogate_terms.append(l_i)           # tensore per il backward'''
 
-    l_vae = vae_align_loss(posterior_im, posterior_target)
-    #l_vae = vae_mse(posterior_im.mean, posterior_target.mean)
+    #l_vae = vae_align_loss(posterior_im, posterior_target)
+    l_vae = vae_mse(posterior_im.mean, posterior_target.mean)
     l_vae = lambda_vae * l_vae
     per_surrogate_losses.append(l_vae.item())
     per_surrogate_terms.append(l_vae)

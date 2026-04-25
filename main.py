@@ -367,17 +367,17 @@ def save_global_summary(output_dir, all_metrics):
 def get_config():
     return {
         "use_instruct_pix2pix": False,
-        "edit_prompt":          "person in a party",
+        "edit_prompt":          "person in s station",
         "seed":                 2043,
         "edit_background":      True,
         "load_existing":        True,
-        "checkpoint_path":      os.path.join("checkpoints", "unet_best_erz5lidf.pth"),
+        "checkpoint_path":      os.path.join("checkpoints", "unet_best_3xmsr865.pth"),
         "attack_model":         "runwayml/stable-diffusion-inpainting",
         "base_output_dir":      "output",
         "dataset_path":         "./data/DiffVaxDataset_local",
         "dataset_split":        "validation",
-        "sample_idx":           12,
-        "run_full_dataset":     True,
+        "sample_idx":           56,
+        "run_full_dataset":     False,
         "run_wandb":            "VAE_noise_mask_KL"
     }
 
@@ -404,8 +404,9 @@ def main():
             config["edit_prompt"], config["use_instruct_pix2pix"]
         )
         save_images(output_dir, image, adv_image_png, edited_orig_recovered, edited_adv_recovered)
+        metrics_model = load_metrics_models()
         metrics = compute_metrics(image, adv_image_png, edited_orig_recovered, edited_adv_recovered,
-                                  config["edit_prompt"])
+                                  config["edit_prompt"], metrics_model)
         save_metrics(output_dir, config["edit_prompt"], metrics)
         plot_results(image, adv_image_png, edited_orig_recovered, edited_adv_recovered,
                      config["edit_prompt"], config["use_instruct_pix2pix"])
@@ -414,110 +415,8 @@ def main():
 # ─────────────────────────────────────────────
 # MAIN
 # ─────────────────────────────────────────────
-import os
-import re
-
-def update_global_summary_with_caption(output_dir):
-    """
-    Legge i file prompt_and_metrics.txt di ogni sample,
-    estrae la caption similarity e la aggiunge al global_summary.txt.
-    """
-
-    summary_path = os.path.join(output_dir, "global_summary.txt")
-    if not os.path.exists(summary_path):
-        print(f"[ERROR] Global summary not found: {summary_path}")
-        return
-
-    # ── Raccolta caption similarity da ogni sample ─────────────────────────
-    caption_data = {}   # {sample_idx: {"score": float, "orig": str, "adv": str}}
-
-    for entry in sorted(os.listdir(output_dir)):
-        sample_dir = os.path.join(output_dir, entry)
-        if not (os.path.isdir(sample_dir) and entry.startswith("img_")):
-            continue
-
-        metrics_path = os.path.join(sample_dir, "prompt_and_metrics.txt")
-        if not os.path.exists(metrics_path):
-            print(f"[WARN] Missing metrics file: {metrics_path}")
-            continue
-
-        with open(metrics_path, "r") as f:
-            content = f.read()
-
-        score_match   = re.search(r"Score:\s*([\d.]+)",         content)
-        orig_match    = re.search(r"Caption orig\s*:\s*(.+)",   content)
-        adv_match     = re.search(r"Caption adv\s*:\s*(.+)",    content)
-
-        if not all([score_match, orig_match, adv_match]):
-            print(f"[WARN] Caption similarity not found in {metrics_path}")
-            continue
-
-        idx = int(entry.replace("img_", ""))
-        caption_data[idx] = {
-            "score": float(score_match.group(1)),
-            "orig":  orig_match.group(1).strip(),
-            "adv":   adv_match.group(1).strip(),
-        }
-
-    if not caption_data:
-        print("[ERROR] No caption similarity data found.")
-        return
-
-    avg_caption_sim = sum(v["score"] for v in caption_data.values()) / len(caption_data)
-    print(f"Collected caption similarity for {len(caption_data)} samples. Average: {avg_caption_sim:.4f}")
-
-    # ── Aggiorna global_summary.txt ────────────────────────────────────────
-    with open(summary_path, "r") as f:
-        content = f.read()
-
-    # 1. Aggiungi media nella sezione CLIP (se non già presente)
-    caption_avg_block = (
-        f"Average Caption Similarity (Edited Original vs Edited Immunized)\n"
-        f"Score: {avg_caption_sim:.4f}\n\n"
-    )
-    if "Caption Similarity" not in content:
-        content = content.replace(
-            "=" * 50 + "\n" + "Per-sample detail",
-            caption_avg_block + "=" * 50 + "\n" + "Per-sample detail"
-        )
-
-    # 2. Aggiungi per-sample
-    def add_caption_to_sample(match):
-        block     = match.group(0)
-        idx_match = re.search(r"\[(\d+)\]", block)
-        if not idx_match:
-            return block
-        idx = int(idx_match.group(1))
-        if idx not in caption_data or "Caption similarity" in block:
-            return block  # già presente, skip
-        data = caption_data[idx]
-        addition = (
-            f"  Caption similarity: {data['score']:.4f}\n"
-            f"  Caption orig: {data['orig']}\n"
-            f"  Caption adv:  {data['adv']}\n"
-        )
-        return block.rstrip("\n") + "\n" + addition
-
-    content = re.sub(
-        r"\[\d+\] .+\n(?:  .+\n)+",
-        add_caption_to_sample,
-        content
-    )
-
-    # 3. Aggiorna/aggiungi la riga nella stampa finale
-    if "Caption sim" not in content:
-        content = content.rstrip() + f"\nCaption sim   : {avg_caption_sim:.4f}\n"
-
-    with open(summary_path, "w") as f:
-        f.write(content)
-
-    print(f"Global summary updated: {summary_path}")
-
 
 if __name__ == "__main__":
-    # Modifica questo path con la tua cartella run
-    OUTPUT_DIR = "output/SD_Inpainting/full_dataset/VAE_noise_mask_KL"
-    update_global_summary_with_caption(OUTPUT_DIR)
-
+    main()
 
 

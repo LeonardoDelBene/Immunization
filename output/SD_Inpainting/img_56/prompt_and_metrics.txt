@@ -1,0 +1,23 @@
+--- Prompt ---
+person in s station
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 34.5256
+SSIM: 0.9599
+FSIM: 0.9123
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 17.9115
+SSIM: 0.6995
+FSIM: 0.5971
+
+CLIP score (Image vs Prompt)
+Edited Original:  26.9798
+Edited Immunized: 26.6347
+
+Caption similarity (Edited Original vs Edited Immunized)
+Score: 0.7286
+Caption orig : A woman wearing a scarf and a black jacket is standing in a crowded subway station.
+Caption adv : A woman wearing a plaid skirt and a scarf is standing on a subway platform.
