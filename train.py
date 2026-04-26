@@ -116,7 +116,7 @@ def validation_loop(
 ) -> dict:
 
     unet.eval()
-    val_metrics = {"l_tot": 0.0, "l_noise": 0.0, "l_surrogates": 0.0}
+    val_metrics = {}
 
     with torch.no_grad():
         for I, M, I_target in tqdm(val_dataloader, desc="Validation", leave=False):
@@ -134,7 +134,7 @@ def validation_loop(
             X_cls_list,   Y_cls_list   = [], []
             X_patch_list, Y_patch_list = [], []
 
-            '''I_im_clip = to_clip_space(I_im)
+            I_im_clip = to_clip_space(I_im)
             I_target_clip = to_clip_space(I_target)
 
             for clip_model in surrogate_clip_models:
@@ -143,7 +143,7 @@ def validation_loop(
                 X_cls_list.append(X_cls)
                 Y_cls_list.append(Y_cls)
                 X_patch_list.append(X_patch)
-                Y_patch_list.append(Y_patch)'''
+                Y_patch_list.append(Y_patch)
 
             # ── VAE ──
             posterior_im     = vae.encode(I_im).latent_dist
@@ -155,9 +155,10 @@ def validation_loop(
                                 posterior_target= posterior_target, dyn_weighter=dyn_weighter, alpha=alpha, beta=beta, eta=eta,
                                 lambda_vae=lambda_vae, noise_on_mask=noise_on_mask)
 
-            for k in val_metrics:
-                val_metrics[k] += log[k]
-
+            for k, v in log.items():
+                if k == "weights":
+                    continue
+                val_metrics[k] = val_metrics.get(k, 0.0) + v
     # ── Medie ──
     n = len(val_dataloader)
     val_metrics = {k: v / n for k, v in val_metrics.items()}
@@ -194,17 +195,17 @@ def training_loop(
 ):
     # ── Surrogate CLIP ──
     surrogate_clip_configs = [
-        #"openai/clip-vit-base-patch32",
+        "openai/clip-vit-base-patch32",
         #"openai/clip-vit-base-patch16",
         #"openai/clip-vit-large-patch14",
     ]
     surrogate_clip_models = []
-    '''for model_name in surrogate_clip_configs:
+    for model_name in surrogate_clip_configs:
         model = CLIPModel.from_pretrained(model_name).to(device).eval()
         # Congela i parametri dei modelli surrogati
         for param in model.parameters():
             param.requires_grad = False
-        surrogate_clip_models.append(model)'''
+        surrogate_clip_models.append(model)
 
 
     # ── VAE ──
@@ -304,7 +305,7 @@ def training_loop(
             X_cls_list, Y_cls_list = [], []
             X_patch_list, Y_patch_list = [], []
 
-            '''I_im_clip = to_clip_space(I_im)
+            I_im_clip = to_clip_space(I_im)
             I_target_clip = to_clip_space(I_target)
             
             for clip_model in surrogate_clip_models:
@@ -314,7 +315,7 @@ def training_loop(
                     X_cls_list.append(X_cls)
                     Y_cls_list.append(Y_cls)
                     X_patch_list.append(X_patch)
-                    Y_patch_list.append(Y_patch)'''
+                    Y_patch_list.append(Y_patch)
 
             posterior_im = vae.encode(I_im).latent_dist
             posterior_target = vae.encode(I_target).latent_dist
@@ -376,12 +377,19 @@ def training_loop(
                                           surrogate_clip_models=surrogate_clip_models, vae=vae,
                                           dyn_weighter=dyn_weighter, alpha=alpha, beta=beta, eta=eta,
                                           lambda_vae=lambda_vae, device=device, noise_on_mask=noise_on_mask)
+            # ── Stampa surrogati val ──
+            n_surrogates_val = sum(1 for k in val_metrics if k.startswith("l_surrogate_"))
+            surrogate_str_val = "  ".join(
+                f"l_surrogate_{i}={val_metrics[f'l_surrogate_{i}']:.4f}"
+                for i in range(n_surrogates_val)
+            )
 
             print(
                 f"── Epoch {epoch + 1} Val ──    "
                 f"loss={val_metrics['l_tot']:.4f}  "
                 f"l_noise={val_metrics['l_noise']:.4f}  "
                 f"l_surr={val_metrics['l_surrogates']:.4f}\n"
+                f"{surrogate_str_val}"  # ← era mancante / vuoto prima
             )
 
             # ── Salva best model ──
@@ -395,7 +403,7 @@ def training_loop(
                 patience_count += 1
                 print(f"  No improvement ({patience_count}/{patience})\n")
 
-                # ── Log epoch-level su W&B ──
+                # ── Log W&B ──
             wandb.log({
                     "train/loss": train_metrics["l_tot"],
                     "train/l_noise": train_metrics["l_noise"],
@@ -407,9 +415,10 @@ def training_loop(
                     "val/loss": val_metrics["l_tot"],
                     "val/l_noise": val_metrics["l_noise"],
                     "val/l_surrogates": val_metrics["l_surrogates"],
+                    **{f"val/l_surrogate_{i}": val_metrics[f"l_surrogate_{i}"]  # ← NUOVO
+                       for i in range(n_surrogates_val)},
                     "epoch": epoch + 1,
             }, step=epoch + 1)
-
         # ── Salva checkpoint di training a fine epoca ──
         save_training_checkpoint(
             checkpoint_dir=training_checkpoint_dir,
@@ -533,17 +542,17 @@ if __name__ == "__main__":
         lr=1e-4,
         batch=batch,
         weight_decay=1e-2,
-        alpha=25.0,
+        alpha=20.0,
         beta=1.0,
         eta=0.2,
-        lambda_vae = 1,
+        lambda_vae = 0.1,
         eps= (32 / 255 * 2),
         val_every=1,
         patience=100,
         best_checkpoint_path="checkpoints/unet_best_123fa41c.pth",
-        training_checkpoint_dir="checkpoints/training/123fa41c",
+        training_checkpoint_dir="checkpoints/training/",
         device=device,
         resume_from_checkpoint=False, # Cambia a False per ricominciare da zero
-        resume_only_weights = True, # True per caricare i pesi dal checkpoint
+        resume_only_weights = False, # True per caricare i pesi dal checkpoint
         noise_on_mask=True,
     )
