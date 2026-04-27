@@ -1,23 +1,28 @@
 --- Prompt ---
-person in a shop
+person in a garden
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 24.6424
-SSIM: 0.8260
-FSIM: 0.8699
+PSNR: 32.6295
+SSIM: 0.9154
+FSIM: 0.9362
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 12.9176
-SSIM: 0.3167
-FSIM: 0.4133
+PSNR: 18.8718
+SSIM: 0.4618
+FSIM: 0.5108
 
 CLIP score (Image vs Prompt)
-Edited Original:  27.5467
-Edited Immunized: 30.3464
+Edited Original:  25.4936
+Edited Immunized: 28.4210
 
-Caption similarity (Edited Original vs Edited Immunized)
-Score: 0.6108
-Caption orig : A young woman wearing a leather jacket and black skirt stands in front of a store with a variety of colorful fabrics.
-Caption adv : A woman in a black coat and black hair is walking through a store.
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.5020
+Caption orig: A young woman wearing a black jacket and black skirt stands in a garden with a variety of flowers.
+Caption adv:  A woman wearing a black jacket and black skirt is walking down a path.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   False
+Accuracy:  0.0000
