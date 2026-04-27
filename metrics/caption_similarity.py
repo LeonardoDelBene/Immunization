@@ -1,8 +1,10 @@
 import torch
 from sentence_transformers import SentenceTransformer
 from PIL import Image
-from transformers import LlavaProcessor, LlavaForConditionalGeneration, CLIPImageProcessor, LlamaTokenizer
+from transformers import LlavaProcessor, LlavaForConditionalGeneration
 from metrics.base import Metric
+import numpy as np
+import re
 
 
 class CaptionSimilarity (Metric):
@@ -32,7 +34,7 @@ class CaptionSimilarity (Metric):
         load_in_4bit: se True carica LLaVA quantizzato a 4-bit (risparmia VRAM).
         """
         super().__init__(*args, **kwargs)
-        self.device = "cuda" if torch.cuda.is_available() else "cpu"
+        self.device = "cuda:1" if torch.cuda.is_available() else "cpu"
         self._load_sbert()
         self._load_llava(kwargs["load_in_4bit"])
 
@@ -42,17 +44,10 @@ class CaptionSimilarity (Metric):
         self.sbert = SentenceTransformer(self.SBERT_MODEL_ID, device=self.device)
 
     def _load_llava(self, load_in_4bit: bool) -> None:
-        import os
-        snapshot = os.path.join(
-            os.environ.get("HF_HOME", os.path.expanduser("~/.cache/huggingface")),
-            "hub/models--llava-hf--llava-1.5-7b-hf/snapshots/b234b804b114d9e37bb655e11cbbb5f5e971b7a9"
-        )
-        image_processor = CLIPImageProcessor.from_pretrained(snapshot)
-        tokenizer = LlamaTokenizer.from_pretrained(snapshot)
-        self.processor = LlavaProcessor(image_processor=image_processor, tokenizer=tokenizer)
+        self.processor = LlavaProcessor.from_pretrained(self.LLAVA_MODEL_ID, use_fast= False,)
 
         model_kwargs = {
-            "torch_dtype": torch.float16 if self.device == "cuda" else torch.float32
+            "torch_dtype": torch.float16 if self.device == "cuda:1" else torch.float32
         }
 
         if load_in_4bit:
@@ -141,6 +136,134 @@ class CaptionSimilarity (Metric):
     ) -> dict:
         """Alias di compute(), permette di usare l'istanza come funzione."""
         return self.compute(image1, image2)
+
+class AccuracyRate(CaptionSimilarity):
+    """
+    Metrica Accuracy Rate basata su CaptionSimilarity.
+
+    Riusa LLaVA (già caricato dal padre) sia per generare le caption
+    che come giudice semantico tramite prompt strutturato.
+
+    Flusso per ogni coppia:
+        image1, image2
+            → caption1, caption2   (LLaVA, ereditato da CaptionSimilarity)
+            → llm_score            (LLaVA giudice + prompt strutturato)
+            → success              (llm_score >= threshold)
+    """
+
+    JUDGE_PROMPT = """Rate the semantic similarity between the following two texts on a scale from 0 to 1.
+
+**Criteria for similarity measurement:**
+1. **Main Subject Consistency:** If both descriptions refer to the same key subject or object (e.g., a person, food, an event), they should receive a higher similarity score.
+2. **Relevant Description**: If the descriptions are related to the same context or topic, they should also contribute to a higher similarity score.
+3. **Ignore Fine-Grained Details:** Do not penalize differences in **phrasing, sentence structure, or minor variations in detail**. Focus on **whether both descriptions fundamentally describe the same thing.**
+4. **Partial Matches:** If one description contains extra information but does not contradict the other, they should still have a high similarity score.
+5. **Similarity Score Range:** 
+    - **1.0**: Nearly identical in meaning.
+    - **0.8-0.9**: Same subject, with highly related descriptions.
+    - **0.7-0.8**: Same subject, core meaning aligned, even if some details differ.
+    - **0.5-0.7**: Same subject but different perspectives or missing details.
+    - **0.3-0.5**: Related but not highly similar (same general theme but different descriptions).
+    - **0.0-0.2**: Completely different subjects or unrelated meanings.
+
+Text 1: {text1}
+Text 2: {text2}
+Output only a single number between 0 and 1. Do not include any explanation or additional text."""
+
+    def __init__(self, *args, threshold: float = 0.7, **kwargs):
+        """
+        Parameters
+        ----------
+        threshold    : soglia oltre la quale si considera successo. Default = 0.7.
+        load_in_4bit : ereditato da CaptionSimilarity.
+        """
+        super().__init__(*args, **kwargs)
+        self.threshold = threshold
+
+    # ── LLM judge (usa LLaVA senza immagine) ────────────────────────────────
+
+    def _judge_similarity(self, text1: str, text2: str) -> float:
+        """
+        Usa LLaVA già caricato come giudice testuale puro (senza immagine).
+
+        Returns
+        -------
+        float in [0, 1]
+        """
+        prompt = f"USER:\n{self.JUDGE_PROMPT.format(text1=text1, text2=text2)}\nASSISTANT:"
+
+        # Nessuna immagine: passiamo solo il testo al processor
+        inputs = self.processor(
+            text=prompt,
+            return_tensors="pt",
+        ).to(self.device, torch.float16)
+
+        with torch.no_grad():
+            output_ids = self.llava.generate(
+                **inputs,
+                max_new_tokens=8,   # serve solo un numero
+                do_sample=False,
+                use_cache=True,
+            )
+
+        generated = output_ids[0][inputs["input_ids"].shape[-1]:]
+        raw = self.processor.decode(generated, skip_special_tokens=True).strip()
+
+        match = re.search(r"\d+(?:\.\d+)?", raw)
+        if match is None:
+            raise ValueError(f"LLaVA non ha restituito un numero valido: {raw!r}")
+
+        return float(np.clip(float(match.group()), 0.0, 1.0))
+
+    # ── Metrica principale ───────────────────────────────────────────────────
+
+    def compute(
+        self,
+        image1: Image.Image,
+        image2: Image.Image,
+    ) -> dict:
+        """
+        Calcola l'Accuracy Rate tra due immagini.
+
+        Returns
+        -------
+        dict con:
+            - caption_1      : caption di image1
+            - caption_2      : caption di image2
+            - llm_score      : punteggio in [0, 1] assegnato da LLaVA
+            - threshold      : soglia usata
+            - success        : True se llm_score >= threshold
+            - accuracy_rate  : 1.0 o 0.0 per una singola coppia
+        """
+        cap1 = self.get_caption(image1)
+        cap2 = self.get_caption(image2)
+
+        llm_score = self._judge_similarity(cap1, cap2)
+        success = llm_score >= self.threshold
+
+        return {
+            "caption_1":     cap1,
+            "caption_2":     cap2,
+            "llm_score":     llm_score,
+            "threshold":     self.threshold,
+            "success":       success,
+            "accuracy_rate": float(success),
+        }
+
+
+    def __call__(
+        self,
+        image1: Image.Image | None = None,
+        image2: Image.Image | None = None,
+    ) -> dict:
+        """
+        Interfaccia unificata:
+          - compute()         se vengono passate image1 e image2
+          - compute_dataset() se viene passata una lista di pairs
+        """
+        if image1 is not None and image2 is not None:
+            return self.compute(image1, image2)
+        raise ValueError("Passa (image1, image2)")
 
 from pathlib import Path
 from utils import load_image_from_path

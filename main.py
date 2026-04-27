@@ -120,6 +120,7 @@ def save_metrics(output_dir, edit_prompt, metrics: dict):
         f.write(f"{edit_prompt}\n\n")
 
         f.write("--- Metrics ---\n\n")
+
         f.write("Image Quality (Original vs Immunized)\n")
         f.write(f"PSNR: {metrics['psnr_orig_adv']:.4f}\n")
         f.write(f"SSIM: {metrics['ssim_orig_adv']:.4f}\n")
@@ -134,10 +135,15 @@ def save_metrics(output_dir, edit_prompt, metrics: dict):
         f.write(f"Edited Original:  {metrics['clip_orig']:.4f}\n")
         f.write(f"Edited Immunized: {metrics['clip_adv']:.4f}\n\n")
 
-        f.write(f"Caption similarity (Edited Original vs Edited Immunized)\n")
-        f.write(f"Score: {metrics['caption_sim']:.4f}\n")
-        f.write("Caption orig : " + metrics['caption_orig'] + "\n")
-        f.write("Caption adv : " + metrics['caption_adv'])
+        f.write("Caption Similarity (Edited Original vs Edited Immunized)\n")
+        f.write(f"Score:        {metrics['caption_sim']:.4f}\n")
+        f.write(f"Caption orig: {metrics['caption_orig']}\n")
+        f.write(f"Caption adv:  {metrics['caption_adv']}\n\n")
+
+        f.write("Accuracy Rate (Edited Original vs Edited Immunized)\n")
+        f.write(f"LLM score: {metrics['accuracy_score']:.4f}\n")
+        f.write(f"Success:   {metrics['accuracy_success']}\n")
+        f.write(f"Accuracy:  {metrics['accuracy_rate']:.4f}\n")
 
     print(f"Metrics saved in {prompt_file}")
 
@@ -145,40 +151,51 @@ def save_metrics(output_dir, edit_prompt, metrics: dict):
 # ─────────────────────────────────────────────
 # METRICS
 # ─────────────────────────────────────────────
-
 def load_metrics_models():
     print("Loading metric models...")
     metrics_models = {
-        "psnr":    create_metric(MetricType.PSNR),
-        "ssim":    create_metric(MetricType.SSIM),
-        "fsim":    create_metric(MetricType.FSIM),
-        "clip":    create_metric(MetricType.CLIP, model="ViT-B-32", pretrained_on="openai"),
-        "caption": create_metric(MetricType.CAP, load_in_4bit=True),
+        "psnr":     create_metric(MetricType.PSNR),
+        "ssim":     create_metric(MetricType.SSIM),
+        "fsim":     create_metric(MetricType.FSIM),
+        "clip":     create_metric(MetricType.CLIP, model="ViT-B-32", pretrained_on="openai"),
+        "caption":  create_metric(MetricType.CAP,  load_in_4bit=True),
+        "accuracy": create_metric(MetricType.ACC,  load_in_4bit=True, threshold=0.5),
     }
     print("Metric models loaded.")
     return metrics_models
 
+
 def compute_metrics(image, adv_image_png, edited_orig_recovered, edited_adv_recovered, edit_prompt, metrics_models):
-    psnr_metric    = metrics_models["psnr"]
-    ssim_metric    = metrics_models["ssim"]
-    fsim_metric    = metrics_models["fsim"]
-    clip_metric    = metrics_models["clip"]
-    caption_metric = metrics_models["caption"]
+    psnr_metric     = metrics_models["psnr"]
+    ssim_metric     = metrics_models["ssim"]
+    fsim_metric     = metrics_models["fsim"]
+    clip_metric     = metrics_models["clip"]
+    caption_metric  = metrics_models["caption"]
+    accuracy_metric = metrics_models["accuracy"]
 
     cap_score = caption_metric.compute(edited_orig_recovered, edited_adv_recovered)
+    acc_score = accuracy_metric.compute(edited_orig_recovered, edited_adv_recovered)
+
     metrics = {
+        # Image quality
         "psnr_orig_adv": psnr_metric.calculate_metric_between_images(image, adv_image_png),
         "ssim_orig_adv": ssim_metric.calculate_metric_between_images(image, adv_image_png),
         "fsim_orig_adv": fsim_metric.calculate_metric_between_images(image, adv_image_png),
+        # Protection effectiveness
         "psnr_edit":     psnr_metric.calculate_metric_between_images(edited_orig_recovered, edited_adv_recovered),
         "ssim_edit":     ssim_metric.calculate_metric_between_images(edited_orig_recovered, edited_adv_recovered),
         "fsim_edit":     fsim_metric.calculate_metric_between_images(edited_orig_recovered, edited_adv_recovered),
+        # CLIP
         "clip_orig":     clip_metric.calculate_clip_score(edited_orig_recovered, edit_prompt),
         "clip_adv":      clip_metric.calculate_clip_score(edited_adv_recovered,  edit_prompt),
-        "caption_sim": cap_score["caption_similarity"],
-        "caption_orig": cap_score["caption_1"],
-        "caption_adv": cap_score["caption_2"],
-
+        # Caption similarity
+        "caption_sim":   cap_score["caption_similarity"],
+        "caption_orig":  cap_score["caption_1"],
+        "caption_adv":   cap_score["caption_2"],
+        # Accuracy rate
+        "accuracy_rate": acc_score["accuracy_rate"],
+        "accuracy_score": acc_score["llm_score"],
+        "accuracy_success": acc_score["success"],
     }
 
     print("\n--- Image Quality (Original vs Immunized) ---")
@@ -195,12 +212,18 @@ def compute_metrics(image, adv_image_png, edited_orig_recovered, edited_adv_reco
     print(f"Orig : {metrics['clip_orig']:.4f}")
     print(f"Adv  : {metrics['clip_adv']:.4f}")
 
-    print("\n--- Caption similarity (Edited Original vs Edited Immunized) ---")
-    print(f"score : {metrics['caption_sim']:.4f}")
-    print("caption orig : " + metrics['caption_orig'])
-    print("caption adv : " + metrics['caption_adv'])
-    return metrics
+    print("\n--- Caption Similarity (Edited Original vs Edited Immunized) ---")
+    print(f"Score       : {metrics['caption_sim']:.4f}")
+    print(f"Caption orig: {metrics['caption_orig']}")
+    print(f"Caption adv : {metrics['caption_adv']}")
 
+    print("\n--- Accuracy Rate (Edited Original vs Edited Immunized) ---")
+    print(f"LLM score   : {metrics['accuracy_score']:.4f}")
+    print(f"Threshold   : {accuracy_metric.threshold:.2f}")
+    print(f"Success     : {metrics['accuracy_success']}")
+    print(f"Accuracy    : {metrics['accuracy_rate']:.4f}")
+
+    return metrics
 
 
 # ─────────────────────────────────────────────
@@ -304,11 +327,15 @@ def save_global_summary(output_dir, all_metrics):
         print("No metrics to summarize.")
         return
 
-    keys = ["psnr_orig_adv", "ssim_orig_adv", "fsim_orig_adv",
-            "psnr_edit",     "ssim_edit",      "fsim_edit",
-            "clip_orig",     "clip_adv",        "caption_sim"]
+    numeric_keys = ["psnr_orig_adv", "ssim_orig_adv", "fsim_orig_adv",
+                    "psnr_edit",     "ssim_edit",      "fsim_edit",
+                    "clip_orig",     "clip_adv",        "caption_sim",
+                    "accuracy_score"]
 
-    averages = {k: sum(m[k] for m in all_metrics) / len(all_metrics) for k in keys}
+    averages = {k: sum(m[k] for m in all_metrics) / len(all_metrics) for k in numeric_keys}
+
+    # Percentuale di campioni in cui LLaVA ha giudicato le caption sufficientemente simili
+    success_rate = sum(m["accuracy_success"] for m in all_metrics) / len(all_metrics) * 100
 
     summary_path = os.path.join(output_dir, "global_summary.txt")
     with open(summary_path, "w") as f:
@@ -332,6 +359,10 @@ def save_global_summary(output_dir, all_metrics):
         f.write("Average Caption Similarity (Edited Original vs Edited Immunized)\n")
         f.write(f"Score: {averages['caption_sim']:.4f}\n\n")
 
+        f.write("Accuracy Rate (Edited Original vs Edited Immunized)\n")
+        f.write(f"Avg LLM score : {averages['accuracy_score']:.4f}\n")
+        f.write(f"Success rate  : {success_rate:.1f}% ({sum(m['accuracy_success'] for m in all_metrics)}/{len(all_metrics)} samples above threshold)\n\n")
+
         f.write("=" * 50 + "\n")
         f.write("Per-sample detail\n\n")
         for m in all_metrics:
@@ -342,7 +373,8 @@ def save_global_summary(output_dir, all_metrics):
             f.write(f"  CLIP orig: {m['clip_orig']:.4f} | adv: {m['clip_adv']:.4f}\n")
             f.write(f"  Caption similarity: {m['caption_sim']:.4f}\n")
             f.write(f"  Caption orig: {m['caption_orig']}\n")
-            f.write(f"  Caption adv:  {m['caption_adv']}\n\n")
+            f.write(f"  Caption adv:  {m['caption_adv']}\n")
+            f.write(f"  Accuracy LLM score: {m['accuracy_score']:.4f} | success: {m['accuracy_success']}\n\n")
 
     print(f"\nGlobal summary saved in {summary_path}")
 
@@ -358,6 +390,8 @@ def save_global_summary(output_dir, all_metrics):
     print(f"CLIP orig     : {averages['clip_orig']:.4f}")
     print(f"CLIP adv      : {averages['clip_adv']:.4f}")
     print(f"Caption sim   : {averages['caption_sim']:.4f}")
+    print(f"Accuracy score: {averages['accuracy_score']:.4f}")
+    print(f"Success rate  : {success_rate:.1f}% ({sum(m['accuracy_success'] for m in all_metrics)}/{len(all_metrics)} samples above threshold)")
 
 
 # ─────────────────────────────────────────────
@@ -388,6 +422,8 @@ def main():
         run_on_full_dataset(config)
     else:
         # logica singolo sample come prima
+        from metrics import MetricType
+        print(MetricType.__members__)  # deve stampare anche ACC
         output_dir = get_output_dir(
             config["base_output_dir"],
             config["use_instruct_pix2pix"],

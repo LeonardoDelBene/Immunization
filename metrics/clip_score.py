@@ -1,18 +1,4 @@
 """Clip Score Metric"""
-import os
-BASE_CACHE = "/equilibrium/ldelbene/cache"
-os.makedirs(BASE_CACHE, exist_ok=True)
-
-# Hugging Face datasets
-os.environ["HF_HOME"] = os.path.join(BASE_CACHE, "hf")
-os.environ["HF_DATASETS_CACHE"] = os.path.join(BASE_CACHE, "hf", "datasets")
-
-# Diffusers / Transformers
-os.environ["DIFFUSERS_CACHE"] = os.path.join(BASE_CACHE, "diffusers")
-os.environ["TRANSFORMERS_CACHE"] = os.path.join(BASE_CACHE, "transformers")
-
-# OpenCLIP e fallback generico
-os.environ["XDG_CACHE_HOME"] = os.path.join(BASE_CACHE, "clip")
 import open_clip
 import torch
 
