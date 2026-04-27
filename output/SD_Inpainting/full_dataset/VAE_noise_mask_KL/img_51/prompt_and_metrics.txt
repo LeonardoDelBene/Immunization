@@ -4,20 +4,25 @@ A person in a yoga class
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 29.4786
-SSIM: 0.9056
-FSIM: 0.8901
+PSNR: 32.8291
+SSIM: 0.9359
+FSIM: 0.9199
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 15.2037
-SSIM: 0.5174
-FSIM: 0.4146
+PSNR: 16.5523
+SSIM: 0.6176
+FSIM: 0.4693
 
 CLIP score (Image vs Prompt)
 Edited Original:  23.3736
-Edited Immunized: 29.9970
+Edited Immunized: 24.9702
 
-Caption similarity (Edited Original vs Edited Immunized)
-Score: 0.4987
-Caption orig : A woman wearing a blue jacket and a white shirt stands in front of a colorful painting.
-Caption adv : A woman in a black jacket and white shirt is standing in front of a mirror.
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.6253
+Caption orig: A woman wearing a blue jacket and a white shirt stands in front of a colorful painting.
+Caption adv:  A woman wearing a black jacket and white shirt stands in front of a row of colorful dresses.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   False
+Accuracy:  0.0000

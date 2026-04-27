@@ -4,20 +4,25 @@ A person in a refugee camp
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 28.7379
-SSIM: 0.8698
-FSIM: 0.8490
+PSNR: 32.5803
+SSIM: 0.9243
+FSIM: 0.9040
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 18.8930
-SSIM: 0.6155
-FSIM: 0.5283
+PSNR: 19.8352
+SSIM: 0.6999
+FSIM: 0.5907
 
 CLIP score (Image vs Prompt)
 Edited Original:  29.1463
-Edited Immunized: 30.6823
+Edited Immunized: 28.2583
 
-Caption similarity (Edited Original vs Edited Immunized)
-Score: 0.7984
-Caption orig : A man wearing a blue jacket and a red, white, and blue striped shirt stands in front of a tent.
-Caption adv : A man wearing a black jacket and a backpack is standing in front of a tent.
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.9293
+Caption orig: A man wearing a blue jacket and a red, white, and blue striped shirt stands in front of a tent.
+Caption adv:  A man wearing a blue jacket and a hat stands in front of a tent.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   False
+Accuracy:  0.0000

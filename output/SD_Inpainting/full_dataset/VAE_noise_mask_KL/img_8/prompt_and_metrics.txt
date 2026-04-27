@@ -4,20 +4,25 @@ A person in a historic landmark event
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.0182
-SSIM: 0.8952
-FSIM: 0.8016
+PSNR: 33.6518
+SSIM: 0.9365
+FSIM: 0.8645
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 18.3069
-SSIM: 0.5180
-FSIM: 0.4737
+PSNR: 19.4799
+SSIM: 0.6241
+FSIM: 0.5481
 
 CLIP score (Image vs Prompt)
 Edited Original:  22.8094
-Edited Immunized: 22.8084
+Edited Immunized: 24.2191
 
-Caption similarity (Edited Original vs Edited Immunized)
-Score: 0.6671
-Caption orig : A woman wearing a black jacket and black pants stands in front of a stone building.
-Caption adv : A woman with blonde hair and a black shirt stands in front of a brick building.
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.9073
+Caption orig: A woman wearing a black jacket and black pants stands in front of a stone building.
+Caption adv:  A woman in a black jacket and black pants stands in front of a building.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.8000
+Success:   True
+Accuracy:  1.0000

@@ -4,20 +4,25 @@ A person in a rooftop bar
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 28.8561
-SSIM: 0.9200
-FSIM: 0.9044
+PSNR: 32.6886
+SSIM: 0.9536
+FSIM: 0.9371
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 16.5345
-SSIM: 0.5653
-FSIM: 0.5045
+PSNR: 17.2856
+SSIM: 0.6269
+FSIM: 0.5526
 
 CLIP score (Image vs Prompt)
 Edited Original:  26.0844
-Edited Immunized: 25.5950
+Edited Immunized: 25.0158
 
-Caption similarity (Edited Original vs Edited Immunized)
-Score: 0.7888
-Caption orig : A woman wearing a white and blue dress stands on a rooftop, looking out over the city.
-Caption adv : A woman wearing a dress with a floral pattern stands on a rooftop.
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.7075
+Caption orig: A woman wearing a white and blue dress stands on a rooftop, looking out over the city.
+Caption adv:  A woman wearing a white dress with a pattern on it, standing on a deck with a city skyline in the background.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   False
+Accuracy:  0.0000

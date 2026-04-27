@@ -4,20 +4,25 @@ A person in a vintage record shop
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.9099
-SSIM: 0.9305
-FSIM: 0.8413
+PSNR: 35.8277
+SSIM: 0.9668
+FSIM: 0.9134
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 13.9001
-SSIM: 0.4500
-FSIM: 0.4650
+PSNR: 15.3646
+SSIM: 0.5679
+FSIM: 0.5304
 
 CLIP score (Image vs Prompt)
 Edited Original:  28.8454
-Edited Immunized: 31.4376
+Edited Immunized: 30.0308
 
-Caption similarity (Edited Original vs Edited Immunized)
-Score: 0.8879
-Caption orig : A woman wearing a blue coat and sunglasses stands in front of a bookshelf.
-Caption adv : A woman wearing a blue coat and pink dress stands in front of a bookshelf.
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        1.0000
+Caption orig: A woman wearing a blue coat and sunglasses stands in front of a bookshelf.
+Caption adv:  A woman wearing a blue coat and sunglasses stands in front of a bookshelf.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 1.0000
+Success:   True
+Accuracy:  1.0000

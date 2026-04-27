@@ -4,20 +4,25 @@ A person in a parking garage
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 29.5819
-SSIM: 0.8631
-FSIM: 0.7880
+PSNR: 31.9613
+SSIM: 0.9035
+FSIM: 0.8430
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 16.8424
-SSIM: 0.4641
-FSIM: 0.4188
+PSNR: 16.5819
+SSIM: 0.5349
+FSIM: 0.4012
 
 CLIP score (Image vs Prompt)
 Edited Original:  26.5037
-Edited Immunized: 26.8880
+Edited Immunized: 25.5517
 
-Caption similarity (Edited Original vs Edited Immunized)
-Score: 0.5110
-Caption orig : A woman wearing a black jacket and a scarf is standing in a room.
-Caption adv : A woman wearing a black dress and a scarf is standing in front of a mirror.
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.6632
+Caption orig: A woman wearing a black jacket and a scarf is standing in a room.
+Caption adv:  A woman wearing a black jacket and a scarf is standing in front of a green pole.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   False
+Accuracy:  0.0000

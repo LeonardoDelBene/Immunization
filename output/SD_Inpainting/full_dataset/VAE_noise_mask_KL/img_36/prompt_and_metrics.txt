@@ -4,20 +4,25 @@ A person in a slum
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 29.4678
-SSIM: 0.9282
-FSIM: 0.9126
+PSNR: 34.7517
+SSIM: 0.9537
+FSIM: 0.9408
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 15.2314
-SSIM: 0.4677
-FSIM: 0.4556
+PSNR: 16.0250
+SSIM: 0.5435
+FSIM: 0.5003
 
 CLIP score (Image vs Prompt)
 Edited Original:  28.2799
-Edited Immunized: 31.2668
+Edited Immunized: 30.8698
 
-Caption similarity (Edited Original vs Edited Immunized)
-Score: 0.8072
-Caption orig : A woman wearing a white shirt and black skirt stands in front of a pile of clothes.
-Caption adv : A woman wearing a white shirt and black skirt is standing in front of a building.
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.7670
+Caption orig: A woman wearing a white shirt and black skirt stands in front of a pile of clothes.
+Caption adv:  A woman wearing a white shirt and black skirt stands in front of a shack.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   False
+Accuracy:  0.0000

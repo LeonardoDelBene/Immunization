@@ -4,20 +4,25 @@ A person in a dance school
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.1019
-SSIM: 0.9101
-FSIM: 0.8862
+PSNR: 36.4082
+SSIM: 0.9652
+FSIM: 0.9435
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 12.6240
-SSIM: 0.4622
-FSIM: 0.4218
+PSNR: 15.5252
+SSIM: 0.6130
+FSIM: 0.4863
 
 CLIP score (Image vs Prompt)
 Edited Original:  27.2043
-Edited Immunized: 24.6593
+Edited Immunized: 27.4507
 
-Caption similarity (Edited Original vs Edited Immunized)
-Score: 0.3302
-Caption orig : A young woman wearing a red shirt and a flower crown is standing on a stage, surrounded by other dancers.
-Caption adv : A group of young women are posing for a picture.
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.4288
+Caption orig: A young woman wearing a red shirt and a flower crown is standing on a stage, surrounded by other dancers.
+Caption adv:  A woman wearing a red shirt and a floral headband is smiling at the camera.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.4000
+Success:   False
+Accuracy:  0.0000

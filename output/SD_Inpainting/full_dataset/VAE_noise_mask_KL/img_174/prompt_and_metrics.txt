@@ -4,20 +4,25 @@ A person in a high-end restaurant
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.5883
-SSIM: 0.9144
-FSIM: 0.8962
+PSNR: 33.8477
+SSIM: 0.9428
+FSIM: 0.9310
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 15.4097
-SSIM: 0.5812
-FSIM: 0.5073
+PSNR: 16.5301
+SSIM: 0.6234
+FSIM: 0.5380
 
 CLIP score (Image vs Prompt)
 Edited Original:  29.2284
-Edited Immunized: 29.2541
+Edited Immunized: 29.1373
 
-Caption similarity (Edited Original vs Edited Immunized)
-Score: 0.7086
-Caption orig : A woman wearing a black jacket and scarf is walking through a restaurant.
-Caption adv : A woman wearing a black jacket and black pants is standing in a restaurant.
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.6868
+Caption orig: A woman wearing a black jacket and scarf is walking through a restaurant.
+Caption adv:  A woman in a black and white jacket is standing in a restaurant.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   False
+Accuracy:  0.0000

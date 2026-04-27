@@ -4,20 +4,25 @@ A person in a glass factory
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.8716
-SSIM: 0.9394
-FSIM: 0.8776
+PSNR: 34.9522
+SSIM: 0.9648
+FSIM: 0.9237
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 16.9903
-SSIM: 0.4869
-FSIM: 0.5204
+PSNR: 16.3183
+SSIM: 0.4811
+FSIM: 0.5169
 
 CLIP score (Image vs Prompt)
 Edited Original:  28.2983
-Edited Immunized: 28.0490
+Edited Immunized: 32.5164
 
-Caption similarity (Edited Original vs Edited Immunized)
-Score: 0.6172
-Caption orig : A woman wearing a blue jacket and a blue dress is standing in a room with a glass wall.
-Caption adv : A woman wearing a blue jacket and a white shirt is walking down a hallway.
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.8386
+Caption orig: A woman wearing a blue jacket and a blue dress is standing in a room with a glass wall.
+Caption adv:  A woman wearing a blue jacket and a black skirt is standing in a room with a green background.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   False
+Accuracy:  0.0000

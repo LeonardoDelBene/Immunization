@@ -4,20 +4,25 @@ A person in a gym sauna
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 29.4661
-SSIM: 0.8905
-FSIM: 0.8625
+PSNR: 34.7162
+SSIM: 0.9428
+FSIM: 0.9210
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 13.8412
-SSIM: 0.3434
-FSIM: 0.3913
+PSNR: 15.6749
+SSIM: 0.4960
+FSIM: 0.4681
 
 CLIP score (Image vs Prompt)
 Edited Original:  27.8856
-Edited Immunized: 25.9026
+Edited Immunized: 21.9165
 
-Caption similarity (Edited Original vs Edited Immunized)
-Score: 0.4104
-Caption orig : A woman wearing a leather jacket and black pants stands in front of a row of exercise machines.
-Caption adv : A woman wearing a black vest and a black hat is standing in a room.
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.9938
+Caption orig: A woman wearing a leather jacket and black pants stands in front of a row of exercise machines.
+Caption adv:  A woman wearing a leather jacket and black pants is standing in front of a row of exercise machines.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.9000
+Success:   True
+Accuracy:  1.0000

@@ -4,20 +4,25 @@ A person in a parking structure
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 29.8586
-SSIM: 0.9258
-FSIM: 0.9021
+PSNR: 33.3756
+SSIM: 0.9477
+FSIM: 0.9299
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 14.3700
-SSIM: 0.5254
-FSIM: 0.3954
+PSNR: 14.9862
+SSIM: 0.5281
+FSIM: 0.4092
 
 CLIP score (Image vs Prompt)
 Edited Original:  24.0007
-Edited Immunized: 25.0411
+Edited Immunized: 23.7171
 
-Caption similarity (Edited Original vs Edited Immunized)
-Score: 0.4546
-Caption orig : A woman wearing a gray vest and sunglasses is standing outside.
-Caption adv : A woman wearing sunglasses and a black and white dress is walking down a hallway.
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.5192
+Caption orig: A woman wearing a gray vest and sunglasses is standing outside.
+Caption adv:  A woman wearing a white shirt and sunglasses is walking down a street.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   False
+Accuracy:  0.0000

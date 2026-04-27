@@ -4,20 +4,25 @@ A person in a motel room
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 28.3959
-SSIM: 0.9196
-FSIM: 0.8612
+PSNR: 32.8007
+SSIM: 0.9575
+FSIM: 0.9094
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 16.8863
-SSIM: 0.6554
-FSIM: 0.5775
+PSNR: 15.4936
+SSIM: 0.6626
+FSIM: 0.6116
 
 CLIP score (Image vs Prompt)
 Edited Original:  27.0520
-Edited Immunized: 29.3550
+Edited Immunized: 27.3479
 
-Caption similarity (Edited Original vs Edited Immunized)
-Score: 0.6689
-Caption orig : A woman wearing a blue and white dress stands in a hotel room.
-Caption adv : A woman wearing a black jacket and a blue and white skirt stands in a bedroom.
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.6940
+Caption orig: A woman wearing a blue and white dress stands in front of a bed.
+Caption adv:  A woman wearing a black jacket and a blue and white dress stands in a bedroom.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   False
+Accuracy:  0.0000

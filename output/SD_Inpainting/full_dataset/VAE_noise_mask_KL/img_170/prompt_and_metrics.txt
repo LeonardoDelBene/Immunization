@@ -4,20 +4,25 @@ A person in a game room
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.3250
-SSIM: 0.8819
-FSIM: 0.8627
+PSNR: 33.6164
+SSIM: 0.9221
+FSIM: 0.9089
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 13.9515
-SSIM: 0.3788
-FSIM: 0.4230
+PSNR: 14.7143
+SSIM: 0.4334
+FSIM: 0.4591
 
 CLIP score (Image vs Prompt)
 Edited Original:  24.2900
-Edited Immunized: 27.1324
+Edited Immunized: 26.8429
 
-Caption similarity (Edited Original vs Edited Immunized)
-Score: 0.6305
-Caption orig : A man wearing sunglasses and a black jacket stands in front of a bookshelf.
-Caption adv : A man wearing a black jacket and sunglasses stands in front of a wall of posters.
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.3557
+Caption orig: A man wearing sunglasses and a black jacket stands in front of a bookshelf.
+Caption adv:  A man wearing a black shirt with a tiger on it stands in front of a wall of posters.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   False
+Accuracy:  0.0000

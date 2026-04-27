@@ -411,7 +411,7 @@ def get_config():
         "dataset_path":         "./data/DiffVaxDataset_local",
         "dataset_split":        "validation",
         "sample_idx":           0,
-        "run_full_dataset":     False,
+        "run_full_dataset":     True,
         "run_wandb":            "VAE_noise_mask_KL"
     }
 
@@ -421,9 +421,6 @@ def main():
     if config["run_full_dataset"]:
         run_on_full_dataset(config)
     else:
-        # logica singolo sample come prima
-        from metrics import MetricType
-        print(MetricType.__members__)  # deve stampare anche ACC
         output_dir = get_output_dir(
             config["base_output_dir"],
             config["use_instruct_pix2pix"],

@@ -4,20 +4,25 @@ A person in a bowling alley
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.8954
-SSIM: 0.9287
-FSIM: 0.8800
+PSNR: 35.5015
+SSIM: 0.9615
+FSIM: 0.9313
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 13.5295
-SSIM: 0.4201
-FSIM: 0.4342
+PSNR: 14.6318
+SSIM: 0.4751
+FSIM: 0.4758
 
 CLIP score (Image vs Prompt)
 Edited Original:  31.7944
-Edited Immunized: 31.9882
+Edited Immunized: 31.9016
 
-Caption similarity (Edited Original vs Edited Immunized)
-Score: 0.8692
-Caption orig : A woman wearing a red shirt and sunglasses is walking down a bowling alley.
-Caption adv : A woman wearing a red shirt and sunglasses is standing in a bowling alley.
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.8692
+Caption orig: A woman wearing a red shirt and sunglasses is walking down a bowling alley.
+Caption adv:  A woman wearing a red shirt and sunglasses is standing in a bowling alley.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   False
+Accuracy:  0.0000

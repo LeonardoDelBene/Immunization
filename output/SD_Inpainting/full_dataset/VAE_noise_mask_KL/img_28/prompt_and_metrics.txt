@@ -4,20 +4,25 @@ A person in a tech startup
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.5563
-SSIM: 0.8801
-FSIM: 0.9166
+PSNR: 34.1510
+SSIM: 0.9296
+FSIM: 0.9507
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 17.6890
-SSIM: 0.5852
-FSIM: 0.4153
+PSNR: 15.0560
+SSIM: 0.5678
+FSIM: 0.4412
 
 CLIP score (Image vs Prompt)
 Edited Original:  20.7768
-Edited Immunized: 24.4893
+Edited Immunized: 24.5994
 
-Caption similarity (Edited Original vs Edited Immunized)
-Score: 0.9800
-Caption orig : A woman wearing a black and white shirt and sunglasses is standing in front of a chalkboard.
-Caption adv : A woman wearing a black shirt and sunglasses is standing in front of a chalkboard.
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.5110
+Caption orig: A woman wearing a black and white shirt and sunglasses is standing in front of a chalkboard.
+Caption adv:  A woman wearing a black shirt and sunglasses is walking down a hallway.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   False
+Accuracy:  0.0000

@@ -4,20 +4,25 @@ A person in a travel agency
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 29.2222
-SSIM: 0.8921
-FSIM: 0.9192
+PSNR: 33.1948
+SSIM: 0.9355
+FSIM: 0.9530
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 17.4050
-SSIM: 0.6218
-FSIM: 0.5654
+PSNR: 18.6185
+SSIM: 0.7010
+FSIM: 0.6190
 
 CLIP score (Image vs Prompt)
 Edited Original:  21.8369
-Edited Immunized: 24.2020
+Edited Immunized: 24.5705
 
-Caption similarity (Edited Original vs Edited Immunized)
-Score: 0.2925
-Caption orig : A woman wearing a fur coat and carrying a purse walks down a street.
-Caption adv : A woman in a black and blue dress is walking down a hallway.
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.8285
+Caption orig: A woman wearing a fur coat and carrying a purse walks down a street.
+Caption adv:  A woman wearing a fur coat and carrying a purse walks down a hallway.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   False
+Accuracy:  0.0000

@@ -4,20 +4,25 @@ A person in a flower garden
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 32.3517
-SSIM: 0.9435
-FSIM: 0.8961
+PSNR: 34.9300
+SSIM: 0.9625
+FSIM: 0.9291
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 15.2779
-SSIM: 0.4452
-FSIM: 0.4987
+PSNR: 16.6039
+SSIM: 0.5139
+FSIM: 0.5365
 
 CLIP score (Image vs Prompt)
 Edited Original:  27.8157
-Edited Immunized: 29.9304
+Edited Immunized: 29.8488
 
-Caption similarity (Edited Original vs Edited Immunized)
-Score: 1.0000
-Caption orig : A woman wearing a red jacket and sunglasses is talking on her cell phone.
-Caption adv : A woman wearing a red jacket and sunglasses is talking on her cell phone.
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.8763
+Caption orig: A woman wearing a red jacket and sunglasses is talking on her cell phone.
+Caption adv:  A woman in a red jacket and black pants is talking on her cell phone.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.7000
+Success:   True
+Accuracy:  1.0000

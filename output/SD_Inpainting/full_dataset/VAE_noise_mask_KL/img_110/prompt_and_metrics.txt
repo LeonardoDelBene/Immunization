@@ -4,20 +4,25 @@ A person in a farmers' cooperative
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 29.7305
-SSIM: 0.9142
-FSIM: 0.8750
+PSNR: 35.6236
+SSIM: 0.9580
+FSIM: 0.9376
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 15.3744
-SSIM: 0.4415
-FSIM: 0.4592
+PSNR: 16.3467
+SSIM: 0.5145
+FSIM: 0.4924
 
 CLIP score (Image vs Prompt)
 Edited Original:  27.7335
-Edited Immunized: 27.0356
+Edited Immunized: 29.0813
 
-Caption similarity (Edited Original vs Edited Immunized)
-Score: 0.8060
-Caption orig : A woman in a brown coat and orange shirt stands in a field of green plants.
-Caption adv : A woman wearing a brown coat and carrying a brown purse is standing in front of a row of green plants.
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.7781
+Caption orig: A woman in a brown coat and orange shirt stands in a field of green plants.
+Caption adv:  A woman wearing a brown coat and carrying a brown purse stands in a garden filled with green plants.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.7000
+Success:   True
+Accuracy:  1.0000

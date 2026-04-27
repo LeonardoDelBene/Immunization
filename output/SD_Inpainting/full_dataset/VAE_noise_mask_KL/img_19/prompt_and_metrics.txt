@@ -4,20 +4,25 @@ A person in a locker room
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 29.3922
-SSIM: 0.9138
-FSIM: 0.8926
+PSNR: 34.4596
+SSIM: 0.9572
+FSIM: 0.9373
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 11.8361
-SSIM: 0.3580
-FSIM: 0.4152
+PSNR: 12.8716
+SSIM: 0.4291
+FSIM: 0.4223
 
 CLIP score (Image vs Prompt)
 Edited Original:  24.1956
-Edited Immunized: 25.2819
+Edited Immunized: 23.8144
 
-Caption similarity (Edited Original vs Edited Immunized)
-Score: 0.5238
-Caption orig : A woman wearing a brown coat and holding a coat stand in front of a blue door.
-Caption adv : A woman wearing a black coat and holding her arm out.
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.7043
+Caption orig: A woman wearing a brown coat and holding a coat stand in front of a blue door.
+Caption adv:  A woman wearing a brown coat and holding her hand on her hip, standing in front of a cabinet.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   False
+Accuracy:  0.0000

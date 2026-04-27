@@ -102,41 +102,88 @@ class DynamicWeighter:
     """
     Calcola i pesi adattativi W_i per l'ensemble di surrogati.
 
-    S_i(T) = L_i(T) / L_i(T-1)
-    W_i    = W_init * (t * exp(S_i / T_temp)) / sum_j(exp(S_j / T_temp))
+    S_i = L_i(t) / mean(L_i(t-N:t))   ← confronto con media mobile su finestra
+    W_i = W_init * (n * exp(S_i / T_temp)) / sum_j(exp(S_j / T_temp))
+
+    Rispetto alla versione originale:
+    - S_i calcolato su finestra lunga (window) invece del solo passo precedente
+    - T_temp bassa per amplificare le differenze piccole
+    - S_i clippato per stabilità
     """
 
-    def __init__(self, n_surrogates: int, W_init: float = 1.0, T_temp: float = 1.0):
+    def __init__(
+        self,
+        n_surrogates: int,
+        W_init:  float = 1.0,
+        T_temp:  float = 0.1,    # abbassato da 1.0 per amplificare differenze piccole
+        window:  int   = 20,     # finestra lunga per catturare trend lenti
+        s_clip:  float = 2.0,    # clipping di S_i per stabilità
+    ):
         self.n_surrogates = n_surrogates
         self.W_init       = W_init
         self.T_temp       = T_temp
-        self.prev_losses  = [1.0] * n_surrogates
+        self.window       = window
+        self.s_clip       = s_clip
+
+        # storia delle loss: lista di liste, una per ogni step
+        # inizializzata con 1.0 per evitare divisioni strane all'inizio
+        self.loss_history = [[1.0] * n_surrogates for _ in range(window)]
         self.prev_weights = [1.0] * n_surrogates
+
+    # ── Step ────────────────────────────────────────────────────────────────
 
     def step(self, current_losses: List[float]) -> List[float]:
         """
         Args:
-            current_losses : loss corrente per ogni surrogato
-            t              : step corrente
+            current_losses: loss corrente per ogni surrogato (una per epoca)
         Returns:
-            weights : pesi W_i aggiornati
+            weights: pesi W_i aggiornati
         """
-        S     = [curr / (prev + 1e-8) for curr, prev in zip(current_losses, self.prev_losses)]
+        # aggiorna la finestra: rimuovi il più vecchio, aggiungi il corrente
+        self.loss_history.pop(0)
+        self.loss_history.append(current_losses.copy())
+
+        # baseline = media mobile delle ultime `window` epoche per ogni surrogato
+        baseline = [
+            sum(self.loss_history[t][i] for t in range(self.window)) / self.window
+            for i in range(self.n_surrogates)
+        ]
+
+        # S_i = loss corrente / baseline, clippato per stabilità
+        S = [
+            np.clip(curr / (base + 1e-8), 1.0 / self.s_clip, self.s_clip)
+            for curr, base in zip(current_losses, baseline)
+        ]
+
+        # softmax con temperatura bassa → amplifica differenze piccole
         exp_S = [np.exp(s / self.T_temp) for s in S]
         sum_e = sum(exp_S) + 1e-8
         weights = [self.W_init * (self.n_surrogates * e) / sum_e for e in exp_S]
 
-        self.prev_losses = current_losses.copy()
         self.prev_weights = weights.copy()
-
         return weights
 
-    def reset(self):
-        """Resetta le loss precedenti (utile a inizio epoca)."""
-        self.prev_losses = [1.0] * self.n_surrogates
+    # ── Reset ───────────────────────────────────────────────────────────────
 
-    def get_weights(self):
+    def reset(self):
+        """Resetta la finestra (utile se si riparte da zero)."""
+        self.loss_history = [[1.0] * self.n_surrogates for _ in range(self.window)]
+        self.prev_weights = [1.0] * self.n_surrogates
+
+    def get_weights(self) -> List[float]:
         return self.prev_weights
+
+    # ── Stato per checkpoint ─────────────────────────────────────────────────
+
+    def state_dict(self) -> dict:
+        return {
+            "loss_history": self.loss_history,
+            "prev_weights": self.prev_weights,
+        }
+
+    def load_state_dict(self, state: dict) -> None:
+        self.loss_history = state["loss_history"]
+        self.prev_weights = state["prev_weights"]
 
 
 # ─────────────────────────────────────────────
@@ -185,11 +232,11 @@ def total_loss(
         per_surrogate_losses.append(l_i.item())   # scalare per il weighter
         per_surrogate_terms.append(l_i)           # tensore per il backward
 
-    #l_vae = vae_align_loss(posterior_im, posterior_target)
+    l_vae = vae_align_loss(posterior_im, posterior_target)
     #l_vae = vae_mse(posterior_im.mean, posterior_target.mean)
-    #l_vae = lambda_vae * l_vae
-    #per_surrogate_losses.append(l_vae.item())
-    #per_surrogate_terms.append(l_vae)
+    l_vae = lambda_vae * l_vae
+    per_surrogate_losses.append(l_vae.item())
+    per_surrogate_terms.append(l_vae)
 
     # ── 3. Pesi dinamici calcolati sulla loss completa ──
     weights = dyn_weighter.get_weights()

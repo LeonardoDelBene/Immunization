@@ -4,20 +4,25 @@ A person in a public park
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.2442
-SSIM: 0.9120
-FSIM: 0.8842
+PSNR: 33.0158
+SSIM: 0.9420
+FSIM: 0.9208
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 19.5027
-SSIM: 0.6322
-FSIM: 0.5294
+PSNR: 19.4168
+SSIM: 0.6474
+FSIM: 0.5512
 
 CLIP score (Image vs Prompt)
 Edited Original:  24.0306
-Edited Immunized: 27.3143
+Edited Immunized: 25.5210
 
-Caption similarity (Edited Original vs Edited Immunized)
-Score: 0.4493
-Caption orig : A man wearing a black leather jacket and black pants stands in a grassy field.
-Caption adv : A person wearing a black jacket and holding a cell phone.
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.9693
+Caption orig: A man wearing a black leather jacket and black pants stands in a grassy field.
+Caption adv:  A man wearing a black jacket and black pants stands in a grassy field.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.8000
+Success:   True
+Accuracy:  1.0000

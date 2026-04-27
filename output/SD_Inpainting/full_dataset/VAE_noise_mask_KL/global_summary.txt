@@ -2,1822 +2,2026 @@ Global Summary — 200 samples
 ==================================================
 
 Average Image Quality (Original vs Immunized)
-PSNR: 30.0723
-SSIM: 0.9202
-FSIM: 0.8753
+PSNR: 34.1251
+SSIM: 0.9519
+FSIM: 0.9188
 
 Average Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 15.0182
-SSIM: 0.5049
-FSIM: 0.4741
+PSNR: 15.7856
+SSIM: 0.5689
+FSIM: 0.5152
 
 Average CLIP score
 Edited Original:  27.1691
-Edited Immunized: 27.5748
+Edited Immunized: 27.6354
 
 Average Caption Similarity (Edited Original vs Edited Immunized)
-Score: 0.6336
+Score: 0.7060
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+Avg LLM score : 0.4845
+Success rate  : 39.5% (79/200 samples above threshold)
 
 ==================================================
 Per-sample detail
 
 [0] A person in a weekend market
-  PSNR orig/adv: 29.8355 | edit: 15.1258
-  SSIM orig/adv: 0.8773 | edit: 0.4303
-  FSIM orig/adv: 0.9083 | edit: 0.4495
-  CLIP orig: 28.4158 | adv: 31.3670
+  PSNR orig/adv: 32.6295 | edit: 15.5262
+  SSIM orig/adv: 0.9154 | edit: 0.4881
+  FSIM orig/adv: 0.9362 | edit: 0.4850
+  CLIP orig: 28.4158 | adv: 29.9028
   Caption similarity: 0.8493
   Caption orig: A woman in a black leather jacket stands in front of a fruit stand.
   Caption adv:  A woman in a black dress stands in front of a fruit stand.
+  Accuracy LLM score: 0.3000 | success: False
 
 [1] A person in a weekend market
-  PSNR orig/adv: 29.2191 | edit: 15.7514
-  SSIM orig/adv: 0.8947 | edit: 0.5320
-  FSIM orig/adv: 0.8938 | edit: 0.5206
-  CLIP orig: 29.6139 | adv: 31.7317
-  Caption similarity: 0.7886
+  PSNR orig/adv: 32.2980 | edit: 16.6311
+  SSIM orig/adv: 0.9284 | edit: 0.5896
+  FSIM orig/adv: 0.9274 | edit: 0.5561
+  CLIP orig: 29.6139 | adv: 31.0511
+  Caption similarity: 0.7877
   Caption orig: A man wearing a gray coat and a backpack is standing in front of a fruit stand.
-  Caption adv:  A man wearing a hat and a jacket is standing in front of a fruit stand.
+  Caption adv:  A man wearing a hat and a black jacket is standing in front of a fruit stand.
+  Accuracy LLM score: 0.3000 | success: False
 
 [2] A person in a church sanctuary
-  PSNR orig/adv: 29.1567 | edit: 14.0255
-  SSIM orig/adv: 0.9004 | edit: 0.4330
-  FSIM orig/adv: 0.8287 | edit: 0.4590
-  CLIP orig: 28.3546 | adv: 29.0448
-  Caption similarity: 0.6830
+  PSNR orig/adv: 33.4154 | edit: 15.5323
+  SSIM orig/adv: 0.9478 | edit: 0.5184
+  FSIM orig/adv: 0.8985 | edit: 0.5205
+  CLIP orig: 28.3546 | adv: 25.3718
+  Caption similarity: 0.9773
   Caption orig: A woman wearing a brown jacket and a gray shirt is standing in front of a church.
-  Caption adv:  A woman wearing a brown jacket and a white shirt is standing in front of a stained glass window.
+  Caption adv:  A woman wearing a brown jacket and a white shirt stands in front of a church.
+  Accuracy LLM score: 0.3000 | success: False
 
 [3] A person in a sports field
-  PSNR orig/adv: 31.0162 | edit: 16.8339
-  SSIM orig/adv: 0.9286 | edit: 0.6391
-  FSIM orig/adv: 0.8905 | edit: 0.4602
-  CLIP orig: 27.7392 | adv: 28.1524
-  Caption similarity: 1.0000
+  PSNR orig/adv: 34.7114 | edit: 17.1703
+  SSIM orig/adv: 0.9533 | edit: 0.6590
+  FSIM orig/adv: 0.9233 | edit: 0.4866
+  CLIP orig: 27.7392 | adv: 28.5917
+  Caption similarity: 0.9708
   Caption orig: A woman wearing a black and white striped shirt stands on a field.
-  Caption adv:  A woman wearing a black and white striped shirt stands on a field.
+  Caption adv:  A woman wearing a black and white shirt stands on a field.
+  Accuracy LLM score: 0.9000 | success: True
 
 [4] A person in a drive-in theater
-  PSNR orig/adv: 30.8600 | edit: 14.3306
-  SSIM orig/adv: 0.9240 | edit: 0.4233
-  FSIM orig/adv: 0.8583 | edit: 0.4368
-  CLIP orig: 21.5072 | adv: 23.8092
-  Caption similarity: 0.5510
+  PSNR orig/adv: 34.5635 | edit: 16.1150
+  SSIM orig/adv: 0.9536 | edit: 0.5219
+  FSIM orig/adv: 0.9026 | edit: 0.4896
+  CLIP orig: 21.5072 | adv: 20.9916
+  Caption similarity: 0.8123
   Caption orig: A woman wearing a green dress and sunglasses stands in a field.
-  Caption adv:  A woman wearing a black dress and sunglasses is standing in front of a red screen.
+  Caption adv:  A woman wearing a black dress and sunglasses stands on a grassy field.
+  Accuracy LLM score: 0.3000 | success: False
 
 [5] A person in a food truck park
-  PSNR orig/adv: 29.5515 | edit: 12.2544
-  SSIM orig/adv: 0.9096 | edit: 0.4264
-  FSIM orig/adv: 0.9035 | edit: 0.4062
-  CLIP orig: 27.1622 | adv: 27.0811
-  Caption similarity: 0.5103
-  Caption orig: A woman wearing a black and white shirt is holding a cup of juice.
-  Caption adv:  A woman wearing a black and white shirt and black pants is standing in front of a refrigerator.
+  PSNR orig/adv: 33.3557 | edit: 12.2682
+  SSIM orig/adv: 0.9399 | edit: 0.4690
+  FSIM orig/adv: 0.9362 | edit: 0.4241
+  CLIP orig: 27.1622 | adv: 32.0969
+  Caption similarity: 0.4901
+  Caption orig: A woman wearing a black and white shirt is holding a cup.
+  Caption adv:  A woman wearing a black and white shirt and black pants is standing in front of a food truck.
+  Accuracy LLM score: 0.7000 | success: True
 
 [6] A person in a betting shop
-  PSNR orig/adv: 31.8595 | edit: 13.0877
-  SSIM orig/adv: 0.9407 | edit: 0.4476
-  FSIM orig/adv: 0.9078 | edit: 0.4284
-  CLIP orig: 27.3173 | adv: 27.1344
-  Caption similarity: 0.2601
+  PSNR orig/adv: 34.2287 | edit: 14.0510
+  SSIM orig/adv: 0.9529 | edit: 0.5159
+  FSIM orig/adv: 0.9229 | edit: 0.4882
+  CLIP orig: 27.3173 | adv: 28.3136
+  Caption similarity: 0.8351
   Caption orig: A woman in a white dress is playing a video game.
-  Caption adv:  A woman is standing in front of a machine, looking at her cell phone.
+  Caption adv:  A woman in a white dress is standing in front of a video game machine, looking at the game and possibly deciding whether to play or not.
+  Accuracy LLM score: 0.7000 | success: True
 
 [7] A person in a shelter
-  PSNR orig/adv: 32.2608 | edit: 18.0239
-  SSIM orig/adv: 0.9534 | edit: 0.6096
-  FSIM orig/adv: 0.9411 | edit: 0.5062
-  CLIP orig: 20.6088 | adv: 23.0714
+  PSNR orig/adv: 35.4859 | edit: 17.2513
+  SSIM orig/adv: 0.9746 | edit: 0.7509
+  FSIM orig/adv: 0.9632 | edit: 0.6240
+  CLIP orig: 20.6088 | adv: 22.8212
   Caption similarity: 0.7303
   Caption orig: A woman wearing a red shirt and red pants stands against a wall.
   Caption adv:  A woman wearing a red shirt and red pants is standing in a hallway.
+  Accuracy LLM score: 0.7000 | success: True
 
 [8] A person in a historic landmark event
-  PSNR orig/adv: 30.0182 | edit: 18.3069
-  SSIM orig/adv: 0.8952 | edit: 0.5180
-  FSIM orig/adv: 0.8016 | edit: 0.4737
-  CLIP orig: 22.8094 | adv: 22.8084
-  Caption similarity: 0.6671
+  PSNR orig/adv: 33.6518 | edit: 19.4799
+  SSIM orig/adv: 0.9365 | edit: 0.6241
+  FSIM orig/adv: 0.8645 | edit: 0.5481
+  CLIP orig: 22.8094 | adv: 24.2191
+  Caption similarity: 0.9073
   Caption orig: A woman wearing a black jacket and black pants stands in front of a stone building.
-  Caption adv:  A woman with blonde hair and a black shirt stands in front of a brick building.
+  Caption adv:  A woman in a black jacket and black pants stands in front of a building.
+  Accuracy LLM score: 0.8000 | success: True
 
 [9] A person in a local art market
-  PSNR orig/adv: 30.0801 | edit: 15.0340
-  SSIM orig/adv: 0.9372 | edit: 0.4729
-  FSIM orig/adv: 0.9003 | edit: 0.4931
-  CLIP orig: 28.3164 | adv: 22.2736
-  Caption similarity: 0.7020
+  PSNR orig/adv: 33.4813 | edit: 16.1606
+  SSIM orig/adv: 0.9604 | edit: 0.5348
+  FSIM orig/adv: 0.9311 | edit: 0.5346
+  CLIP orig: 28.3164 | adv: 22.4594
+  Caption similarity: 0.6652
   Caption orig: A woman wearing sunglasses and a necklace stands in front of a wall filled with colorful paintings.
-  Caption adv:  A woman wearing sunglasses and a white shirt stands in front of a colorful display of clothing.
+  Caption adv:  A woman wearing sunglasses and a white shirt stands in front of a colorful display of scarves.
+  Accuracy LLM score: 0.3000 | success: False
 
 [10] A person in a basement
-  PSNR orig/adv: 30.6042 | edit: 16.7446
-  SSIM orig/adv: 0.9351 | edit: 0.4991
-  FSIM orig/adv: 0.8336 | edit: 0.4634
-  CLIP orig: 21.2357 | adv: 26.5350
-  Caption similarity: 0.7660
+  PSNR orig/adv: 34.5542 | edit: 17.3543
+  SSIM orig/adv: 0.9583 | edit: 0.5498
+  FSIM orig/adv: 0.8792 | edit: 0.4976
+  CLIP orig: 21.2357 | adv: 23.7178
+  Caption similarity: 0.7391
   Caption orig: A woman wearing a pink jacket and a blue skirt stands in front of a wall.
-  Caption adv:  A woman wearing a pink jacket and a white skirt is standing in a hallway.
+  Caption adv:  A woman wearing a pink jacket and a skirt stands in front of a door.
+  Accuracy LLM score: 0.3000 | success: False
 
 [11] A person in a garage
-  PSNR orig/adv: 29.3727 | edit: 14.1230
-  SSIM orig/adv: 0.9100 | edit: 0.4163
-  FSIM orig/adv: 0.8550 | edit: 0.4213
-  CLIP orig: 28.4025 | adv: 27.2460
-  Caption similarity: 0.5840
+  PSNR orig/adv: 33.4633 | edit: 14.6715
+  SSIM orig/adv: 0.9446 | edit: 0.4880
+  FSIM orig/adv: 0.9037 | edit: 0.4474
+  CLIP orig: 28.4025 | adv: 25.1517
+  Caption similarity: 0.6229
   Caption orig: A woman wearing a black and white polka dot sweater stands in front of a car.
-  Caption adv:  A woman wearing a black and white sweater and a white collar.
+  Caption adv:  A woman wearing a black and white polka dot sweater and a white collar.
+  Accuracy LLM score: 0.8000 | success: True
 
 [12] A person in a hot dog stand
-  PSNR orig/adv: 29.8313 | edit: 16.0556
-  SSIM orig/adv: 0.9232 | edit: 0.5201
-  FSIM orig/adv: 0.8626 | edit: 0.5178
-  CLIP orig: 28.0738 | adv: 25.9067
+  PSNR orig/adv: 33.7951 | edit: 16.9442
+  SSIM orig/adv: 0.9575 | edit: 0.5851
+  FSIM orig/adv: 0.9155 | edit: 0.5717
+  CLIP orig: 28.0738 | adv: 27.7169
   Caption similarity: 0.6921
   Caption orig: A man wearing a hat and a plaid shirt stands in front of a food stand.
   Caption adv:  A man wearing a plaid shirt and a hat is standing in a kitchen.
+  Accuracy LLM score: 0.3000 | success: False
 
 [13] A person in a music and arts festival
-  PSNR orig/adv: 29.5976 | edit: 13.8556
-  SSIM orig/adv: 0.8979 | edit: 0.5305
-  FSIM orig/adv: 0.8637 | edit: 0.4791
-  CLIP orig: 26.5066 | adv: 26.1565
-  Caption similarity: 0.2112
-  Caption orig: A man wearing a brown trench coat stands in front of a stage at a concert.
-  Caption adv:  A woman wearing a brown coat and black dress is walking in a park.
+  PSNR orig/adv: 33.2762 | edit: 13.8324
+  SSIM orig/adv: 0.9332 | edit: 0.5504
+  FSIM orig/adv: 0.8990 | edit: 0.4928
+  CLIP orig: 26.5066 | adv: 27.1755
+  Caption similarity: 0.3496
+  Caption orig: A man wearing a brown trench coat stands in front of a crowd of people.
+  Caption adv:  A woman wearing a brown coat and black dress stands in a field.
+  Accuracy LLM score: 0.3000 | success: False
 
 [14] A person in a parking structure
-  PSNR orig/adv: 29.8586 | edit: 14.3700
-  SSIM orig/adv: 0.9258 | edit: 0.5254
-  FSIM orig/adv: 0.9021 | edit: 0.3954
-  CLIP orig: 24.0007 | adv: 25.0411
-  Caption similarity: 0.4546
+  PSNR orig/adv: 33.3756 | edit: 14.9862
+  SSIM orig/adv: 0.9477 | edit: 0.5281
+  FSIM orig/adv: 0.9299 | edit: 0.4092
+  CLIP orig: 24.0007 | adv: 23.7171
+  Caption similarity: 0.5192
   Caption orig: A woman wearing a gray vest and sunglasses is standing outside.
-  Caption adv:  A woman wearing sunglasses and a black and white dress is walking down a hallway.
+  Caption adv:  A woman wearing a white shirt and sunglasses is walking down a street.
+  Accuracy LLM score: 0.3000 | success: False
 
 [15] A person in a gym sauna
-  PSNR orig/adv: 29.3805 | edit: 13.9587
-  SSIM orig/adv: 0.9187 | edit: 0.3395
-  FSIM orig/adv: 0.8302 | edit: 0.4107
-  CLIP orig: 26.2613 | adv: 26.7180
-  Caption similarity: 0.3107
+  PSNR orig/adv: 34.4428 | edit: 14.1815
+  SSIM orig/adv: 0.9585 | edit: 0.5098
+  FSIM orig/adv: 0.9001 | edit: 0.4629
+  CLIP orig: 26.2613 | adv: 27.2050
+  Caption similarity: 0.8929
   Caption orig: A woman wearing a green shirt and a brown skirt is smiling at the camera.
-  Caption adv:  A woman wearing a blue shirt and a brown belt is standing in front of a window.
+  Caption adv:  A woman wearing a green shirt and a brown skirt is smiling.
+  Accuracy LLM score: 0.9000 | success: True
 
 [16] A person in a costume shop
-  PSNR orig/adv: 33.4271 | edit: 20.6035
-  SSIM orig/adv: 0.9636 | edit: 0.7450
-  FSIM orig/adv: 0.9166 | edit: 0.6739
-  CLIP orig: 24.9876 | adv: 28.1636
-  Caption similarity: 0.5159
+  PSNR orig/adv: 39.4192 | edit: 20.8420
+  SSIM orig/adv: 0.9884 | edit: 0.7726
+  FSIM orig/adv: 0.9598 | edit: 0.7109
+  CLIP orig: 24.9876 | adv: 25.4140
+  Caption similarity: 0.7573
   Caption orig: A woman in a colorful striped sweater is walking through a clothing store, smiling and holding a cup.
-  Caption adv:  A woman in a colorful striped sweater is holding a blue umbrella.
+  Caption adv:  A woman in a colorful striped sweater is smiling and holding a drink.
+  Accuracy LLM score: 0.7000 | success: True
 
 [17] A person in a gym sauna
-  PSNR orig/adv: 31.0158 | edit: 14.9407
-  SSIM orig/adv: 0.9099 | edit: 0.3935
-  FSIM orig/adv: 0.8334 | edit: 0.4159
-  CLIP orig: 23.3877 | adv: 24.7843
-  Caption similarity: 0.6979
+  PSNR orig/adv: 34.4376 | edit: 14.9528
+  SSIM orig/adv: 0.9409 | edit: 0.4756
+  FSIM orig/adv: 0.8849 | edit: 0.4579
+  CLIP orig: 23.3877 | adv: 23.5379
+  Caption similarity: 0.6507
   Caption orig: A man wearing a leopard print shirt and a black jacket stands in front of a mirror.
-  Caption adv:  A man wearing a suit and tie stands in front of a mirror.
+  Caption adv:  A man wearing a leopard print shirt and a black jacket stands in front of a wall of servers.
+  Accuracy LLM score: 0.3000 | success: False
 
 [18] A person in a butcher’s shop
-  PSNR orig/adv: 30.0503 | edit: 15.3511
-  SSIM orig/adv: 0.9490 | edit: 0.5367
-  FSIM orig/adv: 0.8687 | edit: 0.4933
-  CLIP orig: 28.4838 | adv: 29.3604
-  Caption similarity: 0.6310
-  Caption orig: A woman wearing a grey jacket and a brown belt stands in front of a meat counter.
-  Caption adv:  A woman in a white coat stands in front of a deli counter.
+  PSNR orig/adv: 33.2523 | edit: 15.7351
+  SSIM orig/adv: 0.9661 | edit: 0.5508
+  FSIM orig/adv: 0.9015 | edit: 0.5089
+  CLIP orig: 28.4838 | adv: 29.0784
+  Caption similarity: 0.7653
+  Caption orig: A woman wearing a grey jacket stands in front of a meat counter.
+  Caption adv:  A woman in a grey coat stands in front of a deli counter.
+  Accuracy LLM score: 0.3000 | success: False
 
 [19] A person in a locker room
-  PSNR orig/adv: 29.3922 | edit: 11.8361
-  SSIM orig/adv: 0.9138 | edit: 0.3580
-  FSIM orig/adv: 0.8926 | edit: 0.4152
-  CLIP orig: 24.1956 | adv: 25.2819
-  Caption similarity: 0.5238
+  PSNR orig/adv: 34.4596 | edit: 12.8716
+  SSIM orig/adv: 0.9572 | edit: 0.4291
+  FSIM orig/adv: 0.9373 | edit: 0.4223
+  CLIP orig: 24.1956 | adv: 23.8144
+  Caption similarity: 0.7043
   Caption orig: A woman wearing a brown coat and holding a coat stand in front of a blue door.
-  Caption adv:  A woman wearing a black coat and holding her arm out.
+  Caption adv:  A woman wearing a brown coat and holding her hand on her hip, standing in front of a cabinet.
+  Accuracy LLM score: 0.3000 | success: False
 
 [20] A person in a hot dog stand
-  PSNR orig/adv: 29.7497 | edit: 15.9709
-  SSIM orig/adv: 0.9385 | edit: 0.5764
-  FSIM orig/adv: 0.8759 | edit: 0.5116
-  CLIP orig: 28.7099 | adv: 28.0505
-  Caption similarity: 0.5396
+  PSNR orig/adv: 34.3190 | edit: 16.1634
+  SSIM orig/adv: 0.9697 | edit: 0.6359
+  FSIM orig/adv: 0.9246 | edit: 0.5649
+  CLIP orig: 28.7099 | adv: 29.4338
+  Caption similarity: 0.4201
   Caption orig: A woman wearing a colorful shirt stands in front of a food truck.
-  Caption adv:  A woman wearing a tie-dye shirt stands in front of a counter.
+  Caption adv:  A woman wearing a tie-dye shirt and holding a handbag.
+  Accuracy LLM score: 0.3000 | success: False
 
 [21] A person in a beach resort
-  PSNR orig/adv: 30.7135 | edit: 14.4192
-  SSIM orig/adv: 0.9468 | edit: 0.6090
-  FSIM orig/adv: 0.9003 | edit: 0.4699
-  CLIP orig: 26.2360 | adv: 28.0140
-  Caption similarity: 0.5424
+  PSNR orig/adv: 32.9100 | edit: 12.8304
+  SSIM orig/adv: 0.9610 | edit: 0.5452
+  FSIM orig/adv: 0.9201 | edit: 0.4337
+  CLIP orig: 26.2360 | adv: 28.7121
+  Caption similarity: 0.6658
   Caption orig: A woman wearing a white shirt and sunglasses is standing in front of palm trees.
-  Caption adv:  A woman in a white dress stands on a beach, holding a green purse.
+  Caption adv:  A woman in a white dress stands on a beach, holding a bag and wearing sunglasses.
+  Accuracy LLM score: 0.7000 | success: True
 
 [22] A person in a motel room
-  PSNR orig/adv: 28.3959 | edit: 16.8863
-  SSIM orig/adv: 0.9196 | edit: 0.6554
-  FSIM orig/adv: 0.8612 | edit: 0.5775
-  CLIP orig: 27.0520 | adv: 29.3550
-  Caption similarity: 0.6689
-  Caption orig: A woman wearing a blue and white dress stands in a hotel room.
-  Caption adv:  A woman wearing a black jacket and a blue and white skirt stands in a bedroom.
+  PSNR orig/adv: 32.8007 | edit: 15.4936
+  SSIM orig/adv: 0.9575 | edit: 0.6626
+  FSIM orig/adv: 0.9094 | edit: 0.6116
+  CLIP orig: 27.0520 | adv: 27.3479
+  Caption similarity: 0.6940
+  Caption orig: A woman wearing a blue and white dress stands in front of a bed.
+  Caption adv:  A woman wearing a black jacket and a blue and white dress stands in a bedroom.
+  Accuracy LLM score: 0.3000 | success: False
 
 [23] A person in a computer lab
-  PSNR orig/adv: 30.5077 | edit: 15.3056
-  SSIM orig/adv: 0.9416 | edit: 0.6146
-  FSIM orig/adv: 0.8492 | edit: 0.4966
-  CLIP orig: 28.2139 | adv: 27.2027
-  Caption similarity: 0.3495
+  PSNR orig/adv: 36.8001 | edit: 16.4442
+  SSIM orig/adv: 0.9777 | edit: 0.7157
+  FSIM orig/adv: 0.9224 | edit: 0.5876
+  CLIP orig: 28.2139 | adv: 26.6389
+  Caption similarity: 0.3696
   Caption orig: A woman with red hair and a blue jacket is smiling for the camera.
-  Caption adv:  A woman wearing a blue jacket and a striped dress stands in an office.
+  Caption adv:  A woman wearing a blue jacket and a striped dress stands in a room.
+  Accuracy LLM score: 0.3000 | success: False
 
 [24] A person in a pet festival
-  PSNR orig/adv: 30.3719 | edit: 15.9467
-  SSIM orig/adv: 0.9079 | edit: 0.5169
-  FSIM orig/adv: 0.8599 | edit: 0.4976
-  CLIP orig: 29.9114 | adv: 33.8170
-  Caption similarity: 0.8759
+  PSNR orig/adv: 35.3738 | edit: 16.2881
+  SSIM orig/adv: 0.9528 | edit: 0.6051
+  FSIM orig/adv: 0.9226 | edit: 0.5404
+  CLIP orig: 29.9114 | adv: 30.6160
+  Caption similarity: 0.7106
   Caption orig: A woman is walking her dog in a park, surrounded by other people.
-  Caption adv:  A woman is walking her two dogs in a park.
+  Caption adv:  A woman is walking her white dog on a leash, while other people are walking their dogs in the background.
+  Accuracy LLM score: 0.7000 | success: True
 
 [25] A person in a gym sauna
-  PSNR orig/adv: 29.4661 | edit: 13.8412
-  SSIM orig/adv: 0.8905 | edit: 0.3434
-  FSIM orig/adv: 0.8625 | edit: 0.3913
-  CLIP orig: 27.8856 | adv: 25.9026
-  Caption similarity: 0.4104
+  PSNR orig/adv: 34.7162 | edit: 15.6749
+  SSIM orig/adv: 0.9428 | edit: 0.4960
+  FSIM orig/adv: 0.9210 | edit: 0.4681
+  CLIP orig: 27.8856 | adv: 21.9165
+  Caption similarity: 0.9938
   Caption orig: A woman wearing a leather jacket and black pants stands in front of a row of exercise machines.
-  Caption adv:  A woman wearing a black vest and a black hat is standing in a room.
+  Caption adv:  A woman wearing a leather jacket and black pants is standing in front of a row of exercise machines.
+  Accuracy LLM score: 0.9000 | success: True
 
 [26] A person in a tram stop
-  PSNR orig/adv: 29.4058 | edit: 13.8051
-  SSIM orig/adv: 0.8845 | edit: 0.4778
-  FSIM orig/adv: 0.9049 | edit: 0.4662
-  CLIP orig: 28.8797 | adv: 30.4759
-  Caption similarity: 0.8003
+  PSNR orig/adv: 35.0803 | edit: 14.3525
+  SSIM orig/adv: 0.9526 | edit: 0.5837
+  FSIM orig/adv: 0.9525 | edit: 0.5062
+  CLIP orig: 28.8797 | adv: 29.4551
+  Caption similarity: 0.8775
   Caption orig: A woman wearing a brown coat and sunglasses is standing in a subway car.
-  Caption adv:  A woman wearing a brown coat and glasses is standing on a subway platform.
+  Caption adv:  A woman wearing a brown coat and sunglasses is standing on a subway train.
+  Accuracy LLM score: 0.7000 | success: True
 
 [27] A person in a basement
-  PSNR orig/adv: 29.2990 | edit: 19.5938
-  SSIM orig/adv: 0.9077 | edit: 0.4836
-  FSIM orig/adv: 0.8578 | edit: 0.4613
-  CLIP orig: 25.7196 | adv: 25.9541
-  Caption similarity: 0.6518
+  PSNR orig/adv: 32.2404 | edit: 20.1847
+  SSIM orig/adv: 0.9307 | edit: 0.5520
+  FSIM orig/adv: 0.8878 | edit: 0.5004
+  CLIP orig: 25.7196 | adv: 26.1885
+  Caption similarity: 0.5900
   Caption orig: A woman wearing a white shirt and blue jeans is standing in a room with a wooden floor.
-  Caption adv:  A woman wearing a white shirt and black pants is standing in front of a wall.
+  Caption adv:  A woman wearing a white shirt and blue jeans is standing in front of a mirror.
+  Accuracy LLM score: 0.3000 | success: False
 
 [28] A person in a tech startup
-  PSNR orig/adv: 30.5563 | edit: 17.6890
-  SSIM orig/adv: 0.8801 | edit: 0.5852
-  FSIM orig/adv: 0.9166 | edit: 0.4153
-  CLIP orig: 20.7768 | adv: 24.4893
-  Caption similarity: 0.9800
+  PSNR orig/adv: 34.1510 | edit: 15.0560
+  SSIM orig/adv: 0.9296 | edit: 0.5678
+  FSIM orig/adv: 0.9507 | edit: 0.4412
+  CLIP orig: 20.7768 | adv: 24.5994
+  Caption similarity: 0.5110
   Caption orig: A woman wearing a black and white shirt and sunglasses is standing in front of a chalkboard.
-  Caption adv:  A woman wearing a black shirt and sunglasses is standing in front of a chalkboard.
+  Caption adv:  A woman wearing a black shirt and sunglasses is walking down a hallway.
+  Accuracy LLM score: 0.3000 | success: False
 
 [29] A person in a laundry room
-  PSNR orig/adv: 29.7306 | edit: 13.5920
-  SSIM orig/adv: 0.9516 | edit: 0.5465
-  FSIM orig/adv: 0.8499 | edit: 0.5173
-  CLIP orig: 29.9629 | adv: 26.8759
-  Caption similarity: 0.3986
+  PSNR orig/adv: 34.0964 | edit: 14.3585
+  SSIM orig/adv: 0.9814 | edit: 0.5744
+  FSIM orig/adv: 0.9186 | edit: 0.5496
+  CLIP orig: 29.9629 | adv: 30.3083
+  Caption similarity: 0.8426
   Caption orig: A woman wearing a green and white dress stands in front of a washer and dryer.
-  Caption adv:  A woman wearing a blue dress and sunglasses is standing in a room.
+  Caption adv:  A woman wearing a green dress stands in front of a washing machine.
+  Accuracy LLM score: 0.7000 | success: True
 
 [30] A person in a music studio
-  PSNR orig/adv: 30.3945 | edit: 12.6315
-  SSIM orig/adv: 0.9169 | edit: 0.3351
-  FSIM orig/adv: 0.8739 | edit: 0.3782
-  CLIP orig: 27.0421 | adv: 22.5041
-  Caption similarity: 0.2826
+  PSNR orig/adv: 33.4037 | edit: 12.5547
+  SSIM orig/adv: 0.9388 | edit: 0.3777
+  FSIM orig/adv: 0.9118 | edit: 0.4203
+  CLIP orig: 27.0421 | adv: 27.1273
+  Caption similarity: 0.5602
   Caption orig: A woman wearing a grey sweater and holding a green notebook stands in front of a wall full of electronic equipment.
-  Caption adv:  A woman wearing a brown shirt and black skirt is smiling at the camera.
+  Caption adv:  A woman wearing a grey shirt and black pants is standing in front of a soundboard.
+  Accuracy LLM score: 0.3000 | success: False
 
 [31] A person in a bowling alley
-  PSNR orig/adv: 30.4589 | edit: 12.1066
-  SSIM orig/adv: 0.8910 | edit: 0.3658
-  FSIM orig/adv: 0.9022 | edit: 0.4074
-  CLIP orig: 31.2439 | adv: 31.9233
-  Caption similarity: 0.7492
+  PSNR orig/adv: 33.7634 | edit: 12.0606
+  SSIM orig/adv: 0.9278 | edit: 0.4172
+  FSIM orig/adv: 0.9338 | edit: 0.4183
+  CLIP orig: 31.2439 | adv: 31.5344
+  Caption similarity: 0.8687
   Caption orig: A woman in a black shirt and blonde hair is standing in a bowling alley.
-  Caption adv:  A woman in a black dress is walking down a bowling alley.
+  Caption adv:  A woman in a black shirt and blonde hair is walking down a bowling alley.
+  Accuracy LLM score: 0.3000 | success: False
 
 [32] A person in a music and arts festival
-  PSNR orig/adv: 30.1942 | edit: 14.4951
-  SSIM orig/adv: 0.9259 | edit: 0.5117
-  FSIM orig/adv: 0.8808 | edit: 0.4639
-  CLIP orig: 29.1659 | adv: 27.9099
-  Caption similarity: 0.7927
+  PSNR orig/adv: 33.0942 | edit: 17.6527
+  SSIM orig/adv: 0.9461 | edit: 0.6371
+  FSIM orig/adv: 0.9056 | edit: 0.5205
+  CLIP orig: 29.1659 | adv: 30.8253
+  Caption similarity: 0.6084
   Caption orig: A woman wearing a white hat and a white shirt is standing in a crowd.
-  Caption adv:  A woman wearing a white shirt and jeans is standing in front of a crowd of people.
+  Caption adv:  A woman wearing a white shirt and glasses is standing in a field.
+  Accuracy LLM score: 0.3000 | success: False
 
 [33] A person in a charity art auction
-  PSNR orig/adv: 28.8793 | edit: 14.7840
-  SSIM orig/adv: 0.8505 | edit: 0.4876
-  FSIM orig/adv: 0.7244 | edit: 0.4191
-  CLIP orig: 27.4294 | adv: 25.1355
-  Caption similarity: 0.3833
+  PSNR orig/adv: 31.5903 | edit: 15.9885
+  SSIM orig/adv: 0.8919 | edit: 0.5822
+  FSIM orig/adv: 0.7932 | edit: 0.4933
+  CLIP orig: 27.4294 | adv: 28.3719
+  Caption similarity: 0.6636
   Caption orig: A woman wearing a gray coat and holding a brown purse.
-  Caption adv:  A woman wearing a white shirt and a black coat is smiling for the camera.
+  Caption adv:  A woman wearing a coat and holding a purse stands in front of two pictures.
+  Accuracy LLM score: 0.7000 | success: True
 
 [34] A person in a city food tour
-  PSNR orig/adv: 29.8205 | edit: 14.1529
-  SSIM orig/adv: 0.8875 | edit: 0.4842
-  FSIM orig/adv: 0.8827 | edit: 0.4722
-  CLIP orig: 28.2783 | adv: 22.1050
-  Caption similarity: 0.5922
+  PSNR orig/adv: 34.1065 | edit: 14.2645
+  SSIM orig/adv: 0.9338 | edit: 0.5551
+  FSIM orig/adv: 0.9325 | edit: 0.5156
+  CLIP orig: 28.2783 | adv: 23.6719
+  Caption similarity: 0.6690
   Caption orig: A woman in a black dress and a gold belt is standing in front of a table filled with food.
-  Caption adv:  A woman wearing a black dress and a gold belt is walking down the street.
+  Caption adv:  A woman wearing a black dress with a gold belt is standing on a sidewalk.
+  Accuracy LLM score: 0.3000 | success: False
 
 [35] A person in a flower garden
-  PSNR orig/adv: 32.3517 | edit: 15.2779
-  SSIM orig/adv: 0.9435 | edit: 0.4452
-  FSIM orig/adv: 0.8961 | edit: 0.4987
-  CLIP orig: 27.8157 | adv: 29.9304
-  Caption similarity: 1.0000
+  PSNR orig/adv: 34.9300 | edit: 16.6039
+  SSIM orig/adv: 0.9625 | edit: 0.5139
+  FSIM orig/adv: 0.9291 | edit: 0.5365
+  CLIP orig: 27.8157 | adv: 29.8488
+  Caption similarity: 0.8763
   Caption orig: A woman wearing a red jacket and sunglasses is talking on her cell phone.
-  Caption adv:  A woman wearing a red jacket and sunglasses is talking on her cell phone.
+  Caption adv:  A woman in a red jacket and black pants is talking on her cell phone.
+  Accuracy LLM score: 0.7000 | success: True
 
 [36] A person in a slum
-  PSNR orig/adv: 29.4678 | edit: 15.2314
-  SSIM orig/adv: 0.9282 | edit: 0.4677
-  FSIM orig/adv: 0.9126 | edit: 0.4556
-  CLIP orig: 28.2799 | adv: 31.2668
-  Caption similarity: 0.8072
+  PSNR orig/adv: 34.7517 | edit: 16.0250
+  SSIM orig/adv: 0.9537 | edit: 0.5435
+  FSIM orig/adv: 0.9408 | edit: 0.5003
+  CLIP orig: 28.2799 | adv: 30.8698
+  Caption similarity: 0.7670
   Caption orig: A woman wearing a white shirt and black skirt stands in front of a pile of clothes.
-  Caption adv:  A woman wearing a white shirt and black skirt is standing in front of a building.
+  Caption adv:  A woman wearing a white shirt and black skirt stands in front of a shack.
+  Accuracy LLM score: 0.3000 | success: False
 
 [37] A person in a digital art gallery
-  PSNR orig/adv: 29.5700 | edit: 11.5835
-  SSIM orig/adv: 0.8806 | edit: 0.3146
-  FSIM orig/adv: 0.8644 | edit: 0.4007
-  CLIP orig: 29.3013 | adv: 30.0356
-  Caption similarity: 0.8212
+  PSNR orig/adv: 33.0200 | edit: 17.5602
+  SSIM orig/adv: 0.9264 | edit: 0.4931
+  FSIM orig/adv: 0.9122 | edit: 0.5211
+  CLIP orig: 29.3013 | adv: 30.0800
+  Caption similarity: 0.6282
   Caption orig: A woman wearing sunglasses and a scarf stands in front of a wall of colorful pictures.
-  Caption adv:  A woman wearing sunglasses and a scarf is standing in front of a dark background.
+  Caption adv:  A woman wearing sunglasses and a scarf is walking down a hallway.
+  Accuracy LLM score: 0.3000 | success: False
 
 [38] A person in a technology fair
-  PSNR orig/adv: 31.3961 | edit: 13.7505
-  SSIM orig/adv: 0.9505 | edit: 0.5613
-  FSIM orig/adv: 0.9130 | edit: 0.4686
-  CLIP orig: 31.0264 | adv: 30.9603
+  PSNR orig/adv: 35.3767 | edit: 16.5057
+  SSIM orig/adv: 0.9752 | edit: 0.6515
+  FSIM orig/adv: 0.9476 | edit: 0.5400
+  CLIP orig: 31.0264 | adv: 30.2124
   Caption similarity: 0.5285
   Caption orig: A woman in an orange dress is holding a yellow purse.
   Caption adv:  A woman in an orange dress is standing in a crowd of people.
+  Accuracy LLM score: 0.7000 | success: True
 
 [39] A person in a casino lounge
-  PSNR orig/adv: 28.2503 | edit: 11.1215
-  SSIM orig/adv: 0.9248 | edit: 0.3554
-  FSIM orig/adv: 0.9259 | edit: 0.3982
-  CLIP orig: 28.4783 | adv: 23.5997
-  Caption similarity: 0.5113
+  PSNR orig/adv: 33.1561 | edit: 12.7254
+  SSIM orig/adv: 0.9543 | edit: 0.4314
+  FSIM orig/adv: 0.9499 | edit: 0.4566
+  CLIP orig: 28.4783 | adv: 27.1667
+  Caption similarity: 0.6259
   Caption orig: A woman wearing a black jacket and white shirt is standing in a casino.
-  Caption adv:  A woman wearing a black jacket and shorts is standing in front of a row of televisions.
+  Caption adv:  A woman wearing a black jacket and white shirt is standing in front of a slot machine.
+  Accuracy LLM score: 0.7000 | success: True
 
 [40] A person in a rooftop lounge
-  PSNR orig/adv: 32.0274 | edit: 17.2326
-  SSIM orig/adv: 0.9585 | edit: 0.6540
-  FSIM orig/adv: 0.9559 | edit: 0.5152
-  CLIP orig: 27.1476 | adv: 29.6021
-  Caption similarity: 0.7191
+  PSNR orig/adv: 37.6907 | edit: 19.7395
+  SSIM orig/adv: 0.9829 | edit: 0.7378
+  FSIM orig/adv: 0.9763 | edit: 0.5911
+  CLIP orig: 27.1476 | adv: 27.5286
+  Caption similarity: 0.7315
   Caption orig: A woman wearing a red sweater and pink pants is standing on a rooftop.
-  Caption adv:  A woman wearing a red sweater and red pants is standing on a balcony overlooking a city.
+  Caption adv:  A woman wearing a red sweater and pink pants stands on a balcony overlooking a city.
+  Accuracy LLM score: 0.7000 | success: True
 
 [41] A person in a butcher shop
-  PSNR orig/adv: 32.4385 | edit: 14.9604
-  SSIM orig/adv: 0.9448 | edit: 0.4829
-  FSIM orig/adv: 0.9001 | edit: 0.4328
-  CLIP orig: 29.0402 | adv: 31.3839
-  Caption similarity: 0.5719
+  PSNR orig/adv: 35.4767 | edit: 15.1416
+  SSIM orig/adv: 0.9630 | edit: 0.5345
+  FSIM orig/adv: 0.9299 | edit: 0.4709
+  CLIP orig: 29.0402 | adv: 30.8376
+  Caption similarity: 0.7217
   Caption orig: A man wearing sunglasses and a blue shirt stands in front of a meat counter.
-  Caption adv:  A man wearing sunglasses and a black shirt stands in front of a deli counter, smoking a cigarette.
+  Caption adv:  A man wearing sunglasses and a black shirt is standing in front of a deli counter.
+  Accuracy LLM score: 0.3000 | success: False
 
 [42] A person in a golf course clubhouse
-  PSNR orig/adv: 30.1643 | edit: 15.0785
-  SSIM orig/adv: 0.9050 | edit: 0.4671
-  FSIM orig/adv: 0.9232 | edit: 0.3969
-  CLIP orig: 27.5540 | adv: 25.3433
-  Caption similarity: 0.4913
+  PSNR orig/adv: 34.0041 | edit: 16.7469
+  SSIM orig/adv: 0.9398 | edit: 0.5682
+  FSIM orig/adv: 0.9496 | edit: 0.4565
+  CLIP orig: 27.5540 | adv: 27.3075
+  Caption similarity: 0.5987
   Caption orig: A man wearing a black shirt and shorts stands on a lush green golf course.
-  Caption adv:  A man wearing a black tank top and black shorts stands in front of a red building.
+  Caption adv:  A man wearing a black tank top and black shorts is standing on a grassy field.
+  Accuracy LLM score: 0.3000 | success: False
 
 [43] A person in a community arts and crafts market
-  PSNR orig/adv: 27.8203 | edit: 14.4338
-  SSIM orig/adv: 0.9385 | edit: 0.5213
-  FSIM orig/adv: 0.8800 | edit: 0.5371
-  CLIP orig: 26.2227 | adv: 27.2382
-  Caption similarity: 0.4835
+  PSNR orig/adv: 33.4402 | edit: 17.5005
+  SSIM orig/adv: 0.9667 | edit: 0.6532
+  FSIM orig/adv: 0.9258 | edit: 0.6203
+  CLIP orig: 26.2227 | adv: 27.7041
+  Caption similarity: 0.9238
   Caption orig: A woman wearing sunglasses and a brown vest is standing in front of a table with various items on it.
-  Caption adv:  A woman wearing sunglasses and a striped shirt is walking down a street.
+  Caption adv:  A woman wearing sunglasses and a striped shirt is standing in front of a table with various items on it.
+  Accuracy LLM score: 0.3000 | success: False
 
 [44] A person in a vintage arts fair
-  PSNR orig/adv: 30.0055 | edit: 13.8133
-  SSIM orig/adv: 0.9372 | edit: 0.4994
-  FSIM orig/adv: 0.9020 | edit: 0.4969
-  CLIP orig: 29.8335 | adv: 29.6967
-  Caption similarity: 0.4650
+  PSNR orig/adv: 35.0098 | edit: 15.7010
+  SSIM orig/adv: 0.9690 | edit: 0.5781
+  FSIM orig/adv: 0.9438 | edit: 0.5726
+  CLIP orig: 29.8335 | adv: 28.6403
+  Caption similarity: 0.4925
   Caption orig: A woman wearing a gray shirt with a butterfly design on it stands in front of a crowd of people.
-  Caption adv:  A woman in a flowered shirt and black skirt stands on a street.
+  Caption adv:  A woman in a flowered shirt and black skirt stands in front of a pink tent.
+  Accuracy LLM score: 0.3000 | success: False
 
 [45] A person in a high-end restaurant
-  PSNR orig/adv: 32.3333 | edit: 14.3687
-  SSIM orig/adv: 0.9474 | edit: 0.4362
-  FSIM orig/adv: 0.9050 | edit: 0.4163
-  CLIP orig: 29.9959 | adv: 27.6290
-  Caption similarity: 0.3114
+  PSNR orig/adv: 36.0426 | edit: 13.4719
+  SSIM orig/adv: 0.9688 | edit: 0.4566
+  FSIM orig/adv: 0.9350 | edit: 0.4246
+  CLIP orig: 29.9958 | adv: 29.8309
+  Caption similarity: 0.6544
   Caption orig: A woman in a blue dress stands in a restaurant, holding a brown purse.
-  Caption adv:  A woman is sitting at a table with a wine glass in front of her.
+  Caption adv:  A woman in a blue dress stands in front of a dining table with multiple wine glasses and cups.
+  Accuracy LLM score: 0.7000 | success: True
 
 [46] A person in a gymnasium
-  PSNR orig/adv: 30.1313 | edit: 15.1081
-  SSIM orig/adv: 0.9134 | edit: 0.4426
-  FSIM orig/adv: 0.8453 | edit: 0.4230
-  CLIP orig: 25.4550 | adv: 24.2017
-  Caption similarity: 0.4134
+  PSNR orig/adv: 35.5982 | edit: 16.3170
+  SSIM orig/adv: 0.9576 | edit: 0.5803
+  FSIM orig/adv: 0.9142 | edit: 0.4959
+  CLIP orig: 25.4550 | adv: 22.8243
+  Caption similarity: 0.6310
   Caption orig: A woman wearing a purple jacket and a white scarf is standing in a gym.
-  Caption adv:  A woman wearing a blue jacket and a white scarf stands in front of a mirror.
+  Caption adv:  A woman wearing a purple jacket and a white scarf.
+  Accuracy LLM score: 0.9000 | success: True
 
 [47] A person in a summer camp
-  PSNR orig/adv: 30.2338 | edit: 15.6104
-  SSIM orig/adv: 0.9145 | edit: 0.5786
-  FSIM orig/adv: 0.8936 | edit: 0.5084
-  CLIP orig: 28.5976 | adv: 26.5637
-  Caption similarity: 0.4332
+  PSNR orig/adv: 33.6028 | edit: 15.8292
+  SSIM orig/adv: 0.9455 | edit: 0.5972
+  FSIM orig/adv: 0.9302 | edit: 0.5312
+  CLIP orig: 28.5976 | adv: 28.7650
+  Caption similarity: 0.4104
   Caption orig: A woman wearing a black shirt and green pants is standing in front of a red tent.
-  Caption adv:  A woman in a black shirt and black pants is smiling at the camera.
+  Caption adv:  A woman wearing a black shirt and carrying a red backpack is smiling at the camera.
+  Accuracy LLM score: 0.3000 | success: False
 
 [48] A person in a street vendor stand
-  PSNR orig/adv: 29.4350 | edit: 14.0562
-  SSIM orig/adv: 0.9216 | edit: 0.4398
-  FSIM orig/adv: 0.8027 | edit: 0.4799
-  CLIP orig: 28.3296 | adv: 28.4598
-  Caption similarity: 1.0000
+  PSNR orig/adv: 33.3540 | edit: 14.9476
+  SSIM orig/adv: 0.9549 | edit: 0.5387
+  FSIM orig/adv: 0.8679 | edit: 0.5274
+  CLIP orig: 28.3296 | adv: 28.4909
+  Caption similarity: 0.8570
   Caption orig: A woman in a blue shirt stands in front of a fruit stand.
-  Caption adv:  A woman in a blue shirt stands in front of a fruit stand.
+  Caption adv:  A woman in a blue shirt stands in front of a fruit stand, looking at the camera.
+  Accuracy LLM score: 0.7000 | success: True
 
 [49] A person in a science museum exhibit
-  PSNR orig/adv: 30.2190 | edit: 18.6094
-  SSIM orig/adv: 0.9207 | edit: 0.5206
-  FSIM orig/adv: 0.8811 | edit: 0.4210
-  CLIP orig: 28.7754 | adv: 30.5456
-  Caption similarity: 0.5806
+  PSNR orig/adv: 32.9621 | edit: 19.1779
+  SSIM orig/adv: 0.9426 | edit: 0.5989
+  FSIM orig/adv: 0.9085 | edit: 0.4534
+  CLIP orig: 28.7754 | adv: 29.6670
+  Caption similarity: 0.5962
   Caption orig: A woman wearing sunglasses and a brown dress stands in front of a display of animal sculptures.
-  Caption adv:  A woman wearing a black dress stands in front of a mannequin.
+  Caption adv:  A woman wearing a black dress and sunglasses is standing in front of a mirror.
+  Accuracy LLM score: 0.3000 | success: False
 
 [50] A person in a car dealership
-  PSNR orig/adv: 29.1341 | edit: 12.9017
-  SSIM orig/adv: 0.8792 | edit: 0.4624
-  FSIM orig/adv: 0.8404 | edit: 0.4238
-  CLIP orig: 27.8894 | adv: 28.8336
-  Caption similarity: 0.6737
+  PSNR orig/adv: 31.3189 | edit: 14.6867
+  SSIM orig/adv: 0.9193 | edit: 0.5376
+  FSIM orig/adv: 0.8849 | edit: 0.4583
+  CLIP orig: 27.8894 | adv: 27.9019
+  Caption similarity: 0.8627
   Caption orig: A woman wearing a grey sweater and holding a purse stands in front of a car.
-  Caption adv:  A woman in a grey sweater is walking past a row of cars.
+  Caption adv:  A woman wearing a gray sweater stands in front of a white car.
+  Accuracy LLM score: 0.7000 | success: True
 
 [51] A person in a yoga class
-  PSNR orig/adv: 29.4786 | edit: 15.2037
-  SSIM orig/adv: 0.9056 | edit: 0.5174
-  FSIM orig/adv: 0.8901 | edit: 0.4146
-  CLIP orig: 23.3736 | adv: 29.9970
-  Caption similarity: 0.4987
+  PSNR orig/adv: 32.8291 | edit: 16.5523
+  SSIM orig/adv: 0.9359 | edit: 0.6176
+  FSIM orig/adv: 0.9199 | edit: 0.4693
+  CLIP orig: 23.3736 | adv: 24.9702
+  Caption similarity: 0.6253
   Caption orig: A woman wearing a blue jacket and a white shirt stands in front of a colorful painting.
-  Caption adv:  A woman in a black jacket and white shirt is standing in front of a mirror.
+  Caption adv:  A woman wearing a black jacket and white shirt stands in front of a row of colorful dresses.
+  Accuracy LLM score: 0.3000 | success: False
 
 [52] A person in a refugee camp
-  PSNR orig/adv: 31.2700 | edit: 16.7734
-  SSIM orig/adv: 0.9395 | edit: 0.5412
-  FSIM orig/adv: 0.8719 | edit: 0.5108
-  CLIP orig: 27.9442 | adv: 28.0947
-  Caption similarity: 0.7892
+  PSNR orig/adv: 35.8079 | edit: 17.7699
+  SSIM orig/adv: 0.9656 | edit: 0.6336
+  FSIM orig/adv: 0.9159 | edit: 0.5590
+  CLIP orig: 27.9442 | adv: 30.0671
+  Caption similarity: 0.6857
   Caption orig: A woman wearing a brown sweater and a plaid hat stands in front of a shack.
-  Caption adv:  A woman wearing a brown sweater and a plaid hat stands in front of a tent.
+  Caption adv:  A woman wearing a brown sweater and a plaid hat stands in a crowd of people.
+  Accuracy LLM score: 0.3000 | success: False
 
 [53] A person in a rooftop lounge
-  PSNR orig/adv: 31.4945 | edit: 15.3144
-  SSIM orig/adv: 0.9482 | edit: 0.5318
-  FSIM orig/adv: 0.9130 | edit: 0.5032
-  CLIP orig: 27.0886 | adv: 27.7782
-  Caption similarity: 0.8785
+  PSNR orig/adv: 35.2267 | edit: 16.7764
+  SSIM orig/adv: 0.9664 | edit: 0.6006
+  FSIM orig/adv: 0.9449 | edit: 0.5623
+  CLIP orig: 27.0886 | adv: 26.0889
+  Caption similarity: 0.7028
   Caption orig: A woman wearing a black and white polka dot shirt stands on a rooftop in a city.
-  Caption adv:  A woman wearing a polka dot shirt and a hat stands on a rooftop.
+  Caption adv:  A woman wearing a black and white shirt stands on a balcony overlooking a city.
+  Accuracy LLM score: 0.7000 | success: True
 
 [54] A person in a church hall
-  PSNR orig/adv: 30.0813 | edit: 13.5581
-  SSIM orig/adv: 0.9217 | edit: 0.4719
-  FSIM orig/adv: 0.8925 | edit: 0.4269
-  CLIP orig: 24.3386 | adv: 28.0003
-  Caption similarity: 0.8992
+  PSNR orig/adv: 33.0931 | edit: 12.4572
+  SSIM orig/adv: 0.9366 | edit: 0.4503
+  FSIM orig/adv: 0.9123 | edit: 0.4208
+  CLIP orig: 24.3386 | adv: 26.2893
+  Caption similarity: 0.8716
   Caption orig: A man wearing glasses and a gray sweater stands in front of a church.
-  Caption adv:  A man wearing glasses and a white shirt stands in front of a church.
+  Caption adv:  A man wearing glasses and a white shirt stands in a church.
+  Accuracy LLM score: 0.3000 | success: False
 
 [55] A person in a historic landmark event
-  PSNR orig/adv: 30.8466 | edit: 13.4643
-  SSIM orig/adv: 0.9504 | edit: 0.4368
-  FSIM orig/adv: 0.9070 | edit: 0.4293
-  CLIP orig: 22.5303 | adv: 25.0043
-  Caption similarity: 0.7095
+  PSNR orig/adv: 34.2908 | edit: 14.4841
+  SSIM orig/adv: 0.9681 | edit: 0.4623
+  FSIM orig/adv: 0.9351 | edit: 0.4544
+  CLIP orig: 22.5303 | adv: 25.7073
+  Caption similarity: 0.9811
   Caption orig: A woman wearing sunglasses and a pink shirt stands in front of a large building.
-  Caption adv:  A woman wearing a white shirt and white pants is standing in front of a building.
+  Caption adv:  A woman wearing sunglasses and a pink shirt stands in front of a building.
+  Accuracy LLM score: 0.8000 | success: True
 
 [56] A person in a mall
-  PSNR orig/adv: 30.0792 | edit: 16.2757
-  SSIM orig/adv: 0.9314 | edit: 0.6393
-  FSIM orig/adv: 0.8645 | edit: 0.5499
-  CLIP orig: 26.6592 | adv: 26.9400
-  Caption similarity: 0.4662
+  PSNR orig/adv: 34.5256 | edit: 18.1920
+  SSIM orig/adv: 0.9599 | edit: 0.7314
+  FSIM orig/adv: 0.9123 | edit: 0.6241
+  CLIP orig: 26.6592 | adv: 26.2514
+  Caption similarity: 0.5419
   Caption orig: A woman wearing a plaid skirt and a scarf is standing in a crowded mall.
-  Caption adv:  A woman wearing a black jacket and a scarf is walking down a crowded street.
+  Caption adv:  A woman in a plaid skirt and a scarf around her neck walks down a busy street.
+  Accuracy LLM score: 0.3000 | success: False
 
 [57] A person in a dance school
-  PSNR orig/adv: 29.9802 | edit: 16.1098
-  SSIM orig/adv: 0.9081 | edit: 0.4980
-  FSIM orig/adv: 0.9041 | edit: 0.4286
-  CLIP orig: 22.5138 | adv: 24.6636
-  Caption similarity: 0.5875
+  PSNR orig/adv: 32.6349 | edit: 16.7311
+  SSIM orig/adv: 0.9339 | edit: 0.5773
+  FSIM orig/adv: 0.9318 | edit: 0.4681
+  CLIP orig: 22.5138 | adv: 24.0177
+  Caption similarity: 0.6329
   Caption orig: A woman with blue hair and a grey jacket stands in front of a brick wall.
-  Caption adv:  A woman wearing a white jacket and blue hair stands in front of a mirror.
+  Caption adv:  A woman with blue hair and a white jacket is standing in front of a mirror.
+  Accuracy LLM score: 0.3000 | success: False
 
 [58] A person in a bowling alley
-  PSNR orig/adv: 30.8954 | edit: 13.5295
-  SSIM orig/adv: 0.9287 | edit: 0.4201
-  FSIM orig/adv: 0.8800 | edit: 0.4342
-  CLIP orig: 31.7944 | adv: 31.9882
+  PSNR orig/adv: 35.5015 | edit: 14.6318
+  SSIM orig/adv: 0.9615 | edit: 0.4751
+  FSIM orig/adv: 0.9313 | edit: 0.4758
+  CLIP orig: 31.7944 | adv: 31.9016
   Caption similarity: 0.8692
   Caption orig: A woman wearing a red shirt and sunglasses is walking down a bowling alley.
   Caption adv:  A woman wearing a red shirt and sunglasses is standing in a bowling alley.
+  Accuracy LLM score: 0.3000 | success: False
 
 [59] A person in a cocktail bar
-  PSNR orig/adv: 29.7436 | edit: 16.2472
-  SSIM orig/adv: 0.9241 | edit: 0.5315
-  FSIM orig/adv: 0.8517 | edit: 0.5121
-  CLIP orig: 29.0101 | adv: 28.8065
-  Caption similarity: 0.7787
+  PSNR orig/adv: 33.0293 | edit: 16.2552
+  SSIM orig/adv: 0.9457 | edit: 0.5932
+  FSIM orig/adv: 0.8891 | edit: 0.5509
+  CLIP orig: 29.0101 | adv: 30.4850
+  Caption similarity: 0.8502
   Caption orig: A woman wearing a blue jacket and a ponytail is standing in front of a bar with numerous bottles on the shelves.
-  Caption adv:  A woman wearing a black and white jacket stands in front of a bar with a large number of bottles and glasses.
+  Caption adv:  A woman wearing a black jacket and a hat is standing in front of a bar with numerous bottles on the shelves.
+  Accuracy LLM score: 0.3000 | success: False
 
 [60] A person in a youth hostel
-  PSNR orig/adv: 30.1810 | edit: 16.9235
-  SSIM orig/adv: 0.9529 | edit: 0.6140
-  FSIM orig/adv: 0.9020 | edit: 0.4789
-  CLIP orig: 20.7628 | adv: 22.0611
-  Caption similarity: 0.5261
+  PSNR orig/adv: 33.9509 | edit: 17.3859
+  SSIM orig/adv: 0.9701 | edit: 0.6558
+  FSIM orig/adv: 0.9313 | edit: 0.5298
+  CLIP orig: 20.7628 | adv: 21.6403
+  Caption similarity: 0.5073
   Caption orig: A woman wearing a brown jacket and sunglasses is standing in front of a sign.
-  Caption adv:  A woman wearing a leopard print dress and sunglasses stands in front of a mirror.
+  Caption adv:  A woman wearing a leopard print skirt and a tan jacket.
+  Accuracy LLM score: 0.3000 | success: False
 
 [61] A person in a customs office
-  PSNR orig/adv: 31.5296 | edit: 16.4496
-  SSIM orig/adv: 0.9235 | edit: 0.6107
-  FSIM orig/adv: 0.8923 | edit: 0.4670
-  CLIP orig: 27.6559 | adv: 26.4247
+  PSNR orig/adv: 35.1066 | edit: 16.2314
+  SSIM orig/adv: 0.9547 | edit: 0.6200
+  FSIM orig/adv: 0.9282 | edit: 0.4827
+  CLIP orig: 27.6559 | adv: 25.8101
   Caption similarity: 0.6148
   Caption orig: A woman in a black jacket and red pants stands in front of a counter.
   Caption adv:  A woman in red pants and a black jacket stands in a hallway.
+  Accuracy LLM score: 0.3000 | success: False
 
 [62] A person in a festival ground
-  PSNR orig/adv: 30.7008 | edit: 19.1391
-  SSIM orig/adv: 0.9707 | edit: 0.7146
-  FSIM orig/adv: 0.8776 | edit: 0.6331
-  CLIP orig: 32.5543 | adv: 31.1990
-  Caption similarity: 0.5891
+  PSNR orig/adv: 36.2169 | edit: 20.1587
+  SSIM orig/adv: 0.9879 | edit: 0.7660
+  FSIM orig/adv: 0.9281 | edit: 0.6918
+  CLIP orig: 32.5543 | adv: 31.6179
+  Caption similarity: 0.7127
   Caption orig: A woman in a red and white shirt is looking at her cell phone.
-  Caption adv:  A woman in a flowered dress is holding a cup and looking at her phone.
+  Caption adv:  A woman in a flowered dress is looking at her cell phone.
+  Accuracy LLM score: 0.3000 | success: False
 
 [63] A person in a TV studio
-  PSNR orig/adv: 28.0425 | edit: 15.7857
-  SSIM orig/adv: 0.8853 | edit: 0.5427
-  FSIM orig/adv: 0.8088 | edit: 0.4719
-  CLIP orig: 24.4013 | adv: 30.6832
-  Caption similarity: 0.6136
+  PSNR orig/adv: 30.5415 | edit: 17.3191
+  SSIM orig/adv: 0.9098 | edit: 0.6229
+  FSIM orig/adv: 0.8486 | edit: 0.5274
+  CLIP orig: 24.4013 | adv: 30.6907
+  Caption similarity: 0.7329
   Caption orig: A woman wearing a dress and a necklace is standing in front of a large screen.
-  Caption adv:  A woman wearing a white dress and a headband is standing in front of a camera.
+  Caption adv:  A woman wearing a white dress and a necklace is standing in front of a camera.
+  Accuracy LLM score: 0.3000 | success: False
 
 [64] A person in a news van
-  PSNR orig/adv: 31.3687 | edit: 12.1332
-  SSIM orig/adv: 0.9539 | edit: 0.4816
-  FSIM orig/adv: 0.9210 | edit: 0.4197
-  CLIP orig: 29.6258 | adv: 28.5035
-  Caption similarity: 0.5417
+  PSNR orig/adv: 33.0615 | edit: 13.1818
+  SSIM orig/adv: 0.9623 | edit: 0.5295
+  FSIM orig/adv: 0.9360 | edit: 0.4564
+  CLIP orig: 29.6258 | adv: 28.4947
+  Caption similarity: 0.4261
   Caption orig: A woman wearing a grey coat and orange shirt is standing in an airplane.
-  Caption adv:  A woman wearing a red shirt and a brown coat is standing in the back of a van.
+  Caption adv:  A woman wearing a coat and holding a glass of wine.
+  Accuracy LLM score: 0.3000 | success: False
 
 [65] A person in a basement
-  PSNR orig/adv: 31.7727 | edit: 17.9575
-  SSIM orig/adv: 0.9620 | edit: 0.5469
-  FSIM orig/adv: 0.8958 | edit: 0.4691
-  CLIP orig: 24.3508 | adv: 24.9219
-  Caption similarity: 0.5082
+  PSNR orig/adv: 35.9634 | edit: 20.0812
+  SSIM orig/adv: 0.9802 | edit: 0.6515
+  FSIM orig/adv: 0.9331 | edit: 0.5309
+  CLIP orig: 24.3508 | adv: 24.9478
+  Caption similarity: 0.6801
   Caption orig: A woman wearing a red dress and holding a yellow purse.
-  Caption adv:  A woman in a red dress is standing in a hallway.
+  Caption adv:  A woman wearing a red dress and a yellow purse stands in a hallway.
+  Accuracy LLM score: 0.7000 | success: True
 
 [66] A person in a climbing wall
-  PSNR orig/adv: 30.7004 | edit: 11.5434
-  SSIM orig/adv: 0.9540 | edit: 0.4308
-  FSIM orig/adv: 0.8665 | edit: 0.4736
-  CLIP orig: 29.4958 | adv: 26.5719
-  Caption similarity: 0.9211
+  PSNR orig/adv: 35.6827 | edit: 12.0370
+  SSIM orig/adv: 0.9777 | edit: 0.4557
+  FSIM orig/adv: 0.9198 | edit: 0.5150
+  CLIP orig: 29.4958 | adv: 28.8523
+  Caption similarity: 0.8281
   Caption orig: A woman wearing a colorful dress stands in front of a colorful wall.
-  Caption adv:  A woman wearing a blue and white dress is standing in front of a colorful wall.
+  Caption adv:  A woman wearing a blue and white dress is standing on a colorful rock wall.
+  Accuracy LLM score: 0.4000 | success: False
 
 [67] A person in a shopping center
-  PSNR orig/adv: 29.2834 | edit: 15.6933
-  SSIM orig/adv: 0.9065 | edit: 0.5831
-  FSIM orig/adv: 0.8807 | edit: 0.4936
-  CLIP orig: 26.1101 | adv: 28.3966
-  Caption similarity: 0.4727
+  PSNR orig/adv: 32.5048 | edit: 16.7866
+  SSIM orig/adv: 0.9349 | edit: 0.6313
+  FSIM orig/adv: 0.9162 | edit: 0.5317
+  CLIP orig: 26.1101 | adv: 28.6298
+  Caption similarity: 0.7373
   Caption orig: A man wearing sunglasses and a scarf is smiling in a crowded mall.
-  Caption adv:  A man wearing sunglasses and a scarf is walking down a hallway.
+  Caption adv:  A man wearing sunglasses and a scarf is walking down a mall.
+  Accuracy LLM score: 0.3000 | success: False
 
 [68] A person in a prison shower
-  PSNR orig/adv: 29.8424 | edit: 17.9469
-  SSIM orig/adv: 0.9038 | edit: 0.4320
-  FSIM orig/adv: 0.8572 | edit: 0.4841
-  CLIP orig: 29.9053 | adv: 30.7093
+  PSNR orig/adv: 33.6285 | edit: 18.4662
+  SSIM orig/adv: 0.9393 | edit: 0.4690
+  FSIM orig/adv: 0.9066 | edit: 0.5093
+  CLIP orig: 29.9054 | adv: 31.4439
   Caption similarity: 0.4420
   Caption orig: A man in a grey jacket stands in front of a shower with water pouring down on him.
   Caption adv:  A man wearing a black jacket and black pants is standing in front of a mirror.
+  Accuracy LLM score: 0.3000 | success: False
 
 [69] A person in a swimming pool
-  PSNR orig/adv: 29.6299 | edit: 13.5521
-  SSIM orig/adv: 0.9402 | edit: 0.5111
-  FSIM orig/adv: 0.8676 | edit: 0.4517
-  CLIP orig: 28.3834 | adv: 31.1776
-  Caption similarity: 0.7520
+  PSNR orig/adv: 34.6885 | edit: 14.1171
+  SSIM orig/adv: 0.9724 | edit: 0.5872
+  FSIM orig/adv: 0.9234 | edit: 0.5047
+  CLIP orig: 28.3834 | adv: 29.0631
+  Caption similarity: 0.9399
   Caption orig: A woman wearing a brown dress is walking in a pool area.
-  Caption adv:  A woman in a gold dress is walking through a swimming pool.
+  Caption adv:  A woman in a brown dress is walking through a swimming pool.
+  Accuracy LLM score: 0.7000 | success: True
 
 [70] A person in a frozen yogurt shop
-  PSNR orig/adv: 31.2146 | edit: 12.8964
-  SSIM orig/adv: 0.9437 | edit: 0.5806
-  FSIM orig/adv: 0.8860 | edit: 0.4984
-  CLIP orig: 28.3602 | adv: 28.8008
-  Caption similarity: 0.7792
+  PSNR orig/adv: 34.7184 | edit: 13.1715
+  SSIM orig/adv: 0.9617 | edit: 0.6186
+  FSIM orig/adv: 0.9275 | edit: 0.5293
+  CLIP orig: 28.3602 | adv: 32.8895
+  Caption similarity: 0.9671
   Caption orig: A man wearing a blue jacket and a green sweater stands in front of a display of candy.
-  Caption adv:  A man wearing a blue jacket and a green sweater stands in front of a display of donuts.
+  Caption adv:  A man wearing a blue jacket and a green shirt stands in front of a display of candy.
+  Accuracy LLM score: 0.7000 | success: True
 
 [71] A person in a bowling alley
-  PSNR orig/adv: 29.5802 | edit: 12.3519
-  SSIM orig/adv: 0.9161 | edit: 0.4495
-  FSIM orig/adv: 0.8744 | edit: 0.4576
-  CLIP orig: 30.2693 | adv: 31.8267
-  Caption similarity: 0.6872
+  PSNR orig/adv: 31.5946 | edit: 12.7963
+  SSIM orig/adv: 0.9383 | edit: 0.4640
+  FSIM orig/adv: 0.9014 | edit: 0.4652
+  CLIP orig: 30.2693 | adv: 31.3360
+  Caption similarity: 0.7292
   Caption orig: A woman wearing a fur coat and holding a red purse is standing in front of a bowling alley.
-  Caption adv:  A woman wearing a white coat and a fur stole is smiling and walking down a bowling alley.
+  Caption adv:  A woman wearing a fur coat and holding a bowling ball.
+  Accuracy LLM score: 0.3000 | success: False
 
 [72] A person in a parking garage
-  PSNR orig/adv: 27.8027 | edit: 16.3533
-  SSIM orig/adv: 0.9767 | edit: 0.5979
-  FSIM orig/adv: 0.8998 | edit: 0.5771
-  CLIP orig: 26.0117 | adv: 25.0745
-  Caption similarity: 0.6214
+  PSNR orig/adv: 35.7677 | edit: 18.5795
+  SSIM orig/adv: 0.9910 | edit: 0.7132
+  FSIM orig/adv: 0.9354 | edit: 0.6443
+  CLIP orig: 26.0117 | adv: 25.1866
+  Caption similarity: 0.9275
   Caption orig: A woman wearing a black hat and glasses is standing in a room with a white wall.
-  Caption adv:  A woman wearing a black hat and glasses is standing in a parking garage.
+  Caption adv:  A woman wearing a black hat and glasses is standing in a room.
+  Accuracy LLM score: 0.7000 | success: True
 
 [73] A person in a boxing ring
-  PSNR orig/adv: 30.2227 | edit: 14.4627
-  SSIM orig/adv: 0.9135 | edit: 0.4555
-  FSIM orig/adv: 0.8173 | edit: 0.4584
-  CLIP orig: 29.2361 | adv: 27.4460
-  Caption similarity: 0.5202
+  PSNR orig/adv: 33.8535 | edit: 14.5735
+  SSIM orig/adv: 0.9472 | edit: 0.4697
+  FSIM orig/adv: 0.8833 | edit: 0.4904
+  CLIP orig: 29.2361 | adv: 32.1870
+  Caption similarity: 0.5865
   Caption orig: A woman wearing a hat and a scarf is standing in front of a boxing ring.
-  Caption adv:  A woman wearing a hat and scarf is smiling at the camera.
+  Caption adv:  A woman wearing a black hat and a black and white jacket is standing in front of a crowd.
+  Accuracy LLM score: 0.3000 | success: False
 
 [74] A person in a quilt shop
-  PSNR orig/adv: 30.9197 | edit: 15.3312
-  SSIM orig/adv: 0.9201 | edit: 0.4459
-  FSIM orig/adv: 0.8885 | edit: 0.4403
-  CLIP orig: 28.1227 | adv: 30.0921
+  PSNR orig/adv: 33.4515 | edit: 15.5336
+  SSIM orig/adv: 0.9387 | edit: 0.4878
+  FSIM orig/adv: 0.9134 | edit: 0.4749
+  CLIP orig: 28.1227 | adv: 30.9145
   Caption similarity: 0.5515
   Caption orig: A woman wearing sunglasses and a white sweater stands in front of a colorful quilt.
   Caption adv:  A woman wearing sunglasses and a white shirt is walking down a hallway.
+  Accuracy LLM score: 0.3000 | success: False
 
 [75] A person in a butcher’s shop
-  PSNR orig/adv: 29.2210 | edit: 16.2339
-  SSIM orig/adv: 0.9230 | edit: 0.5463
-  FSIM orig/adv: 0.8529 | edit: 0.5710
-  CLIP orig: 29.7592 | adv: 28.7971
-  Caption similarity: 0.6694
+  PSNR orig/adv: 34.7477 | edit: 17.3934
+  SSIM orig/adv: 0.9645 | edit: 0.6481
+  FSIM orig/adv: 0.9209 | edit: 0.6382
+  CLIP orig: 29.7592 | adv: 29.2679
+  Caption similarity: 0.7655
   Caption orig: A woman wearing a colorful coat stands in front of a meat counter.
-  Caption adv:  A woman wearing a colorful coat stands in front of a bakery display.
+  Caption adv:  A woman wearing a colorful coat and glasses stands in front of a deli counter.
+  Accuracy LLM score: 0.7000 | success: True
 
 [76] A person in a local wine festival
-  PSNR orig/adv: 29.1077 | edit: 15.8338
-  SSIM orig/adv: 0.8516 | edit: 0.5274
-  FSIM orig/adv: 0.8203 | edit: 0.4801
-  CLIP orig: 28.5636 | adv: 28.3978
-  Caption similarity: 0.5830
+  PSNR orig/adv: 32.7699 | edit: 16.8632
+  SSIM orig/adv: 0.9045 | edit: 0.6092
+  FSIM orig/adv: 0.8775 | edit: 0.5250
+  CLIP orig: 28.5636 | adv: 27.4470
+  Caption similarity: 0.9305
   Caption orig: A man wearing a hat and a blue jacket stands in a crowd of people.
-  Caption adv:  A man wearing a hat and a black jacket is standing in front of a white tent.
+  Caption adv:  A man wearing a hat and a black jacket is standing in a crowd of people.
+  Accuracy LLM score: 0.3000 | success: False
 
 [77] A person in a bridal fitting room
-  PSNR orig/adv: 29.6460 | edit: 13.6707
-  SSIM orig/adv: 0.9070 | edit: 0.5250
-  FSIM orig/adv: 0.9018 | edit: 0.4313
-  CLIP orig: 25.7813 | adv: 27.3373
-  Caption similarity: 0.9399
+  PSNR orig/adv: 32.6839 | edit: 14.8684
+  SSIM orig/adv: 0.9432 | edit: 0.5839
+  FSIM orig/adv: 0.9352 | edit: 0.4902
+  CLIP orig: 25.7813 | adv: 26.9493
+  Caption similarity: 0.8274
   Caption orig: A woman in a blue dress is talking on her cell phone.
-  Caption adv:  A woman in a blue dress and black jacket is talking on her cell phone.
+  Caption adv:  A woman in a blue dress is standing in front of a mirror, talking on her cell phone.
+  Accuracy LLM score: 0.7000 | success: True
 
 [78] A person in a shipping yard
-  PSNR orig/adv: 29.2054 | edit: 13.1603
-  SSIM orig/adv: 0.9427 | edit: 0.5344
-  FSIM orig/adv: 0.8469 | edit: 0.4782
-  CLIP orig: 27.4037 | adv: 28.4812
-  Caption similarity: 0.7057
+  PSNR orig/adv: 33.8696 | edit: 13.2722
+  SSIM orig/adv: 0.9747 | edit: 0.5074
+  FSIM orig/adv: 0.9097 | edit: 0.5206
+  CLIP orig: 27.4037 | adv: 26.2207
+  Caption similarity: 0.6476
   Caption orig: A woman wearing a black and white dress stands in front of a large red building.
-  Caption adv:  A woman wearing a black and white dress stands in front of a large ship.
+  Caption adv:  A woman wearing a black and white dress stands in front of a large collection of shipping containers.
+  Accuracy LLM score: 0.3000 | success: False
 
 [79] A person in a beach shack
-  PSNR orig/adv: 30.0134 | edit: 13.7465
-  SSIM orig/adv: 0.9182 | edit: 0.4371
-  FSIM orig/adv: 0.8483 | edit: 0.4957
-  CLIP orig: 28.9013 | adv: 29.1267
-  Caption similarity: 0.3628
+  PSNR orig/adv: 33.8007 | edit: 13.7451
+  SSIM orig/adv: 0.9502 | edit: 0.4747
+  FSIM orig/adv: 0.9010 | edit: 0.5303
+  CLIP orig: 28.9013 | adv: 29.4637
+  Caption similarity: 0.6104
   Caption orig: A man wearing a black jacket and a hat is standing in front of a hut.
-  Caption adv:  A man wearing a suit and tie is standing in front of a window.
+  Caption adv:  A man wearing a black jacket and a white shirt is standing in front of a door.
+  Accuracy LLM score: 0.3000 | success: False
 
 [80] A person in a gym class
-  PSNR orig/adv: 29.2872 | edit: 13.9448
-  SSIM orig/adv: 0.8845 | edit: 0.4906
-  FSIM orig/adv: 0.8162 | edit: 0.4129
-  CLIP orig: 24.5607 | adv: 28.8457
-  Caption similarity: 0.9341
+  PSNR orig/adv: 32.5144 | edit: 13.3967
+  SSIM orig/adv: 0.9227 | edit: 0.5167
+  FSIM orig/adv: 0.8778 | edit: 0.4351
+  CLIP orig: 24.5607 | adv: 25.8128
+  Caption similarity: 0.6027
   Caption orig: A man wearing glasses and a blue jacket is standing in a gym.
-  Caption adv:  A man wearing glasses and a black jacket is standing in a gym.
+  Caption adv:  A man wearing glasses and a jacket is standing on a tennis court.
+  Accuracy LLM score: 0.3000 | success: False
 
 [81] A person in a bridal fitting room
-  PSNR orig/adv: 28.1093 | edit: 7.7692
-  SSIM orig/adv: 0.8791 | edit: 0.2312
-  FSIM orig/adv: 0.8805 | edit: 0.5060
-  CLIP orig: 22.5963 | adv: 19.8204
-  Caption similarity: 0.3638
+  PSNR orig/adv: 31.4508 | edit: 13.7008
+  SSIM orig/adv: 0.9234 | edit: 0.6578
+  FSIM orig/adv: 0.9204 | edit: 0.5670
+  CLIP orig: 22.5963 | adv: 24.3742
+  Caption similarity: 0.3944
   Caption orig: A woman wearing a green jacket and blue pants stands in a doorway.
-  Caption adv:  A woman wearing a brown jacket and blue jeans is posing for a picture.
+  Caption adv:  A woman wearing a brown jacket and blue jeans stands in front of a mirror.
+  Accuracy LLM score: 0.3000 | success: False
 
 [82] A person in a fire drill
-  PSNR orig/adv: 30.2106 | edit: 15.4080
-  SSIM orig/adv: 0.9361 | edit: 0.5538
-  FSIM orig/adv: 0.9076 | edit: 0.5744
-  CLIP orig: 24.2137 | adv: 25.8833
-  Caption similarity: 0.9163
+  PSNR orig/adv: 34.6137 | edit: 14.4255
+  SSIM orig/adv: 0.9632 | edit: 0.5759
+  FSIM orig/adv: 0.9395 | edit: 0.5854
+  CLIP orig: 24.2137 | adv: 25.6134
+  Caption similarity: 0.5304
   Caption orig: A woman wearing a black and gold dress stands out in a crowd of people.
-  Caption adv:  A woman in a black and purple dress stands out in a crowd of people.
+  Caption adv:  A woman in a black and white dress is walking down the street.
+  Accuracy LLM score: 0.3000 | success: False
 
 [83] A person in a strip club
-  PSNR orig/adv: 29.4292 | edit: 16.9204
-  SSIM orig/adv: 0.9103 | edit: 0.5097
-  FSIM orig/adv: 0.8588 | edit: 0.4682
-  CLIP orig: 22.7374 | adv: 22.6177
+  PSNR orig/adv: 32.7020 | edit: 16.7997
+  SSIM orig/adv: 0.9423 | edit: 0.5142
+  FSIM orig/adv: 0.9027 | edit: 0.4866
+  CLIP orig: 22.7374 | adv: 22.1287
   Caption similarity: 0.6879
   Caption orig: A man wearing a black vest and sunglasses stands in a room with a purple glow.
   Caption adv:  A woman wearing a black vest and sunglasses is standing in a room.
+  Accuracy LLM score: 0.3000 | success: False
 
 [84] A person in a pastry shop
-  PSNR orig/adv: 29.6615 | edit: 14.9321
-  SSIM orig/adv: 0.9362 | edit: 0.5063
-  FSIM orig/adv: 0.8685 | edit: 0.4824
-  CLIP orig: 27.3791 | adv: 30.0847
-  Caption similarity: 0.7860
+  PSNR orig/adv: 34.0632 | edit: 15.8425
+  SSIM orig/adv: 0.9629 | edit: 0.5550
+  FSIM orig/adv: 0.9117 | edit: 0.5119
+  CLIP orig: 27.3791 | adv: 30.9122
+  Caption similarity: 0.8293
   Caption orig: A woman in a blue jacket and black pants stands in front of a display of pastries.
-  Caption adv:  A woman in a blue jacket stands in front of a display of donuts.
+  Caption adv:  A woman in a blue jacket stands in front of a bakery display, looking at the pastries.
+  Accuracy LLM score: 0.7000 | success: True
 
 [85] A person in a high-end restaurant
-  PSNR orig/adv: 29.4852 | edit: 14.2028
-  SSIM orig/adv: 0.8550 | edit: 0.4550
-  FSIM orig/adv: 0.8668 | edit: 0.4587
-  CLIP orig: 31.5517 | adv: 31.6390
-  Caption similarity: 1.0000
+  PSNR orig/adv: 33.4894 | edit: 14.8724
+  SSIM orig/adv: 0.9095 | edit: 0.5039
+  FSIM orig/adv: 0.9142 | edit: 0.4682
+  CLIP orig: 31.5517 | adv: 32.2268
+  Caption similarity: 0.7525
   Caption orig: A woman in a black suit stands in a restaurant, surrounded by wine glasses and dining tables.
-  Caption adv:  A woman in a black suit stands in a restaurant, surrounded by wine glasses and dining tables.
+  Caption adv:  A woman in a black jacket stands in front of a long dining table set with wine glasses.
+  Accuracy LLM score: 0.7000 | success: True
 
 [86] A person in a shopping center
-  PSNR orig/adv: 30.3459 | edit: 15.8602
-  SSIM orig/adv: 0.8958 | edit: 0.5836
-  FSIM orig/adv: 0.8509 | edit: 0.5078
-  CLIP orig: 27.1941 | adv: 29.2788
-  Caption similarity: 0.4689
+  PSNR orig/adv: 33.4887 | edit: 15.3755
+  SSIM orig/adv: 0.9314 | edit: 0.5856
+  FSIM orig/adv: 0.9054 | edit: 0.5249
+  CLIP orig: 27.1941 | adv: 28.7814
+  Caption similarity: 0.5202
   Caption orig: A woman wearing sunglasses and a black and blue dress is holding a shopping bag.
-  Caption adv:  A woman wearing a blue and white dress and sunglasses is walking down a hallway.
+  Caption adv:  A woman wearing a blue and white dress and sunglasses is walking down a busy street.
+  Accuracy LLM score: 0.3000 | success: False
 
 [87] A person in a church hall
-  PSNR orig/adv: 28.5752 | edit: 15.3606
-  SSIM orig/adv: 0.9492 | edit: 0.5164
-  FSIM orig/adv: 0.9175 | edit: 0.5075
-  CLIP orig: 24.3567 | adv: 27.3385
-  Caption similarity: 0.9386
+  PSNR orig/adv: 34.8100 | edit: 13.7848
+  SSIM orig/adv: 0.9742 | edit: 0.5687
+  FSIM orig/adv: 0.9501 | edit: 0.5438
+  CLIP orig: 24.3567 | adv: 26.9089
+  Caption similarity: 0.8847
   Caption orig: A woman wearing a black and white jacket and a leopard print pantsuit stands in front of a church.
-  Caption adv:  A woman wearing a leopard print jacket and pants is standing in front of a church.
+  Caption adv:  A woman wearing a leopard print suit stands in front of a church.
+  Accuracy LLM score: 0.8000 | success: True
 
 [88] A person in a local bakery
-  PSNR orig/adv: 30.4541 | edit: 12.2473
-  SSIM orig/adv: 0.9169 | edit: 0.3990
-  FSIM orig/adv: 0.8762 | edit: 0.4160
-  CLIP orig: 30.8093 | adv: 33.4328
-  Caption similarity: 0.7342
+  PSNR orig/adv: 33.2954 | edit: 13.6483
+  SSIM orig/adv: 0.9410 | edit: 0.4688
+  FSIM orig/adv: 0.9125 | edit: 0.4552
+  CLIP orig: 30.8093 | adv: 31.9599
+  Caption similarity: 0.6059
   Caption orig: A woman in a blue jacket is standing in front of a bakery display, smiling and pointing at the pastries.
-  Caption adv:  A woman is standing in front of a display of pastries, smiling and posing for a picture.
+  Caption adv:  A woman in a black coat stands in front of a display of donuts.
+  Accuracy LLM score: 0.3000 | success: False
 
 [89] A person in a gym class
-  PSNR orig/adv: 28.5782 | edit: 14.2885
-  SSIM orig/adv: 0.8993 | edit: 0.4904
-  FSIM orig/adv: 0.8452 | edit: 0.4166
-  CLIP orig: 27.9331 | adv: 28.8022
-  Caption similarity: 0.7898
+  PSNR orig/adv: 32.8576 | edit: 14.9844
+  SSIM orig/adv: 0.9368 | edit: 0.5656
+  FSIM orig/adv: 0.8984 | edit: 0.4626
+  CLIP orig: 27.9331 | adv: 28.8996
+  Caption similarity: 0.6371
   Caption orig: A woman wearing sunglasses and a blue shirt is standing in a gym.
-  Caption adv:  A woman wearing glasses and a black shirt is standing on a gym floor.
+  Caption adv:  A woman wearing glasses and a blue shirt is standing on a basketball court.
+  Accuracy LLM score: 0.3000 | success: False
 
 [90] A person in a dance school
-  PSNR orig/adv: 28.5994 | edit: 15.5990
-  SSIM orig/adv: 0.9154 | edit: 0.6051
-  FSIM orig/adv: 0.8830 | edit: 0.4946
-  CLIP orig: 22.6343 | adv: 27.2210
-  Caption similarity: 0.6581
+  PSNR orig/adv: 32.0358 | edit: 21.8689
+  SSIM orig/adv: 0.9403 | edit: 0.7171
+  FSIM orig/adv: 0.9108 | edit: 0.5503
+  CLIP orig: 22.6343 | adv: 25.1524
+  Caption similarity: 0.7571
   Caption orig: A man wearing sunglasses and a white shirt stands in front of a brick wall.
-  Caption adv:  A man wearing sunglasses and a white shirt stands out in a crowd of people.
+  Caption adv:  A man wearing sunglasses and a white shirt.
+  Accuracy LLM score: 0.9000 | success: True
 
 [91] A person in a summer camp
-  PSNR orig/adv: 29.8690 | edit: 17.5608
-  SSIM orig/adv: 0.9169 | edit: 0.6593
-  FSIM orig/adv: 0.8914 | edit: 0.5595
-  CLIP orig: 27.2669 | adv: 26.2439
-  Caption similarity: 0.4360
+  PSNR orig/adv: 34.4936 | edit: 22.0144
+  SSIM orig/adv: 0.9527 | edit: 0.7759
+  FSIM orig/adv: 0.9376 | edit: 0.6482
+  CLIP orig: 27.2669 | adv: 25.5632
+  Caption similarity: 0.9720
   Caption orig: A woman wearing a black and white shirt and carrying a blue backpack.
-  Caption adv:  A woman in a black and white shirt is standing in a field, smiling and holding a cell phone.
+  Caption adv:  A woman wearing a black and white shirt and carrying a backpack.
+  Accuracy LLM score: 0.9000 | success: True
 
 [92] A person in a digital art gallery
-  PSNR orig/adv: 30.1754 | edit: 14.2481
-  SSIM orig/adv: 0.9187 | edit: 0.3537
-  FSIM orig/adv: 0.8697 | edit: 0.3922
-  CLIP orig: 29.8861 | adv: 27.2396
-  Caption similarity: 0.7244
+  PSNR orig/adv: 33.5354 | edit: 14.3236
+  SSIM orig/adv: 0.9498 | edit: 0.3813
+  FSIM orig/adv: 0.9135 | edit: 0.4295
+  CLIP orig: 29.8861 | adv: 27.9697
+  Caption similarity: 0.7998
   Caption orig: A woman wearing a black jacket and a striped skirt stands in front of a colorful art display.
-  Caption adv:  A woman wearing a black jacket and a striped skirt.
+  Caption adv:  A woman wearing a black jacket and a striped skirt is standing in front of a gray background.
+  Accuracy LLM score: 0.3000 | success: False
 
 [93] A person in a customs checkpoint
-  PSNR orig/adv: 30.3164 | edit: 18.7628
-  SSIM orig/adv: 0.9350 | edit: 0.6901
-  FSIM orig/adv: 0.8624 | edit: 0.5831
-  CLIP orig: 24.7080 | adv: 26.4555
-  Caption similarity: 0.5297
+  PSNR orig/adv: 32.8739 | edit: 19.5891
+  SSIM orig/adv: 0.9626 | edit: 0.7304
+  FSIM orig/adv: 0.9104 | edit: 0.6069
+  CLIP orig: 24.7080 | adv: 23.8834
+  Caption similarity: 0.7189
   Caption orig: A woman wearing a pink coat and black shorts is standing in an airport.
-  Caption adv:  A woman in a pink coat and black shorts is walking down a hallway.
+  Caption adv:  A woman wearing a pink coat and black shorts is standing in a public area.
+  Accuracy LLM score: 0.7000 | success: True
 
 [94] A person in a butcher’s block
-  PSNR orig/adv: 31.7210 | edit: 16.6173
-  SSIM orig/adv: 0.9528 | edit: 0.5318
-  FSIM orig/adv: 0.9039 | edit: 0.4616
-  CLIP orig: 27.0173 | adv: 26.5219
-  Caption similarity: 0.7904
+  PSNR orig/adv: 34.5461 | edit: 17.0816
+  SSIM orig/adv: 0.9647 | edit: 0.5480
+  FSIM orig/adv: 0.9251 | edit: 0.4616
+  CLIP orig: 27.0173 | adv: 26.3542
+  Caption similarity: 0.8015
   Caption orig: A woman in a white dress stands in front of a deli counter, smiling for the camera.
-  Caption adv:  A woman in a white dress stands in front of a deli counter, looking at the food.
+  Caption adv:  A woman in a white dress stands in front of a deli counter, surrounded by various food items.
+  Accuracy LLM score: 0.7000 | success: True
 
 [95] A person in a flower stall
-  PSNR orig/adv: 29.1620 | edit: 16.6651
-  SSIM orig/adv: 0.9250 | edit: 0.5524
-  FSIM orig/adv: 0.8778 | edit: 0.5946
-  CLIP orig: 31.9631 | adv: 31.5446
-  Caption similarity: 0.7130
+  PSNR orig/adv: 33.0549 | edit: 16.8192
+  SSIM orig/adv: 0.9531 | edit: 0.5835
+  FSIM orig/adv: 0.9176 | edit: 0.5987
+  CLIP orig: 31.9631 | adv: 32.2038
+  Caption similarity: 0.8167
   Caption orig: A woman wearing a gray sweater and a floral skirt stands in front of a vibrant flower display.
-  Caption adv:  A woman in a floral print dress is standing in front of a flower shop, surrounded by a vibrant display of flowers.
+  Caption adv:  A woman wearing a grey shirt and a blue and white skirt stands in front of a flower stand.
+  Accuracy LLM score: 0.4000 | success: False
 
 [96] A person in a street food court
-  PSNR orig/adv: 30.6948 | edit: 16.0277
-  SSIM orig/adv: 0.9109 | edit: 0.5028
-  FSIM orig/adv: 0.8967 | edit: 0.4857
-  CLIP orig: 29.5574 | adv: 31.3973
-  Caption similarity: 0.6980
+  PSNR orig/adv: 33.4400 | edit: 15.6711
+  SSIM orig/adv: 0.9389 | edit: 0.5320
+  FSIM orig/adv: 0.9251 | edit: 0.4995
+  CLIP orig: 29.5574 | adv: 30.5915
+  Caption similarity: 0.7100
   Caption orig: A woman wearing sunglasses and a grey shirt is standing in front of a food stand.
-  Caption adv:  A woman wearing sunglasses and a black shirt is standing in front of a table with a bowl of noodles on it.
+  Caption adv:  A woman wearing sunglasses and a black shirt stands in front of a large hamburger.
+  Accuracy LLM score: 0.3000 | success: False
 
 [97] A person in a car dealership
-  PSNR orig/adv: 30.2214 | edit: 12.5631
-  SSIM orig/adv: 0.9135 | edit: 0.5188
-  FSIM orig/adv: 0.8162 | edit: 0.4472
-  CLIP orig: 26.1956 | adv: 29.1942
-  Caption similarity: 0.9194
+  PSNR orig/adv: 34.4438 | edit: 13.7784
+  SSIM orig/adv: 0.9519 | edit: 0.6187
+  FSIM orig/adv: 0.8919 | edit: 0.5383
+  CLIP orig: 26.1956 | adv: 29.8426
+  Caption similarity: 1.0000
   Caption orig: A woman wearing a leopard print jacket and a green shirt is standing next to a car.
-  Caption adv:  A woman wearing a leopard print scarf and jacket is standing next to a car.
+  Caption adv:  A woman wearing a leopard print jacket and a green shirt is standing next to a car.
+  Accuracy LLM score: 1.0000 | success: True
 
 [98] A person in a city parade
-  PSNR orig/adv: 30.6184 | edit: 13.1634
-  SSIM orig/adv: 0.9330 | edit: 0.4820
-  FSIM orig/adv: 0.8961 | edit: 0.5040
-  CLIP orig: 27.9746 | adv: 31.0640
-  Caption similarity: 0.6773
+  PSNR orig/adv: 34.7665 | edit: 14.4521
+  SSIM orig/adv: 0.9610 | edit: 0.5573
+  FSIM orig/adv: 0.9361 | edit: 0.5459
+  CLIP orig: 27.9746 | adv: 30.4820
+  Caption similarity: 0.5440
   Caption orig: A woman wearing sunglasses and a striped shirt stands out in a crowd of people.
-  Caption adv:  A woman wearing sunglasses and a black and white striped shirt walks down a crowded street.
+  Caption adv:  A woman wearing a black and white striped shirt and sunglasses is walking down the street.
+  Accuracy LLM score: 0.7000 | success: True
 
 [99] A person in a creative writing event
-  PSNR orig/adv: 30.3975 | edit: 14.7624
-  SSIM orig/adv: 0.9243 | edit: 0.4256
-  FSIM orig/adv: 0.8781 | edit: 0.4498
-  CLIP orig: 21.6731 | adv: 21.8254
-  Caption similarity: 0.7323
+  PSNR orig/adv: 33.8339 | edit: 15.9745
+  SSIM orig/adv: 0.9520 | edit: 0.4833
+  FSIM orig/adv: 0.9180 | edit: 0.4601
+  CLIP orig: 21.6731 | adv: 22.5208
+  Caption similarity: 0.6458
   Caption orig: A woman wearing a brown coat and holding a book stands in front of a colorful wall.
-  Caption adv:  A woman wearing a brown coat and a scarf is standing in front of a green background.
+  Caption adv:  A woman wearing a brown coat and holding a purse.
+  Accuracy LLM score: 0.3000 | success: False
 
 [100] A person in a festival ground
-  PSNR orig/adv: 29.2709 | edit: 22.2338
-  SSIM orig/adv: 0.9024 | edit: 0.7268
-  FSIM orig/adv: 0.8668 | edit: 0.6519
-  CLIP orig: 29.2696 | adv: 30.8285
-  Caption similarity: 0.8133
+  PSNR orig/adv: 36.4088 | edit: 21.6453
+  SSIM orig/adv: 0.9689 | edit: 0.8187
+  FSIM orig/adv: 0.9419 | edit: 0.7058
+  CLIP orig: 29.2696 | adv: 28.9392
+  Caption similarity: 0.7674
   Caption orig: A man wearing a red and blue sweater stands in a field with a crowd of people around him.
-  Caption adv:  A man wearing a red sweater stands in a crowd of people.
+  Caption adv:  A man wearing a red sweater and blue jeans stands in a crowd of people.
+  Accuracy LLM score: 0.4000 | success: False
 
 [101] A person in a bridal fitting room
-  PSNR orig/adv: 30.5763 | edit: 14.9745
-  SSIM orig/adv: 0.9283 | edit: 0.5773
-  FSIM orig/adv: 0.8265 | edit: 0.4573
-  CLIP orig: 26.1359 | adv: 26.9025
-  Caption similarity: 0.7015
+  PSNR orig/adv: 36.1522 | edit: 16.4549
+  SSIM orig/adv: 0.9714 | edit: 0.6542
+  FSIM orig/adv: 0.9103 | edit: 0.5393
+  CLIP orig: 26.1359 | adv: 25.0092
+  Caption similarity: 0.8209
   Caption orig: Two women are standing in front of a mirror, one wearing a pink dress and the other wearing a brown coat.
-  Caption adv:  A woman wearing pink pants and a fur coat is standing in front of a mirror.
+  Caption adv:  Two women are standing in front of a mirror, both wearing sunglasses.
+  Accuracy LLM score: 0.3000 | success: False
 
 [102] A person in a high school
-  PSNR orig/adv: 29.5167 | edit: 16.2887
-  SSIM orig/adv: 0.8901 | edit: 0.5621
-  FSIM orig/adv: 0.8910 | edit: 0.5010
-  CLIP orig: 19.8843 | adv: 21.3944
-  Caption similarity: 0.6079
+  PSNR orig/adv: 32.8215 | edit: 18.3867
+  SSIM orig/adv: 0.9255 | edit: 0.6554
+  FSIM orig/adv: 0.9257 | edit: 0.5325
+  CLIP orig: 19.8843 | adv: 20.8823
+  Caption similarity: 0.4309
   Caption orig: A woman wearing a black jacket and a ring on her finger.
-  Caption adv:  A woman wearing a black coat and holding a purse.
+  Caption adv:  A woman in a black coat and a handbag is standing in a hallway.
+  Accuracy LLM score: 0.3000 | success: False
 
 [103] A person in a creative writing event
-  PSNR orig/adv: 27.4055 | edit: 13.9344
-  SSIM orig/adv: 0.8874 | edit: 0.4693
-  FSIM orig/adv: 0.8266 | edit: 0.4537
-  CLIP orig: 23.4773 | adv: 21.8807
-  Caption similarity: 0.6040
+  PSNR orig/adv: 30.4628 | edit: 14.1848
+  SSIM orig/adv: 0.9161 | edit: 0.5127
+  FSIM orig/adv: 0.8594 | edit: 0.4751
+  CLIP orig: 23.4773 | adv: 23.3429
+  Caption similarity: 0.5804
   Caption orig: A woman wearing a white coat stands in front of a crowd of people.
-  Caption adv:  A woman wearing a white coat and holding a microphone.
+  Caption adv:  A woman wearing a white coat and holding a white umbrella.
+  Accuracy LLM score: 0.7000 | success: True
 
 [104] A person in a craft beer festival
-  PSNR orig/adv: 29.1472 | edit: 17.1513
-  SSIM orig/adv: 0.9037 | edit: 0.6162
-  FSIM orig/adv: 0.8544 | edit: 0.5752
-  CLIP orig: 25.9742 | adv: 29.5089
-  Caption similarity: 0.5131
+  PSNR orig/adv: 35.1760 | edit: 16.7448
+  SSIM orig/adv: 0.9531 | edit: 0.6499
+  FSIM orig/adv: 0.9188 | edit: 0.6022
+  CLIP orig: 25.9742 | adv: 28.4827
+  Caption similarity: 0.8496
   Caption orig: A woman wearing a blue and white striped sweater is standing in a crowd.
-  Caption adv:  A woman wearing a blue and white striped shirt and sunglasses is standing next to a bottle of beer.
+  Caption adv:  A woman wearing a blue and white striped shirt and sunglasses stands in a crowd.
+  Accuracy LLM score: 0.7000 | success: True
 
 [105] A person in a drive-thru
-  PSNR orig/adv: 29.9171 | edit: 10.7621
-  SSIM orig/adv: 0.9037 | edit: 0.4092
-  FSIM orig/adv: 0.9026 | edit: 0.4189
-  CLIP orig: 23.6818 | adv: 21.7484
-  Caption similarity: 0.5864
-  Caption orig: A woman with blonde hair and sunglasses is leaning out of a car window.
-  Caption adv:  A woman wearing a black jacket and sunglasses is standing in a car.
+  PSNR orig/adv: 33.7957 | edit: 12.4413
+  SSIM orig/adv: 0.9448 | edit: 0.5174
+  FSIM orig/adv: 0.9426 | edit: 0.4574
+  CLIP orig: 23.6818 | adv: 23.9400
+  Caption similarity: 0.6952
+  Caption orig: A woman with long blonde hair is leaning out of a car window, wearing sunglasses and a black jacket.
+  Caption adv:  A woman with blonde hair and sunglasses is standing next to a white car.
+  Accuracy LLM score: 0.7000 | success: True
 
 [106] A person in a nightclub
-  PSNR orig/adv: 29.6495 | edit: 14.8307
-  SSIM orig/adv: 0.8950 | edit: 0.5034
-  FSIM orig/adv: 0.9095 | edit: 0.4550
-  CLIP orig: 24.8708 | adv: 26.5286
-  Caption similarity: 0.5330
+  PSNR orig/adv: 33.5494 | edit: 15.2872
+  SSIM orig/adv: 0.9343 | edit: 0.6131
+  FSIM orig/adv: 0.9394 | edit: 0.5199
+  CLIP orig: 24.8708 | adv: 27.1257
+  Caption similarity: 0.6219
   Caption orig: A woman wearing a black jacket and a striped shirt is walking down a hallway.
-  Caption adv:  A woman wearing a black jacket and a blue wig stands in a room with a red background.
+  Caption adv:  A woman wearing a black jacket and a striped shirt stands in a room with other people.
+  Accuracy LLM score: 0.7000 | success: True
 
 [107] A person in a tech store
-  PSNR orig/adv: 29.6235 | edit: 14.2763
-  SSIM orig/adv: 0.9241 | edit: 0.4631
-  FSIM orig/adv: 0.9077 | edit: 0.4630
-  CLIP orig: 23.9737 | adv: 25.8548
-  Caption similarity: 0.6672
+  PSNR orig/adv: 33.7611 | edit: 13.1158
+  SSIM orig/adv: 0.9572 | edit: 0.4727
+  FSIM orig/adv: 0.9446 | edit: 0.4792
+  CLIP orig: 23.9737 | adv: 24.2872
+  Caption similarity: 0.8149
   Caption orig: A woman wearing sunglasses and a green shirt stands in front of a wall of televisions.
-  Caption adv:  A woman wearing sunglasses and a striped skirt stands in front of a display of cell phones.
+  Caption adv:  A woman wearing sunglasses and a striped skirt stands in front of a display of televisions.
+  Accuracy LLM score: 0.3000 | success: False
 
 [108] A person in a refugee camp
-  PSNR orig/adv: 28.7379 | edit: 18.8930
-  SSIM orig/adv: 0.8698 | edit: 0.6155
-  FSIM orig/adv: 0.8490 | edit: 0.5283
-  CLIP orig: 29.1463 | adv: 30.6823
-  Caption similarity: 0.7984
+  PSNR orig/adv: 32.5803 | edit: 19.8352
+  SSIM orig/adv: 0.9243 | edit: 0.6999
+  FSIM orig/adv: 0.9040 | edit: 0.5907
+  CLIP orig: 29.1463 | adv: 28.2583
+  Caption similarity: 0.9293
   Caption orig: A man wearing a blue jacket and a red, white, and blue striped shirt stands in front of a tent.
-  Caption adv:  A man wearing a black jacket and a backpack is standing in front of a tent.
+  Caption adv:  A man wearing a blue jacket and a hat stands in front of a tent.
+  Accuracy LLM score: 0.3000 | success: False
 
 [109] A person in a motel room
-  PSNR orig/adv: 32.4956 | edit: 11.4147
-  SSIM orig/adv: 0.9580 | edit: 0.5687
-  FSIM orig/adv: 0.9167 | edit: 0.4522
-  CLIP orig: 27.7484 | adv: 28.4998
+  PSNR orig/adv: 37.6588 | edit: 12.7112
+  SSIM orig/adv: 0.9822 | edit: 0.6584
+  FSIM orig/adv: 0.9552 | edit: 0.4941
+  CLIP orig: 27.7484 | adv: 27.7778
   Caption similarity: 0.7494
   Caption orig: A woman wearing a blue shirt and yellow skirt stands in a bedroom.
   Caption adv:  A woman wearing glasses and a blue shirt is standing in a room.
+  Accuracy LLM score: 0.4000 | success: False
 
 [110] A person in a farmers' cooperative
-  PSNR orig/adv: 29.7305 | edit: 15.3744
-  SSIM orig/adv: 0.9142 | edit: 0.4415
-  FSIM orig/adv: 0.8750 | edit: 0.4592
-  CLIP orig: 27.7335 | adv: 27.0356
-  Caption similarity: 0.8060
+  PSNR orig/adv: 35.6236 | edit: 16.3467
+  SSIM orig/adv: 0.9580 | edit: 0.5145
+  FSIM orig/adv: 0.9376 | edit: 0.4924
+  CLIP orig: 27.7335 | adv: 29.0813
+  Caption similarity: 0.7781
   Caption orig: A woman in a brown coat and orange shirt stands in a field of green plants.
-  Caption adv:  A woman wearing a brown coat and carrying a brown purse is standing in front of a row of green plants.
+  Caption adv:  A woman wearing a brown coat and carrying a brown purse stands in a garden filled with green plants.
+  Accuracy LLM score: 0.7000 | success: True
 
 [111] A person in a vintage record shop
-  PSNR orig/adv: 30.9099 | edit: 13.9001
-  SSIM orig/adv: 0.9305 | edit: 0.4500
-  FSIM orig/adv: 0.8413 | edit: 0.4650
-  CLIP orig: 28.8454 | adv: 31.4376
-  Caption similarity: 0.8879
+  PSNR orig/adv: 35.8277 | edit: 15.3646
+  SSIM orig/adv: 0.9668 | edit: 0.5679
+  FSIM orig/adv: 0.9134 | edit: 0.5304
+  CLIP orig: 28.8454 | adv: 30.0308
+  Caption similarity: 1.0000
   Caption orig: A woman wearing a blue coat and sunglasses stands in front of a bookshelf.
-  Caption adv:  A woman wearing a blue coat and pink dress stands in front of a bookshelf.
+  Caption adv:  A woman wearing a blue coat and sunglasses stands in front of a bookshelf.
+  Accuracy LLM score: 1.0000 | success: True
 
 [112] A person in a jail
-  PSNR orig/adv: 31.4916 | edit: 19.2492
-  SSIM orig/adv: 0.9470 | edit: 0.5300
-  FSIM orig/adv: 0.8671 | edit: 0.5836
-  CLIP orig: 25.9586 | adv: 27.7464
-  Caption similarity: 0.8666
+  PSNR orig/adv: 37.5846 | edit: 20.0937
+  SSIM orig/adv: 0.9744 | edit: 0.6046
+  FSIM orig/adv: 0.9397 | edit: 0.6484
+  CLIP orig: 25.9586 | adv: 28.5355
+  Caption similarity: 1.0000
   Caption orig: A woman wearing a striped shirt and sunglasses is standing in a hallway.
-  Caption adv:  A woman wearing a striped shirt and sunglasses is walking down a hallway.
+  Caption adv:  A woman wearing a striped shirt and sunglasses is standing in a hallway.
+  Accuracy LLM score: 1.0000 | success: True
 
 [113] A person in a butcher’s shop
-  PSNR orig/adv: 29.0334 | edit: 12.6419
-  SSIM orig/adv: 0.8858 | edit: 0.3778
-  FSIM orig/adv: 0.9154 | edit: 0.4184
-  CLIP orig: 30.9046 | adv: 29.9181
-  Caption similarity: 0.2433
+  PSNR orig/adv: 33.1099 | edit: 13.7876
+  SSIM orig/adv: 0.9345 | edit: 0.4338
+  FSIM orig/adv: 0.9471 | edit: 0.4344
+  CLIP orig: 30.9046 | adv: 29.8453
+  Caption similarity: 0.3236
   Caption orig: A woman stands in front of a meat display, holding a stick.
-  Caption adv:  A woman in a black shirt and a plaid skirt is walking down an aisle in a grocery store.
+  Caption adv:  A woman in a black and white shirt is walking through a deli, surrounded by various food items.
+  Accuracy LLM score: 0.7000 | success: True
 
 [114] A person in a farmers’ co-op
-  PSNR orig/adv: 29.4227 | edit: 13.9594
-  SSIM orig/adv: 0.8992 | edit: 0.4508
-  FSIM orig/adv: 0.8332 | edit: 0.5026
-  CLIP orig: 27.6750 | adv: 27.6287
-  Caption similarity: 0.3955
+  PSNR orig/adv: 33.5062 | edit: 16.5756
+  SSIM orig/adv: 0.9390 | edit: 0.5859
+  FSIM orig/adv: 0.8936 | edit: 0.5598
+  CLIP orig: 27.6750 | adv: 27.6973
+  Caption similarity: 0.8799
   Caption orig: A woman wearing a coat and sunglasses stands in a field.
-  Caption adv:  A woman wearing a hooded jacket and sunglasses is walking down a hallway.
+  Caption adv:  A woman wearing a coat and sunglasses stands in a field of trees.
+  Accuracy LLM score: 0.7000 | success: True
 
 [115] A person in a charity art auction
-  PSNR orig/adv: 31.3554 | edit: 14.3889
-  SSIM orig/adv: 0.9577 | edit: 0.5962
-  FSIM orig/adv: 0.8620 | edit: 0.4858
-  CLIP orig: 26.2576 | adv: 25.2207
-  Caption similarity: 0.9301
+  PSNR orig/adv: 35.9681 | edit: 15.7947
+  SSIM orig/adv: 0.9773 | edit: 0.6771
+  FSIM orig/adv: 0.9118 | edit: 0.5320
+  CLIP orig: 26.2576 | adv: 26.9407
+  Caption similarity: 0.6938
   Caption orig: A woman wearing sunglasses and a colorful jacket stands in front of two colorful paintings.
-  Caption adv:  A woman wearing a colorful jacket and sunglasses stands in front of a colorful painting.
+  Caption adv:  A woman wearing a colorful dress stands in front of a painting.
+  Accuracy LLM score: 0.3000 | success: False
 
 [116] A person in a street parade
-  PSNR orig/adv: 29.4816 | edit: 13.1504
-  SSIM orig/adv: 0.8946 | edit: 0.4821
-  FSIM orig/adv: 0.8921 | edit: 0.5006
-  CLIP orig: 28.4108 | adv: 27.8033
-  Caption similarity: 0.9328
+  PSNR orig/adv: 32.9139 | edit: 14.7340
+  SSIM orig/adv: 0.9268 | edit: 0.5756
+  FSIM orig/adv: 0.9237 | edit: 0.5382
+  CLIP orig: 28.4108 | adv: 28.1811
+  Caption similarity: 0.8496
   Caption orig: A woman in a black jacket and white skirt walks down the street.
-  Caption adv:  A woman in a black jacket and white pants walks down the street.
+  Caption adv:  A woman in a black jacket and white skirt walks down a street with a crowd of people around her.
+  Accuracy LLM score: 0.7000 | success: True
 
 [117] A person in a soap store
-  PSNR orig/adv: 28.6714 | edit: 10.5832
-  SSIM orig/adv: 0.8573 | edit: 0.3577
-  FSIM orig/adv: 0.8653 | edit: 0.3981
-  CLIP orig: 25.9495 | adv: 24.4627
-  Caption similarity: 0.2632
+  PSNR orig/adv: 34.1190 | edit: 11.3137
+  SSIM orig/adv: 0.9234 | edit: 0.4713
+  FSIM orig/adv: 0.9295 | edit: 0.4419
+  CLIP orig: 25.9495 | adv: 25.7637
+  Caption similarity: 0.2092
   Caption orig: A woman wearing a black coat and holding a black umbrella.
-  Caption adv:  A woman in a blue jacket stands in front of a hair salon.
+  Caption adv:  A woman in a white dress stands in front of a shelf of hair products.
+  Accuracy LLM score: 0.3000 | success: False
 
 [118] A person in a technology trade show
-  PSNR orig/adv: 30.7168 | edit: 13.0521
-  SSIM orig/adv: 0.9071 | edit: 0.4492
-  FSIM orig/adv: 0.8033 | edit: 0.4000
-  CLIP orig: 29.6679 | adv: 32.4719
-  Caption similarity: 0.6011
+  PSNR orig/adv: 33.7461 | edit: 13.2966
+  SSIM orig/adv: 0.9362 | edit: 0.4821
+  FSIM orig/adv: 0.8559 | edit: 0.4193
+  CLIP orig: 29.6679 | adv: 31.0377
+  Caption similarity: 0.5655
   Caption orig: A woman wearing a jacket and headphones stands in front of a display.
-  Caption adv:  A woman in a black jacket and a white shirt is standing in front of a sign that says "technology think".
+  Caption adv:  A woman in a black jacket and gray pants stands in front of a sign.
+  Accuracy LLM score: 0.3000 | success: False
 
 [119] A person in a kite festival
-  PSNR orig/adv: 30.5237 | edit: 16.9583
-  SSIM orig/adv: 0.9078 | edit: 0.6369
-  FSIM orig/adv: 0.8641 | edit: 0.4718
-  CLIP orig: 30.6493 | adv: 34.4280
-  Caption similarity: 0.7543
+  PSNR orig/adv: 33.0672 | edit: 16.9266
+  SSIM orig/adv: 0.9293 | edit: 0.6547
+  FSIM orig/adv: 0.8975 | edit: 0.5012
+  CLIP orig: 30.6493 | adv: 33.3608
+  Caption similarity: 1.0000
   Caption orig: A woman wearing a fur coat and holding a kite.
-  Caption adv:  A woman is holding a colorful kite in the air.
+  Caption adv:  A woman wearing a fur coat and holding a kite.
+  Accuracy LLM score: 1.0000 | success: True
 
 [120] A person in a flower stall
-  PSNR orig/adv: 30.9448 | edit: 15.6312
-  SSIM orig/adv: 0.9548 | edit: 0.4726
-  FSIM orig/adv: 0.8791 | edit: 0.5534
-  CLIP orig: 32.1636 | adv: 32.4579
-  Caption similarity: 0.8485
+  PSNR orig/adv: 36.7930 | edit: 15.3467
+  SSIM orig/adv: 0.9813 | edit: 0.5663
+  FSIM orig/adv: 0.9325 | edit: 0.6188
+  CLIP orig: 32.1636 | adv: 33.4472
+  Caption similarity: 1.0000
   Caption orig: A man wearing a green hat and sunglasses stands in front of a flower stand.
-  Caption adv:  A man wearing sunglasses and a jacket stands in front of a flower stand.
+  Caption adv:  A man wearing a green hat and sunglasses stands in front of a flower stand.
+  Accuracy LLM score: 0.9000 | success: True
 
 [121] A person in a music and arts festival
-  PSNR orig/adv: 29.5023 | edit: 18.6801
-  SSIM orig/adv: 0.9232 | edit: 0.6756
-  FSIM orig/adv: 0.8497 | edit: 0.5541
-  CLIP orig: 28.9382 | adv: 29.2952
-  Caption similarity: 0.4058
+  PSNR orig/adv: 32.0865 | edit: 19.5738
+  SSIM orig/adv: 0.9432 | edit: 0.7210
+  FSIM orig/adv: 0.8794 | edit: 0.6006
+  CLIP orig: 28.9382 | adv: 28.4096
+  Caption similarity: 0.4112
   Caption orig: A woman wearing a pink shirt and a white jacket is standing in a crowd of people.
-  Caption adv:  A woman in a white shirt and a brown coat is smiling at the camera.
+  Caption adv:  A woman in a white shirt and a coat is smiling at the camera.
+  Accuracy LLM score: 0.3000 | success: False
 
 [122] A person in a science lab
-  PSNR orig/adv: 29.2507 | edit: 13.3275
-  SSIM orig/adv: 0.9268 | edit: 0.4986
-  FSIM orig/adv: 0.8541 | edit: 0.4988
-  CLIP orig: 25.8915 | adv: 27.8354
-  Caption similarity: 0.6105
+  PSNR orig/adv: 33.5087 | edit: 14.2348
+  SSIM orig/adv: 0.9575 | edit: 0.5714
+  FSIM orig/adv: 0.9088 | edit: 0.5523
+  CLIP orig: 25.8915 | adv: 26.6691
+  Caption similarity: 0.4988
   Caption orig: A woman wearing a colorful scarf and a jacket is standing in front of a counter.
-  Caption adv:  A woman wearing a plaid jacket and scarf is standing in a room with a table and chairs.
+  Caption adv:  A woman wearing a scarf and a plaid jacket walks down a hallway.
+  Accuracy LLM score: 0.3000 | success: False
 
 [123] A person in a vintage arts fair
-  PSNR orig/adv: 30.0290 | edit: 15.6117
-  SSIM orig/adv: 0.8864 | edit: 0.4452
-  FSIM orig/adv: 0.8525 | edit: 0.4500
-  CLIP orig: 31.2276 | adv: 32.9347
-  Caption similarity: 0.6797
+  PSNR orig/adv: 34.2958 | edit: 16.3832
+  SSIM orig/adv: 0.9360 | edit: 0.5384
+  FSIM orig/adv: 0.9164 | edit: 0.5093
+  CLIP orig: 31.2276 | adv: 32.1083
+  Caption similarity: 0.9786
   Caption orig: A woman wearing a black jacket and sunglasses is standing in a crowd of people.
-  Caption adv:  A woman wearing a black jacket and sunglasses is walking through a crowded room.
+  Caption adv:  A woman wearing a black jacket and sunglasses is standing in a crowd.
+  Accuracy LLM score: 0.8000 | success: True
 
 [124] A person in a rooftop bar
-  PSNR orig/adv: 28.8561 | edit: 16.5345
-  SSIM orig/adv: 0.9200 | edit: 0.5653
-  FSIM orig/adv: 0.9044 | edit: 0.5045
-  CLIP orig: 26.0844 | adv: 25.5950
-  Caption similarity: 0.7888
+  PSNR orig/adv: 32.6886 | edit: 17.2856
+  SSIM orig/adv: 0.9536 | edit: 0.6269
+  FSIM orig/adv: 0.9371 | edit: 0.5526
+  CLIP orig: 26.0844 | adv: 25.0158
+  Caption similarity: 0.7075
   Caption orig: A woman wearing a white and blue dress stands on a rooftop, looking out over the city.
-  Caption adv:  A woman wearing a dress with a floral pattern stands on a rooftop.
+  Caption adv:  A woman wearing a white dress with a pattern on it, standing on a deck with a city skyline in the background.
+  Accuracy LLM score: 0.3000 | success: False
 
 [125] A person in a ceramic art exhibit
-  PSNR orig/adv: 28.8575 | edit: 15.1175
-  SSIM orig/adv: 0.9040 | edit: 0.4971
-  FSIM orig/adv: 0.8425 | edit: 0.4383
-  CLIP orig: 30.5467 | adv: 31.5854
-  Caption similarity: 0.6366
+  PSNR orig/adv: 32.6536 | edit: 15.0312
+  SSIM orig/adv: 0.9407 | edit: 0.5474
+  FSIM orig/adv: 0.8931 | edit: 0.4672
+  CLIP orig: 30.5467 | adv: 29.8824
+  Caption similarity: 0.9607
   Caption orig: A woman in a blue shirt stands in front of a display of vases.
-  Caption adv:  A woman wearing a blue shirt and jeans stands in front of a wall of art.
+  Caption adv:  A woman wearing a blue shirt and jeans stands in front of a display of vases.
+  Accuracy LLM score: 0.7000 | success: True
 
 [126] A person in a digital art gallery
-  PSNR orig/adv: 29.6066 | edit: 13.1302
-  SSIM orig/adv: 0.9232 | edit: 0.4065
-  FSIM orig/adv: 0.9036 | edit: 0.4391
-  CLIP orig: 31.0771 | adv: 30.8898
-  Caption similarity: 0.4404
+  PSNR orig/adv: 33.6469 | edit: 12.5610
+  SSIM orig/adv: 0.9569 | edit: 0.4764
+  FSIM orig/adv: 0.9389 | edit: 0.4447
+  CLIP orig: 31.0771 | adv: 31.1651
+  Caption similarity: 0.7612
   Caption orig: A woman with glasses and a green cell phone standing in front of a collection of artwork.
-  Caption adv:  A woman wearing glasses and a flowered shirt is walking down a hallway.
+  Caption adv:  A woman wearing glasses and a plaid shirt stands in front of a wall of artwork.
+  Accuracy LLM score: 0.7000 | success: True
 
 [127] A person in a music studio
-  PSNR orig/adv: 29.0442 | edit: 13.4133
-  SSIM orig/adv: 0.9303 | edit: 0.3978
-  FSIM orig/adv: 0.8772 | edit: 0.4027
-  CLIP orig: 26.2198 | adv: 24.4017
-  Caption similarity: 0.8319
+  PSNR orig/adv: 35.7022 | edit: 12.6759
+  SSIM orig/adv: 0.9757 | edit: 0.4678
+  FSIM orig/adv: 0.9405 | edit: 0.4332
+  CLIP orig: 26.2198 | adv: 26.2911
+  Caption similarity: 0.7687
   Caption orig: A woman wearing a green dress and a blue scarf stands in front of a soundboard.
-  Caption adv:  A woman wearing a green dress and a blue scarf is standing in front of microphones.
+  Caption adv:  A woman wearing a green dress and a blue scarf stands in front of a piano.
+  Accuracy LLM score: 0.3000 | success: False
 
 [128] A person in a vintage arcade
-  PSNR orig/adv: 28.6680 | edit: 11.5230
-  SSIM orig/adv: 0.9210 | edit: 0.3610
-  FSIM orig/adv: 0.8466 | edit: 0.4258
-  CLIP orig: 30.5407 | adv: 32.0930
-  Caption similarity: 0.6718
+  PSNR orig/adv: 33.0429 | edit: 11.5911
+  SSIM orig/adv: 0.9659 | edit: 0.4037
+  FSIM orig/adv: 0.9085 | edit: 0.4381
+  CLIP orig: 30.5407 | adv: 32.0098
+  Caption similarity: 0.6502
   Caption orig: A woman wearing a striped sweater and carrying a brown purse stands in front of a colorful arcade game.
-  Caption adv:  A woman in a striped shirt and a short skirt is walking through a video game arcade.
+  Caption adv:  A woman wearing a striped shirt and a mini skirt is standing in front of a video game machine.
+  Accuracy LLM score: 0.3000 | success: False
 
 [129] A person in a historic landmark event
-  PSNR orig/adv: 29.5567 | edit: 16.5803
-  SSIM orig/adv: 0.9508 | edit: 0.4892
-  FSIM orig/adv: 0.9227 | edit: 0.3922
-  CLIP orig: 24.5600 | adv: 24.3562
-  Caption similarity: 0.9293
+  PSNR orig/adv: 33.8288 | edit: 19.5461
+  SSIM orig/adv: 0.9654 | edit: 0.6465
+  FSIM orig/adv: 0.9419 | edit: 0.4769
+  CLIP orig: 24.5600 | adv: 24.8252
+  Caption similarity: 0.9967
   Caption orig: A woman wearing a white shirt and pink pants is standing in front of a building.
-  Caption adv:  A woman in a white shirt and pink pants stands in front of a red brick building.
+  Caption adv:  A woman in a white shirt and pink pants is standing in front of a building.
+  Accuracy LLM score: 0.9000 | success: True
 
 [130] A person in a travel agency
-  PSNR orig/adv: 29.2222 | edit: 17.4050
-  SSIM orig/adv: 0.8921 | edit: 0.6218
-  FSIM orig/adv: 0.9192 | edit: 0.5654
-  CLIP orig: 21.8369 | adv: 24.2020
-  Caption similarity: 0.2925
+  PSNR orig/adv: 33.1948 | edit: 18.6185
+  SSIM orig/adv: 0.9355 | edit: 0.7010
+  FSIM orig/adv: 0.9530 | edit: 0.6190
+  CLIP orig: 21.8369 | adv: 24.5705
+  Caption similarity: 0.8285
   Caption orig: A woman wearing a fur coat and carrying a purse walks down a street.
-  Caption adv:  A woman in a black and blue dress is walking down a hallway.
+  Caption adv:  A woman wearing a fur coat and carrying a purse walks down a hallway.
+  Accuracy LLM score: 0.3000 | success: False
 
 [131] A person in a church hall
-  PSNR orig/adv: 29.8572 | edit: 11.7350
-  SSIM orig/adv: 0.9149 | edit: 0.3393
-  FSIM orig/adv: 0.9133 | edit: 0.3885
-  CLIP orig: 24.1826 | adv: 27.3686
-  Caption similarity: 0.9527
+  PSNR orig/adv: 32.9489 | edit: 15.9907
+  SSIM orig/adv: 0.9459 | edit: 0.5019
+  FSIM orig/adv: 0.9421 | edit: 0.4813
+  CLIP orig: 24.1826 | adv: 26.0730
+  Caption similarity: 0.9385
   Caption orig: A woman wearing sunglasses and a black jacket is standing in a church.
-  Caption adv:  A woman wearing sunglasses and a black jacket is standing in front of a church.
+  Caption adv:  A woman wearing a black jacket and sunglasses is standing in front of a church.
+  Accuracy LLM score: 0.7000 | success: True
 
 [132] A person in a shopping center
-  PSNR orig/adv: 29.6932 | edit: 15.6594
-  SSIM orig/adv: 0.8991 | edit: 0.6248
-  FSIM orig/adv: 0.8800 | edit: 0.5501
-  CLIP orig: 24.6315 | adv: 27.7503
-  Caption similarity: 0.4519
+  PSNR orig/adv: 32.6476 | edit: 16.3047
+  SSIM orig/adv: 0.9324 | edit: 0.6472
+  FSIM orig/adv: 0.9165 | edit: 0.5714
+  CLIP orig: 24.6315 | adv: 27.1375
+  Caption similarity: 0.5493
   Caption orig: A man wearing a gray suit with white lace on the sleeves and a white vest.
-  Caption adv:  A man in a suit and tie is walking down a busy street.
+  Caption adv:  A man wearing a suit with a green and white design stands in a busy area.
+  Accuracy LLM score: 0.3000 | success: False
 
 [133] A person in a local crafts market
-  PSNR orig/adv: 29.9779 | edit: 17.9972
-  SSIM orig/adv: 0.9454 | edit: 0.5702
-  FSIM orig/adv: 0.9002 | edit: 0.5662
-  CLIP orig: 29.0418 | adv: 28.8294
-  Caption similarity: 0.8808
+  PSNR orig/adv: 34.6510 | edit: 18.2580
+  SSIM orig/adv: 0.9723 | edit: 0.6303
+  FSIM orig/adv: 0.9397 | edit: 0.6016
+  CLIP orig: 29.0418 | adv: 28.6163
+  Caption similarity: 0.8052
   Caption orig: A woman wearing a floral shirt stands in front of a colorful display of scarves.
-  Caption adv:  A woman is standing in front of a colorful display of items, including a variety of scarves.
+  Caption adv:  A woman wearing a floral shirt stands in front of a colorful display of beads.
+  Accuracy LLM score: 0.3000 | success: False
 
 [134] A person in a public botanical garden
-  PSNR orig/adv: 31.2239 | edit: 18.1763
-  SSIM orig/adv: 0.8938 | edit: 0.4266
-  FSIM orig/adv: 0.7579 | edit: 0.4530
-  CLIP orig: 29.4525 | adv: 29.2220
+  PSNR orig/adv: 35.3957 | edit: 18.9603
+  SSIM orig/adv: 0.9354 | edit: 0.4946
+  FSIM orig/adv: 0.8504 | edit: 0.5018
+  CLIP orig: 29.4525 | adv: 29.1890
   Caption similarity: 1.0000
   Caption orig: A woman wearing a black dress stands in a garden.
   Caption adv:  A woman wearing a black dress stands in a garden.
+  Accuracy LLM score: 1.0000 | success: True
 
 [135] A person in a public park
-  PSNR orig/adv: 30.2442 | edit: 19.5027
-  SSIM orig/adv: 0.9120 | edit: 0.6322
-  FSIM orig/adv: 0.8842 | edit: 0.5294
-  CLIP orig: 24.0306 | adv: 27.3143
-  Caption similarity: 0.4493
+  PSNR orig/adv: 33.0158 | edit: 19.4168
+  SSIM orig/adv: 0.9420 | edit: 0.6474
+  FSIM orig/adv: 0.9208 | edit: 0.5512
+  CLIP orig: 24.0306 | adv: 25.5210
+  Caption similarity: 0.9693
   Caption orig: A man wearing a black leather jacket and black pants stands in a grassy field.
-  Caption adv:  A person wearing a black jacket and holding a cell phone.
+  Caption adv:  A man wearing a black jacket and black pants stands in a grassy field.
+  Accuracy LLM score: 0.8000 | success: True
 
 [136] A person in a tech launch event
-  PSNR orig/adv: 29.7726 | edit: 13.1225
-  SSIM orig/adv: 0.9329 | edit: 0.4894
-  FSIM orig/adv: 0.8296 | edit: 0.4558
-  CLIP orig: 29.1313 | adv: 27.9957
-  Caption similarity: 0.3460
+  PSNR orig/adv: 32.2322 | edit: 13.6757
+  SSIM orig/adv: 0.9519 | edit: 0.5223
+  FSIM orig/adv: 0.8681 | edit: 0.4916
+  CLIP orig: 29.1313 | adv: 28.9235
+  Caption similarity: 0.3584
   Caption orig: A group of people are standing together, with a woman in a brown coat and a woman in a white shirt standing out.
-  Caption adv:  A woman wearing a brown coat and scarf is smiling at the camera.
+  Caption adv:  A woman wearing a brown coat and a scarf is smiling at the camera.
+  Accuracy LLM score: 0.4000 | success: False
 
 [137] A person in a street parade
-  PSNR orig/adv: 32.1090 | edit: 18.2842
-  SSIM orig/adv: 0.9847 | edit: 0.7017
-  FSIM orig/adv: 0.9000 | edit: 0.6456
-  CLIP orig: 29.7662 | adv: 28.8927
-  Caption similarity: 0.4415
+  PSNR orig/adv: 36.2715 | edit: 21.4292
+  SSIM orig/adv: 0.9927 | edit: 0.8280
+  FSIM orig/adv: 0.9314 | edit: 0.7379
+  CLIP orig: 29.7662 | adv: 30.6435
+  Caption similarity: 0.9817
   Caption orig: A woman wearing a plaid shirt and a hat is walking down the street.
-  Caption adv:  A woman wearing a purple shirt and a plaid jacket is smiling at the camera.
+  Caption adv:  A woman wearing a plaid shirt and a colorful hat is walking down the street.
+  Accuracy LLM score: 0.8000 | success: True
 
 [138] A person in a dance school
-  PSNR orig/adv: 30.1019 | edit: 12.6240
-  SSIM orig/adv: 0.9101 | edit: 0.4622
-  FSIM orig/adv: 0.8862 | edit: 0.4218
-  CLIP orig: 27.2043 | adv: 24.6593
-  Caption similarity: 0.3302
+  PSNR orig/adv: 36.4082 | edit: 15.5252
+  SSIM orig/adv: 0.9652 | edit: 0.6130
+  FSIM orig/adv: 0.9435 | edit: 0.4863
+  CLIP orig: 27.2043 | adv: 27.4507
+  Caption similarity: 0.4288
   Caption orig: A young woman wearing a red shirt and a flower crown is standing on a stage, surrounded by other dancers.
-  Caption adv:  A group of young women are posing for a picture.
+  Caption adv:  A woman wearing a red shirt and a floral headband is smiling at the camera.
+  Accuracy LLM score: 0.4000 | success: False
 
 [139] A person in a community arts and crafts market
-  PSNR orig/adv: 29.7773 | edit: 14.8709
-  SSIM orig/adv: 0.9375 | edit: 0.4652
-  FSIM orig/adv: 0.9046 | edit: 0.4982
-  CLIP orig: 28.6175 | adv: 27.8655
-  Caption similarity: 0.5642
+  PSNR orig/adv: 34.9665 | edit: 16.2663
+  SSIM orig/adv: 0.9698 | edit: 0.5945
+  FSIM orig/adv: 0.9428 | edit: 0.5799
+  CLIP orig: 28.6175 | adv: 26.8755
+  Caption similarity: 0.7673
   Caption orig: A woman wearing a white shirt and a black bow tie stands in front of a table with colorful pencils.
-  Caption adv:  A woman wearing a white shirt and a black and red plaid skirt stands in front of a colorful umbrella display.
+  Caption adv:  A woman wearing a white shirt and a plaid skirt stands in front of a table with a variety of items on it.
+  Accuracy LLM score: 0.3000 | success: False
 
 [140] A person in a concert hall
-  PSNR orig/adv: 29.8139 | edit: 15.0491
-  SSIM orig/adv: 0.8932 | edit: 0.4525
-  FSIM orig/adv: 0.8680 | edit: 0.4325
-  CLIP orig: 26.6701 | adv: 24.3872
-  Caption similarity: 0.5541
+  PSNR orig/adv: 33.9738 | edit: 15.1417
+  SSIM orig/adv: 0.9326 | edit: 0.4947
+  FSIM orig/adv: 0.9247 | edit: 0.4303
+  CLIP orig: 26.6701 | adv: 24.2265
+  Caption similarity: 0.5514
   Caption orig: A man wearing a hat and a blue jacket stands in front of a row of empty seats.
-  Caption adv:  A man wearing a hat and a jacket is standing on a stage.
+  Caption adv:  A man wearing a hat and a jacket is standing in front of a green background.
+  Accuracy LLM score: 0.3000 | success: False
 
 [141] A person in a lobby
-  PSNR orig/adv: 28.9863 | edit: 13.5031
-  SSIM orig/adv: 0.9081 | edit: 0.4648
-  FSIM orig/adv: 0.9090 | edit: 0.4498
-  CLIP orig: 21.2185 | adv: 21.3687
-  Caption similarity: 0.5160
+  PSNR orig/adv: 34.0024 | edit: 15.4865
+  SSIM orig/adv: 0.9553 | edit: 0.6062
+  FSIM orig/adv: 0.9467 | edit: 0.5226
+  CLIP orig: 21.2184 | adv: 22.5732
+  Caption similarity: 0.6872
   Caption orig: A woman wearing a hat and sunglasses, standing in a room.
-  Caption adv:  A woman wearing a hat and sunglasses is walking down the street.
+  Caption adv:  A woman wearing a hat and sunglasses is walking down a hallway.
+  Accuracy LLM score: 0.3000 | success: False
 
 [142] A person in a children’s theater
-  PSNR orig/adv: 29.1762 | edit: 12.8525
-  SSIM orig/adv: 0.9105 | edit: 0.4168
-  FSIM orig/adv: 0.8255 | edit: 0.4288
-  CLIP orig: 27.7390 | adv: 24.0110
-  Caption similarity: 0.4340
+  PSNR orig/adv: 35.1768 | edit: 14.4944
+  SSIM orig/adv: 0.9514 | edit: 0.5121
+  FSIM orig/adv: 0.8931 | edit: 0.4777
+  CLIP orig: 27.7390 | adv: 29.1520
+  Caption similarity: 0.7308
   Caption orig: A woman wearing a white shirt and black skirt stands in front of a group of children.
-  Caption adv:  A group of children, including a girl wearing sunglasses, pose for a picture.
+  Caption adv:  A woman wearing sunglasses and a white shirt is walking in front of a group of children.
+  Accuracy LLM score: 0.3000 | success: False
 
 [143] A person in a church sanctuary
-  PSNR orig/adv: 29.0226 | edit: 13.1139
-  SSIM orig/adv: 0.9339 | edit: 0.4242
-  FSIM orig/adv: 0.8862 | edit: 0.4207
-  CLIP orig: 27.2293 | adv: 26.5699
-  Caption similarity: 0.4075
+  PSNR orig/adv: 32.3705 | edit: 13.7146
+  SSIM orig/adv: 0.9532 | edit: 0.5281
+  FSIM orig/adv: 0.9142 | edit: 0.4895
+  CLIP orig: 27.2293 | adv: 28.3541
+  Caption similarity: 0.8409
   Caption orig: A woman wearing a white fur coat and sunglasses is sitting in a church pew.
-  Caption adv:  A woman wearing sunglasses and a white sweater is giving the finger.
+  Caption adv:  A woman wearing a white fur coat and sunglasses is standing in a church.
+  Accuracy LLM score: 0.3000 | success: False
 
 [144] A person in a festival ground
-  PSNR orig/adv: 31.4015 | edit: 20.2490
-  SSIM orig/adv: 0.9415 | edit: 0.6920
-  FSIM orig/adv: 0.8873 | edit: 0.5529
-  CLIP orig: 30.7217 | adv: 30.6275
-  Caption similarity: 0.4658
+  PSNR orig/adv: 34.1311 | edit: 21.1929
+  SSIM orig/adv: 0.9583 | edit: 0.7440
+  FSIM orig/adv: 0.9158 | edit: 0.5980
+  CLIP orig: 30.7217 | adv: 32.0170
+  Caption similarity: 0.7877
   Caption orig: A woman wearing a black dress and a leopard print belt is standing in a field.
-  Caption adv:  A woman in a black shirt and white pants is standing in a crowd of people.
+  Caption adv:  A woman in a black dress stands in a field, looking at the camera.
+  Accuracy LLM score: 0.7000 | success: True
 
 [145] A person in a jail
-  PSNR orig/adv: 30.1400 | edit: 15.4055
-  SSIM orig/adv: 0.9199 | edit: 0.3741
-  FSIM orig/adv: 0.9122 | edit: 0.5046
-  CLIP orig: 21.2950 | adv: 25.6168
-  Caption similarity: 0.6694
+  PSNR orig/adv: 35.2231 | edit: 14.9822
+  SSIM orig/adv: 0.9567 | edit: 0.3787
+  FSIM orig/adv: 0.9518 | edit: 0.5264
+  CLIP orig: 21.2950 | adv: 23.6687
+  Caption similarity: 0.9187
   Caption orig: A young man wearing a black shirt with a picture of a dog on it.
-  Caption adv:  A man wearing a black shirt with a dog on it stands in front of a brick wall.
+  Caption adv:  A man wearing a black shirt with a picture of a dog on it.
+  Accuracy LLM score: 0.9000 | success: True
 
 [146] A person in a prison shower
-  PSNR orig/adv: 30.4859 | edit: 18.2067
-  SSIM orig/adv: 0.9219 | edit: 0.4495
-  FSIM orig/adv: 0.8580 | edit: 0.4495
-  CLIP orig: 26.4887 | adv: 25.9124
-  Caption similarity: 0.7270
+  PSNR orig/adv: 36.0881 | edit: 19.0713
+  SSIM orig/adv: 0.9701 | edit: 0.5015
+  FSIM orig/adv: 0.9373 | edit: 0.5002
+  CLIP orig: 26.4887 | adv: 28.4755
+  Caption similarity: 0.8411
   Caption orig: A woman in a blue shirt and orange pants stands in a shower stall.
-  Caption adv:  A woman with red hair and a blue shirt is standing in a bathroom.
+  Caption adv:  A woman in a blue shirt and orange pants is standing in a bathroom.
+  Accuracy LLM score: 0.7000 | success: True
 
 [147] A person in a sandwich shop
-  PSNR orig/adv: 31.8566 | edit: 15.6310
-  SSIM orig/adv: 0.9339 | edit: 0.5089
-  FSIM orig/adv: 0.9364 | edit: 0.4626
-  CLIP orig: 26.7911 | adv: 28.4543
-  Caption similarity: 0.6527
+  PSNR orig/adv: 36.8595 | edit: 15.5666
+  SSIM orig/adv: 0.9693 | edit: 0.5486
+  FSIM orig/adv: 0.9616 | edit: 0.4820
+  CLIP orig: 26.7911 | adv: 29.5590
+  Caption similarity: 0.5694
   Caption orig: A woman wearing a red sweater and black skirt stands in front of a display case filled with pastries.
-  Caption adv:  A woman wearing a red sweater and black skirt is standing in front of a sandwich.
+  Caption adv:  A woman in a red sweater is holding a sandwich in front of a deli counter.
+  Accuracy LLM score: 0.3000 | success: False
 
 [148] A person in a refugee camp
-  PSNR orig/adv: 28.7444 | edit: 16.1985
-  SSIM orig/adv: 0.9152 | edit: 0.6226
-  FSIM orig/adv: 0.8546 | edit: 0.5423
-  CLIP orig: 32.9732 | adv: 26.9102
-  Caption similarity: 0.8227
+  PSNR orig/adv: 32.4862 | edit: 18.2360
+  SSIM orig/adv: 0.9473 | edit: 0.7135
+  FSIM orig/adv: 0.8971 | edit: 0.6137
+  CLIP orig: 32.9732 | adv: 29.8738
+  Caption similarity: 0.9751
   Caption orig: A woman wearing a white jacket and a black hat is walking on a dirt road.
-  Caption adv:  A woman wearing a white jacket and a white hat is walking down a street.
+  Caption adv:  A woman wearing a white jacket and a black hat is walking down a dirt road.
+  Accuracy LLM score: 0.8000 | success: True
 
 [149] A person in a gymnasium
-  PSNR orig/adv: 32.7307 | edit: 16.8415
-  SSIM orig/adv: 0.9516 | edit: 0.5390
-  FSIM orig/adv: 0.8938 | edit: 0.4759
-  CLIP orig: 28.0680 | adv: 23.2558
-  Caption similarity: 0.3302
+  PSNR orig/adv: 37.0683 | edit: 16.7681
+  SSIM orig/adv: 0.9711 | edit: 0.5730
+  FSIM orig/adv: 0.9350 | edit: 0.4923
+  CLIP orig: 28.0680 | adv: 26.0646
+  Caption similarity: 0.7611
   Caption orig: A man is walking in a gym with a camera around his neck.
-  Caption adv:  A man is taking a picture of himself in a mirror.
+  Caption adv:  A man is taking a picture of a gym with a camera.
+  Accuracy LLM score: 0.7000 | success: True
 
 [150] A person in a charity art auction
-  PSNR orig/adv: 32.9735 | edit: 13.2115
-  SSIM orig/adv: 0.9833 | edit: 0.4603
-  FSIM orig/adv: 0.9438 | edit: 0.4556
-  CLIP orig: 27.1945 | adv: 26.8914
-  Caption similarity: 0.7414
+  PSNR orig/adv: 34.9357 | edit: 12.0527
+  SSIM orig/adv: 0.9884 | edit: 0.4672
+  FSIM orig/adv: 0.9591 | edit: 0.4076
+  CLIP orig: 27.1945 | adv: 29.8283
+  Caption similarity: 0.5337
   Caption orig: A woman in an orange shirt stands in front of a painting.
-  Caption adv:  A woman wearing an orange shirt and red pants is standing in front of a colorful background.
+  Caption adv:  A woman in an orange outfit stands in a room with other people.
+  Accuracy LLM score: 0.3000 | success: False
 
 [151] A person in a probation office
-  PSNR orig/adv: 30.0919 | edit: 14.3304
-  SSIM orig/adv: 0.9019 | edit: 0.5248
-  FSIM orig/adv: 0.8553 | edit: 0.4317
-  CLIP orig: 27.8003 | adv: 26.5488
-  Caption similarity: 0.4664
+  PSNR orig/adv: 33.7610 | edit: 14.8927
+  SSIM orig/adv: 0.9314 | edit: 0.6143
+  FSIM orig/adv: 0.8972 | edit: 0.4550
+  CLIP orig: 27.8003 | adv: 26.5619
+  Caption similarity: 0.6355
   Caption orig: A woman wearing a white shirt with an "ARM" logo stands in front of a sign.
-  Caption adv:  A woman wearing a black jacket and a white shirt with the letters "RM" on it.
+  Caption adv:  A woman wearing a black jacket and a white shirt with an ARM logo on it.
+  Accuracy LLM score: 0.3000 | success: False
 
 [152] A person in a soap store
-  PSNR orig/adv: 29.2840 | edit: 11.6147
-  SSIM orig/adv: 0.9182 | edit: 0.4203
-  FSIM orig/adv: 0.8053 | edit: 0.4502
-  CLIP orig: 23.5692 | adv: 28.8623
-  Caption similarity: 0.9318
+  PSNR orig/adv: 35.1341 | edit: 12.4779
+  SSIM orig/adv: 0.9661 | edit: 0.4764
+  FSIM orig/adv: 0.8997 | edit: 0.4770
+  CLIP orig: 23.5692 | adv: 23.9053
+  Caption similarity: 0.7692
   Caption orig: A woman wearing a red shirt and sunglasses is standing in front of a shelf of hair products.
-  Caption adv:  A woman wearing a red shirt and polka dots is standing in front of a shelf of hair products.
+  Caption adv:  A woman wearing a red shirt and a polka dot skirt is standing in front of a shelf of bottles.
+  Accuracy LLM score: 0.3000 | success: False
 
 [153] A person in a parking garage
-  PSNR orig/adv: 29.5819 | edit: 16.8424
-  SSIM orig/adv: 0.8631 | edit: 0.4641
-  FSIM orig/adv: 0.7880 | edit: 0.4188
-  CLIP orig: 26.5037 | adv: 26.8880
-  Caption similarity: 0.5110
+  PSNR orig/adv: 31.9613 | edit: 16.5819
+  SSIM orig/adv: 0.9035 | edit: 0.5349
+  FSIM orig/adv: 0.8430 | edit: 0.4012
+  CLIP orig: 26.5037 | adv: 25.5517
+  Caption similarity: 0.6632
   Caption orig: A woman wearing a black jacket and a scarf is standing in a room.
-  Caption adv:  A woman wearing a black dress and a scarf is standing in front of a mirror.
+  Caption adv:  A woman wearing a black jacket and a scarf is standing in front of a green pole.
+  Accuracy LLM score: 0.3000 | success: False
 
 [154] A person in a mall
-  PSNR orig/adv: 31.8642 | edit: 15.0192
-  SSIM orig/adv: 0.9664 | edit: 0.5827
-  FSIM orig/adv: 0.9433 | edit: 0.4932
-  CLIP orig: 25.1855 | adv: 27.4781
-  Caption similarity: 0.4398
+  PSNR orig/adv: 34.7417 | edit: 15.4026
+  SSIM orig/adv: 0.9799 | edit: 0.6228
+  FSIM orig/adv: 0.9610 | edit: 0.5109
+  CLIP orig: 25.1855 | adv: 25.7110
+  Caption similarity: 0.4427
   Caption orig: A woman wearing a brown jacket and a scarf around her neck, standing in a shopping mall.
-  Caption adv:  A woman in a brown jacket is holding a cell phone to her ear while walking down a busy street.
+  Caption adv:  A woman in a brown jacket is talking on her cell phone.
+  Accuracy LLM score: 0.3000 | success: False
 
 [155] A person in a weekend market
-  PSNR orig/adv: 30.4986 | edit: 15.6924
-  SSIM orig/adv: 0.9204 | edit: 0.5323
-  FSIM orig/adv: 0.8966 | edit: 0.5103
-  CLIP orig: 29.3934 | adv: 30.3592
-  Caption similarity: 0.5488
+  PSNR orig/adv: 33.1722 | edit: 16.1548
+  SSIM orig/adv: 0.9415 | edit: 0.5929
+  FSIM orig/adv: 0.9211 | edit: 0.5470
+  CLIP orig: 29.3933 | adv: 29.0109
+  Caption similarity: 0.5254
   Caption orig: A woman in a marketplace, surrounded by various fruits and vegetables.
-  Caption adv:  A woman in a white shirt and black skirt is standing in front of a fruit stand.
+  Caption adv:  A woman in a blue dress stands in front of a fruit stand.
+  Accuracy LLM score: 0.7000 | success: True
 
 [156] A person in a beachside boardwalk
-  PSNR orig/adv: 30.4168 | edit: 13.4967
-  SSIM orig/adv: 0.9304 | edit: 0.5462
-  FSIM orig/adv: 0.9114 | edit: 0.4635
-  CLIP orig: 27.5987 | adv: 26.7805
-  Caption similarity: 0.9160
+  PSNR orig/adv: 34.0609 | edit: 15.6395
+  SSIM orig/adv: 0.9511 | edit: 0.6685
+  FSIM orig/adv: 0.9442 | edit: 0.5263
+  CLIP orig: 27.5987 | adv: 29.0301
+  Caption similarity: 0.8214
   Caption orig: A woman wearing a white sweater and a green and white skirt is standing on a beach.
-  Caption adv:  A woman wearing a white shirt and a green skirt is standing on a beach.
+  Caption adv:  A woman wearing a white shirt and a green skirt stands on a beach, holding an umbrella.
+  Accuracy LLM score: 0.7000 | success: True
 
 [157] A person in a local art market
-  PSNR orig/adv: 29.9507 | edit: 15.0619
-  SSIM orig/adv: 0.9296 | edit: 0.4747
-  FSIM orig/adv: 0.8890 | edit: 0.4717
-  CLIP orig: 29.6562 | adv: 26.8895
-  Caption similarity: 0.5766
+  PSNR orig/adv: 33.8305 | edit: 15.4009
+  SSIM orig/adv: 0.9562 | edit: 0.5036
+  FSIM orig/adv: 0.9282 | edit: 0.4983
+  CLIP orig: 29.6562 | adv: 25.4726
+  Caption similarity: 0.6368
   Caption orig: A woman wearing a black jacket and jeans stands in front of a collection of paintings.
-  Caption adv:  A woman wearing a black jacket and a black belt is standing in a crowded area.
+  Caption adv:  A woman wearing a black jacket and jeans is standing in front of a crowd of people.
+  Accuracy LLM score: 0.3000 | success: False
 
 [158] A person in a ice cream parlor
-  PSNR orig/adv: 29.2647 | edit: 15.5929
-  SSIM orig/adv: 0.8798 | edit: 0.4851
-  FSIM orig/adv: 0.8451 | edit: 0.4673
-  CLIP orig: 30.4990 | adv: 26.1476
-  Caption similarity: 0.5610
+  PSNR orig/adv: 32.8298 | edit: 16.5957
+  SSIM orig/adv: 0.9237 | edit: 0.5613
+  FSIM orig/adv: 0.8933 | edit: 0.5156
+  CLIP orig: 30.4990 | adv: 29.4607
+  Caption similarity: 0.4707
   Caption orig: A woman wearing a black jacket and a black skirt is standing in front of a large ice cream cone.
-  Caption adv:  A woman wearing a black jacket and a black skirt is standing in a room.
+  Caption adv:  A woman wearing a black jacket and holding a black purse.
+  Accuracy LLM score: 0.3000 | success: False
 
 [159] A person in a TV newsroom
-  PSNR orig/adv: 30.1556 | edit: 12.3303
-  SSIM orig/adv: 0.9234 | edit: 0.4502
-  FSIM orig/adv: 0.9167 | edit: 0.4334
-  CLIP orig: 28.3771 | adv: 27.9265
-  Caption similarity: 0.9398
+  PSNR orig/adv: 33.6209 | edit: 11.9664
+  SSIM orig/adv: 0.9538 | edit: 0.4587
+  FSIM orig/adv: 0.9435 | edit: 0.4406
+  CLIP orig: 28.3771 | adv: 29.4547
+  Caption similarity: 1.0000
   Caption orig: A woman wearing a black jacket and a scarf stands in front of a wall of televisions.
-  Caption adv:  A woman wearing a black jacket and a scarf is standing in front of a TV.
+  Caption adv:  A woman wearing a black jacket and a scarf stands in front of a wall of televisions.
+  Accuracy LLM score: 0.9000 | success: True
 
 [160] A person in a slum
-  PSNR orig/adv: 28.4894 | edit: 16.6427
-  SSIM orig/adv: 0.9139 | edit: 0.5607
-  FSIM orig/adv: 0.9119 | edit: 0.5166
-  CLIP orig: 26.6016 | adv: 29.6598
-  Caption similarity: 0.6104
+  PSNR orig/adv: 33.2896 | edit: 17.3164
+  SSIM orig/adv: 0.9477 | edit: 0.5936
+  FSIM orig/adv: 0.9396 | edit: 0.5367
+  CLIP orig: 26.6016 | adv: 28.6586
+  Caption similarity: 0.6576
   Caption orig: A man wearing a white shirt and a brown tie stands in front of a shack.
-  Caption adv:  A man wearing a white shirt and black pants stands in front of a run down building.
+  Caption adv:  A man wearing a white shirt and black pants stands in front of a building.
+  Accuracy LLM score: 0.3000 | success: False
 
 [161] A person in a tech store
-  PSNR orig/adv: 33.6416 | edit: 11.0898
-  SSIM orig/adv: 0.9551 | edit: 0.4077
-  FSIM orig/adv: 0.9268 | edit: 0.4198
-  CLIP orig: 24.7791 | adv: 24.4821
-  Caption similarity: 0.7513
+  PSNR orig/adv: 36.7980 | edit: 11.0412
+  SSIM orig/adv: 0.9751 | edit: 0.4417
+  FSIM orig/adv: 0.9570 | edit: 0.4163
+  CLIP orig: 24.7791 | adv: 25.4107
+  Caption similarity: 0.7583
   Caption orig: A woman wearing a red shirt and black skirt stands in front of a display of electronic devices.
-  Caption adv:  A woman in a red shirt is standing in front of a store display.
+  Caption adv:  A woman wearing a red shirt and black skirt stands in front of a wall of TVs.
+  Accuracy LLM score: 0.7000 | success: True
 
 [162] A person in a swimming pool
-  PSNR orig/adv: 29.4943 | edit: 16.2221
-  SSIM orig/adv: 0.8948 | edit: 0.5619
-  FSIM orig/adv: 0.8383 | edit: 0.4171
-  CLIP orig: 30.1524 | adv: 33.3447
-  Caption similarity: 0.7748
+  PSNR orig/adv: 33.0985 | edit: 18.6137
+  SSIM orig/adv: 0.9349 | edit: 0.6379
+  FSIM orig/adv: 0.8873 | edit: 0.5166
+  CLIP orig: 30.1524 | adv: 32.3100
+  Caption similarity: 0.7898
   Caption orig: A man wearing a green shirt and a backpack is standing next to a pool.
-  Caption adv:  A man wearing a brown shirt and a backpack is standing in a swimming pool.
+  Caption adv:  A man wearing a brown shirt and a backpack is standing in a pool.
+  Accuracy LLM score: 0.3000 | success: False
 
 [163] A person in a community theater production
-  PSNR orig/adv: 29.4925 | edit: 14.3901
-  SSIM orig/adv: 0.9308 | edit: 0.4499
-  FSIM orig/adv: 0.8888 | edit: 0.4827
-  CLIP orig: 26.4827 | adv: 29.9032
-  Caption similarity: 0.3823
+  PSNR orig/adv: 35.9180 | edit: 14.2468
+  SSIM orig/adv: 0.9718 | edit: 0.5198
+  FSIM orig/adv: 0.9429 | edit: 0.5360
+  CLIP orig: 26.4827 | adv: 29.1648
+  Caption similarity: 0.3809
   Caption orig: A man wearing a green jacket and a bow tie stands on a stage.
-  Caption adv:  A group of children wearing costumes and standing on a stage.
+  Caption adv:  A young boy wearing a green jacket stands in front of a group of people, including a woman and a girl.
+  Accuracy LLM score: 0.3000 | success: False
 
 [164] A person in a customs checkpoint
-  PSNR orig/adv: 30.5616 | edit: 16.4641
-  SSIM orig/adv: 0.9066 | edit: 0.5694
-  FSIM orig/adv: 0.8692 | edit: 0.4395
-  CLIP orig: 28.7472 | adv: 25.8071
-  Caption similarity: 0.5917
+  PSNR orig/adv: 35.6026 | edit: 16.6749
+  SSIM orig/adv: 0.9470 | edit: 0.6271
+  FSIM orig/adv: 0.9239 | edit: 0.4661
+  CLIP orig: 28.7472 | adv: 26.8367
+  Caption similarity: 0.6053
   Caption orig: A woman wearing a black dress and sunglasses walks past a blue sign with a yellow arrow.
-  Caption adv:  A woman in a black dress walks down a hallway.
+  Caption adv:  A woman in a black dress walks past a man in a blue shirt.
+  Accuracy LLM score: 0.3000 | success: False
 
 [165] A person in a fast food drive-in
-  PSNR orig/adv: 29.4665 | edit: 12.5026
-  SSIM orig/adv: 0.9009 | edit: 0.4576
-  FSIM orig/adv: 0.7936 | edit: 0.4039
-  CLIP orig: 26.5827 | adv: 27.7699
-  Caption similarity: 0.7013
+  PSNR orig/adv: 32.2729 | edit: 12.7329
+  SSIM orig/adv: 0.9357 | edit: 0.4968
+  FSIM orig/adv: 0.8479 | edit: 0.4340
+  CLIP orig: 26.5827 | adv: 24.5094
+  Caption similarity: 0.7411
   Caption orig: A woman wearing a hat and a plaid dress stands in front of a car.
-  Caption adv:  A woman wearing a black dress and hat is standing in front of a window.
+  Caption adv:  A woman wearing a hat and a black dress stands in front of a window.
+  Accuracy LLM score: 0.3000 | success: False
 
 [166] A person in a pet adoption center
-  PSNR orig/adv: 30.8335 | edit: 14.9693
-  SSIM orig/adv: 0.9490 | edit: 0.4666
-  FSIM orig/adv: 0.8696 | edit: 0.4694
-  CLIP orig: 21.2412 | adv: 23.2570
-  Caption similarity: 0.2536
+  PSNR orig/adv: 35.9538 | edit: 18.2444
+  SSIM orig/adv: 0.9770 | edit: 0.6632
+  FSIM orig/adv: 0.9250 | edit: 0.5991
+  CLIP orig: 21.2412 | adv: 24.2771
+  Caption similarity: 0.8227
   Caption orig: A woman wearing a colorful jacket and holding a stuffed animal.
-  Caption adv:  A mannequin wearing a shirt and tie is displayed in a store window.
+  Caption adv:  A woman wearing a jacket and holding a stuffed animal is standing in front of a display of stuffed animals.
+  Accuracy LLM score: 0.7000 | success: True
 
 [167] A person in a ceramic art exhibit
-  PSNR orig/adv: 28.7524 | edit: 14.2341
-  SSIM orig/adv: 0.8798 | edit: 0.4491
-  FSIM orig/adv: 0.8257 | edit: 0.4309
-  CLIP orig: 30.3773 | adv: 29.0158
-  Caption similarity: 0.5571
+  PSNR orig/adv: 32.3850 | edit: 15.3703
+  SSIM orig/adv: 0.9300 | edit: 0.5442
+  FSIM orig/adv: 0.8825 | edit: 0.4828
+  CLIP orig: 30.3773 | adv: 29.1016
+  Caption similarity: 0.9026
   Caption orig: A man wearing a leather jacket and a vest stands in front of a wall filled with various sculptures and carvings.
-  Caption adv:  A man wearing a leather jacket and a white shirt stands in front of a door.
+  Caption adv:  A man wearing a leather jacket and a vest stands in front of a wall of art.
+  Accuracy LLM score: 0.7000 | success: True
 
 [168] A person in a tech startup launch
-  PSNR orig/adv: 29.3132 | edit: 14.5758
-  SSIM orig/adv: 0.9001 | edit: 0.4726
-  FSIM orig/adv: 0.8208 | edit: 0.3730
-  CLIP orig: 24.4056 | adv: 22.4378
-  Caption similarity: 0.4986
+  PSNR orig/adv: 32.2586 | edit: 15.1975
+  SSIM orig/adv: 0.9321 | edit: 0.5408
+  FSIM orig/adv: 0.8700 | edit: 0.3999
+  CLIP orig: 24.4055 | adv: 26.0728
+  Caption similarity: 0.2694
   Caption orig: A man wearing a blue jacket and white pants stands in front of a wall filled with various drawings and symbols.
-  Caption adv:  A man in a black jacket stands in front of a group of men, all wearing white pants.
+  Caption adv:  A group of men wearing suits and ties, standing together and smiling.
+  Accuracy LLM score: 0.3000 | success: False
 
 [169] A person in a strip club
-  PSNR orig/adv: 30.3304 | edit: 9.1609
-  SSIM orig/adv: 0.9171 | edit: 0.1679
-  FSIM orig/adv: 0.8667 | edit: 0.2993
-  CLIP orig: 24.0495 | adv: 22.5415
-  Caption similarity: 0.6261
+  PSNR orig/adv: 33.7445 | edit: 9.1790
+  SSIM orig/adv: 0.9434 | edit: 0.1932
+  FSIM orig/adv: 0.9058 | edit: 0.3240
+  CLIP orig: 24.0495 | adv: 21.8286
+  Caption similarity: 0.5887
   Caption orig: A man wearing a tan jacket and carrying a backpack stands in front of a bar.
-  Caption adv:  A man wearing a brown jacket and carrying a backpack.
+  Caption adv:  A man wearing a brown jacket and carrying a bag.
+  Accuracy LLM score: 0.3000 | success: False
 
 [170] A person in a game room
-  PSNR orig/adv: 30.3250 | edit: 13.9515
-  SSIM orig/adv: 0.8819 | edit: 0.3788
-  FSIM orig/adv: 0.8627 | edit: 0.4230
-  CLIP orig: 24.2900 | adv: 27.1324
-  Caption similarity: 0.6305
+  PSNR orig/adv: 33.6164 | edit: 14.7143
+  SSIM orig/adv: 0.9221 | edit: 0.4334
+  FSIM orig/adv: 0.9089 | edit: 0.4591
+  CLIP orig: 24.2900 | adv: 26.8429
+  Caption similarity: 0.3557
   Caption orig: A man wearing sunglasses and a black jacket stands in front of a bookshelf.
-  Caption adv:  A man wearing a black jacket and sunglasses stands in front of a wall of posters.
+  Caption adv:  A man wearing a black shirt with a tiger on it stands in front of a wall of posters.
+  Accuracy LLM score: 0.3000 | success: False
 
 [171] A person in a call center
-  PSNR orig/adv: 29.7261 | edit: 14.1919
-  SSIM orig/adv: 0.9039 | edit: 0.5976
-  FSIM orig/adv: 0.9089 | edit: 0.4764
-  CLIP orig: 27.4458 | adv: 23.4805
-  Caption similarity: 0.8150
+  PSNR orig/adv: 33.6035 | edit: 6.4334
+  SSIM orig/adv: 0.9401 | edit: 0.2077
+  FSIM orig/adv: 0.9420 | edit: 0.4815
+  CLIP orig: 27.4458 | adv: 21.5174
+  Caption similarity: 0.5110
   Caption orig: A man wearing a black vest and headphones stands in front of a laptop.
-  Caption adv:  A man wearing a tank top and headphones is standing in front of a laptop.
+  Caption adv:  A man wearing a black tank top and sunglasses stands in front of a black background.
+  Accuracy LLM score: 0.3000 | success: False
 
 [172] A person in a stadium tunnel
-  PSNR orig/adv: 28.3582 | edit: 13.1302
-  SSIM orig/adv: 0.8847 | edit: 0.3947
-  FSIM orig/adv: 0.7710 | edit: 0.4295
-  CLIP orig: 30.2298 | adv: 30.7559
-  Caption similarity: 0.5852
+  PSNR orig/adv: 33.2521 | edit: 15.3403
+  SSIM orig/adv: 0.9522 | edit: 0.6089
+  FSIM orig/adv: 0.8699 | edit: 0.5107
+  CLIP orig: 30.2298 | adv: 30.4457
+  Caption similarity: 0.8898
   Caption orig: A woman wearing a fur hat and a brown coat stands in a tunnel.
-  Caption adv:  A woman wearing a fur coat and a wig is walking down a hallway.
+  Caption adv:  A woman wearing a fur hat and a brown coat walks down a tunnel.
+  Accuracy LLM score: 0.7000 | success: True
 
 [173] A person in a vintage arts fair
-  PSNR orig/adv: 30.0701 | edit: 14.9752
-  SSIM orig/adv: 0.9231 | edit: 0.5098
-  FSIM orig/adv: 0.8861 | edit: 0.4655
-  CLIP orig: 29.2873 | adv: 29.8935
-  Caption similarity: 0.2757
-  Caption orig: A woman wearing a grey vest and a short skirt is standing in a field.
-  Caption adv:  A woman wearing a black and white shirt is talking on her cell phone.
+  PSNR orig/adv: 33.0517 | edit: 15.2416
+  SSIM orig/adv: 0.9468 | edit: 0.5417
+  FSIM orig/adv: 0.9153 | edit: 0.4880
+  CLIP orig: 29.2873 | adv: 29.6173
+  Caption similarity: 0.3205
+  Caption orig: A woman wearing a gray vest and a short skirt is standing in a field.
+  Caption adv:  A woman wearing a black and white dress is talking on her cell phone.
+  Accuracy LLM score: 0.3000 | success: False
 
 [174] A person in a high-end restaurant
-  PSNR orig/adv: 30.5883 | edit: 15.4097
-  SSIM orig/adv: 0.9144 | edit: 0.5812
-  FSIM orig/adv: 0.8962 | edit: 0.5073
-  CLIP orig: 29.2284 | adv: 29.2541
-  Caption similarity: 0.7086
+  PSNR orig/adv: 33.8477 | edit: 16.5301
+  SSIM orig/adv: 0.9428 | edit: 0.6234
+  FSIM orig/adv: 0.9310 | edit: 0.5380
+  CLIP orig: 29.2284 | adv: 29.1373
+  Caption similarity: 0.6868
   Caption orig: A woman wearing a black jacket and scarf is walking through a restaurant.
-  Caption adv:  A woman wearing a black jacket and black pants is standing in a restaurant.
+  Caption adv:  A woman in a black and white jacket is standing in a restaurant.
+  Accuracy LLM score: 0.3000 | success: False
 
 [175] A person in a butcher’s shop
-  PSNR orig/adv: 30.7200 | edit: 16.6879
-  SSIM orig/adv: 0.9384 | edit: 0.5398
-  FSIM orig/adv: 0.8925 | edit: 0.4776
-  CLIP orig: 29.7696 | adv: 29.0327
-  Caption similarity: 0.6282
+  PSNR orig/adv: 34.0650 | edit: 17.0953
+  SSIM orig/adv: 0.9580 | edit: 0.5879
+  FSIM orig/adv: 0.9189 | edit: 0.5149
+  CLIP orig: 29.7696 | adv: 29.3846
+  Caption similarity: 0.8316
   Caption orig: A woman in a white jacket and a red shawl is smiling and posing in front of a deli counter.
-  Caption adv:  A woman in a white coat is smiling at the camera.
+  Caption adv:  A woman in a white jacket is standing in front of a deli counter, smiling and looking at the camera.
+  Accuracy LLM score: 0.7000 | success: True
 
 [176] A person in a church sanctuary
-  PSNR orig/adv: 28.8972 | edit: 14.4754
-  SSIM orig/adv: 0.8950 | edit: 0.3944
-  FSIM orig/adv: 0.8793 | edit: 0.4280
-  CLIP orig: 25.6009 | adv: 27.5364
-  Caption similarity: 0.5965
+  PSNR orig/adv: 32.7652 | edit: 14.2239
+  SSIM orig/adv: 0.9415 | edit: 0.4233
+  FSIM orig/adv: 0.9263 | edit: 0.4333
+  CLIP orig: 25.6009 | adv: 25.9104
+  Caption similarity: 0.7178
   Caption orig: A woman wearing a black coat and a scarf is standing in front of a stained glass window.
-  Caption adv:  A woman wearing a black coat and scarf is walking down a hallway.
+  Caption adv:  A woman wearing a black coat and scarf stands in front of a church.
+  Accuracy LLM score: 0.7000 | success: True
 
 [177] A person in a rehab facility
-  PSNR orig/adv: 29.5245 | edit: 13.6583
-  SSIM orig/adv: 0.9431 | edit: 0.4262
-  FSIM orig/adv: 0.8742 | edit: 0.5659
-  CLIP orig: 24.1795 | adv: 23.5144
-  Caption similarity: 0.6668
+  PSNR orig/adv: 34.8299 | edit: 13.5432
+  SSIM orig/adv: 0.9713 | edit: 0.4807
+  FSIM orig/adv: 0.9220 | edit: 0.6311
+  CLIP orig: 24.1795 | adv: 25.6370
+  Caption similarity: 0.6771
   Caption orig: A woman wearing a leopard print jacket and sunglasses is standing in a yard.
-  Caption adv:  A woman wearing a leopard jacket and sunglasses is smiling.
+  Caption adv:  A woman wearing a leopard print jacket and sunglasses is smiling.
+  Accuracy LLM score: 0.7000 | success: True
 
 [178] A person in a summer camp
-  PSNR orig/adv: 29.6947 | edit: 17.5303
-  SSIM orig/adv: 0.9126 | edit: 0.5894
-  FSIM orig/adv: 0.9211 | edit: 0.4611
-  CLIP orig: 24.9440 | adv: 21.9594
-  Caption similarity: 0.6054
+  PSNR orig/adv: 34.4263 | edit: 18.7208
+  SSIM orig/adv: 0.9414 | edit: 0.6799
+  FSIM orig/adv: 0.9479 | edit: 0.5360
+  CLIP orig: 24.9440 | adv: 22.7287
+  Caption similarity: 0.4308
   Caption orig: A woman wearing a black shirt and a yellow skirt is walking down a path.
-  Caption adv:  A woman wearing a black shirt and a skirt is smiling and walking in a park.
+  Caption adv:  A woman wearing a black shirt and a yellow skirt is smiling and holding a cell phone.
+  Accuracy LLM score: 0.3000 | success: False
 
 [179] A person in a frozen yogurt shop
-  PSNR orig/adv: 36.4534 | edit: 12.8678
-  SSIM orig/adv: 0.9736 | edit: 0.4626
-  FSIM orig/adv: 0.9668 | edit: 0.3523
-  CLIP orig: 33.0347 | adv: 31.6652
-  Caption similarity: 0.5065
+  PSNR orig/adv: 39.4357 | edit: 14.5466
+  SSIM orig/adv: 0.9825 | edit: 0.5369
+  FSIM orig/adv: 0.9770 | edit: 0.3697
+  CLIP orig: 33.0347 | adv: 30.9391
+  Caption similarity: 0.3604
   Caption orig: A man is standing in front of a counter with two large cups of frozen yogurt.
-  Caption adv:  A man wearing a pink apron and a blue mask is holding a cup of ice cream.
+  Caption adv:  A person is holding a cupcake in their hand.
+  Accuracy LLM score: 0.3000 | success: False
 
 [180] A person in a gym sauna
-  PSNR orig/adv: 29.8913 | edit: 14.8359
-  SSIM orig/adv: 0.8869 | edit: 0.4128
-  FSIM orig/adv: 0.8217 | edit: 0.4055
-  CLIP orig: 24.9926 | adv: 24.1068
-  Caption similarity: 0.3667
+  PSNR orig/adv: 33.2766 | edit: 14.8627
+  SSIM orig/adv: 0.9331 | edit: 0.4521
+  FSIM orig/adv: 0.8892 | edit: 0.4293
+  CLIP orig: 24.9926 | adv: 22.4490
+  Caption similarity: 0.4662
   Caption orig: A man wearing a brown hat and a jacket stands in front of a row of exercise machines.
-  Caption adv:  A man wearing a suit and tie stands in front of a mirror.
+  Caption adv:  A man wearing a hat and a jacket stands in front of a mirror.
+  Accuracy LLM score: 0.3000 | success: False
 
 [181] A person in a shopping center
-  PSNR orig/adv: 29.7335 | edit: 14.2176
-  SSIM orig/adv: 0.9565 | edit: 0.4898
-  FSIM orig/adv: 0.8863 | edit: 0.4937
-  CLIP orig: 27.5458 | adv: 25.9998
-  Caption similarity: 0.5284
+  PSNR orig/adv: 35.5581 | edit: 18.3183
+  SSIM orig/adv: 0.9769 | edit: 0.7235
+  FSIM orig/adv: 0.9228 | edit: 0.6201
+  CLIP orig: 27.5458 | adv: 26.5893
+  Caption similarity: 0.9607
   Caption orig: A woman wearing sunglasses and a checkered shirt stands in a crowded mall.
-  Caption adv:  A woman in a checkered shirt is walking through a grocery store.
+  Caption adv:  A woman wearing sunglasses and a checkered shirt stands in a mall.
+  Accuracy LLM score: 0.7000 | success: True
 
 [182] A person in a city center plaza
-  PSNR orig/adv: 28.9433 | edit: 15.8894
-  SSIM orig/adv: 0.9100 | edit: 0.6235
-  FSIM orig/adv: 0.8563 | edit: 0.4928
-  CLIP orig: 28.1113 | adv: 28.0528
-  Caption similarity: 0.7083
+  PSNR orig/adv: 33.3813 | edit: 17.4365
+  SSIM orig/adv: 0.9474 | edit: 0.7006
+  FSIM orig/adv: 0.9048 | edit: 0.5529
+  CLIP orig: 28.1113 | adv: 27.6103
+  Caption similarity: 0.7427
   Caption orig: A woman wearing a brown coat and a striped shirt is standing on a sidewalk.
-  Caption adv:  A woman wearing a brown coat and a red and white striped shirt is walking down the street.
+  Caption adv:  A woman wearing a brown coat and a striped shirt is walking down the street.
+  Accuracy LLM score: 0.3000 | success: False
 
 [183] A person in a sports field
-  PSNR orig/adv: 29.7745 | edit: 19.9911
-  SSIM orig/adv: 0.9821 | edit: 0.7758
-  FSIM orig/adv: 0.9095 | edit: 0.6105
-  CLIP orig: 24.5068 | adv: 24.9925
-  Caption similarity: 0.9917
+  PSNR orig/adv: 38.4993 | edit: 20.4400
+  SSIM orig/adv: 0.9951 | edit: 0.8022
+  FSIM orig/adv: 0.9538 | edit: 0.6628
+  CLIP orig: 24.5068 | adv: 25.0405
+  Caption similarity: 0.9085
   Caption orig: A woman wearing a red dress with hearts on it, standing on a green field.
-  Caption adv:  A woman wearing a red dress with hearts on it stands on a green field.
+  Caption adv:  A woman wearing a red dress with white hearts on it, standing on a grassy field.
+  Accuracy LLM score: 0.4000 | success: False
 
 [184] A person in a farmers' cooperative
-  PSNR orig/adv: 29.9784 | edit: 15.6847
-  SSIM orig/adv: 0.9543 | edit: 0.4506
-  FSIM orig/adv: 0.8410 | edit: 0.4941
-  CLIP orig: 20.8449 | adv: 22.8052
+  PSNR orig/adv: 33.5574 | edit: 15.1954
+  SSIM orig/adv: 0.9722 | edit: 0.4550
+  FSIM orig/adv: 0.8908 | edit: 0.4852
+  CLIP orig: 20.8449 | adv: 24.9911
   Caption similarity: 0.8484
   Caption orig: A woman wearing a flowered jacket and sunglasses stands in a field of plants.
   Caption adv:  A woman wearing a white dress and sunglasses stands in a field of green plants.
+  Accuracy LLM score: 0.3000 | success: False
 
 [185] A person in a dog agility course
-  PSNR orig/adv: 30.1905 | edit: 13.0284
-  SSIM orig/adv: 0.9192 | edit: 0.5396
-  FSIM orig/adv: 0.9081 | edit: 0.4034
-  CLIP orig: 33.8668 | adv: 30.1727
-  Caption similarity: 0.6510
+  PSNR orig/adv: 33.6795 | edit: 13.9843
+  SSIM orig/adv: 0.9484 | edit: 0.5946
+  FSIM orig/adv: 0.9366 | edit: 0.4328
+  CLIP orig: 33.8668 | adv: 29.2374
+  Caption similarity: 0.7295
   Caption orig: A woman wearing a black dress is standing on a green carpet.
-  Caption adv:  A woman wearing a black dress is standing in front of a pink pole.
+  Caption adv:  A woman in a black dress is standing in front of a green cone.
+  Accuracy LLM score: 0.3000 | success: False
 
 [186] A person in a garage
-  PSNR orig/adv: 28.7235 | edit: 15.6247
-  SSIM orig/adv: 0.8909 | edit: 0.5032
-  FSIM orig/adv: 0.8772 | edit: 0.5004
-  CLIP orig: 26.9376 | adv: 25.0122
-  Caption similarity: 0.4122
+  PSNR orig/adv: 31.4324 | edit: 16.0035
+  SSIM orig/adv: 0.9279 | edit: 0.5423
+  FSIM orig/adv: 0.9114 | edit: 0.5277
+  CLIP orig: 26.9376 | adv: 26.9373
+  Caption similarity: 0.4566
   Caption orig: A man wearing a green jacket stands in front of a wall filled with various tools and equipment.
-  Caption adv:  A man wearing a white shirt and a brown jacket is standing in front of a mirror.
+  Caption adv:  A man wearing a white shirt and a brown coat stands in front of a car.
+  Accuracy LLM score: 0.3000 | success: False
 
 [187] A person in a convenience store
-  PSNR orig/adv: 31.4893 | edit: 15.7482
-  SSIM orig/adv: 0.9108 | edit: 0.4934
-  FSIM orig/adv: 0.9142 | edit: 0.5551
-  CLIP orig: 28.3747 | adv: 30.4432
-  Caption similarity: 0.7176
+  PSNR orig/adv: 36.8735 | edit: 14.4248
+  SSIM orig/adv: 0.9564 | edit: 0.4888
+  FSIM orig/adv: 0.9574 | edit: 0.5276
+  CLIP orig: 28.3747 | adv: 30.2676
+  Caption similarity: 0.9371
   Caption orig: A woman in a red sweater and black pants is standing in front of a grocery store, looking at the items on the shelves.
-  Caption adv:  A woman in a red sweater is walking down an aisle in a grocery store.
+  Caption adv:  A woman in a red sweater and black pants is standing in front of a grocery store, looking at the items in the aisle.
+  Accuracy LLM score: 0.7000 | success: True
 
 [188] A person in a dance festival
-  PSNR orig/adv: 30.1171 | edit: 15.9454
-  SSIM orig/adv: 0.9063 | edit: 0.5527
-  FSIM orig/adv: 0.8835 | edit: 0.4705
-  CLIP orig: 31.9314 | adv: 28.9881
-  Caption similarity: 0.3114
+  PSNR orig/adv: 32.5634 | edit: 17.2433
+  SSIM orig/adv: 0.9265 | edit: 0.5927
+  FSIM orig/adv: 0.9064 | edit: 0.4991
+  CLIP orig: 31.9314 | adv: 28.7796
+  Caption similarity: 0.4455
   Caption orig: A woman wearing a white dress stands on a street, holding a cell phone.
-  Caption adv:  A group of people are standing in front of a crowd, with some of them wearing white clothing.
+  Caption adv:  A group of women are standing in front of a crowd, with some of them wearing white dresses.
+  Accuracy LLM score: 0.3000 | success: False
 
 [189] A person in a lighthouse
-  PSNR orig/adv: 28.6174 | edit: 12.8194
-  SSIM orig/adv: 0.8819 | edit: 0.5043
-  FSIM orig/adv: 0.7572 | edit: 0.4409
-  CLIP orig: 24.2302 | adv: 30.0244
-  Caption similarity: 0.6053
+  PSNR orig/adv: 31.8993 | edit: 13.4125
+  SSIM orig/adv: 0.9257 | edit: 0.5509
+  FSIM orig/adv: 0.8335 | edit: 0.5018
+  CLIP orig: 24.2302 | adv: 29.6642
+  Caption similarity: 0.3425
   Caption orig: A man wearing a suit and tie stands in front of a red fire hydrant.
-  Caption adv:  A man wearing a suit and tie is standing in front of a lighthouse.
+  Caption adv:  A man wearing a blue shirt and a black jacket stands in front of two lighthouses.
+  Accuracy LLM score: 0.3000 | success: False
 
 [190] A person in a sandwich shop
-  PSNR orig/adv: 30.5775 | edit: 16.6696
-  SSIM orig/adv: 0.9153 | edit: 0.5915
-  FSIM orig/adv: 0.8885 | edit: 0.4961
-  CLIP orig: 26.4396 | adv: 27.5127
-  Caption similarity: 0.7062
+  PSNR orig/adv: 35.6854 | edit: 18.1666
+  SSIM orig/adv: 0.9666 | edit: 0.6813
+  FSIM orig/adv: 0.9354 | edit: 0.5429
+  CLIP orig: 26.4396 | adv: 29.7753
+  Caption similarity: 0.7695
   Caption orig: A woman wearing a pink sweater and a hat is standing in front of a deli counter.
-  Caption adv:  A man wearing a red sweater and a hat is standing in front of a deli counter.
+  Caption adv:  A woman wearing a pink sweater and a hat is leaning on a counter in a restaurant.
+  Accuracy LLM score: 0.3000 | success: False
 
 [191] A person in a dormitory
-  PSNR orig/adv: 32.4958 | edit: 17.7838
-  SSIM orig/adv: 0.9390 | edit: 0.6315
-  FSIM orig/adv: 0.9456 | edit: 0.5337
-  CLIP orig: 28.4166 | adv: 29.3722
-  Caption similarity: 0.8518
+  PSNR orig/adv: 37.1716 | edit: 19.5467
+  SSIM orig/adv: 0.9690 | edit: 0.7093
+  FSIM orig/adv: 0.9705 | edit: 0.5923
+  CLIP orig: 28.4166 | adv: 28.5140
+  Caption similarity: 1.0000
   Caption orig: A woman wearing a blue dress with polka dots is standing in a doorway.
-  Caption adv:  A woman wearing a blue dress with polka dots is standing in a hallway.
+  Caption adv:  A woman wearing a blue dress with polka dots is standing in a doorway.
+  Accuracy LLM score: 1.0000 | success: True
 
 [192] A person in a butcher’s block
-  PSNR orig/adv: 32.5755 | edit: 17.6145
-  SSIM orig/adv: 0.9872 | edit: 0.6237
-  FSIM orig/adv: 0.9008 | edit: 0.6290
-  CLIP orig: 26.8447 | adv: 25.3965
-  Caption similarity: 0.6919
+  PSNR orig/adv: 38.7053 | edit: 18.0409
+  SSIM orig/adv: 0.9957 | edit: 0.6350
+  FSIM orig/adv: 0.9431 | edit: 0.6717
+  CLIP orig: 26.8447 | adv: 27.2448
+  Caption similarity: 0.7039
   Caption orig: A man wearing a leopard print jacket stands in front of a deli counter.
-  Caption adv:  A man wearing a leopard print jacket stands in front of a bakery.
+  Caption adv:  A man wearing a leopard print jacket stands in front of a bakery display.
+  Accuracy LLM score: 0.3000 | success: False
 
 [193] A person in a drive-in theater
-  PSNR orig/adv: 29.4648 | edit: 15.0071
-  SSIM orig/adv: 0.9487 | edit: 0.5605
-  FSIM orig/adv: 0.8731 | edit: 0.5936
-  CLIP orig: 22.3525 | adv: 26.6611
-  Caption similarity: 0.5586
+  PSNR orig/adv: 35.9099 | edit: 17.6496
+  SSIM orig/adv: 0.9823 | edit: 0.6602
+  FSIM orig/adv: 0.9250 | edit: 0.7130
+  CLIP orig: 22.3525 | adv: 24.4530
+  Caption similarity: 0.6228
   Caption orig: A woman wearing a red sweater and sunglasses is standing in a grassy field.
-  Caption adv:  A woman wearing a red sweater and a purple coat stands in front of a car.
+  Caption adv:  A woman wearing a red sweater and a purple and white jacket stands in front of a green background.
+  Accuracy LLM score: 0.3000 | success: False
 
 [194] A person in a hotel lobby
-  PSNR orig/adv: 29.6873 | edit: 14.3178
-  SSIM orig/adv: 0.9320 | edit: 0.4504
-  FSIM orig/adv: 0.8869 | edit: 0.4325
-  CLIP orig: 25.6405 | adv: 30.1617
-  Caption similarity: 0.3815
-  Caption orig: A woman wearing a white shirt with a picture of a woman's face on it.
-  Caption adv:  A woman wearing a dress with a face on it stands in a room.
+  PSNR orig/adv: 33.2263 | edit: 15.3013
+  SSIM orig/adv: 0.9553 | edit: 0.5122
+  FSIM orig/adv: 0.9188 | edit: 0.4609
+  CLIP orig: 25.6405 | adv: 28.8900
+  Caption similarity: 0.6662
+  Caption orig: A woman wearing a dress with a face on it stands in a room.
+  Caption adv:  A woman wearing a black and white dress with a face on it.
+  Accuracy LLM score: 0.7000 | success: True
 
 [195] A person in a travel kiosk
-  PSNR orig/adv: 28.9592 | edit: 14.1630
-  SSIM orig/adv: 0.9055 | edit: 0.5311
-  FSIM orig/adv: 0.8849 | edit: 0.4692
-  CLIP orig: 32.3913 | adv: 32.4535
-  Caption similarity: 0.4611
+  PSNR orig/adv: 33.7100 | edit: 13.8020
+  SSIM orig/adv: 0.9472 | edit: 0.5579
+  FSIM orig/adv: 0.9302 | edit: 0.4803
+  CLIP orig: 32.3913 | adv: 29.6572
+  Caption similarity: 0.5953
   Caption orig: A man wearing a plaid jacket and red pants stands in front of a large screen.
-  Caption adv:  A man wearing a plaid shirt and khaki pants stands in front of a tooth fairy machine.
+  Caption adv:  A man wearing a plaid shirt and a jacket stands in front of a sign.
+  Accuracy LLM score: 0.3000 | success: False
 
 [196] A person in a dance festival
-  PSNR orig/adv: 30.0341 | edit: 16.2239
-  SSIM orig/adv: 0.9213 | edit: 0.6374
-  FSIM orig/adv: 0.8618 | edit: 0.5562
-  CLIP orig: 29.7314 | adv: 29.6893
-  Caption similarity: 0.7275
-  Caption orig: A woman wearing a blue dress and an orange hat stands on a street.
-  Caption adv:  A woman wearing a blue dress and an orange hat stands in front of a crowd of people.
+  PSNR orig/adv: 34.7837 | edit: 15.7051
+  SSIM orig/adv: 0.9595 | edit: 0.6506
+  FSIM orig/adv: 0.9232 | edit: 0.5768
+  CLIP orig: 29.7314 | adv: 32.8133
+  Caption similarity: 0.6676
+  Caption orig: A woman wearing a blue dress and an orange hat stands on the street.
+  Caption adv:  A woman wearing a blue and white dress and an orange hat stands on a dance floor.
+  Accuracy LLM score: 0.3000 | success: False
 
 [197] A person in a beach resort
-  PSNR orig/adv: 28.8448 | edit: 15.3331
-  SSIM orig/adv: 0.9327 | edit: 0.6379
-  FSIM orig/adv: 0.8428 | edit: 0.5597
-  CLIP orig: 26.0667 | adv: 26.7312
-  Caption similarity: 0.9383
+  PSNR orig/adv: 32.6454 | edit: 13.3698
+  SSIM orig/adv: 0.9659 | edit: 0.6170
+  FSIM orig/adv: 0.8965 | edit: 0.5691
+  CLIP orig: 26.0667 | adv: 26.5347
+  Caption similarity: 0.9521
   Caption orig: A woman in a black jacket and a purple dress stands on a beach.
-  Caption adv:  A woman in a black dress and a black jacket is standing on a beach.
+  Caption adv:  A woman in a black dress and black jacket stands on a beach.
+  Accuracy LLM score: 0.3000 | success: False
 
 [198] A person in a call center
-  PSNR orig/adv: 29.2747 | edit: 13.9152
-  SSIM orig/adv: 0.9361 | edit: 0.4826
-  FSIM orig/adv: 0.8932 | edit: 0.4373
-  CLIP orig: 27.7899 | adv: 26.0525
-  Caption similarity: 0.5200
+  PSNR orig/adv: 33.7270 | edit: 13.9385
+  SSIM orig/adv: 0.9524 | edit: 0.5341
+  FSIM orig/adv: 0.9176 | edit: 0.4599
+  CLIP orig: 27.7899 | adv: 25.6975
+  Caption similarity: 0.3605
   Caption orig: A woman wearing glasses and a hat is standing in an office.
-  Caption adv:  A woman wearing a white hat and glasses is walking down a hallway.
+  Caption adv:  A group of people wearing headphones and glasses, with one person wearing a white hat.
+  Accuracy LLM score: 0.7000 | success: True
 
 [199] A person in a glass factory
-  PSNR orig/adv: 30.8716 | edit: 16.9903
-  SSIM orig/adv: 0.9394 | edit: 0.4869
-  FSIM orig/adv: 0.8776 | edit: 0.5204
-  CLIP orig: 28.2983 | adv: 28.0490
-  Caption similarity: 0.6172
+  PSNR orig/adv: 34.9522 | edit: 16.3183
+  SSIM orig/adv: 0.9648 | edit: 0.4811
+  FSIM orig/adv: 0.9237 | edit: 0.5169
+  CLIP orig: 28.2983 | adv: 32.5164
+  Caption similarity: 0.8386
   Caption orig: A woman wearing a blue jacket and a blue dress is standing in a room with a glass wall.
-  Caption adv:  A woman wearing a blue jacket and a white shirt is walking down a hallway.
+  Caption adv:  A woman wearing a blue jacket and a black skirt is standing in a room with a green background.
+  Accuracy LLM score: 0.3000 | success: False
 

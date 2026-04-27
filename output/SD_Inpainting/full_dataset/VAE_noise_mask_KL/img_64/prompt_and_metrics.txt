@@ -4,20 +4,25 @@ A person in a news van
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 31.3687
-SSIM: 0.9539
-FSIM: 0.9210
+PSNR: 33.0615
+SSIM: 0.9623
+FSIM: 0.9360
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 12.1332
-SSIM: 0.4816
-FSIM: 0.4197
+PSNR: 13.1818
+SSIM: 0.5295
+FSIM: 0.4564
 
 CLIP score (Image vs Prompt)
 Edited Original:  29.6258
-Edited Immunized: 28.5035
+Edited Immunized: 28.4947
 
-Caption similarity (Edited Original vs Edited Immunized)
-Score: 0.5417
-Caption orig : A woman wearing a grey coat and orange shirt is standing in an airplane.
-Caption adv : A woman wearing a red shirt and a brown coat is standing in the back of a van.
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.4261
+Caption orig: A woman wearing a grey coat and orange shirt is standing in an airplane.
+Caption adv:  A woman wearing a coat and holding a glass of wine.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   False
+Accuracy:  0.0000

@@ -4,20 +4,25 @@ A person in a vintage arts fair
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.0055
-SSIM: 0.9372
-FSIM: 0.9020
+PSNR: 35.0098
+SSIM: 0.9690
+FSIM: 0.9438
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 13.8133
-SSIM: 0.4994
-FSIM: 0.4969
+PSNR: 15.7010
+SSIM: 0.5781
+FSIM: 0.5726
 
 CLIP score (Image vs Prompt)
 Edited Original:  29.8335
-Edited Immunized: 29.6967
+Edited Immunized: 28.6403
 
-Caption similarity (Edited Original vs Edited Immunized)
-Score: 0.4650
-Caption orig : A woman wearing a gray shirt with a butterfly design on it stands in front of a crowd of people.
-Caption adv : A woman in a flowered shirt and black skirt stands on a street.
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.4925
+Caption orig: A woman wearing a gray shirt with a butterfly design on it stands in front of a crowd of people.
+Caption adv:  A woman in a flowered shirt and black skirt stands in front of a pink tent.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   False
+Accuracy:  0.0000

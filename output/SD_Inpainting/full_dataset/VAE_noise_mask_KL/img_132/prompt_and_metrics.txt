@@ -4,20 +4,25 @@ A person in a shopping center
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 29.6932
-SSIM: 0.8991
-FSIM: 0.8800
+PSNR: 32.6476
+SSIM: 0.9324
+FSIM: 0.9165
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 15.6594
-SSIM: 0.6248
-FSIM: 0.5501
+PSNR: 16.3047
+SSIM: 0.6472
+FSIM: 0.5714
 
 CLIP score (Image vs Prompt)
 Edited Original:  24.6315
-Edited Immunized: 27.7503
+Edited Immunized: 27.1375
 
-Caption similarity (Edited Original vs Edited Immunized)
-Score: 0.4519
-Caption orig : A man wearing a gray suit with white lace on the sleeves and a white vest.
-Caption adv : A man in a suit and tie is walking down a busy street.
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.5493
+Caption orig: A man wearing a gray suit with white lace on the sleeves and a white vest.
+Caption adv:  A man wearing a suit with a green and white design stands in a busy area.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   False
+Accuracy:  0.0000

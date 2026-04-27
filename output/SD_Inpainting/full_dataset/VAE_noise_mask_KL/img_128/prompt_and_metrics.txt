@@ -4,20 +4,25 @@ A person in a vintage arcade
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 28.6680
-SSIM: 0.9210
-FSIM: 0.8466
+PSNR: 33.0429
+SSIM: 0.9659
+FSIM: 0.9085
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 11.5230
-SSIM: 0.3610
-FSIM: 0.4258
+PSNR: 11.5911
+SSIM: 0.4037
+FSIM: 0.4381
 
 CLIP score (Image vs Prompt)
 Edited Original:  30.5407
-Edited Immunized: 32.0930
+Edited Immunized: 32.0098
 
-Caption similarity (Edited Original vs Edited Immunized)
-Score: 0.6718
-Caption orig : A woman wearing a striped sweater and carrying a brown purse stands in front of a colorful arcade game.
-Caption adv : A woman in a striped shirt and a short skirt is walking through a video game arcade.
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.6502
+Caption orig: A woman wearing a striped sweater and carrying a brown purse stands in front of a colorful arcade game.
+Caption adv:  A woman wearing a striped shirt and a mini skirt is standing in front of a video game machine.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   False
+Accuracy:  0.0000

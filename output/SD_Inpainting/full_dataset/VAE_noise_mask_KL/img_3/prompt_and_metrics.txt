@@ -4,20 +4,25 @@ A person in a sports field
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 31.0162
-SSIM: 0.9286
-FSIM: 0.8905
+PSNR: 34.7114
+SSIM: 0.9533
+FSIM: 0.9233
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 16.8339
-SSIM: 0.6391
-FSIM: 0.4602
+PSNR: 17.1703
+SSIM: 0.6590
+FSIM: 0.4866
 
 CLIP score (Image vs Prompt)
 Edited Original:  27.7392
-Edited Immunized: 28.1524
+Edited Immunized: 28.5917
 
-Caption similarity (Edited Original vs Edited Immunized)
-Score: 1.0000
-Caption orig : A woman wearing a black and white striped shirt stands on a field.
-Caption adv : A woman wearing a black and white striped shirt stands on a field.
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.9708
+Caption orig: A woman wearing a black and white striped shirt stands on a field.
+Caption adv:  A woman wearing a black and white shirt stands on a field.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.9000
+Success:   True
+Accuracy:  1.0000

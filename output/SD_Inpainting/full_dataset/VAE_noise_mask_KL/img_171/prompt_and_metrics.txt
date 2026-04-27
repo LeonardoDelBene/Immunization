@@ -4,20 +4,25 @@ A person in a call center
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 29.7261
-SSIM: 0.9039
-FSIM: 0.9089
+PSNR: 33.6035
+SSIM: 0.9401
+FSIM: 0.9420
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 14.1919
-SSIM: 0.5976
-FSIM: 0.4764
+PSNR: 6.4334
+SSIM: 0.2077
+FSIM: 0.4815
 
 CLIP score (Image vs Prompt)
 Edited Original:  27.4458
-Edited Immunized: 23.4805
+Edited Immunized: 21.5174
 
-Caption similarity (Edited Original vs Edited Immunized)
-Score: 0.8150
-Caption orig : A man wearing a black vest and headphones stands in front of a laptop.
-Caption adv : A man wearing a tank top and headphones is standing in front of a laptop.
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.5110
+Caption orig: A man wearing a black vest and headphones stands in front of a laptop.
+Caption adv:  A man wearing a black tank top and sunglasses stands in front of a black background.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   False
+Accuracy:  0.0000

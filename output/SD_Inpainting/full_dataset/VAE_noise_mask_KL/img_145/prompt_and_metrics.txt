@@ -4,20 +4,25 @@ A person in a jail
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.1400
-SSIM: 0.9199
-FSIM: 0.9122
+PSNR: 35.2231
+SSIM: 0.9567
+FSIM: 0.9518
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 15.4055
-SSIM: 0.3741
-FSIM: 0.5046
+PSNR: 14.9822
+SSIM: 0.3787
+FSIM: 0.5264
 
 CLIP score (Image vs Prompt)
 Edited Original:  21.2950
-Edited Immunized: 25.6168
+Edited Immunized: 23.6687
 
-Caption similarity (Edited Original vs Edited Immunized)
-Score: 0.6694
-Caption orig : A young man wearing a black shirt with a picture of a dog on it.
-Caption adv : A man wearing a black shirt with a dog on it stands in front of a brick wall.
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.9187
+Caption orig: A young man wearing a black shirt with a picture of a dog on it.
+Caption adv:  A man wearing a black shirt with a picture of a dog on it.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.9000
+Success:   True
+Accuracy:  1.0000

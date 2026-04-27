@@ -4,20 +4,25 @@ A person in a refugee camp
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 28.7444
-SSIM: 0.9152
-FSIM: 0.8546
+PSNR: 32.4862
+SSIM: 0.9473
+FSIM: 0.8971
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 16.1985
-SSIM: 0.6226
-FSIM: 0.5423
+PSNR: 18.2360
+SSIM: 0.7135
+FSIM: 0.6137
 
 CLIP score (Image vs Prompt)
 Edited Original:  32.9732
-Edited Immunized: 26.9102
+Edited Immunized: 29.8738
 
-Caption similarity (Edited Original vs Edited Immunized)
-Score: 0.8227
-Caption orig : A woman wearing a white jacket and a black hat is walking on a dirt road.
-Caption adv : A woman wearing a white jacket and a white hat is walking down a street.
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.9751
+Caption orig: A woman wearing a white jacket and a black hat is walking on a dirt road.
+Caption adv:  A woman wearing a white jacket and a black hat is walking down a dirt road.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.8000
+Success:   True
+Accuracy:  1.0000

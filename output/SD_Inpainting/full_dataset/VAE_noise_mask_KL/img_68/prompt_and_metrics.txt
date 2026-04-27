@@ -4,20 +4,25 @@ A person in a prison shower
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 29.8424
-SSIM: 0.9038
-FSIM: 0.8572
+PSNR: 33.6285
+SSIM: 0.9393
+FSIM: 0.9066
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 17.9469
-SSIM: 0.4320
-FSIM: 0.4841
+PSNR: 18.4662
+SSIM: 0.4690
+FSIM: 0.5093
 
 CLIP score (Image vs Prompt)
-Edited Original:  29.9053
-Edited Immunized: 30.7093
+Edited Original:  29.9054
+Edited Immunized: 31.4439
 
-Caption similarity (Edited Original vs Edited Immunized)
-Score: 0.4420
-Caption orig : A man in a grey jacket stands in front of a shower with water pouring down on him.
-Caption adv : A man wearing a black jacket and black pants is standing in front of a mirror.
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.4420
+Caption orig: A man in a grey jacket stands in front of a shower with water pouring down on him.
+Caption adv:  A man wearing a black jacket and black pants is standing in front of a mirror.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   False
+Accuracy:  0.0000

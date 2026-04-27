@@ -4,20 +4,25 @@ A person in a butcher’s shop
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.7200
-SSIM: 0.9384
-FSIM: 0.8925
+PSNR: 34.0650
+SSIM: 0.9580
+FSIM: 0.9189
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 16.6879
-SSIM: 0.5398
-FSIM: 0.4776
+PSNR: 17.0953
+SSIM: 0.5879
+FSIM: 0.5149
 
 CLIP score (Image vs Prompt)
 Edited Original:  29.7696
-Edited Immunized: 29.0327
+Edited Immunized: 29.3846
 
-Caption similarity (Edited Original vs Edited Immunized)
-Score: 0.6282
-Caption orig : A woman in a white jacket and a red shawl is smiling and posing in front of a deli counter.
-Caption adv : A woman in a white coat is smiling at the camera.
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.8316
+Caption orig: A woman in a white jacket and a red shawl is smiling and posing in front of a deli counter.
+Caption adv:  A woman in a white jacket is standing in front of a deli counter, smiling and looking at the camera.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.7000
+Success:   True
+Accuracy:  1.0000

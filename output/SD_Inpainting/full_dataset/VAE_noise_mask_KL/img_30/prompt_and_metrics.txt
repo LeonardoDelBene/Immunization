@@ -4,20 +4,25 @@ A person in a music studio
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.3945
-SSIM: 0.9169
-FSIM: 0.8739
+PSNR: 33.4037
+SSIM: 0.9388
+FSIM: 0.9118
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 12.6315
-SSIM: 0.3351
-FSIM: 0.3782
+PSNR: 12.5547
+SSIM: 0.3777
+FSIM: 0.4203
 
 CLIP score (Image vs Prompt)
 Edited Original:  27.0421
-Edited Immunized: 22.5041
+Edited Immunized: 27.1273
 
-Caption similarity (Edited Original vs Edited Immunized)
-Score: 0.2826
-Caption orig : A woman wearing a grey sweater and holding a green notebook stands in front of a wall full of electronic equipment.
-Caption adv : A woman wearing a brown shirt and black skirt is smiling at the camera.
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.5602
+Caption orig: A woman wearing a grey sweater and holding a green notebook stands in front of a wall full of electronic equipment.
+Caption adv:  A woman wearing a grey shirt and black pants is standing in front of a soundboard.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   False
+Accuracy:  0.0000

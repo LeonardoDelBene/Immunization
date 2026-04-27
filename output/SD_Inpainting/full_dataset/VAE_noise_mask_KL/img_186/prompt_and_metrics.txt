@@ -4,20 +4,25 @@ A person in a garage
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 28.7235
-SSIM: 0.8909
-FSIM: 0.8772
+PSNR: 31.4324
+SSIM: 0.9279
+FSIM: 0.9114
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 15.6247
-SSIM: 0.5032
-FSIM: 0.5004
+PSNR: 16.0035
+SSIM: 0.5423
+FSIM: 0.5277
 
 CLIP score (Image vs Prompt)
 Edited Original:  26.9376
-Edited Immunized: 25.0122
+Edited Immunized: 26.9373
 
-Caption similarity (Edited Original vs Edited Immunized)
-Score: 0.4122
-Caption orig : A man wearing a green jacket stands in front of a wall filled with various tools and equipment.
-Caption adv : A man wearing a white shirt and a brown jacket is standing in front of a mirror.
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.4566
+Caption orig: A man wearing a green jacket stands in front of a wall filled with various tools and equipment.
+Caption adv:  A man wearing a white shirt and a brown coat stands in front of a car.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   False
+Accuracy:  0.0000

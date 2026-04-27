@@ -4,20 +4,25 @@ A person in a nightclub
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 29.6495
-SSIM: 0.8950
-FSIM: 0.9095
+PSNR: 33.5494
+SSIM: 0.9343
+FSIM: 0.9394
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 14.8307
-SSIM: 0.5034
-FSIM: 0.4550
+PSNR: 15.2872
+SSIM: 0.6131
+FSIM: 0.5199
 
 CLIP score (Image vs Prompt)
 Edited Original:  24.8708
-Edited Immunized: 26.5286
+Edited Immunized: 27.1257
 
-Caption similarity (Edited Original vs Edited Immunized)
-Score: 0.5330
-Caption orig : A woman wearing a black jacket and a striped shirt is walking down a hallway.
-Caption adv : A woman wearing a black jacket and a blue wig stands in a room with a red background.
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.6219
+Caption orig: A woman wearing a black jacket and a striped shirt is walking down a hallway.
+Caption adv:  A woman wearing a black jacket and a striped shirt stands in a room with other people.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.7000
+Success:   True
+Accuracy:  1.0000

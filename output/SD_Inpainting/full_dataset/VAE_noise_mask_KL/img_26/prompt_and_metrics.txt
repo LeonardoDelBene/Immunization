@@ -4,20 +4,25 @@ A person in a tram stop
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 29.4058
-SSIM: 0.8845
-FSIM: 0.9049
+PSNR: 35.0803
+SSIM: 0.9526
+FSIM: 0.9525
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 13.8051
-SSIM: 0.4778
-FSIM: 0.4662
+PSNR: 14.3525
+SSIM: 0.5837
+FSIM: 0.5062
 
 CLIP score (Image vs Prompt)
 Edited Original:  28.8797
-Edited Immunized: 30.4759
+Edited Immunized: 29.4551
 
-Caption similarity (Edited Original vs Edited Immunized)
-Score: 0.8003
-Caption orig : A woman wearing a brown coat and sunglasses is standing in a subway car.
-Caption adv : A woman wearing a brown coat and glasses is standing on a subway platform.
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.8775
+Caption orig: A woman wearing a brown coat and sunglasses is standing in a subway car.
+Caption adv:  A woman wearing a brown coat and sunglasses is standing on a subway train.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.7000
+Success:   True
+Accuracy:  1.0000

@@ -4,20 +4,25 @@ A person in a tech launch event
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 29.7726
-SSIM: 0.9329
-FSIM: 0.8296
+PSNR: 32.2322
+SSIM: 0.9519
+FSIM: 0.8681
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 13.1225
-SSIM: 0.4894
-FSIM: 0.4558
+PSNR: 13.6757
+SSIM: 0.5223
+FSIM: 0.4916
 
 CLIP score (Image vs Prompt)
 Edited Original:  29.1313
-Edited Immunized: 27.9957
+Edited Immunized: 28.9235
 
-Caption similarity (Edited Original vs Edited Immunized)
-Score: 0.3460
-Caption orig : A group of people are standing together, with a woman in a brown coat and a woman in a white shirt standing out.
-Caption adv : A woman wearing a brown coat and scarf is smiling at the camera.
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.3584
+Caption orig: A group of people are standing together, with a woman in a brown coat and a woman in a white shirt standing out.
+Caption adv:  A woman wearing a brown coat and a scarf is smiling at the camera.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.4000
+Success:   False
+Accuracy:  0.0000

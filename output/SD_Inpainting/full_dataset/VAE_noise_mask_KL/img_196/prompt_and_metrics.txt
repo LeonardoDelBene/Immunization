@@ -4,20 +4,25 @@ A person in a dance festival
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.0341
-SSIM: 0.9213
-FSIM: 0.8618
+PSNR: 34.7837
+SSIM: 0.9595
+FSIM: 0.9232
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 16.2239
-SSIM: 0.6374
-FSIM: 0.5562
+PSNR: 15.7051
+SSIM: 0.6506
+FSIM: 0.5768
 
 CLIP score (Image vs Prompt)
 Edited Original:  29.7314
-Edited Immunized: 29.6893
+Edited Immunized: 32.8133
 
-Caption similarity (Edited Original vs Edited Immunized)
-Score: 0.7275
-Caption orig : A woman wearing a blue dress and an orange hat stands on a street.
-Caption adv : A woman wearing a blue dress and an orange hat stands in front of a crowd of people.
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.6676
+Caption orig: A woman wearing a blue dress and an orange hat stands on the street.
+Caption adv:  A woman wearing a blue and white dress and an orange hat stands on a dance floor.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   False
+Accuracy:  0.0000

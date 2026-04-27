@@ -4,20 +4,25 @@ A person in a dormitory
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 32.4958
-SSIM: 0.9390
-FSIM: 0.9456
+PSNR: 37.1716
+SSIM: 0.9690
+FSIM: 0.9705
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 17.7838
-SSIM: 0.6315
-FSIM: 0.5337
+PSNR: 19.5467
+SSIM: 0.7093
+FSIM: 0.5923
 
 CLIP score (Image vs Prompt)
 Edited Original:  28.4166
-Edited Immunized: 29.3722
+Edited Immunized: 28.5140
 
-Caption similarity (Edited Original vs Edited Immunized)
-Score: 0.8518
-Caption orig : A woman wearing a blue dress with polka dots is standing in a doorway.
-Caption adv : A woman wearing a blue dress with polka dots is standing in a hallway.
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        1.0000
+Caption orig: A woman wearing a blue dress with polka dots is standing in a doorway.
+Caption adv:  A woman wearing a blue dress with polka dots is standing in a doorway.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 1.0000
+Success:   True
+Accuracy:  1.0000

@@ -4,20 +4,25 @@ A person in a cocktail bar
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 29.7436
-SSIM: 0.9241
-FSIM: 0.8517
+PSNR: 33.0293
+SSIM: 0.9457
+FSIM: 0.8891
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 16.2472
-SSIM: 0.5315
-FSIM: 0.5121
+PSNR: 16.2552
+SSIM: 0.5932
+FSIM: 0.5509
 
 CLIP score (Image vs Prompt)
 Edited Original:  29.0101
-Edited Immunized: 28.8065
+Edited Immunized: 30.4850
 
-Caption similarity (Edited Original vs Edited Immunized)
-Score: 0.7787
-Caption orig : A woman wearing a blue jacket and a ponytail is standing in front of a bar with numerous bottles on the shelves.
-Caption adv : A woman wearing a black and white jacket stands in front of a bar with a large number of bottles and glasses.
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.8502
+Caption orig: A woman wearing a blue jacket and a ponytail is standing in front of a bar with numerous bottles on the shelves.
+Caption adv:  A woman wearing a black jacket and a hat is standing in front of a bar with numerous bottles on the shelves.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   False
+Accuracy:  0.0000

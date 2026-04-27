@@ -4,20 +4,25 @@ A person in a rehab facility
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 29.5245
-SSIM: 0.9431
-FSIM: 0.8742
+PSNR: 34.8299
+SSIM: 0.9713
+FSIM: 0.9220
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 13.6583
-SSIM: 0.4262
-FSIM: 0.5659
+PSNR: 13.5432
+SSIM: 0.4807
+FSIM: 0.6311
 
 CLIP score (Image vs Prompt)
 Edited Original:  24.1795
-Edited Immunized: 23.5144
+Edited Immunized: 25.6370
 
-Caption similarity (Edited Original vs Edited Immunized)
-Score: 0.6668
-Caption orig : A woman wearing a leopard print jacket and sunglasses is standing in a yard.
-Caption adv : A woman wearing a leopard jacket and sunglasses is smiling.
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.6771
+Caption orig: A woman wearing a leopard print jacket and sunglasses is standing in a yard.
+Caption adv:  A woman wearing a leopard print jacket and sunglasses is smiling.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.7000
+Success:   True
+Accuracy:  1.0000

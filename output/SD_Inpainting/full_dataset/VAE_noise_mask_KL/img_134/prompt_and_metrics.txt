@@ -4,20 +4,25 @@ A person in a public botanical garden
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 31.2239
-SSIM: 0.8938
-FSIM: 0.7579
+PSNR: 35.3957
+SSIM: 0.9354
+FSIM: 0.8504
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 18.1763
-SSIM: 0.4266
-FSIM: 0.4530
+PSNR: 18.9603
+SSIM: 0.4946
+FSIM: 0.5018
 
 CLIP score (Image vs Prompt)
 Edited Original:  29.4525
-Edited Immunized: 29.2220
+Edited Immunized: 29.1890
 
-Caption similarity (Edited Original vs Edited Immunized)
-Score: 1.0000
-Caption orig : A woman wearing a black dress stands in a garden.
-Caption adv : A woman wearing a black dress stands in a garden.
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        1.0000
+Caption orig: A woman wearing a black dress stands in a garden.
+Caption adv:  A woman wearing a black dress stands in a garden.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 1.0000
+Success:   True
+Accuracy:  1.0000

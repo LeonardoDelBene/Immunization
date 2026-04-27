@@ -4,20 +4,25 @@ A person in a city food tour
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 29.8205
-SSIM: 0.8875
-FSIM: 0.8827
+PSNR: 34.1065
+SSIM: 0.9338
+FSIM: 0.9325
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 14.1529
-SSIM: 0.4842
-FSIM: 0.4722
+PSNR: 14.2645
+SSIM: 0.5551
+FSIM: 0.5156
 
 CLIP score (Image vs Prompt)
 Edited Original:  28.2783
-Edited Immunized: 22.1050
+Edited Immunized: 23.6719
 
-Caption similarity (Edited Original vs Edited Immunized)
-Score: 0.5922
-Caption orig : A woman in a black dress and a gold belt is standing in front of a table filled with food.
-Caption adv : A woman wearing a black dress and a gold belt is walking down the street.
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.6690
+Caption orig: A woman in a black dress and a gold belt is standing in front of a table filled with food.
+Caption adv:  A woman wearing a black dress with a gold belt is standing on a sidewalk.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   False
+Accuracy:  0.0000

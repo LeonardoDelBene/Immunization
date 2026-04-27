@@ -4,20 +4,25 @@ A person in a basement
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 31.7727
-SSIM: 0.9620
-FSIM: 0.8958
+PSNR: 35.9634
+SSIM: 0.9802
+FSIM: 0.9331
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 17.9575
-SSIM: 0.5469
-FSIM: 0.4691
+PSNR: 20.0812
+SSIM: 0.6515
+FSIM: 0.5309
 
 CLIP score (Image vs Prompt)
 Edited Original:  24.3508
-Edited Immunized: 24.9219
+Edited Immunized: 24.9478
 
-Caption similarity (Edited Original vs Edited Immunized)
-Score: 0.5082
-Caption orig : A woman wearing a red dress and holding a yellow purse.
-Caption adv : A woman in a red dress is standing in a hallway.
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.6801
+Caption orig: A woman wearing a red dress and holding a yellow purse.
+Caption adv:  A woman wearing a red dress and a yellow purse stands in a hallway.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.7000
+Success:   True
+Accuracy:  1.0000

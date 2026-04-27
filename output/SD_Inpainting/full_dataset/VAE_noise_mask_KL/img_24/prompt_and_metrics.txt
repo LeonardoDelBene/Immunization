@@ -4,20 +4,25 @@ A person in a pet festival
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.3719
-SSIM: 0.9079
-FSIM: 0.8599
+PSNR: 35.3738
+SSIM: 0.9528
+FSIM: 0.9226
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 15.9467
-SSIM: 0.5169
-FSIM: 0.4976
+PSNR: 16.2881
+SSIM: 0.6051
+FSIM: 0.5404
 
 CLIP score (Image vs Prompt)
 Edited Original:  29.9114
-Edited Immunized: 33.8170
+Edited Immunized: 30.6160
 
-Caption similarity (Edited Original vs Edited Immunized)
-Score: 0.8759
-Caption orig : A woman is walking her dog in a park, surrounded by other people.
-Caption adv : A woman is walking her two dogs in a park.
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.7106
+Caption orig: A woman is walking her dog in a park, surrounded by other people.
+Caption adv:  A woman is walking her white dog on a leash, while other people are walking their dogs in the background.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.7000
+Success:   True
+Accuracy:  1.0000

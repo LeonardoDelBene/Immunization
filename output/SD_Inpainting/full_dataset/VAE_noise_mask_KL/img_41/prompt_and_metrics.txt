@@ -4,20 +4,25 @@ A person in a butcher shop
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 32.4385
-SSIM: 0.9448
-FSIM: 0.9001
+PSNR: 35.4767
+SSIM: 0.9630
+FSIM: 0.9299
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 14.9604
-SSIM: 0.4829
-FSIM: 0.4328
+PSNR: 15.1416
+SSIM: 0.5345
+FSIM: 0.4709
 
 CLIP score (Image vs Prompt)
 Edited Original:  29.0402
-Edited Immunized: 31.3839
+Edited Immunized: 30.8376
 
-Caption similarity (Edited Original vs Edited Immunized)
-Score: 0.5719
-Caption orig : A man wearing sunglasses and a blue shirt stands in front of a meat counter.
-Caption adv : A man wearing sunglasses and a black shirt stands in front of a deli counter, smoking a cigarette.
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.7217
+Caption orig: A man wearing sunglasses and a blue shirt stands in front of a meat counter.
+Caption adv:  A man wearing sunglasses and a black shirt is standing in front of a deli counter.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   False
+Accuracy:  0.0000

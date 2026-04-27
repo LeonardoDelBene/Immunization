@@ -4,20 +4,25 @@ A person in a summer camp
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 29.8690
-SSIM: 0.9169
-FSIM: 0.8914
+PSNR: 34.4936
+SSIM: 0.9527
+FSIM: 0.9376
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 17.5608
-SSIM: 0.6593
-FSIM: 0.5595
+PSNR: 22.0144
+SSIM: 0.7759
+FSIM: 0.6482
 
 CLIP score (Image vs Prompt)
 Edited Original:  27.2669
-Edited Immunized: 26.2439
+Edited Immunized: 25.5632
 
-Caption similarity (Edited Original vs Edited Immunized)
-Score: 0.4360
-Caption orig : A woman wearing a black and white shirt and carrying a blue backpack.
-Caption adv : A woman in a black and white shirt is standing in a field, smiling and holding a cell phone.
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.9720
+Caption orig: A woman wearing a black and white shirt and carrying a blue backpack.
+Caption adv:  A woman wearing a black and white shirt and carrying a backpack.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.9000
+Success:   True
+Accuracy:  1.0000

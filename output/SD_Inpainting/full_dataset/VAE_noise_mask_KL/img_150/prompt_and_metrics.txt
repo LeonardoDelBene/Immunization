@@ -4,20 +4,25 @@ A person in a charity art auction
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 32.9735
-SSIM: 0.9833
-FSIM: 0.9438
+PSNR: 34.9357
+SSIM: 0.9884
+FSIM: 0.9591
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 13.2115
-SSIM: 0.4603
-FSIM: 0.4556
+PSNR: 12.0527
+SSIM: 0.4672
+FSIM: 0.4076
 
 CLIP score (Image vs Prompt)
 Edited Original:  27.1945
-Edited Immunized: 26.8914
+Edited Immunized: 29.8283
 
-Caption similarity (Edited Original vs Edited Immunized)
-Score: 0.7414
-Caption orig : A woman in an orange shirt stands in front of a painting.
-Caption adv : A woman wearing an orange shirt and red pants is standing in front of a colorful background.
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.5337
+Caption orig: A woman in an orange shirt stands in front of a painting.
+Caption adv:  A woman in an orange outfit stands in a room with other people.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   False
+Accuracy:  0.0000

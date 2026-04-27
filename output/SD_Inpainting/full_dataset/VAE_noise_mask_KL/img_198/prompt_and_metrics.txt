@@ -4,20 +4,25 @@ A person in a call center
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 29.2747
-SSIM: 0.9361
-FSIM: 0.8932
+PSNR: 33.7270
+SSIM: 0.9524
+FSIM: 0.9176
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 13.9152
-SSIM: 0.4826
-FSIM: 0.4373
+PSNR: 13.9385
+SSIM: 0.5341
+FSIM: 0.4599
 
 CLIP score (Image vs Prompt)
 Edited Original:  27.7899
-Edited Immunized: 26.0525
+Edited Immunized: 25.6975
 
-Caption similarity (Edited Original vs Edited Immunized)
-Score: 0.5200
-Caption orig : A woman wearing glasses and a hat is standing in an office.
-Caption adv : A woman wearing a white hat and glasses is walking down a hallway.
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.3605
+Caption orig: A woman wearing glasses and a hat is standing in an office.
+Caption adv:  A group of people wearing headphones and glasses, with one person wearing a white hat.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.7000
+Success:   True
+Accuracy:  1.0000

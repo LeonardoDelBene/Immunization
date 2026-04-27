@@ -4,20 +4,25 @@ A person in a ceramic art exhibit
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 28.8575
-SSIM: 0.9040
-FSIM: 0.8425
+PSNR: 32.6536
+SSIM: 0.9407
+FSIM: 0.8931
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 15.1175
-SSIM: 0.4971
-FSIM: 0.4383
+PSNR: 15.0312
+SSIM: 0.5474
+FSIM: 0.4672
 
 CLIP score (Image vs Prompt)
 Edited Original:  30.5467
-Edited Immunized: 31.5854
+Edited Immunized: 29.8824
 
-Caption similarity (Edited Original vs Edited Immunized)
-Score: 0.6366
-Caption orig : A woman in a blue shirt stands in front of a display of vases.
-Caption adv : A woman wearing a blue shirt and jeans stands in front of a wall of art.
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.9607
+Caption orig: A woman in a blue shirt stands in front of a display of vases.
+Caption adv:  A woman wearing a blue shirt and jeans stands in front of a display of vases.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.7000
+Success:   True
+Accuracy:  1.0000

@@ -4,20 +4,25 @@ A person in a gymnasium
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 32.7307
-SSIM: 0.9516
-FSIM: 0.8938
+PSNR: 37.0683
+SSIM: 0.9711
+FSIM: 0.9350
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 16.8415
-SSIM: 0.5390
-FSIM: 0.4759
+PSNR: 16.7681
+SSIM: 0.5730
+FSIM: 0.4923
 
 CLIP score (Image vs Prompt)
 Edited Original:  28.0680
-Edited Immunized: 23.2558
+Edited Immunized: 26.0646
 
-Caption similarity (Edited Original vs Edited Immunized)
-Score: 0.3302
-Caption orig : A man is walking in a gym with a camera around his neck.
-Caption adv : A man is taking a picture of himself in a mirror.
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.7611
+Caption orig: A man is walking in a gym with a camera around his neck.
+Caption adv:  A man is taking a picture of a gym with a camera.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.7000
+Success:   True
+Accuracy:  1.0000

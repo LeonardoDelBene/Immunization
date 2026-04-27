@@ -4,20 +4,25 @@ A person in a festival ground
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.7008
-SSIM: 0.9707
-FSIM: 0.8776
+PSNR: 36.2169
+SSIM: 0.9879
+FSIM: 0.9281
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 19.1391
-SSIM: 0.7146
-FSIM: 0.6331
+PSNR: 20.1587
+SSIM: 0.7660
+FSIM: 0.6918
 
 CLIP score (Image vs Prompt)
 Edited Original:  32.5543
-Edited Immunized: 31.1990
+Edited Immunized: 31.6179
 
-Caption similarity (Edited Original vs Edited Immunized)
-Score: 0.5891
-Caption orig : A woman in a red and white shirt is looking at her cell phone.
-Caption adv : A woman in a flowered dress is holding a cup and looking at her phone.
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.7127
+Caption orig: A woman in a red and white shirt is looking at her cell phone.
+Caption adv:  A woman in a flowered dress is looking at her cell phone.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   False
+Accuracy:  0.0000

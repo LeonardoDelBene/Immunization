@@ -4,20 +4,25 @@ A person in a digital art gallery
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 29.6066
-SSIM: 0.9232
-FSIM: 0.9036
+PSNR: 33.6469
+SSIM: 0.9569
+FSIM: 0.9389
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 13.1302
-SSIM: 0.4065
-FSIM: 0.4391
+PSNR: 12.5610
+SSIM: 0.4764
+FSIM: 0.4447
 
 CLIP score (Image vs Prompt)
 Edited Original:  31.0771
-Edited Immunized: 30.8898
+Edited Immunized: 31.1651
 
-Caption similarity (Edited Original vs Edited Immunized)
-Score: 0.4404
-Caption orig : A woman with glasses and a green cell phone standing in front of a collection of artwork.
-Caption adv : A woman wearing glasses and a flowered shirt is walking down a hallway.
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.7612
+Caption orig: A woman with glasses and a green cell phone standing in front of a collection of artwork.
+Caption adv:  A woman wearing glasses and a plaid shirt stands in front of a wall of artwork.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.7000
+Success:   True
+Accuracy:  1.0000

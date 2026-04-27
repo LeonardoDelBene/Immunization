@@ -4,20 +4,25 @@ A person in a butcher’s block
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 31.7210
-SSIM: 0.9528
-FSIM: 0.9039
+PSNR: 34.5461
+SSIM: 0.9647
+FSIM: 0.9251
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 16.6173
-SSIM: 0.5318
+PSNR: 17.0816
+SSIM: 0.5480
 FSIM: 0.4616
 
 CLIP score (Image vs Prompt)
 Edited Original:  27.0173
-Edited Immunized: 26.5219
+Edited Immunized: 26.3542
 
-Caption similarity (Edited Original vs Edited Immunized)
-Score: 0.7904
-Caption orig : A woman in a white dress stands in front of a deli counter, smiling for the camera.
-Caption adv : A woman in a white dress stands in front of a deli counter, looking at the food.
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.8015
+Caption orig: A woman in a white dress stands in front of a deli counter, smiling for the camera.
+Caption adv:  A woman in a white dress stands in front of a deli counter, surrounded by various food items.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.7000
+Success:   True
+Accuracy:  1.0000

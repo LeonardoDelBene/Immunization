@@ -4,20 +4,25 @@ A person in a TV studio
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 28.0425
-SSIM: 0.8853
-FSIM: 0.8088
+PSNR: 30.5415
+SSIM: 0.9098
+FSIM: 0.8486
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 15.7857
-SSIM: 0.5427
-FSIM: 0.4719
+PSNR: 17.3191
+SSIM: 0.6229
+FSIM: 0.5274
 
 CLIP score (Image vs Prompt)
 Edited Original:  24.4013
-Edited Immunized: 30.6832
+Edited Immunized: 30.6907
 
-Caption similarity (Edited Original vs Edited Immunized)
-Score: 0.6136
-Caption orig : A woman wearing a dress and a necklace is standing in front of a large screen.
-Caption adv : A woman wearing a white dress and a headband is standing in front of a camera.
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.7329
+Caption orig: A woman wearing a dress and a necklace is standing in front of a large screen.
+Caption adv:  A woman wearing a white dress and a necklace is standing in front of a camera.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   False
+Accuracy:  0.0000

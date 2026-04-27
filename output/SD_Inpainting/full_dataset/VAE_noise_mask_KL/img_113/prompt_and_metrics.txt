@@ -4,20 +4,25 @@ A person in a butcher’s shop
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 29.0334
-SSIM: 0.8858
-FSIM: 0.9154
+PSNR: 33.1099
+SSIM: 0.9345
+FSIM: 0.9471
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 12.6419
-SSIM: 0.3778
-FSIM: 0.4184
+PSNR: 13.7876
+SSIM: 0.4338
+FSIM: 0.4344
 
 CLIP score (Image vs Prompt)
 Edited Original:  30.9046
-Edited Immunized: 29.9181
+Edited Immunized: 29.8453
 
-Caption similarity (Edited Original vs Edited Immunized)
-Score: 0.2433
-Caption orig : A woman stands in front of a meat display, holding a stick.
-Caption adv : A woman in a black shirt and a plaid skirt is walking down an aisle in a grocery store.
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.3236
+Caption orig: A woman stands in front of a meat display, holding a stick.
+Caption adv:  A woman in a black and white shirt is walking through a deli, surrounded by various food items.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.7000
+Success:   True
+Accuracy:  1.0000

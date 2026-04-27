@@ -4,20 +4,25 @@ A person in a sports field
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 29.7745
-SSIM: 0.9821
-FSIM: 0.9095
+PSNR: 38.4993
+SSIM: 0.9951
+FSIM: 0.9538
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 19.9911
-SSIM: 0.7758
-FSIM: 0.6105
+PSNR: 20.4400
+SSIM: 0.8022
+FSIM: 0.6628
 
 CLIP score (Image vs Prompt)
 Edited Original:  24.5068
-Edited Immunized: 24.9925
+Edited Immunized: 25.0405
 
-Caption similarity (Edited Original vs Edited Immunized)
-Score: 0.9917
-Caption orig : A woman wearing a red dress with hearts on it, standing on a green field.
-Caption adv : A woman wearing a red dress with hearts on it stands on a green field.
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.9085
+Caption orig: A woman wearing a red dress with hearts on it, standing on a green field.
+Caption adv:  A woman wearing a red dress with white hearts on it, standing on a grassy field.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.4000
+Success:   False
+Accuracy:  0.0000

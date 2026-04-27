@@ -4,20 +4,25 @@ A person in a church sanctuary
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 28.8972
-SSIM: 0.8950
-FSIM: 0.8793
+PSNR: 32.7652
+SSIM: 0.9415
+FSIM: 0.9263
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 14.4754
-SSIM: 0.3944
-FSIM: 0.4280
+PSNR: 14.2239
+SSIM: 0.4233
+FSIM: 0.4333
 
 CLIP score (Image vs Prompt)
 Edited Original:  25.6009
-Edited Immunized: 27.5364
+Edited Immunized: 25.9104
 
-Caption similarity (Edited Original vs Edited Immunized)
-Score: 0.5965
-Caption orig : A woman wearing a black coat and a scarf is standing in front of a stained glass window.
-Caption adv : A woman wearing a black coat and scarf is walking down a hallway.
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.7178
+Caption orig: A woman wearing a black coat and a scarf is standing in front of a stained glass window.
+Caption adv:  A woman wearing a black coat and scarf stands in front of a church.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.7000
+Success:   True
+Accuracy:  1.0000
