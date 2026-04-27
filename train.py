@@ -146,13 +146,13 @@ def validation_loop(
                 Y_patch_list.append(Y_patch)
 
             # ── VAE ──
-            posterior_im     = vae.encode(I_im).latent_dist
-            posterior_target = vae.encode(I_target).latent_dist
+            #posterior_im     = vae.encode(I_im).latent_dist
+            #posterior_target = vae.encode(I_target).latent_dist
 
             # ── Loss — total_loss gestisce pesi e dyn_weighter internamente ──
             _, log = total_loss(I_im=I_im, I=I, M=1 -M, X_cls_list=X_cls_list, Y_cls_list=Y_cls_list,
-                                X_patch_list=X_patch_list, Y_patch_list=Y_patch_list, posterior_im= posterior_im,
-                                posterior_target= posterior_target, dyn_weighter=dyn_weighter, alpha=alpha, beta=beta, eta=eta,
+                                X_patch_list=X_patch_list, Y_patch_list=Y_patch_list, posterior_im= None,
+                                posterior_target= None, dyn_weighter=dyn_weighter, alpha=alpha, beta=beta, eta=eta,
                                 lambda_vae=lambda_vae, noise_on_mask=noise_on_mask)
 
             for k, v in log.items():
@@ -209,14 +209,14 @@ def training_loop(
 
 
     # ── VAE ──
-    vae = AutoencoderKL.from_pretrained(
+    '''vae = AutoencoderKL.from_pretrained(
         "runwayml/stable-diffusion-inpainting", subfolder="vae"
     ).to(device).eval()
     # Congela i parametri del VAE
     for param in vae.parameters():
-        param.requires_grad = False
+        param.requires_grad = False'''
 
-    n_surrogates = len(surrogate_clip_models) + 1
+    n_surrogates = len(surrogate_clip_models)# + 1
 
 
     # ── Ottimizzatore e weighter ──
@@ -317,12 +317,12 @@ def training_loop(
                     X_patch_list.append(X_patch)
                     Y_patch_list.append(Y_patch)
 
-            posterior_im = vae.encode(I_im).latent_dist
-            posterior_target = vae.encode(I_target).latent_dist
+            #posterior_im = vae.encode(I_im).latent_dist
+            #posterior_target = vae.encode(I_target).latent_dist
 
             loss, log = total_loss(I_im=I_im, I=I, M=1 - M, X_cls_list=X_cls_list, Y_cls_list=Y_cls_list,
-                                   X_patch_list=X_patch_list, Y_patch_list=Y_patch_list, posterior_im= posterior_im,
-                                   posterior_target= posterior_target, dyn_weighter=dyn_weighter, alpha=alpha, beta=beta, eta=eta,
+                                   X_patch_list=X_patch_list, Y_patch_list=Y_patch_list, posterior_im= None,
+                                   posterior_target= None, dyn_weighter=dyn_weighter, alpha=alpha, beta=beta, eta=eta,
                                    lambda_vae=lambda_vae, noise_on_mask=noise_on_mask)
 
             loss.backward()
@@ -374,7 +374,7 @@ def training_loop(
         # ── Validation ──
         if (epoch + 1) % val_every == 0:
             val_metrics = validation_loop(unet=unet, val_dataloader=val_dataloader,
-                                          surrogate_clip_models=surrogate_clip_models, vae=vae,
+                                          surrogate_clip_models=surrogate_clip_models, vae=None,
                                           dyn_weighter=dyn_weighter, alpha=alpha, beta=beta, eta=eta,
                                           lambda_vae=lambda_vae, device=device, noise_on_mask=noise_on_mask)
             # ── Stampa surrogati val ──
@@ -493,7 +493,7 @@ if __name__ == "__main__":
     SEED = 2023
     set_seed_lib(SEED)
 
-    device = "cuda:0" if torch.cuda.is_available() else "cpu"
+    device = "cuda:1" if torch.cuda.is_available() else "cpu"
 
     DEBUG = False
     N_DEBUG = 100
@@ -542,7 +542,7 @@ if __name__ == "__main__":
         lr=1e-4,
         batch=batch,
         weight_decay=1e-2,
-        alpha=20.0,
+        alpha=1.0,
         beta=1.0,
         eta=0.2,
         lambda_vae = 0.1,
