@@ -1,0 +1,35 @@
+--- Prompt ---
+person in a castle
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 29.5810
+SSIM: 0.9498
+FSIM: 0.8811
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 15.9271
+SSIM: 0.5119
+FSIM: 0.5084
+
+CLIP score (Image vs Prompt)
+Edited Original:  26.7605
+Edited Immunized: 23.6694
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.6359
+Caption orig: A woman wearing sunglasses and a brown vest is standing in front of a castle.
+Caption adv:  A woman wearing a striped shirt and sunglasses is standing in front of a stone wall.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.6791
+Background SSIM   (basso=protezione ok): 0.3547
+Subject LPIPS     (basso=soggetto ok)  : 0.2396
+Editing score                          : 0.5312
+Mask coverage (% background)           : 0.6712
