@@ -323,7 +323,7 @@ def run_on_full_dataset(config):
 
             # --- Metriche ---
             metrics = compute_metrics(
-                image, adv_image_png,
+                image,image_mask ,adv_image_png,
                 edited_orig_recovered, edited_adv_recovered,
                 edit_prompt,
                 metrics_models
@@ -353,11 +353,12 @@ def save_global_summary(output_dir, all_metrics):
     numeric_keys = ["psnr_orig_adv", "ssim_orig_adv", "fsim_orig_adv",
                     "psnr_edit",     "ssim_edit",      "fsim_edit",
                     "clip_orig",     "clip_adv",        "caption_sim",
-                    "accuracy_score"]
+                    "accuracy_score",
+                    "masked_bg_lpips", "masked_bg_ssim",
+                    "masked_subject_lpips", "masked_editing_score", "masked_coverage"]
 
     averages = {k: sum(m[k] for m in all_metrics) / len(all_metrics) for k in numeric_keys}
 
-    # Percentuale di campioni in cui LLaVA ha giudicato le caption sufficientemente simili
     success_rate = sum(m["accuracy_success"] for m in all_metrics) / len(all_metrics) * 100
 
     summary_path = os.path.join(output_dir, "global_summary.txt")
@@ -386,6 +387,13 @@ def save_global_summary(output_dir, all_metrics):
         f.write(f"Avg LLM score : {averages['accuracy_score']:.4f}\n")
         f.write(f"Success rate  : {success_rate:.1f}% ({sum(m['accuracy_success'] for m in all_metrics)}/{len(all_metrics)} samples above threshold)\n\n")
 
+        f.write("Average Masked Editing Score\n")
+        f.write(f"Background LPIPS  (alto=protezione ok) : {averages['masked_bg_lpips']:.4f}\n")
+        f.write(f"Background SSIM   (basso=protezione ok): {averages['masked_bg_ssim']:.4f}\n")
+        f.write(f"Subject LPIPS     (basso=soggetto ok)  : {averages['masked_subject_lpips']:.4f}\n")
+        f.write(f"Editing score                          : {averages['masked_editing_score']:.4f}\n")
+        f.write(f"Mask coverage (% background)           : {averages['masked_coverage']:.4f}\n\n")
+
         f.write("=" * 50 + "\n")
         f.write("Per-sample detail\n\n")
         for m in all_metrics:
@@ -397,7 +405,9 @@ def save_global_summary(output_dir, all_metrics):
             f.write(f"  Caption similarity: {m['caption_sim']:.4f}\n")
             f.write(f"  Caption orig: {m['caption_orig']}\n")
             f.write(f"  Caption adv:  {m['caption_adv']}\n")
-            f.write(f"  Accuracy LLM score: {m['accuracy_score']:.4f} | success: {m['accuracy_success']}\n\n")
+            f.write(f"  Accuracy LLM score: {m['accuracy_score']:.4f} | success: {m['accuracy_success']}\n")
+            f.write(f"  Background LPIPS: {m['masked_bg_lpips']:.4f} | Background SSIM: {m['masked_bg_ssim']:.4f}\n")
+            f.write(f"  Subject LPIPS: {m['masked_subject_lpips']:.4f} | Editing score: {m['masked_editing_score']:.4f}\n\n")
 
     print(f"\nGlobal summary saved in {summary_path}")
 
@@ -415,6 +425,11 @@ def save_global_summary(output_dir, all_metrics):
     print(f"Caption sim   : {averages['caption_sim']:.4f}")
     print(f"Accuracy score: {averages['accuracy_score']:.4f}")
     print(f"Success rate  : {success_rate:.1f}% ({sum(m['accuracy_success'] for m in all_metrics)}/{len(all_metrics)} samples above threshold)")
+    print(f"BG LPIPS      : {averages['masked_bg_lpips']:.4f}")
+    print(f"BG SSIM       : {averages['masked_bg_ssim']:.4f}")
+    print(f"Subject LPIPS : {averages['masked_subject_lpips']:.4f}")
+    print(f"Editing score : {averages['masked_editing_score']:.4f}")
+    print(f"Mask coverage : {averages['masked_coverage']:.4f}")
 
 
 # ─────────────────────────────────────────────
@@ -433,9 +448,9 @@ def get_config():
         "base_output_dir":      "output",
         "dataset_path":         "./data/DiffVaxDataset_local",
         "dataset_split":        "validation",
-        "sample_idx":           43,
-        "run_full_dataset":     False,
-        "run_wandb":            "VAE_noise_mask_KL"
+        "sample_idx":           44,
+        "run_full_dataset":     True,
+        "run_wandb":            "VAE_KL_CLIP_32"
     }
 
 def main():
