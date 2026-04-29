@@ -1,0 +1,35 @@
+--- Prompt ---
+person with blu cap
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 32.8529
+SSIM: 0.9832
+FSIM: 0.9472
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 18.7193
+SSIM: 0.8004
+FSIM: 0.7341
+
+CLIP score (Image vs Prompt)
+Edited Original:  29.7843
+Edited Immunized: 22.2023
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.3793
+Caption orig: A person wearing a blue hat and a gray hoodie is walking in the snow.
+Caption adv:  A person wearing a purple coat and carrying a brown purse.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.9472
+Background SSIM   (basso=protezione ok): 0.3683
+Subject LPIPS     (basso=soggetto ok)  : 0.0981
+Editing score                          : 0.5640
+Mask coverage (% background)           : 0.2787

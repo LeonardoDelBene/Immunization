@@ -439,17 +439,17 @@ def save_global_summary(output_dir, all_metrics):
 def get_config():
     return {
         "use_instruct_pix2pix": False,
-        "edit_prompt":          "person in a castle",
+        "edit_prompt":          "person with blu cap",
         "seed":                 2043,
-        "edit_background":      True,
+        "edit_background":      False,
         "load_existing":        True,
         "checkpoint_path":      os.path.join("checkpoints", "diffvax_trained.pth"),
         "attack_model":         "runwayml/stable-diffusion-inpainting",
         "base_output_dir":      "output",
         "dataset_path":         "./data/DiffVaxDataset_local",
         "dataset_split":        "validation",
-        "sample_idx":           44,
-        "run_full_dataset":     True,
+        "sample_idx":           99,
+        "run_full_dataset":     False,
         "run_wandb":            "DiffVax"
     }
 
