@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a vintage arcade
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 30.2588
+SSIM: 0.9487
+FSIM: 0.8655
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 11.7829
+SSIM: 0.3867
+FSIM: 0.4192
+
+CLIP score (Image vs Prompt)
+Edited Original:  30.5407
+Edited Immunized: 32.2989
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.6852
+Caption orig: A woman wearing a striped sweater and carrying a brown purse stands in front of a colorful arcade game.
+Caption adv:  A woman in a white sweater and a short skirt is standing in front of a video game machine.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.5871
+Background SSIM   (basso=protezione ok): 0.2509
+Subject LPIPS     (basso=soggetto ok)  : 0.4285
+Editing score                          : 0.5394
+Mask coverage (% background)           : 0.7348

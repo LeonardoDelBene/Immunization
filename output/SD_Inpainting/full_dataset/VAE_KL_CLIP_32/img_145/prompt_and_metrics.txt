@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a jail
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 29.6353
+SSIM: 0.9290
+FSIM: 0.8930
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 14.9111
+SSIM: 0.4552
+FSIM: 0.4902
+
+CLIP score (Image vs Prompt)
+Edited Original:  21.2950
+Edited Immunized: 24.7071
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.6443
+Caption orig: A young man wearing a black shirt with a picture of a dog on it.
+Caption adv:  A man wearing a black shirt with a dog on it stands in front of a pink wall.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.7000
+Success:   False
+Accuracy:  0.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.6164
+Background SSIM   (basso=protezione ok): 0.3293
+Subject LPIPS     (basso=soggetto ok)  : 0.2971
+Editing score                          : 0.5285
+Mask coverage (% background)           : 0.7003

@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a city center plaza
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 30.8414
+SSIM: 0.9294
+FSIM: 0.8697
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 15.9526
+SSIM: 0.6376
+FSIM: 0.5079
+
+CLIP score (Image vs Prompt)
+Edited Original:  28.1113
+Edited Immunized: 26.7942
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        1.0000
+Caption orig: A woman wearing a brown coat and a striped shirt is standing on a sidewalk.
+Caption adv:  A woman wearing a brown coat and a striped shirt is standing on a sidewalk.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 1.0000
+Success:   False
+Accuracy:  0.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.5228
+Background SSIM   (basso=protezione ok): 0.5788
+Subject LPIPS     (basso=soggetto ok)  : 0.3953
+Editing score                          : 0.4374
+Mask coverage (% background)           : 0.6755

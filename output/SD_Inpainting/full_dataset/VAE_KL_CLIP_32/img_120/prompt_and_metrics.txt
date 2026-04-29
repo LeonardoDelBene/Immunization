@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a flower stall
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 30.5366
+SSIM: 0.9609
+FSIM: 0.8699
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 16.2530
+SSIM: 0.5184
+FSIM: 0.5700
+
+CLIP score (Image vs Prompt)
+Edited Original:  32.1636
+Edited Immunized: 32.6218
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.8485
+Caption orig: A man wearing a green hat and sunglasses stands in front of a flower stand.
+Caption adv:  A man wearing sunglasses and a jacket stands in front of a flower stand.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.7000
+Success:   False
+Accuracy:  0.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.3714
+Background SSIM   (basso=protezione ok): 0.4460
+Subject LPIPS     (basso=soggetto ok)  : 0.3141
+Editing score                          : 0.4692
+Mask coverage (% background)           : 0.7962

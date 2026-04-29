@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a stadium tunnel
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 29.9743
+SSIM: 0.9174
+FSIM: 0.7929
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 16.8072
+SSIM: 0.5435
+FSIM: 0.4605
+
+CLIP score (Image vs Prompt)
+Edited Original:  30.2298
+Edited Immunized: 30.0468
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.6337
+Caption orig: A woman wearing a fur hat and a brown coat stands in a tunnel.
+Caption adv:  A woman wearing a fur hat and a brown coat is walking down a hallway.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.5548
+Background SSIM   (basso=protezione ok): 0.4805
+Subject LPIPS     (basso=soggetto ok)  : 0.5404
+Editing score                          : 0.4590
+Mask coverage (% background)           : 0.7049

@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a street vendor stand
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 30.9167
+SSIM: 0.9447
+FSIM: 0.8282
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 16.8959
+SSIM: 0.6458
+FSIM: 0.5841
+
+CLIP score (Image vs Prompt)
+Edited Original:  28.3296
+Edited Immunized: 30.1679
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.8570
+Caption orig: A woman in a blue shirt stands in front of a fruit stand.
+Caption adv:  A woman in a blue shirt stands in front of a fruit stand, looking at the camera.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.7000
+Success:   False
+Accuracy:  0.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.2904
+Background SSIM   (basso=protezione ok): 0.6028
+Subject LPIPS     (basso=soggetto ok)  : 0.3729
+Editing score                          : 0.4105
+Mask coverage (% background)           : 0.7331

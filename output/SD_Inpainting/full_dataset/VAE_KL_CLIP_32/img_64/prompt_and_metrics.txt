@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a news van
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 33.6439
+SSIM: 0.9642
+FSIM: 0.9247
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 14.9032
+SSIM: 0.6149
+FSIM: 0.4773
+
+CLIP score (Image vs Prompt)
+Edited Original:  29.6258
+Edited Immunized: 28.1300
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.5618
+Caption orig: A woman wearing a grey coat and orange shirt is standing in an airplane.
+Caption adv:  A woman wearing a grey coat and holding a cell phone is standing in the doorway of a bus.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.4638
+Background SSIM   (basso=protezione ok): 0.5482
+Subject LPIPS     (basso=soggetto ok)  : 0.3673
+Editing score                          : 0.4431
+Mask coverage (% background)           : 0.7597

@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a lobby
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 30.4415
+SSIM: 0.9304
+FSIM: 0.9148
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 15.6529
+SSIM: 0.6038
+FSIM: 0.4686
+
+CLIP score (Image vs Prompt)
+Edited Original:  21.2184
+Edited Immunized: 23.0656
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.6872
+Caption orig: A woman wearing a hat and sunglasses, standing in a room.
+Caption adv:  A woman wearing a hat and sunglasses is walking down a hallway.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.6546
+Background SSIM   (basso=protezione ok): 0.5461
+Subject LPIPS     (basso=soggetto ok)  : 0.3709
+Editing score                          : 0.4616
+Mask coverage (% background)           : 0.7054

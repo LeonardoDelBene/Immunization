@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a parking garage
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 28.3423
+SSIM: 0.9724
+FSIM: 0.8770
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 15.4687
+SSIM: 0.5741
+FSIM: 0.5094
+
+CLIP score (Image vs Prompt)
+Edited Original:  26.0117
+Edited Immunized: 24.9274
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.8064
+Caption orig: A woman wearing a black hat and glasses is standing in a room with a white wall.
+Caption adv:  A woman wearing a hat and glasses is standing in front of a wall.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.7000
+Success:   False
+Accuracy:  0.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.7717
+Background SSIM   (basso=protezione ok): 0.4412
+Subject LPIPS     (basso=soggetto ok)  : 0.2322
+Editing score                          : 0.5149
+Mask coverage (% background)           : 0.7013

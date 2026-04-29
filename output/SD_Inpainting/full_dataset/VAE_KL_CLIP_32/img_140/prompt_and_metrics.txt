@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a concert hall
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 31.0503
+SSIM: 0.9189
+FSIM: 0.9081
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 15.4518
+SSIM: 0.4873
+FSIM: 0.3983
+
+CLIP score (Image vs Prompt)
+Edited Original:  26.6701
+Edited Immunized: 26.8426
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.6112
+Caption orig: A man wearing a hat and a blue jacket stands in front of a row of empty seats.
+Caption adv:  A man wearing a hat and a blue jacket stands in front of a group of people, possibly a band or an audience.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.7000
+Success:   False
+Accuracy:  0.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.7178
+Background SSIM   (basso=protezione ok): 0.4031
+Subject LPIPS     (basso=soggetto ok)  : 0.4116
+Editing score                          : 0.5077
+Mask coverage (% background)           : 0.7129

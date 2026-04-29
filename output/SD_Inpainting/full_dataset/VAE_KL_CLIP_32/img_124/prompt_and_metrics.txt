@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a rooftop bar
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 30.2446
+SSIM: 0.9423
+FSIM: 0.9148
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 17.9770
+SSIM: 0.6293
+FSIM: 0.5277
+
+CLIP score (Image vs Prompt)
+Edited Original:  26.0844
+Edited Immunized: 28.1465
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.4850
+Caption orig: A woman wearing a white and blue dress stands on a rooftop, looking out over the city.
+Caption adv:  A woman wearing a white dress is sitting on a balcony, holding a bottle of wine.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.5287
+Background SSIM   (basso=protezione ok): 0.5695
+Subject LPIPS     (basso=soggetto ok)  : 0.3928
+Editing score                          : 0.4409
+Mask coverage (% background)           : 0.7046

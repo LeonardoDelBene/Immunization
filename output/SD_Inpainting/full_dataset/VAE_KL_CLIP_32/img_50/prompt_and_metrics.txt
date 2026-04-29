@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a car dealership
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 30.6364
+SSIM: 0.9224
+FSIM: 0.8815
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 14.7484
+SSIM: 0.5942
+FSIM: 0.4784
+
+CLIP score (Image vs Prompt)
+Edited Original:  27.8894
+Edited Immunized: 26.6873
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.8274
+Caption orig: A woman wearing a grey sweater and holding a purse stands in front of a car.
+Caption adv:  A woman wearing a grey sweater stands next to a car.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.7000
+Success:   False
+Accuracy:  0.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.5338
+Background SSIM   (basso=protezione ok): 0.5684
+Subject LPIPS     (basso=soggetto ok)  : 0.5691
+Editing score                          : 0.4285
+Mask coverage (% background)           : 0.7433

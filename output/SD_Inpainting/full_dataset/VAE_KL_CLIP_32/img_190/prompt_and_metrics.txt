@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a sandwich shop
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 30.0464
+SSIM: 0.9082
+FSIM: 0.8885
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 16.0832
+SSIM: 0.5549
+FSIM: 0.4794
+
+CLIP score (Image vs Prompt)
+Edited Original:  26.4396
+Edited Immunized: 26.4842
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.3624
+Caption orig: A woman wearing a pink sweater and a hat is standing in front of a deli counter.
+Caption adv:  A man wearing a red sweater is standing in front of a display case filled with sandwiches.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.5099
+Background SSIM   (basso=protezione ok): 0.4979
+Subject LPIPS     (basso=soggetto ok)  : 0.5010
+Editing score                          : 0.4525
+Mask coverage (% background)           : 0.6845

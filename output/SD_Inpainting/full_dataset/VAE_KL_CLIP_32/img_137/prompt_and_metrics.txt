@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a street parade
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 29.8232
+SSIM: 0.9741
+FSIM: 0.8710
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 17.1747
+SSIM: 0.7025
+FSIM: 0.6258
+
+CLIP score (Image vs Prompt)
+Edited Original:  29.7662
+Edited Immunized: 30.6545
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.5429
+Caption orig: A woman wearing a plaid shirt and a hat is walking down the street.
+Caption adv:  A woman wearing a plaid shirt and a pink feather hat is smiling at the camera.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.7000
+Success:   False
+Accuracy:  0.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.3757
+Background SSIM   (basso=protezione ok): 0.6568
+Subject LPIPS     (basso=soggetto ok)  : 0.3785
+Editing score                          : 0.4016
+Mask coverage (% background)           : 0.7790

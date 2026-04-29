@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a science museum exhibit
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 32.8266
+SSIM: 0.9433
+FSIM: 0.9017
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 19.0186
+SSIM: 0.5798
+FSIM: 0.4409
+
+CLIP score (Image vs Prompt)
+Edited Original:  28.7754
+Edited Immunized: 25.1748
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.4681
+Caption orig: A woman wearing sunglasses and a brown dress stands in front of a display of animal sculptures.
+Caption adv:  A woman wearing a dress and sunglasses is standing in a room with a green door.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.5971
+Background SSIM   (basso=protezione ok): 0.5318
+Subject LPIPS     (basso=soggetto ok)  : 0.5066
+Editing score                          : 0.4502
+Mask coverage (% background)           : 0.7607

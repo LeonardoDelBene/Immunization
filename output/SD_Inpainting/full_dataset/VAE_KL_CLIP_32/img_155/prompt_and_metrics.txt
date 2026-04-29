@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a weekend market
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 32.4808
+SSIM: 0.9414
+FSIM: 0.9176
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 15.8150
+SSIM: 0.4887
+FSIM: 0.4825
+
+CLIP score (Image vs Prompt)
+Edited Original:  29.3933
+Edited Immunized: 31.2162
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.2325
+Caption orig: A woman in a marketplace, surrounded by various fruits and vegetables.
+Caption adv:  A woman in a white shirt and blue jeans is walking down a street.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.6535
+Background SSIM   (basso=protezione ok): 0.4350
+Subject LPIPS     (basso=soggetto ok)  : 0.5689
+Editing score                          : 0.4800
+Mask coverage (% background)           : 0.7821

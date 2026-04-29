@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a ceramic art exhibit
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 30.5085
+SSIM: 0.9130
+FSIM: 0.8544
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 14.0555
+SSIM: 0.4950
+FSIM: 0.4320
+
+CLIP score (Image vs Prompt)
+Edited Original:  30.3773
+Edited Immunized: 32.9992
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.7437
+Caption orig: A man wearing a leather jacket and a vest stands in front of a wall filled with various sculptures and carvings.
+Caption adv:  A man wearing a white vest and black jacket stands in front of a group of statues.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.6338
+Background SSIM   (basso=protezione ok): 0.3927
+Subject LPIPS     (basso=soggetto ok)  : 0.4291
+Editing score                          : 0.5013
+Mask coverage (% background)           : 0.6780

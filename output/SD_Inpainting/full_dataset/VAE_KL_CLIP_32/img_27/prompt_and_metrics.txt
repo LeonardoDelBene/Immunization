@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a basement
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 32.0382
+SSIM: 0.9349
+FSIM: 0.8804
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 19.3980
+SSIM: 0.5565
+FSIM: 0.5109
+
+CLIP score (Image vs Prompt)
+Edited Original:  25.7196
+Edited Immunized: 26.8710
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.6872
+Caption orig: A woman wearing a white shirt and blue jeans is standing in a room with a wooden floor.
+Caption adv:  A woman in a white shirt and blue jeans is walking down a hallway.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.4616
+Background SSIM   (basso=protezione ok): 0.5006
+Subject LPIPS     (basso=soggetto ok)  : 0.5234
+Editing score                          : 0.4455
+Mask coverage (% background)           : 0.7293

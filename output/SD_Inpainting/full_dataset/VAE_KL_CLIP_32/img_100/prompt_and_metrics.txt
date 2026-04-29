@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a festival ground
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 29.7979
+SSIM: 0.9078
+FSIM: 0.8489
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 20.8263
+SSIM: 0.7342
+FSIM: 0.6419
+
+CLIP score (Image vs Prompt)
+Edited Original:  29.2696
+Edited Immunized: 31.9202
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.8028
+Caption orig: A man wearing a red and blue sweater stands in a field with a crowd of people around him.
+Caption adv:  A man wearing a red and black sweater is standing in a crowd of people.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.2518
+Background SSIM   (basso=protezione ok): 0.7486
+Subject LPIPS     (basso=soggetto ok)  : 0.3179
+Editing score                          : 0.3675
+Mask coverage (% background)           : 0.6802

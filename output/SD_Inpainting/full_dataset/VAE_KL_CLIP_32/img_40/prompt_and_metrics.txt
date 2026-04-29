@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a rooftop lounge
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 32.2051
+SSIM: 0.9518
+FSIM: 0.9502
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 17.9133
+SSIM: 0.6555
+FSIM: 0.5133
+
+CLIP score (Image vs Prompt)
+Edited Original:  27.1476
+Edited Immunized: 29.4029
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.9350
+Caption orig: A woman wearing a red sweater and pink pants is standing on a rooftop.
+Caption adv:  A woman wearing a red shirt and red pants is standing on a rooftop.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.8000
+Success:   False
+Accuracy:  0.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.4288
+Background SSIM   (basso=protezione ok): 0.6136
+Subject LPIPS     (basso=soggetto ok)  : 0.2748
+Editing score                          : 0.4271
+Mask coverage (% background)           : 0.7515

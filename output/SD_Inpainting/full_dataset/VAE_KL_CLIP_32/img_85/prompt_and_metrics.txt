@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a high-end restaurant
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 32.1799
+SSIM: 0.8950
+FSIM: 0.9037
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 16.3092
+SSIM: 0.5773
+FSIM: 0.4886
+
+CLIP score (Image vs Prompt)
+Edited Original:  31.5517
+Edited Immunized: 31.8084
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.8173
+Caption orig: A woman in a black suit stands in a restaurant, surrounded by wine glasses and dining tables.
+Caption adv:  A woman wearing a black jacket and glasses is standing in a restaurant.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.4429
+Background SSIM   (basso=protezione ok): 0.5461
+Subject LPIPS     (basso=soggetto ok)  : 0.4494
+Editing score                          : 0.4357
+Mask coverage (% background)           : 0.6925

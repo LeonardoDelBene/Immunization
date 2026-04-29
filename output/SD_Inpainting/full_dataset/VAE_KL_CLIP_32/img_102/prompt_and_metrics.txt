@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a high school
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 31.4502
+SSIM: 0.9084
+FSIM: 0.9135
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 18.5632
+SSIM: 0.6269
+FSIM: 0.4921
+
+CLIP score (Image vs Prompt)
+Edited Original:  19.8843
+Edited Immunized: 22.6103
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.4607
+Caption orig: A woman wearing a black jacket and a ring on her finger.
+Caption adv:  A woman wearing a black coat and holding a purse is standing in a hallway.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.6369
+Background SSIM   (basso=protezione ok): 0.6130
+Subject LPIPS     (basso=soggetto ok)  : 0.4681
+Editing score                          : 0.4326
+Mask coverage (% background)           : 0.7091

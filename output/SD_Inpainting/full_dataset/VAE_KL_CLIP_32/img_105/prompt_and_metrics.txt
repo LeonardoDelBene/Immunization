@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a drive-thru
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 30.7965
+SSIM: 0.9316
+FSIM: 0.9078
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 12.7568
+SSIM: 0.5012
+FSIM: 0.4452
+
+CLIP score (Image vs Prompt)
+Edited Original:  23.6818
+Edited Immunized: 23.6177
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.5969
+Caption orig: A woman with long blonde hair is leaning out of a car window, wearing sunglasses and a black jacket.
+Caption adv:  A woman wearing sunglasses and a black shirt is standing next to a car.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.4000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.5322
+Background SSIM   (basso=protezione ok): 0.4281
+Subject LPIPS     (basso=soggetto ok)  : 0.3688
+Editing score                          : 0.4855
+Mask coverage (% background)           : 0.7459

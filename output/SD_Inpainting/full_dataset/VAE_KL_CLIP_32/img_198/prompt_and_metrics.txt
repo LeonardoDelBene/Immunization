@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a call center
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 32.4910
+SSIM: 0.9564
+FSIM: 0.9086
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 13.9874
+SSIM: 0.5405
+FSIM: 0.4530
+
+CLIP score (Image vs Prompt)
+Edited Original:  27.7899
+Edited Immunized: 29.8067
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.5711
+Caption orig: A woman wearing glasses and a hat is standing in an office.
+Caption adv:  A woman in a white shirt and hat is standing in front of a computer.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.5891
+Background SSIM   (basso=protezione ok): 0.4352
+Subject LPIPS     (basso=soggetto ok)  : 0.3459
+Editing score                          : 0.4905
+Mask coverage (% background)           : 0.7224

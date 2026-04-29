@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a technology trade show
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 32.5105
+SSIM: 0.9271
+FSIM: 0.8437
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 13.3914
+SSIM: 0.5183
+FSIM: 0.4369
+
+CLIP score (Image vs Prompt)
+Edited Original:  29.6679
+Edited Immunized: 30.7968
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.4953
+Caption orig: A woman wearing a jacket and headphones stands in front of a display.
+Caption adv:  A woman wearing a black jacket and a hat stands in a room with a group of people.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.5866
+Background SSIM   (basso=protezione ok): 0.4617
+Subject LPIPS     (basso=soggetto ok)  : 0.4714
+Editing score                          : 0.4729
+Mask coverage (% background)           : 0.7481

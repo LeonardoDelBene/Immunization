@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a weekend market
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 31.3444
+SSIM: 0.8996
+FSIM: 0.9280
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 17.4118
+SSIM: 0.5622
+FSIM: 0.5453
+
+CLIP score (Image vs Prompt)
+Edited Original:  28.4158
+Edited Immunized: 30.6786
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.9641
+Caption orig: A woman in a black leather jacket stands in front of a fruit stand.
+Caption adv:  A woman in a black jacket stands in front of a fruit stand.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.8000
+Success:   False
+Accuracy:  0.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.4055
+Background SSIM   (basso=protezione ok): 0.5403
+Subject LPIPS     (basso=soggetto ok)  : 0.6011
+Editing score                          : 0.4226
+Mask coverage (% background)           : 0.7207

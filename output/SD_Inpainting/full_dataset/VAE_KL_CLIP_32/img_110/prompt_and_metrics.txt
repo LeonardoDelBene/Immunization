@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a farmers' cooperative
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 31.4160
+SSIM: 0.9276
+FSIM: 0.8823
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 14.8065
+SSIM: 0.4418
+FSIM: 0.4392
+
+CLIP score (Image vs Prompt)
+Edited Original:  27.7335
+Edited Immunized: 30.7193
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.5219
+Caption orig: A woman in a brown coat and orange shirt stands in a field of green plants.
+Caption adv:  A woman wearing a brown coat and a hat is standing in a room with a brown floor.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.7712
+Background SSIM   (basso=protezione ok): 0.2850
+Subject LPIPS     (basso=soggetto ok)  : 0.3462
+Editing score                          : 0.5532
+Mask coverage (% background)           : 0.6754

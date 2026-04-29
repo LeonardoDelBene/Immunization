@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a game room
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 31.9046
+SSIM: 0.9153
+FSIM: 0.8902
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 14.8882
+SSIM: 0.4221
+FSIM: 0.4365
+
+CLIP score (Image vs Prompt)
+Edited Original:  24.2900
+Edited Immunized: 24.8106
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.6418
+Caption orig: A man wearing sunglasses and a black jacket stands in front of a bookshelf.
+Caption adv:  A man wearing a black shirt with a wolf on it stands in front of a bookshelf.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.5265
+Background SSIM   (basso=protezione ok): 0.3098
+Subject LPIPS     (basso=soggetto ok)  : 0.4261
+Editing score                          : 0.5161
+Mask coverage (% background)           : 0.7025

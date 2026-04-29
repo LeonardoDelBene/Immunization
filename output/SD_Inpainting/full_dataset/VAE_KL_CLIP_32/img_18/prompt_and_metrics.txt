@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a butcher’s shop
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 31.9496
+SSIM: 0.9625
+FSIM: 0.8779
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 14.9483
+SSIM: 0.5299
+FSIM: 0.4737
+
+CLIP score (Image vs Prompt)
+Edited Original:  28.4838
+Edited Immunized: 29.0845
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.6414
+Caption orig: A woman wearing a grey jacket stands in front of a meat counter.
+Caption adv:  A woman in a white coat is standing in front of a deli counter.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.5450
+Background SSIM   (basso=protezione ok): 0.4194
+Subject LPIPS     (basso=soggetto ok)  : 0.3222
+Editing score                          : 0.4928
+Mask coverage (% background)           : 0.7342
