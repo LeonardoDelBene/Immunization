@@ -1,0 +1,35 @@
+--- Prompt ---
+person in a castle
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 33.8263
+SSIM: 0.9553
+FSIM: 0.9196
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 8.4643
+SSIM: 0.1031
+FSIM: 0.3202
+
+CLIP score (Image vs Prompt)
+Edited Original:  22.8526
+Edited Immunized: 23.7984
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.5218
+Caption orig: A man wearing sunglasses and a blue shirt is talking on his cell phone.
+Caption adv:  A man wearing sunglasses and a black shirt is standing in front of a black background.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.9421
+Background SSIM   (basso=protezione ok): 0.0000
+Subject LPIPS     (basso=soggetto ok)  : 0.4508
+Editing score                          : 0.6479
+Mask coverage (% background)           : 0.8426

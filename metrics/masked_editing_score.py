@@ -58,102 +58,128 @@ class MaskedEditingScore(Metric):
 
     # ── LPIPS mascherato ─────────────────────────────────────────────────────
 
-    def _masked_lpips(
-        self,
-        img1: Image.Image,
-        img2: Image.Image,
-        mask: np.ndarray,           # (H, W) binario float
-    ) -> float:
-        """LPIPS calcolato solo nella regione mask==1."""
-        t1 = self._to_tensor(img1).to(self.device)
-        t2 = self._to_tensor(img2).to(self.device)
-
-        H, W = mask.shape
-        mask_t = torch.from_numpy(mask).unsqueeze(0).unsqueeze(0).to(self.device)  # (1,1,H,W)
-
-        # applica la maschera a entrambe le immagini
-        t1_masked = t1 * mask_t
-        t2_masked = t2 * mask_t
-
-        with torch.no_grad():
-            score = self.lpips_fn(t1_masked, t2_masked).item()
-
-        # normalizza per la proporzione di pixel mascherati
-        mask_ratio = mask.mean()
-        return score / (mask_ratio + 1e-8) if mask_ratio > 0 else 0.0
-
-    # ── SSIM mascherato ──────────────────────────────────────────────────────
-
     @staticmethod
-    def _masked_ssim(
+    def _background_change_ssim(
             img1: Image.Image,
             img2: Image.Image,
-            mask: np.ndarray,  # (H, W) binario float {0,1}
+            mask: np.ndarray,  # (H, W) binario float {0,1}: 1=background, 0=soggetto
     ) -> float:
-        """SSIM calcolato solo nella regione mask==0 (background)."""
+        """
+        Misura quanto il background (mask==1) è cambiato tra img1 e img2.
+
+        Alto  → le due immagini hanno background simile (immunizzazione fallita)
+        Basso → il background è stato disturbato (immunizzazione riuscita)
+        """
         arr1 = MaskedEditingScore._to_numpy(img1).astype(np.float32) / 255.0
         arr2 = MaskedEditingScore._to_numpy(img2).astype(np.float32) / 255.0
 
-        bg_mask = (mask == 0)  # True dove c'è background
+        bg_mask = (mask == 1)  # True dove c'è background da editare
 
         if bg_mask.sum() == 0:
             return 1.0
 
-        # azzera la regione della maschera su entrambe → SSIM solo sul background
+        # estrai solo i pixel del background su entrambe le immagini
+        # ricostruisce immagine con solo il background visibile, soggetto a zero
         mask_3ch = np.stack([bg_mask] * 3, axis=-1).astype(np.float32)
         arr1_bg = arr1 * mask_3ch
         arr2_bg = arr2 * mask_3ch
 
-        return structural_similarity(
+        raw_ssim = structural_similarity(
             arr1_bg, arr2_bg,
             channel_axis=2,
             data_range=1.0,
         )
 
+        # de-bias: rimuove il contributo dei pixel azzerati (soggetto)
+        bg_ratio = bg_mask.mean()
+        corrected = (raw_ssim - (1.0 - bg_ratio)) / (bg_ratio + 1e-8)
+        return float(np.clip(corrected, 0.0, 1.0))
+
+    def _background_change_lpips(
+            self,
+            img1: Image.Image,
+            img2: Image.Image,
+            mask: np.ndarray,  # (H, W) binario float {0,1}: 1=background
+    ) -> float:
+        """
+        LPIPS solo sul background (mask==1).
+
+        Alto  → background molto diverso tra orig e adv (immunizzazione riuscita)
+        Basso → background simile (immunizzazione fallita)
+        """
+        t1 = self._to_tensor(img1).to(self.device)
+        t2 = self._to_tensor(img2).to(self.device)
+
+        mask_t = torch.from_numpy(mask).unsqueeze(0).unsqueeze(0).to(self.device)  # (1,1,H,W)
+
+        t1_bg = t1 * mask_t
+        t2_bg = t2 * mask_t
+
+        with torch.no_grad():
+            score = self.lpips_fn(t1_bg, t2_bg).item()
+
+        # normalizza per la proporzione di background
+        bg_ratio = mask.mean()
+        return score / (bg_ratio + 1e-8) if bg_ratio > 0 else 0.0
+
     # ── Metrica principale ───────────────────────────────────────────────────
 
     def compute(
-        self,
-        image_orig:   Image.Image,
-        image_edited: Image.Image,
-        mask:         Image.Image | np.ndarray,
-        w_edit:       float = 0.5,    # peso di edit_change nell'editing_score
-        w_bg:         float = 0.5,    # peso di background_preservation
+            self,
+            image_orig: Image.Image,
+            image_edited: Image.Image,
+            mask: Image.Image | np.ndarray,
+            w_bg: float = 0.4,  # peso background disturbance
+            w_ssim: float = 0.3,  # peso background ssim
+            w_subject: float = 0.3,  # peso subject preservation
     ) -> dict:
         """
         Parameters
         ----------
-        image_orig   : immagine prima dell'editing.
-        image_edited : immagine dopo l'editing.
-        mask         : maschera della regione editata (bianco=zona editata).
-        w_edit       : peso dell'edit_change nell'editing_score finale.
-        w_bg         : peso della background_preservation nell'editing_score finale.
+        image_orig   : edited_orig_recovered  (editing sull'originale)
+        image_edited : edited_adv_recovered   (editing sull'immunizzata)
+        mask         : pixel neri=soggetto (deve restare uguale), pixel bianchi=background (deve cambiare)
 
         Returns
         -------
         dict con:
-            - edit_change             : LPIPS nella zona editata  ∈ [0, +∞)  (alto = editing avvenuto)
-            - background_preservation : SSIM nel background       ∈ [0,  1]  (alto = bg preservato)
-            - editing_score           : score combinato           ∈ [0,  1]
-            - mask_coverage           : % di pixel mascherati
+            - bg_lpips          : LPIPS sul background   (alto = background disturbato = protezione ok)
+            - bg_ssim           : SSIM sul background    (basso = background disturbato = protezione ok)
+            - subject_lpips     : LPIPS sul soggetto     (basso = soggetto preservato = immunizzazione pulita)
+            - editing_score     : score combinato        (alto = protezione efficace E soggetto preservato)
+            - mask_coverage     : % di pixel background  (zona bianca)
         """
         H, W = np.array(image_orig).shape[:2]
-        mask_np = self._prepare_mask(mask, (H, W))
+        mask_np = self._prepare_mask(mask, (H, W))  # 1=background, 0=soggetto
 
-        edit_change  = self._masked_lpips(image_orig, image_edited, mask_np)
-        bg_preserv   = self._masked_ssim(image_orig, image_edited, mask_np)
-        mask_coverage = mask_np.mean()
+        # ── Background: deve essere disturbato ──────────────────────────────────
+        bg_lpips = self._background_change_lpips(image_orig, image_edited, mask_np)
+        bg_ssim = self._background_change_ssim(image_orig, image_edited, mask_np)
 
-        # editing_score: normalizza edit_change in [0,1] con sigmoide,
-        # poi media pesata con bg_preservation
-        edit_change_norm = float(1 / (1 + np.exp(-edit_change + 1)))  # sigmoide centrata su 1
-        editing_score    = w_edit * edit_change_norm + w_bg * bg_preserv
+        # ── Soggetto: deve restare uguale ───────────────────────────────────────
+        subject_mask = 1.0 - mask_np  # inverti: 1=soggetto, 0=background
+        subject_lpips = self._background_change_lpips(  # riusa lo stesso metodo con maschera invertita
+            image_orig, image_edited, subject_mask
+        )
+
+        # ── Editing score ────────────────────────────────────────────────────────
+        # background disturbato = buono → bg_lpips alto, bg_ssim basso
+        # soggetto preservato   = buono → subject_lpips basso
+        bg_lpips_norm = float(1 / (1 + np.exp(-bg_lpips + 1)))  # sigmoide centrata su 1
+        subject_preserved = float(1 / (1 + np.exp(subject_lpips - 0.5)))  # sigmoide invertita: basso lpips → alto score
+
+        editing_score = (
+                w_bg * bg_lpips_norm +  # background deve cambiare
+                w_ssim * (1.0 - bg_ssim) +  # background deve essere poco simile
+                w_subject * subject_preserved  # soggetto deve restare uguale
+        )
 
         return {
-            "edit_change":             edit_change,
-            "background_preservation": bg_preserv,
-            "editing_score":           editing_score,
-            "mask_coverage":           float(mask_coverage),
+            "bg_lpips": bg_lpips,
+            "bg_ssim": bg_ssim,
+            "subject_lpips": subject_lpips,
+            "editing_score": editing_score,
+            "mask_coverage": float(mask_np.mean()),
         }
 
     def calculate_metric_between_images(

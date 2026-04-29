@@ -239,14 +239,14 @@ Output only a single number between 0 and 1. Do not include any explanation or a
         cap2 = self.get_caption(image2)
 
         llm_score = self._judge_similarity(cap1, cap2)
-        success = llm_score >= self.threshold
+        success = llm_score < self.threshold  # successo = editing fallito sull'immunizzata
 
         return {
-            "caption_1":     cap1,
-            "caption_2":     cap2,
-            "llm_score":     llm_score,
-            "threshold":     self.threshold,
-            "success":       success,
+            "caption_1": cap1,
+            "caption_2": cap2,
+            "llm_score": llm_score,
+            "threshold": self.threshold,
+            "success": success,
             "accuracy_rate": float(success),
         }
 

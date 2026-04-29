@@ -145,11 +145,12 @@ def save_metrics(output_dir, edit_prompt, metrics: dict):
         f.write(f"Success:   {metrics['accuracy_success']}\n")
         f.write(f"Accuracy:  {metrics['accuracy_rate']:.4f}\n\n")
 
-        f.write("Masked Editing Score (Edited Original vs Edited Immunized)\n")
-        f.write(f"Edit change (LPIPS):          {metrics['masked_edit_change']:.4f}\n")
-        f.write(f"Background preservation (SSIM): {metrics['masked_bg_preservation']:.4f}\n")
-        f.write(f"Editing score:                {metrics['masked_editing_score']:.4f}\n")
-        f.write(f"Mask coverage:                {metrics['masked_coverage']:.4f}\n")
+        f.write("Masked Editing Score\n")
+        f.write(f"Background LPIPS  (alto=protezione ok) : {metrics['masked_bg_lpips']:.4f}\n")
+        f.write(f"Background SSIM   (basso=protezione ok): {metrics['masked_bg_ssim']:.4f}\n")
+        f.write(f"Subject LPIPS     (basso=soggetto ok)  : {metrics['masked_subject_lpips']:.4f}\n")
+        f.write(f"Editing score                          : {metrics['masked_editing_score']:.4f}\n")
+        f.write(f"Mask coverage (% background)           : {metrics['masked_coverage']:.4f}\n")
 
     print(f"Metrics saved in {prompt_file}")
 
@@ -206,10 +207,11 @@ def compute_metrics(image, mask, adv_image_png, edited_orig_recovered, edited_ad
         "accuracy_score":   acc_score["llm_score"],
         "accuracy_success": acc_score["success"],
         # Masked editing score
-        "masked_edit_change":       masked_score["edit_change"],
-        "masked_bg_preservation":   masked_score["background_preservation"],
-        "masked_editing_score":     masked_score["editing_score"],
-        "masked_coverage":          masked_score["mask_coverage"],
+        "masked_bg_lpips": masked_score["bg_lpips"],
+        "masked_bg_ssim": masked_score["bg_ssim"],
+        "masked_subject_lpips": masked_score["subject_lpips"],
+        "masked_editing_score": masked_score["editing_score"],
+        "masked_coverage": masked_score["mask_coverage"],
     }
 
     print("\n--- Image Quality (Original vs Immunized) ---")
@@ -237,11 +239,13 @@ def compute_metrics(image, mask, adv_image_png, edited_orig_recovered, edited_ad
     print(f"Success   : {metrics['accuracy_success']}")
     print(f"Accuracy  : {metrics['accuracy_rate']:.4f}")
 
-    print("\n--- Masked Editing Score (Edited Original vs Edited Immunized) ---")
-    print(f"Edit change (LPIPS)           : {metrics['masked_edit_change']:.4f}")
-    print(f"Background preservation (SSIM): {metrics['masked_bg_preservation']:.4f}")
-    print(f"Editing score                 : {metrics['masked_editing_score']:.4f}")
-    print(f"Mask coverage                 : {metrics['masked_coverage']:.4f}")
+    print("\n--- Masked Editing Score ---")
+    print("\n--- Masked Editing Score ---")
+    print(f"Background LPIPS  (alto=protezione ok) : {metrics['masked_bg_lpips']:.4f}")
+    print(f"Background SSIM   (basso=protezione ok): {metrics['masked_bg_ssim']:.4f}")
+    print(f"Subject LPIPS     (basso=soggetto ok)  : {metrics['masked_subject_lpips']:.4f}")
+    print(f"Editing score                          : {metrics['masked_editing_score']:.4f}")
+    print(f"Mask coverage (% background)           : {metrics['masked_coverage']:.4f}")
 
     return metrics
 
@@ -429,7 +433,7 @@ def get_config():
         "base_output_dir":      "output",
         "dataset_path":         "./data/DiffVaxDataset_local",
         "dataset_split":        "validation",
-        "sample_idx":           40,
+        "sample_idx":           41,
         "run_full_dataset":     False,
         "run_wandb":            "VAE_noise_mask_KL"
     }
