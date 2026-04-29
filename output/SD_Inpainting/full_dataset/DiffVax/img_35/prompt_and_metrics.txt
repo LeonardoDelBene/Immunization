@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a flower garden
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 32.6239
+SSIM: 0.9876
+FSIM: 0.9540
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 13.6828
+SSIM: 0.4452
+FSIM: 0.4911
+
+CLIP score (Image vs Prompt)
+Edited Original:  27.8157
+Edited Immunized: 27.0182
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        1.0000
+Caption orig: A woman wearing a red jacket and sunglasses is talking on her cell phone.
+Caption adv:  A woman wearing a red jacket and sunglasses is talking on her cell phone.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 1.0000
+Success:   False
+Accuracy:  0.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.7825
+Background SSIM   (basso=protezione ok): 0.2582
+Subject LPIPS     (basso=soggetto ok)  : 0.0839
+Editing score                          : 0.5817
+Mask coverage (% background)           : 0.7318

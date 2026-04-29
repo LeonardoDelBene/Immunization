@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a city food tour
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 34.0897
+SSIM: 0.9873
+FSIM: 0.9633
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 14.0721
+SSIM: 0.5585
+FSIM: 0.4838
+
+CLIP score (Image vs Prompt)
+Edited Original:  28.2783
+Edited Immunized: 23.3145
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.6012
+Caption orig: A woman in a black dress and a gold belt is standing in front of a table filled with food.
+Caption adv:  A woman wearing a black dress and a gold belt stands in front of a wall covered in graffiti.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.7326
+Background SSIM   (basso=protezione ok): 0.4147
+Subject LPIPS     (basso=soggetto ok)  : 0.1091
+Editing score                          : 0.5280
+Mask coverage (% background)           : 0.7304

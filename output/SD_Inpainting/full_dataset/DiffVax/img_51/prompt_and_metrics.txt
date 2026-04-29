@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a yoga class
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 34.9607
+SSIM: 0.9917
+FSIM: 0.9715
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 15.8564
+SSIM: 0.6802
+FSIM: 0.5251
+
+CLIP score (Image vs Prompt)
+Edited Original:  23.3736
+Edited Immunized: 20.6160
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.7172
+Caption orig: A woman wearing a blue jacket and a white shirt stands in front of a colorful painting.
+Caption adv:  A woman wearing a blue jacket and a white shirt stands in front of a pink and grey wall.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 1.0101
+Background SSIM   (basso=protezione ok): 0.5861
+Subject LPIPS     (basso=soggetto ok)  : 0.1249
+Editing score                          : 0.5030
+Mask coverage (% background)           : 0.7327

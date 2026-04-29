@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a car dealership
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 34.2126
+SSIM: 0.9869
+FSIM: 0.9513
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 12.5649
+SSIM: 0.5933
+FSIM: 0.5079
+
+CLIP score (Image vs Prompt)
+Edited Original:  26.1956
+Edited Immunized: 21.9192
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.6443
+Caption orig: A woman wearing a leopard print jacket and a green shirt is standing next to a car.
+Caption adv:  A woman wearing a leopard print jacket and a green shirt is smiling for the camera.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.7000
+Success:   False
+Accuracy:  0.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.9022
+Background SSIM   (basso=protezione ok): 0.4475
+Subject LPIPS     (basso=soggetto ok)  : 0.1070
+Editing score                          : 0.5351
+Mask coverage (% background)           : 0.7064

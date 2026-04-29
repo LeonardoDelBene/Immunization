@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a beach resort
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 35.5429
+SSIM: 0.9913
+FSIM: 0.9592
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 14.9948
+SSIM: 0.6138
+FSIM: 0.5968
+
+CLIP score (Image vs Prompt)
+Edited Original:  26.0667
+Edited Immunized: 23.1350
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        1.0000
+Caption orig: A woman in a black jacket and a purple dress stands on a beach.
+Caption adv:  A woman in a black jacket and a purple dress stands on a beach.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 1.0000
+Success:   False
+Accuracy:  0.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.8048
+Background SSIM   (basso=protezione ok): 0.4790
+Subject LPIPS     (basso=soggetto ok)  : 0.1097
+Editing score                          : 0.5157
+Mask coverage (% background)           : 0.7079

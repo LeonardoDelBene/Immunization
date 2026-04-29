@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a kite festival
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 36.3466
+SSIM: 0.9900
+FSIM: 0.9659
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 17.2264
+SSIM: 0.5989
+FSIM: 0.4984
+
+CLIP score (Image vs Prompt)
+Edited Original:  30.6493
+Edited Immunized: 27.7726
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.7503
+Caption orig: A woman wearing a fur coat and holding a kite.
+Caption adv:  A woman wearing a fur coat and holding a colorful umbrella.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.7686
+Background SSIM   (basso=protezione ok): 0.4581
+Subject LPIPS     (basso=soggetto ok)  : 0.1402
+Editing score                          : 0.5162
+Mask coverage (% background)           : 0.7030

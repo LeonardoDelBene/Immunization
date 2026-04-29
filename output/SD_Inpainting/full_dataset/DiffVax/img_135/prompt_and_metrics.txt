@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a public park
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 34.8193
+SSIM: 0.9890
+FSIM: 0.9666
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 17.0275
+SSIM: 0.5727
+FSIM: 0.4996
+
+CLIP score (Image vs Prompt)
+Edited Original:  24.0306
+Edited Immunized: 23.0360
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.7204
+Caption orig: A man wearing a black leather jacket and black pants stands in a grassy field.
+Caption adv:  A man wearing a black jacket and holding a book stands in a field with purple flowers.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.8924
+Background SSIM   (basso=protezione ok): 0.4564
+Subject LPIPS     (basso=soggetto ok)  : 0.1579
+Editing score                          : 0.5278
+Mask coverage (% background)           : 0.7572

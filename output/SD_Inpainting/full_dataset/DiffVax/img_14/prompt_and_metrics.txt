@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a parking structure
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 35.0901
+SSIM: 0.9889
+FSIM: 0.9716
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 14.4669
+SSIM: 0.6042
+FSIM: 0.4261
+
+CLIP score (Image vs Prompt)
+Edited Original:  24.0007
+Edited Immunized: 22.4288
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.7100
+Caption orig: A woman wearing a gray vest and sunglasses is standing outside.
+Caption adv:  A woman wearing a grey dress and sunglasses is standing in front of a purple wall.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.8386
+Background SSIM   (basso=protezione ok): 0.5102
+Subject LPIPS     (basso=soggetto ok)  : 0.1427
+Editing score                          : 0.5074
+Mask coverage (% background)           : 0.7713

@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a historic landmark event
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 35.1546
+SSIM: 0.9901
+FSIM: 0.9676
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 15.9301
+SSIM: 0.4680
+FSIM: 0.4539
+
+CLIP score (Image vs Prompt)
+Edited Original:  22.5303
+Edited Immunized: 21.5928
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.8195
+Caption orig: A woman wearing sunglasses and a pink shirt stands in front of a large building.
+Caption adv:  A woman wearing a pink shirt and sunglasses stands in front of a green and pink background.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.8257
+Background SSIM   (basso=protezione ok): 0.3601
+Subject LPIPS     (basso=soggetto ok)  : 0.1892
+Editing score                          : 0.5477
+Mask coverage (% background)           : 0.8100

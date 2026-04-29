@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a customs office
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 35.2195
+SSIM: 0.9906
+FSIM: 0.9711
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 15.0947
+SSIM: 0.6088
+FSIM: 0.4516
+
+CLIP score (Image vs Prompt)
+Edited Original:  27.6559
+Edited Immunized: 26.2781
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.5844
+Caption orig: A woman in a black jacket and red pants stands in front of a counter.
+Caption adv:  A woman in a black jacket and red pants stands in front of a whiteboard with writing on it.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.7263
+Background SSIM   (basso=protezione ok): 0.5017
+Subject LPIPS     (basso=soggetto ok)  : 0.1106
+Editing score                          : 0.5011
+Mask coverage (% background)           : 0.7603

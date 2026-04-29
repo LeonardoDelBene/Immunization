@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a motel room
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 34.2385
+SSIM: 0.9862
+FSIM: 0.9547
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 11.2452
+SSIM: 0.5477
+FSIM: 0.4157
+
+CLIP score (Image vs Prompt)
+Edited Original:  27.7484
+Edited Immunized: 20.2081
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.7215
+Caption orig: A woman wearing a blue shirt and yellow skirt stands in a bedroom.
+Caption adv:  A woman wearing a blue shirt and yellow skirt stands in front of a pink and purple wall.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.7000
+Success:   False
+Accuracy:  0.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 1.0258
+Background SSIM   (basso=protezione ok): 0.4368
+Subject LPIPS     (basso=soggetto ok)  : 0.1396
+Editing score                          : 0.5483
+Mask coverage (% background)           : 0.7718

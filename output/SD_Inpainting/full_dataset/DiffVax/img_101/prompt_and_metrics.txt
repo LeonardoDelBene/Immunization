@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a bridal fitting room
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 32.4530
+SSIM: 0.9847
+FSIM: 0.9455
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 13.4388
+SSIM: 0.5622
+FSIM: 0.5128
+
+CLIP score (Image vs Prompt)
+Edited Original:  26.1359
+Edited Immunized: 26.5118
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.4335
+Caption orig: Two women are standing in front of a mirror, one wearing a pink dress and the other wearing a brown coat.
+Caption adv:  A woman wearing a brown fur coat and pink pants stands in front of a pink and grey wall.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.7391
+Background SSIM   (basso=protezione ok): 0.4417
+Subject LPIPS     (basso=soggetto ok)  : 0.1701
+Editing score                          : 0.5161
+Mask coverage (% background)           : 0.7469

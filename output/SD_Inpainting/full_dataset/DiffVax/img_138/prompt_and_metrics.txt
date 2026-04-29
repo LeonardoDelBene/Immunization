@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a dance school
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 34.0879
+SSIM: 0.9880
+FSIM: 0.9623
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 12.9109
+SSIM: 0.5318
+FSIM: 0.4124
+
+CLIP score (Image vs Prompt)
+Edited Original:  27.2043
+Edited Immunized: 22.8974
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.3677
+Caption orig: A young woman wearing a red shirt and a flower crown is standing on a stage, surrounded by other dancers.
+Caption adv:  A woman wearing a red shirt and white pants is smiling and posing for a picture.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.8238
+Background SSIM   (basso=protezione ok): 0.3771
+Subject LPIPS     (basso=soggetto ok)  : 0.1112
+Editing score                          : 0.5481
+Mask coverage (% background)           : 0.7229

@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a frozen yogurt shop
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 36.2152
+SSIM: 0.9910
+FSIM: 0.9801
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 13.2319
+SSIM: 0.5113
+FSIM: 0.3611
+
+CLIP score (Image vs Prompt)
+Edited Original:  33.0347
+Edited Immunized: 28.9985
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.4285
+Caption orig: A man is standing in front of a counter with two large cups of frozen yogurt.
+Caption adv:  A man stands in front of a purple wall with a candy display.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.6422
+Background SSIM   (basso=protezione ok): 0.4904
+Subject LPIPS     (basso=soggetto ok)  : 0.4043
+Editing score                          : 0.4746
+Mask coverage (% background)           : 0.9364

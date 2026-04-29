@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a butcher’s shop
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 35.3324
+SSIM: 0.9894
+FSIM: 0.9756
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 13.1696
+SSIM: 0.4830
+FSIM: 0.4356
+
+CLIP score (Image vs Prompt)
+Edited Original:  30.9046
+Edited Immunized: 22.2114
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.4265
+Caption orig: A woman stands in front of a meat display, holding a stick.
+Caption adv:  A woman wearing a black and white shirt and a brown skirt stands in front of a window with hearts on it.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.8629
+Background SSIM   (basso=protezione ok): 0.3224
+Subject LPIPS     (basso=soggetto ok)  : 0.1362
+Editing score                          : 0.5666
+Mask coverage (% background)           : 0.7394

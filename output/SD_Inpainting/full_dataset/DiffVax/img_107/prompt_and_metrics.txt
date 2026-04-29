@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a tech store
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 34.6615
+SSIM: 0.9893
+FSIM: 0.9728
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 12.6357
+SSIM: 0.4695
+FSIM: 0.4629
+
+CLIP score (Image vs Prompt)
+Edited Original:  23.9737
+Edited Immunized: 18.4641
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.7722
+Caption orig: A woman wearing sunglasses and a green shirt stands in front of a wall of televisions.
+Caption adv:  A woman wearing a green shirt and sunglasses stands in front of a pink background.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.8814
+Background SSIM   (basso=protezione ok): 0.2918
+Subject LPIPS     (basso=soggetto ok)  : 0.1282
+Editing score                          : 0.5782
+Mask coverage (% background)           : 0.7224

@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a youth hostel
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 34.7378
+SSIM: 0.9905
+FSIM: 0.9662
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 19.6070
+SSIM: 0.6973
+FSIM: 0.5755
+
+CLIP score (Image vs Prompt)
+Edited Original:  20.7628
+Edited Immunized: 17.0320
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.7320
+Caption orig: A woman wearing a brown jacket and sunglasses is standing in front of a sign.
+Caption adv:  A woman wearing a brown jacket and sunglasses is standing in front of a wall with pink dots.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.8677
+Background SSIM   (basso=protezione ok): 0.6135
+Subject LPIPS     (basso=soggetto ok)  : 0.1441
+Editing score                          : 0.4791
+Mask coverage (% background)           : 0.7487

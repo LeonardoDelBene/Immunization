@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a gym class
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 35.1281
+SSIM: 0.9871
+FSIM: 0.9655
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 14.4486
+SSIM: 0.6048
+FSIM: 0.4613
+
+CLIP score (Image vs Prompt)
+Edited Original:  27.9331
+Edited Immunized: 21.0438
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.6464
+Caption orig: A woman wearing sunglasses and a blue shirt is standing in a gym.
+Caption adv:  A woman wearing a blue shirt and sunglasses is standing in front of a pink background.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.9241
+Background SSIM   (basso=protezione ok): 0.4531
+Subject LPIPS     (basso=soggetto ok)  : 0.0887
+Editing score                          : 0.5369
+Mask coverage (% background)           : 0.6935

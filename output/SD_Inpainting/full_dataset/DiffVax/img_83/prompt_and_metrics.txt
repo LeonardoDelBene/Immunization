@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a strip club
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 35.8240
+SSIM: 0.9913
+FSIM: 0.9699
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 15.2862
+SSIM: 0.5725
+FSIM: 0.4819
+
+CLIP score (Image vs Prompt)
+Edited Original:  22.7374
+Edited Immunized: 20.9039
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.6565
+Caption orig: A man wearing a black vest and sunglasses stands in a room with a purple glow.
+Caption adv:  A man wearing a black vest and sunglasses stands in front of a pink background.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.8167
+Background SSIM   (basso=protezione ok): 0.4305
+Subject LPIPS     (basso=soggetto ok)  : 0.1138
+Editing score                          : 0.5312
+Mask coverage (% background)           : 0.7229

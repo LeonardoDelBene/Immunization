@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a garage
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 35.2603
+SSIM: 0.9910
+FSIM: 0.9700
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 13.7464
+SSIM: 0.5023
+FSIM: 0.4981
+
+CLIP score (Image vs Prompt)
+Edited Original:  26.9376
+Edited Immunized: 23.5043
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.6173
+Caption orig: A man wearing a green jacket stands in front of a wall filled with various tools and equipment.
+Caption adv:  A man wearing a brown jacket and a white shirt stands in front of a pink background.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.8653
+Background SSIM   (basso=protezione ok): 0.2505
+Subject LPIPS     (basso=soggetto ok)  : 0.1190
+Editing score                          : 0.5896
+Mask coverage (% background)           : 0.6415

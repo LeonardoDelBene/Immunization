@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a beachside boardwalk
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 35.6812
+SSIM: 0.9903
+FSIM: 0.9714
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 15.0914
+SSIM: 0.5615
+FSIM: 0.4975
+
+CLIP score (Image vs Prompt)
+Edited Original:  27.5987
+Edited Immunized: 21.8003
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.6584
+Caption orig: A woman wearing a white sweater and a green and white skirt is standing on a beach.
+Caption adv:  A woman wearing a white sweater and a green and white skirt stands in front of a colorful wall.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.8506
+Background SSIM   (basso=protezione ok): 0.4308
+Subject LPIPS     (basso=soggetto ok)  : 0.1086
+Editing score                          : 0.5348
+Mask coverage (% background)           : 0.7403

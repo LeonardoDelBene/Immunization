@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a gymnasium
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 34.3916
+SSIM: 0.9916
+FSIM: 0.9613
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 15.5715
+SSIM: 0.5548
+FSIM: 0.4543
+
+CLIP score (Image vs Prompt)
+Edited Original:  25.4550
+Edited Immunized: 19.1211
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.5620
+Caption orig: A woman wearing a purple jacket and a white scarf is standing in a gym.
+Caption adv:  A woman wearing a blue jacket and a white scarf stands in front of a pink background.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.8428
+Background SSIM   (basso=protezione ok): 0.4216
+Subject LPIPS     (basso=soggetto ok)  : 0.1374
+Editing score                          : 0.5347
+Mask coverage (% background)           : 0.7410

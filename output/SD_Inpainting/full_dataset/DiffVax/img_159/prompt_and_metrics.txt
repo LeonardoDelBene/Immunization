@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a TV newsroom
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 34.2943
+SSIM: 0.9856
+FSIM: 0.9725
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 11.2998
+SSIM: 0.4851
+FSIM: 0.3963
+
+CLIP score (Image vs Prompt)
+Edited Original:  28.3771
+Edited Immunized: 20.7528
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.7384
+Caption orig: A woman wearing a black jacket and a scarf stands in front of a wall of televisions.
+Caption adv:  A woman wearing a black jacket and a scarf is standing in front of a pink background.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.9068
+Background SSIM   (basso=protezione ok): 0.3543
+Subject LPIPS     (basso=soggetto ok)  : 0.1343
+Editing score                          : 0.5615
+Mask coverage (% background)           : 0.7729

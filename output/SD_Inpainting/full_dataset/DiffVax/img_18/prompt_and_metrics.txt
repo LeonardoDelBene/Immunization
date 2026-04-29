@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a butcher’s shop
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 35.4396
+SSIM: 0.9916
+FSIM: 0.9598
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 12.2554
+SSIM: 0.4585
+FSIM: 0.4773
+
+CLIP score (Image vs Prompt)
+Edited Original:  28.4838
+Edited Immunized: 23.0378
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.5357
+Caption orig: A woman wearing a grey jacket stands in front of a meat counter.
+Caption adv:  A woman wearing a grey coat and a brown belt.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.8169
+Background SSIM   (basso=protezione ok): 0.2849
+Subject LPIPS     (basso=soggetto ok)  : 0.1229
+Editing score                          : 0.5742
+Mask coverage (% background)           : 0.7342

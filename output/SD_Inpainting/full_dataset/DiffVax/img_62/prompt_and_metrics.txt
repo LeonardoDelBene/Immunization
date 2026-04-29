@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a festival ground
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 34.0087
+SSIM: 0.9916
+FSIM: 0.9471
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 15.0837
+SSIM: 0.4792
+FSIM: 0.5554
+
+CLIP score (Image vs Prompt)
+Edited Original:  32.5543
+Edited Immunized: 28.1932
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.4538
+Caption orig: A woman in a red and white shirt is looking at her cell phone.
+Caption adv:  A woman wearing a red and white shirt and sunglasses is standing in front of a flower-filled backdrop.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.8320
+Background SSIM   (basso=protezione ok): 0.3475
+Subject LPIPS     (basso=soggetto ok)  : 0.1250
+Editing score                          : 0.5568
+Mask coverage (% background)           : 0.7789

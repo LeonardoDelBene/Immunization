@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a dance school
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 35.0351
+SSIM: 0.9890
+FSIM: 0.9738
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 19.7011
+SSIM: 0.7048
+FSIM: 0.5122
+
+CLIP score (Image vs Prompt)
+Edited Original:  22.5138
+Edited Immunized: 22.4902
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.7932
+Caption orig: A woman with blue hair and a grey jacket stands in front of a brick wall.
+Caption adv:  A woman with blue hair and a gray jacket stands in front of a pink and purple background.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.8825
+Background SSIM   (basso=protezione ok): 0.6198
+Subject LPIPS     (basso=soggetto ok)  : 0.1256
+Editing score                          : 0.4801
+Mask coverage (% background)           : 0.7346

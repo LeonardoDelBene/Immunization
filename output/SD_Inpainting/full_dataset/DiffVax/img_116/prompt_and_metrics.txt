@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a street parade
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 35.1395
+SSIM: 0.9930
+FSIM: 0.9691
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 14.2030
+SSIM: 0.6100
+FSIM: 0.5362
+
+CLIP score (Image vs Prompt)
+Edited Original:  28.4108
+Edited Immunized: 27.9247
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.9655
+Caption orig: A woman in a black jacket and white skirt walks down the street.
+Caption adv:  A woman wearing a black jacket and a skirt is walking down the street.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.8000
+Success:   False
+Accuracy:  0.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.6264
+Background SSIM   (basso=protezione ok): 0.4810
+Subject LPIPS     (basso=soggetto ok)  : 0.1226
+Editing score                          : 0.4967
+Mask coverage (% background)           : 0.7280

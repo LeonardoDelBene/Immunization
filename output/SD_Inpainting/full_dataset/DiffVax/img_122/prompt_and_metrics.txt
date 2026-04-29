@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a science lab
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 35.1553
+SSIM: 0.9888
+FSIM: 0.9564
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 14.3868
+SSIM: 0.6041
+FSIM: 0.5624
+
+CLIP score (Image vs Prompt)
+Edited Original:  25.8915
+Edited Immunized: 24.4260
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.6353
+Caption orig: A woman wearing a colorful scarf and a jacket is standing in front of a counter.
+Caption adv:  A woman wearing a scarf and a sweater is standing in front of a wall of drawings.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.7541
+Background SSIM   (basso=protezione ok): 0.4158
+Subject LPIPS     (basso=soggetto ok)  : 0.1076
+Editing score                          : 0.5298
+Mask coverage (% background)           : 0.6520

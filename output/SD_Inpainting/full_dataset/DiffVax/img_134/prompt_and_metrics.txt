@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a public botanical garden
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 34.7329
+SSIM: 0.9914
+FSIM: 0.9534
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 17.5785
+SSIM: 0.5605
+FSIM: 0.4996
+
+CLIP score (Image vs Prompt)
+Edited Original:  29.4525
+Edited Immunized: 27.9184
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.7588
+Caption orig: A woman wearing a black dress stands in a garden.
+Caption adv:  A woman wearing a black dress stands in front of a tree with pink flowers.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.7000
+Success:   False
+Accuracy:  0.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.6029
+Background SSIM   (basso=protezione ok): 0.3967
+Subject LPIPS     (basso=soggetto ok)  : 0.1149
+Editing score                          : 0.5203
+Mask coverage (% background)           : 0.7053

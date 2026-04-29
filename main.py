@@ -443,14 +443,14 @@ def get_config():
         "seed":                 2043,
         "edit_background":      True,
         "load_existing":        True,
-        "checkpoint_path":      os.path.join("checkpoints", "unet_best_xdhss3oa.pth"),
+        "checkpoint_path":      os.path.join("checkpoints", "diffvax_trained.pth"),
         "attack_model":         "runwayml/stable-diffusion-inpainting",
         "base_output_dir":      "output",
         "dataset_path":         "./data/DiffVaxDataset_local",
         "dataset_split":        "validation",
         "sample_idx":           44,
         "run_full_dataset":     True,
-        "run_wandb":            "VAE_KL_CLIP_32"
+        "run_wandb":            "DiffVax"
     }
 
 def main():

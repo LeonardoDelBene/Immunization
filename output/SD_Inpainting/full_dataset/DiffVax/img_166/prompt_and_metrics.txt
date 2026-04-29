@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a pet adoption center
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 33.2832
+SSIM: 0.9870
+FSIM: 0.9522
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 15.0395
+SSIM: 0.4975
+FSIM: 0.4943
+
+CLIP score (Image vs Prompt)
+Edited Original:  21.2412
+Edited Immunized: 24.3535
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.5307
+Caption orig: A woman wearing a colorful jacket and holding a stuffed animal.
+Caption adv:  A woman wearing a colorful jacket and pants stands in front of a pink wall.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.6982
+Background SSIM   (basso=protezione ok): 0.3585
+Subject LPIPS     (basso=soggetto ok)  : 0.1240
+Editing score                          : 0.5404
+Mask coverage (% background)           : 0.7620

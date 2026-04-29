@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a tech startup
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 33.9231
+SSIM: 0.9892
+FSIM: 0.9599
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 20.6629
+SSIM: 0.7811
+FSIM: 0.4458
+
+CLIP score (Image vs Prompt)
+Edited Original:  20.7768
+Edited Immunized: 20.6444
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.7341
+Caption orig: A woman wearing a black and white shirt and sunglasses is standing in front of a chalkboard.
+Caption adv:  A woman wearing a black shirt and sunglasses is standing in front of a colorful wall.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.7266
+Background SSIM   (basso=protezione ok): 0.7102
+Subject LPIPS     (basso=soggetto ok)  : 0.1070
+Editing score                          : 0.4389
+Mask coverage (% background)           : 0.7033

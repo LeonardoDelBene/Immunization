@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a customs checkpoint
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 33.9916
+SSIM: 0.9904
+FSIM: 0.9543
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 15.1433
+SSIM: 0.6012
+FSIM: 0.5128
+
+CLIP score (Image vs Prompt)
+Edited Original:  24.7080
+Edited Immunized: 18.5058
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.6980
+Caption orig: A woman wearing a pink coat and black shorts is standing in an airport.
+Caption adv:  A woman wearing a pink coat and black shorts stands in front of a pink background.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.7000
+Success:   False
+Accuracy:  0.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.7784
+Background SSIM   (basso=protezione ok): 0.4029
+Subject LPIPS     (basso=soggetto ok)  : 0.0492
+Editing score                          : 0.5403
+Mask coverage (% background)           : 0.6436

@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a golf course clubhouse
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 36.2516
+SSIM: 0.9901
+FSIM: 0.9775
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 15.7180
+SSIM: 0.5758
+FSIM: 0.4105
+
+CLIP score (Image vs Prompt)
+Edited Original:  27.5540
+Edited Immunized: 24.5311
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.5605
+Caption orig: A man wearing a black shirt and shorts stands on a lush green golf course.
+Caption adv:  A man wearing a black shirt and black pants stands in front of a pink background with a white ball on top of it.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.9095
+Background SSIM   (basso=protezione ok): 0.4455
+Subject LPIPS     (basso=soggetto ok)  : 0.1273
+Editing score                          : 0.5349
+Mask coverage (% background)           : 0.7378

@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a tech launch event
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 34.3836
+SSIM: 0.9884
+FSIM: 0.9494
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 12.4401
+SSIM: 0.5006
+FSIM: 0.4861
+
+CLIP score (Image vs Prompt)
+Edited Original:  29.1313
+Edited Immunized: 21.7086
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.5135
+Caption orig: A group of people are standing together, with a woman in a brown coat and a woman in a white shirt standing out.
+Caption adv:  A woman wearing a brown jacket and a scarf is standing in front of a pink and white wall.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.8677
+Background SSIM   (basso=protezione ok): 0.3320
+Subject LPIPS     (basso=soggetto ok)  : 0.1208
+Editing score                          : 0.5653
+Mask coverage (% background)           : 0.7223

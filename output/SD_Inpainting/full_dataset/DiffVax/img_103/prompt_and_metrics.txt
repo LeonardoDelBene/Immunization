@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a creative writing event
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 35.8779
+SSIM: 0.9878
+FSIM: 0.9634
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 12.5191
+SSIM: 0.5317
+FSIM: 0.4859
+
+CLIP score (Image vs Prompt)
+Edited Original:  23.4773
+Edited Immunized: 20.9785
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.5090
+Caption orig: A woman wearing a white coat stands in front of a crowd of people.
+Caption adv:  A woman wearing a white coat with a fur trim and holding a white purse.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.7000
+Success:   False
+Accuracy:  0.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.8526
+Background SSIM   (basso=protezione ok): 0.2811
+Subject LPIPS     (basso=soggetto ok)  : 0.1010
+Editing score                          : 0.5805
+Mask coverage (% background)           : 0.6305

@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a music studio
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 34.7877
+SSIM: 0.9891
+FSIM: 0.9573
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 12.1431
+SSIM: 0.4258
+FSIM: 0.4346
+
+CLIP score (Image vs Prompt)
+Edited Original:  27.0421
+Edited Immunized: 17.5307
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.6916
+Caption orig: A woman wearing a grey sweater and holding a green notebook stands in front of a wall full of electronic equipment.
+Caption adv:  A woman wearing a brown sweater and a green purse is standing in front of a pink and purple wall.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.9225
+Background SSIM   (basso=protezione ok): 0.2566
+Subject LPIPS     (basso=soggetto ok)  : 0.1305
+Editing score                          : 0.5927
+Mask coverage (% background)           : 0.7493

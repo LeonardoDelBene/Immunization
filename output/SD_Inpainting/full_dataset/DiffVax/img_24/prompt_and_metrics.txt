@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a pet festival
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 35.0508
+SSIM: 0.9909
+FSIM: 0.9645
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 14.0577
+SSIM: 0.4607
+FSIM: 0.4191
+
+CLIP score (Image vs Prompt)
+Edited Original:  29.9114
+Edited Immunized: 26.3232
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.4901
+Caption orig: A woman is walking her dog in a park, surrounded by other people.
+Caption adv:  A woman wearing a green jacket and holding a black and white dog.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.7000
+Success:   False
+Accuracy:  0.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.8302
+Background SSIM   (basso=protezione ok): 0.3191
+Subject LPIPS     (basso=soggetto ok)  : 0.1131
+Editing score                          : 0.5660
+Mask coverage (% background)           : 0.7722

@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a swimming pool
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 34.6247
+SSIM: 0.9862
+FSIM: 0.9596
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 13.7070
+SSIM: 0.5638
+FSIM: 0.5224
+
+CLIP score (Image vs Prompt)
+Edited Original:  28.3834
+Edited Immunized: 22.9557
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.5546
+Caption orig: A woman wearing a brown dress is walking in a pool area.
+Caption adv:  A woman wearing a brown dress and a head wrap is standing in front of a colorful background.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.8085
+Background SSIM   (basso=protezione ok): 0.4438
+Subject LPIPS     (basso=soggetto ok)  : 0.1519
+Editing score                          : 0.5236
+Mask coverage (% background)           : 0.7470

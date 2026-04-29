@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a church hall
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 34.6937
+SSIM: 0.9888
+FSIM: 0.9786
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 13.2938
+SSIM: 0.4486
+FSIM: 0.4438
+
+CLIP score (Image vs Prompt)
+Edited Original:  24.1826
+Edited Immunized: 20.3729
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.6141
+Caption orig: A woman wearing sunglasses and a black jacket is standing in a church.
+Caption adv:  A woman wearing a black jacket and sunglasses is standing in front of a pink and purple wall.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.9409
+Background SSIM   (basso=protezione ok): 0.2984
+Subject LPIPS     (basso=soggetto ok)  : 0.1074
+Editing score                          : 0.5836
+Mask coverage (% background)           : 0.7647

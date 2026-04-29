@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a tech store
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 32.8406
+SSIM: 0.9851
+FSIM: 0.9551
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 11.0353
+SSIM: 0.4854
+FSIM: 0.4501
+
+CLIP score (Image vs Prompt)
+Edited Original:  24.7791
+Edited Immunized: 26.9588
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.8435
+Caption orig: A woman wearing a red shirt and black skirt stands in front of a display of electronic devices.
+Caption adv:  A woman wearing a red shirt and black skirt stands in front of a display of televisions.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.7000
+Success:   False
+Accuracy:  0.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.6254
+Background SSIM   (basso=protezione ok): 0.2949
+Subject LPIPS     (basso=soggetto ok)  : 0.0686
+Editing score                          : 0.5564
+Mask coverage (% background)           : 0.7088

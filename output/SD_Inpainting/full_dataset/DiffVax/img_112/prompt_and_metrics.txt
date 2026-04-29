@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a jail
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 33.7293
+SSIM: 0.9895
+FSIM: 0.9510
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 17.0674
+SSIM: 0.4264
+FSIM: 0.5398
+
+CLIP score (Image vs Prompt)
+Edited Original:  25.9586
+Edited Immunized: 22.6175
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.7672
+Caption orig: A woman wearing a striped shirt and sunglasses is standing in a hallway.
+Caption adv:  A woman wearing a striped shirt and sunglasses is standing in front of a wall with a pattern of pink and green.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.9347
+Background SSIM   (basso=protezione ok): 0.2283
+Subject LPIPS     (basso=soggetto ok)  : 0.1000
+Editing score                          : 0.6046
+Mask coverage (% background)           : 0.7262

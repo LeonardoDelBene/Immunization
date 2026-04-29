@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a high-end restaurant
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 35.4235
+SSIM: 0.9914
+FSIM: 0.9674
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 13.0511
+SSIM: 0.5326
+FSIM: 0.4640
+
+CLIP score (Image vs Prompt)
+Edited Original:  29.2284
+Edited Immunized: 18.9627
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.5031
+Caption orig: A woman wearing a black jacket and scarf is walking through a restaurant.
+Caption adv:  A woman wearing a black jacket and holding a frying pan.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.8970
+Background SSIM   (basso=protezione ok): 0.3832
+Subject LPIPS     (basso=soggetto ok)  : 0.1559
+Editing score                          : 0.5503
+Mask coverage (% background)           : 0.7324

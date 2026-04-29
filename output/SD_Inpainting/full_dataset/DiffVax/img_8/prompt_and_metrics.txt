@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a historic landmark event
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 34.0354
+SSIM: 0.9903
+FSIM: 0.9539
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 16.1612
+SSIM: 0.5349
+FSIM: 0.4956
+
+CLIP score (Image vs Prompt)
+Edited Original:  22.8094
+Edited Immunized: 20.9018
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.5700
+Caption orig: A woman wearing a black jacket and black pants stands in front of a stone building.
+Caption adv:  A woman with blonde hair and a black jacket stands in front of a flower field.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.8149
+Background SSIM   (basso=protezione ok): 0.3845
+Subject LPIPS     (basso=soggetto ok)  : 0.1156
+Editing score                          : 0.5447
+Mask coverage (% background)           : 0.7277

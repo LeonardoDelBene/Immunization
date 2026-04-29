@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a shelter
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 33.9028
+SSIM: 0.9883
+FSIM: 0.9719
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 19.7367
+SSIM: 0.7866
+FSIM: 0.5760
+
+CLIP score (Image vs Prompt)
+Edited Original:  20.6088
+Edited Immunized: 20.0051
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.9343
+Caption orig: A woman wearing a red shirt and red pants stands against a wall.
+Caption adv:  A woman wearing a red shirt and red pants stands in front of a pink and white wall.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.8603
+Background SSIM   (basso=protezione ok): 0.7284
+Subject LPIPS     (basso=soggetto ok)  : 0.0869
+Editing score                          : 0.4481
+Mask coverage (% background)           : 0.7325

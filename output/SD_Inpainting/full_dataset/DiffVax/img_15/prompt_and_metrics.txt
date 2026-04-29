@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a gym sauna
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 35.3091
+SSIM: 0.9900
+FSIM: 0.9589
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 14.9309
+SSIM: 0.5275
+FSIM: 0.4669
+
+CLIP score (Image vs Prompt)
+Edited Original:  26.2613
+Edited Immunized: 24.3832
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.8649
+Caption orig: A woman wearing a green shirt and a brown skirt is smiling at the camera.
+Caption adv:  A woman wearing a green shirt and brown pants is smiling and posing for a picture.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.7000
+Success:   False
+Accuracy:  0.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.8010
+Background SSIM   (basso=protezione ok): 0.3700
+Subject LPIPS     (basso=soggetto ok)  : 0.1298
+Editing score                          : 0.5466
+Mask coverage (% background)           : 0.7203

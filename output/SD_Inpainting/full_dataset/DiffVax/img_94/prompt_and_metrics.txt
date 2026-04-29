@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a butcher’s block
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 34.0238
+SSIM: 0.9862
+FSIM: 0.9599
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 14.0620
+SSIM: 0.4744
+FSIM: 0.4144
+
+CLIP score (Image vs Prompt)
+Edited Original:  27.0173
+Edited Immunized: 21.9341
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.5825
+Caption orig: A woman in a white dress stands in front of a deli counter, smiling for the camera.
+Caption adv:  A woman wearing a white dress stands in front of a wall with writing on it.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.7575
+Background SSIM   (basso=protezione ok): 0.3518
+Subject LPIPS     (basso=soggetto ok)  : 0.2312
+Editing score                          : 0.5404
+Mask coverage (% background)           : 0.7788

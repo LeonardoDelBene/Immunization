@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a sports field
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 35.3214
+SSIM: 0.9870
+FSIM: 0.9626
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 19.3157
+SSIM: 0.6130
+FSIM: 0.4562
+
+CLIP score (Image vs Prompt)
+Edited Original:  27.7392
+Edited Immunized: 25.0269
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.6166
+Caption orig: A woman wearing a black and white striped shirt stands on a field.
+Caption adv:  A woman wearing a black and white striped shirt stands in front of a purple background.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.8548
+Background SSIM   (basso=protezione ok): 0.5263
+Subject LPIPS     (basso=soggetto ok)  : 0.1785
+Editing score                          : 0.5015
+Mask coverage (% background)           : 0.7786

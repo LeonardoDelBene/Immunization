@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a prison shower
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 33.6687
+SSIM: 0.9862
+FSIM: 0.9597
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 18.4215
+SSIM: 0.5548
+FSIM: 0.5370
+
+CLIP score (Image vs Prompt)
+Edited Original:  29.9054
+Edited Immunized: 28.3495
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.3864
+Caption orig: A man in a grey jacket stands in front of a shower with water pouring down on him.
+Caption adv:  A man wearing a black jacket and holding a book.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.8006
+Background SSIM   (basso=protezione ok): 0.3845
+Subject LPIPS     (basso=soggetto ok)  : 0.1426
+Editing score                          : 0.5413
+Mask coverage (% background)           : 0.6936

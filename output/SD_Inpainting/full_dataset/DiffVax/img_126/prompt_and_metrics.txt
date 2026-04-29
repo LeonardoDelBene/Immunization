@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a digital art gallery
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 35.8926
+SSIM: 0.9892
+FSIM: 0.9741
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 12.8342
+SSIM: 0.5491
+FSIM: 0.4807
+
+CLIP score (Image vs Prompt)
+Edited Original:  31.0771
+Edited Immunized: 27.3367
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.6896
+Caption orig: A woman with glasses and a green cell phone standing in front of a collection of artwork.
+Caption adv:  A woman wearing glasses and a shirt with a floral pattern stands in front of a colorful background.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.7773
+Background SSIM   (basso=protezione ok): 0.4094
+Subject LPIPS     (basso=soggetto ok)  : 0.1130
+Editing score                          : 0.5337
+Mask coverage (% background)           : 0.7352

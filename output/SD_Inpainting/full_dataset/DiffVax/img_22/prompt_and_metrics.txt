@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a motel room
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 35.0187
+SSIM: 0.9923
+FSIM: 0.9616
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 13.6747
+SSIM: 0.6708
+FSIM: 0.6168
+
+CLIP score (Image vs Prompt)
+Edited Original:  27.0520
+Edited Immunized: 20.6986
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.5766
+Caption orig: A woman wearing a blue and white dress stands in front of a bed.
+Caption adv:  A woman wearing a blue and white striped skirt and a black jacket stands in front of a pink and purple wall.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.9724
+Background SSIM   (basso=protezione ok): 0.5165
+Subject LPIPS     (basso=soggetto ok)  : 0.0980
+Editing score                          : 0.5220
+Mask coverage (% background)           : 0.6505

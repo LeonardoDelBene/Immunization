@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a festival ground
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 35.4461
+SSIM: 0.9896
+FSIM: 0.9665
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 16.0222
+SSIM: 0.5225
+FSIM: 0.4464
+
+CLIP score (Image vs Prompt)
+Edited Original:  30.7217
+Edited Immunized: 26.2510
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.5888
+Caption orig: A woman wearing a black dress and a leopard print belt is standing in a field.
+Caption adv:  A woman wearing a black top and a brown skirt stands in front of a flower bush.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.8634
+Background SSIM   (basso=protezione ok): 0.4116
+Subject LPIPS     (basso=soggetto ok)  : 0.1747
+Editing score                          : 0.5371
+Mask coverage (% background)           : 0.7764

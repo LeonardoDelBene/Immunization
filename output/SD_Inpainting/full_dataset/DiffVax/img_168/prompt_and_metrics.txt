@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a tech startup launch
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 35.5443
+SSIM: 0.9878
+FSIM: 0.9569
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 20.2044
+SSIM: 0.6758
+FSIM: 0.4784
+
+CLIP score (Image vs Prompt)
+Edited Original:  24.4055
+Edited Immunized: 22.1752
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.8814
+Caption orig: A man wearing a blue jacket and white pants stands in front of a wall filled with various drawings and symbols.
+Caption adv:  A man wearing a blue jacket and white pants stands in front of a wall with green and pink letters.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.7091
+Background SSIM   (basso=protezione ok): 0.5730
+Subject LPIPS     (basso=soggetto ok)  : 0.1160
+Editing score                          : 0.4777
+Mask coverage (% background)           : 0.7269

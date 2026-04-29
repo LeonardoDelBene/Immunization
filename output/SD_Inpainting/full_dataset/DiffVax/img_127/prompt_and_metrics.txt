@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a music studio
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 34.7813
+SSIM: 0.9864
+FSIM: 0.9673
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 11.9773
+SSIM: 0.4309
+FSIM: 0.4443
+
+CLIP score (Image vs Prompt)
+Edited Original:  26.2198
+Edited Immunized: 17.5611
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.6048
+Caption orig: A woman wearing a green dress and a blue scarf stands in front of a soundboard.
+Caption adv:  A woman wearing a green dress and a blue and green fur around her neck.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.8112
+Background SSIM   (basso=protezione ok): 0.2098
+Subject LPIPS     (basso=soggetto ok)  : 0.1194
+Editing score                          : 0.5965
+Mask coverage (% background)           : 0.6950

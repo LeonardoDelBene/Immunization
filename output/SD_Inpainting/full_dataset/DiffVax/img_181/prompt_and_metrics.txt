@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a shopping center
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 33.8831
+SSIM: 0.9917
+FSIM: 0.9561
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 13.7802
+SSIM: 0.4662
+FSIM: 0.4930
+
+CLIP score (Image vs Prompt)
+Edited Original:  27.5458
+Edited Immunized: 22.7500
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.6076
+Caption orig: A woman wearing sunglasses and a checkered shirt stands in a crowded mall.
+Caption adv:  A woman wearing a checkered shirt and sunglasses stands in front of a pink background.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.9139
+Background SSIM   (basso=protezione ok): 0.2956
+Subject LPIPS     (basso=soggetto ok)  : 0.0941
+Editing score                          : 0.5828
+Mask coverage (% background)           : 0.7403

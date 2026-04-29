@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a customs checkpoint
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 33.7233
+SSIM: 0.9871
+FSIM: 0.9619
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 15.0621
+SSIM: 0.5799
+FSIM: 0.4219
+
+CLIP score (Image vs Prompt)
+Edited Original:  28.7472
+Edited Immunized: 18.4427
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.7039
+Caption orig: A woman wearing a black dress and sunglasses walks past a blue sign with a yellow arrow.
+Caption adv:  A woman wearing a black dress and sunglasses walks past a wall with a pattern of pink dots.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.8229
+Background SSIM   (basso=protezione ok): 0.4443
+Subject LPIPS     (basso=soggetto ok)  : 0.1221
+Editing score                          : 0.5271
+Mask coverage (% background)           : 0.7139

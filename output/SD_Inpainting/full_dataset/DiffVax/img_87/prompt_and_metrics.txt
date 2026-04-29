@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a church hall
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 35.1012
+SSIM: 0.9907
+FSIM: 0.9681
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 12.7575
+SSIM: 0.4755
+FSIM: 0.4816
+
+CLIP score (Image vs Prompt)
+Edited Original:  24.3567
+Edited Immunized: 21.2861
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.6364
+Caption orig: A woman wearing a black and white jacket and a leopard print pantsuit stands in front of a church.
+Caption adv:  A woman wearing a leopard print jacket and pants stands in front of a pink and purple wall.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 1.0664
+Background SSIM   (basso=protezione ok): 0.2715
+Subject LPIPS     (basso=soggetto ok)  : 0.1007
+Editing score                          : 0.6048
+Mask coverage (% background)           : 0.6962

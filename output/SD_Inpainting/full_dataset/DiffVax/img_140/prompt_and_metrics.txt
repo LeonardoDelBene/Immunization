@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a concert hall
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 35.4501
+SSIM: 0.9890
+FSIM: 0.9690
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 13.2084
+SSIM: 0.5363
+FSIM: 0.4587
+
+CLIP score (Image vs Prompt)
+Edited Original:  26.6701
+Edited Immunized: 22.1287
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.4555
+Caption orig: A man wearing a hat and a blue jacket stands in front of a row of empty seats.
+Caption adv:  A man wearing a hat and a blue jacket is giving a peace sign.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.7000
+Success:   False
+Accuracy:  0.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 1.0539
+Background SSIM   (basso=protezione ok): 0.3741
+Subject LPIPS     (basso=soggetto ok)  : 0.1169
+Editing score                          : 0.5715
+Mask coverage (% background)           : 0.7129

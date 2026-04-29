@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a mall
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 34.8821
+SSIM: 0.9909
+FSIM: 0.9608
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 12.5472
+SSIM: 0.4797
+FSIM: 0.4640
+
+CLIP score (Image vs Prompt)
+Edited Original:  26.6592
+Edited Immunized: 23.2555
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.5390
+Caption orig: A woman wearing a plaid skirt and a scarf is standing in a crowded mall.
+Caption adv:  A woman wearing a black jacket and a red and blue plaid skirt stands in front of a pink and purple background.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.9175
+Background SSIM   (basso=protezione ok): 0.2796
+Subject LPIPS     (basso=soggetto ok)  : 0.0915
+Editing score                          : 0.5881
+Mask coverage (% background)           : 0.6999

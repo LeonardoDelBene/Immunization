@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a strip club
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 35.5262
+SSIM: 0.9887
+FSIM: 0.9645
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 12.6391
+SSIM: 0.4145
+FSIM: 0.4075
+
+CLIP score (Image vs Prompt)
+Edited Original:  24.0495
+Edited Immunized: 20.8823
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.5576
+Caption orig: A man wearing a tan jacket and carrying a backpack stands in front of a bar.
+Caption adv:  A man wearing a tan jacket and brown pants stands in front of a pink and white wall with a pattern of flowers.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.8913
+Background SSIM   (basso=protezione ok): 0.2397
+Subject LPIPS     (basso=soggetto ok)  : 0.1337
+Editing score                          : 0.5944
+Mask coverage (% background)           : 0.7502

@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a sports field
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 33.5959
+SSIM: 0.9920
+FSIM: 0.9554
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 16.5756
+SSIM: 0.5794
+FSIM: 0.5650
+
+CLIP score (Image vs Prompt)
+Edited Original:  24.5068
+Edited Immunized: 23.6648
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.7766
+Caption orig: A woman wearing a red dress with hearts on it, standing on a green field.
+Caption adv:  A woman wearing a red dress with hearts on it, standing on a tennis court.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.6798
+Background SSIM   (basso=protezione ok): 0.4458
+Subject LPIPS     (basso=soggetto ok)  : 0.0777
+Editing score                          : 0.5157
+Mask coverage (% background)           : 0.7377

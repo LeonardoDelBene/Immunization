@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a gymnasium
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 34.5639
+SSIM: 0.9860
+FSIM: 0.9654
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 13.8848
+SSIM: 0.3930
+FSIM: 0.3459
+
+CLIP score (Image vs Prompt)
+Edited Original:  28.0680
+Edited Immunized: 19.9627
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.3871
+Caption orig: A man is walking in a gym with a camera around his neck.
+Caption adv:  A man wearing a blue shirt and holding a camera is standing in front of a pink and yellow wall.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.7000
+Success:   False
+Accuracy:  0.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.9596
+Background SSIM   (basso=protezione ok): 0.3234
+Subject LPIPS     (basso=soggetto ok)  : 0.2198
+Editing score                          : 0.5698
+Mask coverage (% background)           : 0.8802

@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a shipping yard
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 34.2175
+SSIM: 0.9895
+FSIM: 0.9580
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 15.2573
+SSIM: 0.5528
+FSIM: 0.5811
+
+CLIP score (Image vs Prompt)
+Edited Original:  27.4037
+Edited Immunized: 21.0076
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.7858
+Caption orig: A woman wearing a black and white dress stands in front of a large red building.
+Caption adv:  A woman wearing a black and white dress stands in front of a colorful background.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.8423
+Background SSIM   (basso=protezione ok): 0.3859
+Subject LPIPS     (basso=soggetto ok)  : 0.1105
+Editing score                          : 0.5474
+Mask coverage (% background)           : 0.7048

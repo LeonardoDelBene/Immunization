@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a parking garage
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 35.0680
+SSIM: 0.9880
+FSIM: 0.9533
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 17.8534
+SSIM: 0.6015
+FSIM: 0.4445
+
+CLIP score (Image vs Prompt)
+Edited Original:  26.5037
+Edited Immunized: 21.5847
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.6310
+Caption orig: A woman wearing a black jacket and a scarf is standing in a room.
+Caption adv:  A woman wearing a black jacket and a scarf is posing in front of a green wall.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.7000
+Success:   False
+Accuracy:  0.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.8116
+Background SSIM   (basso=protezione ok): 0.4502
+Subject LPIPS     (basso=soggetto ok)  : 0.1344
+Editing score                          : 0.5233
+Mask coverage (% background)           : 0.6923

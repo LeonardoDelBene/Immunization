@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a food truck park
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 34.1611
+SSIM: 0.9886
+FSIM: 0.9699
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 12.2199
+SSIM: 0.5404
+FSIM: 0.4298
+
+CLIP score (Image vs Prompt)
+Edited Original:  27.1622
+Edited Immunized: 21.3485
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.9042
+Caption orig: A woman wearing a black and white shirt is holding a cup.
+Caption adv:  A woman wearing a black and white shirt and holding a cup of coffee.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.8000
+Success:   False
+Accuracy:  0.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.9276
+Background SSIM   (basso=protezione ok): 0.3820
+Subject LPIPS     (basso=soggetto ok)  : 0.1236
+Editing score                          : 0.5561
+Mask coverage (% background)           : 0.7179

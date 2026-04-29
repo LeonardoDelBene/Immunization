@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a shopping center
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 35.1653
+SSIM: 0.9898
+FSIM: 0.9632
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 14.3988
+SSIM: 0.5900
+FSIM: 0.5097
+
+CLIP score (Image vs Prompt)
+Edited Original:  24.6315
+Edited Immunized: 21.2135
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.5185
+Caption orig: A man wearing a gray suit with white lace on the sleeves and a white vest.
+Caption adv:  A man wearing a gray jacket and glasses stands in front of a wall with a pattern of dots.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.9103
+Background SSIM   (basso=protezione ok): 0.4506
+Subject LPIPS     (basso=soggetto ok)  : 0.1421
+Editing score                          : 0.5324
+Mask coverage (% background)           : 0.7138
