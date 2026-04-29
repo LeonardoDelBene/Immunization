@@ -401,17 +401,17 @@ def save_global_summary(output_dir, all_metrics):
 def get_config():
     return {
         "use_instruct_pix2pix": False,
-        "edit_prompt":          "person in a garden",
+        "edit_prompt":          "person in a castle",
         "seed":                 2043,
         "edit_background":      True,
         "load_existing":        True,
-        "checkpoint_path":      os.path.join("checkpoints", "unet_best_3xmsr865.pth"),
+        "checkpoint_path":      os.path.join("checkpoints", "unet_best_xdhss3oa.pth"),
         "attack_model":         "runwayml/stable-diffusion-inpainting",
         "base_output_dir":      "output",
         "dataset_path":         "./data/DiffVaxDataset_local",
         "dataset_split":        "validation",
-        "sample_idx":           0,
-        "run_full_dataset":     True,
+        "sample_idx":           40,
+        "run_full_dataset":     False,
         "run_wandb":            "VAE_noise_mask_KL"
     }
 

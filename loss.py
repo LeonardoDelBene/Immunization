@@ -185,6 +185,32 @@ class DynamicWeighter:
         self.loss_history = state["loss_history"]
         self.prev_weights = state["prev_weights"]
 
+class LossNormalizer:
+    """
+    Normalizza le loss dei surrogati per il loro valore alla prima epoca,
+    così loss su scale diverse (es. CLIP ~0.8, VAE ~1.1) diventano
+    comparabili al DynamicWeighter partendo tutte da 1.0.
+    """
+
+    def __init__(self, n_surrogates: int):
+        self.n_surrogates = n_surrogates
+        self.baselines    = None   # impostato alla prima chiamata
+
+    def normalize(self, losses: List[float]) -> List[float]:
+        if self.baselines is None:
+            self.baselines = losses.copy()
+            print(f"  LossNormalizer baselines set: {[f'{b:.4f}' for b in self.baselines]}")
+        return [l / (b + 1e-8) for l, b in zip(losses, self.baselines)]
+
+    def reset(self):
+        self.baselines = None
+
+    def state_dict(self) -> dict:
+        return {"baselines": self.baselines}
+
+    def load_state_dict(self, state: dict) -> None:
+        self.baselines = state["baselines"]
+
 
 # ─────────────────────────────────────────────
 # 5. LOSS TOTALE
