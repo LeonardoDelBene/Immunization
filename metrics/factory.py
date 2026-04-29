@@ -1,25 +1,28 @@
 """Metric Factory Function for creating metrics."""
 
+# factory.py
+
 from enum import Enum
 from .psnr import PSNR
 from .ssim import SSIM
 from .clip_score import ClipScore
 from .fsim import FSIM
 from .caption_similarity import CaptionSimilarity, AccuracyRate
+from .masked_editing_score import MaskedEditingScore
 
 
 class MetricType(Enum):
-    """Enum for the metrics."""
-    PSNR = "PSNR"
-    SSIM = "SSIM"
-    CLIP = "CLIP"
-    FSIM = "FSIM"
-    CAP = "CAP"
-    ACC = "ACC"
+    PSNR    = "PSNR"
+    SSIM    = "SSIM"
+    CLIP    = "CLIP"
+    FSIM    = "FSIM"
+    CAP     = "CAP"
+    ACC     = "ACC"
+    CLIP_DIR = "CLIP_DIR"
+    MASKED  = "MASKED"
 
 
 def create_metric(metric_type: MetricType, **kwargs):
-    """Factory function for creating metrics."""
     if metric_type == MetricType.PSNR:
         return PSNR()
     elif metric_type == MetricType.SSIM:
@@ -32,6 +35,7 @@ def create_metric(metric_type: MetricType, **kwargs):
         return CaptionSimilarity(**kwargs)
     elif metric_type == MetricType.ACC:
         return AccuracyRate(**kwargs)
+    elif metric_type == MetricType.MASKED:
+        return MaskedEditingScore(**kwargs)
     else:
         raise ValueError(f"Invalid metric name: {metric_type}")
-

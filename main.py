@@ -143,38 +143,47 @@ def save_metrics(output_dir, edit_prompt, metrics: dict):
         f.write("Accuracy Rate (Edited Original vs Edited Immunized)\n")
         f.write(f"LLM score: {metrics['accuracy_score']:.4f}\n")
         f.write(f"Success:   {metrics['accuracy_success']}\n")
-        f.write(f"Accuracy:  {metrics['accuracy_rate']:.4f}\n")
+        f.write(f"Accuracy:  {metrics['accuracy_rate']:.4f}\n\n")
+
+        f.write("Masked Editing Score (Edited Original vs Edited Immunized)\n")
+        f.write(f"Edit change (LPIPS):          {metrics['masked_edit_change']:.4f}\n")
+        f.write(f"Background preservation (SSIM): {metrics['masked_bg_preservation']:.4f}\n")
+        f.write(f"Editing score:                {metrics['masked_editing_score']:.4f}\n")
+        f.write(f"Mask coverage:                {metrics['masked_coverage']:.4f}\n")
 
     print(f"Metrics saved in {prompt_file}")
 
-
-# ─────────────────────────────────────────────
+# ---------------------------------------------
 # METRICS
-# ─────────────────────────────────────────────
+# ---------------------------------------------
+
 def load_metrics_models():
     print("Loading metric models...")
     metrics_models = {
-        "psnr":     create_metric(MetricType.PSNR),
-        "ssim":     create_metric(MetricType.SSIM),
-        "fsim":     create_metric(MetricType.FSIM),
-        "clip":     create_metric(MetricType.CLIP, model="ViT-B-32", pretrained_on="openai"),
-        "caption":  create_metric(MetricType.CAP,  load_in_4bit=True),
-        "accuracy": create_metric(MetricType.ACC,  load_in_4bit=True, threshold=0.5),
+        "psnr":    create_metric(MetricType.PSNR),
+        "ssim":    create_metric(MetricType.SSIM),
+        "fsim":    create_metric(MetricType.FSIM),
+        "clip":    create_metric(MetricType.CLIP,   model="ViT-B-32", pretrained_on="openai"),
+        "caption": create_metric(MetricType.CAP,    load_in_4bit=True),
+        "accuracy": create_metric(MetricType.ACC,   load_in_4bit=True, threshold=0.5),
+        "masked":  create_metric(MetricType.MASKED, lpips_net="alex"),
     }
     print("Metric models loaded.")
     return metrics_models
 
 
-def compute_metrics(image, adv_image_png, edited_orig_recovered, edited_adv_recovered, edit_prompt, metrics_models):
-    psnr_metric     = metrics_models["psnr"]
-    ssim_metric     = metrics_models["ssim"]
-    fsim_metric     = metrics_models["fsim"]
-    clip_metric     = metrics_models["clip"]
-    caption_metric  = metrics_models["caption"]
+def compute_metrics(image, mask, adv_image_png, edited_orig_recovered, edited_adv_recovered, edit_prompt, metrics_models):
+    psnr_metric    = metrics_models["psnr"]
+    ssim_metric    = metrics_models["ssim"]
+    fsim_metric    = metrics_models["fsim"]
+    clip_metric    = metrics_models["clip"]
+    caption_metric = metrics_models["caption"]
     accuracy_metric = metrics_models["accuracy"]
+    masked_metric  = metrics_models["masked"]
 
-    cap_score = caption_metric.compute(edited_orig_recovered, edited_adv_recovered)
-    acc_score = accuracy_metric.compute(edited_orig_recovered, edited_adv_recovered)
+    cap_score    = caption_metric.compute(edited_orig_recovered, edited_adv_recovered)
+    acc_score    = accuracy_metric.compute(edited_orig_recovered, edited_adv_recovered)
+    masked_score = masked_metric.compute(edited_orig_recovered, edited_adv_recovered, mask)
 
     metrics = {
         # Image quality
@@ -193,9 +202,14 @@ def compute_metrics(image, adv_image_png, edited_orig_recovered, edited_adv_reco
         "caption_orig":  cap_score["caption_1"],
         "caption_adv":   cap_score["caption_2"],
         # Accuracy rate
-        "accuracy_rate": acc_score["accuracy_rate"],
-        "accuracy_score": acc_score["llm_score"],
+        "accuracy_rate":    acc_score["accuracy_rate"],
+        "accuracy_score":   acc_score["llm_score"],
         "accuracy_success": acc_score["success"],
+        # Masked editing score
+        "masked_edit_change":       masked_score["edit_change"],
+        "masked_bg_preservation":   masked_score["background_preservation"],
+        "masked_editing_score":     masked_score["editing_score"],
+        "masked_coverage":          masked_score["mask_coverage"],
     }
 
     print("\n--- Image Quality (Original vs Immunized) ---")
@@ -218,13 +232,18 @@ def compute_metrics(image, adv_image_png, edited_orig_recovered, edited_adv_reco
     print(f"Caption adv : {metrics['caption_adv']}")
 
     print("\n--- Accuracy Rate (Edited Original vs Edited Immunized) ---")
-    print(f"LLM score   : {metrics['accuracy_score']:.4f}")
-    print(f"Threshold   : {accuracy_metric.threshold:.2f}")
-    print(f"Success     : {metrics['accuracy_success']}")
-    print(f"Accuracy    : {metrics['accuracy_rate']:.4f}")
+    print(f"LLM score : {metrics['accuracy_score']:.4f}")
+    print(f"Threshold : {accuracy_metric.threshold:.2f}")
+    print(f"Success   : {metrics['accuracy_success']}")
+    print(f"Accuracy  : {metrics['accuracy_rate']:.4f}")
+
+    print("\n--- Masked Editing Score (Edited Original vs Edited Immunized) ---")
+    print(f"Edit change (LPIPS)           : {metrics['masked_edit_change']:.4f}")
+    print(f"Background preservation (SSIM): {metrics['masked_bg_preservation']:.4f}")
+    print(f"Editing score                 : {metrics['masked_editing_score']:.4f}")
+    print(f"Mask coverage                 : {metrics['masked_coverage']:.4f}")
 
     return metrics
-
 
 # ─────────────────────────────────────────────
 # PLOT
@@ -438,7 +457,7 @@ def main():
         )
         save_images(output_dir, image, adv_image_png, edited_orig_recovered, edited_adv_recovered)
         metrics_model = load_metrics_models()
-        metrics = compute_metrics(image, adv_image_png, edited_orig_recovered, edited_adv_recovered,
+        metrics = compute_metrics(image, image_mask, adv_image_png, edited_orig_recovered, edited_adv_recovered,
                                   config["edit_prompt"], metrics_model)
         save_metrics(output_dir, config["edit_prompt"], metrics)
         plot_results(image, adv_image_png, edited_orig_recovered, edited_adv_recovered,
