@@ -433,7 +433,7 @@ def get_config():
         "base_output_dir":      "output",
         "dataset_path":         "./data/DiffVaxDataset_local",
         "dataset_split":        "validation",
-        "sample_idx":           41,
+        "sample_idx":           42,
         "run_full_dataset":     False,
         "run_wandb":            "VAE_noise_mask_KL"
     }
