@@ -132,8 +132,8 @@ def training_loop(
     # ── Surrogate CLIP ──
     surrogate_clip_configs = [
         "openai/clip-vit-base-patch32",
-        "openai/clip-vit-base-patch16",
-        "openai/clip-vit-large-patch14"
+        #"openai/clip-vit-base-patch16",
+        #"openai/clip-vit-large-patch14"
     ]
     surrogate_clip_models = []
     for model_name in surrogate_clip_configs:
@@ -142,13 +142,13 @@ def training_loop(
             param.requires_grad = False
         surrogate_clip_models.append(model)
 
-    '''vae = AutoencoderKL.from_pretrained(
+    vae = AutoencoderKL.from_pretrained(
         "runwayml/stable-diffusion-inpainting", subfolder="vae"
     ).to(device).eval()
     for param in vae.parameters():
-        param.requires_grad = False'''
+        param.requires_grad = False
 
-    n_surrogates = len(surrogate_clip_models) #+ 1  # 3 CLIP + 1 VAE
+    n_surrogates = len(surrogate_clip_models) + 1  # 3 CLIP + 1 VAE
 
     # ── Ottimizzatore, weighter e normalizer ──
     optimizer       = optim.AdamW(unet.parameters(), lr=lr, weight_decay=weight_decay)
@@ -242,14 +242,14 @@ def training_loop(
                 X_patch_list.append(X_patch); Y_patch_list.append(Y_patch)
 
             # ── VAE ──
-            #posterior_im = vae.encode(I_im).latent_dist
-            #posterior_target = vae.encode(I_target).latent_dist
+            posterior_im = vae.encode(I_im).latent_dist
+            posterior_target = vae.encode(I_target).latent_dist
 
             loss, log = total_loss(
                 I_im=I_im, I=I, M=1 - M,
                 X_cls_list=X_cls_list, Y_cls_list=Y_cls_list,
                 X_patch_list=X_patch_list, Y_patch_list=Y_patch_list,
-                posterior_im=None, posterior_target=None,
+                posterior_im=posterior_im, posterior_target=posterior_target,
                 dyn_weighter=dyn_weighter,
                 alpha=alpha, beta=beta, eta=eta, lambda_vae=lambda_vae,
                 noise_on_mask=noise_on_mask,
@@ -298,7 +298,7 @@ def training_loop(
         if (epoch + 1) % val_every == 0:
             val_metrics = validation_loop(
                 unet=unet, val_dataloader=val_dataloader,
-                surrogate_clip_models=surrogate_clip_models, vae=None,
+                surrogate_clip_models=surrogate_clip_models, vae=vae,
                 dyn_weighter=dyn_weighter, alpha=alpha, beta=beta, eta=eta,
                 lambda_vae=lambda_vae, device=device, noise_on_mask=noise_on_mask,
             )
@@ -451,13 +451,13 @@ def validation_loop(
                 Y_patch_list.append(Y_patch)
 
             # ── VAE ──
-            #posterior_im     = vae.encode(I_im).latent_dist
-            #posterior_target = vae.encode(I_target).latent_dist
+            posterior_im     = vae.encode(I_im).latent_dist
+            posterior_target = vae.encode(I_target).latent_dist
 
             # ── Loss — total_loss gestisce pesi e dyn_weighter internamente ──
             _, log = total_loss(I_im=I_im, I=I, M=1 -M, X_cls_list=X_cls_list, Y_cls_list=Y_cls_list,
-                                X_patch_list=X_patch_list, Y_patch_list=Y_patch_list, posterior_im= None,
-                                posterior_target= None, dyn_weighter=dyn_weighter, alpha=alpha, beta=beta, eta=eta,
+                                X_patch_list=X_patch_list, Y_patch_list=Y_patch_list, posterior_im= posterior_im,
+                                posterior_target= posterior_target, dyn_weighter=dyn_weighter, alpha=alpha, beta=beta, eta=eta,
                                 lambda_vae=lambda_vae, noise_on_mask=noise_on_mask)
 
             for k, v in log.items():
@@ -543,20 +543,20 @@ if __name__ == "__main__":
         val_dataloader=val_loader,
         dataset= dataset,
         n_epochs=10000,
-        lr=1e-4,
+        lr=1e-3,
         batch=batch,
         weight_decay=1e-2,
-        alpha=1.0,
+        alpha=1.5,
         beta=1.0,
         eta=0.2,
         lambda_vae = 0.05,
         eps= (32 / 255 * 2),
         val_every=1,
         best_checkpoint_path="checkpoints/unet_best_nvhpvhxb.pth",
-        training_checkpoint_dir="checkpoints/training/nvhpvhxb",
+        training_checkpoint_dir="checkpoints/training/",
         device=device,
-        resume_from_checkpoint=True, # Cambia a False per ricominciare da zero
-        resume_only_weights = False, # True per caricare i pesi dal checkpoint
+        resume_from_checkpoint=False, # Cambia a False per ricominciare da zero
+        resume_only_weights = True, # True per caricare i pesi dal checkpoint
         noise_on_mask=True,
         dyn_weight_window= 30,  # ← nuovo parametro
         dyn_weight_T_temp = 0.1,  # ← nuovo parametro
