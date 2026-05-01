@@ -51,7 +51,7 @@ def save_training_checkpoint(
 
 
 def load_training_checkpoint(
-    checkpoint_dir, unet, optimizer, dyn_weighter, loss_normalizer,
+    checkpoint_dir, unet, optimizer, dyn_weighter, loss_normalizer, patience,
     device="cuda",
 ) -> dict:
     path = Path(checkpoint_dir) / "training_checkpoint.pth"
@@ -97,7 +97,7 @@ def load_training_checkpoint(
         "start_epoch":    checkpoint["epoch"] + 1,
         "global_step":    checkpoint["global_step"],
         "best_val_loss":  checkpoint["best_val_loss"],
-        "patience_count": checkpoint["patience_count"],
+        "patience_count": 0, # non usato
         "best_monitored": checkpoint.get("best_monitored", float("inf")),  # ← nuovo
     }
 
@@ -119,7 +119,6 @@ def training_loop(
         eta: float = 0.2,
         eps: float = 32/255 * 2,
         val_every: int = 1,
-        patience: int = 3,
         best_checkpoint_path: str = "checkpoints/unet_best.pth",
         training_checkpoint_dir: str = "checkpoints/training",
         device: str = "cuda",
@@ -133,6 +132,8 @@ def training_loop(
     # ── Surrogate CLIP ──
     surrogate_clip_configs = [
         "openai/clip-vit-base-patch32",
+        "openai/clip-vit-base-patch16",
+        "openai/clip-vit-large-patch14"
     ]
     surrogate_clip_models = []
     for model_name in surrogate_clip_configs:
@@ -141,14 +142,13 @@ def training_loop(
             param.requires_grad = False
         surrogate_clip_models.append(model)
 
-    # ── VAE ──
-    vae = AutoencoderKL.from_pretrained(
+    '''vae = AutoencoderKL.from_pretrained(
         "runwayml/stable-diffusion-inpainting", subfolder="vae"
     ).to(device).eval()
     for param in vae.parameters():
-        param.requires_grad = False
+        param.requires_grad = False'''
 
-    n_surrogates = len(surrogate_clip_models) + 1
+    n_surrogates = len(surrogate_clip_models) #+ 1  # 3 CLIP + 1 VAE
 
     # ── Ottimizzatore, weighter e normalizer ──
     optimizer       = optim.AdamW(unet.parameters(), lr=lr, weight_decay=weight_decay)
@@ -170,19 +170,18 @@ def training_loop(
         unet.load_state_dict(torch.load(best_checkpoint_path, map_location=device, weights_only=True))
         print("resume_only_weights=True, starting fine-tuning...")
         state = {"start_epoch": 0, "global_step": 0,
-                 "best_val_loss": float("inf"), "patience_count": 0,
-                 "best_monitored": float("inf")}        # ← nuovo campo
+                 "best_val_loss": float("inf"),
+                 "best_monitored": float("inf")}
     else:
         print("resume_from_checkpoint=False, starting from scratch.")
         state = {"start_epoch": 0, "global_step": 0,
-                 "best_val_loss": float("inf"), "patience_count": 0,
-                 "best_monitored": float("inf")}        # ← nuovo campo
+                 "best_val_loss": float("inf"),
+                 "best_monitored": float("inf")}
 
-    start_epoch     = state["start_epoch"]
-    global_step     = state["global_step"]
-    best_val_loss   = state["best_val_loss"]
-    patience_count  = state["patience_count"]
-    best_monitored  = state.get("best_monitored", float("inf"))   # ← nuovo
+    start_epoch    = state["start_epoch"]
+    global_step    = state["global_step"]
+    best_val_loss  = state["best_val_loss"]
+    best_monitored = state.get("best_monitored", float("inf"))
 
     wandb.init(
         project="immunization",
@@ -190,12 +189,12 @@ def training_loop(
             "dataset": dataset, "n_epochs": n_epochs, "lr": lr,
             "batch size": batch, "weight_decay": weight_decay,
             "alpha": alpha, "beta": beta, "eta": eta,
-            "lambda_vae": lambda_vae, "eps": eps, "patience": patience,
+            "lambda_vae": lambda_vae, "eps": eps,
             "noise_on_mask": noise_on_mask, "nb_filter": nb_filter,
             "dyn_weight_window": dyn_weight_window,
             "dyn_weight_T_temp": dyn_weight_T_temp,
             "dyn_weight_s_clip": dyn_weight_s_clip,
-            "early_stopping": "weighted_normalized_surrogates",   # ← documentato
+            "early_stopping": "disabled",
         }
     )
 
@@ -242,14 +241,15 @@ def training_loop(
                 X_cls_list.append(X_cls);    Y_cls_list.append(Y_cls)
                 X_patch_list.append(X_patch); Y_patch_list.append(Y_patch)
 
-            posterior_im     = vae.encode(I_im).latent_dist
-            posterior_target = vae.encode(I_target).latent_dist
+            # ── VAE ──
+            #posterior_im = vae.encode(I_im).latent_dist
+            #posterior_target = vae.encode(I_target).latent_dist
 
             loss, log = total_loss(
                 I_im=I_im, I=I, M=1 - M,
                 X_cls_list=X_cls_list, Y_cls_list=Y_cls_list,
                 X_patch_list=X_patch_list, Y_patch_list=Y_patch_list,
-                posterior_im=posterior_im, posterior_target=posterior_target,
+                posterior_im=None, posterior_target=None,
                 dyn_weighter=dyn_weighter,
                 alpha=alpha, beta=beta, eta=eta, lambda_vae=lambda_vae,
                 noise_on_mask=noise_on_mask,
@@ -298,7 +298,7 @@ def training_loop(
         if (epoch + 1) % val_every == 0:
             val_metrics = validation_loop(
                 unet=unet, val_dataloader=val_dataloader,
-                surrogate_clip_models=surrogate_clip_models, vae=vae,
+                surrogate_clip_models=surrogate_clip_models, vae=None,
                 dyn_weighter=dyn_weighter, alpha=alpha, beta=beta, eta=eta,
                 lambda_vae=lambda_vae, device=device, noise_on_mask=noise_on_mask,
             )
@@ -309,27 +309,24 @@ def training_loop(
                 for i in range(n_surrogates_val)
             )
 
-            # ── Calcolo metrica di early stopping ──────────────────────────
-            val_surrogates   = [val_metrics[f"l_surrogate_{i}"] for i in range(n_surrogates_val)]
-            val_normalized   = loss_normalizer.normalize(val_surrogates)
-            weights_sum      = sum(weights)
-            monitored        = sum(w * l for w, l in zip(weights, val_normalized)) / weights_sum
-            # ───────────────────────────────────────────────────────────────
+            val_surrogates = [val_metrics[f"l_surrogate_{i}"] for i in range(n_surrogates_val)]
+            val_normalized = loss_normalizer.normalize(val_surrogates)
+            weights_sum    = sum(weights)
+            monitored      = sum(w * l for w, l in zip(weights, val_normalized)) / weights_sum
 
             print(
                 f"── Epoch {epoch + 1} Val ──    "
                 f"loss={val_metrics['l_tot']:.4f}  "
                 f"l_noise={val_metrics['l_noise']:.4f}  "
                 f"l_surr={val_metrics['l_surrogates']:.4f}  "
-                f"monitored={monitored:.6f}\n"   # ← mostra il valore monitorato
-                f"{surrogate_str_val}"
+                f"{surrogate_str_val}  "
+                f"monitored={monitored:.6f}\n"
             )
 
-            # ── Best model: criterio sui surrogati normalizzati pesati ──────
+            # ── Best model: salva sempre il migliore senza early stopping ──
             if monitored < best_monitored:
                 best_monitored = monitored
-                best_val_loss  = val_metrics["l_tot"]   # aggiorna anche per log
-                patience_count = 0
+                best_val_loss  = val_metrics["l_tot"]
                 Path(best_checkpoint_path).parent.mkdir(parents=True, exist_ok=True)
                 torch.save(unet.state_dict(), best_checkpoint_path)
                 print(
@@ -337,14 +334,6 @@ def training_loop(
                     f"(monitored={best_monitored:.6f}, val_loss={best_val_loss:.4f})"
                     f" → {best_checkpoint_path}\n"
                 )
-            else:
-                patience_count += 1
-                print(
-                    f"  No improvement: monitored={monitored:.6f} "
-                    f"(best={best_monitored:.6f})  "
-                    f"({patience_count}/{patience})\n"
-                )
-            # ────────────────────────────────────────────────────────────────
 
             wandb.log({
                 "train/loss":         train_metrics["l_tot"],
@@ -362,7 +351,7 @@ def training_loop(
                    for i in range(n_surrogates_val)},
                 **{f"val/l_surrogate_{i}_norm": val_normalized[i]
                    for i in range(n_surrogates_val)},
-                "val/monitored":      monitored,         # ← loggato su wandb
+                "val/monitored":      monitored,
                 "epoch": epoch + 1,
             }, step=epoch + 1)
 
@@ -373,13 +362,10 @@ def training_loop(
             dyn_weighter=dyn_weighter,
             loss_normalizer=loss_normalizer,
             epoch=epoch, global_step=global_step,
-            best_val_loss=best_val_loss, patience_count=patience_count,
-            best_monitored=best_monitored,              # ← nuovo
+            best_val_loss=best_val_loss,
+            patience_count=0,              # non usato ma mantenuto per compatibilità checkpoint
+            best_monitored=best_monitored,
         )
-
-        if patience_count >= patience:
-            print("Early stopping.")
-            break
 
     wandb.finish()
     return unet
@@ -465,13 +451,13 @@ def validation_loop(
                 Y_patch_list.append(Y_patch)
 
             # ── VAE ──
-            posterior_im     = vae.encode(I_im).latent_dist
-            posterior_target = vae.encode(I_target).latent_dist
+            #posterior_im     = vae.encode(I_im).latent_dist
+            #posterior_target = vae.encode(I_target).latent_dist
 
             # ── Loss — total_loss gestisce pesi e dyn_weighter internamente ──
             _, log = total_loss(I_im=I_im, I=I, M=1 -M, X_cls_list=X_cls_list, Y_cls_list=Y_cls_list,
-                                X_patch_list=X_patch_list, Y_patch_list=Y_patch_list, posterior_im= posterior_im,
-                                posterior_target= posterior_target, dyn_weighter=dyn_weighter, alpha=alpha, beta=beta, eta=eta,
+                                X_patch_list=X_patch_list, Y_patch_list=Y_patch_list, posterior_im= None,
+                                posterior_target= None, dyn_weighter=dyn_weighter, alpha=alpha, beta=beta, eta=eta,
                                 lambda_vae=lambda_vae, noise_on_mask=noise_on_mask)
 
             for k, v in log.items():
@@ -563,14 +549,13 @@ if __name__ == "__main__":
         alpha=1.0,
         beta=1.0,
         eta=0.2,
-        lambda_vae = 0.1,
+        lambda_vae = 0.05,
         eps= (32 / 255 * 2),
         val_every=1,
-        patience=100,
-        best_checkpoint_path="checkpoints/unet_best_123fa41c.pth",
-        training_checkpoint_dir="checkpoints/training/",
+        best_checkpoint_path="checkpoints/unet_best_nvhpvhxb.pth",
+        training_checkpoint_dir="checkpoints/training/nvhpvhxb",
         device=device,
-        resume_from_checkpoint=False, # Cambia a False per ricominciare da zero
+        resume_from_checkpoint=True, # Cambia a False per ricominciare da zero
         resume_only_weights = False, # True per caricare i pesi dal checkpoint
         noise_on_mask=True,
         dyn_weight_window= 30,  # ← nuovo parametro

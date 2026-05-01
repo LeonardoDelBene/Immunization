@@ -157,7 +157,7 @@ class DiffVaxImmunization:
         if load_existing:
             if load_path is None:
                 raise ValueError("load_path must be specified when load_existing=True")
-            self.model.load_state_dict(torch.load(load_path, weights_only=True))
+            self.model.load_state_dict(torch.load(load_path, weights_only=True, map_location=device))
             print(f"Checkpoint loaded from {load_path}")
 
         self.model.eval()

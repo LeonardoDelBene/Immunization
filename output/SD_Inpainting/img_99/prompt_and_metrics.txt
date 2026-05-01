@@ -1,26 +1,26 @@
 --- Prompt ---
-person with blu cap
+A person in a creative writing event 
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 29.5718
-SSIM: 0.8862
-FSIM: 0.7687
+PSNR: 53.9715
+SSIM: 0.9994
+FSIM: 0.9890
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 18.2391
-SSIM: 0.7119
-FSIM: 0.5824
+PSNR: 23.0507
+SSIM: 0.7674
+FSIM: 0.6956
 
 CLIP score (Image vs Prompt)
-Edited Original:  29.7843
-Edited Immunized: 27.1682
+Edited Original:  21.6731
+Edited Immunized: 22.4055
 
 Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6520
-Caption orig: A person wearing a blue hat and a gray hoodie is walking in the snow.
-Caption adv:  A man wearing a blue hat and a brown jacket is walking down the street.
+Score:        0.8473
+Caption orig: A woman wearing a brown coat and holding a book stands in front of a colorful wall.
+Caption adv:  A woman wearing a brown coat and holding a handbag stands in front of a colorful wall with words on it.
 
 Accuracy Rate (Edited Original vs Edited Immunized)
 LLM score: 0.3000
@@ -28,8 +28,8 @@ Success:   True
 Accuracy:  1.0000
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.6947
-Background SSIM   (basso=protezione ok): 0.3948
-Subject LPIPS     (basso=soggetto ok)  : 0.3795
-Editing score                          : 0.5103
-Mask coverage (% background)           : 0.2787
+Background LPIPS  (alto=protezione ok) : 0.1594
+Background SSIM   (basso=protezione ok): 0.6797
+Subject LPIPS     (basso=soggetto ok)  : 0.0013
+Editing score                          : 0.4033
+Mask coverage (% background)           : 0.7213
