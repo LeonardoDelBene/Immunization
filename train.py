@@ -549,14 +549,14 @@ if __name__ == "__main__":
         alpha=1.5,
         beta=1.0,
         eta=0.2,
-        lambda_vae = 0.05,
+        lambda_vae = 0.1,
         eps= (32 / 255 * 2),
         val_every=1,
         best_checkpoint_path="checkpoints/unet_best_nvhpvhxb.pth",
         training_checkpoint_dir="checkpoints/training/",
         device=device,
         resume_from_checkpoint=False, # Cambia a False per ricominciare da zero
-        resume_only_weights = True, # True per caricare i pesi dal checkpoint
+        resume_only_weights = False, # True per caricare i pesi dal checkpoint
         noise_on_mask=True,
         dyn_weight_window= 30,  # ← nuovo parametro
         dyn_weight_T_temp = 0.1,  # ← nuovo parametro
