@@ -34,7 +34,7 @@ class CaptionSimilarity (Metric):
         load_in_4bit: se True carica LLaVA quantizzato a 4-bit (risparmia VRAM).
         """
         super().__init__(*args, **kwargs)
-        self.device = "cuda:0" if torch.cuda.is_available() else "cpu"
+        self.device = "cuda:1" if torch.cuda.is_available() else "cpu"
         self._load_sbert()
         self._load_llava(kwargs["load_in_4bit"])
 
@@ -47,7 +47,7 @@ class CaptionSimilarity (Metric):
         self.processor = LlavaProcessor.from_pretrained(self.LLAVA_MODEL_ID, use_fast= False,)
 
         model_kwargs = {
-            "torch_dtype": torch.float16 if self.device == "cuda:0" else torch.float32
+            "torch_dtype": torch.float16 if self.device == "cuda:1" else torch.float32
         }
 
         if load_in_4bit:

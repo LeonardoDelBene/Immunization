@@ -29,7 +29,7 @@ class MaskedEditingScore(Metric):
 
     def __init__(self, *args, lpips_net: str = "alex", **kwargs):
         super().__init__(*args, **kwargs)
-        self.device   = "cuda:0" if torch.cuda.is_available() else "cpu"
+        self.device   = "cuda:1" if torch.cuda.is_available() else "cpu"
         self.lpips_fn = lpips.LPIPS(net=lpips_net).to(self.device)
         self.lpips_fn.eval()
 
@@ -163,15 +163,20 @@ class MaskedEditingScore(Metric):
         )
 
         # ── Editing score ────────────────────────────────────────────────────────
-        # background disturbato = buono → bg_lpips alto, bg_ssim basso
-        # soggetto preservato   = buono → subject_lpips basso
-        bg_lpips_norm = float(1 / (1 + np.exp(-bg_lpips + 1)))  # sigmoide centrata su 1
-        subject_preserved = float(1 / (1 + np.exp(subject_lpips - 0.5)))  # sigmoide invertita: basso lpips → alto score
+        # Normalizzazione lineare :
+        #
+        # bg_lpips      : [0, +∞) → normalizziamo su un range atteso [0, 2]
+        # bg_ssim       : [0, 1]  → già normalizzato, lo invertiamo
+        # subject_lpips : [0, +∞) → normalizziamo su un range atteso [0, 1]
+
+        bg_lpips_norm = float(np.clip(bg_lpips / 1.0, 0.0, 1.0))  # atteso max ~1.0, clip a 1
+        bg_ssim_norm = float(1.0 - bg_ssim)  # già in [0,1], invertito
+        subject_preserved = float(np.clip(1.0 - subject_lpips / 0.5, 0.0, 1.0))  # atteso max ~0.5, invertito
 
         editing_score = (
-                w_bg * bg_lpips_norm +  # background deve cambiare
-                w_ssim * (1.0 - bg_ssim) +  # background deve essere poco simile
-                w_subject * subject_preserved  # soggetto deve restare uguale
+                w_bg * bg_lpips_norm +  # background deve cambiare    → alto = buono
+                w_ssim * bg_ssim_norm +  # background deve essere diverso → alto = buono
+                w_subject * subject_preserved  # soggetto deve restare uguale → alto = buono
         )
 
         return {
