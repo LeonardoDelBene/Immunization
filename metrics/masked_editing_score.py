@@ -29,7 +29,7 @@ class MaskedEditingScore(Metric):
 
     def __init__(self, *args, lpips_net: str = "alex", **kwargs):
         super().__init__(*args, **kwargs)
-        self.device   = "cuda:1" if torch.cuda.is_available() else "cpu"
+        self.device   = "cuda:0" if torch.cuda.is_available() else "cpu"
         self.lpips_fn = lpips.LPIPS(net=lpips_net).to(self.device)
         self.lpips_fn.eval()
 
@@ -150,7 +150,7 @@ class MaskedEditingScore(Metric):
             - mask_coverage     : % di pixel background  (zona bianca)
         """
         H, W = np.array(image_orig).shape[:2]
-        mask_np = self._prepare_mask(mask, (H, W))  # 1=background, 0=soggetto
+        mask_np = self._prepare_mask(mask, size=(H, W))
 
         # ── Background: deve essere disturbato ──────────────────────────────────
         bg_lpips = self._background_change_lpips(image_orig, image_edited, mask_np)

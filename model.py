@@ -142,7 +142,7 @@ class NestedUNet(nn.Module):
 class DiffVaxImmunization:
     def __init__(
         self,
-        device:         str   = "cuda:1",
+        device:         str   = "cuda:0",
         clamp_min:      float = -1.0,
         clamp_max:      float =  1.0,
         load_existing:  bool  = False,
@@ -195,9 +195,9 @@ class Attack:
                 pipe_inpaint.scheduler.config
             )
 
-        self.model = pipe_inpaint.to("cuda:1")
+        self.model = pipe_inpaint.to("cuda:0")
         self.model_link = model_link
-        self.generator = torch.Generator(device="cuda:1")
+        self.generator = torch.Generator(device="cuda:0")
 
     def edit_image(self, prompt, img, img_mask, num_inf=30, SEED=5):
         """Edit image using SD Inpainting pipeline."""
@@ -325,7 +325,7 @@ class AttackInstructPix2Pix:
             model_id,
             torch_dtype=torch.float16,
             safety_checker=None,
-        ).to("cuda:1")
+        ).to("cuda:0")
 
     def edit_image(self, prompt, image, mask=None, num_inference_steps=30,
                    image_guidance_scale=1.5, guidance_scale=7.5):

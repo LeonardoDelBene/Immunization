@@ -4,25 +4,32 @@ A person in a swimming pool
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 34.6885
-SSIM: 0.9724
-FSIM: 0.9234
+PSNR: 30.9077
+SSIM: 0.9484
+FSIM: 0.8789
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 14.1171
-SSIM: 0.5872
-FSIM: 0.5047
+PSNR: 6.3901
+SSIM: 0.1952
+FSIM: 0.4144
 
 CLIP score (Image vs Prompt)
 Edited Original:  28.3834
-Edited Immunized: 29.0631
+Edited Immunized: 23.5519
 
 Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.9399
+Score:        0.3690
 Caption orig: A woman wearing a brown dress is walking in a pool area.
-Caption adv:  A woman in a brown dress is walking through a swimming pool.
+Caption adv:  A statue of a woman wearing a head dress and a gold dress.
 
 Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
+LLM score: 0.3000
 Success:   True
 Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.9847
+Background SSIM   (basso=protezione ok): 0.0000
+Subject LPIPS     (basso=soggetto ok)  : 0.3795
+Editing score                          : 0.7662
+Mask coverage (% background)           : 0.7470

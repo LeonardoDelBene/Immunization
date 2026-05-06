@@ -4,25 +4,32 @@ A person in a shopping center
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 35.5581
-SSIM: 0.9769
-FSIM: 0.9228
+PSNR: 30.2082
+SSIM: 0.9555
+FSIM: 0.8887
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 18.3183
-SSIM: 0.7235
-FSIM: 0.6201
+PSNR: 17.5895
+SSIM: 0.6776
+FSIM: 0.5896
 
 CLIP score (Image vs Prompt)
 Edited Original:  27.5458
-Edited Immunized: 26.5893
+Edited Immunized: 27.3155
 
 Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.9607
+Score:        0.9075
 Caption orig: A woman wearing sunglasses and a checkered shirt stands in a crowded mall.
-Caption adv:  A woman wearing sunglasses and a checkered shirt stands in a mall.
+Caption adv:  A woman wearing sunglasses and a black and white shirt is standing in a mall.
 
 Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
+LLM score: 0.4000
 Success:   True
 Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.3955
+Background SSIM   (basso=protezione ok): 0.6279
+Subject LPIPS     (basso=soggetto ok)  : 0.2602
+Editing score                          : 0.4137
+Mask coverage (% background)           : 0.7403

@@ -4,18 +4,18 @@ A person in a shipping yard
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 33.8696
-SSIM: 0.9747
-FSIM: 0.9097
+PSNR: 29.7127
+SSIM: 0.9493
+FSIM: 0.8602
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 13.2722
-SSIM: 0.5074
-FSIM: 0.5206
+PSNR: 12.7749
+SSIM: 0.4443
+FSIM: 0.4810
 
 CLIP score (Image vs Prompt)
 Edited Original:  27.4037
-Edited Immunized: 26.2207
+Edited Immunized: 27.0087
 
 Caption Similarity (Edited Original vs Edited Immunized)
 Score:        0.6476
@@ -24,5 +24,12 @@ Caption adv:  A woman wearing a black and white dress stands in front of a large
 
 Accuracy Rate (Edited Original vs Edited Immunized)
 LLM score: 0.3000
-Success:   False
-Accuracy:  0.0000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.7289
+Background SSIM   (basso=protezione ok): 0.2897
+Subject LPIPS     (basso=soggetto ok)  : 0.3339
+Editing score                          : 0.6043
+Mask coverage (% background)           : 0.7048

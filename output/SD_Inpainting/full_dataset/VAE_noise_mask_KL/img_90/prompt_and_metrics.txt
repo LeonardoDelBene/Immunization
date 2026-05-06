@@ -4,25 +4,32 @@ A person in a dance school
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 32.0358
-SSIM: 0.9403
-FSIM: 0.9108
+PSNR: 29.5211
+SSIM: 0.9200
+FSIM: 0.8864
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 21.8689
-SSIM: 0.7171
-FSIM: 0.5503
+PSNR: 15.4330
+SSIM: 0.6031
+FSIM: 0.4812
 
 CLIP score (Image vs Prompt)
 Edited Original:  22.6343
-Edited Immunized: 25.1524
+Edited Immunized: 26.0375
 
 Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.7571
+Score:        0.6665
 Caption orig: A man wearing sunglasses and a white shirt stands in front of a brick wall.
-Caption adv:  A man wearing sunglasses and a white shirt.
+Caption adv:  A man wearing sunglasses and a white shirt stands in front of a group of other men.
 
 Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.9000
-Success:   True
-Accuracy:  1.0000
+LLM score: 0.7000
+Success:   False
+Accuracy:  0.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.7697
+Background SSIM   (basso=protezione ok): 0.5718
+Subject LPIPS     (basso=soggetto ok)  : 0.4483
+Editing score                          : 0.4674
+Mask coverage (% background)           : 0.7200

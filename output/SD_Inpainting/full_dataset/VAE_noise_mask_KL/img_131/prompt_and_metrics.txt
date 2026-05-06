@@ -4,25 +4,32 @@ A person in a church hall
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 32.9489
-SSIM: 0.9459
-FSIM: 0.9421
+PSNR: 29.9083
+SSIM: 0.9161
+FSIM: 0.9182
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 15.9907
-SSIM: 0.5019
-FSIM: 0.4813
+PSNR: 14.2308
+SSIM: 0.3584
+FSIM: 0.4210
 
 CLIP score (Image vs Prompt)
 Edited Original:  24.1826
-Edited Immunized: 26.0730
+Edited Immunized: 29.9822
 
 Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.9385
+Score:        0.9527
 Caption orig: A woman wearing sunglasses and a black jacket is standing in a church.
-Caption adv:  A woman wearing a black jacket and sunglasses is standing in front of a church.
+Caption adv:  A woman wearing sunglasses and a black jacket is standing in front of a church.
 
 Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   True
-Accuracy:  1.0000
+LLM score: 0.8000
+Success:   False
+Accuracy:  0.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.6800
+Background SSIM   (basso=protezione ok): 0.2769
+Subject LPIPS     (basso=soggetto ok)  : 0.4753
+Editing score                          : 0.5038
+Mask coverage (% background)           : 0.7647

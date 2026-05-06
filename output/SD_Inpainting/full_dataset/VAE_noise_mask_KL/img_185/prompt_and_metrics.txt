@@ -4,25 +4,32 @@ A person in a dog agility course
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 33.6795
-SSIM: 0.9484
-FSIM: 0.9366
+PSNR: 30.9121
+SSIM: 0.9216
+FSIM: 0.9152
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 13.9843
-SSIM: 0.5946
-FSIM: 0.4328
+PSNR: 13.3141
+SSIM: 0.5469
+FSIM: 0.4060
 
 CLIP score (Image vs Prompt)
 Edited Original:  33.8668
-Edited Immunized: 29.2374
+Edited Immunized: 29.9367
 
 Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.7295
+Score:        0.5834
 Caption orig: A woman wearing a black dress is standing on a green carpet.
-Caption adv:  A woman in a black dress is standing in front of a green cone.
+Caption adv:  A woman in a black dress stands in front of a group of people.
 
 Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
+LLM score: 0.7000
 Success:   False
 Accuracy:  0.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.7188
+Background SSIM   (basso=protezione ok): 0.5167
+Subject LPIPS     (basso=soggetto ok)  : 0.5016
+Editing score                          : 0.4325
+Mask coverage (% background)           : 0.7551

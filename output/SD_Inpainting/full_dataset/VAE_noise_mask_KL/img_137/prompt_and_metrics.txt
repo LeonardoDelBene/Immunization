@@ -4,25 +4,32 @@ A person in a street parade
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 36.2715
-SSIM: 0.9927
-FSIM: 0.9314
+PSNR: 30.9720
+SSIM: 0.9774
+FSIM: 0.8875
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 21.4292
-SSIM: 0.8280
-FSIM: 0.7379
+PSNR: 18.5674
+SSIM: 0.7474
+FSIM: 0.6607
 
 CLIP score (Image vs Prompt)
 Edited Original:  29.7662
-Edited Immunized: 30.6435
+Edited Immunized: 30.5656
 
 Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.9817
+Score:        0.5515
 Caption orig: A woman wearing a plaid shirt and a hat is walking down the street.
-Caption adv:  A woman wearing a plaid shirt and a colorful hat is walking down the street.
+Caption adv:  A woman wearing a plaid shirt and a hat is smiling at the camera.
 
 Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.8000
-Success:   True
-Accuracy:  1.0000
+LLM score: 0.7000
+Success:   False
+Accuracy:  0.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.3299
+Background SSIM   (basso=protezione ok): 0.7092
+Subject LPIPS     (basso=soggetto ok)  : 0.2110
+Editing score                          : 0.3926
+Mask coverage (% background)           : 0.7790

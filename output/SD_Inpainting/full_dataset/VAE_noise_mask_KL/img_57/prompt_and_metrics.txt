@@ -4,25 +4,32 @@ A person in a dance school
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 32.6349
-SSIM: 0.9339
-FSIM: 0.9318
+PSNR: 30.6982
+SSIM: 0.9148
+FSIM: 0.9113
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 16.7311
-SSIM: 0.5773
-FSIM: 0.4681
+PSNR: 14.7040
+SSIM: 0.4671
+FSIM: 0.4280
 
 CLIP score (Image vs Prompt)
 Edited Original:  22.5138
-Edited Immunized: 24.0177
+Edited Immunized: 23.4792
 
 Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6329
+Score:        0.4116
 Caption orig: A woman with blue hair and a grey jacket stands in front of a brick wall.
-Caption adv:  A woman with blue hair and a white jacket is standing in front of a mirror.
+Caption adv:  A woman wearing a blue shirt and a white jacket is smiling at the camera.
 
 Accuracy Rate (Edited Original vs Edited Immunized)
 LLM score: 0.3000
-Success:   False
-Accuracy:  0.0000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.8573
+Background SSIM   (basso=protezione ok): 0.4010
+Subject LPIPS     (basso=soggetto ok)  : 0.4427
+Editing score                          : 0.5570
+Mask coverage (% background)           : 0.7346

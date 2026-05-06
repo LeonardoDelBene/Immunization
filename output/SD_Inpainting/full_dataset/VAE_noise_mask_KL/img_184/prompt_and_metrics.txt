@@ -4,25 +4,32 @@ A person in a farmers' cooperative
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 33.5574
-SSIM: 0.9722
-FSIM: 0.8908
+PSNR: 29.9950
+SSIM: 0.9532
+FSIM: 0.8463
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 15.1954
-SSIM: 0.4550
-FSIM: 0.4852
+PSNR: 15.2394
+SSIM: 0.4493
+FSIM: 0.4827
 
 CLIP score (Image vs Prompt)
 Edited Original:  20.8449
-Edited Immunized: 24.9911
+Edited Immunized: 25.1160
 
 Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.8484
+Score:        0.5679
 Caption orig: A woman wearing a flowered jacket and sunglasses stands in a field of plants.
-Caption adv:  A woman wearing a white dress and sunglasses stands in a field of green plants.
+Caption adv:  A woman wearing a white dress and sunglasses is standing in a vegetable market.
 
 Accuracy Rate (Edited Original vs Edited Immunized)
 LLM score: 0.3000
-Success:   False
-Accuracy:  0.0000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.6691
+Background SSIM   (basso=protezione ok): 0.2943
+Subject LPIPS     (basso=soggetto ok)  : 0.2272
+Editing score                          : 0.6431
+Mask coverage (% background)           : 0.7052

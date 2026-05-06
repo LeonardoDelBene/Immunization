@@ -4,25 +4,32 @@ A person in a casino lounge
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 33.1561
-SSIM: 0.9543
-FSIM: 0.9499
+PSNR: 28.8801
+SSIM: 0.9228
+FSIM: 0.9296
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 12.7254
-SSIM: 0.4314
-FSIM: 0.4566
+PSNR: 11.0380
+SSIM: 0.3497
+FSIM: 0.4174
 
 CLIP score (Image vs Prompt)
 Edited Original:  28.4783
-Edited Immunized: 27.1667
+Edited Immunized: 23.1145
 
 Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6259
+Score:        0.6068
 Caption orig: A woman wearing a black jacket and white shirt is standing in a casino.
-Caption adv:  A woman wearing a black jacket and white shirt is standing in front of a slot machine.
+Caption adv:  A woman wearing a black jacket and white shirt is standing in front of a colorful background.
 
 Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
+LLM score: 0.3000
 Success:   True
 Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.8080
+Background SSIM   (basso=protezione ok): 0.1856
+Subject LPIPS     (basso=soggetto ok)  : 0.3613
+Editing score                          : 0.6507
+Mask coverage (% background)           : 0.6992

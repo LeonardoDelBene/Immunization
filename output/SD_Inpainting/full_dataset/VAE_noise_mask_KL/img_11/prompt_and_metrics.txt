@@ -4,18 +4,18 @@ A person in a garage
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 33.4633
-SSIM: 0.9446
-FSIM: 0.9037
+PSNR: 30.0389
+SSIM: 0.9147
+FSIM: 0.8657
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 14.6715
-SSIM: 0.4880
-FSIM: 0.4474
+PSNR: 13.7325
+SSIM: 0.4374
+FSIM: 0.4277
 
 CLIP score (Image vs Prompt)
 Edited Original:  28.4025
-Edited Immunized: 25.1517
+Edited Immunized: 26.1264
 
 Caption Similarity (Edited Original vs Edited Immunized)
 Score:        0.6229
@@ -24,5 +24,12 @@ Caption adv:  A woman wearing a black and white polka dot sweater and a white co
 
 Accuracy Rate (Edited Original vs Edited Immunized)
 LLM score: 0.8000
-Success:   True
-Accuracy:  1.0000
+Success:   False
+Accuracy:  0.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.7792
+Background SSIM   (basso=protezione ok): 0.3333
+Subject LPIPS     (basso=soggetto ok)  : 0.3689
+Editing score                          : 0.5904
+Mask coverage (% background)           : 0.7104

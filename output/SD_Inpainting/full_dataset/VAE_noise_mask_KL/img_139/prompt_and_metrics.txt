@@ -4,25 +4,32 @@ A person in a community arts and crafts market
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 34.9665
-SSIM: 0.9698
-FSIM: 0.9428
+PSNR: 30.4450
+SSIM: 0.9406
+FSIM: 0.9075
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 16.2663
-SSIM: 0.5945
-FSIM: 0.5799
+PSNR: 15.8624
+SSIM: 0.5245
+FSIM: 0.5317
 
 CLIP score (Image vs Prompt)
 Edited Original:  28.6175
-Edited Immunized: 26.8755
+Edited Immunized: 28.0514
 
 Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.7673
+Score:        0.7691
 Caption orig: A woman wearing a white shirt and a black bow tie stands in front of a table with colorful pencils.
-Caption adv:  A woman wearing a white shirt and a plaid skirt stands in front of a table with a variety of items on it.
+Caption adv:  A woman wearing a white shirt and a black and red plaid skirt stands in front of a table with a pink cloth on it.
 
 Accuracy Rate (Edited Original vs Edited Immunized)
 LLM score: 0.3000
-Success:   False
-Accuracy:  0.0000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.4953
+Background SSIM   (basso=protezione ok): 0.4641
+Subject LPIPS     (basso=soggetto ok)  : 0.3012
+Editing score                          : 0.4781
+Mask coverage (% background)           : 0.7660

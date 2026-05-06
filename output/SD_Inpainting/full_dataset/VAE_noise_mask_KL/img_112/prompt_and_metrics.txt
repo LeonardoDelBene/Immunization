@@ -4,25 +4,32 @@ A person in a jail
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 37.5846
-SSIM: 0.9744
-FSIM: 0.9397
+PSNR: 32.6003
+SSIM: 0.9513
+FSIM: 0.8875
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 20.0937
-SSIM: 0.6046
-FSIM: 0.6484
+PSNR: 18.1025
+SSIM: 0.4377
+FSIM: 0.5481
 
 CLIP score (Image vs Prompt)
 Edited Original:  25.9586
-Edited Immunized: 28.5355
+Edited Immunized: 27.5275
 
 Caption Similarity (Edited Original vs Edited Immunized)
-Score:        1.0000
+Score:        0.6744
 Caption orig: A woman wearing a striped shirt and sunglasses is standing in a hallway.
-Caption adv:  A woman wearing a striped shirt and sunglasses is standing in a hallway.
+Caption adv:  A woman wearing a striped shirt and sunglasses is standing in front of a mirror.
 
 Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 1.0000
+LLM score: 0.3000
 Success:   True
 Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.6084
+Background SSIM   (basso=protezione ok): 0.2965
+Subject LPIPS     (basso=soggetto ok)  : 0.2183
+Editing score                          : 0.6235
+Mask coverage (% background)           : 0.7262

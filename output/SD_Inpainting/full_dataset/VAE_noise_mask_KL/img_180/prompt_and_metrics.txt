@@ -4,25 +4,32 @@ A person in a gym sauna
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 33.2766
-SSIM: 0.9331
-FSIM: 0.8892
+PSNR: 28.8443
+SSIM: 0.8858
+FSIM: 0.8280
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 14.8627
-SSIM: 0.4521
-FSIM: 0.4293
+PSNR: 14.4265
+SSIM: 0.4098
+FSIM: 0.4198
 
 CLIP score (Image vs Prompt)
 Edited Original:  24.9926
-Edited Immunized: 22.4490
+Edited Immunized: 21.8663
 
 Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.4662
+Score:        0.3850
 Caption orig: A man wearing a brown hat and a jacket stands in front of a row of exercise machines.
-Caption adv:  A man wearing a hat and a jacket stands in front of a mirror.
+Caption adv:  A man wearing a hat and sunglasses is standing in front of a mirror.
 
 Accuracy Rate (Edited Original vs Edited Immunized)
 LLM score: 0.3000
-Success:   False
-Accuracy:  0.0000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.6243
+Background SSIM   (basso=protezione ok): 0.3347
+Subject LPIPS     (basso=soggetto ok)  : 0.5640
+Editing score                          : 0.4493
+Mask coverage (% background)           : 0.7044

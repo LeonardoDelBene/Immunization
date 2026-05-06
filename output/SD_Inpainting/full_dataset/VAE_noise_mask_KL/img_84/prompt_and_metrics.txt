@@ -4,25 +4,32 @@ A person in a pastry shop
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 34.0632
-SSIM: 0.9629
-FSIM: 0.9117
+PSNR: 30.4938
+SSIM: 0.9390
+FSIM: 0.8726
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 15.8425
-SSIM: 0.5550
-FSIM: 0.5119
+PSNR: 14.9323
+SSIM: 0.5206
+FSIM: 0.4928
 
 CLIP score (Image vs Prompt)
 Edited Original:  27.3791
-Edited Immunized: 30.9122
+Edited Immunized: 32.2178
 
 Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.8293
+Score:        0.6194
 Caption orig: A woman in a blue jacket and black pants stands in front of a display of pastries.
-Caption adv:  A woman in a blue jacket stands in front of a bakery display, looking at the pastries.
+Caption adv:  A woman standing in front of a display case filled with various desserts.
 
 Accuracy Rate (Edited Original vs Edited Immunized)
 LLM score: 0.7000
-Success:   True
-Accuracy:  1.0000
+Success:   False
+Accuracy:  0.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.6027
+Background SSIM   (basso=protezione ok): 0.4309
+Subject LPIPS     (basso=soggetto ok)  : 0.3249
+Editing score                          : 0.5169
+Mask coverage (% background)           : 0.7248

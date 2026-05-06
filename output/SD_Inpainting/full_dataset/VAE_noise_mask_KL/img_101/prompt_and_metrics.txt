@@ -4,25 +4,32 @@ A person in a bridal fitting room
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 36.1522
-SSIM: 0.9714
-FSIM: 0.9103
+PSNR: 30.3649
+SSIM: 0.9235
+FSIM: 0.8260
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 16.4549
-SSIM: 0.6542
-FSIM: 0.5393
+PSNR: 15.0601
+SSIM: 0.5802
+FSIM: 0.4782
 
 CLIP score (Image vs Prompt)
 Edited Original:  26.1359
-Edited Immunized: 25.0092
+Edited Immunized: 29.9043
 
 Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.8209
+Score:        0.7015
 Caption orig: Two women are standing in front of a mirror, one wearing a pink dress and the other wearing a brown coat.
-Caption adv:  Two women are standing in front of a mirror, both wearing sunglasses.
+Caption adv:  A woman wearing pink pants and a fur coat is standing in front of a mirror.
 
 Accuracy Rate (Edited Original vs Edited Immunized)
 LLM score: 0.3000
-Success:   False
-Accuracy:  0.0000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.5295
+Background SSIM   (basso=protezione ok): 0.5520
+Subject LPIPS     (basso=soggetto ok)  : 0.3861
+Editing score                          : 0.4145
+Mask coverage (% background)           : 0.7469

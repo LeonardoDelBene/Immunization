@@ -4,25 +4,32 @@ A person in a science lab
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 33.5087
-SSIM: 0.9575
-FSIM: 0.9088
+PSNR: 29.8563
+SSIM: 0.9325
+FSIM: 0.8671
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 14.2348
-SSIM: 0.5714
-FSIM: 0.5523
+PSNR: 13.6065
+SSIM: 0.5161
+FSIM: 0.5059
 
 CLIP score (Image vs Prompt)
 Edited Original:  25.8915
-Edited Immunized: 26.6691
+Edited Immunized: 26.3003
 
 Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.4988
+Score:        0.5471
 Caption orig: A woman wearing a colorful scarf and a jacket is standing in front of a counter.
-Caption adv:  A woman wearing a scarf and a plaid jacket walks down a hallway.
+Caption adv:  A woman wearing a colorful jacket and scarf is walking down an aisle in a store.
 
 Accuracy Rate (Edited Original vs Edited Immunized)
 LLM score: 0.3000
-Success:   False
-Accuracy:  0.0000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.6454
+Background SSIM   (basso=protezione ok): 0.3689
+Subject LPIPS     (basso=soggetto ok)  : 0.2803
+Editing score                          : 0.5793
+Mask coverage (% background)           : 0.6520

@@ -4,25 +4,32 @@ A person in a gym class
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 32.5144
-SSIM: 0.9227
-FSIM: 0.8778
+PSNR: 29.4298
+SSIM: 0.8838
+FSIM: 0.8299
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 13.3967
-SSIM: 0.5167
-FSIM: 0.4351
+PSNR: 15.8723
+SSIM: 0.5550
+FSIM: 0.4381
 
 CLIP score (Image vs Prompt)
 Edited Original:  24.5607
-Edited Immunized: 25.8128
+Edited Immunized: 26.4489
 
 Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6027
+Score:        0.9703
 Caption orig: A man wearing glasses and a blue jacket is standing in a gym.
-Caption adv:  A man wearing glasses and a jacket is standing on a tennis court.
+Caption adv:  A man wearing glasses and a jacket is standing in a gym.
 
 Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
+LLM score: 0.9000
 Success:   False
 Accuracy:  0.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.6223
+Background SSIM   (basso=protezione ok): 0.5312
+Subject LPIPS     (basso=soggetto ok)  : 0.3764
+Editing score                          : 0.4637
+Mask coverage (% background)           : 0.6851

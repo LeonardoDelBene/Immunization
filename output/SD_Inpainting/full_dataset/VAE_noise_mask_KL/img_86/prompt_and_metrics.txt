@@ -4,25 +4,32 @@ A person in a shopping center
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 33.4887
-SSIM: 0.9314
-FSIM: 0.9054
+PSNR: 30.8320
+SSIM: 0.9026
+FSIM: 0.8666
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 15.3755
-SSIM: 0.5856
-FSIM: 0.5249
+PSNR: 15.9412
+SSIM: 0.5913
+FSIM: 0.5158
 
 CLIP score (Image vs Prompt)
 Edited Original:  27.1941
-Edited Immunized: 28.7814
+Edited Immunized: 28.6742
 
 Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.5202
+Score:        0.4689
 Caption orig: A woman wearing sunglasses and a black and blue dress is holding a shopping bag.
-Caption adv:  A woman wearing a blue and white dress and sunglasses is walking down a busy street.
+Caption adv:  A woman wearing a blue and white dress and sunglasses is walking down a hallway.
 
 Accuracy Rate (Edited Original vs Edited Immunized)
 LLM score: 0.3000
-Success:   False
-Accuracy:  0.0000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.5734
+Background SSIM   (basso=protezione ok): 0.5708
+Subject LPIPS     (basso=soggetto ok)  : 0.4323
+Editing score                          : 0.3987
+Mask coverage (% background)           : 0.7111

@@ -4,25 +4,32 @@ A person in a gymnasium
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 35.5982
-SSIM: 0.9576
-FSIM: 0.9142
+PSNR: 30.2049
+SSIM: 0.9137
+FSIM: 0.8474
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 16.3170
-SSIM: 0.5803
-FSIM: 0.4959
+PSNR: 14.8221
+SSIM: 0.4568
+FSIM: 0.4290
 
 CLIP score (Image vs Prompt)
 Edited Original:  25.4550
-Edited Immunized: 22.8243
+Edited Immunized: 25.9616
 
 Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6310
+Score:        0.7338
 Caption orig: A woman wearing a purple jacket and a white scarf is standing in a gym.
-Caption adv:  A woman wearing a purple jacket and a white scarf.
+Caption adv:  A woman wearing a suit and tie stands in front of a gym.
 
 Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.9000
+LLM score: 0.3000
 Success:   True
 Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.7016
+Background SSIM   (basso=protezione ok): 0.3935
+Subject LPIPS     (basso=soggetto ok)  : 0.4977
+Editing score                          : 0.4639
+Mask coverage (% background)           : 0.7410

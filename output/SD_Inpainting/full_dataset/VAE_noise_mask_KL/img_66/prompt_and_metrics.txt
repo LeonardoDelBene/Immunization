@@ -4,25 +4,32 @@ A person in a climbing wall
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 35.6827
-SSIM: 0.9777
-FSIM: 0.9198
+PSNR: 30.4626
+SSIM: 0.9508
+FSIM: 0.8672
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 12.0370
-SSIM: 0.4557
-FSIM: 0.5150
+PSNR: 12.0521
+SSIM: 0.4382
+FSIM: 0.4858
 
 CLIP score (Image vs Prompt)
 Edited Original:  29.4958
-Edited Immunized: 28.8523
+Edited Immunized: 29.6557
 
 Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.8281
+Score:        0.9242
 Caption orig: A woman wearing a colorful dress stands in front of a colorful wall.
-Caption adv:  A woman wearing a blue and white dress is standing on a colorful rock wall.
+Caption adv:  A woman wearing a blue and white dress stands in front of a colorful wall.
 
 Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.4000
-Success:   False
-Accuracy:  0.0000
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.5351
+Background SSIM   (basso=protezione ok): 0.3274
+Subject LPIPS     (basso=soggetto ok)  : 0.2163
+Editing score                          : 0.5860
+Mask coverage (% background)           : 0.7587

@@ -4,18 +4,18 @@ A person in a butcher shop
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 35.4767
-SSIM: 0.9630
-FSIM: 0.9299
+PSNR: 32.7748
+SSIM: 0.9463
+FSIM: 0.9074
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 15.1416
-SSIM: 0.5345
-FSIM: 0.4709
+PSNR: 16.0861
+SSIM: 0.5555
+FSIM: 0.4934
 
 CLIP score (Image vs Prompt)
 Edited Original:  29.0402
-Edited Immunized: 30.8376
+Edited Immunized: 30.6946
 
 Caption Similarity (Edited Original vs Edited Immunized)
 Score:        0.7217
@@ -24,5 +24,12 @@ Caption adv:  A man wearing sunglasses and a black shirt is standing in front of
 
 Accuracy Rate (Edited Original vs Edited Immunized)
 LLM score: 0.3000
-Success:   False
-Accuracy:  0.0000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.4874
+Background SSIM   (basso=protezione ok): 0.5465
+Subject LPIPS     (basso=soggetto ok)  : 0.5313
+Editing score                          : 0.3310
+Mask coverage (% background)           : 0.8426

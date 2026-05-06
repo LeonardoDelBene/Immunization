@@ -4,25 +4,32 @@ A person in a gym class
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 32.8576
-SSIM: 0.9368
-FSIM: 0.8984
+PSNR: 29.3701
+SSIM: 0.9024
+FSIM: 0.8549
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 14.9844
-SSIM: 0.5656
-FSIM: 0.4626
+PSNR: 14.8954
+SSIM: 0.5205
+FSIM: 0.4368
 
 CLIP score (Image vs Prompt)
 Edited Original:  27.9331
-Edited Immunized: 28.8996
+Edited Immunized: 28.9595
 
 Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6371
+Score:        0.5485
 Caption orig: A woman wearing sunglasses and a blue shirt is standing in a gym.
-Caption adv:  A woman wearing glasses and a blue shirt is standing on a basketball court.
+Caption adv:  A woman wearing glasses and a black shirt stands on a basketball court.
 
 Accuracy Rate (Edited Original vs Edited Immunized)
 LLM score: 0.3000
-Success:   False
-Accuracy:  0.0000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.6643
+Background SSIM   (basso=protezione ok): 0.4593
+Subject LPIPS     (basso=soggetto ok)  : 0.4475
+Editing score                          : 0.4594
+Mask coverage (% background)           : 0.6935

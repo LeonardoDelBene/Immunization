@@ -4,25 +4,32 @@ A person in a prison shower
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 36.0881
-SSIM: 0.9701
-FSIM: 0.9373
+PSNR: 29.8354
+SSIM: 0.9184
+FSIM: 0.8595
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 19.0713
-SSIM: 0.5015
-FSIM: 0.5002
+PSNR: 17.6066
+SSIM: 0.3825
+FSIM: 0.4318
 
 CLIP score (Image vs Prompt)
 Edited Original:  26.4887
-Edited Immunized: 28.4755
+Edited Immunized: 23.9725
 
 Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.8411
+Score:        0.6857
 Caption orig: A woman in a blue shirt and orange pants stands in a shower stall.
-Caption adv:  A woman in a blue shirt and orange pants is standing in a bathroom.
+Caption adv:  A woman wearing a blue shirt and red pants is standing in a room with a blue and green tiled wall.
 
 Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
+LLM score: 0.3000
 Success:   True
 Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.6157
+Background SSIM   (basso=protezione ok): 0.2782
+Subject LPIPS     (basso=soggetto ok)  : 0.4158
+Editing score                          : 0.5134
+Mask coverage (% background)           : 0.7348

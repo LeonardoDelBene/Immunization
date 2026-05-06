@@ -4,25 +4,32 @@ A person in a mall
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 34.7417
-SSIM: 0.9799
-FSIM: 0.9610
+PSNR: 31.3978
+SSIM: 0.9669
+FSIM: 0.9454
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 15.4026
-SSIM: 0.6228
-FSIM: 0.5109
+PSNR: 15.0524
+SSIM: 0.5846
+FSIM: 0.4737
 
 CLIP score (Image vs Prompt)
 Edited Original:  25.1855
-Edited Immunized: 25.7110
+Edited Immunized: 26.1137
 
 Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.4427
+Score:        0.1452
 Caption orig: A woman wearing a brown jacket and a scarf around her neck, standing in a shopping mall.
-Caption adv:  A woman in a brown jacket is talking on her cell phone.
+Caption adv:  A woman is taking a picture of herself in a mirror.
 
 Accuracy Rate (Edited Original vs Edited Immunized)
 LLM score: 0.3000
-Success:   False
-Accuracy:  0.0000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.6130
+Background SSIM   (basso=protezione ok): 0.5571
+Subject LPIPS     (basso=soggetto ok)  : 0.4377
+Editing score                          : 0.4155
+Mask coverage (% background)           : 0.8454

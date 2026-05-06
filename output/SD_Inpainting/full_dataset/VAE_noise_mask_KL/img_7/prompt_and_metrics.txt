@@ -4,25 +4,32 @@ A person in a shelter
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 35.4859
-SSIM: 0.9746
-FSIM: 0.9632
+PSNR: 30.8666
+SSIM: 0.9453
+FSIM: 0.9365
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 17.2513
-SSIM: 0.7509
-FSIM: 0.6240
+PSNR: 16.9965
+SSIM: 0.5031
+FSIM: 0.4605
 
 CLIP score (Image vs Prompt)
 Edited Original:  20.6088
-Edited Immunized: 22.8212
+Edited Immunized: 23.0643
 
 Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.7303
+Score:        0.7251
 Caption orig: A woman wearing a red shirt and red pants stands against a wall.
-Caption adv:  A woman wearing a red shirt and red pants is standing in a hallway.
+Caption adv:  A woman in a red shirt and red pants is standing in a hallway.
 
 Accuracy Rate (Edited Original vs Edited Immunized)
 LLM score: 0.7000
-Success:   True
-Accuracy:  1.0000
+Success:   False
+Accuracy:  0.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.7745
+Background SSIM   (basso=protezione ok): 0.4007
+Subject LPIPS     (basso=soggetto ok)  : 0.2557
+Editing score                          : 0.6362
+Mask coverage (% background)           : 0.7325

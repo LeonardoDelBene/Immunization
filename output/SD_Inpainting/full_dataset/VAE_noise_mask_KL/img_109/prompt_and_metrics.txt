@@ -4,18 +4,18 @@ A person in a motel room
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 37.6588
-SSIM: 0.9822
-FSIM: 0.9552
+PSNR: 32.9119
+SSIM: 0.9585
+FSIM: 0.9204
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 12.7112
-SSIM: 0.6584
-FSIM: 0.4941
+PSNR: 11.3630
+SSIM: 0.5705
+FSIM: 0.4417
 
 CLIP score (Image vs Prompt)
 Edited Original:  27.7484
-Edited Immunized: 27.7778
+Edited Immunized: 27.4794
 
 Caption Similarity (Edited Original vs Edited Immunized)
 Score:        0.7494
@@ -24,5 +24,12 @@ Caption adv:  A woman wearing glasses and a blue shirt is standing in a room.
 
 Accuracy Rate (Edited Original vs Edited Immunized)
 LLM score: 0.4000
-Success:   False
-Accuracy:  0.0000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.6475
+Background SSIM   (basso=protezione ok): 0.5047
+Subject LPIPS     (basso=soggetto ok)  : 0.2244
+Editing score                          : 0.5729
+Mask coverage (% background)           : 0.7718

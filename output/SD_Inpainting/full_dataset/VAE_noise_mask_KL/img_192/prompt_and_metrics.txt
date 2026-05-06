@@ -4,18 +4,18 @@ A person in a butcher’s block
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 38.7053
-SSIM: 0.9957
-FSIM: 0.9431
+PSNR: 33.0062
+SSIM: 0.9874
+FSIM: 0.9087
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 18.0409
-SSIM: 0.6350
-FSIM: 0.6717
+PSNR: 16.8209
+SSIM: 0.5865
+FSIM: 0.6140
 
 CLIP score (Image vs Prompt)
 Edited Original:  26.8447
-Edited Immunized: 27.2448
+Edited Immunized: 26.2646
 
 Caption Similarity (Edited Original vs Edited Immunized)
 Score:        0.7039
@@ -24,5 +24,12 @@ Caption adv:  A man wearing a leopard print jacket stands in front of a bakery d
 
 Accuracy Rate (Edited Original vs Edited Immunized)
 LLM score: 0.3000
-Success:   False
-Accuracy:  0.0000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.5073
+Background SSIM   (basso=protezione ok): 0.4282
+Subject LPIPS     (basso=soggetto ok)  : 0.2104
+Editing score                          : 0.5483
+Mask coverage (% background)           : 0.6972

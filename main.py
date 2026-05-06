@@ -1,9 +1,12 @@
 import os
+os.environ["HF_HOME"] = "/equilibrium/ldelbene/cache/hf"
 import warnings
 import matplotlib.pyplot as plt
 import torchvision.transforms as T
 from PIL import ImageOps
 from datasets import load_from_disk
+import torch
+
 
 from utils import (
     load_sample_from_hf,
@@ -439,7 +442,7 @@ def save_global_summary(output_dir, all_metrics):
 def get_config():
     return {
         "use_instruct_pix2pix": True,
-        "edit_prompt":          "Put a blue hat on the person",
+        "edit_prompt":          "Put the person on the beach",
         "seed":                 2043,
         "edit_background":      False,
         "load_existing":        True,
@@ -448,8 +451,8 @@ def get_config():
         "base_output_dir":      "output",
         "dataset_path":         "./data/DiffVaxDataset_local",
         "dataset_split":        "validation",
-        "sample_idx":           80,
-        "run_full_dataset":     False,
+        "sample_idx":           0,
+        "run_full_dataset":     True,
         "run_wandb":            "DiffVax"
     }
 
@@ -488,6 +491,9 @@ def main():
 # ─────────────────────────────────────────────
 
 if __name__ == "__main__":
+    print("Torch:", torch.__version__)
+    print("CUDA torch:", torch.version.cuda)
+    print("CUDA disponibile:", torch.cuda.is_available())
     main()
 
 

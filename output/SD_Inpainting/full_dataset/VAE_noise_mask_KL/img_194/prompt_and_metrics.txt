@@ -4,25 +4,32 @@ A person in a hotel lobby
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 33.2263
-SSIM: 0.9553
-FSIM: 0.9188
+PSNR: 30.6260
+SSIM: 0.9352
+FSIM: 0.8938
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 15.3013
-SSIM: 0.5122
-FSIM: 0.4609
+PSNR: 14.5039
+SSIM: 0.4882
+FSIM: 0.4409
 
 CLIP score (Image vs Prompt)
 Edited Original:  25.6405
-Edited Immunized: 28.8900
+Edited Immunized: 29.5974
 
 Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6662
+Score:        1.0000
 Caption orig: A woman wearing a dress with a face on it stands in a room.
-Caption adv:  A woman wearing a black and white dress with a face on it.
+Caption adv:  A woman wearing a dress with a face on it stands in a room.
 
 Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   True
-Accuracy:  1.0000
+LLM score: 0.9000
+Success:   False
+Accuracy:  0.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.7206
+Background SSIM   (basso=protezione ok): 0.4061
+Subject LPIPS     (basso=soggetto ok)  : 0.3490
+Editing score                          : 0.5570
+Mask coverage (% background)           : 0.7431

@@ -4,25 +4,32 @@ A person in a beach shack
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 33.8007
-SSIM: 0.9502
-FSIM: 0.9010
+PSNR: 30.6102
+SSIM: 0.9230
+FSIM: 0.8625
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 13.7451
-SSIM: 0.4747
-FSIM: 0.5303
+PSNR: 12.9716
+SSIM: 0.4264
+FSIM: 0.4903
 
 CLIP score (Image vs Prompt)
 Edited Original:  28.9013
-Edited Immunized: 29.4637
+Edited Immunized: 28.8176
 
 Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6104
+Score:        0.5934
 Caption orig: A man wearing a black jacket and a hat is standing in front of a hut.
-Caption adv:  A man wearing a black jacket and a white shirt is standing in front of a door.
+Caption adv:  A man wearing a black jacket and a white shirt is standing in front of a window.
 
 Accuracy Rate (Edited Original vs Edited Immunized)
 LLM score: 0.3000
-Success:   False
-Accuracy:  0.0000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.6018
+Background SSIM   (basso=protezione ok): 0.3233
+Subject LPIPS     (basso=soggetto ok)  : 0.3586
+Editing score                          : 0.5285
+Mask coverage (% background)           : 0.7277

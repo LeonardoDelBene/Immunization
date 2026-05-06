@@ -4,25 +4,32 @@ A person in a tech startup launch
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 32.2586
-SSIM: 0.9321
-FSIM: 0.8700
+PSNR: 29.6869
+SSIM: 0.9023
+FSIM: 0.8297
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 15.1975
-SSIM: 0.5408
-FSIM: 0.3999
+PSNR: 14.9235
+SSIM: 0.5070
+FSIM: 0.3848
 
 CLIP score (Image vs Prompt)
 Edited Original:  24.4055
-Edited Immunized: 26.0728
+Edited Immunized: 21.5124
 
 Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.2694
+Score:        0.4326
 Caption orig: A man wearing a blue jacket and white pants stands in front of a wall filled with various drawings and symbols.
-Caption adv:  A group of men wearing suits and ties, standing together and smiling.
+Caption adv:  A man in a black jacket stands in front of a group of men, all wearing suits.
 
 Accuracy Rate (Edited Original vs Edited Immunized)
 LLM score: 0.3000
-Success:   False
-Accuracy:  0.0000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.6912
+Background SSIM   (basso=protezione ok): 0.4623
+Subject LPIPS     (basso=soggetto ok)  : 0.5796
+Editing score                          : 0.4378
+Mask coverage (% background)           : 0.7269

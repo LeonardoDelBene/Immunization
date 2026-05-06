@@ -4,25 +4,32 @@ A person in a food truck park
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 33.3557
-SSIM: 0.9399
-FSIM: 0.9362
+PSNR: 30.1495
+SSIM: 0.9096
+FSIM: 0.9073
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 12.2682
-SSIM: 0.4690
-FSIM: 0.4241
+PSNR: 12.1301
+SSIM: 0.4324
+FSIM: 0.3993
 
 CLIP score (Image vs Prompt)
 Edited Original:  27.1622
-Edited Immunized: 32.0969
+Edited Immunized: 27.7330
 
 Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.4901
+Score:        0.5035
 Caption orig: A woman wearing a black and white shirt is holding a cup.
-Caption adv:  A woman wearing a black and white shirt and black pants is standing in front of a food truck.
+Caption adv:  A woman wearing a black and white shirt and sunglasses is standing in front of a food truck.
 
 Accuracy Rate (Edited Original vs Edited Immunized)
 LLM score: 0.7000
-Success:   True
-Accuracy:  1.0000
+Success:   False
+Accuracy:  0.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.8135
+Background SSIM   (basso=protezione ok): 0.3404
+Subject LPIPS     (basso=soggetto ok)  : 0.3955
+Editing score                          : 0.5860
+Mask coverage (% background)           : 0.7179

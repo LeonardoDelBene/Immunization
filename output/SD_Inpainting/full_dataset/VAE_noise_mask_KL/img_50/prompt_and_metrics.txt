@@ -4,25 +4,32 @@ A person in a car dealership
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 31.3189
-SSIM: 0.9193
-FSIM: 0.8849
+PSNR: 29.2832
+SSIM: 0.8780
+FSIM: 0.8473
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 14.6867
-SSIM: 0.5376
-FSIM: 0.4583
+PSNR: 13.8947
+SSIM: 0.4844
+FSIM: 0.4350
 
 CLIP score (Image vs Prompt)
 Edited Original:  27.8894
-Edited Immunized: 27.9019
+Edited Immunized: 27.1351
 
 Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.8627
+Score:        0.8169
 Caption orig: A woman wearing a grey sweater and holding a purse stands in front of a car.
-Caption adv:  A woman wearing a gray sweater stands in front of a white car.
+Caption adv:  A woman wearing a grey coat and holding a handbag stands in front of a row of cars.
 
 Accuracy Rate (Edited Original vs Edited Immunized)
 LLM score: 0.7000
-Success:   True
-Accuracy:  1.0000
+Success:   False
+Accuracy:  0.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.6689
+Background SSIM   (basso=protezione ok): 0.4854
+Subject LPIPS     (basso=soggetto ok)  : 0.7301
+Editing score                          : 0.4219
+Mask coverage (% background)           : 0.7433

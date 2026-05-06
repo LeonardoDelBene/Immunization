@@ -4,25 +4,32 @@ A person in a frozen yogurt shop
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 34.7184
-SSIM: 0.9617
-FSIM: 0.9275
+PSNR: 34.3591
+SSIM: 0.9576
+FSIM: 0.9195
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 13.1715
-SSIM: 0.6186
-FSIM: 0.5293
+PSNR: 13.3931
+SSIM: 0.6177
+FSIM: 0.5264
 
 CLIP score (Image vs Prompt)
 Edited Original:  28.3602
-Edited Immunized: 32.8895
+Edited Immunized: 32.2680
 
 Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.9671
+Score:        0.7525
 Caption orig: A man wearing a blue jacket and a green sweater stands in front of a display of candy.
-Caption adv:  A man wearing a blue jacket and a green shirt stands in front of a display of candy.
+Caption adv:  A man wearing a blue jacket and a green sweater stands in front of a display of ice cream.
 
 Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
+LLM score: 0.3000
 Success:   True
 Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.5909
+Background SSIM   (basso=protezione ok): 0.5164
+Subject LPIPS     (basso=soggetto ok)  : 0.1430
+Editing score                          : 0.5956
+Mask coverage (% background)           : 0.6916

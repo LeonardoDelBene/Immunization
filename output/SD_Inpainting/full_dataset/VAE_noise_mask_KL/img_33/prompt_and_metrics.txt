@@ -4,25 +4,32 @@ A person in a charity art auction
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 31.5903
-SSIM: 0.8919
-FSIM: 0.7932
+PSNR: 29.3468
+SSIM: 0.8557
+FSIM: 0.7411
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 15.9885
-SSIM: 0.5822
-FSIM: 0.4933
+PSNR: 14.8312
+SSIM: 0.4786
+FSIM: 0.4132
 
 CLIP score (Image vs Prompt)
 Edited Original:  27.4294
-Edited Immunized: 28.3719
+Edited Immunized: 24.5993
 
 Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6636
+Score:        0.4323
 Caption orig: A woman wearing a gray coat and holding a brown purse.
-Caption adv:  A woman wearing a coat and holding a purse stands in front of two pictures.
+Caption adv:  A woman wearing a black coat and a white shirt is smiling for the camera.
 
 Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
+LLM score: 0.3000
 Success:   True
 Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.7192
+Background SSIM   (basso=protezione ok): 0.3766
+Subject LPIPS     (basso=soggetto ok)  : 0.5063
+Editing score                          : 0.4747
+Mask coverage (% background)           : 0.5932

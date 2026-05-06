@@ -4,18 +4,18 @@ A person in a quilt shop
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 33.4515
-SSIM: 0.9387
-FSIM: 0.9134
+PSNR: 31.4581
+SSIM: 0.9228
+FSIM: 0.8920
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 15.5336
-SSIM: 0.4878
-FSIM: 0.4749
+PSNR: 15.3053
+SSIM: 0.4601
+FSIM: 0.4488
 
 CLIP score (Image vs Prompt)
 Edited Original:  28.1227
-Edited Immunized: 30.9145
+Edited Immunized: 30.7015
 
 Caption Similarity (Edited Original vs Edited Immunized)
 Score:        0.5515
@@ -24,5 +24,12 @@ Caption adv:  A woman wearing sunglasses and a white shirt is walking down a hal
 
 Accuracy Rate (Edited Original vs Edited Immunized)
 LLM score: 0.3000
-Success:   False
-Accuracy:  0.0000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.5235
+Background SSIM   (basso=protezione ok): 0.3609
+Subject LPIPS     (basso=soggetto ok)  : 0.5235
+Editing score                          : 0.4011
+Mask coverage (% background)           : 0.7076

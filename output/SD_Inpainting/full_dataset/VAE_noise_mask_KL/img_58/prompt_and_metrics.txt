@@ -4,18 +4,18 @@ A person in a bowling alley
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 35.5015
-SSIM: 0.9615
-FSIM: 0.9313
+PSNR: 30.7699
+SSIM: 0.9262
+FSIM: 0.8818
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 14.6318
-SSIM: 0.4751
-FSIM: 0.4758
+PSNR: 13.5116
+SSIM: 0.4167
+FSIM: 0.4336
 
 CLIP score (Image vs Prompt)
 Edited Original:  31.7944
-Edited Immunized: 31.9016
+Edited Immunized: 30.4826
 
 Caption Similarity (Edited Original vs Edited Immunized)
 Score:        0.8692
@@ -24,5 +24,12 @@ Caption adv:  A woman wearing a red shirt and sunglasses is standing in a bowlin
 
 Accuracy Rate (Edited Original vs Edited Immunized)
 LLM score: 0.3000
-Success:   False
-Accuracy:  0.0000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.6382
+Background SSIM   (basso=protezione ok): 0.3266
+Subject LPIPS     (basso=soggetto ok)  : 0.3756
+Editing score                          : 0.5320
+Mask coverage (% background)           : 0.7510

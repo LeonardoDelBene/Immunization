@@ -4,25 +4,32 @@ A person in a technology trade show
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 33.7461
-SSIM: 0.9362
-FSIM: 0.8559
+PSNR: 30.8954
+SSIM: 0.9084
+FSIM: 0.8156
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 13.2966
-SSIM: 0.4821
-FSIM: 0.4193
+PSNR: 13.1339
+SSIM: 0.4342
+FSIM: 0.3913
 
 CLIP score (Image vs Prompt)
 Edited Original:  29.6679
-Edited Immunized: 31.0377
+Edited Immunized: 31.1200
 
 Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.5655
+Score:        0.5120
 Caption orig: A woman wearing a jacket and headphones stands in front of a display.
-Caption adv:  A woman in a black jacket and gray pants stands in front of a sign.
+Caption adv:  A woman in a black jacket and a white shirt is standing in front of a sign that says "Testimonials."
 
 Accuracy Rate (Edited Original vs Edited Immunized)
 LLM score: 0.3000
-Success:   False
-Accuracy:  0.0000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.6930
+Background SSIM   (basso=protezione ok): 0.3753
+Subject LPIPS     (basso=soggetto ok)  : 0.5866
+Editing score                          : 0.4646
+Mask coverage (% background)           : 0.7481

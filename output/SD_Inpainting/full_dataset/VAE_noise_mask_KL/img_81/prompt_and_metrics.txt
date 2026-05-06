@@ -4,25 +4,32 @@ A person in a bridal fitting room
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 31.4508
-SSIM: 0.9234
-FSIM: 0.9204
+PSNR: 28.2991
+SSIM: 0.8801
+FSIM: 0.8854
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 13.7008
-SSIM: 0.6578
-FSIM: 0.5670
+PSNR: 13.3252
+SSIM: 0.4833
+FSIM: 0.4572
 
 CLIP score (Image vs Prompt)
 Edited Original:  22.5963
-Edited Immunized: 24.3742
+Edited Immunized: 28.0737
 
 Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.3944
+Score:        0.3731
 Caption orig: A woman wearing a green jacket and blue pants stands in a doorway.
-Caption adv:  A woman wearing a brown jacket and blue jeans stands in front of a mirror.
+Caption adv:  A woman wearing a brown jacket and holding a purse is standing in front of a mirror.
 
 Accuracy Rate (Edited Original vs Edited Immunized)
 LLM score: 0.3000
-Success:   False
-Accuracy:  0.0000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.7333
+Background SSIM   (basso=protezione ok): 0.3920
+Subject LPIPS     (basso=soggetto ok)  : 0.4259
+Editing score                          : 0.5202
+Mask coverage (% background)           : 0.6491

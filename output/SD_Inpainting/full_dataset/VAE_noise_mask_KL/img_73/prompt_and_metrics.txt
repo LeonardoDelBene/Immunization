@@ -4,25 +4,32 @@ A person in a boxing ring
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 33.8535
-SSIM: 0.9472
-FSIM: 0.8833
+PSNR: 30.6568
+SSIM: 0.9171
+FSIM: 0.8342
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 14.5735
-SSIM: 0.4697
-FSIM: 0.4904
+PSNR: 14.4054
+SSIM: 0.4415
+FSIM: 0.4701
 
 CLIP score (Image vs Prompt)
 Edited Original:  29.2361
-Edited Immunized: 32.1870
+Edited Immunized: 24.6294
 
 Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.5865
+Score:        0.4277
 Caption orig: A woman wearing a hat and a scarf is standing in front of a boxing ring.
-Caption adv:  A woman wearing a black hat and a black and white jacket is standing in front of a crowd.
+Caption adv:  A woman wearing a hat and a black coat is smiling.
 
 Accuracy Rate (Edited Original vs Edited Immunized)
 LLM score: 0.3000
-Success:   False
-Accuracy:  0.0000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.7324
+Background SSIM   (basso=protezione ok): 0.3668
+Subject LPIPS     (basso=soggetto ok)  : 0.4374
+Editing score                          : 0.5205
+Mask coverage (% background)           : 0.7372

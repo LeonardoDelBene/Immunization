@@ -4,25 +4,32 @@ A person in a drive-in theater
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 34.5635
-SSIM: 0.9536
-FSIM: 0.9026
+PSNR: 31.1325
+SSIM: 0.9260
+FSIM: 0.8648
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 16.1150
-SSIM: 0.5219
-FSIM: 0.4896
+PSNR: 16.8138
+SSIM: 0.4609
+FSIM: 0.4499
 
 CLIP score (Image vs Prompt)
 Edited Original:  21.5072
-Edited Immunized: 20.9916
+Edited Immunized: 23.5817
 
 Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.8123
+Score:        0.4911
 Caption orig: A woman wearing a green dress and sunglasses stands in a field.
-Caption adv:  A woman wearing a black dress and sunglasses stands on a grassy field.
+Caption adv:  A woman wearing a black dress and sunglasses is walking down the street.
 
 Accuracy Rate (Edited Original vs Edited Immunized)
 LLM score: 0.3000
-Success:   False
-Accuracy:  0.0000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.7821
+Background SSIM   (basso=protezione ok): 0.4212
+Subject LPIPS     (basso=soggetto ok)  : 0.5365
+Editing score                          : 0.4865
+Mask coverage (% background)           : 0.7862

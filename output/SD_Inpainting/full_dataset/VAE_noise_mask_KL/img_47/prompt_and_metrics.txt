@@ -4,25 +4,32 @@ A person in a summer camp
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 33.6028
-SSIM: 0.9455
-FSIM: 0.9302
+PSNR: 30.4857
+SSIM: 0.9161
+FSIM: 0.8983
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 15.8292
-SSIM: 0.5972
-FSIM: 0.5312
+PSNR: 15.8412
+SSIM: 0.5717
+FSIM: 0.5132
 
 CLIP score (Image vs Prompt)
 Edited Original:  28.5976
-Edited Immunized: 28.7650
+Edited Immunized: 27.0633
 
 Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.4104
+Score:        0.3993
 Caption orig: A woman wearing a black shirt and green pants is standing in front of a red tent.
-Caption adv:  A woman wearing a black shirt and carrying a red backpack is smiling at the camera.
+Caption adv:  A woman wearing a black shirt and carrying a green backpack is smiling at the camera.
 
 Accuracy Rate (Edited Original vs Edited Immunized)
 LLM score: 0.3000
-Success:   False
-Accuracy:  0.0000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.5307
+Background SSIM   (basso=protezione ok): 0.5645
+Subject LPIPS     (basso=soggetto ok)  : 0.4864
+Editing score                          : 0.3511
+Mask coverage (% background)           : 0.7733

@@ -4,25 +4,32 @@ A person in a fast food drive-in
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 32.2729
-SSIM: 0.9357
-FSIM: 0.8479
+PSNR: 29.8913
+SSIM: 0.9051
+FSIM: 0.8024
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 12.7329
-SSIM: 0.4968
-FSIM: 0.4340
+PSNR: 12.3351
+SSIM: 0.4433
+FSIM: 0.4062
 
 CLIP score (Image vs Prompt)
 Edited Original:  26.5827
-Edited Immunized: 24.5094
+Edited Immunized: 25.5419
 
 Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.7411
+Score:        0.7013
 Caption orig: A woman wearing a hat and a plaid dress stands in front of a car.
-Caption adv:  A woman wearing a hat and a black dress stands in front of a window.
+Caption adv:  A woman wearing a black dress and hat is standing in front of a window.
 
 Accuracy Rate (Edited Original vs Edited Immunized)
 LLM score: 0.3000
-Success:   False
-Accuracy:  0.0000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.7274
+Background SSIM   (basso=protezione ok): 0.3881
+Subject LPIPS     (basso=soggetto ok)  : 0.5546
+Editing score                          : 0.4745
+Mask coverage (% background)           : 0.7404

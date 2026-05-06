@@ -4,25 +4,32 @@ A person in a beach resort
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 32.9100
-SSIM: 0.9610
-FSIM: 0.9201
+PSNR: 30.6627
+SSIM: 0.9459
+FSIM: 0.8985
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 12.8304
-SSIM: 0.5452
-FSIM: 0.4337
+PSNR: 13.3424
+SSIM: 0.5469
+FSIM: 0.4373
 
 CLIP score (Image vs Prompt)
 Edited Original:  26.2360
-Edited Immunized: 28.7121
+Edited Immunized: 27.2355
 
 Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6658
+Score:        0.6742
 Caption orig: A woman wearing a white shirt and sunglasses is standing in front of palm trees.
-Caption adv:  A woman in a white dress stands on a beach, holding a bag and wearing sunglasses.
+Caption adv:  A woman in a white dress stands on a beach, holding a handbag and wearing sunglasses.
 
 Accuracy Rate (Edited Original vs Edited Immunized)
 LLM score: 0.7000
-Success:   True
-Accuracy:  1.0000
+Success:   False
+Accuracy:  0.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.5803
+Background SSIM   (basso=protezione ok): 0.4955
+Subject LPIPS     (basso=soggetto ok)  : 0.4225
+Editing score                          : 0.4300
+Mask coverage (% background)           : 0.7755

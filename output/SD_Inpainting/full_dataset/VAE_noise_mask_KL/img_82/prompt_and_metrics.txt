@@ -4,18 +4,18 @@ A person in a fire drill
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 34.6137
-SSIM: 0.9632
-FSIM: 0.9395
+PSNR: 30.2574
+SSIM: 0.9358
+FSIM: 0.9089
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 14.4255
-SSIM: 0.5759
-FSIM: 0.5854
+PSNR: 14.5559
+SSIM: 0.5624
+FSIM: 0.5690
 
 CLIP score (Image vs Prompt)
 Edited Original:  24.2137
-Edited Immunized: 25.6134
+Edited Immunized: 22.6945
 
 Caption Similarity (Edited Original vs Edited Immunized)
 Score:        0.5304
@@ -24,5 +24,12 @@ Caption adv:  A woman in a black and white dress is walking down the street.
 
 Accuracy Rate (Edited Original vs Edited Immunized)
 LLM score: 0.3000
-Success:   False
-Accuracy:  0.0000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.5854
+Background SSIM   (basso=protezione ok): 0.4820
+Subject LPIPS     (basso=soggetto ok)  : 0.3153
+Editing score                          : 0.5004
+Mask coverage (% background)           : 0.7133

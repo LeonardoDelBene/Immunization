@@ -121,8 +121,6 @@ def training_loop(
         eta: float = 0.2,
         eps: float = 32/255 * 2,
         val_every: int = 1,
-        test_every: int = 1,
-        metrics_models: dict[str, object] | None = None,
         best_checkpoint_path: str = "checkpoints/unet_best.pth",
         training_checkpoint_dir: str = "checkpoints/training",
         device: str = "cuda",
@@ -135,7 +133,7 @@ def training_loop(
 ):
     # ── Surrogate CLIP ──
     surrogate_clip_configs = [
-        "openai/clip-vit-base-patch32",
+        #"openai/clip-vit-base-patch32",
         #"openai/clip-vit-base-patch16",
         #"openai/clip-vit-large-patch14"
     ]
@@ -359,20 +357,6 @@ def training_loop(
                 "epoch": epoch + 1,
             }, step=epoch + 1)
 
-            # ── Test loop ogni test_every epoche ──
-        if metrics_models is not None and (epoch + 1) % test_every == 0:
-            test_metrics = test_loop(
-                unet=unet,
-                val_dataloader=val_dataloader,
-                metrics_models=metrics_models,
-                noise_on_mask=noise_on_mask,
-                device=device,
-            )
-            wandb.log({
-                **{f"test/{k}": v for k, v in test_metrics.items()},
-                "epoch": epoch + 1,
-            }, step=epoch + 1)
-
         # ── Checkpoint ──
         save_training_checkpoint(
             checkpoint_dir=training_checkpoint_dir,
@@ -490,112 +474,6 @@ def validation_loop(
     return val_metrics
 
 
-def test_loop(
-    unet,
-    val_dataloader,
-    metrics_models: dict,
-    noise_on_mask: bool = False,
-    device: str = "cuda",
-) -> dict:
-    """
-    Test loop che calcola le metriche visive sul validation set ogni tot epoche.
-
-    Parameters
-    ----------
-    unet           : modello UNet da valutare
-    val_dataloader : dataloader del validation set
-    metrics_models : dict con le metriche {'psnr', 'ssim', 'fsim', 'clip', 'masked'}
-    noise_on_mask  : se True applica il rumore solo al soggetto
-    device         : device
-
-    Returns
-    -------
-    dict con le metriche medie sul validation set
-    """
-
-    unet.eval()
-
-    psnr_metric   = metrics_models["psnr"]
-    ssim_metric   = metrics_models["ssim"]
-    fsim_metric   = metrics_models["fsim"]
-    masked_metric = metrics_models["masked"]
-
-    test_metrics = defaultdict(float)
-    n_samples    = 0
-
-    with torch.no_grad():
-        for batch_idx, (I, M, I_target) in enumerate(
-                tqdm(val_dataloader, desc="Test loop", leave=False)):
-
-            I = I.to(device)
-            M = M.to(device)
-
-            # ── Genera immagine immunizzata ──────────────────────────────
-            unet_out = unet(I)
-            if noise_on_mask:
-                unet_out = unet_out * (1 - M)
-            I_im = torch.clamp(I + unet_out, -1.0, 1.0)
-
-            to_pil = T.ToPILImage()
-
-            for i in range(I.shape[0]):
-                img_orig = to_pil(((I[i] + 1) / 2).clamp(0, 1).cpu())
-                img_imm  = to_pil(((I_im[i] + 1) / 2).clamp(0, 1).cpu())
-                mask_pil = to_pil(M[i].cpu().squeeze(0))
-
-                # ── Image quality (orig vs immunizzata) ──────────────────
-                test_metrics["psnr_orig_adv"] += psnr_metric.calculate_metric_between_images(img_orig, img_imm)
-                test_metrics["ssim_orig_adv"] += ssim_metric.calculate_metric_between_images(img_orig, img_imm)
-                test_metrics["fsim_orig_adv"] += fsim_metric.calculate_metric_between_images(img_orig, img_imm)
-
-                # ── Masked editing score ──────────────────────────────────
-                try:
-                    masked_score = masked_metric.compute(img_orig, img_imm, mask_pil)
-                    test_metrics["masked_bg_lpips"]      += masked_score["bg_lpips"]
-                    test_metrics["masked_bg_ssim"]       += masked_score["bg_ssim"]
-                    test_metrics["masked_subject_lpips"] += masked_score["subject_lpips"]
-                    test_metrics["masked_editing_score"] += masked_score["editing_score"]
-                    test_metrics["masked_coverage"]      += masked_score["mask_coverage"]
-                except Exception as e:
-                    print(f"  [WARN] masked_metric failed on sample {batch_idx}-{i}: {e}")
-
-                n_samples += 1
-
-    # ── Medie ────────────────────────────────────────────────────────────
-    test_metrics = {k: v / n_samples for k, v in test_metrics.items()}
-
-    unet.train()
-
-    # ── Stampa ───────────────────────────────────────────────────────────
-    print("\n" + "=" * 60)
-    print(f"TEST LOOP — {n_samples} samples")
-    print("=" * 60)
-    print(f"Image Quality (Original vs Immunized)")
-    print(f"  PSNR : {test_metrics['psnr_orig_adv']:.4f}")
-    print(f"  SSIM : {test_metrics['ssim_orig_adv']:.4f}")
-    print(f"  FSIM : {test_metrics['fsim_orig_adv']:.4f}")
-    print(f"Masked Editing Score")
-    print(f"  BG LPIPS     : {test_metrics['masked_bg_lpips']:.4f}")
-    print(f"  BG SSIM      : {test_metrics['masked_bg_ssim']:.4f}")
-    print(f"  Subject LPIPS: {test_metrics['masked_subject_lpips']:.4f}")
-    print(f"  Editing score: {test_metrics['masked_editing_score']:.4f}")
-    print(f"  Mask coverage: {test_metrics['masked_coverage']:.4f}")
-    print("=" * 60 + "\n")
-
-    return test_metrics
-
-def load_metrics_models():
-    print("Loading metric models...")
-    metrics_models = {
-        "psnr":   create_metric(MetricType.PSNR),
-        "ssim":   create_metric(MetricType.SSIM),
-        "fsim":   create_metric(MetricType.FSIM),
-        "masked": create_metric(MetricType.MASKED, lpips_net="alex"),
-    }
-    print("Metric models loaded.")
-    return metrics_models
-
-
 # ─────────────────────────────────────────────
 # MAIN
 # ─────────────────────────────────────────────
@@ -635,7 +513,7 @@ if __name__ == "__main__":
     g = torch.Generator()
     g.manual_seed(SEED)
 
-    batch=16
+    batch=8
 
     train_loader = DataLoader(
         train_dataset,
@@ -653,8 +531,6 @@ if __name__ == "__main__":
         worker_init_fn=seed_worker,
     )
 
-    metrics_models = load_metrics_models()
-
     nb_filter = [32,64,128,256,512]
 
     unet = NestedUNet(num_classes=3, nb_filter=nb_filter).to(device)
@@ -669,19 +545,17 @@ if __name__ == "__main__":
         lr=1e-4,
         batch=batch,
         weight_decay=1e-2,
-        alpha=1.5,
+        alpha=1.0,
         beta=1.0,
         eta=0.2,
         lambda_vae = 0.1,
         eps= (32 / 255 * 2),
         val_every=1,
-        test_every= 10,
-        metrics_models=metrics_models,
-        best_checkpoint_path="checkpoints/unet_best_nvhpvhxb.pth",
+        best_checkpoint_path="checkpoints/unet_best_qyon0vk7.pth",
         training_checkpoint_dir="checkpoints/training/",
         device=device,
         resume_from_checkpoint=False, # Cambia a False per ricominciare da zero
-        resume_only_weights = False, # True per caricare i pesi dal checkpoint
+        resume_only_weights = True, # True per caricare i pesi dal checkpoint
         noise_on_mask=True,
         dyn_weight_window= 30,  # ← nuovo parametro
         dyn_weight_T_temp = 0.1,  # ← nuovo parametro

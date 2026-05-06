@@ -4,25 +4,32 @@ A person in a dance festival
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 32.5634
-SSIM: 0.9265
-FSIM: 0.9064
+PSNR: 31.0488
+SSIM: 0.9128
+FSIM: 0.8901
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 17.2433
-SSIM: 0.5927
-FSIM: 0.4991
+PSNR: 15.4062
+SSIM: 0.5437
+FSIM: 0.4657
 
 CLIP score (Image vs Prompt)
 Edited Original:  31.9314
-Edited Immunized: 28.7796
+Edited Immunized: 30.7142
 
 Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.4455
+Score:        0.4099
 Caption orig: A woman wearing a white dress stands on a street, holding a cell phone.
-Caption adv:  A group of women are standing in front of a crowd, with some of them wearing white dresses.
+Caption adv:  A group of people wearing white clothing, standing in a line.
 
 Accuracy Rate (Edited Original vs Edited Immunized)
 LLM score: 0.3000
-Success:   False
-Accuracy:  0.0000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.6208
+Background SSIM   (basso=protezione ok): 0.5012
+Subject LPIPS     (basso=soggetto ok)  : 0.4575
+Editing score                          : 0.4234
+Mask coverage (% background)           : 0.7193

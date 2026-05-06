@@ -4,25 +4,32 @@ A person in a customs office
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 35.1066
-SSIM: 0.9547
-FSIM: 0.9282
+PSNR: 31.8795
+SSIM: 0.9254
+FSIM: 0.9014
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 16.2314
-SSIM: 0.6200
-FSIM: 0.4827
+PSNR: 15.1284
+SSIM: 0.5504
+FSIM: 0.4379
 
 CLIP score (Image vs Prompt)
 Edited Original:  27.6559
-Edited Immunized: 25.8101
+Edited Immunized: 27.0485
 
 Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6148
+Score:        0.4817
 Caption orig: A woman in a black jacket and red pants stands in front of a counter.
-Caption adv:  A woman in red pants and a black jacket stands in a hallway.
+Caption adv:  A woman in red pants and a black jacket is walking down a hallway.
 
 Accuracy Rate (Edited Original vs Edited Immunized)
 LLM score: 0.3000
-Success:   False
-Accuracy:  0.0000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.6063
+Background SSIM   (basso=protezione ok): 0.5114
+Subject LPIPS     (basso=soggetto ok)  : 0.4332
+Editing score                          : 0.4292
+Mask coverage (% background)           : 0.7603

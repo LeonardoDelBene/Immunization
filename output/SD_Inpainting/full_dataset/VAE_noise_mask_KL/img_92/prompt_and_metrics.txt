@@ -4,18 +4,18 @@ A person in a digital art gallery
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 33.5354
-SSIM: 0.9498
-FSIM: 0.9135
+PSNR: 30.5482
+SSIM: 0.9230
+FSIM: 0.8811
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 14.3236
-SSIM: 0.3813
-FSIM: 0.4295
+PSNR: 14.2114
+SSIM: 0.3588
+FSIM: 0.3965
 
 CLIP score (Image vs Prompt)
 Edited Original:  29.8861
-Edited Immunized: 27.9697
+Edited Immunized: 27.5407
 
 Caption Similarity (Edited Original vs Edited Immunized)
 Score:        0.7998
@@ -24,5 +24,12 @@ Caption adv:  A woman wearing a black jacket and a striped skirt is standing in 
 
 Accuracy Rate (Edited Original vs Edited Immunized)
 LLM score: 0.3000
-Success:   False
-Accuracy:  0.0000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.8462
+Background SSIM   (basso=protezione ok): 0.2347
+Subject LPIPS     (basso=soggetto ok)  : 0.3550
+Editing score                          : 0.6551
+Mask coverage (% background)           : 0.7300

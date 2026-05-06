@@ -4,25 +4,32 @@ A person in a church hall
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 34.8100
-SSIM: 0.9742
-FSIM: 0.9501
+PSNR: 29.5208
+SSIM: 0.9472
+FSIM: 0.9209
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 13.7848
-SSIM: 0.5687
-FSIM: 0.5438
+PSNR: 15.6039
+SSIM: 0.5138
+FSIM: 0.5006
 
 CLIP score (Image vs Prompt)
 Edited Original:  24.3567
-Edited Immunized: 26.9089
+Edited Immunized: 26.3490
 
 Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.8847
+Score:        0.9191
 Caption orig: A woman wearing a black and white jacket and a leopard print pantsuit stands in front of a church.
-Caption adv:  A woman wearing a leopard print suit stands in front of a church.
+Caption adv:  A woman wearing a leopard print jacket and a white shirt is standing in front of a church.
 
 Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.8000
-Success:   True
-Accuracy:  1.0000
+LLM score: 0.7000
+Success:   False
+Accuracy:  0.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.6249
+Background SSIM   (basso=protezione ok): 0.3894
+Subject LPIPS     (basso=soggetto ok)  : 0.2805
+Editing score                          : 0.5649
+Mask coverage (% background)           : 0.6962

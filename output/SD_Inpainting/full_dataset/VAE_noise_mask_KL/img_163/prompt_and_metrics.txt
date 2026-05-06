@@ -4,25 +4,32 @@ A person in a community theater production
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 35.9180
-SSIM: 0.9718
-FSIM: 0.9429
+PSNR: 29.6377
+SSIM: 0.9327
+FSIM: 0.8927
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 14.2468
-SSIM: 0.5198
-FSIM: 0.5360
+PSNR: 13.6463
+SSIM: 0.4477
+FSIM: 0.4772
 
 CLIP score (Image vs Prompt)
 Edited Original:  26.4827
-Edited Immunized: 29.1648
+Edited Immunized: 28.8039
 
 Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.3809
+Score:        0.4480
 Caption orig: A man wearing a green jacket and a bow tie stands on a stage.
-Caption adv:  A young boy wearing a green jacket stands in front of a group of people, including a woman and a girl.
+Caption adv:  A group of people, including a young boy, are standing on a stage.
 
 Accuracy Rate (Edited Original vs Edited Immunized)
 LLM score: 0.3000
-Success:   False
-Accuracy:  0.0000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.7019
+Background SSIM   (basso=protezione ok): 0.3262
+Subject LPIPS     (basso=soggetto ok)  : 0.3012
+Editing score                          : 0.6022
+Mask coverage (% background)           : 0.7078

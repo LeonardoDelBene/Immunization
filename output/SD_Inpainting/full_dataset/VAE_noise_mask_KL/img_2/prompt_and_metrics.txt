@@ -4,25 +4,32 @@ A person in a church sanctuary
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 33.4154
-SSIM: 0.9478
-FSIM: 0.8985
+PSNR: 29.8060
+SSIM: 0.9013
+FSIM: 0.8330
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 15.5323
-SSIM: 0.5184
-FSIM: 0.5205
+PSNR: 13.9822
+SSIM: 0.4418
+FSIM: 0.4691
 
 CLIP score (Image vs Prompt)
 Edited Original:  28.3546
-Edited Immunized: 25.3718
+Edited Immunized: 29.4751
 
 Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.9773
+Score:        0.6830
 Caption orig: A woman wearing a brown jacket and a gray shirt is standing in front of a church.
-Caption adv:  A woman wearing a brown jacket and a white shirt stands in front of a church.
+Caption adv:  A woman wearing a brown jacket and a white shirt is standing in front of a stained glass window.
 
 Accuracy Rate (Edited Original vs Edited Immunized)
 LLM score: 0.3000
-Success:   False
-Accuracy:  0.0000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.6871
+Background SSIM   (basso=protezione ok): 0.3338
+Subject LPIPS     (basso=soggetto ok)  : 0.4325
+Editing score                          : 0.5152
+Mask coverage (% background)           : 0.6841

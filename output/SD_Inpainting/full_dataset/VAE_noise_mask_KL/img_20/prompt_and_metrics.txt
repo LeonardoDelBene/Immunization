@@ -4,25 +4,32 @@ A person in a hot dog stand
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 34.3190
-SSIM: 0.9697
-FSIM: 0.9246
+PSNR: 30.2873
+SSIM: 0.9407
+FSIM: 0.8795
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 16.1634
-SSIM: 0.6359
-FSIM: 0.5649
+PSNR: 16.2284
+SSIM: 0.5748
+FSIM: 0.5130
 
 CLIP score (Image vs Prompt)
 Edited Original:  28.7099
-Edited Immunized: 29.4338
+Edited Immunized: 29.4268
 
 Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.4201
+Score:        0.3562
 Caption orig: A woman wearing a colorful shirt stands in front of a food truck.
-Caption adv:  A woman wearing a tie-dye shirt and holding a handbag.
+Caption adv:  A woman wearing a tie-dye shirt is sitting on a counter.
 
 Accuracy Rate (Edited Original vs Edited Immunized)
 LLM score: 0.3000
-Success:   False
-Accuracy:  0.0000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.5240
+Background SSIM   (basso=protezione ok): 0.4942
+Subject LPIPS     (basso=soggetto ok)  : 0.2919
+Editing score                          : 0.4862
+Mask coverage (% background)           : 0.7081

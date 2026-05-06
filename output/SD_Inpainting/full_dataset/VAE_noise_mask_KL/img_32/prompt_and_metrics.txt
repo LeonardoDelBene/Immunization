@@ -4,25 +4,32 @@ A person in a music and arts festival
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 33.0942
-SSIM: 0.9461
-FSIM: 0.9056
+PSNR: 30.9930
+SSIM: 0.9314
+FSIM: 0.8835
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 17.6527
-SSIM: 0.6371
-FSIM: 0.5205
+PSNR: 14.9117
+SSIM: 0.5683
+FSIM: 0.4867
 
 CLIP score (Image vs Prompt)
 Edited Original:  29.1659
-Edited Immunized: 30.8253
+Edited Immunized: 28.6985
 
 Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6084
+Score:        0.8282
 Caption orig: A woman wearing a white hat and a white shirt is standing in a crowd.
-Caption adv:  A woman wearing a white shirt and glasses is standing in a field.
+Caption adv:  A woman wearing a white shirt and jeans is standing in a crowd.
 
 Accuracy Rate (Edited Original vs Edited Immunized)
 LLM score: 0.3000
-Success:   False
-Accuracy:  0.0000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.6644
+Background SSIM   (basso=protezione ok): 0.5241
+Subject LPIPS     (basso=soggetto ok)  : 0.4886
+Editing score                          : 0.4154
+Mask coverage (% background)           : 0.7485

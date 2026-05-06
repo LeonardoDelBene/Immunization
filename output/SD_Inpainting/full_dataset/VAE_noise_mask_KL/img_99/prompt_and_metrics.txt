@@ -4,25 +4,32 @@ A person in a creative writing event
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 33.8339
-SSIM: 0.9520
-FSIM: 0.9180
+PSNR: 30.3512
+SSIM: 0.9261
+FSIM: 0.8831
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 15.9745
-SSIM: 0.4833
-FSIM: 0.4601
+PSNR: 14.9587
+SSIM: 0.4304
+FSIM: 0.4433
 
 CLIP score (Image vs Prompt)
 Edited Original:  21.6731
-Edited Immunized: 22.5208
+Edited Immunized: 21.6728
 
 Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6458
+Score:        0.6338
 Caption orig: A woman wearing a brown coat and holding a book stands in front of a colorful wall.
-Caption adv:  A woman wearing a brown coat and holding a purse.
+Caption adv:  A woman wearing a brown coat and holding a cell phone.
 
 Accuracy Rate (Edited Original vs Edited Immunized)
 LLM score: 0.3000
-Success:   False
-Accuracy:  0.0000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.6911
+Background SSIM   (basso=protezione ok): 0.3218
+Subject LPIPS     (basso=soggetto ok)  : 0.3650
+Editing score                          : 0.5609
+Mask coverage (% background)           : 0.7213

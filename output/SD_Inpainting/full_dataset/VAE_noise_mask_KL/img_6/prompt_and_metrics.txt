@@ -4,25 +4,32 @@ A person in a betting shop
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 34.2287
-SSIM: 0.9529
-FSIM: 0.9229
+PSNR: 32.8769
+SSIM: 0.9450
+FSIM: 0.9122
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 14.0510
-SSIM: 0.5159
-FSIM: 0.4882
+PSNR: 13.3469
+SSIM: 0.4654
+FSIM: 0.4406
 
 CLIP score (Image vs Prompt)
 Edited Original:  27.3173
-Edited Immunized: 28.3136
+Edited Immunized: 27.1967
 
 Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.8351
+Score:        0.2390
 Caption orig: A woman in a white dress is playing a video game.
-Caption adv:  A woman in a white dress is standing in front of a video game machine, looking at the game and possibly deciding whether to play or not.
+Caption adv:  A woman is looking at her cell phone while standing in front of a display of nail polish.
 
 Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
+LLM score: 0.3000
 Success:   True
 Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.5616
+Background SSIM   (basso=protezione ok): 0.4204
+Subject LPIPS     (basso=soggetto ok)  : 0.5638
+Editing score                          : 0.3985
+Mask coverage (% background)           : 0.8080

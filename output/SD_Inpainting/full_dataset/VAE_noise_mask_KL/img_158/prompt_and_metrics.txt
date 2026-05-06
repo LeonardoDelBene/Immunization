@@ -4,25 +4,32 @@ A person in a ice cream parlor
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 32.8298
-SSIM: 0.9237
-FSIM: 0.8933
+PSNR: 29.4083
+SSIM: 0.8837
+FSIM: 0.8588
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 16.5957
-SSIM: 0.5613
-FSIM: 0.5156
+PSNR: 15.3418
+SSIM: 0.5097
+FSIM: 0.4886
 
 CLIP score (Image vs Prompt)
 Edited Original:  30.4990
-Edited Immunized: 29.4607
+Edited Immunized: 26.9742
 
 Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.4707
+Score:        0.4817
 Caption orig: A woman wearing a black jacket and a black skirt is standing in front of a large ice cream cone.
-Caption adv:  A woman wearing a black jacket and holding a black purse.
+Caption adv:  A woman wearing a black jacket and holding a blue bottle.
 
 Accuracy Rate (Edited Original vs Edited Immunized)
 LLM score: 0.3000
-Success:   False
-Accuracy:  0.0000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.6121
+Background SSIM   (basso=protezione ok): 0.4774
+Subject LPIPS     (basso=soggetto ok)  : 0.5789
+Editing score                          : 0.4016
+Mask coverage (% background)           : 0.6974

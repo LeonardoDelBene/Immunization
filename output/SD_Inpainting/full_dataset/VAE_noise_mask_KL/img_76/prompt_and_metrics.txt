@@ -4,25 +4,32 @@ A person in a local wine festival
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 32.7699
-SSIM: 0.9045
-FSIM: 0.8775
+PSNR: 29.3181
+SSIM: 0.8546
+FSIM: 0.8301
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 16.8632
-SSIM: 0.6092
-FSIM: 0.5250
+PSNR: 16.5316
+SSIM: 0.5722
+FSIM: 0.5190
 
 CLIP score (Image vs Prompt)
 Edited Original:  28.5636
-Edited Immunized: 27.4470
+Edited Immunized: 27.2596
 
 Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.9305
+Score:        0.5606
 Caption orig: A man wearing a hat and a blue jacket stands in a crowd of people.
-Caption adv:  A man wearing a hat and a black jacket is standing in a crowd of people.
+Caption adv:  A man wearing a hat and a black jacket is standing in a field.
 
 Accuracy Rate (Edited Original vs Edited Immunized)
 LLM score: 0.3000
-Success:   False
-Accuracy:  0.0000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.3967
+Background SSIM   (basso=protezione ok): 0.5879
+Subject LPIPS     (basso=soggetto ok)  : 0.6604
+Editing score                          : 0.2823
+Mask coverage (% background)           : 0.6662

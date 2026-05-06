@@ -4,25 +4,32 @@ A person in a music and arts festival
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 33.2762
-SSIM: 0.9332
-FSIM: 0.8990
+PSNR: 30.1347
+SSIM: 0.9033
+FSIM: 0.8711
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 13.8324
-SSIM: 0.5504
-FSIM: 0.4928
+PSNR: 14.6550
+SSIM: 0.5461
+FSIM: 0.4838
 
 CLIP score (Image vs Prompt)
 Edited Original:  26.5066
-Edited Immunized: 27.1755
+Edited Immunized: 27.2162
 
 Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.3496
+Score:        0.5459
 Caption orig: A man wearing a brown trench coat stands in front of a crowd of people.
-Caption adv:  A woman wearing a brown coat and black dress stands in a field.
+Caption adv:  A woman wearing a brown coat and earrings walks through a crowd of people.
 
 Accuracy Rate (Edited Original vs Edited Immunized)
 LLM score: 0.3000
-Success:   False
-Accuracy:  0.0000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.6572
+Background SSIM   (basso=protezione ok): 0.5020
+Subject LPIPS     (basso=soggetto ok)  : 0.4975
+Editing score                          : 0.4138
+Mask coverage (% background)           : 0.6906

@@ -4,18 +4,18 @@ A person in a beach resort
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 32.6454
-SSIM: 0.9659
-FSIM: 0.8965
+PSNR: 29.5169
+SSIM: 0.9378
+FSIM: 0.8534
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 13.3698
-SSIM: 0.6170
-FSIM: 0.5691
+PSNR: 14.9703
+SSIM: 0.6205
+FSIM: 0.5530
 
 CLIP score (Image vs Prompt)
 Edited Original:  26.0667
-Edited Immunized: 26.5347
+Edited Immunized: 26.4444
 
 Caption Similarity (Edited Original vs Edited Immunized)
 Score:        0.9521
@@ -24,5 +24,12 @@ Caption adv:  A woman in a black dress and black jacket stands on a beach.
 
 Accuracy Rate (Edited Original vs Edited Immunized)
 LLM score: 0.3000
-Success:   False
-Accuracy:  0.0000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.6105
+Background SSIM   (basso=protezione ok): 0.5652
+Subject LPIPS     (basso=soggetto ok)  : 0.3724
+Editing score                          : 0.4512
+Mask coverage (% background)           : 0.7079

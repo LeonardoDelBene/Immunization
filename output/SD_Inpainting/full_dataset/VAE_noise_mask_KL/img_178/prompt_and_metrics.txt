@@ -4,25 +4,32 @@ A person in a summer camp
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 34.4263
-SSIM: 0.9414
-FSIM: 0.9479
+PSNR: 30.5314
+SSIM: 0.9149
+FSIM: 0.9269
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 18.7208
-SSIM: 0.6799
-FSIM: 0.5360
+PSNR: 17.4825
+SSIM: 0.5881
+FSIM: 0.4742
 
 CLIP score (Image vs Prompt)
 Edited Original:  24.9440
-Edited Immunized: 22.7287
+Edited Immunized: 22.0003
 
 Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.4308
+Score:        0.6952
 Caption orig: A woman wearing a black shirt and a yellow skirt is walking down a path.
-Caption adv:  A woman wearing a black shirt and a yellow skirt is smiling and holding a cell phone.
+Caption adv:  A woman wearing a black shirt and a skirt is walking in a park.
 
 Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
+LLM score: 0.7000
 Success:   False
 Accuracy:  0.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.6112
+Background SSIM   (basso=protezione ok): 0.5684
+Subject LPIPS     (basso=soggetto ok)  : 0.5706
+Editing score                          : 0.3740
+Mask coverage (% background)           : 0.7361

@@ -4,25 +4,32 @@ A person in a gym sauna
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 34.4376
-SSIM: 0.9409
-FSIM: 0.8849
+PSNR: 31.5050
+SSIM: 0.9132
+FSIM: 0.8466
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 14.9528
-SSIM: 0.4756
-FSIM: 0.4579
+PSNR: 16.0130
+SSIM: 0.4507
+FSIM: 0.4262
 
 CLIP score (Image vs Prompt)
 Edited Original:  23.3877
-Edited Immunized: 23.5379
+Edited Immunized: 21.7658
 
 Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6507
+Score:        0.5923
 Caption orig: A man wearing a leopard print shirt and a black jacket stands in front of a mirror.
-Caption adv:  A man wearing a leopard print shirt and a black jacket stands in front of a wall of servers.
+Caption adv:  A man wearing a black jacket and a leopard print shirt stands in a room.
 
 Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
+LLM score: 0.7000
 Success:   False
 Accuracy:  0.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.7134
+Background SSIM   (basso=protezione ok): 0.3813
+Subject LPIPS     (basso=soggetto ok)  : 0.5081
+Editing score                          : 0.4709
+Mask coverage (% background)           : 0.7327

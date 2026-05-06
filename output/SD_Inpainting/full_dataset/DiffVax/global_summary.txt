@@ -26,7 +26,7 @@ Average Masked Editing Score
 Background LPIPS  (alto=protezione ok) : 0.8244
 Background SSIM   (basso=protezione ok): 0.3785
 Subject LPIPS     (basso=soggetto ok)  : 0.1258
-Editing score                          : 0.5467
+Editing score                          : 0.7410
 Mask coverage (% background)           : 0.7260
 
 ==================================================

@@ -4,25 +4,32 @@ A person in a slum
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 33.2896
-SSIM: 0.9477
-FSIM: 0.9396
+PSNR: 29.2648
+SSIM: 0.9178
+FSIM: 0.9166
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 17.3164
-SSIM: 0.5936
-FSIM: 0.5367
+PSNR: 17.1731
+SSIM: 0.5933
+FSIM: 0.5409
 
 CLIP score (Image vs Prompt)
 Edited Original:  26.6016
-Edited Immunized: 28.6586
+Edited Immunized: 27.7439
 
 Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6576
+Score:        0.6973
 Caption orig: A man wearing a white shirt and a brown tie stands in front of a shack.
-Caption adv:  A man wearing a white shirt and black pants stands in front of a building.
+Caption adv:  A man wearing a white shirt and black tie stands in front of a run down building.
 
 Accuracy Rate (Edited Original vs Edited Immunized)
 LLM score: 0.3000
-Success:   False
-Accuracy:  0.0000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.4567
+Background SSIM   (basso=protezione ok): 0.5602
+Subject LPIPS     (basso=soggetto ok)  : 0.4211
+Editing score                          : 0.3620
+Mask coverage (% background)           : 0.7261

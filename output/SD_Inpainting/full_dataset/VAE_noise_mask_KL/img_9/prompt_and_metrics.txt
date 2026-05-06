@@ -4,18 +4,18 @@ A person in a local art market
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 33.4813
-SSIM: 0.9604
-FSIM: 0.9311
+PSNR: 30.5817
+SSIM: 0.9424
+FSIM: 0.9078
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 16.1606
-SSIM: 0.5348
-FSIM: 0.5346
+PSNR: 14.9571
+SSIM: 0.4696
+FSIM: 0.4867
 
 CLIP score (Image vs Prompt)
 Edited Original:  28.3164
-Edited Immunized: 22.4594
+Edited Immunized: 22.9233
 
 Caption Similarity (Edited Original vs Edited Immunized)
 Score:        0.6652
@@ -24,5 +24,12 @@ Caption adv:  A woman wearing sunglasses and a white shirt stands in front of a 
 
 Accuracy Rate (Edited Original vs Edited Immunized)
 LLM score: 0.3000
-Success:   False
-Accuracy:  0.0000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.6125
+Background SSIM   (basso=protezione ok): 0.3885
+Subject LPIPS     (basso=soggetto ok)  : 0.3772
+Editing score                          : 0.5022
+Mask coverage (% background)           : 0.7595

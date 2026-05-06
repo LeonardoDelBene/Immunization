@@ -4,25 +4,32 @@ A person in a city parade
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 34.7665
-SSIM: 0.9610
-FSIM: 0.9361
+PSNR: 31.5925
+SSIM: 0.9388
+FSIM: 0.9073
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 14.4521
-SSIM: 0.5573
-FSIM: 0.5459
+PSNR: 13.8198
+SSIM: 0.5027
+FSIM: 0.5061
 
 CLIP score (Image vs Prompt)
 Edited Original:  27.9746
-Edited Immunized: 30.4820
+Edited Immunized: 30.9146
 
 Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.5440
+Score:        0.5650
 Caption orig: A woman wearing sunglasses and a striped shirt stands out in a crowd of people.
-Caption adv:  A woman wearing a black and white striped shirt and sunglasses is walking down the street.
+Caption adv:  A woman wearing sunglasses and a black and white striped shirt walks down the street.
 
 Accuracy Rate (Edited Original vs Edited Immunized)
 LLM score: 0.7000
-Success:   True
-Accuracy:  1.0000
+Success:   False
+Accuracy:  0.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.6020
+Background SSIM   (basso=protezione ok): 0.4369
+Subject LPIPS     (basso=soggetto ok)  : 0.3664
+Editing score                          : 0.4899
+Mask coverage (% background)           : 0.7677

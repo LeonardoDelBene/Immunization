@@ -4,25 +4,32 @@ A person in a beachside boardwalk
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 34.0609
-SSIM: 0.9511
-FSIM: 0.9442
+PSNR: 31.3838
+SSIM: 0.9337
+FSIM: 0.9204
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 15.6395
-SSIM: 0.6685
-FSIM: 0.5263
+PSNR: 14.4005
+SSIM: 0.6113
+FSIM: 0.4733
 
 CLIP score (Image vs Prompt)
 Edited Original:  27.5987
-Edited Immunized: 29.0301
+Edited Immunized: 26.1368
 
 Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.8214
+Score:        0.8426
 Caption orig: A woman wearing a white sweater and a green and white skirt is standing on a beach.
-Caption adv:  A woman wearing a white shirt and a green skirt stands on a beach, holding an umbrella.
+Caption adv:  A woman wearing a white shirt and a hat is standing on a beach.
 
 Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
+LLM score: 0.3000
 Success:   True
 Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.6815
+Background SSIM   (basso=protezione ok): 0.5792
+Subject LPIPS     (basso=soggetto ok)  : 0.3640
+Editing score                          : 0.4804
+Mask coverage (% background)           : 0.7403

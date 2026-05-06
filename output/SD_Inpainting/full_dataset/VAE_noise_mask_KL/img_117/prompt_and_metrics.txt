@@ -4,25 +4,32 @@ A person in a soap store
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 34.1190
-SSIM: 0.9234
-FSIM: 0.9295
+PSNR: 28.6377
+SSIM: 0.8496
+FSIM: 0.8654
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 11.3137
-SSIM: 0.4713
-FSIM: 0.4419
+PSNR: 10.0571
+SSIM: 0.3542
+FSIM: 0.3940
 
 CLIP score (Image vs Prompt)
 Edited Original:  25.9495
-Edited Immunized: 25.7637
+Edited Immunized: 25.3972
 
 Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.2092
+Score:        0.1622
 Caption orig: A woman wearing a black coat and holding a black umbrella.
-Caption adv:  A woman in a white dress stands in front of a shelf of hair products.
+Caption adv:  A woman in a white dress stands in front of a hair salon.
 
 Accuracy Rate (Edited Original vs Edited Immunized)
 LLM score: 0.3000
-Success:   False
-Accuracy:  0.0000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.6812
+Background SSIM   (basso=protezione ok): 0.1816
+Subject LPIPS     (basso=soggetto ok)  : 0.4433
+Editing score                          : 0.5520
+Mask coverage (% background)           : 0.6035

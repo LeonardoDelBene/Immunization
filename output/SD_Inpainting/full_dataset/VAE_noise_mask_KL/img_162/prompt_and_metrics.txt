@@ -4,25 +4,32 @@ A person in a swimming pool
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 33.0985
-SSIM: 0.9349
-FSIM: 0.8873
+PSNR: 29.2782
+SSIM: 0.8963
+FSIM: 0.8460
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 18.6137
-SSIM: 0.6379
-FSIM: 0.5166
+PSNR: 15.9533
+SSIM: 0.5552
+FSIM: 0.4293
 
 CLIP score (Image vs Prompt)
 Edited Original:  30.1524
-Edited Immunized: 32.3100
+Edited Immunized: 31.7774
 
 Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.7898
+Score:        0.7152
 Caption orig: A man wearing a green shirt and a backpack is standing next to a pool.
-Caption adv:  A man wearing a brown shirt and a backpack is standing in a pool.
+Caption adv:  A man wearing a brown shirt and a black belt is standing in a pool.
 
 Accuracy Rate (Edited Original vs Edited Immunized)
 LLM score: 0.3000
-Success:   False
-Accuracy:  0.0000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.6632
+Background SSIM   (basso=protezione ok): 0.5414
+Subject LPIPS     (basso=soggetto ok)  : 0.5193
+Editing score                          : 0.4029
+Mask coverage (% background)           : 0.7294

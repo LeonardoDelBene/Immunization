@@ -4,18 +4,18 @@ A person in a tech launch event
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 32.2322
-SSIM: 0.9519
-FSIM: 0.8681
+PSNR: 31.0508
+SSIM: 0.9347
+FSIM: 0.8351
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 13.6757
-SSIM: 0.5223
-FSIM: 0.4916
+PSNR: 13.7762
+SSIM: 0.5094
+FSIM: 0.4667
 
 CLIP score (Image vs Prompt)
 Edited Original:  29.1313
-Edited Immunized: 28.9235
+Edited Immunized: 25.1249
 
 Caption Similarity (Edited Original vs Edited Immunized)
 Score:        0.3584
@@ -24,5 +24,12 @@ Caption adv:  A woman wearing a brown coat and a scarf is smiling at the camera.
 
 Accuracy Rate (Edited Original vs Edited Immunized)
 LLM score: 0.4000
-Success:   False
-Accuracy:  0.0000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.7087
+Background SSIM   (basso=protezione ok): 0.4203
+Subject LPIPS     (basso=soggetto ok)  : 0.3376
+Editing score                          : 0.5548
+Mask coverage (% background)           : 0.7223

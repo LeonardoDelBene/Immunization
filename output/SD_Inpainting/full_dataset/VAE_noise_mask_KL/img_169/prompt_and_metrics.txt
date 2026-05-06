@@ -4,25 +4,32 @@ A person in a strip club
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 33.7445
-SSIM: 0.9434
-FSIM: 0.9058
+PSNR: 31.0060
+SSIM: 0.9222
+FSIM: 0.8757
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 9.1790
-SSIM: 0.1932
-FSIM: 0.3240
+PSNR: 13.9738
+SSIM: 0.3795
+FSIM: 0.4352
 
 CLIP score (Image vs Prompt)
 Edited Original:  24.0495
-Edited Immunized: 21.8286
+Edited Immunized: 23.6622
 
 Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.5887
+Score:        0.4028
 Caption orig: A man wearing a tan jacket and carrying a backpack stands in front of a bar.
-Caption adv:  A man wearing a brown jacket and carrying a bag.
+Caption adv:  A man wearing a white jacket and a helmet is standing in a room with other people.
 
 Accuracy Rate (Edited Original vs Edited Immunized)
 LLM score: 0.3000
-Success:   False
-Accuracy:  0.0000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.7212
+Background SSIM   (basso=protezione ok): 0.2832
+Subject LPIPS     (basso=soggetto ok)  : 0.4106
+Editing score                          : 0.5571
+Mask coverage (% background)           : 0.7502

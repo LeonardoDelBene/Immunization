@@ -4,25 +4,32 @@ A person in a technology fair
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 35.3767
-SSIM: 0.9752
-FSIM: 0.9476
+PSNR: 30.9448
+SSIM: 0.9427
+FSIM: 0.9100
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 16.5057
-SSIM: 0.6515
-FSIM: 0.5400
+PSNR: 14.6951
+SSIM: 0.5586
+FSIM: 0.4744
 
 CLIP score (Image vs Prompt)
 Edited Original:  31.0264
-Edited Immunized: 30.2124
+Edited Immunized: 30.6251
 
 Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.5285
+Score:        0.7862
 Caption orig: A woman in an orange dress is holding a yellow purse.
-Caption adv:  A woman in an orange dress is standing in a crowd of people.
+Caption adv:  A woman in an orange dress is standing in a crowded room, holding a purse.
 
 Accuracy Rate (Edited Original vs Edited Immunized)
 LLM score: 0.7000
-Success:   True
-Accuracy:  1.0000
+Success:   False
+Accuracy:  0.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.6011
+Background SSIM   (basso=protezione ok): 0.5165
+Subject LPIPS     (basso=soggetto ok)  : 0.4613
+Editing score                          : 0.4087
+Mask coverage (% background)           : 0.7808

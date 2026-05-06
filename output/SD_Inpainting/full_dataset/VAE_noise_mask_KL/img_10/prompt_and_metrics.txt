@@ -4,25 +4,32 @@ A person in a basement
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 34.5542
-SSIM: 0.9583
-FSIM: 0.8792
+PSNR: 31.7675
+SSIM: 0.9344
+FSIM: 0.8310
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 17.3543
-SSIM: 0.5498
-FSIM: 0.4976
+PSNR: 17.2684
+SSIM: 0.5361
+FSIM: 0.4820
 
 CLIP score (Image vs Prompt)
 Edited Original:  21.2357
-Edited Immunized: 23.7178
+Edited Immunized: 26.6863
 
 Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.7391
+Score:        0.7660
 Caption orig: A woman wearing a pink jacket and a blue skirt stands in front of a wall.
-Caption adv:  A woman wearing a pink jacket and a skirt stands in front of a door.
+Caption adv:  A woman wearing a pink jacket and a white skirt is standing in a hallway.
 
 Accuracy Rate (Edited Original vs Edited Immunized)
 LLM score: 0.3000
-Success:   False
-Accuracy:  0.0000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.5095
+Background SSIM   (basso=protezione ok): 0.4527
+Subject LPIPS     (basso=soggetto ok)  : 0.2718
+Editing score                          : 0.5049
+Mask coverage (% background)           : 0.7170
