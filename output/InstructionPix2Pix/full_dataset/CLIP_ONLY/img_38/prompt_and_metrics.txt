@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a technology fair
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 31.7576
+SSIM: 0.9499
+FSIM: 0.9014
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 15.2428
+SSIM: 0.7420
+FSIM: 0.6338
+
+CLIP score (Image vs Prompt)
+Edited Original:  30.0206
+Edited Immunized: 26.4157
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.5431
+Caption orig: A man wearing glasses and a blue shirt is holding a cell phone and a yellow purse.
+Caption adv:  A woman wearing an orange dress and glasses is holding a cell phone.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.2705
+Background SSIM   (basso=protezione ok): 0.8034
+Subject LPIPS     (basso=soggetto ok)  : 0.7308
+Editing score                          : 0.1672
+Mask coverage (% background)           : 0.7808

@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a bridal fitting room
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 30.4721
+SSIM: 0.9439
+FSIM: 0.8407
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 18.6785
+SSIM: 0.7528
+FSIM: 0.4603
+
+CLIP score (Image vs Prompt)
+Edited Original:  24.8042
+Edited Immunized: 29.1737
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.2786
+Caption orig: A woman wearing a white jacket and sunglasses is walking down a hallway.
+Caption adv:  Two women are standing in front of a mirror, one of them is wearing a white dress.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.4641
+Background SSIM   (basso=protezione ok): 0.7981
+Subject LPIPS     (basso=soggetto ok)  : 0.4531
+Editing score                          : 0.2744
+Mask coverage (% background)           : 0.7469

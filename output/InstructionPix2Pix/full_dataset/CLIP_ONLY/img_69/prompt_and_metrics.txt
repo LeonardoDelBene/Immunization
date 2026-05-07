@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a swimming pool
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 29.9352
+SSIM: 0.9469
+FSIM: 0.8685
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 22.4746
+SSIM: 0.7807
+FSIM: 0.6349
+
+CLIP score (Image vs Prompt)
+Edited Original:  25.5862
+Edited Immunized: 25.3219
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.4101
+Caption orig: A woman in a gold dress is walking through a waterway.
+Caption adv:  A statue of a woman wearing a dress and carrying a purse is displayed in a city.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.0924
+Background SSIM   (basso=protezione ok): 0.8593
+Subject LPIPS     (basso=soggetto ok)  : 0.3819
+Editing score                          : 0.1501
+Mask coverage (% background)           : 0.7470

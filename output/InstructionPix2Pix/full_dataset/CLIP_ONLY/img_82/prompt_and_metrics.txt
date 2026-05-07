@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a fire drill
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 28.0159
+SSIM: 0.9513
+FSIM: 0.8929
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 12.2783
+SSIM: 0.4791
+FSIM: 0.4687
+
+CLIP score (Image vs Prompt)
+Edited Original:  28.6037
+Edited Immunized: 27.9615
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.7034
+Caption orig: A fireman in a red uniform stands in front of a crowd of people.
+Caption adv:  A group of firefighters wearing their uniforms, standing in front of a fire.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.7000
+Success:   False
+Accuracy:  0.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.4550
+Background SSIM   (basso=protezione ok): 0.5706
+Subject LPIPS     (basso=soggetto ok)  : 0.5687
+Editing score                          : 0.3108
+Mask coverage (% background)           : 0.7133

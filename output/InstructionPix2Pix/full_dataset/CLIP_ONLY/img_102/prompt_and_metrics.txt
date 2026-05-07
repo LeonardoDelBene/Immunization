@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a high school
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 32.3100
+SSIM: 0.9544
+FSIM: 0.9234
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 22.7414
+SSIM: 0.8752
+FSIM: 0.7743
+
+CLIP score (Image vs Prompt)
+Edited Original:  21.0582
+Edited Immunized: 22.3337
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.6906
+Caption orig: A woman wearing a blue jacket and holding a purse stands on a street.
+Caption adv:  A woman wearing a black jacket and scarf is standing on the sidewalk.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.0704
+Background SSIM   (basso=protezione ok): 0.9526
+Subject LPIPS     (basso=soggetto ok)  : 0.2812
+Editing score                          : 0.1737
+Mask coverage (% background)           : 0.7091

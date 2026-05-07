@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a drive-in theater
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 26.1238
+SSIM: 0.9460
+FSIM: 0.8349
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 16.2107
+SSIM: 0.5784
+FSIM: 0.6270
+
+CLIP score (Image vs Prompt)
+Edited Original:  22.3525
+Edited Immunized: 27.6090
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.5253
+Caption orig: A woman wearing a red sweater and sunglasses is standing in a grassy field.
+Caption adv:  A woman wearing a red sweater and a purple and white dress stands in front of a TV.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.7094
+Background SSIM   (basso=protezione ok): 0.4325
+Subject LPIPS     (basso=soggetto ok)  : 0.2258
+Editing score                          : 0.6185
+Mask coverage (% background)           : 0.6422

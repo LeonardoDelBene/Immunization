@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a hotel lobby
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 30.6874
+SSIM: 0.9521
+FSIM: 0.8919
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 12.9517
+SSIM: 0.4233
+FSIM: 0.3699
+
+CLIP score (Image vs Prompt)
+Edited Original:  29.8840
+Edited Immunized: 27.5128
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.5085
+Caption orig: A man is sitting in a chair in a room with a lamp on the table.
+Caption adv:  A man wearing a suit and tie is sitting in a chair.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.7000
+Success:   False
+Accuracy:  0.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.5071
+Background SSIM   (basso=protezione ok): 0.4452
+Subject LPIPS     (basso=soggetto ok)  : 0.6787
+Editing score                          : 0.3693
+Mask coverage (% background)           : 0.7431

@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a creative writing event
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 30.5290
+SSIM: 0.9519
+FSIM: 0.8905
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 13.9146
+SSIM: 0.6195
+FSIM: 0.4898
+
+CLIP score (Image vs Prompt)
+Edited Original:  21.4153
+Edited Immunized: 24.9104
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.4128
+Caption orig: A woman wearing a brown coat and black pants is standing in front of a group of people.
+Caption adv:  A woman with glasses is looking at a paper, surrounded by other people.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.4286
+Background SSIM   (basso=protezione ok): 0.6953
+Subject LPIPS     (basso=soggetto ok)  : 0.6671
+Editing score                          : 0.2628
+Mask coverage (% background)           : 0.7213

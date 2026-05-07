@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a dance school
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 30.3223
+SSIM: 0.9502
+FSIM: 0.8919
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 14.3087
+SSIM: 0.5667
+FSIM: 0.4162
+
+CLIP score (Image vs Prompt)
+Edited Original:  27.2043
+Edited Immunized: 28.7333
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.4276
+Caption orig: A young woman wearing a red shirt and a flower crown is standing on a stage, surrounded by other dancers.
+Caption adv:  A young girl wearing a red shirt and a flower in her hair is smiling at the camera.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.6287
+Background SSIM   (basso=protezione ok): 0.4797
+Subject LPIPS     (basso=soggetto ok)  : 0.2802
+Editing score                          : 0.5394
+Mask coverage (% background)           : 0.7229

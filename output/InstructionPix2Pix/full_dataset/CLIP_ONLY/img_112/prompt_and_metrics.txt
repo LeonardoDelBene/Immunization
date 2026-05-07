@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a jail
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 27.6010
+SSIM: 0.9555
+FSIM: 0.8389
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 10.1434
+SSIM: 0.2371
+FSIM: 0.3147
+
+CLIP score (Image vs Prompt)
+Edited Original:  28.9993
+Edited Immunized: 28.2385
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.2589
+Caption orig: A man wearing a grey shirt and grey pants stands in front of a metal fence.
+Caption adv:  A young man is standing in a jail cell, looking sad and lonely.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.5212
+Background SSIM   (basso=protezione ok): 0.2319
+Subject LPIPS     (basso=soggetto ok)  : 0.5897
+Editing score                          : 0.4389
+Mask coverage (% background)           : 0.7262

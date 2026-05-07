@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a customs checkpoint
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 26.9811
+SSIM: 0.9284
+FSIM: 0.8357
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 11.5008
+SSIM: 0.3549
+FSIM: 0.3397
+
+CLIP score (Image vs Prompt)
+Edited Original:  29.5842
+Edited Immunized: 29.1007
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.0644
+Caption orig: Two men in blue uniforms stand in a room, one of them looking at the camera.
+Caption adv:  A woman in a purple shirt and black backpack is standing in a crowd of people.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.6613
+Background SSIM   (basso=protezione ok): 0.3903
+Subject LPIPS     (basso=soggetto ok)  : 0.6369
+Editing score                          : 0.4474
+Mask coverage (% background)           : 0.6436

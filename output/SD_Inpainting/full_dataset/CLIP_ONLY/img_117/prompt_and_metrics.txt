@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a soap store
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 30.1096
+SSIM: 0.9292
+FSIM: 0.8810
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 10.4684
+SSIM: 0.4294
+FSIM: 0.3916
+
+CLIP score (Image vs Prompt)
+Edited Original:  25.9495
+Edited Immunized: 25.1109
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.3724
+Caption orig: A woman wearing a black coat and holding a black umbrella.
+Caption adv:  A woman wearing a blue jacket and a black scarf is standing in front of a shelf of hair products.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.7100
+Background SSIM   (basso=protezione ok): 0.1782
+Subject LPIPS     (basso=soggetto ok)  : 0.2581
+Editing score                          : 0.6757
+Mask coverage (% background)           : 0.6035

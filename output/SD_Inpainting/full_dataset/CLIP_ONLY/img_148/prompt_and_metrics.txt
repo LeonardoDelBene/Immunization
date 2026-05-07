@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a refugee camp
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 29.1313
+SSIM: 0.9347
+FSIM: 0.8631
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 19.3279
+SSIM: 0.7405
+FSIM: 0.6093
+
+CLIP score (Image vs Prompt)
+Edited Original:  32.9732
+Edited Immunized: 32.1607
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.9751
+Caption orig: A woman wearing a white jacket and a black hat is walking on a dirt road.
+Caption adv:  A woman wearing a white jacket and a black hat is walking down a dirt road.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.8000
+Success:   False
+Accuracy:  0.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.3109
+Background SSIM   (basso=protezione ok): 0.7286
+Subject LPIPS     (basso=soggetto ok)  : 0.3630
+Editing score                          : 0.2880
+Mask coverage (% background)           : 0.6851

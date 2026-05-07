@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a soap store
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 30.1096
+SSIM: 0.9292
+FSIM: 0.8810
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 7.8698
+SSIM: 0.2163
+FSIM: 0.3621
+
+CLIP score (Image vs Prompt)
+Edited Original:  32.6583
+Edited Immunized: 30.1126
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.5951
+Caption orig: A man stands in front of a shelf full of bottles, possibly a store or a display.
+Caption adv:  A woman in a blue dress stands in front of a wall of bottles, possibly a store or a display.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.5872
+Background SSIM   (basso=protezione ok): 0.1727
+Subject LPIPS     (basso=soggetto ok)  : 0.6243
+Editing score                          : 0.4831
+Mask coverage (% background)           : 0.6035

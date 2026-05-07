@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a church sanctuary
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 29.1409
+SSIM: 0.9394
+FSIM: 0.8876
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 12.0584
+SSIM: 0.2836
+FSIM: 0.3303
+
+CLIP score (Image vs Prompt)
+Edited Original:  28.4188
+Edited Immunized: 28.7635
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.5782
+Caption orig: A man wearing a blue shirt and blue pants stands in a church.
+Caption adv:  An older man wearing glasses and a gray sweater stands in a church, looking at the camera.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.5487
+Background SSIM   (basso=protezione ok): 0.2694
+Subject LPIPS     (basso=soggetto ok)  : 0.6335
+Editing score                          : 0.4386
+Mask coverage (% background)           : 0.6704

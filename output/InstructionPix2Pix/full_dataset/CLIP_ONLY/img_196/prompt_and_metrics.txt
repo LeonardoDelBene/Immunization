@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a dance festival
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 29.1491
+SSIM: 0.9370
+FSIM: 0.8770
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 10.6740
+SSIM: 0.3358
+FSIM: 0.3118
+
+CLIP score (Image vs Prompt)
+Edited Original:  26.7318
+Edited Immunized: 28.3783
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.7540
+Caption orig: A woman in a purple dress is the center of attention as she dances on stage.
+Caption adv:  A woman wearing a blue and white dress is dancing on stage.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.6375
+Background SSIM   (basso=protezione ok): 0.4114
+Subject LPIPS     (basso=soggetto ok)  : 0.8109
+Editing score                          : 0.4316
+Mask coverage (% background)           : 0.7135

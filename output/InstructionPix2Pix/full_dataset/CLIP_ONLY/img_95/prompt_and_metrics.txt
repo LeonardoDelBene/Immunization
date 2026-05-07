@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a flower stall
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 27.7567
+SSIM: 0.9442
+FSIM: 0.8705
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 13.3448
+SSIM: 0.6051
+FSIM: 0.6214
+
+CLIP score (Image vs Prompt)
+Edited Original:  28.5138
+Edited Immunized: 32.8406
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.6482
+Caption orig: A woman wearing a gray sweater and a yellow and blue skirt stands in front of a flower garden.
+Caption adv:  A woman wearing a flowered shirt and a scarf around her neck stands in front of a flower stand.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.3131
+Background SSIM   (basso=protezione ok): 0.6793
+Subject LPIPS     (basso=soggetto ok)  : 0.4515
+Editing score                          : 0.2506
+Mask coverage (% background)           : 0.6924

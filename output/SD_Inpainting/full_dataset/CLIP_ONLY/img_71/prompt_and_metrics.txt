@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a bowling alley
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 29.6345
+SSIM: 0.9320
+FSIM: 0.8817
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 12.7839
+SSIM: 0.4606
+FSIM: 0.4525
+
+CLIP score (Image vs Prompt)
+Edited Original:  30.2693
+Edited Immunized: 32.6901
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.8592
+Caption orig: A woman wearing a fur coat and holding a red purse is standing in front of a bowling alley.
+Caption adv:  A woman wearing a fur coat and holding a purse is walking down a bowling alley.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.5230
+Background SSIM   (basso=protezione ok): 0.3643
+Subject LPIPS     (basso=soggetto ok)  : 0.4436
+Editing score                          : 0.4337
+Mask coverage (% background)           : 0.7234

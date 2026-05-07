@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a vintage record shop
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 28.6785
+SSIM: 0.9284
+FSIM: 0.8349
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 15.1065
+SSIM: 0.5501
+FSIM: 0.5223
+
+CLIP score (Image vs Prompt)
+Edited Original:  28.8454
+Edited Immunized: 29.3724
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.9957
+Caption orig: A woman wearing a blue coat and sunglasses stands in front of a bookshelf.
+Caption adv:  A woman wearing a blue coat and sunglasses is standing in front of a bookshelf.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.9000
+Success:   False
+Accuracy:  0.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.3265
+Background SSIM   (basso=protezione ok): 0.4551
+Subject LPIPS     (basso=soggetto ok)  : 0.4113
+Editing score                          : 0.3473
+Mask coverage (% background)           : 0.6804

@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a summer camp
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 32.1810
+SSIM: 0.9506
+FSIM: 0.9339
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 16.3718
+SSIM: 0.6805
+FSIM: 0.6052
+
+CLIP score (Image vs Prompt)
+Edited Original:  28.0158
+Edited Immunized: 28.9367
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.8521
+Caption orig: A young girl with curly hair and a blue shirt is standing in a field with other children.
+Caption adv:  A young girl with curly hair is standing in a field, smiling and wearing a blue shirt.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.7000
+Success:   False
+Accuracy:  0.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.2884
+Background SSIM   (basso=protezione ok): 0.7165
+Subject LPIPS     (basso=soggetto ok)  : 0.3225
+Editing score                          : 0.3069
+Mask coverage (% background)           : 0.7361

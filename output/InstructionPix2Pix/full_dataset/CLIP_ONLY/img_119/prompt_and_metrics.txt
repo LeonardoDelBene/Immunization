@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a kite festival
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 30.7836
+SSIM: 0.9390
+FSIM: 0.8828
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 13.7912
+SSIM: 0.5441
+FSIM: 0.3963
+
+CLIP score (Image vs Prompt)
+Edited Original:  34.4032
+Edited Immunized: 36.9966
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.5124
+Caption orig: A woman in a pink and purple dress is standing in a field, surrounded by a group of people flying kites.
+Caption adv:  A man in a colorful shirt is holding a kite in a field.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.7000
+Success:   False
+Accuracy:  0.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.4599
+Background SSIM   (basso=protezione ok): 0.6714
+Subject LPIPS     (basso=soggetto ok)  : 0.7901
+Editing score                          : 0.2825
+Mask coverage (% background)           : 0.7030

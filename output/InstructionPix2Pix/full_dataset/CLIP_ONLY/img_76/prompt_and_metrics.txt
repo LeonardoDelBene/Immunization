@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a local wine festival
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 32.0208
+SSIM: 0.9534
+FSIM: 0.8877
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 19.7950
+SSIM: 0.8132
+FSIM: 0.6756
+
+CLIP score (Image vs Prompt)
+Edited Original:  28.7342
+Edited Immunized: 27.9260
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.8757
+Caption orig: A man wearing a hat and a blue jacket is holding a bottle of wine.
+Caption adv:  A man wearing a hat and a black jacket is holding a glass of red wine.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.1479
+Background SSIM   (basso=protezione ok): 0.8958
+Subject LPIPS     (basso=soggetto ok)  : 0.3571
+Editing score                          : 0.1761
+Mask coverage (% background)           : 0.6662

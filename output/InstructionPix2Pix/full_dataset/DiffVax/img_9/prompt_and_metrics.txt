@@ -1,0 +1,35 @@
+--- Prompt ---
+Put a red hat on the person in the image.
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 32.8425
+SSIM: 0.9844
+FSIM: 0.9483
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 19.0151
+SSIM: 0.8172
+FSIM: 0.7178
+
+CLIP score (Image vs Prompt)
+Edited Original:  25.6127
+Edited Immunized: 27.5907
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.5944
+Caption orig: A woman wearing a red lobster costume walks down a city street.
+Caption adv:  A woman wearing a red hat and a red jacket walks down the street.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.4172
+Background SSIM   (basso=protezione ok): 0.5022
+Subject LPIPS     (basso=soggetto ok)  : 0.1342
+Editing score                          : 0.5357
+Mask coverage (% background)           : 0.2405

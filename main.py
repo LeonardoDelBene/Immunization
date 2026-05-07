@@ -301,7 +301,10 @@ def run_on_full_dataset(config):
             # --- Carica sample ---
             sample = dataset[sample_idx]
             image, image_mask = load_sample_from_hf(sample, split=config["dataset_split"])
-            edit_prompt = sample["prompts"][0]
+            if config["use_instruct_pix2pix"]:
+                edit_prompt = config["edit_prompt"]
+            else:
+                edit_prompt = sample["prompts"][0]
             print(f"Prompt: {edit_prompt}")
 
             if not config["edit_background"]:
@@ -442,11 +445,11 @@ def save_global_summary(output_dir, all_metrics):
 def get_config():
     return {
         "use_instruct_pix2pix": True,
-        "edit_prompt":          "Put the person on the beach",
+        "edit_prompt":          "Put a red hat on the person in the image.",
         "seed":                 2043,
         "edit_background":      False,
         "load_existing":        True,
-        "checkpoint_path":      os.path.join("checkpoints", "unet_best_ni84p16e.pth"),
+        "checkpoint_path":      os.path.join("checkpoints", "diffvax_trained.pth"),
         "attack_model":         "runwayml/stable-diffusion-inpainting",
         "base_output_dir":      "output",
         "dataset_path":         "./data/DiffVaxDataset_local",
@@ -491,9 +494,6 @@ def main():
 # ─────────────────────────────────────────────
 
 if __name__ == "__main__":
-    print("Torch:", torch.__version__)
-    print("CUDA torch:", torch.version.cuda)
-    print("CUDA disponibile:", torch.cuda.is_available())
     main()
 
 

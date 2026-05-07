@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a beachside boardwalk
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 29.2006
+SSIM: 0.9437
+FSIM: 0.9078
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 19.4967
+SSIM: 0.8188
+FSIM: 0.7118
+
+CLIP score (Image vs Prompt)
+Edited Original:  26.1595
+Edited Immunized: 25.5020
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.8780
+Caption orig: A woman wearing a white shirt and a blue bag is standing on a beach.
+Caption adv:  A woman wearing a white shirt and a yellow skirt stands on a beach.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.1396
+Background SSIM   (basso=protezione ok): 0.8939
+Subject LPIPS     (basso=soggetto ok)  : 0.3174
+Editing score                          : 0.1972
+Mask coverage (% background)           : 0.7403

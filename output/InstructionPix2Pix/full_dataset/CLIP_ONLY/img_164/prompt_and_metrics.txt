@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a customs checkpoint
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 31.9679
+SSIM: 0.9575
+FSIM: 0.8990
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 13.3181
+SSIM: 0.5799
+FSIM: 0.4147
+
+CLIP score (Image vs Prompt)
+Edited Original:  25.1959
+Edited Immunized: 29.4868
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.4578
+Caption orig: Two men in blue uniforms stand in a hallway, one of them with a mustache.
+Caption adv:  A man in a tan uniform is walking down a hallway.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.4733
+Background SSIM   (basso=protezione ok): 0.6548
+Subject LPIPS     (basso=soggetto ok)  : 0.7012
+Editing score                          : 0.2929
+Mask coverage (% background)           : 0.7139

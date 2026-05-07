@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a gymnasium
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 32.9016
+SSIM: 0.9663
+FSIM: 0.9118
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 13.1792
+SSIM: 0.5315
+FSIM: 0.3514
+
+CLIP score (Image vs Prompt)
+Edited Original:  29.4275
+Edited Immunized: 28.4990
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.9669
+Caption orig: A woman in a white shirt and blue shorts is standing on a basketball court, holding a basketball.
+Caption adv:  A woman in a white shirt and blue pants stands on a basketball court, holding a basketball.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.7000
+Success:   False
+Accuracy:  0.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.5388
+Background SSIM   (basso=protezione ok): 0.5340
+Subject LPIPS     (basso=soggetto ok)  : 0.8959
+Editing score                          : 0.3553
+Mask coverage (% background)           : 0.8802

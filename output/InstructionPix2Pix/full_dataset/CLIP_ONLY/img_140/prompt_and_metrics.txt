@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a concert hall
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 29.9590
+SSIM: 0.9335
+FSIM: 0.9096
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 11.3053
+SSIM: 0.3080
+FSIM: 0.3179
+
+CLIP score (Image vs Prompt)
+Edited Original:  29.4925
+Edited Immunized: 28.4030
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.3964
+Caption orig: A man in a blue shirt is playing a violin in front of a crowd.
+Caption adv:  A man wearing a suit and tie is holding a cello.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.5644
+Background SSIM   (basso=protezione ok): 0.3638
+Subject LPIPS     (basso=soggetto ok)  : 0.6665
+Editing score                          : 0.4166
+Mask coverage (% background)           : 0.7129

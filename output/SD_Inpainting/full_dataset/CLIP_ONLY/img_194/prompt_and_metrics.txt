@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a hotel lobby
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 30.6874
+SSIM: 0.9521
+FSIM: 0.8919
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 15.3198
+SSIM: 0.5501
+FSIM: 0.4404
+
+CLIP score (Image vs Prompt)
+Edited Original:  25.6405
+Edited Immunized: 27.3708
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.3815
+Caption orig: A woman wearing a dress with a face on it stands in a room.
+Caption adv:  A woman wearing a white shirt with a picture of a woman's face on it.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.4000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.6213
+Background SSIM   (basso=protezione ok): 0.4661
+Subject LPIPS     (basso=soggetto ok)  : 0.3459
+Editing score                          : 0.5012
+Mask coverage (% background)           : 0.7431

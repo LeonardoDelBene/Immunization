@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a sports field
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 30.4451
+SSIM: 0.9483
+FSIM: 0.8920
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 15.4351
+SSIM: 0.6875
+FSIM: 0.4742
+
+CLIP score (Image vs Prompt)
+Edited Original:  25.6508
+Edited Immunized: 26.5408
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.3940
+Caption orig: A man wearing a white shirt and blue stripes is standing on a grassy field.
+Caption adv:  A soccer player wearing a blue and white striped shirt.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.7000
+Success:   False
+Accuracy:  0.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.3086
+Background SSIM   (basso=protezione ok): 0.7668
+Subject LPIPS     (basso=soggetto ok)  : 0.5128
+Editing score                          : 0.1934
+Mask coverage (% background)           : 0.7786

@@ -1,0 +1,35 @@
+--- Prompt ---
+Put a red hat on the person in the image.
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 32.0686
+SSIM: 0.9831
+FSIM: 0.9469
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 14.2694
+SSIM: 0.7100
+FSIM: 0.5645
+
+CLIP score (Image vs Prompt)
+Edited Original:  27.6780
+Edited Immunized: 28.4324
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.4722
+Caption orig: A woman wearing a red wig and a red and black striped dress is walking down the street.
+Caption adv:  A woman wearing a red hat with a large red feather on top of it.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.7619
+Background SSIM   (basso=protezione ok): 0.2080
+Subject LPIPS     (basso=soggetto ok)  : 0.1811
+Editing score                          : 0.7337
+Mask coverage (% background)           : 0.3133

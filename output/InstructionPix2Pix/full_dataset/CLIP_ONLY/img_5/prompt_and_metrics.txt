@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a food truck park
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 30.9277
+SSIM: 0.9512
+FSIM: 0.9199
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 17.0122
+SSIM: 0.7093
+FSIM: 0.6499
+
+CLIP score (Image vs Prompt)
+Edited Original:  21.1694
+Edited Immunized: 20.6513
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.4914
+Caption orig: A woman wearing a blue and white shirt and sunglasses is standing in front of a store.
+Caption adv:  A woman wearing a blue shirt and holding a book.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.2606
+Background SSIM   (basso=protezione ok): 0.7096
+Subject LPIPS     (basso=soggetto ok)  : 0.2242
+Editing score                          : 0.3568
+Mask coverage (% background)           : 0.7179

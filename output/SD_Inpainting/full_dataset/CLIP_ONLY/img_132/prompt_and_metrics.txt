@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a shopping center
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 29.8369
+SSIM: 0.9394
+FSIM: 0.8962
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 12.8088
+SSIM: 0.4091
+FSIM: 0.4491
+
+CLIP score (Image vs Prompt)
+Edited Original:  24.6315
+Edited Immunized: 26.7319
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.3411
+Caption orig: A man wearing a gray suit with white lace on the sleeves and a white vest.
+Caption adv:  A man in a suit and tie is standing in front of a grocery store.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.7000
+Success:   False
+Accuracy:  0.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.8128
+Background SSIM   (basso=protezione ok): 0.2659
+Subject LPIPS     (basso=soggetto ok)  : 0.3852
+Editing score                          : 0.6143
+Mask coverage (% background)           : 0.7138

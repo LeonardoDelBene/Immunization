@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a garage
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 29.6415
+SSIM: 0.9350
+FSIM: 0.8672
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 16.6028
+SSIM: 0.6493
+FSIM: 0.5765
+
+CLIP score (Image vs Prompt)
+Edited Original:  28.0275
+Edited Immunized: 29.5489
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.7008
+Caption orig: A man wearing a blue jacket and blue jeans stands in a garage.
+Caption adv:  A man wearing a green sweater and a polka dot vest stands in a garage.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.2688
+Background SSIM   (basso=protezione ok): 0.7163
+Subject LPIPS     (basso=soggetto ok)  : 0.5074
+Editing score                          : 0.1926
+Mask coverage (% background)           : 0.7104

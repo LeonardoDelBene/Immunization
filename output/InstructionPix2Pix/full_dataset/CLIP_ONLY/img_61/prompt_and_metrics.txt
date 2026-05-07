@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a customs office
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 31.3228
+SSIM: 0.9485
+FSIM: 0.9164
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 17.9036
+SSIM: 0.7063
+FSIM: 0.5419
+
+CLIP score (Image vs Prompt)
+Edited Original:  26.8851
+Edited Immunized: 27.9530
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.3750
+Caption orig: A woman in a blue jacket and tan pants stands in a room with a blue background.
+Caption adv:  A man in a blue shirt and khaki pants is walking down a hallway.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.3767
+Background SSIM   (basso=protezione ok): 0.7370
+Subject LPIPS     (basso=soggetto ok)  : 0.3181
+Editing score                          : 0.3387
+Mask coverage (% background)           : 0.7603

@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a city food tour
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 31.2447
+SSIM: 0.9507
+FSIM: 0.9112
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 24.2397
+SSIM: 0.8810
+FSIM: 0.7782
+
+CLIP score (Image vs Prompt)
+Edited Original:  21.5062
+Edited Immunized: 24.6447
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.6623
+Caption orig: A woman wearing a black dress and a belt with a picture of a pizza on it.
+Caption adv:  A woman wearing a black dress and a gold belt with a green buckle.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.0845
+Background SSIM   (basso=protezione ok): 0.9473
+Subject LPIPS     (basso=soggetto ok)  : 0.2487
+Editing score                          : 0.2004
+Mask coverage (% background)           : 0.7304

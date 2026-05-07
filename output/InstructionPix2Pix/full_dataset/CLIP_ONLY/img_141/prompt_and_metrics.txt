@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a lobby
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 28.7053
+SSIM: 0.9470
+FSIM: 0.9171
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 18.1812
+SSIM: 0.7910
+FSIM: 0.6786
+
+CLIP score (Image vs Prompt)
+Edited Original:  22.2644
+Edited Immunized: 21.5516
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.2751
+Caption orig: A man in a black shirt and hat is walking down a hallway.
+Caption adv:  Two men are sitting in a room, one of them is wearing a grey shirt.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.2279
+Background SSIM   (basso=protezione ok): 0.8492
+Subject LPIPS     (basso=soggetto ok)  : 0.6148
+Editing score                          : 0.1364
+Mask coverage (% background)           : 0.7054

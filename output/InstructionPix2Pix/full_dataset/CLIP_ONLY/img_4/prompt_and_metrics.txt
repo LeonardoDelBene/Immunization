@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a drive-in theater
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 32.0965
+SSIM: 0.9592
+FSIM: 0.8929
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 18.4556
+SSIM: 0.7839
+FSIM: 0.6343
+
+CLIP score (Image vs Prompt)
+Edited Original:  19.9948
+Edited Immunized: 21.0636
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.5231
+Caption orig: A woman wearing a blue dress and sunglasses is standing in front of a large building.
+Caption adv:  A man wearing a blue dress and sunglasses stands on a red carpet.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.2564
+Background SSIM   (basso=protezione ok): 0.8158
+Subject LPIPS     (basso=soggetto ok)  : 0.3075
+Editing score                          : 0.2733
+Mask coverage (% background)           : 0.7862

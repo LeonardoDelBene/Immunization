@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a high-end restaurant
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 29.6872
+SSIM: 0.9499
+FSIM: 0.9013
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 11.9188
+SSIM: 0.4702
+FSIM: 0.4786
+
+CLIP score (Image vs Prompt)
+Edited Original:  30.6525
+Edited Immunized: 31.5329
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.5362
+Caption orig: A man wearing a black bow tie stands in a restaurant.
+Caption adv:  A man wearing a white tie and black vest is holding a wine glass.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.3982
+Background SSIM   (basso=protezione ok): 0.4928
+Subject LPIPS     (basso=soggetto ok)  : 0.5903
+Editing score                          : 0.3114
+Mask coverage (% background)           : 0.7324

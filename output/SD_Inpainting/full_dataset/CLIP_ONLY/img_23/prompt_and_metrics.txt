@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a computer lab
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 28.0178
+SSIM: 0.9374
+FSIM: 0.8280
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 16.3251
+SSIM: 0.6564
+FSIM: 0.5205
+
+CLIP score (Image vs Prompt)
+Edited Original:  28.2139
+Edited Immunized: 28.5178
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.4325
+Caption orig: A woman with red hair and a blue jacket is smiling for the camera.
+Caption adv:  A woman wearing a blue jacket and a striped dress stands in front of a computer.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.4914
+Background SSIM   (basso=protezione ok): 0.5937
+Subject LPIPS     (basso=soggetto ok)  : 0.2604
+Editing score                          : 0.4622
+Mask coverage (% background)           : 0.6867

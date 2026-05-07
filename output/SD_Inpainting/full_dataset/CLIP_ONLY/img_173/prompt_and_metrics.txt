@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a vintage arts fair
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 30.8607
+SSIM: 0.9562
+FSIM: 0.9086
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 16.0807
+SSIM: 0.5849
+FSIM: 0.5069
+
+CLIP score (Image vs Prompt)
+Edited Original:  29.2873
+Edited Immunized: 32.2524
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.3423
+Caption orig: A woman wearing a gray vest and a short skirt is standing in a field.
+Caption adv:  A woman wearing a white shirt and black shorts is talking on her cell phone.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.5041
+Background SSIM   (basso=protezione ok): 0.5168
+Subject LPIPS     (basso=soggetto ok)  : 0.3514
+Editing score                          : 0.4357
+Mask coverage (% background)           : 0.7547

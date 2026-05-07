@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a charity art auction
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 31.7853
+SSIM: 0.9266
+FSIM: 0.8232
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 15.1145
+SSIM: 0.5393
+FSIM: 0.4452
+
+CLIP score (Image vs Prompt)
+Edited Original:  27.4294
+Edited Immunized: 27.5252
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.3677
+Caption orig: A woman wearing a gray coat and holding a brown purse.
+Caption adv:  A woman wearing a white shirt and a coat stands in front of a painting.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.6510
+Background SSIM   (basso=protezione ok): 0.3584
+Subject LPIPS     (basso=soggetto ok)  : 0.3528
+Editing score                          : 0.5412
+Mask coverage (% background)           : 0.5932

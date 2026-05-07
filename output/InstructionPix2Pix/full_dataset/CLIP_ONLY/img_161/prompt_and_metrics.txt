@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a tech store
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 28.6722
+SSIM: 0.9319
+FSIM: 0.8812
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 12.5168
+SSIM: 0.4422
+FSIM: 0.4275
+
+CLIP score (Image vs Prompt)
+Edited Original:  28.8116
+Edited Immunized: 30.9894
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.2661
+Caption orig: A woman in a red jacket stands in front of a display of televisions.
+Caption adv:  A man with a beard and glasses stands in front of a table with a laptop on it.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.5442
+Background SSIM   (basso=protezione ok): 0.3995
+Subject LPIPS     (basso=soggetto ok)  : 0.3634
+Editing score                          : 0.4798
+Mask coverage (% background)           : 0.7088

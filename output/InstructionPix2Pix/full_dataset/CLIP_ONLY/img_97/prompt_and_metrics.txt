@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a car dealership
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 29.1284
+SSIM: 0.9482
+FSIM: 0.8314
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 15.0089
+SSIM: 0.6429
+FSIM: 0.4672
+
+CLIP score (Image vs Prompt)
+Edited Original:  29.0279
+Edited Immunized: 26.7232
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.8716
+Caption orig: A man wearing a gray jacket and a blue tie is standing in front of a car.
+Caption adv:  A man wearing a grey suit and tie is standing in front of a car.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.7000
+Success:   False
+Accuracy:  0.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.3301
+Background SSIM   (basso=protezione ok): 0.6756
+Subject LPIPS     (basso=soggetto ok)  : 0.5183
+Editing score                          : 0.2294
+Mask coverage (% background)           : 0.7064

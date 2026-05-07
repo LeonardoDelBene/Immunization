@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a dog agility course
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 31.9782
+SSIM: 0.9535
+FSIM: 0.9195
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 10.4257
+SSIM: 0.4621
+FSIM: 0.3391
+
+CLIP score (Image vs Prompt)
+Edited Original:  34.5385
+Edited Immunized: 33.8625
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.5145
+Caption orig: A woman wearing a blue shirt and holding a yellow frisbee is standing next to her dog.
+Caption adv:  A woman is riding a dog on a blue mat.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.5670
+Background SSIM   (basso=protezione ok): 0.5195
+Subject LPIPS     (basso=soggetto ok)  : 0.8030
+Editing score                          : 0.3710
+Mask coverage (% background)           : 0.7551

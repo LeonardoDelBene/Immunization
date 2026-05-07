@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a farmers’ co-op
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 28.1878
+SSIM: 0.9174
+FSIM: 0.8366
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 16.5512
+SSIM: 0.5379
+FSIM: 0.5308
+
+CLIP score (Image vs Prompt)
+Edited Original:  27.6750
+Edited Immunized: 29.1412
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        1.0000
+Caption orig: A woman wearing a coat and sunglasses stands in a field.
+Caption adv:  A woman wearing a coat and sunglasses stands in a field.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 1.0000
+Success:   False
+Accuracy:  0.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.5762
+Background SSIM   (basso=protezione ok): 0.4231
+Subject LPIPS     (basso=soggetto ok)  : 0.3915
+Editing score                          : 0.4686
+Mask coverage (% background)           : 0.6505

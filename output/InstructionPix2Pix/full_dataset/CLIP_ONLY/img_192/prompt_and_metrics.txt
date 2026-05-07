@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a butcher’s block
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 26.7728
+SSIM: 0.9676
+FSIM: 0.8492
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 23.8697
+SSIM: 0.8463
+FSIM: 0.7061
+
+CLIP score (Image vs Prompt)
+Edited Original:  23.4115
+Edited Immunized: 25.2602
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.8011
+Caption orig: A man wearing a spotted jacket and holding a cigarette is standing on a street.
+Caption adv:  A man wearing a jacket with a spotted pattern is standing on a street.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.7000
+Success:   False
+Accuracy:  0.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.0778
+Background SSIM   (basso=protezione ok): 0.9261
+Subject LPIPS     (basso=soggetto ok)  : 0.2309
+Editing score                          : 0.2147
+Mask coverage (% background)           : 0.6972

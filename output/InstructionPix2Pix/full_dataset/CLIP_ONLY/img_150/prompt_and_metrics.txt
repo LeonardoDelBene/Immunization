@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a charity art auction
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 30.0282
+SSIM: 0.9461
+FSIM: 0.8907
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 15.7761
+SSIM: 0.6307
+FSIM: 0.4639
+
+CLIP score (Image vs Prompt)
+Edited Original:  25.1367
+Edited Immunized: 26.0736
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.8003
+Caption orig: A woman in an orange dress stands on a stage, smiling and posing for the audience.
+Caption adv:  A woman in an orange outfit is standing on a stage, smiling and pointing at a man in a suit.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.7000
+Success:   False
+Accuracy:  0.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.5462
+Background SSIM   (basso=protezione ok): 0.5892
+Subject LPIPS     (basso=soggetto ok)  : 0.1926
+Editing score                          : 0.5262
+Mask coverage (% background)           : 0.7544

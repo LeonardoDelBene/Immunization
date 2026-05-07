@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a dance festival
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 29.1491
+SSIM: 0.9370
+FSIM: 0.8770
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 17.4945
+SSIM: 0.6770
+FSIM: 0.5714
+
+CLIP score (Image vs Prompt)
+Edited Original:  29.7314
+Edited Immunized: 32.5554
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.4958
+Caption orig: A woman wearing a blue dress and an orange hat stands on the street.
+Caption adv:  A woman wearing a hat and holding a purse.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.5196
+Background SSIM   (basso=protezione ok): 0.6490
+Subject LPIPS     (basso=soggetto ok)  : 0.4080
+Editing score                          : 0.3683
+Mask coverage (% background)           : 0.7135

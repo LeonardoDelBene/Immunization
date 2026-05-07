@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a ice cream parlor
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 32.0899
+SSIM: 0.9540
+FSIM: 0.8931
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 19.9178
+SSIM: 0.8359
+FSIM: 0.7314
+
+CLIP score (Image vs Prompt)
+Edited Original:  22.8271
+Edited Immunized: 24.6928
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.6748
+Caption orig: A woman wearing a leather jacket and holding a cone of ice cream.
+Caption adv:  A woman in a blue dress and a jacket is standing on a street corner, holding a cup of ice cream.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.7000
+Success:   False
+Accuracy:  0.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.1176
+Background SSIM   (basso=protezione ok): 0.8917
+Subject LPIPS     (basso=soggetto ok)  : 0.3316
+Editing score                          : 0.1806
+Mask coverage (% background)           : 0.6974

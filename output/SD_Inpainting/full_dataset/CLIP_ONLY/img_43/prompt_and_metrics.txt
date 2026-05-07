@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a community arts and crafts market
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 26.8391
+SSIM: 0.9478
+FSIM: 0.8722
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 16.8243
+SSIM: 0.5996
+FSIM: 0.5709
+
+CLIP score (Image vs Prompt)
+Edited Original:  26.2227
+Edited Immunized: 27.1908
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.6353
+Caption orig: A woman wearing sunglasses and a brown vest is standing in front of a table with various items on it.
+Caption adv:  A woman wearing sunglasses and a striped shirt is standing in front of a colorful market.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.3813
+Background SSIM   (basso=protezione ok): 0.4850
+Subject LPIPS     (basso=soggetto ok)  : 0.2657
+Editing score                          : 0.4476
+Mask coverage (% background)           : 0.6712

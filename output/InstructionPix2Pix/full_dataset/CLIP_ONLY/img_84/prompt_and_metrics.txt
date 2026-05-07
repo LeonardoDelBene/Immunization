@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a pastry shop
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 28.8317
+SSIM: 0.9394
+FSIM: 0.8567
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 14.4603
+SSIM: 0.5549
+FSIM: 0.4825
+
+CLIP score (Image vs Prompt)
+Edited Original:  30.5022
+Edited Immunized: 28.7984
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.6141
+Caption orig: A woman in a white apron is smiling and holding a tray of pastries.
+Caption adv:  A woman in a white coat is standing in front of a display of pastries.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.7000
+Success:   False
+Accuracy:  0.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.4161
+Background SSIM   (basso=protezione ok): 0.5938
+Subject LPIPS     (basso=soggetto ok)  : 0.5579
+Editing score                          : 0.2883
+Mask coverage (% background)           : 0.7248

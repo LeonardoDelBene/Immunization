@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a technology trade show
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 33.0397
+SSIM: 0.9625
+FSIM: 0.8719
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 17.8097
+SSIM: 0.6128
+FSIM: 0.5220
+
+CLIP score (Image vs Prompt)
+Edited Original:  26.4078
+Edited Immunized: 26.3491
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.3064
+Caption orig: A woman wearing a blue jacket and a ponytail stands in front of a brick wall.
+Caption adv:  A man in a blue shirt is standing in front of a large screen.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.3029
+Background SSIM   (basso=protezione ok): 0.5900
+Subject LPIPS     (basso=soggetto ok)  : 0.4814
+Editing score                          : 0.2553
+Mask coverage (% background)           : 0.7481

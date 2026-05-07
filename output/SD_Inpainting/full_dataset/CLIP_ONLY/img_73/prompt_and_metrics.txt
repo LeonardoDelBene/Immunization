@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a boxing ring
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 29.5950
+SSIM: 0.9492
+FSIM: 0.8273
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 13.3062
+SSIM: 0.5193
+FSIM: 0.4865
+
+CLIP score (Image vs Prompt)
+Edited Original:  29.2361
+Edited Immunized: 31.1086
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.8808
+Caption orig: A woman wearing a hat and a scarf is standing in front of a boxing ring.
+Caption adv:  A woman wearing a hat and scarf is standing in a boxing ring, smiling and holding a boxing glove.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.7000
+Success:   False
+Accuracy:  0.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.5762
+Background SSIM   (basso=protezione ok): 0.4258
+Subject LPIPS     (basso=soggetto ok)  : 0.3882
+Editing score                          : 0.4698
+Mask coverage (% background)           : 0.7372

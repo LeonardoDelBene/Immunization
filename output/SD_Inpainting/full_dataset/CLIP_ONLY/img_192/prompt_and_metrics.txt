@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a butcher’s block
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 26.7728
+SSIM: 0.9676
+FSIM: 0.8492
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 15.6256
+SSIM: 0.5605
+FSIM: 0.5457
+
+CLIP score (Image vs Prompt)
+Edited Original:  26.8447
+Edited Immunized: 27.0400
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.6581
+Caption orig: A man wearing a leopard print jacket stands in front of a deli counter.
+Caption adv:  A man wearing a leopard print coat stands in front of a bakery display.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.4798
+Background SSIM   (basso=protezione ok): 0.4148
+Subject LPIPS     (basso=soggetto ok)  : 0.3303
+Editing score                          : 0.4693
+Mask coverage (% background)           : 0.6972

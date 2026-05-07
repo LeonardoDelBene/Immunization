@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a bowling alley
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 32.7055
+SSIM: 0.9568
+FSIM: 0.9335
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 20.1449
+SSIM: 0.7637
+FSIM: 0.6491
+
+CLIP score (Image vs Prompt)
+Edited Original:  28.9118
+Edited Immunized: 30.4931
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.7086
+Caption orig: A woman in a blue shirt and blue dress is holding a bowling ball and walking down a bowling alley.
+Caption adv:  A woman with blonde hair and a green shirt is standing in a bowling alley, holding a bowling ball.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.2447
+Background SSIM   (basso=protezione ok): 0.7777
+Subject LPIPS     (basso=soggetto ok)  : 0.3012
+Editing score                          : 0.2838
+Mask coverage (% background)           : 0.7379

@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a children’s theater
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 31.1419
+SSIM: 0.9494
+FSIM: 0.8621
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 13.7071
+SSIM: 0.5158
+FSIM: 0.4138
+
+CLIP score (Image vs Prompt)
+Edited Original:  27.9642
+Edited Immunized: 30.5677
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.8022
+Caption orig: A young girl stands on stage, wearing a blue dress and holding a microphone.
+Caption adv:  A young girl wearing a blue dress and red shoes is standing on a stage, smiling and looking at the camera.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.7000
+Success:   False
+Accuracy:  0.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.4584
+Background SSIM   (basso=protezione ok): 0.5136
+Subject LPIPS     (basso=soggetto ok)  : 0.3872
+Editing score                          : 0.3970
+Mask coverage (% background)           : 0.7324

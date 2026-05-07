@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a convenience store
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 31.3669
+SSIM: 0.9530
+FSIM: 0.9148
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 20.3993
+SSIM: 0.6955
+FSIM: 0.6338
+
+CLIP score (Image vs Prompt)
+Edited Original:  24.1170
+Edited Immunized: 26.7071
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.4450
+Caption orig: A woman wearing a black hat and red sweater is standing on the sidewalk, holding a cup.
+Caption adv:  A woman in a red sweater and black pants is walking down the street.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.2310
+Background SSIM   (basso=protezione ok): 0.6932
+Subject LPIPS     (basso=soggetto ok)  : 0.2136
+Editing score                          : 0.3563
+Mask coverage (% background)           : 0.7428

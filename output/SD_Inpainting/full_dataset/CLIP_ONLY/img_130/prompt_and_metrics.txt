@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a travel agency
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 29.0341
+SSIM: 0.9372
+FSIM: 0.9158
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 22.1782
+SSIM: 0.8191
+FSIM: 0.6816
+
+CLIP score (Image vs Prompt)
+Edited Original:  21.8369
+Edited Immunized: 23.0475
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        1.0000
+Caption orig: A woman wearing a fur coat and carrying a purse walks down a street.
+Caption adv:  A woman wearing a fur coat and carrying a purse walks down a street.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 1.0000
+Success:   False
+Accuracy:  0.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.2269
+Background SSIM   (basso=protezione ok): 0.8360
+Subject LPIPS     (basso=soggetto ok)  : 0.3395
+Editing score                          : 0.2363
+Mask coverage (% background)           : 0.6978

@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a parking garage
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 31.1335
+SSIM: 0.9317
+FSIM: 0.8520
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 17.5533
+SSIM: 0.7698
+FSIM: 0.6675
+
+CLIP score (Image vs Prompt)
+Edited Original:  21.4946
+Edited Immunized: 22.6351
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        1.0000
+Caption orig: A woman wearing a black jacket and a scarf is walking on a beach.
+Caption adv:  A woman wearing a black jacket and a scarf is walking on a beach.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 1.0000
+Success:   False
+Accuracy:  0.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.1520
+Background SSIM   (basso=protezione ok): 0.8569
+Subject LPIPS     (basso=soggetto ok)  : 0.3548
+Editing score                          : 0.1909
+Mask coverage (% background)           : 0.6923

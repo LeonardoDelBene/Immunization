@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a science lab
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 28.2012
+SSIM: 0.9373
+FSIM: 0.8405
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 22.6171
+SSIM: 0.8187
+FSIM: 0.6684
+
+CLIP score (Image vs Prompt)
+Edited Original:  21.0599
+Edited Immunized: 24.3692
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.4289
+Caption orig: A woman wearing a blue coat and holding a purse.
+Caption adv:  A woman wearing glasses and a white coat is standing on a street corner.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.2517
+Background SSIM   (basso=protezione ok): 0.8437
+Subject LPIPS     (basso=soggetto ok)  : 0.2864
+Editing score                          : 0.2758
+Mask coverage (% background)           : 0.6520

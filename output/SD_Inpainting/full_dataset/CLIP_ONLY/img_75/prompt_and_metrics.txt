@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a butcher’s shop
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 26.9277
+SSIM: 0.9176
+FSIM: 0.8083
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 15.9653
+SSIM: 0.5621
+FSIM: 0.5496
+
+CLIP score (Image vs Prompt)
+Edited Original:  29.7592
+Edited Immunized: 32.7899
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        1.0000
+Caption orig: A woman wearing a colorful coat stands in front of a meat counter.
+Caption adv:  A woman wearing a colorful coat stands in front of a meat counter.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.9000
+Success:   False
+Accuracy:  0.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.4721
+Background SSIM   (basso=protezione ok): 0.4468
+Subject LPIPS     (basso=soggetto ok)  : 0.2937
+Editing score                          : 0.4786
+Mask coverage (% background)           : 0.6353

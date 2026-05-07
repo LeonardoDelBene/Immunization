@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a fire drill
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 28.0159
+SSIM: 0.9513
+FSIM: 0.8929
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 16.3745
+SSIM: 0.6199
+FSIM: 0.5719
+
+CLIP score (Image vs Prompt)
+Edited Original:  24.2137
+Edited Immunized: 22.6676
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.8830
+Caption orig: A woman wearing a black and gold dress stands out in a crowd of people.
+Caption adv:  A woman in a black and white dress stands in front of a crowd of people.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.4798
+Background SSIM   (basso=protezione ok): 0.5377
+Subject LPIPS     (basso=soggetto ok)  : 0.3083
+Editing score                          : 0.4456
+Mask coverage (% background)           : 0.7133

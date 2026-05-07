@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a shopping center
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 30.0142
+SSIM: 0.9412
+FSIM: 0.8881
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 16.9120
+SSIM: 0.6190
+FSIM: 0.5061
+
+CLIP score (Image vs Prompt)
+Edited Original:  26.1101
+Edited Immunized: 28.3465
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.7837
+Caption orig: A man wearing sunglasses and a scarf is smiling in a crowded mall.
+Caption adv:  A man wearing sunglasses and a scarf is standing in a mall.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.7000
+Success:   False
+Accuracy:  0.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.5946
+Background SSIM   (basso=protezione ok): 0.5612
+Subject LPIPS     (basso=soggetto ok)  : 0.4039
+Editing score                          : 0.4271
+Mask coverage (% background)           : 0.7153

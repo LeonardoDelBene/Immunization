@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a glass factory
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 28.9910
+SSIM: 0.9477
+FSIM: 0.8801
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 15.9770
+SSIM: 0.5073
+FSIM: 0.4945
+
+CLIP score (Image vs Prompt)
+Edited Original:  28.6760
+Edited Immunized: 30.1052
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.4414
+Caption orig: A man wearing a blue shirt and glasses is standing in a factory, surrounded by various machines and equipment.
+Caption adv:  A man wearing a blue jacket and glasses is holding a blue bag.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.4302
+Background SSIM   (basso=protezione ok): 0.5228
+Subject LPIPS     (basso=soggetto ok)  : 0.5691
+Editing score                          : 0.3152
+Mask coverage (% background)           : 0.7680

@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a refugee camp
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 31.3343
+SSIM: 0.9390
+FSIM: 0.8897
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 22.7147
+SSIM: 0.7797
+FSIM: 0.6608
+
+CLIP score (Image vs Prompt)
+Edited Original:  25.5830
+Edited Immunized: 27.4949
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.9564
+Caption orig: A man wearing a blue jacket and a brown hat stands on a sidewalk.
+Caption adv:  A man wearing a blue jacket and a brown shirt stands on a sidewalk.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.1022
+Background SSIM   (basso=protezione ok): 0.8476
+Subject LPIPS     (basso=soggetto ok)  : 0.2983
+Editing score                          : 0.2076
+Mask coverage (% background)           : 0.7021

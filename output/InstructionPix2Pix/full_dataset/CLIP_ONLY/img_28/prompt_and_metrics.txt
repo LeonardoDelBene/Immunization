@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a tech startup
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 31.5854
+SSIM: 0.9514
+FSIM: 0.9189
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 20.5040
+SSIM: 0.8414
+FSIM: 0.5077
+
+CLIP score (Image vs Prompt)
+Edited Original:  25.2239
+Edited Immunized: 25.6917
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.6558
+Caption orig: A man wearing a blue shirt and glasses is smiling.
+Caption adv:  A man wearing a blue shirt and glasses is standing in front of a gray background.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.1136
+Background SSIM   (basso=protezione ok): 0.9600
+Subject LPIPS     (basso=soggetto ok)  : 0.2621
+Editing score                          : 0.2002
+Mask coverage (% background)           : 0.7033

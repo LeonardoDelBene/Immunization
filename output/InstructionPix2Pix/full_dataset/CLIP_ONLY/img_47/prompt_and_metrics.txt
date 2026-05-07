@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a summer camp
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 32.1053
+SSIM: 0.9583
+FSIM: 0.9172
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 19.8300
+SSIM: 0.8456
+FSIM: 0.7057
+
+CLIP score (Image vs Prompt)
+Edited Original:  26.7126
+Edited Immunized: 30.1386
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.5732
+Caption orig: A young woman wearing a blue shirt and carrying a red purse is standing in front of a green wall.
+Caption adv:  A young girl wearing a blue shirt and green shorts is smiling and holding a brown purse.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.1834
+Background SSIM   (basso=protezione ok): 0.8800
+Subject LPIPS     (basso=soggetto ok)  : 0.2204
+Editing score                          : 0.2771
+Mask coverage (% background)           : 0.7733

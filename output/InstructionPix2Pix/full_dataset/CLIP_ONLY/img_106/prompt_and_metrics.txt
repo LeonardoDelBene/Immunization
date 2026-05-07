@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a nightclub
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 29.7513
+SSIM: 0.9485
+FSIM: 0.9147
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 17.2935
+SSIM: 0.7694
+FSIM: 0.6987
+
+CLIP score (Image vs Prompt)
+Edited Original:  25.3209
+Edited Immunized: 25.4231
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.7628
+Caption orig: A woman wearing a black jacket and a striped shirt is walking down the street.
+Caption adv:  A woman in a leather jacket and striped shirt walks down a street at night.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.1703
+Background SSIM   (basso=protezione ok): 0.7947
+Subject LPIPS     (basso=soggetto ok)  : 0.2117
+Editing score                          : 0.3027
+Mask coverage (% background)           : 0.7056

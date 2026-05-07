@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a shopping center
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 30.0142
+SSIM: 0.9412
+FSIM: 0.8881
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 13.4945
+SSIM: 0.4855
+FSIM: 0.4754
+
+CLIP score (Image vs Prompt)
+Edited Original:  25.2647
+Edited Immunized: 23.8371
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.7145
+Caption orig: A woman wearing sunglasses and a grey shirt is holding a shopping bag.
+Caption adv:  A woman is holding a bunch of shopping bags.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.5530
+Background SSIM   (basso=protezione ok): 0.4638
+Subject LPIPS     (basso=soggetto ok)  : 0.3693
+Editing score                          : 0.4605
+Mask coverage (% background)           : 0.7153

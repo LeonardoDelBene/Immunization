@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a craft beer festival
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 27.9769
+SSIM: 0.9347
+FSIM: 0.8584
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 15.3719
+SSIM: 0.6816
+FSIM: 0.5872
+
+CLIP score (Image vs Prompt)
+Edited Original:  33.3847
+Edited Immunized: 32.4855
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.7841
+Caption orig: A man wearing a black shirt with a beer logo on it is holding two beers.
+Caption adv:  A man wearing glasses and a black shirt is holding three beers.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.2929
+Background SSIM   (basso=protezione ok): 0.7997
+Subject LPIPS     (basso=soggetto ok)  : 0.5713
+Editing score                          : 0.1772
+Mask coverage (% background)           : 0.6951

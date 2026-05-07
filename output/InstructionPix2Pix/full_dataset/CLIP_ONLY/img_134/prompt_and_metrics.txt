@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a public botanical garden
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 33.3397
+SSIM: 0.9672
+FSIM: 0.8823
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 19.2094
+SSIM: 0.6149
+FSIM: 0.5497
+
+CLIP score (Image vs Prompt)
+Edited Original:  25.8624
+Edited Immunized: 27.0930
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.5609
+Caption orig: A woman wearing a gray shirt and a ring on her finger stands in front of a green background.
+Caption adv:  A man wearing a gray shirt and black watch stands in front of a green background.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.2167
+Background SSIM   (basso=protezione ok): 0.5648
+Subject LPIPS     (basso=soggetto ok)  : 0.4099
+Editing score                          : 0.2713
+Mask coverage (% background)           : 0.7053

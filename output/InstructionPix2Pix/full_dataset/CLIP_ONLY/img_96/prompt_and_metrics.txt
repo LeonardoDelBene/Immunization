@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a street food court
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 32.8663
+SSIM: 0.9549
+FSIM: 0.9197
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 21.0135
+SSIM: 0.8113
+FSIM: 0.7226
+
+CLIP score (Image vs Prompt)
+Edited Original:  23.5704
+Edited Immunized: 23.2833
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.7950
+Caption orig: A woman wearing sunglasses and a grey shirt is standing on the sidewalk.
+Caption adv:  A woman wearing sunglasses and a black shirt is standing on a city street.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.0824
+Background SSIM   (basso=protezione ok): 0.8786
+Subject LPIPS     (basso=soggetto ok)  : 0.3424
+Editing score                          : 0.1639
+Mask coverage (% background)           : 0.7527

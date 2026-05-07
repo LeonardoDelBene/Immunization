@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a vintage arts fair
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 31.1877
+SSIM: 0.9454
+FSIM: 0.8781
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 15.7923
+SSIM: 0.5555
+FSIM: 0.4802
+
+CLIP score (Image vs Prompt)
+Edited Original:  31.2276
+Edited Immunized: 30.4253
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.6639
+Caption orig: A woman wearing a black jacket and sunglasses is standing in a crowd of people.
+Caption adv:  A woman wearing a black shirt and sunglasses is walking through a crowded area.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.4509
+Background SSIM   (basso=protezione ok): 0.4549
+Subject LPIPS     (basso=soggetto ok)  : 0.3507
+Editing score                          : 0.4335
+Mask coverage (% background)           : 0.7062

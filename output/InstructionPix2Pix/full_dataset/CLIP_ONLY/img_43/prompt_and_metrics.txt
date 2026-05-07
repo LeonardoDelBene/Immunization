@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a community arts and crafts market
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 26.8391
+SSIM: 0.9478
+FSIM: 0.8722
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 15.1445
+SSIM: 0.5279
+FSIM: 0.5653
+
+CLIP score (Image vs Prompt)
+Edited Original:  31.9216
+Edited Immunized: 30.8122
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.2851
+Caption orig: An elderly woman wearing a pink scarf and striped shirt is walking through a market.
+Caption adv:  A woman wearing glasses and a striped shirt is pointing at something.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.4000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.3494
+Background SSIM   (basso=protezione ok): 0.6486
+Subject LPIPS     (basso=soggetto ok)  : 0.6898
+Editing score                          : 0.2452
+Mask coverage (% background)           : 0.6712

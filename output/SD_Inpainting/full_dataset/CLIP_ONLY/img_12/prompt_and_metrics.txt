@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a hot dog stand
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 29.9799
+SSIM: 0.9550
+FSIM: 0.8713
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 16.7930
+SSIM: 0.5842
+FSIM: 0.5207
+
+CLIP score (Image vs Prompt)
+Edited Original:  28.0738
+Edited Immunized: 29.0885
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.7467
+Caption orig: A man wearing a hat and a plaid shirt stands in front of a food stand.
+Caption adv:  A man wearing a hat and a plaid shirt stands in front of a bakery counter.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.4737
+Background SSIM   (basso=protezione ok): 0.4965
+Subject LPIPS     (basso=soggetto ok)  : 0.4663
+Editing score                          : 0.3607
+Mask coverage (% background)           : 0.7291

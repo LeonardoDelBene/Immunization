@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a local crafts market
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 30.1104
+SSIM: 0.9549
+FSIM: 0.8993
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 16.9565
+SSIM: 0.5627
+FSIM: 0.5585
+
+CLIP score (Image vs Prompt)
+Edited Original:  29.0418
+Edited Immunized: 30.5941
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.5602
+Caption orig: A woman wearing a floral shirt stands in front of a colorful display of scarves.
+Caption adv:  A woman wearing a pink shirt and glasses is standing in front of a table full of beads.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.4393
+Background SSIM   (basso=protezione ok): 0.5037
+Subject LPIPS     (basso=soggetto ok)  : 0.4352
+Editing score                          : 0.3635
+Mask coverage (% background)           : 0.7787

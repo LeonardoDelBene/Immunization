@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a betting shop
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 32.5737
+SSIM: 0.9565
+FSIM: 0.9188
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 11.7839
+SSIM: 0.3658
+FSIM: 0.4301
+
+CLIP score (Image vs Prompt)
+Edited Original:  28.4843
+Edited Immunized: 26.2228
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.1964
+Caption orig: A woman is checking her cell phone while sitting at a table with a man.
+Caption adv:  Two men are sitting in front of a large screen, possibly playing a video game.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.5581
+Background SSIM   (basso=protezione ok): 0.3590
+Subject LPIPS     (basso=soggetto ok)  : 0.6602
+Editing score                          : 0.4155
+Mask coverage (% background)           : 0.8080

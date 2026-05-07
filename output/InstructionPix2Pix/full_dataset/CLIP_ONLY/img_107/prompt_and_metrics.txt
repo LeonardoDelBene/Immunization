@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a tech store
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 30.2211
+SSIM: 0.9472
+FSIM: 0.9084
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 11.7277
+SSIM: 0.4148
+FSIM: 0.4378
+
+CLIP score (Image vs Prompt)
+Edited Original:  28.4011
+Edited Immunized: 30.0287
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.5916
+Caption orig: Two men with beards and glasses are sitting in front of a large number of computer monitors.
+Caption adv:  A man is standing in front of a computer desk with multiple monitors.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.7000
+Success:   False
+Accuracy:  0.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.5716
+Background SSIM   (basso=protezione ok): 0.4418
+Subject LPIPS     (basso=soggetto ok)  : 0.6151
+Editing score                          : 0.3961
+Mask coverage (% background)           : 0.7224

@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a ceramic art exhibit
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 30.0632
+SSIM: 0.9438
+FSIM: 0.8744
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 14.9051
+SSIM: 0.4884
+FSIM: 0.4566
+
+CLIP score (Image vs Prompt)
+Edited Original:  30.5467
+Edited Immunized: 29.5277
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.7749
+Caption orig: A woman in a blue shirt stands in front of a display of vases.
+Caption adv:  A woman is standing in front of a wall of vases.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.6385
+Background SSIM   (basso=protezione ok): 0.3771
+Subject LPIPS     (basso=soggetto ok)  : 0.4031
+Editing score                          : 0.5004
+Mask coverage (% background)           : 0.7201

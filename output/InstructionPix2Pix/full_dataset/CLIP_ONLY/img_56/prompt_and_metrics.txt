@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a mall
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 28.2371
+SSIM: 0.9420
+FSIM: 0.8588
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 17.0826
+SSIM: 0.6618
+FSIM: 0.5637
+
+CLIP score (Image vs Prompt)
+Edited Original:  26.9695
+Edited Immunized: 28.5116
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.9753
+Caption orig: A woman wearing a scarf and a plaid skirt is walking through a mall.
+Caption adv:  A woman wearing a plaid skirt and a scarf walks through a mall.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.7000
+Success:   False
+Accuracy:  0.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.3672
+Background SSIM   (basso=protezione ok): 0.7027
+Subject LPIPS     (basso=soggetto ok)  : 0.2190
+Editing score                          : 0.4047
+Mask coverage (% background)           : 0.6999

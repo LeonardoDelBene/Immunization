@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a community arts and crafts market
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 30.2982
+SSIM: 0.9483
+FSIM: 0.9068
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 20.8248
+SSIM: 0.7445
+FSIM: 0.6743
+
+CLIP score (Image vs Prompt)
+Edited Original:  23.4593
+Edited Immunized: 24.2912
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.6464
+Caption orig: A woman wearing a blue bow tie and a plaid skirt is standing on a street.
+Caption adv:  A woman wearing a blue scarf and a white shirt stands on a sidewalk.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.1817
+Background SSIM   (basso=protezione ok): 0.8252
+Subject LPIPS     (basso=soggetto ok)  : 0.3773
+Editing score                          : 0.1988
+Mask coverage (% background)           : 0.7660

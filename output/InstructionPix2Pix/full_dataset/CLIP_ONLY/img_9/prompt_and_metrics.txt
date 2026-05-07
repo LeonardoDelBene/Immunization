@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a local art market
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 30.1524
+SSIM: 0.9520
+FSIM: 0.9005
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 21.0265
+SSIM: 0.8302
+FSIM: 0.7421
+
+CLIP score (Image vs Prompt)
+Edited Original:  19.8731
+Edited Immunized: 20.5217
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.9023
+Caption orig: A woman wearing sunglasses and a necklace is standing on a city street.
+Caption adv:  A woman wearing sunglasses and a white shirt is standing on a city street.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.7000
+Success:   False
+Accuracy:  0.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.0695
+Background SSIM   (basso=protezione ok): 0.8982
+Subject LPIPS     (basso=soggetto ok)  : 0.3207
+Editing score                          : 0.1659
+Mask coverage (% background)           : 0.7595

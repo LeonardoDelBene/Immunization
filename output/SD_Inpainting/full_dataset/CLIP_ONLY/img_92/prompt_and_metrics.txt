@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a digital art gallery
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 29.0932
+SSIM: 0.9462
+FSIM: 0.8832
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 14.9921
+SSIM: 0.4293
+FSIM: 0.4435
+
+CLIP score (Image vs Prompt)
+Edited Original:  29.8861
+Edited Immunized: 29.8670
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.8658
+Caption orig: A woman wearing a black jacket and a striped skirt stands in front of a colorful art display.
+Caption adv:  A woman wearing a black jacket and a striped skirt stands in front of a colorful painting.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.7000
+Success:   False
+Accuracy:  0.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.6618
+Background SSIM   (basso=protezione ok): 0.2976
+Subject LPIPS     (basso=soggetto ok)  : 0.3264
+Editing score                          : 0.5796
+Mask coverage (% background)           : 0.7300

@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a church sanctuary
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 30.9376
+SSIM: 0.9495
+FSIM: 0.8906
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 15.3989
+SSIM: 0.6240
+FSIM: 0.5164
+
+CLIP score (Image vs Prompt)
+Edited Original:  27.2293
+Edited Immunized: 26.9109
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.7828
+Caption orig: A woman wearing a white fur coat and sunglasses is sitting in a church pew.
+Caption adv:  A woman wearing a white coat and sunglasses is standing in a church.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.3846
+Background SSIM   (basso=protezione ok): 0.5636
+Subject LPIPS     (basso=soggetto ok)  : 0.3492
+Editing score                          : 0.3752
+Mask coverage (% background)           : 0.7320

@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a summer camp
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 29.3595
+SSIM: 0.9475
+FSIM: 0.8840
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 15.4426
+SSIM: 0.6076
+FSIM: 0.5331
+
+CLIP score (Image vs Prompt)
+Edited Original:  27.2669
+Edited Immunized: 26.1802
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.1396
+Caption orig: A woman wearing a black and white shirt and carrying a blue backpack.
+Caption adv:  A group of young people, including a woman with long hair, are standing together in a park.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.7000
+Success:   False
+Accuracy:  0.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.6153
+Background SSIM   (basso=protezione ok): 0.5340
+Subject LPIPS     (basso=soggetto ok)  : 0.2346
+Editing score                          : 0.5452
+Mask coverage (% background)           : 0.7279

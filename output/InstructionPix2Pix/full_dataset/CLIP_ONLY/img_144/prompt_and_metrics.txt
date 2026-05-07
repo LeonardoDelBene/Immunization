@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a festival ground
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 32.0419
+SSIM: 0.9605
+FSIM: 0.9058
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 16.5894
+SSIM: 0.6950
+FSIM: 0.5532
+
+CLIP score (Image vs Prompt)
+Edited Original:  25.6417
+Edited Immunized: 28.8051
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.8292
+Caption orig: A woman wearing a black dress and a white skirt is standing in front of a crowd.
+Caption adv:  A woman wearing a black dress and holding a purse is standing in front of a crowd of people.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.7000
+Success:   False
+Accuracy:  0.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.3521
+Background SSIM   (basso=protezione ok): 0.7081
+Subject LPIPS     (basso=soggetto ok)  : 0.3725
+Editing score                          : 0.3049
+Mask coverage (% background)           : 0.7764

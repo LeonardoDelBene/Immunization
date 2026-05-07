@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a shelter
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 30.2168
+SSIM: 0.9457
+FSIM: 0.9206
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 28.8851
+SSIM: 0.9180
+FSIM: 0.8149
+
+CLIP score (Image vs Prompt)
+Edited Original:  19.9657
+Edited Immunized: 21.2934
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.7251
+Caption orig: A woman wearing a red shirt and red pants is standing on the sidewalk.
+Caption adv:  A woman in a red shirt and red pants is walking down the street.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.0311
+Background SSIM   (basso=protezione ok): 0.9803
+Subject LPIPS     (basso=soggetto ok)  : 0.2392
+Editing score                          : 0.1748
+Mask coverage (% background)           : 0.7325

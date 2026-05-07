@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a historic landmark event
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 30.9788
+SSIM: 0.9629
+FSIM: 0.9254
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 14.3551
+SSIM: 0.4480
+FSIM: 0.3950
+
+CLIP score (Image vs Prompt)
+Edited Original:  24.5600
+Edited Immunized: 23.3061
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.9944
+Caption orig: A woman wearing a white shirt and pink pants is standing in front of a building.
+Caption adv:  A woman wearing a white shirt and pink pants stands in front of a building.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.9000
+Success:   False
+Accuracy:  0.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.7836
+Background SSIM   (basso=protezione ok): 0.3137
+Subject LPIPS     (basso=soggetto ok)  : 0.3506
+Editing score                          : 0.6090
+Mask coverage (% background)           : 0.7399

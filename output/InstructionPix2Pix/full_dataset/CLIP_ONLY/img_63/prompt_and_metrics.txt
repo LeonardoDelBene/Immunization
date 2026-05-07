@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a TV studio
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 30.4738
+SSIM: 0.9244
+FSIM: 0.8463
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 12.6239
+SSIM: 0.6594
+FSIM: 0.4577
+
+CLIP score (Image vs Prompt)
+Edited Original:  25.6048
+Edited Immunized: 24.5798
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.2883
+Caption orig: A man wearing a gray shirt and holding a camera.
+Caption adv:  A man with a beard and mustache is wearing a white dress and holding a purse.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.4499
+Background SSIM   (basso=protezione ok): 0.6771
+Subject LPIPS     (basso=soggetto ok)  : 0.4964
+Editing score                          : 0.2790
+Mask coverage (% background)           : 0.7128

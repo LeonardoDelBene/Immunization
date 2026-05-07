@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a laundry room
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 27.8824
+SSIM: 0.9489
+FSIM: 0.8161
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 13.9355
+SSIM: 0.4835
+FSIM: 0.3517
+
+CLIP score (Image vs Prompt)
+Edited Original:  26.7438
+Edited Immunized: 30.5887
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.2254
+Caption orig: A woman wearing a flowered dress stands in a bathroom.
+Caption adv:  A man wearing a blue shirt and gray pants stands in front of a washing machine.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.5841
+Background SSIM   (basso=protezione ok): 0.5928
+Subject LPIPS     (basso=soggetto ok)  : 0.7377
+Editing score                          : 0.3558
+Mask coverage (% background)           : 0.7121

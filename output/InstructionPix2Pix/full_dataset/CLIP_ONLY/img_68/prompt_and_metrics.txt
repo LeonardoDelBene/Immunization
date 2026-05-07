@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a prison shower
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 30.5915
+SSIM: 0.9503
+FSIM: 0.8828
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 11.7111
+SSIM: 0.3042
+FSIM: 0.3208
+
+CLIP score (Image vs Prompt)
+Edited Original:  28.4613
+Edited Immunized: 28.4689
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.7321
+Caption orig: A man is standing in a shower, with his head out of the shower door.
+Caption adv:  A man is standing in a shower, looking at the camera.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.6515
+Background SSIM   (basso=protezione ok): 0.3344
+Subject LPIPS     (basso=soggetto ok)  : 0.7762
+Editing score                          : 0.4603
+Mask coverage (% background)           : 0.6936

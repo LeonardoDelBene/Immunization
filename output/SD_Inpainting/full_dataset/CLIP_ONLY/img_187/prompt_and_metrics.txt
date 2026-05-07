@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a convenience store
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 31.3669
+SSIM: 0.9530
+FSIM: 0.9148
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 11.2820
+SSIM: 0.3916
+FSIM: 0.4429
+
+CLIP score (Image vs Prompt)
+Edited Original:  28.3747
+Edited Immunized: 30.4067
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.8734
+Caption orig: A woman in a red sweater and black pants is standing in front of a grocery store, looking at the items on the shelves.
+Caption adv:  A woman in a black hat and red sweater is standing in front of a grocery store shelf, looking at the items on display.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.4000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.5617
+Background SSIM   (basso=protezione ok): 0.2480
+Subject LPIPS     (basso=soggetto ok)  : 0.2692
+Editing score                          : 0.5888
+Mask coverage (% background)           : 0.7428

@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a local bakery
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 34.0125
+SSIM: 0.9682
+FSIM: 0.9339
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 14.1576
+SSIM: 0.5423
+FSIM: 0.5221
+
+CLIP score (Image vs Prompt)
+Edited Original:  29.1972
+Edited Immunized: 27.7599
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.4418
+Caption orig: A man in a grey jacket and apron stands in front of a bakery display, smiling and posing for a picture.
+Caption adv:  A woman in a bakery, surrounded by a variety of breads and pastries.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.3567
+Background SSIM   (basso=protezione ok): 0.5841
+Subject LPIPS     (basso=soggetto ok)  : 0.6032
+Editing score                          : 0.2675
+Mask coverage (% background)           : 0.7937
