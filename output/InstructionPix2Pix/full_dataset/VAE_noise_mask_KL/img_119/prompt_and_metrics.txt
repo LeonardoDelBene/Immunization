@@ -1,0 +1,35 @@
+--- Prompt ---
+Put a red hat on the person in the image.
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 26.7839
+SSIM: 0.8695
+FSIM: 0.7544
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 16.8991
+SSIM: 0.6339
+FSIM: 0.5315
+
+CLIP score (Image vs Prompt)
+Edited Original:  25.4025
+Edited Immunized: 28.4931
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.3514
+Caption orig: A woman wearing a red scarf and holding a cell phone.
+Caption adv:  A person wearing a red hat and a red coat.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.5613
+Background SSIM   (basso=protezione ok): 0.4431
+Subject LPIPS     (basso=soggetto ok)  : 0.4567
+Editing score                          : 0.4176
+Mask coverage (% background)           : 0.2970

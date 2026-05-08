@@ -1,0 +1,35 @@
+--- Prompt ---
+Put a red hat on the person in the image.
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 27.2533
+SSIM: 0.7470
+FSIM: 0.7612
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 19.5686
+SSIM: 0.5490
+FSIM: 0.5028
+
+CLIP score (Image vs Prompt)
+Edited Original:  25.8892
+Edited Immunized: 24.3163
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.8639
+Caption orig: A woman wearing a red dress and a red hat is walking down the street.
+Caption adv:  A woman wearing a red coat and a red hat is walking down the street.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.2892
+Background SSIM   (basso=protezione ok): 0.6871
+Subject LPIPS     (basso=soggetto ok)  : 0.7115
+Editing score                          : 0.2095
+Mask coverage (% background)           : 0.3564

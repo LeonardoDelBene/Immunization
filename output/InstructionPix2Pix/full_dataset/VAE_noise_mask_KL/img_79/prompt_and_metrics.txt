@@ -1,0 +1,35 @@
+--- Prompt ---
+Put a red hat on the person in the image.
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 25.6088
+SSIM: 0.8228
+FSIM: 0.7416
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 20.9430
+SSIM: 0.7189
+FSIM: 0.5982
+
+CLIP score (Image vs Prompt)
+Edited Original:  25.5366
+Edited Immunized: 26.8254
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.8639
+Caption orig: A man wearing a red mask and a black jacket stands in front of a red wall.
+Caption adv:  A man wearing a red mask and a black jacket stands in front of a red building.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.7000
+Success:   False
+Accuracy:  0.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.0745
+Background SSIM   (basso=protezione ok): 0.8801
+Subject LPIPS     (basso=soggetto ok)  : 0.4864
+Editing score                          : 0.0739
+Mask coverage (% background)           : 0.2723

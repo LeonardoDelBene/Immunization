@@ -1,0 +1,35 @@
+--- Prompt ---
+Put a red hat on the person in the image.
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 33.8106
+SSIM: 0.9849
+FSIM: 0.9381
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 23.8482
+SSIM: 0.9021
+FSIM: 0.7919
+
+CLIP score (Image vs Prompt)
+Edited Original:  26.6750
+Edited Immunized: 26.7919
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.9061
+Caption orig: A man wearing a red hat and sunglasses is talking on his cell phone.
+Caption adv:  A man wearing a red hat and a red shirt is talking on his cell phone.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.7000
+Success:   False
+Accuracy:  0.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.3313
+Background SSIM   (basso=protezione ok): 0.6659
+Subject LPIPS     (basso=soggetto ok)  : 0.0825
+Editing score                          : 0.4832
+Mask coverage (% background)           : 0.1574

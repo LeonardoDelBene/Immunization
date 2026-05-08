@@ -1,0 +1,35 @@
+--- Prompt ---
+Put a red hat on the person in the image.
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 33.8316
+SSIM: 0.9850
+FSIM: 0.9649
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 14.8336
+SSIM: 0.7251
+FSIM: 0.6632
+
+CLIP score (Image vs Prompt)
+Edited Original:  30.1568
+Edited Immunized: 28.9413
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.6654
+Caption orig: Two women wearing red hats and holding red umbrellas.
+Caption adv:  A person wearing a red hat and holding a red umbrella.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.7000
+Success:   False
+Accuracy:  0.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.5554
+Background SSIM   (basso=protezione ok): 0.5221
+Subject LPIPS     (basso=soggetto ok)  : 0.3018
+Editing score                          : 0.4844
+Mask coverage (% background)           : 0.2721

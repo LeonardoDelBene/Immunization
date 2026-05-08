@@ -1,0 +1,35 @@
+--- Prompt ---
+Put a red hat on the person in the image.
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 33.0018
+SSIM: 0.9849
+FSIM: 0.9528
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 12.7121
+SSIM: 0.7278
+FSIM: 0.5064
+
+CLIP score (Image vs Prompt)
+Edited Original:  30.6887
+Edited Immunized: 26.8152
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.6360
+Caption orig: A woman wearing a red hat with a white top and red lipstick.
+Caption adv:  A woman wearing a red hat and a floral coat is standing on a beach.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.7000
+Success:   False
+Accuracy:  0.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.7223
+Background SSIM   (basso=protezione ok): 0.3530
+Subject LPIPS     (basso=soggetto ok)  : 0.2452
+Editing score                          : 0.6359
+Mask coverage (% background)           : 0.2948

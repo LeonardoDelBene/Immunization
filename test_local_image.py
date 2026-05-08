@@ -19,7 +19,7 @@ from utils import (
     set_seed_lib,
     load_image_from_path,
 )
-from model import Attack, AttackInstructPix2Pix
+from model import Attack, AttackSD, AttackInstructPix2Pix
 from metrics import create_metric, MetricType
 
 
@@ -77,27 +77,32 @@ def process_local_image(
     output_dir="output_local",
     seed=5,
     compute_metrics_flag=True,
-    use_instruct_pix2pix=False,
+    model_attack="sd_inpainting",
 ):
     """
-    Processa un'immagine originale e una immunizzata con SD_inpainting o InstructPix2Pix.
+    Processa un'immagine originale e una immunizzata con SD_inpainting, SD_img2img o InstructPix2Pix.
     
     Args:
         original_image_path: percorso immagine originale (non immunizzata)
         immunized_image_path: percorso immagine immunizzata
-        mask_path: percorso maschera locale (opzionale, ignorato se use_instruct_pix2pix=True)
+        mask_path: percorso maschera locale (opzionale, ignorato per sd_pix2pix e sd_img2img)
         edit_prompt: prompt per l'editing
         output_dir: cartella per i risultati
         seed: seed per riproducibilità
         compute_metrics_flag: se calcolare metriche (sempre True per confronto completo)
-        use_instruct_pix2pix: se usare InstructPix2Pix invece di SD_inpainting
+        model_attack: tipo di attacco ("sd_inpainting", "sd_pix2pix", "sd_img2img")
     """
     
     # Setup
     set_seed_lib(seed)
     os.makedirs(output_dir, exist_ok=True)
     
-    model_name = "InstructPix2Pix" if use_instruct_pix2pix else "SD_inpainting"
+    model_names = {
+        "sd_inpainting": "SD_inpainting",
+        "sd_pix2pix": "InstructPix2Pix",
+        "sd_img2img": "SD_img2img",
+    }
+    model_name = model_names.get(model_attack, model_attack)
     
     print("\n" + "="*60)
     print(f"PROCESSING ORIGINAL & IMMUNIZED IMAGES WITH {model_name.upper()}")
@@ -114,9 +119,9 @@ def process_local_image(
     immunized_image = load_image_from_path(immunized_image_path, size=(512,512))
     print(f"✓ Immunized image loaded: {immunized_image_path} ({immunized_image.size})")
     
-    # Carica maschera solo se non usi InstructPix2Pix
-    if use_instruct_pix2pix:
-        print("⚠ Using InstructPix2Pix (mask will be ignored)")
+    # Carica maschera solo se usiamo SD_inpainting
+    if model_attack in {"sd_pix2pix", "sd_img2img"}:
+        print(f"⚠ Using {model_name} (mask will be ignored)")
         mask = None
     else:
         if mask_path and os.path.exists(mask_path):
@@ -130,12 +135,17 @@ def process_local_image(
     # --- 2. Carica modello ---
     print(f"\n[2/4] Loading {model_name} model...")
     try:
-        if use_instruct_pix2pix:
+        if model_attack == "sd_pix2pix":
             attack_model = AttackInstructPix2Pix()
-            print(f"✓ {model_name} model loaded")
-        else:
+        elif model_attack == "sd_inpainting":
             attack_model = Attack("runwayml/stable-diffusion-inpainting")
-            print(f"✓ {model_name} model loaded")
+        elif model_attack == "sd_img2img":
+            attack_model = AttackSD("runwayml/stable-diffusion-v1-5")
+        else:
+            raise ValueError(
+                f"Unknown attack model type '{model_attack}'. Expected 'sd_inpainting', 'sd_pix2pix', or 'sd_img2img'."
+            )
+        print(f"✓ {model_name} model loaded")
     except Exception as e:
         print(f"✗ Error loading {model_name}: {e}")
         return
@@ -143,7 +153,7 @@ def process_local_image(
     # --- 3. Editing ---
     print(f"\n[3/4] Editing with {model_name}...")
     try:
-        if use_instruct_pix2pix:
+        if model_attack in {"sd_pix2pix", "sd_img2img"}:
             edited_original = attack_model.edit_image(edit_prompt, original_image)[0]
             edited_immunized = attack_model.edit_image(edit_prompt, immunized_image)[0]
             edited_original_recovered = edited_original
@@ -175,7 +185,7 @@ def process_local_image(
             f.write("="*50 + "\n\n")
             f.write(f"Original image path: {original_image_path}\n")
             f.write(f"Immunized image path: {immunized_image_path}\n")
-            f.write(f"Mask path: {mask_path if mask_path else 'Auto-generated (circular)' if not use_instruct_pix2pix else 'N/A (not used by InstructPix2Pix)'}\n")
+            f.write(f"Mask path: {mask_path if mask_path else 'Auto-generated (circular)' if model_attack == 'sd_inpainting' else 'N/A (not used by {model_name})'}\n")
             f.write(f"Edit prompt: {edit_prompt}\n")
             f.write(f"Model: {model_name}\n")
             f.write(f"Seed: {seed}\n")
@@ -303,7 +313,7 @@ if __name__ == "__main__":
         immunized_image_path="./120_noise.png",  # ← CAMBIA CON IL TUO PERCORSO
         output_dir="output/SD_Inpainting/FOA/120",
         edit_prompt="a person in a garden",
-        use_instruct_pix2pix=False,
+        model_attack="sd_inpainting",
     )
 
 

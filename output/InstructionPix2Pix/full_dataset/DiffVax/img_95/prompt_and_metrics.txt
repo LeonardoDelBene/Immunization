@@ -1,0 +1,35 @@
+--- Prompt ---
+Put a red hat on the person in the image.
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 32.5324
+SSIM: 0.9841
+FSIM: 0.9552
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 18.7350
+SSIM: 0.7806
+FSIM: 0.7108
+
+CLIP score (Image vs Prompt)
+Edited Original:  27.4033
+Edited Immunized: 27.3639
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.6969
+Caption orig: A person wearing a red hat and a red sweater with a face on it.
+Caption adv:  A woman wearing a red hoodie with a red face mask on her head.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.4763
+Background SSIM   (basso=protezione ok): 0.4169
+Subject LPIPS     (basso=soggetto ok)  : 0.1391
+Editing score                          : 0.5820
+Mask coverage (% background)           : 0.3076

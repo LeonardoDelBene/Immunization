@@ -1,0 +1,35 @@
+--- Prompt ---
+Put a red hat on the person in the image.
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 32.6687
+SSIM: 0.9827
+FSIM: 0.9394
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 14.7336
+SSIM: 0.6959
+FSIM: 0.6200
+
+CLIP score (Image vs Prompt)
+Edited Original:  27.5856
+Edited Immunized: 28.3421
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.5696
+Caption orig: A woman wearing a red hat with a Mickey Mouse design on it.
+Caption adv:  A woman wearing a red hat and a red sweater is standing on a city street.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.7000
+Success:   False
+Accuracy:  0.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.4866
+Background SSIM   (basso=protezione ok): 0.4934
+Subject LPIPS     (basso=soggetto ok)  : 0.3322
+Editing score                          : 0.4473
+Mask coverage (% background)           : 0.3155

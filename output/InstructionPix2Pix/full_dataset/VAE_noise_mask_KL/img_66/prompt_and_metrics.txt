@@ -1,0 +1,35 @@
+--- Prompt ---
+Put a red hat on the person in the image.
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 29.0391
+SSIM: 0.8436
+FSIM: 0.8246
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 13.0685
+SSIM: 0.5264
+FSIM: 0.4260
+
+CLIP score (Image vs Prompt)
+Edited Original:  27.6556
+Edited Immunized: 24.1640
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.4279
+Caption orig: A person wearing a red hat and a blue and white dress is hugging another person.
+Caption adv:  A woman wearing a red hat and a flowered dress stands next to a red bus.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.5251
+Background SSIM   (basso=protezione ok): 0.4016
+Subject LPIPS     (basso=soggetto ok)  : 0.5201
+Editing score                          : 0.3896
+Mask coverage (% background)           : 0.2413

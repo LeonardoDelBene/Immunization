@@ -1,0 +1,35 @@
+--- Prompt ---
+Put a red hat on the person in the image.
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 27.0989
+SSIM: 0.8564
+FSIM: 0.7216
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 14.0964
+SSIM: 0.5847
+FSIM: 0.4837
+
+CLIP score (Image vs Prompt)
+Edited Original:  27.5722
+Edited Immunized: 30.0554
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.6032
+Caption orig: A woman wearing a red hat with a flower design on it, smiling and showing off her red lipstick.
+Caption adv:  A woman wearing a red hat and a red sweater is holding a purse.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.4815
+Background SSIM   (basso=protezione ok): 0.5080
+Subject LPIPS     (basso=soggetto ok)  : 0.5925
+Editing score                          : 0.3402
+Mask coverage (% background)           : 0.3155

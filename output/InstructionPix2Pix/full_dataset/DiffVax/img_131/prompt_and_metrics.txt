@@ -1,0 +1,35 @@
+--- Prompt ---
+Put a red hat on the person in the image.
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 33.6304
+SSIM: 0.9858
+FSIM: 0.9524
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 17.6735
+SSIM: 0.8185
+FSIM: 0.7693
+
+CLIP score (Image vs Prompt)
+Edited Original:  28.4017
+Edited Immunized: 28.3476
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.7590
+Caption orig: A woman wearing a red hat and a black jacket stands in front of a crowd of people.
+Caption adv:  A woman wearing a red mask is standing in a crowd of people.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.4176
+Background SSIM   (basso=protezione ok): 0.5476
+Subject LPIPS     (basso=soggetto ok)  : 0.1955
+Editing score                          : 0.4855
+Mask coverage (% background)           : 0.2353

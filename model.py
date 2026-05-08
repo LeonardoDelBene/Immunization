@@ -3,6 +3,7 @@ from PIL import Image
 import torch
 from diffusers import (
     StableDiffusionInpaintPipeline,
+    StableDiffusionImg2ImgPipeline,
     DDIMScheduler,
 )
 from typing import Union, List, Optional, Callable
@@ -316,6 +317,44 @@ class Attack:
 
         text_embeddings = text_embeddings.detach()
         return text_embeddings
+
+class AttackSD:
+    """Stable Diffusion image editing wrapper using img2img."""
+
+    def __init__(self, model_link: str, scheduler: str = "DDIM"):
+        self.pipe = StableDiffusionImg2ImgPipeline.from_pretrained(
+            model_link,
+            torch_dtype=torch.float16,
+            local_files_only=True,
+        )
+        if scheduler == "DDIM":
+            self.pipe.scheduler = DDIMScheduler.from_config(self.pipe.scheduler.config)
+
+        self.pipe = self.pipe.to("cuda:0")
+        self.generator = torch.Generator(device="cuda:0")
+
+    def edit_image(
+        self,
+        prompt: Union[str, List[str]],
+        image: Union[torch.FloatTensor, Image.Image],
+        strength: float = 0.75,
+        num_inference_steps: int = 30,
+        guidance_scale: float = 7.5,
+        eta: float = 0.0,
+        seed: int = 5,
+    ):
+        """Edita l'immagine con Stable Diffusion Img2Img."""
+        self.generator.manual_seed(seed)
+        result = self.pipe(
+            prompt=prompt,
+            image=image,
+            strength=strength,
+            num_inference_steps=num_inference_steps,
+            guidance_scale=guidance_scale,
+            eta=eta,
+            generator=self.generator,
+        )
+        return result.images
 
 class AttackInstructPix2Pix:
     """Wrapper per InstructPix2Pix compatibile con DiffVax."""

@@ -1,0 +1,35 @@
+--- Prompt ---
+Put a red hat on the person in the image.
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 26.6050
+SSIM: 0.8341
+FSIM: 0.7488
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 15.5444
+SSIM: 0.5485
+FSIM: 0.4984
+
+CLIP score (Image vs Prompt)
+Edited Original:  27.7715
+Edited Immunized: 28.6954
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.3978
+Caption orig: A woman wearing a red shirt and a skirt with a banana pattern stands on a sidewalk.
+Caption adv:  A person wearing a red coat and a red hat is standing next to a red sculpture.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.7075
+Background SSIM   (basso=protezione ok): 0.2492
+Subject LPIPS     (basso=soggetto ok)  : 0.5000
+Editing score                          : 0.5082
+Mask coverage (% background)           : 0.2597

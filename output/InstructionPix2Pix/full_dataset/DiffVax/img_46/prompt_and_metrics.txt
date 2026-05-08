@@ -1,0 +1,35 @@
+--- Prompt ---
+Put a red hat on the person in the image.
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 32.9330
+SSIM: 0.9913
+FSIM: 0.9487
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 15.6911
+SSIM: 0.8061
+FSIM: 0.6644
+
+CLIP score (Image vs Prompt)
+Edited Original:  26.7558
+Edited Immunized: 25.9203
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.6721
+Caption orig: Two women wearing red hats and red coats are standing on a boat.
+Caption adv:  A woman wearing a red hat and a red coat stands on a dock.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.7000
+Success:   False
+Accuracy:  0.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.5576
+Background SSIM   (basso=protezione ok): 0.3906
+Subject LPIPS     (basso=soggetto ok)  : 0.1581
+Editing score                          : 0.6110
+Mask coverage (% background)           : 0.2590

@@ -1,0 +1,35 @@
+--- Prompt ---
+Put a red hat on the person in the image.
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 34.2867
+SSIM: 0.9878
+FSIM: 0.9414
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 16.4484
+SSIM: 0.7913
+FSIM: 0.7388
+
+CLIP score (Image vs Prompt)
+Edited Original:  29.7587
+Edited Immunized: 30.0802
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.9251
+Caption orig: A woman wearing a red hat and a grey coat is standing next to a body of water.
+Caption adv:  A woman wearing a red hat and a red coat stands in front of a body of water.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.7000
+Success:   False
+Accuracy:  0.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.7302
+Background SSIM   (basso=protezione ok): 0.3186
+Subject LPIPS     (basso=soggetto ok)  : 0.1527
+Editing score                          : 0.7049
+Mask coverage (% background)           : 0.2567

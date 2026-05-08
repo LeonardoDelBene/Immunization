@@ -1,0 +1,35 @@
+--- Prompt ---
+Put a red hat on the person in the image.
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 33.7542
+SSIM: 0.9862
+FSIM: 0.9480
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 14.6017
+SSIM: 0.8003
+FSIM: 0.7378
+
+CLIP score (Image vs Prompt)
+Edited Original:  23.2454
+Edited Immunized: 23.1018
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.6244
+Caption orig: A woman wearing a blue dress with polka dots and a red hat stands on a city street.
+Caption adv:  A woman with a red polka dot dress walks down the street.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.7000
+Success:   False
+Accuracy:  0.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.4755
+Background SSIM   (basso=protezione ok): 0.5361
+Subject LPIPS     (basso=soggetto ok)  : 0.1605
+Editing score                          : 0.5330
+Mask coverage (% background)           : 0.2471

@@ -14,7 +14,7 @@ from utils import (
     recover_image,
     set_seed_lib,
 )
-from model import Attack, AttackInstructPix2Pix, DiffVaxImmunization
+from model import Attack, AttackSD, AttackInstructPix2Pix, DiffVaxImmunization
 from metrics import create_metric, MetricType
 
 warnings.filterwarnings("ignore", message="QuickGELU mismatch", category=UserWarning, module="open_clip")
@@ -26,8 +26,26 @@ warnings.filterwarnings("ignore", message="QuickGELU mismatch", category=UserWar
 # SETUP
 # ─────────────────────────────────────────────
 
-def get_output_dir(base_output_dir, use_instruct_pix2pix, run_wandb, sample_idx):
-    subfolder = "InstructionPix2Pix" if use_instruct_pix2pix else "SD_Inpainting"
+def get_attack_subfolder(model_attack: str) -> str:
+    mapping = {
+        "sd_inpainting": "SD_Inpainting",
+        "sd_pix2pix": "InstructionPix2Pix",
+        "sd_img2img": "SD_Img2Img",
+    }
+    return mapping.get(model_attack, model_attack)
+
+
+def get_attack_model_label(model_attack: str) -> str:
+    labels = {
+        "sd_inpainting": "SD Inpainting",
+        "sd_pix2pix": "Instruction Pix2Pix",
+        "sd_img2img": "SD Img2Img",
+    }
+    return labels.get(model_attack, model_attack)
+
+
+def get_output_dir(base_output_dir, model_attack, run_wandb, sample_idx):
+    subfolder = get_attack_subfolder(model_attack)
     if sample_idx == "full_dataset":
         output_dir = os.path.join(base_output_dir, subfolder, "full_dataset", run_wandb)
     else:
@@ -38,10 +56,17 @@ def get_output_dir(base_output_dir, use_instruct_pix2pix, run_wandb, sample_idx)
 
 def load_models(config):
     print("Loading diffusion model and immunization checkpoint...")
-    if config["use_instruct_pix2pix"]:
-        attack_model = AttackInstructPix2Pix()
-    else:
+    model_attack = config["model_attack"]
+    if model_attack == "sd_pix2pix":
+        attack_model = AttackInstructPix2Pix(model_id=config["attack_model"])
+    elif model_attack == "sd_inpainting":
         attack_model = Attack(config["attack_model"])
+    elif model_attack == "sd_img2img":
+        attack_model = AttackSD(config["attack_model"])
+    else:
+        raise ValueError(
+            f"Unknown attack model type '{model_attack}'. Expected 'sd_inpainting', 'sd_pix2pix', or 'sd_img2img'."
+        )
 
     immunization_mdl = DiffVaxImmunization(
         load_existing=config["load_existing"],
@@ -88,17 +113,26 @@ def immunize(image, image_mask, immunization_mdl, seed):
 # EDITING
 # ─────────────────────────────────────────────
 
-def edit_images(attack_model, image, adv_image_png, image_mask, edit_prompt, use_instruct_pix2pix):
-    if use_instruct_pix2pix:
+def edit_images(attack_model, image, adv_image_png, image_mask, edit_prompt, model_attack):
+    if model_attack == "sd_pix2pix":
+        edited_orig = attack_model.edit_image(edit_prompt, image)[0]
+        edited_adv  = attack_model.edit_image(edit_prompt, adv_image_png)[0]
+        edited_orig_recovered = edited_orig
+        edited_adv_recovered  = edited_adv
+    elif model_attack == "sd_inpainting":
+        edited_orig = attack_model.edit_image(edit_prompt, image, image_mask)[0]
+        edited_adv  = attack_model.edit_image(edit_prompt, adv_image_png, image_mask)[0]
+        edited_orig_recovered = recover_image(edited_orig, image, image_mask, background=False)
+        edited_adv_recovered  = recover_image(edited_adv,  adv_image_png, image_mask, background=False)
+    elif model_attack == "sd_img2img":
         edited_orig = attack_model.edit_image(edit_prompt, image)[0]
         edited_adv  = attack_model.edit_image(edit_prompt, adv_image_png)[0]
         edited_orig_recovered = edited_orig
         edited_adv_recovered  = edited_adv
     else:
-        edited_orig = attack_model.edit_image(edit_prompt, image, image_mask)[0]
-        edited_adv  = attack_model.edit_image(edit_prompt, adv_image_png, image_mask)[0]
-        edited_orig_recovered = recover_image(edited_orig, image, image_mask, background=False)
-        edited_adv_recovered  = recover_image(edited_adv,  adv_image_png, image_mask, background=False)
+        raise ValueError(
+            f"Unknown attack model type '{model_attack}'. Expected 'sd_inpainting', 'sd_pix2pix', or 'sd_img2img'."
+        )
 
     print("Immunization and edits completed.")
     return edited_orig_recovered, edited_adv_recovered
@@ -257,8 +291,8 @@ def compute_metrics(image, mask, adv_image_png, edited_orig_recovered, edited_ad
 # ─────────────────────────────────────────────
 
 def plot_results(image, adv_image_png, edited_orig_recovered, edited_adv_recovered,
-                 edit_prompt, use_instruct_pix2pix):
-    model_label = "InstructPix2Pix" if use_instruct_pix2pix else "SD Inpainting"
+                 edit_prompt, model_attack):
+    model_label = get_attack_model_label(model_attack)
 
     fig, axes = plt.subplots(1, 4, figsize=(15, 5))
     axes[0].imshow(image);                  axes[0].set_title("Original image");           axes[0].axis("off")
@@ -278,7 +312,7 @@ def run_on_full_dataset(config):
 
     output_dir_base = get_output_dir(
         config["base_output_dir"],
-        config["use_instruct_pix2pix"],
+        config["model_attack"],
         config["run_wandb"],
         sample_idx="full_dataset"
     )
@@ -301,7 +335,7 @@ def run_on_full_dataset(config):
             # --- Carica sample ---
             sample = dataset[sample_idx]
             image, image_mask = load_sample_from_hf(sample, split=config["dataset_split"])
-            if config["use_instruct_pix2pix"]:
+            if config["model_attack"] == "sd_pix2pix":
                 edit_prompt = config["edit_prompt"]
             else:
                 edit_prompt = sample["prompts"][0]
@@ -320,7 +354,7 @@ def run_on_full_dataset(config):
             # --- Editing ---
             edited_orig_recovered, edited_adv_recovered = edit_images(
                 attack_model, image, adv_image_png, image_mask,
-                edit_prompt, config["use_instruct_pix2pix"]
+                edit_prompt, config["model_attack"]
             )
 
             # --- Salvataggio immagini ---
@@ -444,19 +478,19 @@ def save_global_summary(output_dir, all_metrics):
 
 def get_config():
     return {
-        "use_instruct_pix2pix": True,
+        "model_attack":        "sd_inpainting",
         "edit_prompt":          "Put a red hat on the person in the image.",
         "seed":                 2043,
         "edit_background":      False,
         "load_existing":        True,
-        "checkpoint_path":      os.path.join("checkpoints", "diffvax_trained.pth"),
+        "checkpoint_path":      os.path.join("checkpoints", "unet_best_zpsi7srq.pth"),
         "attack_model":         "runwayml/stable-diffusion-inpainting",
         "base_output_dir":      "output",
         "dataset_path":         "./data/DiffVaxDataset_local",
         "dataset_split":        "validation",
         "sample_idx":           0,
         "run_full_dataset":     True,
-        "run_wandb":            "DiffVax"
+        "run_wandb":            "VAE_noise_mask_KL"
     }
 
 def main():
@@ -467,7 +501,7 @@ def main():
     else:
         output_dir = get_output_dir(
             config["base_output_dir"],
-            config["use_instruct_pix2pix"],
+            config["model_attack"],
             config["run_wandb"],
             config["sample_idx"]
         )
@@ -478,7 +512,7 @@ def main():
         adv_image_png = immunize(image, image_mask, immunization_mdl, config["seed"])
         edited_orig_recovered, edited_adv_recovered = edit_images(
             attack_model, image, adv_image_png, image_mask,
-            config["edit_prompt"], config["use_instruct_pix2pix"]
+            config["edit_prompt"], config["model_attack"]
         )
         save_images(output_dir, image, adv_image_png, edited_orig_recovered, edited_adv_recovered)
         metrics_model = load_metrics_models()
@@ -486,7 +520,7 @@ def main():
                                   config["edit_prompt"], metrics_model)
         save_metrics(output_dir, config["edit_prompt"], metrics)
         plot_results(image, adv_image_png, edited_orig_recovered, edited_adv_recovered,
-                     config["edit_prompt"], config["use_instruct_pix2pix"])
+                     config["edit_prompt"], config["model_attack"])
 
 
 # ─────────────────────────────────────────────

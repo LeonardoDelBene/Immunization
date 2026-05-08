@@ -513,7 +513,8 @@ if __name__ == "__main__":
     g = torch.Generator()
     g.manual_seed(SEED)
 
-    batch=8
+    batch=32
+    print(batch)
 
     train_loader = DataLoader(
         train_dataset,
@@ -545,13 +546,13 @@ if __name__ == "__main__":
         lr=1e-4,
         batch=batch,
         weight_decay=1e-2,
-        alpha=1.0,
+        alpha=1.5,
         beta=1.0,
         eta=0.2,
         lambda_vae = 0.1,
         eps= (32 / 255 * 2),
         val_every=1,
-        best_checkpoint_path="checkpoints/unet_best_qyon0vk7.pth",
+        best_checkpoint_path="checkpoints/unet_best_zpsi7srq.pth",
         training_checkpoint_dir="checkpoints/training/",
         device=device,
         resume_from_checkpoint=False, # Cambia a False per ricominciare da zero

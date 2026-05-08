@@ -1,0 +1,35 @@
+--- Prompt ---
+Put a red hat on the person in the image.
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 26.1008
+SSIM: 0.8140
+FSIM: 0.7583
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 21.6734
+SSIM: 0.7212
+FSIM: 0.6382
+
+CLIP score (Image vs Prompt)
+Edited Original:  26.2864
+Edited Immunized: 28.7922
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.4571
+Caption orig: A woman with a red wig and a polka dot shirt stands in front of a crowd of people.
+Caption adv:  A woman wearing a red hat and a red polka dot shirt is walking down the street.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.1260
+Background SSIM   (basso=protezione ok): 0.8675
+Subject LPIPS     (basso=soggetto ok)  : 0.4236
+Editing score                          : 0.1360
+Mask coverage (% background)           : 0.2397

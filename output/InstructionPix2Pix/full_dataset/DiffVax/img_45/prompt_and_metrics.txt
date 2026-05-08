@@ -1,0 +1,35 @@
+--- Prompt ---
+Put a red hat on the person in the image.
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 34.7296
+SSIM: 0.9863
+FSIM: 0.9490
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 18.8355
+SSIM: 0.8659
+FSIM: 0.7365
+
+CLIP score (Image vs Prompt)
+Edited Original:  29.5021
+Edited Immunized: 28.4935
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.5035
+Caption orig: A person wearing a red hat with a large red bow on it.
+Caption adv:  A woman wearing a red hat and carrying a red purse walks down the street.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.7000
+Success:   False
+Accuracy:  0.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.3180
+Background SSIM   (basso=protezione ok): 0.6733
+Subject LPIPS     (basso=soggetto ok)  : 0.1593
+Editing score                          : 0.4296
+Mask coverage (% background)           : 0.1868

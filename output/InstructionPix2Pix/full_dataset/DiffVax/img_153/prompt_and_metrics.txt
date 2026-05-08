@@ -1,0 +1,35 @@
+--- Prompt ---
+Put a red hat on the person in the image.
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 34.7594
+SSIM: 0.9854
+FSIM: 0.9475
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 16.3640
+SSIM: 0.7223
+FSIM: 0.5908
+
+CLIP score (Image vs Prompt)
+Edited Original:  28.9545
+Edited Immunized: 23.8423
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.2037
+Caption orig: A red hat is on display, possibly for sale.
+Caption adv:  A woman wearing a red dress and a red scarf is dancing.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.6033
+Background SSIM   (basso=protezione ok): 0.3855
+Subject LPIPS     (basso=soggetto ok)  : 0.2737
+Editing score                          : 0.5614
+Mask coverage (% background)           : 0.3077

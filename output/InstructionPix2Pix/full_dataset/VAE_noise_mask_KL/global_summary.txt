@@ -1,0 +1,2434 @@
+Global Summary — 200 samples
+==================================================
+
+Average Image Quality (Original vs Immunized)
+PSNR: 26.6708
+SSIM: 0.8249
+FSIM: 0.7386
+
+Average Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 16.8804
+SSIM: 0.6105
+FSIM: 0.5218
+
+Average CLIP score
+Edited Original:  27.3423
+Edited Immunized: 27.8840
+
+Average Caption Similarity (Edited Original vs Edited Immunized)
+Score: 0.6962
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+Avg LLM score : 0.5085
+Success rate  : 51.5% (103/200 samples above threshold)
+
+Average Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.4615
+Background SSIM   (basso=protezione ok): 0.5377
+Subject LPIPS     (basso=soggetto ok)  : 0.4947
+Editing score                          : 0.3480
+Mask coverage (% background)           : 0.2740
+
+==================================================
+Per-sample detail
+
+[0] Put a red hat on the person in the image.
+  PSNR orig/adv: 26.7115 | edit: 17.0711
+  SSIM orig/adv: 0.7964 | edit: 0.5992
+  FSIM orig/adv: 0.7153 | edit: 0.5555
+  CLIP orig: 27.0076 | adv: 27.8541
+  Caption similarity: 0.7793
+  Caption orig: A woman wearing a red hat and a black jacket.
+  Caption adv:  A person wearing a red hat and a red coat.
+  Accuracy LLM score: 0.7000 | success: False
+  Background LPIPS: 0.6263 | Background SSIM: 0.5045
+  Subject LPIPS: 0.5314 | Editing score: 0.3992
+
+[1] Put a red hat on the person in the image.
+  PSNR orig/adv: 26.9155 | edit: 16.5404
+  SSIM orig/adv: 0.8450 | edit: 0.6656
+  FSIM orig/adv: 0.7527 | edit: 0.6246
+  CLIP orig: 30.1729 | adv: 27.1313
+  Caption similarity: 0.7078
+  Caption orig: A man wearing a red hat and a grey coat is standing in front of a motorcycle.
+  Caption adv:  A man wearing a red hat and a red coat is standing on a street.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.4244 | Background SSIM: 0.6002
+  Subject LPIPS: 0.4067 | Editing score: 0.3457
+
+[2] Put a red hat on the person in the image.
+  PSNR orig/adv: 28.8176 | edit: 12.3566
+  SSIM orig/adv: 0.8632 | edit: 0.5422
+  FSIM orig/adv: 0.7502 | edit: 0.4282
+  CLIP orig: 26.5748 | adv: 30.6169
+  Caption similarity: 0.7371
+  Caption orig: A woman wearing a red jacket and a red hat.
+  Caption adv:  A woman wearing a red hat with a red brim and a red bow.
+  Accuracy LLM score: 0.7000 | success: False
+  Background LPIPS: 0.8549 | Background SSIM: 0.1310
+  Subject LPIPS: 0.5303 | Editing score: 0.6026
+
+[3] Put a red hat on the person in the image.
+  PSNR orig/adv: 27.6174 | edit: 18.5262
+  SSIM orig/adv: 0.8499 | edit: 0.6866
+  FSIM orig/adv: 0.7054 | edit: 0.5269
+  CLIP orig: 27.0059 | adv: 26.6704
+  Caption similarity: 0.6126
+  Caption orig: A woman wearing a red hat and carrying a red bag.
+  Caption adv:  A woman wearing a red hat and a red dress stands in front of a building.
+  Accuracy LLM score: 0.7000 | success: False
+  Background LPIPS: 0.4520 | Background SSIM: 0.4986
+  Subject LPIPS: 0.4693 | Editing score: 0.3496
+
+[4] Put a red hat on the person in the image.
+  PSNR orig/adv: 24.6399 | edit: 18.2568
+  SSIM orig/adv: 0.8629 | edit: 0.7058
+  FSIM orig/adv: 0.6963 | edit: 0.5528
+  CLIP orig: 27.6107 | adv: 25.9357
+  Caption similarity: 0.6985
+  Caption orig: A woman wearing a red hat and a red dress stands on a sidewalk.
+  Caption adv:  A woman wearing a red hat and sunglasses is standing in front of a building.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.5402 | Background SSIM: 0.4837
+  Subject LPIPS: 0.4375 | Editing score: 0.4085
+
+[5] Put a red hat on the person in the image.
+  PSNR orig/adv: 25.7196 | edit: 17.8052
+  SSIM orig/adv: 0.7985 | edit: 0.6540
+  FSIM orig/adv: 0.6811 | edit: 0.5170
+  CLIP orig: 25.0891 | adv: 27.3962
+  Caption similarity: 0.7690
+  Caption orig: A woman wearing a red hat and a white and black vest is walking down the street.
+  Caption adv:  A woman wearing a red hat and a black and white jacket.
+  Accuracy LLM score: 0.4000 | success: True
+  Background LPIPS: 0.3336 | Background SSIM: 0.7823
+  Subject LPIPS: 0.5003 | Editing score: 0.1987
+
+[6] Put a red hat on the person in the image.
+  PSNR orig/adv: 26.2654 | edit: 13.3197
+  SSIM orig/adv: 0.7783 | edit: 0.5178
+  FSIM orig/adv: 0.7049 | edit: 0.4615
+  CLIP orig: 26.2209 | adv: 30.0712
+  Caption similarity: 0.8556
+  Caption orig: A woman wearing a red hat and holding a black purse walks down the street.
+  Caption adv:  A woman wearing a red hat is walking down the street.
+  Accuracy LLM score: 0.7000 | success: False
+  Background LPIPS: 0.8463 | Background SSIM: 0.3042
+  Subject LPIPS: 0.5558 | Editing score: 0.5473
+
+[7] Put a red hat on the person in the image.
+  PSNR orig/adv: 25.9437 | edit: 19.4864
+  SSIM orig/adv: 0.8389 | edit: 0.7073
+  FSIM orig/adv: 0.7398 | edit: 0.6051
+  CLIP orig: 26.9917 | adv: 26.5936
+  Caption similarity: 0.9951
+  Caption orig: A woman wearing a red outfit and a red hat is walking down the street.
+  Caption adv:  A woman wearing a red hat and red outfit is walking down the street.
+  Accuracy LLM score: 0.8000 | success: False
+  Background LPIPS: 0.1874 | Background SSIM: 0.7856
+  Subject LPIPS: 0.4451 | Editing score: 0.1722
+
+[8] Put a red hat on the person in the image.
+  PSNR orig/adv: 25.8311 | edit: 11.8849
+  SSIM orig/adv: 0.8690 | edit: 0.6320
+  FSIM orig/adv: 0.7348 | edit: 0.4265
+  CLIP orig: 28.3801 | adv: 27.3343
+  Caption similarity: 0.4393
+  Caption orig: A person wearing a red hat with a large red bow on top of it.
+  Caption adv:  Two women wearing red hats and red lipstick, one of them is wearing a red hat with a red flower on it.
+  Accuracy LLM score: 0.7000 | success: False
+  Background LPIPS: 0.7318 | Background SSIM: 0.4041
+  Subject LPIPS: 0.4650 | Editing score: 0.4925
+
+[9] Put a red hat on the person in the image.
+  PSNR orig/adv: 25.6703 | edit: 16.7329
+  SSIM orig/adv: 0.7685 | edit: 0.5064
+  FSIM orig/adv: 0.7316 | edit: 0.5003
+  CLIP orig: 25.6925 | adv: 25.9957
+  Caption similarity: 0.5573
+  Caption orig: A woman wearing a red lobster costume walks down a city street.
+  Caption adv:  A woman wearing a red hat and sunglasses is walking down the street.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.5086 | Background SSIM: 0.4307
+  Subject LPIPS: 0.5107 | Editing score: 0.3742
+
+[10] Put a red hat on the person in the image.
+  PSNR orig/adv: 30.2422 | edit: 23.2521
+  SSIM orig/adv: 0.8897 | edit: 0.8017
+  FSIM orig/adv: 0.7138 | edit: 0.5568
+  CLIP orig: 25.2813 | adv: 29.2857
+  Caption similarity: 0.6984
+  Caption orig: A woman wearing a red hat and a red jacket.
+  Caption adv:  A woman wearing a red jacket and a red hat is standing in front of a mirror.
+  Accuracy LLM score: 0.7000 | success: False
+  Background LPIPS: 0.1130 | Background SSIM: 0.8417
+  Subject LPIPS: 0.4257 | Editing score: 0.1372
+
+[11] Put a red hat on the person in the image.
+  PSNR orig/adv: 27.1098 | edit: 17.6731
+  SSIM orig/adv: 0.7901 | edit: 0.5741
+  FSIM orig/adv: 0.7341 | edit: 0.5526
+  CLIP orig: 26.8164 | adv: 27.0187
+  Caption similarity: 0.5059
+  Caption orig: A woman wearing a red hat and a black and white polka dot jacket.
+  Caption adv:  A woman wearing a red dress and a white shirt is walking down the street.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.4413 | Background SSIM: 0.5369
+  Subject LPIPS: 0.5575 | Editing score: 0.3154
+
+[12] Put a red hat on the person in the image.
+  PSNR orig/adv: 26.6558 | edit: 19.7013
+  SSIM orig/adv: 0.8241 | edit: 0.6551
+  FSIM orig/adv: 0.7735 | edit: 0.5683
+  CLIP orig: 26.3366 | adv: 29.2244
+  Caption similarity: 0.6313
+  Caption orig: A man wearing a red hat and a red plaid shirt is holding a red jacket.
+  Caption adv:  A man wearing a red hat and a red shirt is standing on a street.
+  Accuracy LLM score: 0.7000 | success: False
+  Background LPIPS: 0.3023 | Background SSIM: 0.6037
+  Subject LPIPS: 0.4064 | Editing score: 0.2960
+
+[13] Put a red hat on the person in the image.
+  PSNR orig/adv: 26.3979 | edit: 15.0901
+  SSIM orig/adv: 0.8231 | edit: 0.5610
+  FSIM orig/adv: 0.7077 | edit: 0.4768
+  CLIP orig: 28.2824 | adv: 27.1363
+  Caption similarity: 0.5456
+  Caption orig: A person wearing a red hat with a red flower on it.
+  Caption adv:  A woman wearing a red hat and a brown coat is standing in front of a building.
+  Accuracy LLM score: 0.7000 | success: False
+  Background LPIPS: 0.6180 | Background SSIM: 0.4310
+  Subject LPIPS: 0.5671 | Editing score: 0.4179
+
+[14] Put a red hat on the person in the image.
+  PSNR orig/adv: 26.2084 | edit: 20.1164
+  SSIM orig/adv: 0.8369 | edit: 0.7183
+  FSIM orig/adv: 0.7212 | edit: 0.5937
+  CLIP orig: 24.7077 | adv: 27.9765
+  Caption similarity: 0.8527
+  Caption orig: A woman wearing a red hat and a grey dress is standing outside.
+  Caption adv:  A woman wearing a red hat and a grey vest stands on the sidewalk.
+  Accuracy LLM score: 0.7000 | success: False
+  Background LPIPS: 0.1405 | Background SSIM: 0.8501
+  Subject LPIPS: 0.4200 | Editing score: 0.1491
+
+[15] Put a red hat on the person in the image.
+  PSNR orig/adv: 27.2855 | edit: 15.4677
+  SSIM orig/adv: 0.8527 | edit: 0.5924
+  FSIM orig/adv: 0.7593 | edit: 0.4560
+  CLIP orig: 27.7428 | adv: 29.7213
+  Caption similarity: 0.7108
+  Caption orig: A woman wearing a red hat and a red shirt is walking down the street.
+  Caption adv:  A woman wearing a red hat and red dress is holding a red hat in her hand.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.6920 | Background SSIM: 0.2975
+  Subject LPIPS: 0.4773 | Editing score: 0.5012
+
+[16] Put a red hat on the person in the image.
+  PSNR orig/adv: 26.7973 | edit: 13.2872
+  SSIM orig/adv: 0.8446 | edit: 0.5605
+  FSIM orig/adv: 0.7866 | edit: 0.4501
+  CLIP orig: 29.2211 | adv: 31.1055
+  Caption similarity: 0.7747
+  Caption orig: A woman wearing a red hat with a stack of red hats on top of it.
+  Caption adv:  A person wearing a red hat and a red hat on their head.
+  Accuracy LLM score: 0.7000 | success: False
+  Background LPIPS: 0.5258 | Background SSIM: 0.5425
+  Subject LPIPS: 0.5678 | Editing score: 0.3476
+
+[17] Put a red hat on the person in the image.
+  PSNR orig/adv: 27.7227 | edit: 19.9371
+  SSIM orig/adv: 0.8563 | edit: 0.7285
+  FSIM orig/adv: 0.7053 | edit: 0.5721
+  CLIP orig: 27.0490 | adv: 25.2558
+  Caption similarity: 0.9523
+  Caption orig: A man wearing a red hat and a black coat stands in front of a building.
+  Caption adv:  A man wearing a red hat and a red jacket stands in front of a building.
+  Accuracy LLM score: 0.7000 | success: False
+  Background LPIPS: 0.2987 | Background SSIM: 0.6954
+  Subject LPIPS: 0.3857 | Editing score: 0.2795
+
+[18] Put a red hat on the person in the image.
+  PSNR orig/adv: 26.2485 | edit: 17.2241
+  SSIM orig/adv: 0.8284 | edit: 0.5971
+  FSIM orig/adv: 0.7167 | edit: 0.4656
+  CLIP orig: 26.4432 | adv: 28.2545
+  Caption similarity: 0.6958
+  Caption orig: A woman wearing a red hat and a red coat stands in front of a building.
+  Caption adv:  A woman wearing a red hat and a gray coat is holding two red hats.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.5918 | Background SSIM: 0.3940
+  Subject LPIPS: 0.4601 | Editing score: 0.4425
+
+[19] Put a red hat on the person in the image.
+  PSNR orig/adv: 26.9275 | edit: 21.3071
+  SSIM orig/adv: 0.7969 | edit: 0.6635
+  FSIM orig/adv: 0.6785 | edit: 0.5419
+  CLIP orig: 26.3612 | adv: 27.2031
+  Caption similarity: 0.8107
+  Caption orig: A woman wearing a red coat and a red hat is standing next to a chair.
+  Caption adv:  A woman wearing a red hat and a red coat is standing outside.
+  Accuracy LLM score: 0.7000 | success: False
+  Background LPIPS: 0.1142 | Background SSIM: 0.7742
+  Subject LPIPS: 0.4268 | Editing score: 0.1573
+
+[20] Put a red hat on the person in the image.
+  PSNR orig/adv: 27.3896 | edit: 12.1302
+  SSIM orig/adv: 0.7882 | edit: 0.3693
+  FSIM orig/adv: 0.7675 | edit: 0.3805
+  CLIP orig: 28.8331 | adv: 24.5709
+  Caption similarity: 0.4139
+  Caption orig: A woman wearing a red hat and lipstick is standing next to another woman wearing a red hat and lipstick.
+  Caption adv:  A person wearing a red hat and a red shirt is walking down the street.
+  Accuracy LLM score: 0.7000 | success: False
+  Background LPIPS: 0.6136 | Background SSIM: 0.3870
+  Subject LPIPS: 0.7978 | Editing score: 0.4294
+
+[21] Put a red hat on the person in the image.
+  PSNR orig/adv: 26.5640 | edit: 13.4020
+  SSIM orig/adv: 0.7920 | edit: 0.5881
+  FSIM orig/adv: 0.7008 | edit: 0.5416
+  CLIP orig: 26.3030 | adv: 26.7905
+  Caption similarity: 0.5704
+  Caption orig: A woman wearing a red mask and white pants walks down the street.
+  Caption adv:  A woman wearing a red hoodie and white pants is standing in front of a building.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.6641 | Background SSIM: 0.5184
+  Subject LPIPS: 0.5723 | Editing score: 0.4101
+
+[22] Put a red hat on the person in the image.
+  PSNR orig/adv: 26.9974 | edit: 15.3110
+  SSIM orig/adv: 0.8690 | edit: 0.6125
+  FSIM orig/adv: 0.8172 | edit: 0.5123
+  CLIP orig: 30.3185 | adv: 27.6365
+  Caption similarity: 0.9503
+  Caption orig: A person wearing a red hat and a red jacket is walking down the street.
+  Caption adv:  A person wearing a red hat and a red coat is walking down the street.
+  Accuracy LLM score: 0.7000 | success: False
+  Background LPIPS: 0.5926 | Background SSIM: 0.4416
+  Subject LPIPS: 0.4669 | Editing score: 0.4244
+
+[23] Put a red hat on the person in the image.
+  PSNR orig/adv: 27.9911 | edit: 14.8399
+  SSIM orig/adv: 0.9101 | edit: 0.6348
+  FSIM orig/adv: 0.8069 | edit: 0.4797
+  CLIP orig: 27.6850 | adv: 28.7680
+  Caption similarity: 0.4302
+  Caption orig: A woman wearing a red wig and a red and black striped dress is walking down the street.
+  Caption adv:  A woman wearing a red hat with a large red bow on top of her head.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.7634 | Background SSIM: 0.2234
+  Subject LPIPS: 0.3875 | Editing score: 0.6058
+
+[24] Put a red hat on the person in the image.
+  PSNR orig/adv: 27.9805 | edit: 14.8320
+  SSIM orig/adv: 0.8731 | edit: 0.6623
+  FSIM orig/adv: 0.7480 | edit: 0.5036
+  CLIP orig: 28.9244 | adv: 27.7353
+  Caption similarity: 0.6538
+  Caption orig: A person wearing a red hat and a red jacket.
+  Caption adv:  A woman wearing a red hat and a black coat is walking down the street.
+  Accuracy LLM score: 0.7000 | success: False
+  Background LPIPS: 0.6869 | Background SSIM: 0.4653
+  Subject LPIPS: 0.4830 | Editing score: 0.4454
+
+[25] Put a red hat on the person in the image.
+  PSNR orig/adv: 26.7146 | edit: 22.3962
+  SSIM orig/adv: 0.8603 | edit: 0.7901
+  FSIM orig/adv: 0.7181 | edit: 0.6101
+  CLIP orig: 26.6735 | adv: 28.6490
+  Caption similarity: 0.6790
+  Caption orig: A woman wearing a red mask and a red jacket stands on a sidewalk.
+  Caption adv:  A woman wearing a red hat and a red jacket stands in front of a building.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.0849 | Background SSIM: 0.8850
+  Subject LPIPS: 0.3862 | Editing score: 0.1367
+
+[26] Put a red hat on the person in the image.
+  PSNR orig/adv: 26.4067 | edit: 16.9053
+  SSIM orig/adv: 0.8340 | edit: 0.5953
+  FSIM orig/adv: 0.7425 | edit: 0.5171
+  CLIP orig: 25.7104 | adv: 30.0230
+  Caption similarity: 0.8344
+  Caption orig: A woman wearing a red hat and a red coat is standing on a street.
+  Caption adv:  A woman wearing a red hat and red coat is walking down the street.
+  Accuracy LLM score: 0.7000 | success: False
+  Background LPIPS: 0.5243 | Background SSIM: 0.5241
+  Subject LPIPS: 0.4361 | Editing score: 0.3908
+
+[27] Put a red hat on the person in the image.
+  PSNR orig/adv: 26.4757 | edit: 11.0127
+  SSIM orig/adv: 0.7519 | edit: 0.4251
+  FSIM orig/adv: 0.7099 | edit: 0.4162
+  CLIP orig: 28.1434 | adv: 31.6185
+  Caption similarity: 0.7158
+  Caption orig: A woman wearing a red hat and white shirt is walking down the street.
+  Caption adv:  A woman wearing a red hat with a red hat on her head.
+  Accuracy LLM score: 0.7000 | success: False
+  Background LPIPS: 0.9377 | Background SSIM: 0.1854
+  Subject LPIPS: 0.6348 | Editing score: 0.6194
+
+[28] Put a red hat on the person in the image.
+  PSNR orig/adv: 25.3292 | edit: 19.4756
+  SSIM orig/adv: 0.8226 | edit: 0.6653
+  FSIM orig/adv: 0.7414 | edit: 0.6123
+  CLIP orig: 30.1481 | adv: 29.7331
+  Caption similarity: 0.8795
+  Caption orig: A woman wearing a red hat and a black and white shirt.
+  Caption adv:  A woman wearing a red hat and a red shirt is holding a red hat in her hand.
+  Accuracy LLM score: 0.7000 | success: False
+  Background LPIPS: 0.2668 | Background SSIM: 0.6931
+  Subject LPIPS: 0.4214 | Editing score: 0.2460
+
+[29] Put a red hat on the person in the image.
+  PSNR orig/adv: 25.1935 | edit: 17.7714
+  SSIM orig/adv: 0.6922 | edit: 0.4677
+  FSIM orig/adv: 0.7754 | edit: 0.5898
+  CLIP orig: 25.4233 | adv: 27.0054
+  Caption similarity: 0.9902
+  Caption orig: A woman wearing a red hat and a green and white dress stands in front of a brick wall.
+  Caption adv:  A woman wearing a red hat and a green dress stands in front of a brick wall.
+  Accuracy LLM score: 0.7000 | success: False
+  Background LPIPS: 0.2055 | Background SSIM: 0.7828
+  Subject LPIPS: 0.5224 | Editing score: 0.1473
+
+[30] Put a red hat on the person in the image.
+  PSNR orig/adv: 26.0866 | edit: 19.9464
+  SSIM orig/adv: 0.7987 | edit: 0.6467
+  FSIM orig/adv: 0.7039 | edit: 0.5254
+  CLIP orig: 24.2634 | adv: 26.8982
+  Caption similarity: 0.8715
+  Caption orig: A woman wearing a red hat and a red jacket is standing outside.
+  Caption adv:  A woman wearing a red hat and a red jacket.
+  Accuracy LLM score: 0.9000 | success: False
+  Background LPIPS: 0.1744 | Background SSIM: 0.7357
+  Subject LPIPS: 0.5336 | Editing score: 0.1490
+
+[31] Put a red hat on the person in the image.
+  PSNR orig/adv: 26.4519 | edit: 14.9936
+  SSIM orig/adv: 0.8045 | edit: 0.6001
+  FSIM orig/adv: 0.6770 | edit: 0.5098
+  CLIP orig: 29.6271 | adv: 29.2542
+  Caption similarity: 0.5253
+  Caption orig: A woman wearing a red mask walks down the street.
+  Caption adv:  A woman wearing a red hat and carrying two red hats.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.6383 | Background SSIM: 0.5502
+  Subject LPIPS: 0.5366 | Editing score: 0.3903
+
+[32] Put a red hat on the person in the image.
+  PSNR orig/adv: 27.8887 | edit: 14.3808
+  SSIM orig/adv: 0.8348 | edit: 0.5328
+  FSIM orig/adv: 0.7027 | edit: 0.4697
+  CLIP orig: 31.0338 | adv: 28.5652
+  Caption similarity: 0.6019
+  Caption orig: A woman wearing a red hat with a red flower on it, smiling and posing for a picture.
+  Caption adv:  A woman wearing a red hat and a red shirt stands in front of a building.
+  Accuracy LLM score: 0.7000 | success: False
+  Background LPIPS: 0.6163 | Background SSIM: 0.3034
+  Subject LPIPS: 0.5757 | Editing score: 0.4555
+
+[33] Put a red hat on the person in the image.
+  PSNR orig/adv: 28.3124 | edit: 15.9484
+  SSIM orig/adv: 0.8624 | edit: 0.5640
+  FSIM orig/adv: 0.7876 | edit: 0.4874
+  CLIP orig: 29.1023 | adv: 26.0131
+  Caption similarity: 0.9679
+  Caption orig: A woman wearing a red hat and a red coat is walking down the street.
+  Caption adv:  A woman wearing a red hat and a grey coat is walking down the street.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.5934 | Background SSIM: 0.4469
+  Subject LPIPS: 0.5457 | Editing score: 0.4033
+
+[34] Put a red hat on the person in the image.
+  PSNR orig/adv: 26.1460 | edit: 20.1217
+  SSIM orig/adv: 0.7466 | edit: 0.5819
+  FSIM orig/adv: 0.6626 | edit: 0.5127
+  CLIP orig: 25.6331 | adv: 28.4792
+  Caption similarity: 0.7534
+  Caption orig: A woman wearing a black dress and a red hat.
+  Caption adv:  A woman wearing a red hat and a red dress stands in front of a green background.
+  Accuracy LLM score: 0.4000 | success: True
+  Background LPIPS: 0.2674 | Background SSIM: 0.6689
+  Subject LPIPS: 0.6107 | Editing score: 0.2063
+
+[35] Put a red hat on the person in the image.
+  PSNR orig/adv: 27.5706 | edit: 20.4277
+  SSIM orig/adv: 0.8176 | edit: 0.6981
+  FSIM orig/adv: 0.7500 | edit: 0.5794
+  CLIP orig: 26.4089 | adv: 28.3810
+  Caption similarity: 1.0000
+  Caption orig: A woman wearing a red jacket and a red hat is talking on her cell phone.
+  Caption adv:  A woman wearing a red jacket and a red hat is talking on her cell phone.
+  Accuracy LLM score: 1.0000 | success: False
+  Background LPIPS: 0.1118 | Background SSIM: 0.8461
+  Subject LPIPS: 0.5397 | Editing score: 0.0909
+
+[36] Put a red hat on the person in the image.
+  PSNR orig/adv: 25.8559 | edit: 21.0196
+  SSIM orig/adv: 0.7502 | edit: 0.5947
+  FSIM orig/adv: 0.6999 | edit: 0.5437
+  CLIP orig: 26.9188 | adv: 26.8830
+  Caption similarity: 0.5957
+  Caption orig: A woman wearing a red hat and a white shirt is holding a red purse.
+  Caption adv:  A woman wearing a red hat and a black skirt is walking down the street.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.1675 | Background SSIM: 0.8852
+  Subject LPIPS: 0.4703 | Editing score: 0.1193
+
+[37] Put a red hat on the person in the image.
+  PSNR orig/adv: 27.4930 | edit: 13.2389
+  SSIM orig/adv: 0.8314 | edit: 0.5655
+  FSIM orig/adv: 0.7255 | edit: 0.4690
+  CLIP orig: 28.7568 | adv: 28.7018
+  Caption similarity: 0.8226
+  Caption orig: A person wearing a red hat with a red feather on top of it.
+  Caption adv:  A person wearing a red hat and holding a red hat on their head.
+  Accuracy LLM score: 0.7000 | success: False
+  Background LPIPS: 0.4400 | Background SSIM: 0.5677
+  Subject LPIPS: 0.5735 | Editing score: 0.3057
+
+[38] Put a red hat on the person in the image.
+  PSNR orig/adv: 26.3300 | edit: 16.2764
+  SSIM orig/adv: 0.8032 | edit: 0.5344
+  FSIM orig/adv: 0.7176 | edit: 0.4561
+  CLIP orig: 28.6388 | adv: 25.1313
+  Caption similarity: 0.7811
+  Caption orig: A woman wearing a red hat is holding a red hat in her hand.
+  Caption adv:  A woman wearing a red hat and holding a yellow purse.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.3811 | Background SSIM: 0.4488
+  Subject LPIPS: 0.5757 | Editing score: 0.3178
+
+[39] Put a red hat on the person in the image.
+  PSNR orig/adv: 25.7494 | edit: 15.9233
+  SSIM orig/adv: 0.8194 | edit: 0.6359
+  FSIM orig/adv: 0.7661 | edit: 0.5919
+  CLIP orig: 27.1683 | adv: 30.6014
+  Caption similarity: 0.7679
+  Caption orig: A woman wearing a red hat and a red skirt is standing on a street.
+  Caption adv:  A woman wearing a red hat and a white shirt is walking down the street.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.3432 | Background SSIM: 0.7129
+  Subject LPIPS: 0.4341 | Editing score: 0.2629
+
+[40] Put a red hat on the person in the image.
+  PSNR orig/adv: 26.0325 | edit: 21.8334
+  SSIM orig/adv: 0.7919 | edit: 0.6318
+  FSIM orig/adv: 0.7235 | edit: 0.5731
+  CLIP orig: 26.5042 | adv: 26.4594
+  Caption similarity: 0.8535
+  Caption orig: A woman wearing a red sweater and red pants is standing outside.
+  Caption adv:  A woman wearing a red sweater and red pants stands in front of a tree.
+  Accuracy LLM score: 0.7000 | success: False
+  Background LPIPS: 0.0644 | Background SSIM: 0.8506
+  Subject LPIPS: 0.4878 | Editing score: 0.0779
+
+[41] Put a red hat on the person in the image.
+  PSNR orig/adv: 27.2858 | edit: 21.0860
+  SSIM orig/adv: 0.8627 | edit: 0.7432
+  FSIM orig/adv: 0.6901 | edit: 0.5769
+  CLIP orig: 26.6403 | adv: 28.3695
+  Caption similarity: 0.4903
+  Caption orig: A man wearing a red hat and sunglasses is talking on his cell phone.
+  Caption adv:  A man wearing a red hat and a red shirt is walking down the street.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.3573 | Background SSIM: 0.6581
+  Subject LPIPS: 0.3657 | Editing score: 0.3261
+
+[42] Put a red hat on the person in the image.
+  PSNR orig/adv: 25.4731 | edit: 13.8840
+  SSIM orig/adv: 0.8039 | edit: 0.5319
+  FSIM orig/adv: 0.7220 | edit: 0.5275
+  CLIP orig: 26.3844 | adv: 30.9936
+  Caption similarity: 0.4270
+  Caption orig: A man wearing a red hat and a black shirt stands in a crowd of people.
+  Caption adv:  A man wearing a red hat and a woman wearing a red hat are walking down the street.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.6875 | Background SSIM: 0.4218
+  Subject LPIPS: 0.5779 | Editing score: 0.4485
+
+[43] Put a red hat on the person in the image.
+  PSNR orig/adv: 27.4460 | edit: 16.7594
+  SSIM orig/adv: 0.8782 | edit: 0.6591
+  FSIM orig/adv: 0.7847 | edit: 0.5429
+  CLIP orig: 27.5108 | adv: 28.4438
+  Caption similarity: 0.6877
+  Caption orig: A woman wearing a red hat and holding three red hats.
+  Caption adv:  A woman wearing a red hat and a red shirt is walking down the street.
+  Accuracy LLM score: 0.7000 | success: False
+  Background LPIPS: 0.4558 | Background SSIM: 0.5343
+  Subject LPIPS: 0.4502 | Editing score: 0.3519
+
+[44] Put a red hat on the person in the image.
+  PSNR orig/adv: 27.2354 | edit: 21.4441
+  SSIM orig/adv: 0.8426 | edit: 0.7238
+  FSIM orig/adv: 0.7597 | edit: 0.5994
+  CLIP orig: 25.1975 | adv: 29.7784
+  Caption similarity: 0.7305
+  Caption orig: A woman wearing a red hat and a red heart on her shirt is standing in front of a car.
+  Caption adv:  A woman wearing a red hat and a gray shirt with a red heart on it.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.1958 | Background SSIM: 0.7479
+  Subject LPIPS: 0.3376 | Editing score: 0.2514
+
+[45] Put a red hat on the person in the image.
+  PSNR orig/adv: 27.1067 | edit: 18.5292
+  SSIM orig/adv: 0.8686 | edit: 0.7493
+  FSIM orig/adv: 0.7222 | edit: 0.5514
+  CLIP orig: 29.4282 | adv: 28.1079
+  Caption similarity: 0.7083
+  Caption orig: A person wearing a red hat and carrying a red hat on their head.
+  Caption adv:  A person wearing a red hat and a red coat is walking down the street.
+  Accuracy LLM score: 0.7000 | success: False
+  Background LPIPS: 0.2407 | Background SSIM: 0.7479
+  Subject LPIPS: 0.4211 | Editing score: 0.2192
+
+[46] Put a red hat on the person in the image.
+  PSNR orig/adv: 24.7547 | edit: 14.9402
+  SSIM orig/adv: 0.8868 | edit: 0.6853
+  FSIM orig/adv: 0.7496 | edit: 0.5228
+  CLIP orig: 26.7585 | adv: 26.8866
+  Caption similarity: 0.5747
+  Caption orig: Two women wearing red hats and red coats are standing on a boat.
+  Caption adv:  A woman wearing a red hat and a red coat is standing in front of a building.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.5499 | Background SSIM: 0.4085
+  Subject LPIPS: 0.4312 | Editing score: 0.4387
+
+[47] Put a red hat on the person in the image.
+  PSNR orig/adv: 25.7516 | edit: 21.3099
+  SSIM orig/adv: 0.8090 | edit: 0.7113
+  FSIM orig/adv: 0.7108 | edit: 0.5800
+  CLIP orig: 25.7766 | adv: 27.7471
+  Caption similarity: 0.6720
+  Caption orig: A woman wearing a red hat and a red shirt is walking down the street.
+  Caption adv:  A woman wearing a red hat and holding a red purse is standing on a sidewalk.
+  Accuracy LLM score: 0.7000 | success: False
+  Background LPIPS: 0.1330 | Background SSIM: 0.8470
+  Subject LPIPS: 0.4151 | Editing score: 0.1500
+
+[48] Put a red hat on the person in the image.
+  PSNR orig/adv: 25.2123 | edit: 16.2342
+  SSIM orig/adv: 0.8860 | edit: 0.7289
+  FSIM orig/adv: 0.7831 | edit: 0.5792
+  CLIP orig: 29.1824 | adv: 27.3828
+  Caption similarity: 0.6349
+  Caption orig: A woman wearing a red hat and a blue shirt is standing on a sidewalk.
+  Caption adv:  A person wearing a red hat and a red shirt.
+  Accuracy LLM score: 0.7000 | success: False
+  Background LPIPS: 0.4624 | Background SSIM: 0.5474
+  Subject LPIPS: 0.3963 | Editing score: 0.3830
+
+[49] Put a red hat on the person in the image.
+  PSNR orig/adv: 26.9617 | edit: 23.3442
+  SSIM orig/adv: 0.8648 | edit: 0.7802
+  FSIM orig/adv: 0.7508 | edit: 0.6369
+  CLIP orig: 24.5885 | adv: 26.1082
+  Caption similarity: 0.9867
+  Caption orig: A woman wearing a red dress and a red hat stands on a city street.
+  Caption adv:  A woman wearing a red hat and a red dress is standing on a city street.
+  Accuracy LLM score: 0.8000 | success: False
+  Background LPIPS: 0.0702 | Background SSIM: 0.8889
+  Subject LPIPS: 0.3442 | Editing score: 0.1549
+
+[50] Put a red hat on the person in the image.
+  PSNR orig/adv: 26.1019 | edit: 16.1205
+  SSIM orig/adv: 0.8014 | edit: 0.5744
+  FSIM orig/adv: 0.7006 | edit: 0.5258
+  CLIP orig: 29.7989 | adv: 30.3660
+  Caption similarity: 0.7744
+  Caption orig: A woman wearing a red hat and a grey coat is walking down the street.
+  Caption adv:  A woman wearing a red hat and a red coat is standing outside.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.6589 | Background SSIM: 0.3811
+  Subject LPIPS: 0.5577 | Editing score: 0.4492
+
+[51] Put a red hat on the person in the image.
+  PSNR orig/adv: 26.1844 | edit: 15.8798
+  SSIM orig/adv: 0.8182 | edit: 0.5971
+  FSIM orig/adv: 0.7292 | edit: 0.5337
+  CLIP orig: 29.6958 | adv: 27.3900
+  Caption similarity: 0.5682
+  Caption orig: A man wearing a red hat is standing on a city street.
+  Caption adv:  A woman wearing a red hat and a red shirt is walking down the street.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.4639 | Background SSIM: 0.5429
+  Subject LPIPS: 0.5196 | Editing score: 0.3227
+
+[52] Put a red hat on the person in the image.
+  PSNR orig/adv: 27.2055 | edit: 23.1692
+  SSIM orig/adv: 0.7807 | edit: 0.6404
+  FSIM orig/adv: 0.7497 | edit: 0.5748
+  CLIP orig: 25.0243 | adv: 26.3128
+  Caption similarity: 0.7983
+  Caption orig: A woman wearing a red hat and a red sweater stands on a sidewalk.
+  Caption adv:  A woman wearing a red hat and a red sweater is standing in front of a building.
+  Accuracy LLM score: 0.7000 | success: False
+  Background LPIPS: 0.0523 | Background SSIM: 0.8470
+  Subject LPIPS: 0.5790 | Editing score: 0.0668
+
+[53] Put a red hat on the person in the image.
+  PSNR orig/adv: 26.1008 | edit: 21.6734
+  SSIM orig/adv: 0.8140 | edit: 0.7212
+  FSIM orig/adv: 0.7583 | edit: 0.6382
+  CLIP orig: 26.2864 | adv: 28.7922
+  Caption similarity: 0.4571
+  Caption orig: A woman with a red wig and a polka dot shirt stands in front of a crowd of people.
+  Caption adv:  A woman wearing a red hat and a red polka dot shirt is walking down the street.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.1260 | Background SSIM: 0.8675
+  Subject LPIPS: 0.4236 | Editing score: 0.1360
+
+[54] Put a red hat on the person in the image.
+  PSNR orig/adv: 26.5983 | edit: 13.3453
+  SSIM orig/adv: 0.8416 | edit: 0.6370
+  FSIM orig/adv: 0.7202 | edit: 0.5583
+  CLIP orig: 28.3401 | adv: 30.0151
+  Caption similarity: 0.5098
+  Caption orig: A man wearing a grey sweater with red dots on it.
+  Caption adv:  A man wearing a red sweater and a red hat stands in front of a building.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.6358 | Background SSIM: 0.5376
+  Subject LPIPS: 0.4868 | Editing score: 0.4010
+
+[55] Put a red hat on the person in the image.
+  PSNR orig/adv: 25.9142 | edit: 13.8319
+  SSIM orig/adv: 0.7549 | edit: 0.4523
+  FSIM orig/adv: 0.6931 | edit: 0.3993
+  CLIP orig: 29.7064 | adv: 28.2124
+  Caption similarity: 0.5985
+  Caption orig: Two women wearing red hats and red lipstick are standing next to each other.
+  Caption adv:  A woman wearing a red hat and a red shirt is standing on a sidewalk.
+  Accuracy LLM score: 0.7000 | success: False
+  Background LPIPS: 0.6282 | Background SSIM: 0.3313
+  Subject LPIPS: 0.6774 | Editing score: 0.4519
+
+[56] Put a red hat on the person in the image.
+  PSNR orig/adv: 25.9988 | edit: 18.9772
+  SSIM orig/adv: 0.8531 | edit: 0.6969
+  FSIM orig/adv: 0.7749 | edit: 0.5799
+  CLIP orig: 26.5829 | adv: 27.1375
+  Caption similarity: 0.9896
+  Caption orig: A woman wearing a red scarf and a red hat is walking down the street.
+  Caption adv:  A woman wearing a red hat and a red scarf is walking down the street.
+  Accuracy LLM score: 0.8000 | success: False
+  Background LPIPS: 0.2540 | Background SSIM: 0.6503
+  Subject LPIPS: 0.4374 | Editing score: 0.2440
+
+[57] Put a red hat on the person in the image.
+  PSNR orig/adv: 26.6839 | edit: 19.9330
+  SSIM orig/adv: 0.8271 | edit: 0.6870
+  FSIM orig/adv: 0.7520 | edit: 0.5946
+  CLIP orig: 25.2526 | adv: 28.3083
+  Caption similarity: 0.5035
+  Caption orig: A woman wearing a red hat and a red jacket is standing on a sidewalk.
+  Caption adv:  A woman wearing a pink jacket and carrying a red purse.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.1652 | Background SSIM: 0.7986
+  Subject LPIPS: 0.3552 | Editing score: 0.2134
+
+[58] Put a red hat on the person in the image.
+  PSNR orig/adv: 28.0871 | edit: 19.3067
+  SSIM orig/adv: 0.8643 | edit: 0.7246
+  FSIM orig/adv: 0.7305 | edit: 0.5247
+  CLIP orig: 30.2182 | adv: 30.7902
+  Caption similarity: 0.8420
+  Caption orig: A woman wearing a red hat and a red jacket is walking down the street.
+  Caption adv:  A woman wearing a red hat and a red jacket.
+  Accuracy LLM score: 0.9000 | success: False
+  Background LPIPS: 0.3321 | Background SSIM: 0.7077
+  Subject LPIPS: 0.4260 | Editing score: 0.2649
+
+[59] Put a red hat on the person in the image.
+  PSNR orig/adv: 27.0545 | edit: 13.5388
+  SSIM orig/adv: 0.8454 | edit: 0.5185
+  FSIM orig/adv: 0.7258 | edit: 0.4358
+  CLIP orig: 25.5523 | adv: 29.2649
+  Caption similarity: 0.5014
+  Caption orig: A woman wearing a red hat and a red jacket is walking down the street.
+  Caption adv:  Two women wearing red hats and red outfits are standing next to each other.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.6755 | Background SSIM: 0.2795
+  Subject LPIPS: 0.5950 | Editing score: 0.4864
+
+[60] Put a red hat on the person in the image.
+  PSNR orig/adv: 26.9732 | edit: 13.0965
+  SSIM orig/adv: 0.8129 | edit: 0.4726
+  FSIM orig/adv: 0.7556 | edit: 0.4533
+  CLIP orig: 30.3663 | adv: 26.9941
+  Caption similarity: 0.5377
+  Caption orig: A woman wearing a red hat and red coat is walking down the street.
+  Caption adv:  A woman wearing a red mask and a brown coat is holding a red purse.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.8176 | Background SSIM: 0.1946
+  Subject LPIPS: 0.6125 | Editing score: 0.5686
+
+[61] Put a red hat on the person in the image.
+  PSNR orig/adv: 27.7103 | edit: 19.2202
+  SSIM orig/adv: 0.8584 | edit: 0.7421
+  FSIM orig/adv: 0.7116 | edit: 0.5773
+  CLIP orig: 26.3990 | adv: 24.7474
+  Caption similarity: 0.8920
+  Caption orig: A woman wearing a red jacket and a red hat is walking down the street.
+  Caption adv:  A woman wearing a red hat and red pants is walking down the street.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.3367 | Background SSIM: 0.7176
+  Subject LPIPS: 0.3633 | Editing score: 0.3014
+
+[62] Put a red hat on the person in the image.
+  PSNR orig/adv: 27.4075 | edit: 19.1475
+  SSIM orig/adv: 0.8122 | edit: 0.6476
+  FSIM orig/adv: 0.7913 | edit: 0.5625
+  CLIP orig: 26.9365 | adv: 26.4960
+  Caption similarity: 0.9071
+  Caption orig: A woman wearing a red hat and a red coat is walking down the street.
+  Caption adv:  A woman wearing a red hat and a red dress is walking down the street.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.3911 | Background SSIM: 0.4968
+  Subject LPIPS: 0.5296 | Editing score: 0.3074
+
+[63] Put a red hat on the person in the image.
+  PSNR orig/adv: 27.0310 | edit: 11.4175
+  SSIM orig/adv: 0.8296 | edit: 0.5014
+  FSIM orig/adv: 0.7532 | edit: 0.4831
+  CLIP orig: 22.8556 | adv: 25.7676
+  Caption similarity: 0.9675
+  Caption orig: A woman wearing a red hat and a silver dress is walking down the street.
+  Caption adv:  A woman wearing a red hat and a red dress is walking down the street.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.6606 | Background SSIM: 0.3421
+  Subject LPIPS: 0.5923 | Editing score: 0.4616
+
+[64] Put a red hat on the person in the image.
+  PSNR orig/adv: 27.1508 | edit: 11.9534
+  SSIM orig/adv: 0.7957 | edit: 0.5043
+  FSIM orig/adv: 0.6951 | edit: 0.4697
+  CLIP orig: 25.5496 | adv: 31.4140
+  Caption similarity: 0.6960
+  Caption orig: A woman wearing a red hat and a grey coat stands on a staircase.
+  Caption adv:  A woman wearing a red hat and red coat is standing in front of a building.
+  Accuracy LLM score: 0.7000 | success: False
+  Background LPIPS: 1.0360 | Background SSIM: 0.1935
+  Subject LPIPS: 0.6109 | Editing score: 0.6419
+
+[65] Put a red hat on the person in the image.
+  PSNR orig/adv: 27.0682 | edit: 17.7016
+  SSIM orig/adv: 0.7973 | edit: 0.6066
+  FSIM orig/adv: 0.6862 | edit: 0.4647
+  CLIP orig: 28.1110 | adv: 28.7619
+  Caption similarity: 0.6911
+  Caption orig: A woman wearing a red dress and a red hat stands on a sidewalk.
+  Caption adv:  A woman wearing a red hat and holding a red hat.
+  Accuracy LLM score: 0.7000 | success: False
+  Background LPIPS: 0.5346 | Background SSIM: 0.5389
+  Subject LPIPS: 0.5395 | Editing score: 0.3522
+
+[66] Put a red hat on the person in the image.
+  PSNR orig/adv: 29.0391 | edit: 13.0685
+  SSIM orig/adv: 0.8436 | edit: 0.5264
+  FSIM orig/adv: 0.8246 | edit: 0.4260
+  CLIP orig: 27.6556 | adv: 24.1640
+  Caption similarity: 0.4279
+  Caption orig: A person wearing a red hat and a blue and white dress is hugging another person.
+  Caption adv:  A woman wearing a red hat and a flowered dress stands next to a red bus.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.5251 | Background SSIM: 0.4016
+  Subject LPIPS: 0.5201 | Editing score: 0.3896
+
+[67] Put a red hat on the person in the image.
+  PSNR orig/adv: 26.2215 | edit: 14.2049
+  SSIM orig/adv: 0.7652 | edit: 0.5237
+  FSIM orig/adv: 0.7300 | edit: 0.5369
+  CLIP orig: 29.3041 | adv: 28.3113
+  Caption similarity: 0.6690
+  Caption orig: A man wearing a red hat and scarf is standing on a sidewalk.
+  Caption adv:  A man wearing a red hat and a pink shirt is standing in front of a building.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.4624 | Background SSIM: 0.5248
+  Subject LPIPS: 0.5863 | Editing score: 0.3275
+
+[68] Put a red hat on the person in the image.
+  PSNR orig/adv: 25.8164 | edit: 16.8774
+  SSIM orig/adv: 0.8438 | edit: 0.6083
+  FSIM orig/adv: 0.7684 | edit: 0.5645
+  CLIP orig: 28.0639 | adv: 27.2146
+  Caption similarity: 0.6500
+  Caption orig: A man wearing a red hat and a red jacket is walking down a hallway.
+  Caption adv:  A person wearing a red hat and a red jacket is walking down the street.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.5151 | Background SSIM: 0.4770
+  Subject LPIPS: 0.4786 | Editing score: 0.3758
+
+[69] Put a red hat on the person in the image.
+  PSNR orig/adv: 26.2336 | edit: 15.2399
+  SSIM orig/adv: 0.7833 | edit: 0.4844
+  FSIM orig/adv: 0.7324 | edit: 0.4774
+  CLIP orig: 27.7743 | adv: 26.8799
+  Caption similarity: 0.8303
+  Caption orig: A woman wearing a red hat and carrying a shopping bag walks down the street.
+  Caption adv:  A woman wearing a red hat and a red dress is walking down the street.
+  Accuracy LLM score: 0.7000 | success: False
+  Background LPIPS: 0.5438 | Background SSIM: 0.4216
+  Subject LPIPS: 0.6327 | Editing score: 0.3910
+
+[70] Put a red hat on the person in the image.
+  PSNR orig/adv: 29.0254 | edit: 19.1868
+  SSIM orig/adv: 0.8752 | edit: 0.7317
+  FSIM orig/adv: 0.7505 | edit: 0.5851
+  CLIP orig: 27.2914 | adv: 27.9357
+  Caption similarity: 0.7584
+  Caption orig: A man wearing a red hat and a blue jacket is standing on a street.
+  Caption adv:  A man wearing a red hat and jacket stands in front of a building.
+  Accuracy LLM score: 0.7000 | success: False
+  Background LPIPS: 0.3588 | Background SSIM: 0.6367
+  Subject LPIPS: 0.3589 | Editing score: 0.3371
+
+[71] Put a red hat on the person in the image.
+  PSNR orig/adv: 25.2993 | edit: 14.3338
+  SSIM orig/adv: 0.7823 | edit: 0.5558
+  FSIM orig/adv: 0.7441 | edit: 0.5539
+  CLIP orig: 25.6127 | adv: 24.7334
+  Caption similarity: 0.6170
+  Caption orig: A woman wearing a red hat and a brown dress is smiling and holding a book.
+  Caption adv:  A woman wearing a red hat and a red dress is holding a cell phone.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.5332 | Background SSIM: 0.4974
+  Subject LPIPS: 0.5102 | Editing score: 0.3641
+
+[72] Put a red hat on the person in the image.
+  PSNR orig/adv: 26.1982 | edit: 13.3142
+  SSIM orig/adv: 0.7284 | edit: 0.3477
+  FSIM orig/adv: 0.7779 | edit: 0.3813
+  CLIP orig: 27.3920 | adv: 28.0007
+  Caption similarity: 0.7379
+  Caption orig: A woman wearing a red hat with a red top hat on her head.
+  Caption adv:  A woman wearing a red hat and a red shirt is walking down a street.
+  Accuracy LLM score: 0.7000 | success: False
+  Background LPIPS: 0.7061 | Background SSIM: 0.2419
+  Subject LPIPS: 0.7408 | Editing score: 0.5099
+
+[73] Put a red hat on the person in the image.
+  PSNR orig/adv: 27.9195 | edit: 17.1562
+  SSIM orig/adv: 0.8027 | edit: 0.6290
+  FSIM orig/adv: 0.6906 | edit: 0.4918
+  CLIP orig: 24.4038 | adv: 24.6287
+  Caption similarity: 0.9115
+  Caption orig: A woman wearing a red hat and scarf stands in front of a brick wall.
+  Caption adv:  A woman wearing a red hat and a red coat is standing in front of a brick wall.
+  Accuracy LLM score: 0.7000 | success: False
+  Background LPIPS: 0.3976 | Background SSIM: 0.6011
+  Subject LPIPS: 0.5103 | Editing score: 0.2787
+
+[74] Put a red hat on the person in the image.
+  PSNR orig/adv: 26.6360 | edit: 16.7473
+  SSIM orig/adv: 0.8428 | edit: 0.5886
+  FSIM orig/adv: 0.7336 | edit: 0.5083
+  CLIP orig: 30.6903 | adv: 27.2908
+  Caption similarity: 0.5008
+  Caption orig: A person wearing a red hat and a red coat is standing on the side of the road.
+  Caption adv:  A woman wearing a red headscarf and a pink sweater is walking down the street.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.4248 | Background SSIM: 0.4716
+  Subject LPIPS: 0.5779 | Editing score: 0.3284
+
+[75] Put a red hat on the person in the image.
+  PSNR orig/adv: 26.5134 | edit: 20.3830
+  SSIM orig/adv: 0.8563 | edit: 0.7245
+  FSIM orig/adv: 0.8338 | edit: 0.6326
+  CLIP orig: 25.1299 | adv: 26.2115
+  Caption similarity: 0.7919
+  Caption orig: A woman wearing a red hat and a red coat with polka dots is walking down the street.
+  Caption adv:  A woman wearing a red hat and a black and red coat stands on a street.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.1273 | Background SSIM: 0.7823
+  Subject LPIPS: 0.4364 | Editing score: 0.1544
+
+[76] Put a red hat on the person in the image.
+  PSNR orig/adv: 27.0938 | edit: 18.5384
+  SSIM orig/adv: 0.8771 | edit: 0.6739
+  FSIM orig/adv: 0.7240 | edit: 0.5941
+  CLIP orig: 27.2137 | adv: 27.1198
+  Caption similarity: 0.9419
+  Caption orig: A man wearing a red hat and a blue jacket stands in front of a building.
+  Caption adv:  A man wearing a red hat and a red coat stands in front of a building.
+  Accuracy LLM score: 0.7000 | success: False
+  Background LPIPS: 0.3930 | Background SSIM: 0.5040
+  Subject LPIPS: 0.4258 | Editing score: 0.3505
+
+[77] Put a red hat on the person in the image.
+  PSNR orig/adv: 25.8480 | edit: 18.6132
+  SSIM orig/adv: 0.7784 | edit: 0.5691
+  FSIM orig/adv: 0.7327 | edit: 0.5865
+  CLIP orig: 24.4482 | adv: 25.4233
+  Caption similarity: 0.9075
+  Caption orig: A woman wearing a red hat and a black jacket is talking on her cell phone.
+  Caption adv:  A woman wearing a red coat and a red hat is talking on her cell phone.
+  Accuracy LLM score: 0.7000 | success: False
+  Background LPIPS: 0.3509 | Background SSIM: 0.5867
+  Subject LPIPS: 0.3851 | Editing score: 0.3332
+
+[78] Put a red hat on the person in the image.
+  PSNR orig/adv: 27.1426 | edit: 16.0315
+  SSIM orig/adv: 0.8533 | edit: 0.5864
+  FSIM orig/adv: 0.8196 | edit: 0.5050
+  CLIP orig: 26.3795 | adv: 27.1124
+  Caption similarity: 0.7801
+  Caption orig: A woman wearing a red hat and a black and white dress stands on a city street.
+  Caption adv:  A woman wearing a red hat and a red dress is walking down the street.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.6023 | Background SSIM: 0.3711
+  Subject LPIPS: 0.4328 | Editing score: 0.4699
+
+[79] Put a red hat on the person in the image.
+  PSNR orig/adv: 25.6088 | edit: 20.9430
+  SSIM orig/adv: 0.8228 | edit: 0.7189
+  FSIM orig/adv: 0.7416 | edit: 0.5982
+  CLIP orig: 25.5366 | adv: 26.8254
+  Caption similarity: 0.8639
+  Caption orig: A man wearing a red mask and a black jacket stands in front of a red wall.
+  Caption adv:  A man wearing a red mask and a black jacket stands in front of a red building.
+  Accuracy LLM score: 0.7000 | success: False
+  Background LPIPS: 0.0745 | Background SSIM: 0.8801
+  Subject LPIPS: 0.4864 | Editing score: 0.0739
+
+[80] Put a red hat on the person in the image.
+  PSNR orig/adv: 28.2007 | edit: 15.7584
+  SSIM orig/adv: 0.8783 | edit: 0.6656
+  FSIM orig/adv: 0.7754 | edit: 0.5291
+  CLIP orig: 26.7646 | adv: 29.9433
+  Caption similarity: 0.9027
+  Caption orig: A man wearing a red hat and a red jacket is walking down the street.
+  Caption adv:  A man wearing a blue jacket and red hat is walking down the street.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.5344 | Background SSIM: 0.5041
+  Subject LPIPS: 0.4753 | Editing score: 0.3773
+
+[81] Put a red hat on the person in the image.
+  PSNR orig/adv: 26.2062 | edit: 17.8649
+  SSIM orig/adv: 0.7903 | edit: 0.5182
+  FSIM orig/adv: 0.7518 | edit: 0.5364
+  CLIP orig: 27.3821 | adv: 30.9536
+  Caption similarity: 0.5443
+  Caption orig: A person wearing a red shirt and a red hat is standing in front of a car.
+  Caption adv:  A woman wearing a red hat and a red scarf.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.4016 | Background SSIM: 0.5082
+  Subject LPIPS: 0.4789 | Editing score: 0.3208
+
+[82] Put a red hat on the person in the image.
+  PSNR orig/adv: 26.0034 | edit: 11.9949
+  SSIM orig/adv: 0.8156 | edit: 0.4108
+  FSIM orig/adv: 0.7951 | edit: 0.4526
+  CLIP orig: 29.3670 | adv: 23.4606
+  Caption similarity: 0.3639
+  Caption orig: A man wearing a red hat and a red jacket stands in front of a crowd of people.
+  Caption adv:  A woman wearing a red shirt and black pants is standing in front of a red background.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.6280 | Background SSIM: 0.2575
+  Subject LPIPS: 0.6875 | Editing score: 0.4739
+
+[83] Put a red hat on the person in the image.
+  PSNR orig/adv: 26.2760 | edit: 14.0378
+  SSIM orig/adv: 0.8547 | edit: 0.5947
+  FSIM orig/adv: 0.7582 | edit: 0.5339
+  CLIP orig: 28.5288 | adv: 28.2760
+  Caption similarity: 0.4156
+  Caption orig: A man wearing a black vest and a red hat is standing in front of a building.
+  Caption adv:  A person wearing a red hat and holding a red heart.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.7719 | Background SSIM: 0.2797
+  Subject LPIPS: 0.5020 | Editing score: 0.5249
+
+[84] Put a red hat on the person in the image.
+  PSNR orig/adv: 27.1166 | edit: 15.8592
+  SSIM orig/adv: 0.8534 | edit: 0.6463
+  FSIM orig/adv: 0.7259 | edit: 0.4677
+  CLIP orig: 27.6954 | adv: 27.0356
+  Caption similarity: 0.5311
+  Caption orig: Two women wearing red hats and red coats are standing next to each other.
+  Caption adv:  A woman wearing a red hat and a red jacket is walking down the street.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.4903 | Background SSIM: 0.5368
+  Subject LPIPS: 0.4793 | Editing score: 0.3475
+
+[85] Put a red hat on the person in the image.
+  PSNR orig/adv: 27.3837 | edit: 21.9122
+  SSIM orig/adv: 0.8426 | edit: 0.7455
+  FSIM orig/adv: 0.7218 | edit: 0.6003
+  CLIP orig: 27.7769 | adv: 28.9075
+  Caption similarity: 0.8998
+  Caption orig: A woman wearing a red hat and a black jacket is standing on a sidewalk.
+  Caption adv:  A woman wearing a red hat and a black jacket is standing on a street.
+  Accuracy LLM score: 0.7000 | success: False
+  Background LPIPS: 0.0434 | Background SSIM: 0.9028
+  Subject LPIPS: 0.4546 | Editing score: 0.0737
+
+[86] Put a red hat on the person in the image.
+  PSNR orig/adv: 26.3824 | edit: 14.0743
+  SSIM orig/adv: 0.8088 | edit: 0.5206
+  FSIM orig/adv: 0.7367 | edit: 0.4691
+  CLIP orig: 23.8616 | adv: 30.4478
+  Caption similarity: 0.4718
+  Caption orig: A woman wearing a red mask and a red dress is walking down the street.
+  Caption adv:  A woman wearing a red hat with a black band around it.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.7332 | Background SSIM: 0.2862
+  Subject LPIPS: 0.5144 | Editing score: 0.5074
+
+[87] Put a red hat on the person in the image.
+  PSNR orig/adv: 26.3580 | edit: 11.7500
+  SSIM orig/adv: 0.8219 | edit: 0.4894
+  FSIM orig/adv: 0.7670 | edit: 0.4950
+  CLIP orig: 28.2690 | adv: 30.6866
+  Caption similarity: 0.7294
+  Caption orig: A woman wearing a red hat and a black and white jacket is standing on a street.
+  Caption adv:  A woman wearing a red hat and red dress is walking down the street.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.9275 | Background SSIM: 0.1640
+  Subject LPIPS: 0.4788 | Editing score: 0.6345
+
+[88] Put a red hat on the person in the image.
+  PSNR orig/adv: 25.8414 | edit: 12.1917
+  SSIM orig/adv: 0.7860 | edit: 0.5299
+  FSIM orig/adv: 0.6910 | edit: 0.5022
+  CLIP orig: 25.7991 | adv: 27.9673
+  Caption similarity: 0.6633
+  Caption orig: A woman wearing a red hat and a black coat is standing on a street.
+  Caption adv:  Two women wearing red hats and red coats are standing next to each other.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.8644 | Background SSIM: 0.2425
+  Subject LPIPS: 0.5190 | Editing score: 0.5730
+
+[89] Put a red hat on the person in the image.
+  PSNR orig/adv: 26.5924 | edit: 10.9617
+  SSIM orig/adv: 0.8206 | edit: 0.4666
+  FSIM orig/adv: 0.7397 | edit: 0.4172
+  CLIP orig: 26.6919 | adv: 27.7297
+  Caption similarity: 0.3537
+  Caption orig: A woman wearing a blue shirt and a red mask stands on a beach.
+  Caption adv:  A woman wearing a red hat with a red bow on it.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.8540 | Background SSIM: 0.2096
+  Subject LPIPS: 0.5749 | Editing score: 0.5787
+
+[90] Put a red hat on the person in the image.
+  PSNR orig/adv: 26.0215 | edit: 12.0595
+  SSIM orig/adv: 0.7547 | edit: 0.4381
+  FSIM orig/adv: 0.7311 | edit: 0.4919
+  CLIP orig: 30.7388 | adv: 30.1319
+  Caption similarity: 0.5745
+  Caption orig: A man wearing a red hat and a red jacket is walking down the street.
+  Caption adv:  A man wearing a red shirt and a red hat stands in front of a building.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.7373 | Background SSIM: 0.3111
+  Subject LPIPS: 0.6331 | Editing score: 0.5016
+
+[91] Put a red hat on the person in the image.
+  PSNR orig/adv: 26.7552 | edit: 14.1850
+  SSIM orig/adv: 0.8083 | edit: 0.4784
+  FSIM orig/adv: 0.7329 | edit: 0.4365
+  CLIP orig: 30.1222 | adv: 28.2921
+  Caption similarity: 0.5226
+  Caption orig: Two women wearing red hats and holding red hats on their heads.
+  Caption adv:  A woman wearing a red hat and a red and black shirt is standing in front of a building.
+  Accuracy LLM score: 0.7000 | success: False
+  Background LPIPS: 0.5769 | Background SSIM: 0.3807
+  Subject LPIPS: 0.7011 | Editing score: 0.4165
+
+[92] Put a red hat on the person in the image.
+  PSNR orig/adv: 26.9390 | edit: 17.3287
+  SSIM orig/adv: 0.7975 | edit: 0.5873
+  FSIM orig/adv: 0.7267 | edit: 0.4924
+  CLIP orig: 29.8781 | adv: 29.8836
+  Caption similarity: 0.8208
+  Caption orig: A person wearing a red hat and red suit is walking down the street.
+  Caption adv:  A woman wearing a red hat and a red dress is walking down the street.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.5521 | Background SSIM: 0.4912
+  Subject LPIPS: 0.5173 | Editing score: 0.3735
+
+[93] Put a red hat on the person in the image.
+  PSNR orig/adv: 27.2533 | edit: 19.5686
+  SSIM orig/adv: 0.7470 | edit: 0.5490
+  FSIM orig/adv: 0.7612 | edit: 0.5028
+  CLIP orig: 25.8892 | adv: 24.3163
+  Caption similarity: 0.8639
+  Caption orig: A woman wearing a red dress and a red hat is walking down the street.
+  Caption adv:  A woman wearing a red coat and a red hat is walking down the street.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.2892 | Background SSIM: 0.6871
+  Subject LPIPS: 0.7115 | Editing score: 0.2095
+
+[94] Put a red hat on the person in the image.
+  PSNR orig/adv: 26.8781 | edit: 11.5639
+  SSIM orig/adv: 0.7472 | edit: 0.4153
+  FSIM orig/adv: 0.6616 | edit: 0.3295
+  CLIP orig: 29.9320 | adv: 29.5758
+  Caption similarity: 0.6138
+  Caption orig: A woman wearing a red hat and holding a red hat in her hand.
+  Caption adv:  Two women wearing red hats and red lipstick.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.5933 | Background SSIM: 0.4778
+  Subject LPIPS: 0.6778 | Editing score: 0.3940
+
+[95] Put a red hat on the person in the image.
+  PSNR orig/adv: 25.7736 | edit: 17.5336
+  SSIM orig/adv: 0.8585 | edit: 0.6263
+  FSIM orig/adv: 0.7913 | edit: 0.5809
+  CLIP orig: 27.3095 | adv: 27.1745
+  Caption similarity: 0.5850
+  Caption orig: A woman wearing a red hat and a red sweater with a face on it.
+  Caption adv:  A woman wearing a red hoodie and a red scarf is standing in front of a building.
+  Accuracy LLM score: 0.4000 | success: True
+  Background LPIPS: 0.4834 | Background SSIM: 0.4157
+  Subject LPIPS: 0.4320 | Editing score: 0.4094
+
+[96] Put a red hat on the person in the image.
+  PSNR orig/adv: 25.9854 | edit: 20.7834
+  SSIM orig/adv: 0.8046 | edit: 0.6768
+  FSIM orig/adv: 0.7422 | edit: 0.6015
+  CLIP orig: 26.9974 | adv: 29.5577
+  Caption similarity: 0.9625
+  Caption orig: A woman wearing a red hat and a red shirt is standing on the sidewalk.
+  Caption adv:  A woman wearing a red hat and pink shirt is standing on the sidewalk.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.0869 | Background SSIM: 0.8637
+  Subject LPIPS: 0.4042 | Editing score: 0.1332
+
+[97] Put a red hat on the person in the image.
+  PSNR orig/adv: 26.7312 | edit: 17.5139
+  SSIM orig/adv: 0.8714 | edit: 0.6469
+  FSIM orig/adv: 0.7855 | edit: 0.5160
+  CLIP orig: 27.8614 | adv: 27.9698
+  Caption similarity: 0.7765
+  Caption orig: A person wearing a red hat and a red jacket is standing in a crowd.
+  Caption adv:  A person wearing a red jacket and a red hat.
+  Accuracy LLM score: 0.7000 | success: False
+  Background LPIPS: 0.4986 | Background SSIM: 0.4343
+  Subject LPIPS: 0.4785 | Editing score: 0.3821
+
+[98] Put a red hat on the person in the image.
+  PSNR orig/adv: 25.8769 | edit: 17.9843
+  SSIM orig/adv: 0.7627 | edit: 0.5730
+  FSIM orig/adv: 0.7052 | edit: 0.5182
+  CLIP orig: 25.0995 | adv: 30.2543
+  Caption similarity: 0.6988
+  Caption orig: A woman wearing a red hat and sunglasses is standing in front of a stop sign.
+  Caption adv:  A woman wearing a red hat and a red shirt.
+  Accuracy LLM score: 0.7000 | success: False
+  Background LPIPS: 0.4403 | Background SSIM: 0.5573
+  Subject LPIPS: 0.5150 | Editing score: 0.3089
+
+[99] Put a red hat on the person in the image.
+  PSNR orig/adv: 27.2348 | edit: 16.9835
+  SSIM orig/adv: 0.8556 | edit: 0.6679
+  FSIM orig/adv: 0.7332 | edit: 0.5058
+  CLIP orig: 27.7439 | adv: 28.3484
+  Caption similarity: 0.6027
+  Caption orig: A person wearing a red hat with a red cape on it.
+  Caption adv:  A person wearing a red hat and carrying a bag walks down a street.
+  Accuracy LLM score: 0.7000 | success: False
+  Background LPIPS: 0.4751 | Background SSIM: 0.6388
+  Subject LPIPS: 0.4776 | Editing score: 0.3118
+
+[100] Put a red hat on the person in the image.
+  PSNR orig/adv: 27.9497 | edit: 25.2304
+  SSIM orig/adv: 0.8586 | edit: 0.7813
+  FSIM orig/adv: 0.7442 | edit: 0.6278
+  CLIP orig: 28.1752 | adv: 29.3651
+  Caption similarity: 0.8800
+  Caption orig: A man wearing a red hat and a red sweater is standing on a sidewalk.
+  Caption adv:  A man wearing a red hat and a red sweater is standing outside.
+  Accuracy LLM score: 0.7000 | success: False
+  Background LPIPS: 0.0348 | Background SSIM: 0.8669
+  Subject LPIPS: 0.3449 | Editing score: 0.1469
+
+[101] Put a red hat on the person in the image.
+  PSNR orig/adv: 27.4193 | edit: 23.4378
+  SSIM orig/adv: 0.8384 | edit: 0.7293
+  FSIM orig/adv: 0.7460 | edit: 0.5814
+  CLIP orig: 25.4912 | adv: 27.8649
+  Caption similarity: 0.6096
+  Caption orig: A woman wearing a red coat and a red hat is walking down the street.
+  Caption adv:  A woman wearing a red coat and holding a bouquet of flowers.
+  Accuracy LLM score: 0.7000 | success: False
+  Background LPIPS: 0.0992 | Background SSIM: 0.7871
+  Subject LPIPS: 0.4465 | Editing score: 0.1356
+
+[102] Put a red hat on the person in the image.
+  PSNR orig/adv: 26.3052 | edit: 16.7579
+  SSIM orig/adv: 0.8700 | edit: 0.6538
+  FSIM orig/adv: 0.7652 | edit: 0.5782
+  CLIP orig: 27.9357 | adv: 27.1562
+  Caption similarity: 0.5226
+  Caption orig: A person wearing a red hat and a red dress is walking down the street.
+  Caption adv:  A woman wearing a red jacket and carrying a bag is standing on a street.
+  Accuracy LLM score: 0.4000 | success: True
+  Background LPIPS: 0.5657 | Background SSIM: 0.5084
+  Subject LPIPS: 0.4041 | Editing score: 0.4313
+
+[103] Put a red hat on the person in the image.
+  PSNR orig/adv: 26.8031 | edit: 11.2082
+  SSIM orig/adv: 0.7704 | edit: 0.3810
+  FSIM orig/adv: 0.7568 | edit: 0.3722
+  CLIP orig: 29.5809 | adv: 27.5162
+  Caption similarity: 0.7060
+  Caption orig: A woman wearing a red hat with a red flower on it.
+  Caption adv:  A woman wearing a red hat and a red coat is holding a red purse.
+  Accuracy LLM score: 0.7000 | success: False
+  Background LPIPS: 0.7846 | Background SSIM: 0.3473
+  Subject LPIPS: 0.7367 | Editing score: 0.5097
+
+[104] Put a red hat on the person in the image.
+  PSNR orig/adv: 26.3640 | edit: 16.0177
+  SSIM orig/adv: 0.8805 | edit: 0.7025
+  FSIM orig/adv: 0.7739 | edit: 0.5910
+  CLIP orig: 25.8509 | adv: 26.5125
+  Caption similarity: 0.6279
+  Caption orig: A woman wearing a red hat and red boots is standing in front of a building.
+  Caption adv:  A woman wearing a red hat and a red and white striped sweater.
+  Accuracy LLM score: 0.4000 | success: True
+  Background LPIPS: 0.1831 | Background SSIM: 0.6998
+  Subject LPIPS: 0.4968 | Editing score: 0.1652
+
+[105] Put a red hat on the person in the image.
+  PSNR orig/adv: 26.4427 | edit: 11.6521
+  SSIM orig/adv: 0.7730 | edit: 0.4378
+  FSIM orig/adv: 0.7241 | edit: 0.4107
+  CLIP orig: 28.6528 | adv: 30.7989
+  Caption similarity: 0.7394
+  Caption orig: A woman wearing a red hat and a black coat is holding a red hat in her hand.
+  Caption adv:  A woman wearing a red hat with a black ribbon around it.
+  Accuracy LLM score: 0.7000 | success: False
+  Background LPIPS: 0.7995 | Background SSIM: 0.2756
+  Subject LPIPS: 0.6087 | Editing score: 0.5371
+
+[106] Put a red hat on the person in the image.
+  PSNR orig/adv: 26.5141 | edit: 15.4237
+  SSIM orig/adv: 0.8147 | edit: 0.5965
+  FSIM orig/adv: 0.7408 | edit: 0.5464
+  CLIP orig: 26.6149 | adv: 29.5095
+  Caption similarity: 0.9959
+  Caption orig: A woman wearing a red hat and jacket walks down the street.
+  Caption adv:  A woman wearing a red hat and red jacket walks down the street.
+  Accuracy LLM score: 0.9000 | success: False
+  Background LPIPS: 0.4220 | Background SSIM: 0.5722
+  Subject LPIPS: 0.5007 | Editing score: 0.2971
+
+[107] Put a red hat on the person in the image.
+  PSNR orig/adv: 26.0090 | edit: 10.7805
+  SSIM orig/adv: 0.8016 | edit: 0.3805
+  FSIM orig/adv: 0.7565 | edit: 0.4126
+  CLIP orig: 30.0444 | adv: 28.4148
+  Caption similarity: 0.6987
+  Caption orig: A woman wearing a red hat is standing on a sidewalk.
+  Caption adv:  A woman wearing a red hat and a red skirt is walking down the street.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.8118 | Background SSIM: 0.3118
+  Subject LPIPS: 0.7450 | Editing score: 0.5312
+
+[108] Put a red hat on the person in the image.
+  PSNR orig/adv: 25.9025 | edit: 17.9355
+  SSIM orig/adv: 0.8060 | edit: 0.5531
+  FSIM orig/adv: 0.7232 | edit: 0.5369
+  CLIP orig: 27.3384 | adv: 27.4358
+  Caption similarity: 0.7562
+  Caption orig: A man wearing a red hat and a red shirt stands on a sidewalk.
+  Caption adv:  A man wearing a red jacket and a red hat stands on a street corner.
+  Accuracy LLM score: 0.7000 | success: False
+  Background LPIPS: 0.3809 | Background SSIM: 0.4136
+  Subject LPIPS: 0.4631 | Editing score: 0.3504
+
+[109] Put a red hat on the person in the image.
+  PSNR orig/adv: 26.7949 | edit: 16.8154
+  SSIM orig/adv: 0.8024 | edit: 0.6111
+  FSIM orig/adv: 0.7101 | edit: 0.5200
+  CLIP orig: 24.8940 | adv: 26.1798
+  Caption similarity: 0.8067
+  Caption orig: A woman wearing a red hat and red dress is standing outside.
+  Caption adv:  A woman wearing a red hat and a red scarf is standing in front of a building.
+  Accuracy LLM score: 0.4000 | success: True
+  Background LPIPS: 0.6236 | Background SSIM: 0.4282
+  Subject LPIPS: 0.4706 | Editing score: 0.4386
+
+[110] Put a red hat on the person in the image.
+  PSNR orig/adv: 26.9517 | edit: 13.6714
+  SSIM orig/adv: 0.8118 | edit: 0.4766
+  FSIM orig/adv: 0.7306 | edit: 0.4457
+  CLIP orig: 31.2247 | adv: 28.2357
+  Caption similarity: 0.5790
+  Caption orig: A woman wearing a red hat with a black bow on it.
+  Caption adv:  A woman wearing a red hat and a red coat is standing in front of a building.
+  Accuracy LLM score: 0.7000 | success: False
+  Background LPIPS: 0.6585 | Background SSIM: 0.3760
+  Subject LPIPS: 0.6335 | Editing score: 0.4506
+
+[111] Put a red hat on the person in the image.
+  PSNR orig/adv: 29.2599 | edit: 17.7821
+  SSIM orig/adv: 0.9025 | edit: 0.6950
+  FSIM orig/adv: 0.7650 | edit: 0.4857
+  CLIP orig: 28.8146 | adv: 25.5009
+  Caption similarity: 0.6253
+  Caption orig: A woman wearing a red hat and a red coat is walking down the street.
+  Caption adv:  A woman wearing a red dress and a red hat stands in front of a building.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.5879 | Background SSIM: 0.4600
+  Subject LPIPS: 0.3528 | Editing score: 0.4855
+
+[112] Put a red hat on the person in the image.
+  PSNR orig/adv: 27.1776 | edit: 22.7801
+  SSIM orig/adv: 0.8156 | edit: 0.6763
+  FSIM orig/adv: 0.7291 | edit: 0.6019
+  CLIP orig: 27.5203 | adv: 28.3924
+  Caption similarity: 0.8482
+  Caption orig: A woman wearing a red hat and a striped shirt is standing in front of a red wall.
+  Caption adv:  A woman wearing a red hat and a striped shirt is standing in front of a building.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.0510 | Background SSIM: 0.9037
+  Subject LPIPS: 0.3924 | Editing score: 0.1138
+
+[113] Put a red hat on the person in the image.
+  PSNR orig/adv: 25.4161 | edit: 17.9692
+  SSIM orig/adv: 0.8256 | edit: 0.6522
+  FSIM orig/adv: 0.7327 | edit: 0.5715
+  CLIP orig: 28.2118 | adv: 28.3724
+  Caption similarity: 0.7647
+  Caption orig: A woman wearing a red hat and carrying a black purse walks down a city street.
+  Caption adv:  A person wearing a red hat and carrying a purse.
+  Accuracy LLM score: 0.7000 | success: False
+  Background LPIPS: 0.4060 | Background SSIM: 0.6334
+  Subject LPIPS: 0.3904 | Editing score: 0.3382
+
+[114] Put a red hat on the person in the image.
+  PSNR orig/adv: 27.0287 | edit: 15.9669
+  SSIM orig/adv: 0.8394 | edit: 0.5734
+  FSIM orig/adv: 0.7726 | edit: 0.4661
+  CLIP orig: 28.9446 | adv: 29.7026
+  Caption similarity: 0.5828
+  Caption orig: A person wearing a red hat and a brown jacket is holding two red hats.
+  Caption adv:  Two women wearing red hats and red clothing are standing next to each other.
+  Accuracy LLM score: 0.7000 | success: False
+  Background LPIPS: 0.5573 | Background SSIM: 0.4317
+  Subject LPIPS: 0.4411 | Editing score: 0.4288
+
+[115] Put a red hat on the person in the image.
+  PSNR orig/adv: 25.1532 | edit: 16.0854
+  SSIM orig/adv: 0.8714 | edit: 0.6626
+  FSIM orig/adv: 0.7127 | edit: 0.4405
+  CLIP orig: 28.7339 | adv: 24.7873
+  Caption similarity: 0.6507
+  Caption orig: A woman wearing a red hat and holding a red umbrella.
+  Caption adv:  A woman wearing a red hat and a floral jacket stands in front of a building.
+  Accuracy LLM score: 0.4000 | success: True
+  Background LPIPS: 0.6976 | Background SSIM: 0.2549
+  Subject LPIPS: 0.5178 | Editing score: 0.5026
+
+[116] Put a red hat on the person in the image.
+  PSNR orig/adv: 25.7146 | edit: 13.3936
+  SSIM orig/adv: 0.7086 | edit: 0.3579
+  FSIM orig/adv: 0.7008 | edit: 0.3993
+  CLIP orig: 28.1334 | adv: 24.0426
+  Caption similarity: 0.4585
+  Caption orig: A woman wearing a red hat with a stack of red hats on top of it.
+  Caption adv:  A woman with red hair and a red jacket is walking down the street.
+  Accuracy LLM score: 0.7000 | success: False
+  Background LPIPS: 0.6675 | Background SSIM: 0.3848
+  Subject LPIPS: 0.7392 | Editing score: 0.4516
+
+[117] Put a red hat on the person in the image.
+  PSNR orig/adv: 28.0773 | edit: 10.1021
+  SSIM orig/adv: 0.8262 | edit: 0.3691
+  FSIM orig/adv: 0.7355 | edit: 0.4185
+  CLIP orig: 26.8889 | adv: 27.4946
+  Caption similarity: 0.6650
+  Caption orig: A woman wearing a red hat and a black coat is standing in front of a red brick building.
+  Caption adv:  Two women wearing red hats and red coats are standing next to each other.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.7639 | Background SSIM: 0.3084
+  Subject LPIPS: 0.6034 | Editing score: 0.5131
+
+[118] Put a red hat on the person in the image.
+  PSNR orig/adv: 27.7941 | edit: 23.3817
+  SSIM orig/adv: 0.9051 | edit: 0.8286
+  FSIM orig/adv: 0.7331 | edit: 0.6097
+  CLIP orig: 26.7383 | adv: 26.1358
+  Caption similarity: 0.8505
+  Caption orig: A woman wearing a red jacket and a red hat stands in front of a red brick wall.
+  Caption adv:  A woman wearing a red jacket and a red hat stands in front of a building.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.1190 | Background SSIM: 0.8659
+  Subject LPIPS: 0.3403 | Editing score: 0.1837
+
+[119] Put a red hat on the person in the image.
+  PSNR orig/adv: 26.7839 | edit: 16.8991
+  SSIM orig/adv: 0.8695 | edit: 0.6339
+  FSIM orig/adv: 0.7544 | edit: 0.5315
+  CLIP orig: 25.4025 | adv: 28.4931
+  Caption similarity: 0.3514
+  Caption orig: A woman wearing a red scarf and holding a cell phone.
+  Caption adv:  A person wearing a red hat and a red coat.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.5613 | Background SSIM: 0.4431
+  Subject LPIPS: 0.4567 | Editing score: 0.4176
+
+[120] Put a red hat on the person in the image.
+  PSNR orig/adv: 25.6875 | edit: 15.1147
+  SSIM orig/adv: 0.8698 | edit: 0.6902
+  FSIM orig/adv: 0.7724 | edit: 0.4319
+  CLIP orig: 28.6654 | adv: 28.4521
+  Caption similarity: 0.8749
+  Caption orig: A woman wearing a red hat and holding a red hat on her head.
+  Caption adv:  A person wearing a red hat and holding a red hat.
+  Accuracy LLM score: 0.8000 | success: False
+  Background LPIPS: 0.5968 | Background SSIM: 0.4646
+  Subject LPIPS: 0.4030 | Editing score: 0.4576
+
+[121] Put a red hat on the person in the image.
+  PSNR orig/adv: 26.3294 | edit: 19.4137
+  SSIM orig/adv: 0.8170 | edit: 0.6690
+  FSIM orig/adv: 0.7383 | edit: 0.5779
+  CLIP orig: 25.7580 | adv: 29.0847
+  Caption similarity: 0.7562
+  Caption orig: A woman wearing a red hat and a red shirt is standing on a busy street.
+  Caption adv:  A woman wearing a red hat and a pink shirt is walking down the street.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.1630 | Background SSIM: 0.7598
+  Subject LPIPS: 0.4637 | Editing score: 0.1590
+
+[122] Put a red hat on the person in the image.
+  PSNR orig/adv: 27.7661 | edit: 13.7150
+  SSIM orig/adv: 0.8388 | edit: 0.5017
+  FSIM orig/adv: 0.7773 | edit: 0.4112
+  CLIP orig: 29.4620 | adv: 28.7451
+  Caption similarity: 0.7651
+  Caption orig: A woman wearing a red hat with a flower design on it.
+  Caption adv:  A woman wearing a red hat and a red jacket.
+  Accuracy LLM score: 0.7000 | success: False
+  Background LPIPS: 0.6714 | Background SSIM: 0.3943
+  Subject LPIPS: 0.6584 | Editing score: 0.4503
+
+[123] Put a red hat on the person in the image.
+  PSNR orig/adv: 27.3819 | edit: 21.7737
+  SSIM orig/adv: 0.8740 | edit: 0.7430
+  FSIM orig/adv: 0.7253 | edit: 0.5983
+  CLIP orig: 26.8281 | adv: 26.4651
+  Caption similarity: 0.8932
+  Caption orig: A woman wearing a red hat and a black jacket is walking down the street.
+  Caption adv:  A woman wearing a red hat and a red scarf is walking down the street.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.2608 | Background SSIM: 0.6495
+  Subject LPIPS: 0.3351 | Editing score: 0.3084
+
+[124] Put a red hat on the person in the image.
+  PSNR orig/adv: 25.9221 | edit: 12.8015
+  SSIM orig/adv: 0.8061 | edit: 0.5048
+  FSIM orig/adv: 0.7643 | edit: 0.5268
+  CLIP orig: 23.3288 | adv: 29.7183
+  Caption similarity: 0.8142
+  Caption orig: A woman wearing a red hat and a white dress is walking down the street.
+  Caption adv:  A woman wearing a red hat and carrying a purse walks down the street.
+  Accuracy LLM score: 0.7000 | success: False
+  Background LPIPS: 0.6867 | Background SSIM: 0.3973
+  Subject LPIPS: 0.5268 | Editing score: 0.4555
+
+[125] Put a red hat on the person in the image.
+  PSNR orig/adv: 27.2708 | edit: 17.0174
+  SSIM orig/adv: 0.8496 | edit: 0.6330
+  FSIM orig/adv: 0.7718 | edit: 0.5320
+  CLIP orig: 28.2609 | adv: 30.2992
+  Caption similarity: 0.5946
+  Caption orig: A woman wearing a red hat and red jacket is standing on a city street.
+  Caption adv:  A person wearing a red hat and holding a red hat.
+  Accuracy LLM score: 0.7000 | success: False
+  Background LPIPS: 0.5180 | Background SSIM: 0.4471
+  Subject LPIPS: 0.4138 | Editing score: 0.4248
+
+[126] Put a red hat on the person in the image.
+  PSNR orig/adv: 25.8754 | edit: 20.7302
+  SSIM orig/adv: 0.8065 | edit: 0.6558
+  FSIM orig/adv: 0.7520 | edit: 0.6081
+  CLIP orig: 28.8585 | adv: 28.3860
+  Caption similarity: 0.9915
+  Caption orig: A woman wearing a red hat and a red shirt stands on a street.
+  Caption adv:  A woman wearing a red hat and a red shirt is standing on the street.
+  Accuracy LLM score: 0.9000 | success: False
+  Background LPIPS: 0.1782 | Background SSIM: 0.7492
+  Subject LPIPS: 0.4684 | Editing score: 0.1655
+
+[127] Put a red hat on the person in the image.
+  PSNR orig/adv: 26.4143 | edit: 15.5382
+  SSIM orig/adv: 0.8619 | edit: 0.5900
+  FSIM orig/adv: 0.7617 | edit: 0.5034
+  CLIP orig: 25.3254 | adv: 29.1385
+  Caption similarity: 0.6370
+  Caption orig: A woman wearing a red hat and a red coat is walking down the street.
+  Caption adv:  A woman wearing a red hat with a red bow on top of her head.
+  Accuracy LLM score: 0.7000 | success: False
+  Background LPIPS: 0.6243 | Background SSIM: 0.3956
+  Subject LPIPS: 0.4559 | Editing score: 0.4575
+
+[128] Put a red hat on the person in the image.
+  PSNR orig/adv: 26.9510 | edit: 15.7364
+  SSIM orig/adv: 0.7660 | edit: 0.4942
+  FSIM orig/adv: 0.7293 | edit: 0.4360
+  CLIP orig: 26.0311 | adv: 30.2932
+  Caption similarity: 0.4627
+  Caption orig: A woman wearing a red hat and a red dress is walking down the street.
+  Caption adv:  A man wearing a red hat and a red jacket is standing next to a woman wearing a red hat and a red jacket.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.6998 | Background SSIM: 0.1952
+  Subject LPIPS: 0.5809 | Editing score: 0.5214
+
+[129] Put a red hat on the person in the image.
+  PSNR orig/adv: 25.8243 | edit: 18.6035
+  SSIM orig/adv: 0.7506 | edit: 0.4962
+  FSIM orig/adv: 0.6882 | edit: 0.4830
+  CLIP orig: 27.4817 | adv: 27.6408
+  Caption similarity: 0.5042
+  Caption orig: A woman wearing a red hat and red outfit is walking down a path.
+  Caption adv:  A woman wearing a red shirt and red pants is standing in front of a building.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.2680 | Background SSIM: 0.6132
+  Subject LPIPS: 0.6108 | Editing score: 0.2232
+
+[130] Put a red hat on the person in the image.
+  PSNR orig/adv: 26.0392 | edit: 13.8364
+  SSIM orig/adv: 0.8253 | edit: 0.5000
+  FSIM orig/adv: 0.7594 | edit: 0.5001
+  CLIP orig: 26.3040 | adv: 25.9597
+  Caption similarity: 0.9901
+  Caption orig: A woman wearing a red hat and a red coat walks down a street.
+  Caption adv:  A woman wearing a red hat and a red coat is walking down the street.
+  Accuracy LLM score: 0.9000 | success: False
+  Background LPIPS: 0.7030 | Background SSIM: 0.3187
+  Subject LPIPS: 0.5146 | Editing score: 0.4856
+
+[131] Put a red hat on the person in the image.
+  PSNR orig/adv: 25.2167 | edit: 17.3125
+  SSIM orig/adv: 0.7906 | edit: 0.5723
+  FSIM orig/adv: 0.7352 | edit: 0.5866
+  CLIP orig: 28.7272 | adv: 25.8563
+  Caption similarity: 0.6427
+  Caption orig: A woman wearing a red hat and a black jacket stands in front of a crowd of people.
+  Caption adv:  A woman wearing a red hat and a black jacket is walking down the street.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.4265 | Background SSIM: 0.4806
+  Subject LPIPS: 0.4724 | Editing score: 0.3430
+
+[132] Put a red hat on the person in the image.
+  PSNR orig/adv: 27.0386 | edit: 17.1633
+  SSIM orig/adv: 0.8275 | edit: 0.6876
+  FSIM orig/adv: 0.7373 | edit: 0.5846
+  CLIP orig: 26.4030 | adv: 27.5482
+  Caption similarity: 0.6653
+  Caption orig: A man wearing a grey suit and a red hat is walking down the street.
+  Caption adv:  A man wearing a red jacket and a red tie is walking down the street.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.3338 | Background SSIM: 0.7339
+  Subject LPIPS: 0.4467 | Editing score: 0.2453
+
+[133] Put a red hat on the person in the image.
+  PSNR orig/adv: 26.6341 | edit: 20.0488
+  SSIM orig/adv: 0.8237 | edit: 0.6887
+  FSIM orig/adv: 0.7381 | edit: 0.6027
+  CLIP orig: 27.5768 | adv: 28.3543
+  Caption similarity: 0.6845
+  Caption orig: A woman wearing a red hat and a red bag is standing in front of a crowd of people.
+  Caption adv:  A woman wearing a red hat and a floral shirt is standing on a street.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.1421 | Background SSIM: 0.7400
+  Subject LPIPS: 0.4160 | Editing score: 0.1853
+
+[134] Put a red hat on the person in the image.
+  PSNR orig/adv: 27.5189 | edit: 17.5970
+  SSIM orig/adv: 0.9209 | edit: 0.7484
+  FSIM orig/adv: 0.6915 | edit: 0.4948
+  CLIP orig: 30.6598 | adv: 29.9786
+  Caption similarity: 0.3722
+  Caption orig: A man wearing a red hat and holding two red hats.
+  Caption adv:  A woman wearing a red shirt and a red hat stands in front of a mirror.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.5377 | Background SSIM: 0.5786
+  Subject LPIPS: 0.4006 | Editing score: 0.4012
+
+[135] Put a red hat on the person in the image.
+  PSNR orig/adv: 27.5424 | edit: 19.8561
+  SSIM orig/adv: 0.8229 | edit: 0.6667
+  FSIM orig/adv: 0.7073 | edit: 0.5750
+  CLIP orig: 27.7424 | adv: 27.0219
+  Caption similarity: 0.6964
+  Caption orig: A man wearing a red hat and a black jacket stands on a street.
+  Caption adv:  A woman wearing a red hat and a red jacket stands on a sidewalk.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.3592 | Background SSIM: 0.6284
+  Subject LPIPS: 0.4227 | Editing score: 0.3015
+
+[136] Put a red hat on the person in the image.
+  PSNR orig/adv: 27.3900 | edit: 10.6936
+  SSIM orig/adv: 0.7862 | edit: 0.4728
+  FSIM orig/adv: 0.7516 | edit: 0.4236
+  CLIP orig: 27.5924 | adv: 28.0680
+  Caption similarity: 0.3002
+  Caption orig: A man wearing a red hat and a brown jacket is walking down the street.
+  Caption adv:  A woman wearing a red hat with a red lipstick smiles at the camera.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.8656 | Background SSIM: 0.2453
+  Subject LPIPS: 0.6124 | Editing score: 0.5726
+
+[137] Put a red hat on the person in the image.
+  PSNR orig/adv: 27.1094 | edit: 18.5181
+  SSIM orig/adv: 0.8083 | edit: 0.6167
+  FSIM orig/adv: 0.7942 | edit: 0.5764
+  CLIP orig: 23.6643 | adv: 25.2466
+  Caption similarity: 0.8184
+  Caption orig: A woman wearing a red hat and a plaid jacket is standing in front of a red brick wall.
+  Caption adv:  A woman wearing a red hat and a red plaid jacket is standing outside.
+  Accuracy LLM score: 0.7000 | success: False
+  Background LPIPS: 0.3433 | Background SSIM: 0.6240
+  Subject LPIPS: 0.3793 | Editing score: 0.3226
+
+[138] Put a red hat on the person in the image.
+  PSNR orig/adv: 26.2144 | edit: 17.6769
+  SSIM orig/adv: 0.8489 | edit: 0.6635
+  FSIM orig/adv: 0.7540 | edit: 0.5495
+  CLIP orig: 27.2578 | adv: 26.9543
+  Caption similarity: 0.6124
+  Caption orig: A woman wearing a red hat and red dress is walking down the street.
+  Caption adv:  A woman wearing a red hat and red outfit is smiling and posing for a picture.
+  Accuracy LLM score: 0.7000 | success: False
+  Background LPIPS: 0.5782 | Background SSIM: 0.5346
+  Subject LPIPS: 0.4831 | Editing score: 0.3810
+
+[139] Put a red hat on the person in the image.
+  PSNR orig/adv: 25.2860 | edit: 14.5453
+  SSIM orig/adv: 0.8381 | edit: 0.6262
+  FSIM orig/adv: 0.7339 | edit: 0.5446
+  CLIP orig: 28.5666 | adv: 26.5885
+  Caption similarity: 0.9760
+  Caption orig: A woman wearing a red hat and red hat is walking down the street.
+  Caption adv:  A woman wearing a red hat and a red shirt is walking down the street.
+  Accuracy LLM score: 0.7000 | success: False
+  Background LPIPS: 0.6744 | Background SSIM: 0.4072
+  Subject LPIPS: 0.4497 | Editing score: 0.4778
+
+[140] Put a red hat on the person in the image.
+  PSNR orig/adv: 26.7005 | edit: 18.0689
+  SSIM orig/adv: 0.8035 | edit: 0.6727
+  FSIM orig/adv: 0.7607 | edit: 0.6076
+  CLIP orig: 26.8456 | adv: 25.8318
+  Caption similarity: 0.7046
+  Caption orig: A man wearing a red hat and a blue jacket is standing next to a wall.
+  Caption adv:  A man wearing a red hat and a red scarf is standing in front of a building.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.0587 | Background SSIM: 0.8755
+  Subject LPIPS: 0.4237 | Editing score: 0.1066
+
+[141] Put a red hat on the person in the image.
+  PSNR orig/adv: 26.5547 | edit: 21.1924
+  SSIM orig/adv: 0.8480 | edit: 0.7047
+  FSIM orig/adv: 0.7575 | edit: 0.6338
+  CLIP orig: 26.2943 | adv: 25.6407
+  Caption similarity: 0.7632
+  Caption orig: A woman wearing a red hat and red outfit is standing on a street.
+  Caption adv:  A woman wearing a red hat and red shirt is standing in front of a building.
+  Accuracy LLM score: 0.7000 | success: False
+  Background LPIPS: 0.1757 | Background SSIM: 0.6640
+  Subject LPIPS: 0.3477 | Editing score: 0.2625
+
+[142] Put a red hat on the person in the image.
+  PSNR orig/adv: 25.3568 | edit: 11.5044
+  SSIM orig/adv: 0.8806 | edit: 0.5805
+  FSIM orig/adv: 0.7419 | edit: 0.3468
+  CLIP orig: 28.6720 | adv: 27.0638
+  Caption similarity: 0.6707
+  Caption orig: A woman wearing a red hat with hearts on it.
+  Caption adv:  A person wearing a red hat and a red jacket.
+  Accuracy LLM score: 0.7000 | success: False
+  Background LPIPS: 0.6605 | Background SSIM: 0.5105
+  Subject LPIPS: 0.6811 | Editing score: 0.4111
+
+[143] Put a red hat on the person in the image.
+  PSNR orig/adv: 26.8965 | edit: 12.8108
+  SSIM orig/adv: 0.8085 | edit: 0.5387
+  FSIM orig/adv: 0.7275 | edit: 0.4286
+  CLIP orig: 27.7174 | adv: 26.0504
+  Caption similarity: 0.5253
+  Caption orig: A person wearing a red hat with a black jacket and a red hat with a black jacket.
+  Caption adv:  A woman wearing a red hat and holding a red ball.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.6350 | Background SSIM: 0.5354
+  Subject LPIPS: 0.6071 | Editing score: 0.3934
+
+[144] Put a red hat on the person in the image.
+  PSNR orig/adv: 26.2347 | edit: 17.4522
+  SSIM orig/adv: 0.8213 | edit: 0.6419
+  FSIM orig/adv: 0.6836 | edit: 0.4837
+  CLIP orig: 29.5707 | adv: 30.5992
+  Caption similarity: 0.7722
+  Caption orig: A woman wearing a red hat and red jacket.
+  Caption adv:  A woman wearing a red hat and carrying a red purse.
+  Accuracy LLM score: 0.7000 | success: False
+  Background LPIPS: 0.4699 | Background SSIM: 0.5251
+  Subject LPIPS: 0.4876 | Editing score: 0.3379
+
+[145] Put a red hat on the person in the image.
+  PSNR orig/adv: 26.3339 | edit: 20.1044
+  SSIM orig/adv: 0.8159 | edit: 0.7033
+  FSIM orig/adv: 0.7746 | edit: 0.6315
+  CLIP orig: 24.4335 | adv: 26.0310
+  Caption similarity: 0.5579
+  Caption orig: A man wearing a red hat and a red shirt with a picture of a dog on it.
+  Caption adv:  A man wearing a red shirt and a red hat stands in front of a building.
+  Accuracy LLM score: 0.7000 | success: False
+  Background LPIPS: 0.1653 | Background SSIM: 0.7825
+  Subject LPIPS: 0.4342 | Editing score: 0.1708
+
+[146] Put a red hat on the person in the image.
+  PSNR orig/adv: 26.7321 | edit: 17.0280
+  SSIM orig/adv: 0.8681 | edit: 0.6886
+  FSIM orig/adv: 0.7486 | edit: 0.5479
+  CLIP orig: 29.7623 | adv: 30.0104
+  Caption similarity: 0.7596
+  Caption orig: A woman wearing a red hat and holding a red hat.
+  Caption adv:  A woman wearing a red hat and a red shirt is walking down the street.
+  Accuracy LLM score: 0.7000 | success: False
+  Background LPIPS: 0.4679 | Background SSIM: 0.5687
+  Subject LPIPS: 0.3988 | Editing score: 0.3773
+
+[147] Put a red hat on the person in the image.
+  PSNR orig/adv: 26.0586 | edit: 20.9750
+  SSIM orig/adv: 0.8490 | edit: 0.7478
+  FSIM orig/adv: 0.7319 | edit: 0.6194
+  CLIP orig: 25.4379 | adv: 26.2091
+  Caption similarity: 0.8229
+  Caption orig: A woman wearing a red hat and a red sweater is walking down the street.
+  Caption adv:  A woman wearing a red sweater and a red hat is standing on a street.
+  Accuracy LLM score: 0.7000 | success: False
+  Background LPIPS: 0.0617 | Background SSIM: 0.8509
+  Subject LPIPS: 0.3683 | Editing score: 0.1485
+
+[148] Put a red hat on the person in the image.
+  PSNR orig/adv: 26.5304 | edit: 14.5604
+  SSIM orig/adv: 0.8549 | edit: 0.5803
+  FSIM orig/adv: 0.7674 | edit: 0.5044
+  CLIP orig: 27.9081 | adv: 27.5322
+  Caption similarity: 0.5720
+  Caption orig: A woman wearing a red hat is carrying another woman on her back.
+  Caption adv:  A woman wearing a red hat and a red jacket is walking down the street.
+  Accuracy LLM score: 0.7000 | success: False
+  Background LPIPS: 0.4995 | Background SSIM: 0.5000
+  Subject LPIPS: 0.4788 | Editing score: 0.3625
+
+[149] Put a red hat on the person in the image.
+  PSNR orig/adv: 26.4574 | edit: 13.4727
+  SSIM orig/adv: 0.7923 | edit: 0.6004
+  FSIM orig/adv: 0.6909 | edit: 0.4453
+  CLIP orig: 26.0615 | adv: 29.5510
+  Caption similarity: 0.6247
+  Caption orig: A woman wearing a red hat and a white shirt is walking down the street.
+  Caption adv:  A woman wearing a red hat and holding a red purse.
+  Accuracy LLM score: 0.7000 | success: False
+  Background LPIPS: 0.6219 | Background SSIM: 0.2801
+  Subject LPIPS: 0.4822 | Editing score: 0.4754
+
+[150] Put a red hat on the person in the image.
+  PSNR orig/adv: 25.5547 | edit: 13.7644
+  SSIM orig/adv: 0.6395 | edit: 0.4845
+  FSIM orig/adv: 0.5986 | edit: 0.3832
+  CLIP orig: 28.5884 | adv: 30.7716
+  Caption similarity: 0.6109
+  Caption orig: A woman wearing a red hat and red outfit is standing in front of a door.
+  Caption adv:  A reflection of a woman wearing a red hat and a red dress.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.5966 | Background SSIM: 0.5314
+  Subject LPIPS: 0.6616 | Editing score: 0.3792
+
+[151] Put a red hat on the person in the image.
+  PSNR orig/adv: 27.3035 | edit: 16.5597
+  SSIM orig/adv: 0.8727 | edit: 0.6758
+  FSIM orig/adv: 0.7362 | edit: 0.5045
+  CLIP orig: 30.4310 | adv: 29.2894
+  Caption similarity: 0.3990
+  Caption orig: A person wearing a red hat is riding on the back of another person who is also wearing a red hat.
+  Caption adv:  A woman wearing a red hat and red shirt is standing in front of a building.
+  Accuracy LLM score: 0.7000 | success: False
+  Background LPIPS: 0.5553 | Background SSIM: 0.4776
+  Subject LPIPS: 0.4516 | Editing score: 0.4079
+
+[152] Put a red hat on the person in the image.
+  PSNR orig/adv: 26.5342 | edit: 22.4192
+  SSIM orig/adv: 0.8546 | edit: 0.7731
+  FSIM orig/adv: 0.7618 | edit: 0.6135
+  CLIP orig: 25.6473 | adv: 27.6987
+  Caption similarity: 0.6776
+  Caption orig: A woman wearing a red hat and a red shirt is walking on the beach.
+  Caption adv:  A woman wearing a red hat and a red dress is standing outside.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.0663 | Background SSIM: 0.8580
+  Subject LPIPS: 0.4259 | Editing score: 0.1136
+
+[153] Put a red hat on the person in the image.
+  PSNR orig/adv: 26.9447 | edit: 15.7657
+  SSIM orig/adv: 0.8779 | edit: 0.6056
+  FSIM orig/adv: 0.7340 | edit: 0.4487
+  CLIP orig: 28.9983 | adv: 25.2578
+  Caption similarity: 0.2380
+  Caption orig: A red hat is standing on a hat stand.
+  Caption adv:  A woman wearing a red wig and a black jacket is dancing.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.5873 | Background SSIM: 0.3748
+  Subject LPIPS: 0.5334 | Editing score: 0.4225
+
+[154] Put a red hat on the person in the image.
+  PSNR orig/adv: 25.8116 | edit: 18.0532
+  SSIM orig/adv: 0.7837 | edit: 0.6134
+  FSIM orig/adv: 0.7249 | edit: 0.5891
+  CLIP orig: 25.9533 | adv: 27.3710
+  Caption similarity: 0.9446
+  Caption orig: A woman wearing a red hat and coat walks down the street.
+  Caption adv:  A woman wearing a red hat and a red jacket is walking down the street.
+  Accuracy LLM score: 0.8000 | success: False
+  Background LPIPS: 0.1616 | Background SSIM: 0.7713
+  Subject LPIPS: 0.4782 | Editing score: 0.1463
+
+[155] Put a red hat on the person in the image.
+  PSNR orig/adv: 25.6282 | edit: 17.6109
+  SSIM orig/adv: 0.8042 | edit: 0.6009
+  FSIM orig/adv: 0.6989 | edit: 0.5302
+  CLIP orig: 23.4975 | adv: 27.0662
+  Caption similarity: 0.7526
+  Caption orig: A woman wearing a red hat and carrying a red purse walks down the street.
+  Caption adv:  A woman wearing a red hat and carrying a red umbrella.
+  Accuracy LLM score: 0.7000 | success: False
+  Background LPIPS: 0.4652 | Background SSIM: 0.4695
+  Subject LPIPS: 0.5443 | Editing score: 0.3452
+
+[156] Put a red hat on the person in the image.
+  PSNR orig/adv: 26.6050 | edit: 15.5444
+  SSIM orig/adv: 0.8341 | edit: 0.5485
+  FSIM orig/adv: 0.7488 | edit: 0.4984
+  CLIP orig: 27.7715 | adv: 28.6954
+  Caption similarity: 0.3978
+  Caption orig: A woman wearing a red shirt and a skirt with a banana pattern stands on a sidewalk.
+  Caption adv:  A person wearing a red coat and a red hat is standing next to a red sculpture.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.7075 | Background SSIM: 0.2492
+  Subject LPIPS: 0.5000 | Editing score: 0.5082
+
+[157] Put a red hat on the person in the image.
+  PSNR orig/adv: 25.8651 | edit: 13.9853
+  SSIM orig/adv: 0.7740 | edit: 0.5317
+  FSIM orig/adv: 0.7460 | edit: 0.5328
+  CLIP orig: 27.2975 | adv: 29.2856
+  Caption similarity: 0.6418
+  Caption orig: A woman wearing a red hat and a jacket stands in front of a graffiti wall.
+  Caption adv:  A person wearing a red hat and a red jacket stands in front of a fence.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.4539 | Background SSIM: 0.5410
+  Subject LPIPS: 0.5579 | Editing score: 0.3192
+
+[158] Put a red hat on the person in the image.
+  PSNR orig/adv: 27.1231 | edit: 15.1998
+  SSIM orig/adv: 0.8588 | edit: 0.5856
+  FSIM orig/adv: 0.7588 | edit: 0.5163
+  CLIP orig: 28.2431 | adv: 26.2567
+  Caption similarity: 0.5600
+  Caption orig: Two women wearing red hats and red coats are walking down the street.
+  Caption adv:  A woman wearing a red hat and carrying a red bag.
+  Accuracy LLM score: 0.7000 | success: False
+  Background LPIPS: 0.7054 | Background SSIM: 0.3257
+  Subject LPIPS: 0.5235 | Editing score: 0.4845
+
+[159] Put a red hat on the person in the image.
+  PSNR orig/adv: 26.1653 | edit: 12.1391
+  SSIM orig/adv: 0.8145 | edit: 0.4885
+  FSIM orig/adv: 0.7460 | edit: 0.4510
+  CLIP orig: 29.6269 | adv: 28.8604
+  Caption similarity: 0.4592
+  Caption orig: A woman wearing a red hat with a red feather on top of it.
+  Caption adv:  A woman wearing a red shirt and a red mask stands in front of a car.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.7818 | Background SSIM: 0.2721
+  Subject LPIPS: 0.5903 | Editing score: 0.5311
+
+[160] Put a red hat on the person in the image.
+  PSNR orig/adv: 26.0669 | edit: 17.9547
+  SSIM orig/adv: 0.8321 | edit: 0.7155
+  FSIM orig/adv: 0.7246 | edit: 0.6026
+  CLIP orig: 27.3348 | adv: 26.6278
+  Caption similarity: 0.3990
+  Caption orig: A man wearing a red mask and carrying a red bag.
+  Caption adv:  A man wearing a white shirt and a red hat is walking down the street.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.2720 | Background SSIM: 0.7802
+  Subject LPIPS: 0.3848 | Editing score: 0.2439
+
+[161] Put a red hat on the person in the image.
+  PSNR orig/adv: 27.4828 | edit: 24.7628
+  SSIM orig/adv: 0.8531 | edit: 0.7831
+  FSIM orig/adv: 0.6937 | edit: 0.5794
+  CLIP orig: 25.7548 | adv: 27.1844
+  Caption similarity: 0.6929
+  Caption orig: A woman wearing a red jacket and a red hat is standing in front of a building.
+  Caption adv:  A woman wearing a red hat and a red shirt.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.0629 | Background SSIM: 0.8989
+  Subject LPIPS: 0.4051 | Editing score: 0.1125
+
+[162] Put a red hat on the person in the image.
+  PSNR orig/adv: 26.8473 | edit: 23.6841
+  SSIM orig/adv: 0.8763 | edit: 0.8069
+  FSIM orig/adv: 0.7441 | edit: 0.6268
+  CLIP orig: 27.4264 | adv: 26.4224
+  Caption similarity: 0.8075
+  Caption orig: A man wearing a red mask and a red shirt is standing on a street.
+  Caption adv:  A man wearing a red mask and a red shirt is walking down the street.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.0581 | Background SSIM: 0.8805
+  Subject LPIPS: 0.3759 | Editing score: 0.1335
+
+[163] Put a red hat on the person in the image.
+  PSNR orig/adv: 25.8175 | edit: 21.6719
+  SSIM orig/adv: 0.7625 | edit: 0.6200
+  FSIM orig/adv: 0.7640 | edit: 0.6055
+  CLIP orig: 25.8655 | adv: 27.9198
+  Caption similarity: 0.6905
+  Caption orig: A man wearing a red hat and a brown jacket is standing on the sidewalk.
+  Caption adv:  A man wearing a red hat and brown jacket is standing in front of a car.
+  Accuracy LLM score: 0.7000 | success: False
+  Background LPIPS: 0.1155 | Background SSIM: 0.8217
+  Subject LPIPS: 0.5542 | Editing score: 0.0997
+
+[164] Put a red hat on the person in the image.
+  PSNR orig/adv: 25.0408 | edit: 17.0300
+  SSIM orig/adv: 0.8800 | edit: 0.6847
+  FSIM orig/adv: 0.7348 | edit: 0.5406
+  CLIP orig: 28.0801 | adv: 28.9825
+  Caption similarity: 0.9068
+  Caption orig: A woman wearing a red hat and red coat is walking down the street.
+  Caption adv:  A woman wearing a red hat and a red dress is walking down the street.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.4998 | Background SSIM: 0.4993
+  Subject LPIPS: 0.4292 | Editing score: 0.3926
+
+[165] Put a red hat on the person in the image.
+  PSNR orig/adv: 26.6100 | edit: 19.6137
+  SSIM orig/adv: 0.8750 | edit: 0.7400
+  FSIM orig/adv: 0.7396 | edit: 0.5551
+  CLIP orig: 27.7425 | adv: 28.2519
+  Caption similarity: 0.8070
+  Caption orig: A woman wearing a red hat and a red dress stands on a sidewalk.
+  Caption adv:  A woman wearing a red hat and a red dress stands in front of a building.
+  Accuracy LLM score: 0.7000 | success: False
+  Background LPIPS: 0.3021 | Background SSIM: 0.6648
+  Subject LPIPS: 0.3927 | Editing score: 0.2858
+
+[166] Put a red hat on the person in the image.
+  PSNR orig/adv: 27.3259 | edit: 12.8671
+  SSIM orig/adv: 0.7902 | edit: 0.5543
+  FSIM orig/adv: 0.7426 | edit: 0.4160
+  CLIP orig: 23.6582 | adv: 28.8692
+  Caption similarity: 0.6862
+  Caption orig: A woman wearing a red jacket and red pants is smiling and holding a red hat.
+  Caption adv:  A woman wearing a red hat with a red top and red hat is standing in front of a red hat.
+  Accuracy LLM score: 0.7000 | success: False
+  Background LPIPS: 0.9209 | Background SSIM: 0.1132
+  Subject LPIPS: 0.5535 | Editing score: 0.6344
+
+[167] Put a red hat on the person in the image.
+  PSNR orig/adv: 26.7840 | edit: 16.5405
+  SSIM orig/adv: 0.8535 | edit: 0.6396
+  FSIM orig/adv: 0.7677 | edit: 0.5915
+  CLIP orig: 27.5249 | adv: 26.7305
+  Caption similarity: 0.6140
+  Caption orig: A man wearing a red hat and a black jacket is standing on the sidewalk.
+  Caption adv:  A man wearing a red jacket and a red tie stands in front of a building.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.4145 | Background SSIM: 0.5534
+  Subject LPIPS: 0.4974 | Editing score: 0.3013
+
+[168] Put a red hat on the person in the image.
+  PSNR orig/adv: 27.7415 | edit: 13.7913
+  SSIM orig/adv: 0.8043 | edit: 0.4948
+  FSIM orig/adv: 0.7024 | edit: 0.4192
+  CLIP orig: 27.2253 | adv: 31.0395
+  Caption similarity: 0.5854
+  Caption orig: A man wearing a red hat and a black jacket stands next to a bicycle.
+  Caption adv:  A person wearing a red hat and holding a red hat.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.7402 | Background SSIM: 0.2956
+  Subject LPIPS: 0.6213 | Editing score: 0.5074
+
+[169] Put a red hat on the person in the image.
+  PSNR orig/adv: 26.7007 | edit: 13.6135
+  SSIM orig/adv: 0.8279 | edit: 0.5549
+  FSIM orig/adv: 0.6945 | edit: 0.4621
+  CLIP orig: 27.3951 | adv: 29.6465
+  Caption similarity: 0.7945
+  Caption orig: A man wearing a red hat and a red jacket is walking down the street.
+  Caption adv:  A woman wearing a red hat and a red jacket is walking down the street.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.7136 | Background SSIM: 0.2703
+  Subject LPIPS: 0.5322 | Editing score: 0.5043
+
+[170] Put a red hat on the person in the image.
+  PSNR orig/adv: 27.6838 | edit: 20.1051
+  SSIM orig/adv: 0.8480 | edit: 0.7477
+  FSIM orig/adv: 0.7286 | edit: 0.5833
+  CLIP orig: 27.0855 | adv: 28.4849
+  Caption similarity: 0.6644
+  Caption orig: A man wearing a red hat and a red shirt is standing on a sidewalk.
+  Caption adv:  A man wearing a red hat and a black jacket.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.2874 | Background SSIM: 0.8069
+  Subject LPIPS: 0.3973 | Editing score: 0.2345
+
+[171] Put a red hat on the person in the image.
+  PSNR orig/adv: 26.0563 | edit: 14.5936
+  SSIM orig/adv: 0.8176 | edit: 0.5064
+  FSIM orig/adv: 0.7319 | edit: 0.4377
+  CLIP orig: 31.0109 | adv: 27.4780
+  Caption similarity: 0.5782
+  Caption orig: A person wearing a red hat with a white top.
+  Caption adv:  A man wearing a red hat and a black vest stands in front of a crowd of people.
+  Accuracy LLM score: 0.7000 | success: False
+  Background LPIPS: 0.5782 | Background SSIM: 0.4630
+  Subject LPIPS: 0.6213 | Editing score: 0.3924
+
+[172] Put a red hat on the person in the image.
+  PSNR orig/adv: 27.0556 | edit: 23.1279
+  SSIM orig/adv: 0.8491 | edit: 0.7057
+  FSIM orig/adv: 0.7642 | edit: 0.5359
+  CLIP orig: 27.9401 | adv: 28.5063
+  Caption similarity: 0.8611
+  Caption orig: A woman wearing a red hat and a red coat is standing in front of a window.
+  Caption adv:  A woman wearing a red hat and a red coat stands in front of a building.
+  Accuracy LLM score: 0.7000 | success: False
+  Background LPIPS: 0.1067 | Background SSIM: 0.7125
+  Subject LPIPS: 0.4774 | Editing score: 0.1425
+
+[173] Put a red hat on the person in the image.
+  PSNR orig/adv: 26.3220 | edit: 15.5251
+  SSIM orig/adv: 0.8135 | edit: 0.6054
+  FSIM orig/adv: 0.7293 | edit: 0.5659
+  CLIP orig: 25.1296 | adv: 27.8324
+  Caption similarity: 0.8882
+  Caption orig: A woman wearing a red hat and a grey jacket is walking down the street.
+  Caption adv:  A woman wearing a red hat and a red dress is walking down the street.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.5496 | Background SSIM: 0.4629
+  Subject LPIPS: 0.5256 | Editing score: 0.3810
+
+[174] Put a red hat on the person in the image.
+  PSNR orig/adv: 26.7919 | edit: 14.8327
+  SSIM orig/adv: 0.8296 | edit: 0.5910
+  FSIM orig/adv: 0.7147 | edit: 0.5047
+  CLIP orig: 26.9573 | adv: 28.3121
+  Caption similarity: 0.7492
+  Caption orig: A person wearing a red hat and a red mask is walking down the street.
+  Caption adv:  A woman wearing a red hat and jacket is walking down the street.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.7106 | Background SSIM: 0.3909
+  Subject LPIPS: 0.4978 | Editing score: 0.4683
+
+[175] Put a red hat on the person in the image.
+  PSNR orig/adv: 27.5795 | edit: 15.5807
+  SSIM orig/adv: 0.8376 | edit: 0.6800
+  FSIM orig/adv: 0.6832 | edit: 0.5277
+  CLIP orig: 26.5973 | adv: 27.6667
+  Caption similarity: 0.6921
+  Caption orig: A woman wearing a red hat and a white jacket is walking down a street.
+  Caption adv:  A woman wearing a red hat and carrying a red hat in her hand.
+  Accuracy LLM score: 0.7000 | success: False
+  Background LPIPS: 0.5216 | Background SSIM: 0.5807
+  Subject LPIPS: 0.3985 | Editing score: 0.3953
+
+[176] Put a red hat on the person in the image.
+  PSNR orig/adv: 26.1391 | edit: 17.4699
+  SSIM orig/adv: 0.8277 | edit: 0.5910
+  FSIM orig/adv: 0.7642 | edit: 0.5467
+  CLIP orig: 28.3685 | adv: 27.5943
+  Caption similarity: 0.8007
+  Caption orig: A person wearing a red hat and a red scarf is standing in front of a yellow car.
+  Caption adv:  A woman wearing a red hat and a brown coat is standing in front of a car.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.3973 | Background SSIM: 0.5698
+  Subject LPIPS: 0.4487 | Editing score: 0.3187
+
+[177] Put a red hat on the person in the image.
+  PSNR orig/adv: 26.8927 | edit: 13.1340
+  SSIM orig/adv: 0.7977 | edit: 0.4562
+  FSIM orig/adv: 0.7877 | edit: 0.4350
+  CLIP orig: 26.6699 | adv: 29.5907
+  Caption similarity: 0.6204
+  Caption orig: A woman wearing a red hat and a red jacket is smiling and posing for a picture.
+  Caption adv:  A woman wearing a red hat and a red coat is walking down the street.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.7708 | Background SSIM: 0.1888
+  Subject LPIPS: 0.5403 | Editing score: 0.5517
+
+[178] Put a red hat on the person in the image.
+  PSNR orig/adv: 26.0728 | edit: 18.1687
+  SSIM orig/adv: 0.8150 | edit: 0.6609
+  FSIM orig/adv: 0.7071 | edit: 0.5698
+  CLIP orig: 29.2131 | adv: 27.5639
+  Caption similarity: 0.8644
+  Caption orig: A woman wearing a red hat and carrying a red purse walks down the street.
+  Caption adv:  A woman wearing a red hat and a red shirt is walking down the street.
+  Accuracy LLM score: 0.7000 | success: False
+  Background LPIPS: 0.2760 | Background SSIM: 0.7488
+  Subject LPIPS: 0.4856 | Editing score: 0.1944
+
+[179] Put a red hat on the person in the image.
+  PSNR orig/adv: 24.8353 | edit: 20.6809
+  SSIM orig/adv: 0.7711 | edit: 0.6572
+  FSIM orig/adv: 0.6763 | edit: 0.5605
+  CLIP orig: 25.0704 | adv: 27.4841
+  Caption similarity: 0.6496
+  Caption orig: A woman wearing a red hat and a brown jacket is standing on a street.
+  Caption adv:  A woman wearing a red hat and a brown coat is standing in front of a man wearing a suit.
+  Accuracy LLM score: 0.7000 | success: False
+  Background LPIPS: 0.1437 | Background SSIM: 0.8542
+  Subject LPIPS: 0.4270 | Editing score: 0.1450
+
+[180] Put a red hat on the person in the image.
+  PSNR orig/adv: 26.3429 | edit: 22.0082
+  SSIM orig/adv: 0.8866 | edit: 0.7836
+  FSIM orig/adv: 0.7279 | edit: 0.5922
+  CLIP orig: 28.8465 | adv: 27.9527
+  Caption similarity: 0.7401
+  Caption orig: A man wearing a red hat and a red jacket stands on a snowy surface.
+  Caption adv:  A man wearing a red hat and a brown jacket is standing on a sidewalk.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.1660 | Background SSIM: 0.7720
+  Subject LPIPS: 0.3437 | Editing score: 0.2286
+
+[181] Put a red hat on the person in the image.
+  PSNR orig/adv: 26.3069 | edit: 12.1305
+  SSIM orig/adv: 0.7878 | edit: 0.4710
+  FSIM orig/adv: 0.7724 | edit: 0.4148
+  CLIP orig: 27.8419 | adv: 29.3706
+  Caption similarity: 0.4637
+  Caption orig: A woman wearing a red hat and a black shirt is standing on a city street.
+  Caption adv:  A woman wearing a red hat is hugging another woman.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.8500 | Background SSIM: 0.1525
+  Subject LPIPS: 0.6269 | Editing score: 0.5943
+
+[182] Put a red hat on the person in the image.
+  PSNR orig/adv: 26.8526 | edit: 21.1700
+  SSIM orig/adv: 0.8473 | edit: 0.7461
+  FSIM orig/adv: 0.7469 | edit: 0.6225
+  CLIP orig: 27.0545 | adv: 26.8185
+  Caption similarity: 0.9217
+  Caption orig: A woman wearing a red hat and a brown coat is standing outside.
+  Caption adv:  A woman wearing a red hat and a brown coat is standing on the street.
+  Accuracy LLM score: 0.7000 | success: False
+  Background LPIPS: 0.1893 | Background SSIM: 0.8263
+  Subject LPIPS: 0.3498 | Editing score: 0.2180
+
+[183] Put a red hat on the person in the image.
+  PSNR orig/adv: 25.5788 | edit: 12.8873
+  SSIM orig/adv: 0.8606 | edit: 0.5170
+  FSIM orig/adv: 0.8169 | edit: 0.4567
+  CLIP orig: 29.3181 | adv: 26.4232
+  Caption similarity: 0.3778
+  Caption orig: A person wearing a red hat and a red coat is walking down the street.
+  Caption adv:  A woman wearing a red dress with hearts on it.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.8598 | Background SSIM: 0.0833
+  Subject LPIPS: 0.4995 | Editing score: 0.6192
+
+[184] Put a red hat on the person in the image.
+  PSNR orig/adv: 27.2429 | edit: 12.3817
+  SSIM orig/adv: 0.8782 | edit: 0.5834
+  FSIM orig/adv: 0.7533 | edit: 0.3877
+  CLIP orig: 30.7153 | adv: 26.9587
+  Caption similarity: 0.6559
+  Caption orig: A woman wearing a red hat with a white top and red lipstick.
+  Caption adv:  A woman wearing a red hat and a red coat is walking down the street.
+  Accuracy LLM score: 0.7000 | success: False
+  Background LPIPS: 0.7275 | Background SSIM: 0.3192
+  Subject LPIPS: 0.5795 | Editing score: 0.4952
+
+[185] Put a red hat on the person in the image.
+  PSNR orig/adv: 26.1191 | edit: 18.4727
+  SSIM orig/adv: 0.8100 | edit: 0.6258
+  FSIM orig/adv: 0.6610 | edit: 0.4797
+  CLIP orig: 25.8597 | adv: 28.1639
+  Caption similarity: 0.6110
+  Caption orig: A woman wearing a red dress and a red hat stands on a beach.
+  Caption adv:  A woman wearing a red hat and a red coat.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.4108 | Background SSIM: 0.5375
+  Subject LPIPS: 0.4748 | Editing score: 0.3182
+
+[186] Put a red hat on the person in the image.
+  PSNR orig/adv: 26.7374 | edit: 16.6313
+  SSIM orig/adv: 0.8568 | edit: 0.6195
+  FSIM orig/adv: 0.7818 | edit: 0.5898
+  CLIP orig: 28.3109 | adv: 26.0280
+  Caption similarity: 0.9230
+  Caption orig: A person wearing a red hat and a red jacket is walking down the street.
+  Caption adv:  A man wearing a red jacket and a red hat is walking down the street.
+  Accuracy LLM score: 0.7000 | success: False
+  Background LPIPS: 0.3789 | Background SSIM: 0.5781
+  Subject LPIPS: 0.4302 | Editing score: 0.3200
+
+[187] Put a red hat on the person in the image.
+  PSNR orig/adv: 26.7064 | edit: 19.6279
+  SSIM orig/adv: 0.8448 | edit: 0.7284
+  FSIM orig/adv: 0.7290 | edit: 0.5836
+  CLIP orig: 27.3048 | adv: 30.2076
+  Caption similarity: 0.6926
+  Caption orig: A woman wearing a red hat and a red sweater is standing on the sidewalk.
+  Caption adv:  A woman wearing a red hat and holding a red glove walks down the street.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.2280 | Background SSIM: 0.7376
+  Subject LPIPS: 0.3948 | Editing score: 0.2330
+
+[188] Put a red hat on the person in the image.
+  PSNR orig/adv: 26.4612 | edit: 20.8127
+  SSIM orig/adv: 0.7905 | edit: 0.6238
+  FSIM orig/adv: 0.7132 | edit: 0.5639
+  CLIP orig: 27.3201 | adv: 26.6743
+  Caption similarity: 0.9016
+  Caption orig: A woman wearing a red hat and a red dress stands on a street corner.
+  Caption adv:  A woman wearing a red hat and a white dress stands on a street.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.1050 | Background SSIM: 0.7898
+  Subject LPIPS: 0.5333 | Editing score: 0.1051
+
+[189] Put a red hat on the person in the image.
+  PSNR orig/adv: 31.0483 | edit: 24.5146
+  SSIM orig/adv: 0.9299 | edit: 0.8612
+  FSIM orig/adv: 0.8511 | edit: 0.6968
+  CLIP orig: 29.7291 | adv: 29.3258
+  Caption similarity: 0.8508
+  Caption orig: A man wearing a red hat and a black jacket stands in front of a red wall.
+  Caption adv:  A man wearing a red hat and a black jacket stands in front of a red background.
+  Accuracy LLM score: 0.7000 | success: False
+  Background LPIPS: 0.0500 | Background SSIM: 0.9033
+  Subject LPIPS: 0.1537 | Editing score: 0.2568
+
+[190] Put a red hat on the person in the image.
+  PSNR orig/adv: 27.0989 | edit: 14.0964
+  SSIM orig/adv: 0.8564 | edit: 0.5847
+  FSIM orig/adv: 0.7216 | edit: 0.4837
+  CLIP orig: 27.5722 | adv: 30.0554
+  Caption similarity: 0.6032
+  Caption orig: A woman wearing a red hat with a flower design on it, smiling and showing off her red lipstick.
+  Caption adv:  A woman wearing a red hat and a red sweater is holding a purse.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.4815 | Background SSIM: 0.5080
+  Subject LPIPS: 0.5925 | Editing score: 0.3402
+
+[191] Put a red hat on the person in the image.
+  PSNR orig/adv: 24.9355 | edit: 12.8961
+  SSIM orig/adv: 0.7278 | edit: 0.4296
+  FSIM orig/adv: 0.7362 | edit: 0.5447
+  CLIP orig: 23.2413 | adv: 24.5312
+  Caption similarity: 0.8253
+  Caption orig: A woman wearing a blue dress with polka dots and a red hat stands on a city street.
+  Caption adv:  A woman wearing a red dress with polka dots is standing on a street.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.5992 | Background SSIM: 0.4119
+  Subject LPIPS: 0.5296 | Editing score: 0.4161
+
+[192] Put a red hat on the person in the image.
+  PSNR orig/adv: 26.8959 | edit: 14.0656
+  SSIM orig/adv: 0.8414 | edit: 0.6099
+  FSIM orig/adv: 0.8215 | edit: 0.5797
+  CLIP orig: 25.9524 | adv: 28.7709
+  Caption similarity: 0.6703
+  Caption orig: A man wearing a red hat and a leopard print coat walks down the street.
+  Caption adv:  A man wearing a red jacket with a leopard print on it.
+  Accuracy LLM score: 0.7000 | success: False
+  Background LPIPS: 0.5652 | Background SSIM: 0.4741
+  Subject LPIPS: 0.4985 | Editing score: 0.3848
+
+[193] Put a red hat on the person in the image.
+  PSNR orig/adv: 26.8969 | edit: 18.1416
+  SSIM orig/adv: 0.7558 | edit: 0.4401
+  FSIM orig/adv: 0.8017 | edit: 0.4261
+  CLIP orig: 28.0402 | adv: 26.1058
+  Caption similarity: 1.0000
+  Caption orig: A woman wearing a red hat and a red coat is walking down the street.
+  Caption adv:  A woman wearing a red hat and a red coat is walking down the street.
+  Accuracy LLM score: 1.0000 | success: False
+  Background LPIPS: 0.5158 | Background SSIM: 0.4114
+  Subject LPIPS: 0.7137 | Editing score: 0.3829
+
+[194] Put a red hat on the person in the image.
+  PSNR orig/adv: 26.5299 | edit: 17.8901
+  SSIM orig/adv: 0.7909 | edit: 0.5795
+  FSIM orig/adv: 0.7227 | edit: 0.5197
+  CLIP orig: 28.1236 | adv: 25.4695
+  Caption similarity: 0.5221
+  Caption orig: A woman wearing a red hat and red jacket walks down the street.
+  Caption adv:  A woman wearing a red dress with a face on it.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.4593 | Background SSIM: 0.5366
+  Subject LPIPS: 0.4344 | Editing score: 0.3621
+
+[195] Put a red hat on the person in the image.
+  PSNR orig/adv: 27.4969 | edit: 13.8796
+  SSIM orig/adv: 0.8335 | edit: 0.5598
+  FSIM orig/adv: 0.7558 | edit: 0.5009
+  CLIP orig: 24.8823 | adv: 28.5620
+  Caption similarity: 0.4937
+  Caption orig: A man wearing a red mask and red pants stands on a street.
+  Caption adv:  A person wearing a red hat and jacket is standing next to a red hat.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.6921 | Background SSIM: 0.3682
+  Subject LPIPS: 0.4366 | Editing score: 0.5044
+
+[196] Put a red hat on the person in the image.
+  PSNR orig/adv: 26.7336 | edit: 19.3634
+  SSIM orig/adv: 0.8348 | edit: 0.6685
+  FSIM orig/adv: 0.6978 | edit: 0.5244
+  CLIP orig: 27.2450 | adv: 28.5706
+  Caption similarity: 0.7356
+  Caption orig: A woman wearing a red hat and red dress stands on a beach.
+  Caption adv:  A woman wearing a red hat and a red dress.
+  Accuracy LLM score: 0.8000 | success: False
+  Background LPIPS: 0.3239 | Background SSIM: 0.5940
+  Subject LPIPS: 0.4207 | Editing score: 0.2989
+
+[197] Put a red hat on the person in the image.
+  PSNR orig/adv: 27.7866 | edit: 19.4926
+  SSIM orig/adv: 0.8354 | edit: 0.6543
+  FSIM orig/adv: 0.7880 | edit: 0.5653
+  CLIP orig: 24.6557 | adv: 27.9327
+  Caption similarity: 0.7083
+  Caption orig: A woman wearing a red mask and a red dress is walking down the street.
+  Caption adv:  A woman wearing a red hat and red dress stands on a street.
+  Accuracy LLM score: 0.3000 | success: True
+  Background LPIPS: 0.3248 | Background SSIM: 0.5305
+  Subject LPIPS: 0.3782 | Editing score: 0.3439
+
+[198] Put a red hat on the person in the image.
+  PSNR orig/adv: 27.0457 | edit: 16.3255
+  SSIM orig/adv: 0.8098 | edit: 0.6453
+  FSIM orig/adv: 0.6900 | edit: 0.4950
+  CLIP orig: 28.7168 | adv: 29.7858
+  Caption similarity: 0.8231
+  Caption orig: A woman wearing a red hat and a red hat on her head.
+  Caption adv:  A person wearing a red hat and holding a red hat.
+  Accuracy LLM score: 0.7000 | success: False
+  Background LPIPS: 0.5171 | Background SSIM: 0.6993
+  Subject LPIPS: 0.5468 | Editing score: 0.2971
+
+[199] Put a red hat on the person in the image.
+  PSNR orig/adv: 27.2352 | edit: 15.7377
+  SSIM orig/adv: 0.8577 | edit: 0.6138
+  FSIM orig/adv: 0.7136 | edit: 0.4375
+  CLIP orig: 27.2888 | adv: 27.0909
+  Caption similarity: 0.7189
+  Caption orig: A woman wearing a red hat and holding a red hat in her hand.
+  Caption adv:  A woman wearing a red hat and a red coat is walking down the street.
+  Accuracy LLM score: 0.7000 | success: False
+  Background LPIPS: 0.7130 | Background SSIM: 0.3716
+  Subject LPIPS: 0.4872 | Editing score: 0.4814
+

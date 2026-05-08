@@ -1,0 +1,35 @@
+--- Prompt ---
+Put a red hat on the person in the image.
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 27.4969
+SSIM: 0.8335
+FSIM: 0.7558
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 13.8796
+SSIM: 0.5598
+FSIM: 0.5009
+
+CLIP score (Image vs Prompt)
+Edited Original:  24.8823
+Edited Immunized: 28.5620
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.4937
+Caption orig: A man wearing a red mask and red pants stands on a street.
+Caption adv:  A person wearing a red hat and jacket is standing next to a red hat.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.6921
+Background SSIM   (basso=protezione ok): 0.3682
+Subject LPIPS     (basso=soggetto ok)  : 0.4366
+Editing score                          : 0.5044
+Mask coverage (% background)           : 0.3190
