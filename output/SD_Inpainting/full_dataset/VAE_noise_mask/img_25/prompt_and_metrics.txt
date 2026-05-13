@@ -1,0 +1,21 @@
+--- Prompt ---
+A person in a gym sauna
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 28.5873
+SSIM: 0.9170
+FSIM: 0.8988
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 16.3785
+SSIM: 0.5327
+FSIM: 0.4809
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.5238
+Background SSIM   (basso=protezione ok): 0.4821
+Subject LPIPS     (basso=soggetto ok)  : 0.4640
+Editing score                          : 0.3865
+Mask coverage (% background)           : 0.7283

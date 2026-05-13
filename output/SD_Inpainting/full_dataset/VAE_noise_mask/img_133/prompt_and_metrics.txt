@@ -1,0 +1,21 @@
+--- Prompt ---
+A person in a local crafts market
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 30.1323
+SSIM: 0.9423
+FSIM: 0.9005
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 18.8500
+SSIM: 0.5965
+FSIM: 0.5643
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.4238
+Background SSIM   (basso=protezione ok): 0.5671
+Subject LPIPS     (basso=soggetto ok)  : 0.5224
+Editing score                          : 0.2994
+Mask coverage (% background)           : 0.7787

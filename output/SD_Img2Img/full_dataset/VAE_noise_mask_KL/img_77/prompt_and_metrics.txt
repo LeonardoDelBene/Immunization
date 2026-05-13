@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a bridal fitting room
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 29.4376
+SSIM: 0.9048
+FSIM: 0.9048
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 15.2804
+SSIM: 0.4892
+FSIM: 0.4526
+
+CLIP score (Image vs Prompt)
+Edited Original:  23.2984
+Edited Immunized: 24.0956
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        1.0000
+Caption orig: A woman in a blue dress is talking on her cell phone.
+Caption adv:  A woman in a blue dress is talking on her cell phone.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 1.0000
+Success:   False
+Accuracy:  0.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.6413
+Background SSIM   (basso=protezione ok): 0.4519
+Subject LPIPS     (basso=soggetto ok)  : 0.4874
+Editing score                          : 0.4285
+Mask coverage (% background)           : 0.7569

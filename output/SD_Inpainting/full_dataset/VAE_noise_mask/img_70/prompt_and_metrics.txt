@@ -1,0 +1,21 @@
+--- Prompt ---
+A person in a frozen yogurt shop
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 29.2359
+SSIM: 0.9229
+FSIM: 0.8864
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 13.1937
+SSIM: 0.5667
+FSIM: 0.4911
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.6599
+Background SSIM   (basso=protezione ok): 0.4930
+Subject LPIPS     (basso=soggetto ok)  : 0.2186
+Editing score                          : 0.5849
+Mask coverage (% background)           : 0.6916

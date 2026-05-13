@@ -1,0 +1,21 @@
+--- Prompt ---
+A person in a customs checkpoint
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 24.9431
+SSIM: 0.9197
+FSIM: 0.8364
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 17.4359
+SSIM: 0.6629
+FSIM: 0.5512
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.5021
+Background SSIM   (basso=protezione ok): 0.6076
+Subject LPIPS     (basso=soggetto ok)  : 0.2914
+Editing score                          : 0.4438
+Mask coverage (% background)           : 0.6436

@@ -1,0 +1,21 @@
+--- Prompt ---
+A person in a children’s theater
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 26.6605
+SSIM: 0.9175
+FSIM: 0.8493
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 13.1876
+SSIM: 0.4332
+FSIM: 0.4098
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.7060
+Background SSIM   (basso=protezione ok): 0.3441
+Subject LPIPS     (basso=soggetto ok)  : 0.4765
+Editing score                          : 0.4933
+Mask coverage (% background)           : 0.7324

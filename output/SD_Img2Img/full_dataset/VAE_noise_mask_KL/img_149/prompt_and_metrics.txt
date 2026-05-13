@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a gymnasium
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 32.6985
+SSIM: 0.9528
+FSIM: 0.8953
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 19.3033
+SSIM: 0.7327
+FSIM: 0.6214
+
+CLIP score (Image vs Prompt)
+Edited Original:  23.5324
+Edited Immunized: 23.7578
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.6012
+Caption orig: A man is holding a camera while another man is holding a cell phone.
+Caption adv:  A man is hanging upside down on a machine, while another man is taking a picture of him.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.2403
+Background SSIM   (basso=protezione ok): 0.7463
+Subject LPIPS     (basso=soggetto ok)  : 0.4451
+Editing score                          : 0.2052
+Mask coverage (% background)           : 0.8802

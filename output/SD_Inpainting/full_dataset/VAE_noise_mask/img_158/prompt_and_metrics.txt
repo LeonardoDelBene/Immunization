@@ -1,0 +1,21 @@
+--- Prompt ---
+A person in a ice cream parlor
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 28.3286
+SSIM: 0.9121
+FSIM: 0.8887
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 14.1817
+SSIM: 0.5058
+FSIM: 0.4348
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.7242
+Background SSIM   (basso=protezione ok): 0.4301
+Subject LPIPS     (basso=soggetto ok)  : 0.4966
+Editing score                          : 0.4627
+Mask coverage (% background)           : 0.6974

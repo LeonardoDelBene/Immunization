@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a digital art gallery
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 29.9412
+SSIM: 0.9262
+FSIM: 0.9086
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 12.6953
+SSIM: 0.5077
+FSIM: 0.4955
+
+CLIP score (Image vs Prompt)
+Edited Original:  27.0024
+Edited Immunized: 32.0844
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.8075
+Caption orig: A woman wearing glasses and a blue shirt stands in front of a collage of pictures.
+Caption adv:  A woman wearing glasses and a floral shirt stands in front of a wall of pictures.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.5221
+Background SSIM   (basso=protezione ok): 0.4288
+Subject LPIPS     (basso=soggetto ok)  : 0.4191
+Editing score                          : 0.4288
+Mask coverage (% background)           : 0.7352

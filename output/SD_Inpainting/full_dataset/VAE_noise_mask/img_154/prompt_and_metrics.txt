@@ -1,0 +1,21 @@
+--- Prompt ---
+A person in a mall
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 30.8171
+SSIM: 0.9631
+FSIM: 0.9436
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 14.0034
+SSIM: 0.5555
+FSIM: 0.4735
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.6343
+Background SSIM   (basso=protezione ok): 0.5274
+Subject LPIPS     (basso=soggetto ok)  : 0.6523
+Editing score                          : 0.3955
+Mask coverage (% background)           : 0.8454

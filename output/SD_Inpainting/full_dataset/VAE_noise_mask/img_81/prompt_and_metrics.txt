@@ -1,0 +1,21 @@
+--- Prompt ---
+A person in a bridal fitting room
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 27.1408
+SSIM: 0.8892
+FSIM: 0.8914
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 13.7518
+SSIM: 0.6056
+FSIM: 0.4849
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.6300
+Background SSIM   (basso=protezione ok): 0.5644
+Subject LPIPS     (basso=soggetto ok)  : 0.4400
+Editing score                          : 0.4187
+Mask coverage (% background)           : 0.6491

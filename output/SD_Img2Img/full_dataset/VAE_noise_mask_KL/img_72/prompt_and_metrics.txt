@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a parking garage
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 30.6246
+SSIM: 0.9778
+FSIM: 0.9062
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 18.7113
+SSIM: 0.6333
+FSIM: 0.6095
+
+CLIP score (Image vs Prompt)
+Edited Original:  28.0008
+Edited Immunized: 27.2137
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.8051
+Caption orig: A woman wearing a hat and glasses is standing in a dark room.
+Caption adv:  A woman wearing a knitted sweater and a hat is standing in a dark room.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.4000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.5894
+Background SSIM   (basso=protezione ok): 0.5127
+Subject LPIPS     (basso=soggetto ok)  : 0.1363
+Editing score                          : 0.6002
+Mask coverage (% background)           : 0.7013

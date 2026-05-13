@@ -1,0 +1,21 @@
+--- Prompt ---
+A person in a science museum exhibit
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 30.3516
+SSIM: 0.9325
+FSIM: 0.9046
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 18.1130
+SSIM: 0.6197
+FSIM: 0.4586
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.4830
+Background SSIM   (basso=protezione ok): 0.5979
+Subject LPIPS     (basso=soggetto ok)  : 0.6233
+Editing score                          : 0.3138
+Mask coverage (% background)           : 0.7607

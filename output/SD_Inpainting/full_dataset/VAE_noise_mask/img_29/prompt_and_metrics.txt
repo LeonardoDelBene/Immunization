@@ -1,0 +1,21 @@
+--- Prompt ---
+A person in a laundry room
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 27.6622
+SSIM: 0.9391
+FSIM: 0.8365
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 14.0213
+SSIM: 0.5724
+FSIM: 0.5118
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.6748
+Background SSIM   (basso=protezione ok): 0.4982
+Subject LPIPS     (basso=soggetto ok)  : 0.3448
+Editing score                          : 0.5136
+Mask coverage (% background)           : 0.7121

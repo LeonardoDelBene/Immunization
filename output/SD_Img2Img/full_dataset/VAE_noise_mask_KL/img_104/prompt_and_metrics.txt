@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a craft beer festival
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 29.8960
+SSIM: 0.9126
+FSIM: 0.8655
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 18.7050
+SSIM: 0.7563
+FSIM: 0.6604
+
+CLIP score (Image vs Prompt)
+Edited Original:  24.1973
+Edited Immunized: 28.8874
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.5573
+Caption orig: A woman wearing a blue and white striped sweater and sunglasses is standing in front of a dining table.
+Caption adv:  A woman wearing a striped shirt and sunglasses stands in a crowd.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.3027
+Background SSIM   (basso=protezione ok): 0.7760
+Subject LPIPS     (basso=soggetto ok)  : 0.2840
+Editing score                          : 0.3179
+Mask coverage (% background)           : 0.6951

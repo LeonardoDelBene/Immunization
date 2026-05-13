@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a music and arts festival
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 29.8729
+SSIM: 0.9023
+FSIM: 0.8693
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 16.8317
+SSIM: 0.6405
+FSIM: 0.5485
+
+CLIP score (Image vs Prompt)
+Edited Original:  24.6509
+Edited Immunized: 27.3111
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.6807
+Caption orig: A man wearing a brown jacket and carrying a bag stands in front of a crowd of people.
+Caption adv:  A woman wearing a brown coat stands in front of a crowd of people.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.4769
+Background SSIM   (basso=protezione ok): 0.6257
+Subject LPIPS     (basso=soggetto ok)  : 0.5038
+Editing score                          : 0.3030
+Mask coverage (% background)           : 0.6906

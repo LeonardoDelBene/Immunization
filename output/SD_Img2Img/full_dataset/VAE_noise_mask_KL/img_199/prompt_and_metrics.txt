@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a glass factory
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 30.8136
+SSIM: 0.9366
+FSIM: 0.8817
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 15.8992
+SSIM: 0.5154
+FSIM: 0.4936
+
+CLIP score (Image vs Prompt)
+Edited Original:  30.0046
+Edited Immunized: 30.4859
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.4808
+Caption orig: A woman wearing a blue jacket and a blue hat is holding a blue bucket.
+Caption adv:  A woman in a blue jacket is standing in front of a group of people.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.7000
+Success:   False
+Accuracy:  0.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.5948
+Background SSIM   (basso=protezione ok): 0.4574
+Subject LPIPS     (basso=soggetto ok)  : 0.3508
+Editing score                          : 0.4902
+Mask coverage (% background)           : 0.7680

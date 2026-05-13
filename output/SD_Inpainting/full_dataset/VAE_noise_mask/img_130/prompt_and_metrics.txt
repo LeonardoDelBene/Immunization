@@ -1,0 +1,21 @@
+--- Prompt ---
+A person in a travel agency
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 26.6390
+SSIM: 0.8985
+FSIM: 0.9149
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 18.9184
+SSIM: 0.6990
+FSIM: 0.6033
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.4289
+Background SSIM   (basso=protezione ok): 0.7198
+Subject LPIPS     (basso=soggetto ok)  : 0.4604
+Editing score                          : 0.2794
+Mask coverage (% background)           : 0.6978

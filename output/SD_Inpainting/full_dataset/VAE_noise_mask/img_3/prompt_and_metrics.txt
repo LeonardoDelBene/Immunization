@@ -1,0 +1,21 @@
+--- Prompt ---
+A person in a sports field
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 27.3212
+SSIM: 0.9230
+FSIM: 0.8769
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 18.4862
+SSIM: 0.6511
+FSIM: 0.4429
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.5943
+Background SSIM   (basso=protezione ok): 0.6584
+Subject LPIPS     (basso=soggetto ok)  : 0.6230
+Editing score                          : 0.3402
+Mask coverage (% background)           : 0.7786

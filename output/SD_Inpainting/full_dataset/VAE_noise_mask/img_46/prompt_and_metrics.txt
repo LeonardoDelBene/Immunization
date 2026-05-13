@@ -1,0 +1,21 @@
+--- Prompt ---
+A person in a gymnasium
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 28.0122
+SSIM: 0.9490
+FSIM: 0.8845
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 16.7027
+SSIM: 0.5685
+FSIM: 0.4485
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.6906
+Background SSIM   (basso=protezione ok): 0.4956
+Subject LPIPS     (basso=soggetto ok)  : 0.4603
+Editing score                          : 0.4514
+Mask coverage (% background)           : 0.7410

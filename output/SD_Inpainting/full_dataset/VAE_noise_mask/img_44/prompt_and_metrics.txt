@@ -1,0 +1,21 @@
+--- Prompt ---
+A person in a vintage arts fair
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 27.3689
+SSIM: 0.9361
+FSIM: 0.8956
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 14.3985
+SSIM: 0.5134
+FSIM: 0.5043
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.6074
+Background SSIM   (basso=protezione ok): 0.4399
+Subject LPIPS     (basso=soggetto ok)  : 0.3845
+Editing score                          : 0.4803
+Mask coverage (% background)           : 0.7475

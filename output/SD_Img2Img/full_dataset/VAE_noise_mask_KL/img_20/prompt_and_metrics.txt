@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a hot dog stand
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 30.1456
+SSIM: 0.9404
+FSIM: 0.8790
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 19.2774
+SSIM: 0.7064
+FSIM: 0.6072
+
+CLIP score (Image vs Prompt)
+Edited Original:  24.5373
+Edited Immunized: 22.1510
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.2361
+Caption orig: A woman wearing a colorful shirt stands in front of a restaurant.
+Caption adv:  A woman wearing a tie-dye shirt and a man in a black shirt sit at a table.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.3308
+Background SSIM   (basso=protezione ok): 0.6698
+Subject LPIPS     (basso=soggetto ok)  : 0.2947
+Editing score                          : 0.3546
+Mask coverage (% background)           : 0.7081

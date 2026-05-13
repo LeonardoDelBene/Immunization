@@ -1,0 +1,21 @@
+--- Prompt ---
+A person in a motel room
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 26.4966
+SSIM: 0.9180
+FSIM: 0.8627
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 7.2232
+SSIM: 0.2652
+FSIM: 0.5254
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.8495
+Background SSIM   (basso=protezione ok): 0.0000
+Subject LPIPS     (basso=soggetto ok)  : 0.3881
+Editing score                          : 0.7069
+Mask coverage (% background)           : 0.6505

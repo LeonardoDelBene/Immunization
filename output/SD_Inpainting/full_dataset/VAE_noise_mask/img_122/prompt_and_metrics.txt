@@ -1,0 +1,21 @@
+--- Prompt ---
+A person in a science lab
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 26.2991
+SSIM: 0.9273
+FSIM: 0.8585
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 16.2761
+SSIM: 0.6236
+FSIM: 0.5438
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.5412
+Background SSIM   (basso=protezione ok): 0.5366
+Subject LPIPS     (basso=soggetto ok)  : 0.3981
+Editing score                          : 0.4166
+Mask coverage (% background)           : 0.6520

@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a TV newsroom
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 30.7340
+SSIM: 0.9265
+FSIM: 0.9236
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 16.3667
+SSIM: 0.6463
+FSIM: 0.5920
+
+CLIP score (Image vs Prompt)
+Edited Original:  32.2246
+Edited Immunized: 31.1023
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.6567
+Caption orig: A woman with blonde hair and a brown jacket stands in front of a large number of TV screens.
+Caption adv:  A woman in a black dress stands in front of a wall of TVs.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.3870
+Background SSIM   (basso=protezione ok): 0.6340
+Subject LPIPS     (basso=soggetto ok)  : 0.4269
+Editing score                          : 0.3084
+Mask coverage (% background)           : 0.7729

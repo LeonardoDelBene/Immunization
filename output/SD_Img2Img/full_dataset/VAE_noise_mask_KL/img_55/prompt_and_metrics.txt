@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a historic landmark event
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 31.4440
+SSIM: 0.9516
+FSIM: 0.9130
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 22.6361
+SSIM: 0.7718
+FSIM: 0.6824
+
+CLIP score (Image vs Prompt)
+Edited Original:  23.8313
+Edited Immunized: 25.0128
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.5945
+Caption orig: A woman wearing sunglasses and a pink shirt stands in front of a stone pillar.
+Caption adv:  A woman wearing a white shirt and black pants is standing in front of a large rock.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.2517
+Background SSIM   (basso=protezione ok): 0.7784
+Subject LPIPS     (basso=soggetto ok)  : 0.4275
+Editing score                          : 0.2106
+Mask coverage (% background)           : 0.8100

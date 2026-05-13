@@ -1,0 +1,21 @@
+--- Prompt ---
+A person in a car dealership
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 30.4811
+SSIM: 0.9127
+FSIM: 0.8941
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 15.3611
+SSIM: 0.6016
+FSIM: 0.4851
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.5954
+Background SSIM   (basso=protezione ok): 0.5962
+Subject LPIPS     (basso=soggetto ok)  : 0.6237
+Editing score                          : 0.3593
+Mask coverage (% background)           : 0.7433

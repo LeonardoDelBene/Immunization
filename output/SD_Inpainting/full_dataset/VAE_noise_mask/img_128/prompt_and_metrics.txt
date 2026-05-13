@@ -1,0 +1,21 @@
+--- Prompt ---
+A person in a vintage arcade
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 29.2948
+SSIM: 0.9324
+FSIM: 0.8649
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 12.2783
+SSIM: 0.4001
+FSIM: 0.4334
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.6122
+Background SSIM   (basso=protezione ok): 0.2915
+Subject LPIPS     (basso=soggetto ok)  : 0.5017
+Editing score                          : 0.4574
+Mask coverage (% background)           : 0.7348

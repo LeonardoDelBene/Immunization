@@ -4,6 +4,7 @@ import torch.nn.functional as F
 from torch import Tensor
 from typing import List, Tuple
 from sklearn.cluster import KMeans
+import lpips
 
 
 # ─────────────────────────────────────────────
@@ -91,6 +92,45 @@ def vae_align_loss(posterior_im, posterior_target) -> Tensor:
 
 def vae_mse(posterior_im, posterior_target) -> Tensor:
     return F.mse_loss(posterior_im, posterior_target)
+
+
+
+
+def decoder_consistency_loss(
+    vae,
+    posterior_adv,
+    target_img,
+    lpips,
+    lpips_weight=1.0,
+    l1_weight=1.0,
+    sample_latent=True,
+    device='cuda'
+):
+    
+
+    if sample_latent:
+        z_adv = posterior_adv.sample()
+    else:
+        z_adv = posterior_adv.mean
+
+    # IMPORTANTISSIMO
+    if hasattr(vae.config, "scaling_factor"):
+        z_adv = z_adv * vae.config.scaling_factor
+
+    recon_adv = vae.decode(z_adv).sample
+
+    loss = 0.0
+
+    if l1_weight > 0:
+        loss += l1_weight * F.l1_loss(recon_adv, target_img)
+
+    if lpips_weight > 0:
+        loss += lpips_weight * lpips(
+            recon_adv,
+            target_img
+        ).mean()
+
+    return loss
 
 
 
@@ -221,22 +261,27 @@ def total_loss(
     I_im:      Tensor,
     I:         Tensor,
     M:         Tensor,
+    I_target:  Tensor,
     # ── feature CLIP (una lista per surrogato) ──
     X_cls_list:    List[Tensor],
     Y_cls_list:    List[Tensor],
     X_patch_list:  List[Tensor],
     Y_patch_list:  List[Tensor],
     # ── VAE ──
-    posterior_im,  # DiagonalGaussianDistribution di I_im
-    posterior_target,
+    surrogate_vae_models: List,  # lista di VAE per ogni surrogato
+    posterior_im_list,  # DiagonalGaussianDistribution di I_im
+    posterior_target_list,
+    lpips,
     # ── weighter ──
     dyn_weighter: DynamicWeighter,
     # ── iperparametri ──
     alpha: float = 1.0,
     beta:  float = 1.0,
     eta:   float = 0.2,
-    lambda_vae: float = 0.03,
+    lambda_kl: float = 0.03,
+    lambda_res: float = 0.03,
     noise_on_mask: bool = False,
+    device: str = 'cuda'
 ) -> Tuple[Tensor, dict]:
 
     # ── 1. Loss impercettibilità ──
@@ -246,7 +291,7 @@ def total_loss(
     per_surrogate_losses = []   # L_θi completa per ogni surrogato → S_i
     per_surrogate_terms  = []   # termini da pesare nella total loss
 
-    for X_cls, Y_cls, X_patch, Y_patch in zip(
+    '''for X_cls, Y_cls, X_patch, Y_patch in zip(
         X_cls_list, Y_cls_list, X_patch_list, Y_patch_list
     ):
         l_coa_i = coarse_loss(X_cls, Y_cls)
@@ -256,13 +301,26 @@ def total_loss(
         l_i = l_coa_i + eta * l_fin_i
 
         per_surrogate_losses.append(l_i.item())   # scalare per il weighter
-        per_surrogate_terms.append(l_i)           # tensore per il backward
+        per_surrogate_terms.append(l_i)           # tensore per il backward'''
+    
+    per_surrogate_kl = []
+    per_surrogate_res = []
 
-    l_vae = vae_align_loss(posterior_im, posterior_target) # KL divergence tra distribuzioni latenti
-    #l_vae = vae_mse(posterior_im.mean, posterior_target.mean) # MSE tra latenti
-    l_vae = lambda_vae * l_vae
-    per_surrogate_losses.append(l_vae.item())
-    per_surrogate_terms.append(l_vae)
+    for vae, posterior_im, posterior_target in zip(surrogate_vae_models, posterior_im_list, posterior_target_list):
+        l_kl = vae_align_loss(posterior_im, posterior_target)
+        l_res = decoder_consistency_loss(
+            vae,  # assumiamo un solo VAE per ora
+            posterior_im,
+            I_target,
+            lpips,
+            device= device,
+        )
+        l_vae =  (lambda_kl *l_kl + lambda_res *l_res)
+        per_surrogate_losses.append(l_vae.item())
+        per_surrogate_terms.append(l_vae)
+        per_surrogate_kl.append(lambda_kl *l_kl.item())
+        per_surrogate_res.append(lambda_res *l_res.item())
+
 
     # ── 3. Pesi dinamici calcolati sulla loss completa ──
     weights = dyn_weighter.get_weights()
@@ -280,6 +338,24 @@ def total_loss(
         "l_noise": l_noise.item(),
         "l_surrogates": l_surrogates.item(),
         "weights": weights,
-        **{f"l_surrogate_{i}": l_i.item() for i, l_i in enumerate(per_surrogate_terms)},
     }
+
+    # Log combined surrogate losses
+    log.update({
+    f"l_surrogate_{i}": l_i.item()
+    for i, l_i in enumerate(per_surrogate_terms)
+    })
+
+    # Log KL terms
+    log.update({
+    f"l_kl_{i}": l_kl_i
+    for i, l_kl_i in enumerate(per_surrogate_kl)
+    })
+
+    # Log reconstruction terms
+    log.update({
+    f"l_res_{i}": l_res_i
+    for i, l_res_i in enumerate(per_surrogate_res)
+    })
+
     return l_tot, log

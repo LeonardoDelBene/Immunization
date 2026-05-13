@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a charity art auction
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 29.2618
+SSIM: 0.8561
+FSIM: 0.7426
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 16.2825
+SSIM: 0.5416
+FSIM: 0.4785
+
+CLIP score (Image vs Prompt)
+Edited Original:  24.0855
+Edited Immunized: 28.7756
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.4590
+Caption orig: A woman wearing a blue coat and a white shirt is smiling at the camera.
+Caption adv:  A woman wearing a white shirt and a black jacket is standing in front of a painting.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.6919
+Background SSIM   (basso=protezione ok): 0.4757
+Subject LPIPS     (basso=soggetto ok)  : 0.5029
+Editing score                          : 0.4341
+Mask coverage (% background)           : 0.5932

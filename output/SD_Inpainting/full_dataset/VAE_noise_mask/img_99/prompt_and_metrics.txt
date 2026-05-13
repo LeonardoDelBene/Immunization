@@ -1,0 +1,21 @@
+--- Prompt ---
+A person in a creative writing event
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 27.6270
+SSIM: 0.9404
+FSIM: 0.8943
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 13.6715
+SSIM: 0.4191
+FSIM: 0.4150
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.6763
+Background SSIM   (basso=protezione ok): 0.2875
+Subject LPIPS     (basso=soggetto ok)  : 0.4370
+Editing score                          : 0.5220
+Mask coverage (% background)           : 0.7213

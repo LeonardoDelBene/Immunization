@@ -1,0 +1,21 @@
+--- Prompt ---
+A person in a strip club
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 26.7216
+SSIM: 0.9284
+FSIM: 0.8805
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 18.1171
+SSIM: 0.6384
+FSIM: 0.5238
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.4657
+Background SSIM   (basso=protezione ok): 0.6052
+Subject LPIPS     (basso=soggetto ok)  : 0.5161
+Editing score                          : 0.3047
+Mask coverage (% background)           : 0.7229

@@ -1,0 +1,21 @@
+--- Prompt ---
+A person in a shopping center
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 26.7247
+SSIM: 0.9074
+FSIM: 0.8729
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 14.3857
+SSIM: 0.5595
+FSIM: 0.5085
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.6018
+Background SSIM   (basso=protezione ok): 0.5180
+Subject LPIPS     (basso=soggetto ok)  : 0.5659
+Editing score                          : 0.3853
+Mask coverage (% background)           : 0.7111

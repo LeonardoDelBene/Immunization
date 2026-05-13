@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a church sanctuary
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 29.9789
+SSIM: 0.9338
+FSIM: 0.8884
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 15.5364
+SSIM: 0.5360
+FSIM: 0.4769
+
+CLIP score (Image vs Prompt)
+Edited Original:  22.6163
+Edited Immunized: 27.7170
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.9465
+Caption orig: A woman wearing a white coat and sunglasses is standing in front of a stained glass window.
+Caption adv:  A woman wearing a white fur coat and sunglasses is standing in front of a stained glass window.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.7000
+Success:   False
+Accuracy:  0.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.5171
+Background SSIM   (basso=protezione ok): 0.4583
+Subject LPIPS     (basso=soggetto ok)  : 0.4110
+Editing score                          : 0.4228
+Mask coverage (% background)           : 0.7320

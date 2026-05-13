@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a flower stall
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 30.2233
+SSIM: 0.9325
+FSIM: 0.8896
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 22.2342
+SSIM: 0.8055
+FSIM: 0.7088
+
+CLIP score (Image vs Prompt)
+Edited Original:  26.9729
+Edited Immunized: 25.7032
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.7925
+Caption orig: A woman wearing a gray sweater and a floral skirt is standing in front of a flower shop.
+Caption adv:  A woman wearing a grey shirt and a floral skirt is standing in front of a flower stand.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.7000
+Success:   False
+Accuracy:  0.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.2660
+Background SSIM   (basso=protezione ok): 0.8203
+Subject LPIPS     (basso=soggetto ok)  : 0.3401
+Editing score                          : 0.2563
+Mask coverage (% background)           : 0.6924

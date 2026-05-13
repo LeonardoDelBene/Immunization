@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a digital art gallery
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 29.8589
+SSIM: 0.8861
+FSIM: 0.8765
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 17.5368
+SSIM: 0.6716
+FSIM: 0.5523
+
+CLIP score (Image vs Prompt)
+Edited Original:  31.2913
+Edited Immunized: 29.3084
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.8700
+Caption orig: A woman wearing sunglasses and a scarf is standing in front of a wall of art.
+Caption adv:  A woman wearing a black coat and sunglasses is standing in front of a wall of art.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.7000
+Success:   False
+Accuracy:  0.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.3419
+Background SSIM   (basso=protezione ok): 0.6877
+Subject LPIPS     (basso=soggetto ok)  : 0.4847
+Editing score                          : 0.2396
+Mask coverage (% background)           : 0.6873

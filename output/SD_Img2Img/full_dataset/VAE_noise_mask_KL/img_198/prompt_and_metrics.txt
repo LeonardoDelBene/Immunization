@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a call center
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 30.0949
+SSIM: 0.9332
+FSIM: 0.8903
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 16.1927
+SSIM: 0.5918
+FSIM: 0.5139
+
+CLIP score (Image vs Prompt)
+Edited Original:  28.7245
+Edited Immunized: 30.0346
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.6577
+Caption orig: A woman wearing a white sweater and a hat is sitting in front of a computer.
+Caption adv:  A woman is sitting at a desk with a computer and a doll sitting in front of her.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.4651
+Background SSIM   (basso=protezione ok): 0.5315
+Subject LPIPS     (basso=soggetto ok)  : 0.4319
+Editing score                          : 0.3674
+Mask coverage (% background)           : 0.7224

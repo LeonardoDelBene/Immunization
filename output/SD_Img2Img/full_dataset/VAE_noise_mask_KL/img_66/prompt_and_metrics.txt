@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a climbing wall
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 30.4792
+SSIM: 0.9506
+FSIM: 0.8655
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 17.5285
+SSIM: 0.7112
+FSIM: 0.5675
+
+CLIP score (Image vs Prompt)
+Edited Original:  27.9059
+Edited Immunized: 29.7107
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.6618
+Caption orig: A woman wearing a blue and white dress is standing on a rock wall, smiling and enjoying the experience.
+Caption adv:  A woman wearing a dress is climbing a rock wall.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.3306
+Background SSIM   (basso=protezione ok): 0.6787
+Subject LPIPS     (basso=soggetto ok)  : 0.2125
+Editing score                          : 0.4011
+Mask coverage (% background)           : 0.7587

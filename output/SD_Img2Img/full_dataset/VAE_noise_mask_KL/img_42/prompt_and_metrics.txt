@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a golf course clubhouse
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 30.8762
+SSIM: 0.9111
+FSIM: 0.9319
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 16.3588
+SSIM: 0.5414
+FSIM: 0.5132
+
+CLIP score (Image vs Prompt)
+Edited Original:  26.8789
+Edited Immunized: 24.5825
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.2205
+Caption orig: A man wearing a black tank top and black shorts stands outside.
+Caption adv:  A man and a woman are standing next to each other, with the woman's reflection in the man's shirt.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.5989
+Background SSIM   (basso=protezione ok): 0.5059
+Subject LPIPS     (basso=soggetto ok)  : 0.5671
+Editing score                          : 0.3878
+Mask coverage (% background)           : 0.7378

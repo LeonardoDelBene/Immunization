@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a butcher’s shop
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 29.5464
+SSIM: 0.9319
+FSIM: 0.8650
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 20.4019
+SSIM: 0.7501
+FSIM: 0.6873
+
+CLIP score (Image vs Prompt)
+Edited Original:  26.9363
+Edited Immunized: 27.3181
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.5142
+Caption orig: A woman wearing a black and white coat with a colorful pattern stands in front of a deli counter.
+Caption adv:  A woman wearing a colorful coat with a green face mask stands in front of a mirror.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.3240
+Background SSIM   (basso=protezione ok): 0.7165
+Subject LPIPS     (basso=soggetto ok)  : 0.2003
+Editing score                          : 0.3945
+Mask coverage (% background)           : 0.6353

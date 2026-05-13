@@ -1,0 +1,21 @@
+--- Prompt ---
+A person in a butcher’s block
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 31.8652
+SSIM: 0.9558
+FSIM: 0.9169
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 17.1048
+SSIM: 0.5787
+FSIM: 0.4883
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.5553
+Background SSIM   (basso=protezione ok): 0.5268
+Subject LPIPS     (basso=soggetto ok)  : 0.4957
+Editing score                          : 0.3666
+Mask coverage (% background)           : 0.7788

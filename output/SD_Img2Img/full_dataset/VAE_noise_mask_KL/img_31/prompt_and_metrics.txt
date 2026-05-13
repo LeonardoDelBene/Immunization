@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a bowling alley
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 30.7739
+SSIM: 0.8936
+FSIM: 0.9096
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 13.5456
+SSIM: 0.4541
+FSIM: 0.4654
+
+CLIP score (Image vs Prompt)
+Edited Original:  31.6178
+Edited Immunized: 30.7813
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.1243
+Caption orig: A blonde woman wearing a black sweater and black pants is walking down a hallway.
+Caption adv:  A man and a woman are standing in a bowling alley.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.5487
+Background SSIM   (basso=protezione ok): 0.4056
+Subject LPIPS     (basso=soggetto ok)  : 0.5715
+Editing score                          : 0.3978
+Mask coverage (% background)           : 0.7379

@@ -1,0 +1,21 @@
+--- Prompt ---
+A person in a church sanctuary
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 28.2208
+SSIM: 0.9007
+FSIM: 0.8406
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 15.0672
+SSIM: 0.5401
+FSIM: 0.4945
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.5636
+Background SSIM   (basso=protezione ok): 0.4771
+Subject LPIPS     (basso=soggetto ok)  : 0.4494
+Editing score                          : 0.4127
+Mask coverage (% background)           : 0.6841

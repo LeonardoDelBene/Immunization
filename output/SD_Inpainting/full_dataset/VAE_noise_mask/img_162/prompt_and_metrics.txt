@@ -1,0 +1,21 @@
+--- Prompt ---
+A person in a swimming pool
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 29.0702
+SSIM: 0.9184
+FSIM: 0.8717
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 19.0064
+SSIM: 0.7462
+FSIM: 0.5324
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.5121
+Background SSIM   (basso=protezione ok): 0.7713
+Subject LPIPS     (basso=soggetto ok)  : 0.4733
+Editing score                          : 0.2894
+Mask coverage (% background)           : 0.7294

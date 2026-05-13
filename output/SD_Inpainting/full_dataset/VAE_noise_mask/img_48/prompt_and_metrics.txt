@@ -1,0 +1,21 @@
+--- Prompt ---
+A person in a street vendor stand
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 29.8021
+SSIM: 0.9366
+FSIM: 0.8402
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 15.7346
+SSIM: 0.5232
+FSIM: 0.5152
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.5306
+Background SSIM   (basso=protezione ok): 0.4482
+Subject LPIPS     (basso=soggetto ok)  : 0.4321
+Editing score                          : 0.4185
+Mask coverage (% background)           : 0.7331

@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a news van
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 32.4582
+SSIM: 0.9558
+FSIM: 0.9266
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 17.9286
+SSIM: 0.6773
+FSIM: 0.5664
+
+CLIP score (Image vs Prompt)
+Edited Original:  31.0525
+Edited Immunized: 29.1467
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.5362
+Caption orig: A woman wearing a grey coat and an orange shirt stands in front of a bus.
+Caption adv:  A woman in a grey coat stands next to a truck, while another woman in a grey coat sits in the truck.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.3911
+Background SSIM   (basso=protezione ok): 0.6365
+Subject LPIPS     (basso=soggetto ok)  : 0.3662
+Editing score                          : 0.3458
+Mask coverage (% background)           : 0.7597

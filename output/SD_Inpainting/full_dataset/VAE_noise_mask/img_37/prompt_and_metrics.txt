@@ -1,0 +1,21 @@
+--- Prompt ---
+A person in a digital art gallery
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 26.3833
+SSIM: 0.9070
+FSIM: 0.8748
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 15.0796
+SSIM: 0.4095
+FSIM: 0.4672
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.5758
+Background SSIM   (basso=protezione ok): 0.2845
+Subject LPIPS     (basso=soggetto ok)  : 0.5449
+Editing score                          : 0.4450
+Mask coverage (% background)           : 0.6873

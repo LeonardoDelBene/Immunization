@@ -1,0 +1,21 @@
+--- Prompt ---
+A person in a locker room
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 27.0419
+SSIM: 0.9339
+FSIM: 0.9028
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 13.3535
+SSIM: 0.5151
+FSIM: 0.4562
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.5575
+Background SSIM   (basso=protezione ok): 0.4500
+Subject LPIPS     (basso=soggetto ok)  : 0.4936
+Editing score                          : 0.3919
+Mask coverage (% background)           : 0.7547

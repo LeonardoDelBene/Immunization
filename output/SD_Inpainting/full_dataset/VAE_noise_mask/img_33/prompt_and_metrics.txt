@@ -1,0 +1,21 @@
+--- Prompt ---
+A person in a charity art auction
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 28.7792
+SSIM: 0.8941
+FSIM: 0.8252
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 15.8431
+SSIM: 0.5653
+FSIM: 0.4655
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.6205
+Background SSIM   (basso=protezione ok): 0.4575
+Subject LPIPS     (basso=soggetto ok)  : 0.4647
+Editing score                          : 0.4321
+Mask coverage (% background)           : 0.5932

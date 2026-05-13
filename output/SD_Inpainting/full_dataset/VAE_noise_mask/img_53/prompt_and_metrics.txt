@@ -1,0 +1,21 @@
+--- Prompt ---
+A person in a rooftop lounge
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 28.9451
+SSIM: 0.9576
+FSIM: 0.9170
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 15.4637
+SSIM: 0.5703
+FSIM: 0.4922
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.5806
+Background SSIM   (basso=protezione ok): 0.4970
+Subject LPIPS     (basso=soggetto ok)  : 0.2647
+Editing score                          : 0.5243
+Mask coverage (% background)           : 0.7603

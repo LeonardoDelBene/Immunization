@@ -1,0 +1,21 @@
+--- Prompt ---
+A person in a quilt shop
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 28.8565
+SSIM: 0.9248
+FSIM: 0.8962
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 15.3953
+SSIM: 0.4183
+FSIM: 0.4273
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.5560
+Background SSIM   (basso=protezione ok): 0.2996
+Subject LPIPS     (basso=soggetto ok)  : 0.5946
+Editing score                          : 0.4325
+Mask coverage (% background)           : 0.7076

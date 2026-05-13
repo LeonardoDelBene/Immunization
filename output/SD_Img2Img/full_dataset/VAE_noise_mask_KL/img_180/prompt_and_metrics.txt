@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a gym sauna
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 28.9838
+SSIM: 0.8853
+FSIM: 0.8271
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 16.3220
+SSIM: 0.5939
+FSIM: 0.5148
+
+CLIP score (Image vs Prompt)
+Edited Original:  20.1678
+Edited Immunized: 23.4149
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.5524
+Caption orig: A man wearing a brown hat and a brown jacket is standing next to a statue of a boxer.
+Caption adv:  A man wearing a hat and a jacket is standing in front of a weight machine.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.4901
+Background SSIM   (basso=protezione ok): 0.5920
+Subject LPIPS     (basso=soggetto ok)  : 0.5592
+Editing score                          : 0.3184
+Mask coverage (% background)           : 0.7044

@@ -1,0 +1,21 @@
+--- Prompt ---
+A person in a TV newsroom
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 28.4187
+SSIM: 0.9326
+FSIM: 0.9237
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 14.0265
+SSIM: 0.5958
+FSIM: 0.5226
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.4937
+Background SSIM   (basso=protezione ok): 0.5661
+Subject LPIPS     (basso=soggetto ok)  : 0.4597
+Editing score                          : 0.3519
+Mask coverage (% background)           : 0.7729

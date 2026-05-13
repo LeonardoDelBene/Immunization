@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a nightclub
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 29.4771
+SSIM: 0.8970
+FSIM: 0.9130
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 18.3325
+SSIM: 0.6652
+FSIM: 0.5973
+
+CLIP score (Image vs Prompt)
+Edited Original:  20.8748
+Edited Immunized: 22.3198
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.8068
+Caption orig: A woman wearing a black jacket and a striped shirt is standing in front of a black and white background.
+Caption adv:  A woman wearing a black jacket and a striped shirt stands in front of a man.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.4112
+Background SSIM   (basso=protezione ok): 0.6739
+Subject LPIPS     (basso=soggetto ok)  : 0.4116
+Editing score                          : 0.3154
+Mask coverage (% background)           : 0.7056

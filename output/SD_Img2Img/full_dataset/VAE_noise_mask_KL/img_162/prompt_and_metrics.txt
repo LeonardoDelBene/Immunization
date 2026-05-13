@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a swimming pool
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 29.4869
+SSIM: 0.8961
+FSIM: 0.8453
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 25.4358
+SSIM: 0.8378
+FSIM: 0.7549
+
+CLIP score (Image vs Prompt)
+Edited Original:  27.8883
+Edited Immunized: 29.6930
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.7029
+Caption orig: A man wearing a backpack and a green shirt stands by a pool.
+Caption adv:  A man in a brown shirt and black pants is standing next to a swimming pool.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.0958
+Background SSIM   (basso=protezione ok): 0.9191
+Subject LPIPS     (basso=soggetto ok)  : 0.5213
+Editing score                          : 0.0626
+Mask coverage (% background)           : 0.7294

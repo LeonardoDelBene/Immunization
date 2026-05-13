@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a refugee camp
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 29.5418
+SSIM: 0.9215
+FSIM: 0.8632
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 18.4100
+SSIM: 0.6696
+FSIM: 0.6126
+
+CLIP score (Image vs Prompt)
+Edited Original:  31.7970
+Edited Immunized: 29.8668
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.4008
+Caption orig: A woman in a white jacket and a black hat is walking away from a group of people.
+Caption adv:  A woman in a white jacket and white pants is standing next to a woman in a red headscarf.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.3888
+Background SSIM   (basso=protezione ok): 0.6368
+Subject LPIPS     (basso=soggetto ok)  : 0.3363
+Editing score                          : 0.3627
+Mask coverage (% background)           : 0.6851

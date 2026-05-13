@@ -1,0 +1,21 @@
+--- Prompt ---
+A person in a dog agility course
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 29.4958
+SSIM: 0.9463
+FSIM: 0.9275
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 15.6866
+SSIM: 0.6191
+FSIM: 0.4321
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.5856
+Background SSIM   (basso=protezione ok): 0.5787
+Subject LPIPS     (basso=soggetto ok)  : 0.4376
+Editing score                          : 0.3981
+Mask coverage (% background)           : 0.7551

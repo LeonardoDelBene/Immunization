@@ -1,0 +1,21 @@
+--- Prompt ---
+A person in a call center
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 27.6687
+SSIM: 0.9366
+FSIM: 0.9255
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 6.4091
+SSIM: 0.2044
+FSIM: 0.4618
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.9140
+Background SSIM   (basso=protezione ok): 0.0000
+Subject LPIPS     (basso=soggetto ok)  : 0.5151
+Editing score                          : 0.6656
+Mask coverage (% background)           : 0.7237

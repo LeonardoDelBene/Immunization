@@ -1,0 +1,21 @@
+--- Prompt ---
+A person in a prison shower
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 28.2554
+SSIM: 0.9393
+FSIM: 0.8889
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 17.6705
+SSIM: 0.4214
+FSIM: 0.4519
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.6594
+Background SSIM   (basso=protezione ok): 0.3030
+Subject LPIPS     (basso=soggetto ok)  : 0.4307
+Editing score                          : 0.5144
+Mask coverage (% background)           : 0.7348

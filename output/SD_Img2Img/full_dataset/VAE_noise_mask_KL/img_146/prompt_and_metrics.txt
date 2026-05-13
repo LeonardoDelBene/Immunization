@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a prison shower
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 29.7013
+SSIM: 0.9169
+FSIM: 0.8559
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 17.0654
+SSIM: 0.5831
+FSIM: 0.4803
+
+CLIP score (Image vs Prompt)
+Edited Original:  26.9981
+Edited Immunized: 29.9766
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.6646
+Caption orig: A woman with red hair and a blue shirt is standing in front of a shower.
+Caption adv:  A woman is standing in a shower, and a man is reaching out to touch her.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.4479
+Background SSIM   (basso=protezione ok): 0.5505
+Subject LPIPS     (basso=soggetto ok)  : 0.4210
+Editing score                          : 0.3614
+Mask coverage (% background)           : 0.7348

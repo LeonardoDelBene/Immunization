@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a farmers' cooperative
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 29.5668
+SSIM: 0.9100
+FSIM: 0.8733
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 18.1091
+SSIM: 0.6347
+FSIM: 0.5832
+
+CLIP score (Image vs Prompt)
+Edited Original:  27.3183
+Edited Immunized: 27.2287
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.7409
+Caption orig: A woman wearing a brown coat and carrying a brown purse.
+Caption adv:  A woman in a brown coat and a brown purse is walking down a hallway.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.7000
+Success:   False
+Accuracy:  0.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.4865
+Background SSIM   (basso=protezione ok): 0.5935
+Subject LPIPS     (basso=soggetto ok)  : 0.3944
+Editing score                          : 0.3799
+Mask coverage (% background)           : 0.6754

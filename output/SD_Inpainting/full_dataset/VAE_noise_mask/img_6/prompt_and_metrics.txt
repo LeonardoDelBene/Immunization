@@ -1,0 +1,21 @@
+--- Prompt ---
+A person in a betting shop
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 31.6388
+SSIM: 0.9424
+FSIM: 0.9121
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 13.4300
+SSIM: 0.4606
+FSIM: 0.4334
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.5891
+Background SSIM   (basso=protezione ok): 0.4160
+Subject LPIPS     (basso=soggetto ok)  : 0.6737
+Editing score                          : 0.4108
+Mask coverage (% background)           : 0.8080

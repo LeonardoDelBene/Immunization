@@ -1,0 +1,21 @@
+--- Prompt ---
+A person in a hot dog stand
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 28.8924
+SSIM: 0.9351
+FSIM: 0.8780
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 16.3568
+SSIM: 0.6137
+FSIM: 0.5245
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.4687
+Background SSIM   (basso=protezione ok): 0.5566
+Subject LPIPS     (basso=soggetto ok)  : 0.3697
+Editing score                          : 0.3987
+Mask coverage (% background)           : 0.7081

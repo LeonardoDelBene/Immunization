@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a slum
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 29.6206
+SSIM: 0.9218
+FSIM: 0.9182
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 22.4365
+SSIM: 0.8147
+FSIM: 0.7399
+
+CLIP score (Image vs Prompt)
+Edited Original:  28.2629
+Edited Immunized: 29.9203
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.6112
+Caption orig: A man wearing a white shirt and a black hat stands in front of a pile of clothes.
+Caption adv:  A young man wearing a white shirt and black pants stands in front of a tent.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.1618
+Background SSIM   (basso=protezione ok): 0.8561
+Subject LPIPS     (basso=soggetto ok)  : 0.4076
+Editing score                          : 0.1633
+Mask coverage (% background)           : 0.7261

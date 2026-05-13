@@ -1,0 +1,21 @@
+--- Prompt ---
+A person in a refugee camp
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 28.6016
+SSIM: 0.9029
+FSIM: 0.8868
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 7.4907
+SSIM: 0.1981
+FSIM: 0.3276
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.9276
+Background SSIM   (basso=protezione ok): 0.0000
+Subject LPIPS     (basso=soggetto ok)  : 0.4617
+Editing score                          : 0.6940
+Mask coverage (% background)           : 0.7021

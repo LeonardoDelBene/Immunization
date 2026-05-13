@@ -1,0 +1,21 @@
+--- Prompt ---
+A person in a tech launch event
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 27.9033
+SSIM: 0.9285
+FSIM: 0.8243
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 14.0329
+SSIM: 0.5306
+FSIM: 0.4648
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.6282
+Background SSIM   (basso=protezione ok): 0.4591
+Subject LPIPS     (basso=soggetto ok)  : 0.4567
+Editing score                          : 0.4395
+Mask coverage (% background)           : 0.7223

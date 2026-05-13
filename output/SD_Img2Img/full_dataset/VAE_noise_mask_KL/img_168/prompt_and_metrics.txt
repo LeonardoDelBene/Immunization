@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a tech startup launch
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 29.4936
+SSIM: 0.9016
+FSIM: 0.8279
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 17.0015
+SSIM: 0.5348
+FSIM: 0.4955
+
+CLIP score (Image vs Prompt)
+Edited Original:  26.4051
+Edited Immunized: 25.9130
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.5159
+Caption orig: A man in a suit stands in front of a laptop, surrounded by other people.
+Caption adv:  A man in a black jacket stands in front of a group of people, who are all looking at him.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.5808
+Background SSIM   (basso=protezione ok): 0.4966
+Subject LPIPS     (basso=soggetto ok)  : 0.5856
+Editing score                          : 0.3834
+Mask coverage (% background)           : 0.7269

@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a drive-in theater
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 31.0942
+SSIM: 0.9269
+FSIM: 0.8646
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 21.3568
+SSIM: 0.8143
+FSIM: 0.6426
+
+CLIP score (Image vs Prompt)
+Edited Original:  27.0423
+Edited Immunized: 26.6975
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.9380
+Caption orig: A woman wearing sunglasses and a brown dress stands next to a car.
+Caption adv:  A woman wearing sunglasses and a black dress stands next to a car.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.1632
+Background SSIM   (basso=protezione ok): 0.8566
+Subject LPIPS     (basso=soggetto ok)  : 0.5355
+Editing score                          : 0.1083
+Mask coverage (% background)           : 0.7862

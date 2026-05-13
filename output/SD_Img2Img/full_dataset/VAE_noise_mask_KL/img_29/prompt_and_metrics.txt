@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a laundry room
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 30.9938
+SSIM: 0.9597
+FSIM: 0.8674
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 14.7147
+SSIM: 0.5134
+FSIM: 0.5120
+
+CLIP score (Image vs Prompt)
+Edited Original:  28.8693
+Edited Immunized: 31.2212
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.9941
+Caption orig: A woman wearing a green dress stands in front of a washing machine.
+Caption adv:  A woman wearing a green dress is standing in front of a washing machine.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.9000
+Success:   False
+Accuracy:  0.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.6336
+Background SSIM   (basso=protezione ok): 0.3729
+Subject LPIPS     (basso=soggetto ok)  : 0.2120
+Editing score                          : 0.6143
+Mask coverage (% background)           : 0.7121

@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a sandwich shop
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 33.0001
+SSIM: 0.9440
+FSIM: 0.9452
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 23.6654
+SSIM: 0.8501
+FSIM: 0.7245
+
+CLIP score (Image vs Prompt)
+Edited Original:  25.3674
+Edited Immunized: 27.3882
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.8807
+Caption orig: A woman wearing a red sweater and black skirt stands in front of a display case filled with various pizzas.
+Caption adv:  A woman wearing a red sweater and a black skirt is standing in front of a display case filled with various pastries.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.1322
+Background SSIM   (basso=protezione ok): 0.8739
+Subject LPIPS     (basso=soggetto ok)  : 0.2054
+Editing score                          : 0.2674
+Mask coverage (% background)           : 0.7397

@@ -1,0 +1,21 @@
+--- Prompt ---
+A person in a beachside boardwalk
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 27.9773
+SSIM: 0.9248
+FSIM: 0.9076
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 16.5945
+SSIM: 0.7318
+FSIM: 0.5290
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.4542
+Background SSIM   (basso=protezione ok): 0.7518
+Subject LPIPS     (basso=soggetto ok)  : 0.4452
+Editing score                          : 0.2890
+Mask coverage (% background)           : 0.7403

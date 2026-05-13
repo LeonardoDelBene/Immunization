@@ -1,0 +1,21 @@
+--- Prompt ---
+A person in a bowling alley
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 27.5279
+SSIM: 0.9167
+FSIM: 0.9345
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 12.8637
+SSIM: 0.4084
+FSIM: 0.4363
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.5638
+Background SSIM   (basso=protezione ok): 0.3179
+Subject LPIPS     (basso=soggetto ok)  : 0.4458
+Editing score                          : 0.4627
+Mask coverage (% background)           : 0.7379

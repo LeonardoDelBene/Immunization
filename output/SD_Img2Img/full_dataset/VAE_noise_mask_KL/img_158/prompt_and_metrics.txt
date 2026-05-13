@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a ice cream parlor
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 29.4309
+SSIM: 0.8833
+FSIM: 0.8587
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 16.6635
+SSIM: 0.5975
+FSIM: 0.5616
+
+CLIP score (Image vs Prompt)
+Edited Original:  23.7201
+Edited Immunized: 26.8165
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.4866
+Caption orig: A woman wearing a black jacket and a black skirt is standing in front of a man.
+Caption adv:  A young girl wearing a black coat and holding a blue umbrella stands next to an older woman.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.4849
+Background SSIM   (basso=protezione ok): 0.5958
+Subject LPIPS     (basso=soggetto ok)  : 0.5792
+Editing score                          : 0.3152
+Mask coverage (% background)           : 0.6974

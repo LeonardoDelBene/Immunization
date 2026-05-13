@@ -1,0 +1,21 @@
+--- Prompt ---
+A person in a parking garage
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 26.0777
+SSIM: 0.9582
+FSIM: 0.8714
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 19.7174
+SSIM: 0.7513
+FSIM: 0.6460
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.2824
+Background SSIM   (basso=protezione ok): 0.7123
+Subject LPIPS     (basso=soggetto ok)  : 0.3285
+Editing score                          : 0.3022
+Mask coverage (% background)           : 0.7013

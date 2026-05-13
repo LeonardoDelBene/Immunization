@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a gymnasium
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 29.9121
+SSIM: 0.9117
+FSIM: 0.8451
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 17.1910
+SSIM: 0.6859
+FSIM: 0.4983
+
+CLIP score (Image vs Prompt)
+Edited Original:  24.4138
+Edited Immunized: 25.6435
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.6559
+Caption orig: A woman wearing a purple jacket and a white scarf stands next to a man.
+Caption adv:  A woman wearing a suit and tie is standing next to a man who is wearing a shirt and tie.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.4587
+Background SSIM   (basso=protezione ok): 0.6992
+Subject LPIPS     (basso=soggetto ok)  : 0.5036
+Editing score                          : 0.2737
+Mask coverage (% background)           : 0.7410

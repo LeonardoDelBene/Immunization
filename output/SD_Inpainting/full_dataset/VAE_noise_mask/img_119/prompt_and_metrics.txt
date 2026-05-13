@@ -1,0 +1,21 @@
+--- Prompt ---
+A person in a kite festival
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 30.3222
+SSIM: 0.9126
+FSIM: 0.8811
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 18.7607
+SSIM: 0.6776
+FSIM: 0.5184
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.4925
+Background SSIM   (basso=protezione ok): 0.6792
+Subject LPIPS     (basso=soggetto ok)  : 0.6387
+Editing score                          : 0.2933
+Mask coverage (% background)           : 0.7030

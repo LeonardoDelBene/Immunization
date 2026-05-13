@@ -1,0 +1,21 @@
+--- Prompt ---
+A person in a tech startup launch
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 27.5347
+SSIM: 0.9222
+FSIM: 0.8636
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 18.7632
+SSIM: 0.7022
+FSIM: 0.4787
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.4108
+Background SSIM   (basso=protezione ok): 0.7021
+Subject LPIPS     (basso=soggetto ok)  : 0.4998
+Editing score                          : 0.2538
+Mask coverage (% background)           : 0.7269

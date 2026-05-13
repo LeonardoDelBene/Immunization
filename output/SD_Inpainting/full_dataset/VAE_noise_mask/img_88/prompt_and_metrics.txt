@@ -1,0 +1,21 @@
+--- Prompt ---
+A person in a local bakery
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 29.9782
+SSIM: 0.9548
+FSIM: 0.9250
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 13.8640
+SSIM: 0.5494
+FSIM: 0.4848
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.4658
+Background SSIM   (basso=protezione ok): 0.4933
+Subject LPIPS     (basso=soggetto ok)  : 0.4604
+Editing score                          : 0.3621
+Mask coverage (% background)           : 0.7937

@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a butcher’s shop
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 31.6536
+SSIM: 0.9427
+FSIM: 0.8979
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 20.2719
+SSIM: 0.7518
+FSIM: 0.6407
+
+CLIP score (Image vs Prompt)
+Edited Original:  24.7566
+Edited Immunized: 27.0419
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.5467
+Caption orig: A woman in a white jacket and a red shirt is smiling and walking down the street.
+Caption adv:  A woman in a white coat and red shirt is walking through a market.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.7000
+Success:   False
+Accuracy:  0.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.2935
+Background SSIM   (basso=protezione ok): 0.7442
+Subject LPIPS     (basso=soggetto ok)  : 0.3591
+Editing score                          : 0.2787
+Mask coverage (% background)           : 0.7390

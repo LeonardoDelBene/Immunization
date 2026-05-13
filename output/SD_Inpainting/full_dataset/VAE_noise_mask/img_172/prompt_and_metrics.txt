@@ -1,0 +1,21 @@
+--- Prompt ---
+A person in a stadium tunnel
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 27.5231
+SSIM: 0.8733
+FSIM: 0.7846
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 14.3263
+SSIM: 0.5535
+FSIM: 0.4257
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.4845
+Background SSIM   (basso=protezione ok): 0.5565
+Subject LPIPS     (basso=soggetto ok)  : 0.7368
+Editing score                          : 0.3268
+Mask coverage (% background)           : 0.7049

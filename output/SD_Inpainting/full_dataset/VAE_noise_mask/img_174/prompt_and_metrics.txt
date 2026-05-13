@@ -1,0 +1,21 @@
+--- Prompt ---
+A person in a high-end restaurant
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 28.3963
+SSIM: 0.9407
+FSIM: 0.9079
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 15.8300
+SSIM: 0.6431
+FSIM: 0.5191
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.4945
+Background SSIM   (basso=protezione ok): 0.6042
+Subject LPIPS     (basso=soggetto ok)  : 0.4718
+Editing score                          : 0.3335
+Mask coverage (% background)           : 0.7324

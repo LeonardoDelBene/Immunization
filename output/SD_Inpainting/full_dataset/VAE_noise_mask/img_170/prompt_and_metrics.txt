@@ -1,0 +1,21 @@
+--- Prompt ---
+A person in a game room
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 27.1856
+SSIM: 0.9338
+FSIM: 0.8920
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 14.2523
+SSIM: 0.4274
+FSIM: 0.4259
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.5705
+Background SSIM   (basso=protezione ok): 0.2877
+Subject LPIPS     (basso=soggetto ok)  : 0.4287
+Editing score                          : 0.4847
+Mask coverage (% background)           : 0.7025

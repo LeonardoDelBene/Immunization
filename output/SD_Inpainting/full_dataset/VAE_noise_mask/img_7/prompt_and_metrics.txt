@@ -1,0 +1,21 @@
+--- Prompt ---
+A person in a shelter
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 28.2351
+SSIM: 0.9381
+FSIM: 0.9380
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 20.5360
+SSIM: 0.8446
+FSIM: 0.6239
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.3456
+Background SSIM   (basso=protezione ok): 0.8767
+Subject LPIPS     (basso=soggetto ok)  : 0.2697
+Editing score                          : 0.3134
+Mask coverage (% background)           : 0.7325

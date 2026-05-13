@@ -1,0 +1,21 @@
+--- Prompt ---
+A person in a festival ground
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 30.3653
+SSIM: 0.9450
+FSIM: 0.9030
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 19.4571
+SSIM: 0.6940
+FSIM: 0.5535
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.4045
+Background SSIM   (basso=protezione ok): 0.6877
+Subject LPIPS     (basso=soggetto ok)  : 0.5159
+Editing score                          : 0.2555
+Mask coverage (% background)           : 0.7764

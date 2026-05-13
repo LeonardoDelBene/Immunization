@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a computer lab
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 30.3440
+SSIM: 0.9362
+FSIM: 0.8473
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 16.9975
+SSIM: 0.7069
+FSIM: 0.5815
+
+CLIP score (Image vs Prompt)
+Edited Original:  28.0741
+Edited Immunized: 27.0677
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.5889
+Caption orig: A woman wearing a blue jacket and a striped dress is smiling at the camera.
+Caption adv:  A woman wearing a blue jacket and a striped dress stands in front of a computer.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.4484
+Background SSIM   (basso=protezione ok): 0.6672
+Subject LPIPS     (basso=soggetto ok)  : 0.2108
+Editing score                          : 0.4527
+Mask coverage (% background)           : 0.6867

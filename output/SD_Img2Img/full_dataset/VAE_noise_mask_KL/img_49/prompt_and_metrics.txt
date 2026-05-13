@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a science museum exhibit
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 30.9024
+SSIM: 0.9255
+FSIM: 0.8860
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 18.8444
+SSIM: 0.6975
+FSIM: 0.5431
+
+CLIP score (Image vs Prompt)
+Edited Original:  28.6164
+Edited Immunized: 28.4299
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.5592
+Caption orig: A woman wearing a brown dress stands in front of a skeleton statue.
+Caption adv:  A woman wearing a black and white dress stands in front of a mirror.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.3502
+Background SSIM   (basso=protezione ok): 0.7028
+Subject LPIPS     (basso=soggetto ok)  : 0.5371
+Editing score                          : 0.2292
+Mask coverage (% background)           : 0.7607

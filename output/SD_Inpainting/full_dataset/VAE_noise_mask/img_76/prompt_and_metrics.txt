@@ -1,0 +1,21 @@
+--- Prompt ---
+A person in a local wine festival
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 26.1241
+SSIM: 0.9095
+FSIM: 0.8683
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 17.2146
+SSIM: 0.6216
+FSIM: 0.5069
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.4020
+Background SSIM   (basso=protezione ok): 0.5773
+Subject LPIPS     (basso=soggetto ok)  : 0.5121
+Editing score                          : 0.2876
+Mask coverage (% background)           : 0.6662

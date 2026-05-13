@@ -3,8 +3,8 @@ from PIL import Image
 import torch
 from diffusers import (
     StableDiffusionInpaintPipeline,
-    StableDiffusionImg2ImgPipeline,
-    DDIMScheduler,
+    AutoPipelineForImage2Image,
+    DDIMScheduler
 )
 from typing import Union, List, Optional, Callable
 from diffusers import StableDiffusionInstructPix2PixPipeline
@@ -185,12 +185,19 @@ class DiffVaxImmunization:
 
 
 class Attack:
-    def __init__(self, model_link: str, scheduler: str = "DDIM"):
-        pipe_inpaint = StableDiffusionInpaintPipeline.from_pretrained(
-            model_link,
-            torch_dtype=torch.float16,
-            local_files_only=True,
-        )
+    def __init__(self, model_link: str = "runwayml/stable-diffusion-inpainting", scheduler: str = "DDIM", local_files_only: bool = True):
+        try:
+            pipe_inpaint = StableDiffusionInpaintPipeline.from_pretrained(
+                model_link,
+                torch_dtype=torch.float16,
+                local_files_only=local_files_only,
+            )
+        except Exception as exc:
+            raise RuntimeError(
+                f"Could not load the model '{model_link}' from local cache. "
+                "If you have network access, set local_files_only=False or cache the model locally under HF_HOME."
+            ) from exc
+
         if scheduler == "DDIM":
             pipe_inpaint.scheduler = DDIMScheduler.from_config(
                 pipe_inpaint.scheduler.config
@@ -215,146 +222,6 @@ class Attack:
         ).images
         return edited_image
 
-    def attack(
-        self,
-        prompt: Union[str, List[str]],
-        masked_image: Union[torch.FloatTensor, Image.Image],
-        mask: Union[torch.FloatTensor, Image.Image],
-        height: int = 512,
-        width: int = 512,
-        num_inference_steps: int = 50,
-        guidance_scale: float = 7.5,
-        eta: float = 0.0,
-        batch_size: int = 1,
-    ):
-        """Differentiable forward pass of the inpainting stable diffusion model."""
-        diffusion_model = self.model
-
-        text_embeddings = self.tokenize_prompt(
-            diffusion_model, prompt, batch_size=batch_size
-        )
-
-        num_channels_latents = diffusion_model.vae.config.latent_channels
-
-        latents_shape = (
-            batch_size,
-            num_channels_latents,
-            height // 8,
-            width // 8,
-        )
-        latents = torch.randn(
-            latents_shape,
-            device=diffusion_model.device,
-            dtype=text_embeddings.dtype,
-        )
-
-        mask = torch.nn.functional.interpolate(mask, size=(height // 8, width // 8))
-        mask = torch.cat([mask] * 2)
-
-        masked_image_latents = diffusion_model.vae.encode(
-            masked_image
-        ).latent_dist.sample()
-        masked_image_latents = 0.18215 * masked_image_latents
-        masked_image_latents = torch.cat([masked_image_latents] * 2)
-
-        latents = latents * diffusion_model.scheduler.init_noise_sigma
-
-        diffusion_model.scheduler.set_timesteps(num_inference_steps)
-        timesteps_tensor = diffusion_model.scheduler.timesteps.to(
-            diffusion_model.device
-        )
-
-        for i, t in enumerate(timesteps_tensor):
-            latent_model_input = torch.cat([latents] * 2)
-            latent_model_input = torch.cat(
-                [latent_model_input, mask, masked_image_latents], dim=1
-            )
-            noise_pred = diffusion_model.unet(
-                latent_model_input, t, encoder_hidden_states=text_embeddings
-            ).sample
-            noise_pred_uncond, noise_pred_text = noise_pred.chunk(2)
-            noise_pred = noise_pred_uncond + guidance_scale * (
-                noise_pred_text - noise_pred_uncond
-            )
-
-            latents = diffusion_model.scheduler.step(noise_pred).prev_sample
-
-        latents = 1 / 0.18215 * latents
-        image = diffusion_model.vae.decode(latents).sample
-        return image
-
-    def tokenize_prompt(
-        self, diffusion_model, prompt, batch_size=1, tokenize_negative=False
-    ):
-        """Tokenize prompts. Uses 'gray background' as unconditional embedding if tokenize_negative is True."""
-        text_inputs = diffusion_model.tokenizer(
-            prompt,
-            padding="max_length",
-            max_length=diffusion_model.tokenizer.model_max_length,
-            return_tensors="pt",
-        )
-        text_input_ids = text_inputs.input_ids
-        text_embeddings = diffusion_model.text_encoder(
-            text_input_ids.to(diffusion_model.device)
-        )[0]
-
-        uncond_tokens = [""] * batch_size
-        if tokenize_negative:
-            uncond_tokens = ["gray background"]
-        max_length = text_input_ids.shape[-1]
-        uncond_input = diffusion_model.tokenizer(
-            uncond_tokens,
-            padding="max_length",
-            max_length=max_length,
-            truncation=True,
-            return_tensors="pt",
-        )
-        uncond_embeddings = diffusion_model.text_encoder(
-            uncond_input.input_ids.to(diffusion_model.device)
-        )[0]
-        seq_len = uncond_embeddings.shape[1]
-        text_embeddings = torch.cat([uncond_embeddings, text_embeddings])
-
-        text_embeddings = text_embeddings.detach()
-        return text_embeddings
-
-class AttackSD:
-    """Stable Diffusion image editing wrapper using img2img."""
-
-    def __init__(self, model_link: str, scheduler: str = "DDIM"):
-        self.pipe = StableDiffusionImg2ImgPipeline.from_pretrained(
-            model_link,
-            torch_dtype=torch.float16,
-            local_files_only=True,
-        )
-        if scheduler == "DDIM":
-            self.pipe.scheduler = DDIMScheduler.from_config(self.pipe.scheduler.config)
-
-        self.pipe = self.pipe.to("cuda:0")
-        self.generator = torch.Generator(device="cuda:0")
-
-    def edit_image(
-        self,
-        prompt: Union[str, List[str]],
-        image: Union[torch.FloatTensor, Image.Image],
-        strength: float = 0.75,
-        num_inference_steps: int = 30,
-        guidance_scale: float = 7.5,
-        eta: float = 0.0,
-        seed: int = 5,
-    ):
-        """Edita l'immagine con Stable Diffusion Img2Img."""
-        self.generator.manual_seed(seed)
-        result = self.pipe(
-            prompt=prompt,
-            image=image,
-            strength=strength,
-            num_inference_steps=num_inference_steps,
-            guidance_scale=guidance_scale,
-            eta=eta,
-            generator=self.generator,
-        )
-        return result.images
 
 class AttackInstructPix2Pix:
     """Wrapper per InstructPix2Pix compatibile con DiffVax."""
@@ -381,3 +248,53 @@ class AttackInstructPix2Pix:
             guidance_scale=guidance_scale,              # fedeltà al testo
         )
         return result.images
+
+
+class AttackSD:
+    """Stable Diffusion image editing wrapper using img2img."""
+
+    def __init__(self, model_link: str = "stable-diffusion-v1-5/stable-diffusion-v1-5", scheduler: str = "DDIM"):
+        self.pipe = AutoPipelineForImage2Image.from_pretrained(
+            model_link,
+            torch_dtype=torch.float16,
+            use_safetensors=True,
+            local_files_only=False,
+        )
+
+        self.pipe = self.pipe.to("cuda:0")
+        self.generator = torch.Generator(device="cuda:0")
+
+    def edit_image(
+        self,
+        prompt: Union[str, List[str]],
+        image: Union[torch.FloatTensor, Image.Image],
+        mask: None = None,
+        num_inference_steps: int = 30,
+        strength: float = 0.8,
+        seed: int = 5,
+    ):
+        """Edita l'immagine con Stable Diffusion Img2Img."""
+
+        # Converte il tensore in PIL Image se necessario
+        if isinstance(image, torch.FloatTensor):
+            image = image.squeeze(0).permute(1, 2, 0).cpu().numpy()
+            image = Image.fromarray((image * 255).astype("uint8"))
+
+        # Ridimensiona a multipli di 8
+        w, h = image.size
+        w, h = (x - x % 8 for x in (w, h))
+        image = image.resize((w, h), Image.LANCZOS)
+
+        self.generator.manual_seed(seed)
+
+        result = self.pipe(
+            prompt=prompt,
+            image=image,
+            strength=strength,
+            num_inference_steps=num_inference_steps,
+            guidance_scale=7.5,
+            generator=self.generator,
+        )
+
+        return result.images
+   

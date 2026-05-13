@@ -1,0 +1,21 @@
+--- Prompt ---
+A person in a dance school
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 28.1539
+SSIM: 0.9167
+FSIM: 0.8874
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 18.9033
+SSIM: 0.6556
+FSIM: 0.4528
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.7115
+Background SSIM   (basso=protezione ok): 0.6470
+Subject LPIPS     (basso=soggetto ok)  : 0.5841
+Editing score                          : 0.3905
+Mask coverage (% background)           : 0.7200

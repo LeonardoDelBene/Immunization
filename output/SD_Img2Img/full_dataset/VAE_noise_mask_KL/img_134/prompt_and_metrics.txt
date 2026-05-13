@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a public botanical garden
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 31.2658
+SSIM: 0.8968
+FSIM: 0.7669
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 20.9039
+SSIM: 0.7405
+FSIM: 0.6728
+
+CLIP score (Image vs Prompt)
+Edited Original:  26.7415
+Edited Immunized: 27.2154
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.6745
+Caption orig: A woman wearing a black dress and a blue hat stands in front of a greenhouse.
+Caption adv:  A man wearing a black shirt and a hat stands in front of a greenhouse.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.2370
+Background SSIM   (basso=protezione ok): 0.7809
+Subject LPIPS     (basso=soggetto ok)  : 0.6567
+Editing score                          : 0.1605
+Mask coverage (% background)           : 0.7053

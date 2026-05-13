@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a basement
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 31.9762
+SSIM: 0.9369
+FSIM: 0.8380
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 22.6844
+SSIM: 0.8294
+FSIM: 0.6498
+
+CLIP score (Image vs Prompt)
+Edited Original:  24.2253
+Edited Immunized: 26.2979
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.5197
+Caption orig: A girl wearing a pink jacket and a blue skirt stands in front of a man.
+Caption adv:  A woman wearing a pink jacket and a white dress stands in front of a building.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.3061
+Background SSIM   (basso=protezione ok): 0.8533
+Subject LPIPS     (basso=soggetto ok)  : 0.2560
+Editing score                          : 0.3129
+Mask coverage (% background)           : 0.7170

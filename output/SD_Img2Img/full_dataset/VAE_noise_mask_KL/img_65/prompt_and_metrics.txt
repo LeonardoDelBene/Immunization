@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a basement
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 32.6024
+SSIM: 0.9602
+FSIM: 0.8986
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 24.8661
+SSIM: 0.8826
+FSIM: 0.7308
+
+CLIP score (Image vs Prompt)
+Edited Original:  24.8083
+Edited Immunized: 26.0185
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        1.0000
+Caption orig: A woman wearing a red dress and a pink shirt stands in a dark room.
+Caption adv:  A woman wearing a red dress and a pink shirt stands in a dark room.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 1.0000
+Success:   False
+Accuracy:  0.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.1654
+Background SSIM   (basso=protezione ok): 0.8974
+Subject LPIPS     (basso=soggetto ok)  : 0.2363
+Editing score                          : 0.2551
+Mask coverage (% background)           : 0.7392

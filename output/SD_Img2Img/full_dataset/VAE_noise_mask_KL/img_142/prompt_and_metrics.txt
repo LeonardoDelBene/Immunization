@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a children’s theater
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 29.4916
+SSIM: 0.9095
+FSIM: 0.8219
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 17.1721
+SSIM: 0.7132
+FSIM: 0.5760
+
+CLIP score (Image vs Prompt)
+Edited Original:  23.7559
+Edited Immunized: 26.2111
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.6131
+Caption orig: A woman wearing sunglasses and a white shirt is walking in front of a painting of children.
+Caption adv:  A woman wearing sunglasses and a white shirt walks past a boy sitting in a chair.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.3425
+Background SSIM   (basso=protezione ok): 0.7359
+Subject LPIPS     (basso=soggetto ok)  : 0.4538
+Editing score                          : 0.2439
+Mask coverage (% background)           : 0.7324

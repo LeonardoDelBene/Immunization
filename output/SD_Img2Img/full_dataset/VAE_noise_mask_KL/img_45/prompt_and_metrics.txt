@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a high-end restaurant
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 33.1316
+SSIM: 0.9502
+FSIM: 0.9050
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 17.5822
+SSIM: 0.6679
+FSIM: 0.5786
+
+CLIP score (Image vs Prompt)
+Edited Original:  30.3300
+Edited Immunized: 30.7109
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.4536
+Caption orig: A man and a woman are standing in a kitchen, with the woman holding a plate of food.
+Caption adv:  A man wearing a gray jacket and an apron is holding a plate of food.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.7000
+Success:   False
+Accuracy:  0.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.3785
+Background SSIM   (basso=protezione ok): 0.6546
+Subject LPIPS     (basso=soggetto ok)  : 0.3946
+Editing score                          : 0.3183
+Mask coverage (% background)           : 0.8132

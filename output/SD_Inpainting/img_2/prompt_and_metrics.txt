@@ -1,23 +1,35 @@
 --- Prompt ---
-person in a party
+A person in a garden with flowers
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 22.8904
-SSIM: 0.8078
-FSIM: 0.7240
+PSNR: 29.7069
+SSIM: 0.9020
+FSIM: 0.8337
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 14.2569
-SSIM: 0.3672
-FSIM: 0.4184
+PSNR: 15.3297
+SSIM: 0.4532
+FSIM: 0.4821
 
 CLIP score (Image vs Prompt)
-Edited Original:  24.1541
-Edited Immunized: 23.5958
+Edited Original:  26.6141
+Edited Immunized: 31.6579
 
-Caption similarity (Edited Original vs Edited Immunized)
-Score: 0.4072
-Caption orig : A woman wearing a brown jacket and a blue skirt is standing in a group of people.
-Caption adv : A woman in a black jacket and a white shirt is walking down a hallway.
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.8300
+Caption orig: A woman wearing a brown jacket and a black purse stands in a garden filled with pink flowers.
+Caption adv:  A woman wearing a brown jacket and a hat stands in a field of flowers.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.5829
+Background SSIM   (basso=protezione ok): 0.3490
+Subject LPIPS     (basso=soggetto ok)  : 0.4286
+Editing score                          : 0.4713
+Mask coverage (% background)           : 0.6841

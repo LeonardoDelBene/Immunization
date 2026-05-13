@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a pastry shop
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 30.5001
+SSIM: 0.9386
+FSIM: 0.8707
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 19.5565
+SSIM: 0.7415
+FSIM: 0.6509
+
+CLIP score (Image vs Prompt)
+Edited Original:  24.7361
+Edited Immunized: 27.1463
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.7341
+Caption orig: A woman in a blue jacket and black pants is standing in front of a bakery display.
+Caption adv:  A woman wearing a blue jacket and a white shirt is walking in a bakery.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.3298
+Background SSIM   (basso=protezione ok): 0.7273
+Subject LPIPS     (basso=soggetto ok)  : 0.3314
+Editing score                          : 0.3149
+Mask coverage (% background)           : 0.7248

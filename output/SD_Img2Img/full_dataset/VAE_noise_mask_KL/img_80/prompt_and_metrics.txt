@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a gym class
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 29.5175
+SSIM: 0.8856
+FSIM: 0.8315
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 18.5192
+SSIM: 0.6450
+FSIM: 0.5315
+
+CLIP score (Image vs Prompt)
+Edited Original:  26.5399
+Edited Immunized: 26.0867
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.8612
+Caption orig: A man wearing glasses and a blue jacket is standing in a gym, smiling and posing for a picture.
+Caption adv:  A man wearing glasses and a jacket is standing in a gym.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.7000
+Success:   False
+Accuracy:  0.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.4418
+Background SSIM   (basso=protezione ok): 0.6517
+Subject LPIPS     (basso=soggetto ok)  : 0.3766
+Editing score                          : 0.3553
+Mask coverage (% background)           : 0.6851

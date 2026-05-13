@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a soap store
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 28.5407
+SSIM: 0.8521
+FSIM: 0.8666
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 16.3111
+SSIM: 0.5614
+FSIM: 0.5370
+
+CLIP score (Image vs Prompt)
+Edited Original:  26.5641
+Edited Immunized: 28.4601
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.7572
+Caption orig: A woman wearing a black coat and a green dress is standing in front of a store shelf.
+Caption adv:  A woman wearing a blue shirt and a black cape stands in front of a store shelf.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.4494
+Background SSIM   (basso=protezione ok): 0.5154
+Subject LPIPS     (basso=soggetto ok)  : 0.4512
+Editing score                          : 0.3544
+Mask coverage (% background)           : 0.6035

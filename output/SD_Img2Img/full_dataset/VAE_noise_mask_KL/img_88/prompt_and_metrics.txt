@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a local bakery
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 30.8473
+SSIM: 0.9153
+FSIM: 0.8839
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 18.5226
+SSIM: 0.6293
+FSIM: 0.5667
+
+CLIP score (Image vs Prompt)
+Edited Original:  29.3337
+Edited Immunized: 29.5930
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.7063
+Caption orig: A woman in a blue jacket stands in front of a bakery display, smiling and looking at the camera.
+Caption adv:  A woman in a black coat stands in front of a bakery display, looking at the pastries.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.3705
+Background SSIM   (basso=protezione ok): 0.6387
+Subject LPIPS     (basso=soggetto ok)  : 0.5491
+Editing score                          : 0.2566
+Mask coverage (% background)           : 0.7937

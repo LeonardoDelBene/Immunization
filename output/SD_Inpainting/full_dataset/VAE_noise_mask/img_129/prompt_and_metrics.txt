@@ -1,0 +1,21 @@
+--- Prompt ---
+A person in a historic landmark event
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 29.1924
+SSIM: 0.9537
+FSIM: 0.9258
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 20.1070
+SSIM: 0.6787
+FSIM: 0.4728
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.4823
+Background SSIM   (basso=protezione ok): 0.6406
+Subject LPIPS     (basso=soggetto ok)  : 0.4110
+Editing score                          : 0.3541
+Mask coverage (% background)           : 0.7399

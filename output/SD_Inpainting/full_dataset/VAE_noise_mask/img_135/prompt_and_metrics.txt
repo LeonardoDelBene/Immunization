@@ -1,0 +1,21 @@
+--- Prompt ---
+A person in a public park
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 27.4904
+SSIM: 0.9282
+FSIM: 0.9017
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 19.4156
+SSIM: 0.7512
+FSIM: 0.6088
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.2901
+Background SSIM   (basso=protezione ok): 0.7735
+Subject LPIPS     (basso=soggetto ok)  : 0.5149
+Editing score                          : 0.1840
+Mask coverage (% background)           : 0.7572

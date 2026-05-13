@@ -1,0 +1,21 @@
+--- Prompt ---
+A person in a music and arts festival
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 30.2055
+SSIM: 0.9253
+FSIM: 0.8619
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 19.5918
+SSIM: 0.6917
+FSIM: 0.5695
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.4342
+Background SSIM   (basso=protezione ok): 0.6932
+Subject LPIPS     (basso=soggetto ok)  : 0.5946
+Editing score                          : 0.2657
+Mask coverage (% background)           : 0.7320

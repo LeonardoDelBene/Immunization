@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a concert hall
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 30.6990
+SSIM: 0.9003
+FSIM: 0.8881
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 13.4207
+SSIM: 0.3878
+FSIM: 0.4084
+
+CLIP score (Image vs Prompt)
+Edited Original:  24.3603
+Edited Immunized: 26.3297
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.6816
+Caption orig: A man wearing a hat and a blue jacket is standing in front of a large dome.
+Caption adv:  A man wearing a hat and a jacket stands in front of a crowd of people.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.7000
+Success:   False
+Accuracy:  0.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.6194
+Background SSIM   (basso=protezione ok): 0.2804
+Subject LPIPS     (basso=soggetto ok)  : 0.3687
+Editing score                          : 0.5424
+Mask coverage (% background)           : 0.7129

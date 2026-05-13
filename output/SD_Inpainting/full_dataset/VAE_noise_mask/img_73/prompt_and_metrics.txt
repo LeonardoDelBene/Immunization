@@ -1,0 +1,21 @@
+--- Prompt ---
+A person in a boxing ring
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 26.9293
+SSIM: 0.9314
+FSIM: 0.8302
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 15.9824
+SSIM: 0.6142
+FSIM: 0.5039
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.5487
+Background SSIM   (basso=protezione ok): 0.5787
+Subject LPIPS     (basso=soggetto ok)  : 0.5121
+Editing score                          : 0.3458
+Mask coverage (% background)           : 0.7372

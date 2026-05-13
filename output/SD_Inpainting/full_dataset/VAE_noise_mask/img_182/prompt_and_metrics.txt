@@ -1,0 +1,21 @@
+--- Prompt ---
+A person in a city center plaza
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 28.3948
+SSIM: 0.9169
+FSIM: 0.8811
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 17.2348
+SSIM: 0.6686
+FSIM: 0.5041
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.6175
+Background SSIM   (basso=protezione ok): 0.6455
+Subject LPIPS     (basso=soggetto ok)  : 0.4672
+Editing score                          : 0.3730
+Mask coverage (% background)           : 0.6755

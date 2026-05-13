@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a garage
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 28.2331
+SSIM: 0.8922
+FSIM: 0.8830
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 15.7015
+SSIM: 0.5532
+FSIM: 0.5322
+
+CLIP score (Image vs Prompt)
+Edited Original:  24.6765
+Edited Immunized: 26.0997
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.5753
+Caption orig: A man wearing a brown jacket and a white shirt stands in front of a statue.
+Caption adv:  A man wearing a brown jacket stands next to another man in a white shirt.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.5548
+Background SSIM   (basso=protezione ok): 0.4748
+Subject LPIPS     (basso=soggetto ok)  : 0.4618
+Editing score                          : 0.4024
+Mask coverage (% background)           : 0.6415

@@ -1,0 +1,21 @@
+--- Prompt ---
+A person in a public botanical garden
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 28.3069
+SSIM: 0.9497
+FSIM: 0.8793
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 17.5339
+SSIM: 0.5055
+FSIM: 0.4217
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.6412
+Background SSIM   (basso=protezione ok): 0.3773
+Subject LPIPS     (basso=soggetto ok)  : 0.3989
+Editing score                          : 0.5040
+Mask coverage (% background)           : 0.7053

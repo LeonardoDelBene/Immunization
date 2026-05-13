@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a quilt shop
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 31.1939
+SSIM: 0.9210
+FSIM: 0.8895
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 15.7967
+SSIM: 0.5812
+FSIM: 0.5118
+
+CLIP score (Image vs Prompt)
+Edited Original:  29.4419
+Edited Immunized: 27.7211
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.5793
+Caption orig: A woman wearing sunglasses and a white sweater is walking down a hallway.
+Caption adv:  A woman wearing sunglasses and a white shirt is standing in front of a quilt.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.4664
+Background SSIM   (basso=protezione ok): 0.5278
+Subject LPIPS     (basso=soggetto ok)  : 0.5208
+Editing score                          : 0.3282
+Mask coverage (% background)           : 0.7076

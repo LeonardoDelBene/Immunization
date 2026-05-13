@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a community theater production
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 29.7316
+SSIM: 0.9342
+FSIM: 0.8945
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 18.2425
+SSIM: 0.6457
+FSIM: 0.5478
+
+CLIP score (Image vs Prompt)
+Edited Original:  28.0862
+Edited Immunized: 26.3549
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.7167
+Caption orig: A man wearing a green jacket and a pink flower in his lapel stands in front of a crowd of people.
+Caption adv:  A man wearing a brown jacket and a white shirt stands in front of a group of people.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.4732
+Background SSIM   (basso=protezione ok): 0.5927
+Subject LPIPS     (basso=soggetto ok)  : 0.2907
+Editing score                          : 0.4370
+Mask coverage (% background)           : 0.7078

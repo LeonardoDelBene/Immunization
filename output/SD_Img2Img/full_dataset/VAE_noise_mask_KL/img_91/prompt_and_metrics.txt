@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a summer camp
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 30.6709
+SSIM: 0.9246
+FSIM: 0.9045
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 22.7223
+SSIM: 0.8335
+FSIM: 0.7717
+
+CLIP score (Image vs Prompt)
+Edited Original:  28.3543
+Edited Immunized: 29.1018
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.8720
+Caption orig: A woman in a black and white shirt is standing in a forest.
+Caption adv:  A woman in a checkered shirt and black pants is standing in a forest.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.1655
+Background SSIM   (basso=protezione ok): 0.8738
+Subject LPIPS     (basso=soggetto ok)  : 0.3161
+Editing score                          : 0.2144
+Mask coverage (% background)           : 0.7279

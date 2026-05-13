@@ -1,4 +1,5 @@
 from collections import defaultdict
+from lpips import lpips
 import torch
 import torch.optim as optim
 import torch.nn.functional as F
@@ -117,7 +118,8 @@ def training_loop(
         weight_decay: float = 0.01,
         alpha: float = 1.0,
         beta: float = 1.0,
-        lambda_vae: float = 0.03,
+        lambda_kl: float = 0.03,
+        lambda_res: float = 0.03,
         eta: float = 0.2,
         eps: float = 32/255 * 2,
         val_every: int = 1,
@@ -138,6 +140,7 @@ def training_loop(
         #"openai/clip-vit-large-patch14"
     ]
     surrogate_clip_models = []
+    surrogate_vae_models = []
     for model_name in surrogate_clip_configs:
         model = CLIPModel.from_pretrained(model_name).to(device).eval()
         for param in model.parameters():
@@ -150,7 +153,15 @@ def training_loop(
     for param in vae.parameters():
         param.requires_grad = False
 
-    n_surrogates = len(surrogate_clip_models) + 1  # 3 CLIP + 1 VAE
+    '''vae_p2p = AutoencoderKL.from_pretrained(
+        "timbrooks/instruct-pix2pix", subfolder="vae"
+    ).to(device).eval()
+    for param in vae_p2p.parameters():
+        param.requires_grad = False'''
+    
+    surrogate_vae_models.append(vae)
+
+    n_surrogates = len(surrogate_clip_models) + len(surrogate_vae_models) # 3 CLIP + 2 VAE
 
     # ── Ottimizzatore, weighter e normalizer ──
     optimizer       = optim.AdamW(unet.parameters(), lr=lr, weight_decay=weight_decay)
@@ -191,7 +202,7 @@ def training_loop(
             "dataset": dataset, "n_epochs": n_epochs, "lr": lr,
             "batch size": batch, "weight_decay": weight_decay,
             "alpha": alpha, "beta": beta, "eta": eta,
-            "lambda_vae": lambda_vae, "eps": eps,
+            "lambda_kl": lambda_kl, "lambda_res": lambda_res, "eps": eps,
             "noise_on_mask": noise_on_mask, "nb_filter": nb_filter,
             "dyn_weight_window": dyn_weight_window,
             "dyn_weight_T_temp": dyn_weight_T_temp,
@@ -212,6 +223,8 @@ def training_loop(
     if not resume_from_checkpoint:
         dyn_weighter.reset()
         loss_normalizer.reset()
+
+    lpips_fn = lpips.LPIPS(net='alex').to(device)
 
     for epoch in range(start_epoch, n_epochs):
 
@@ -243,18 +256,23 @@ def training_loop(
                 X_cls_list.append(X_cls);    Y_cls_list.append(Y_cls)
                 X_patch_list.append(X_patch); Y_patch_list.append(Y_patch)
 
-            # ── VAE ──
-            posterior_im = vae.encode(I_im).latent_dist
-            posterior_target = vae.encode(I_target).latent_dist
+            posterior_im_list, posterior_target_list = [], []
+            for vae_model in surrogate_vae_models:
+                 posterior_im = vae_model.encode(I_im).latent_dist
+                 posterior_target = vae_model.encode(I_target).latent_dist
+                 posterior_im_list.append(posterior_im)
+                 posterior_target_list.append(posterior_target)
+
 
             loss, log = total_loss(
-                I_im=I_im, I=I, M=1 - M,
+                I_im=I_im, I=I, M=1 - M, I_target=I_target,
                 X_cls_list=X_cls_list, Y_cls_list=Y_cls_list,
                 X_patch_list=X_patch_list, Y_patch_list=Y_patch_list,
-                posterior_im=posterior_im, posterior_target=posterior_target,
+                surrogate_vae_models=surrogate_vae_models,
+                posterior_im_list=posterior_im_list, posterior_target_list=posterior_target_list, lpips=lpips_fn,
                 dyn_weighter=dyn_weighter,
-                alpha=alpha, beta=beta, eta=eta, lambda_vae=lambda_vae,
-                noise_on_mask=noise_on_mask,
+                alpha=alpha, beta=beta, eta=eta, lambda_kl=lambda_kl, lambda_res=lambda_res,
+                noise_on_mask=noise_on_mask,device=device,
             )
 
             loss.backward()
@@ -286,47 +304,96 @@ def training_loop(
         dyn_weighter.step(normalized_losses)
         weights = dyn_weighter.get_weights()
 
+        # ── stringa KL ──
+        kl_str = "  ".join(f"l_kl_{i}={train_metrics[f'l_kl_{i}']:.4f}"for i in range(n_surrogates))
+
+        # ── stringa reconstruction ──
+        res_str = "  ".join(f"l_res_{i}={train_metrics[f'l_res_{i}']:.4f}" for i in range(n_surrogates))
+
+        # ── print ──
         print(
             f"\n── Epoch {epoch + 1} Train ──  "
             f"loss={train_metrics['l_tot']:.4f}  "
             f"l_noise={train_metrics['l_noise']:.4f}  "
             f"l_surrogates={train_metrics['l_surrogates']:.4f}  "
             f"{surrogate_str}  "
-            f"norm={[f'{l:.4f}' for l in normalized_losses]}  "
+            f"\nKL: {kl_str}  "
+            f"\nRES: {res_str}  "
+            f"\nnorm={[f'{l:.4f}' for l in normalized_losses]}  "
             f"weights={[f'{w:.4f}' for w in weights]}"
-        )
+         )
 
         # ── Validation ──
         if (epoch + 1) % val_every == 0:
-            val_metrics = validation_loop(
-                unet=unet, val_dataloader=val_dataloader,
-                surrogate_clip_models=surrogate_clip_models, vae=vae,
-                dyn_weighter=dyn_weighter, alpha=alpha, beta=beta, eta=eta,
-                lambda_vae=lambda_vae, device=device, noise_on_mask=noise_on_mask,
-            )
+          val_metrics = validation_loop(
+           unet=unet,
+           val_dataloader=val_dataloader,
+           surrogate_clip_models=surrogate_clip_models,
+           surrogate_vae_models=surrogate_vae_models,
+           lpips_fn=lpips_fn,
+           dyn_weighter=dyn_weighter,
+           alpha=alpha,
+           beta=beta,
+           eta=eta,
+           lambda_kl=lambda_kl,
+           lambda_res=lambda_res,
+           device=device,
+           noise_on_mask=noise_on_mask,
+           )
 
-            n_surrogates_val = sum(1 for k in val_metrics if k.startswith("l_surrogate_"))
-            surrogate_str_val = "  ".join(
-                f"l_surrogate_{i}={val_metrics[f'l_surrogate_{i}']:.4f}"
-                for i in range(n_surrogates_val)
-            )
+          n_surrogates_val = sum(
+           1 for k in val_metrics if k.startswith("l_surrogate_")
+          )
 
-            val_surrogates = [val_metrics[f"l_surrogate_{i}"] for i in range(n_surrogates_val)]
-            val_normalized = loss_normalizer.normalize(val_surrogates)
-            weights_sum    = sum(weights)
-            monitored      = sum(w * l for w, l in zip(weights, val_normalized)) / weights_sum
+          # ── surrogate total losses ──
+          surrogate_str_val = "  ".join(
+           f"l_surrogate_{i}={val_metrics[f'l_surrogate_{i}']:.4f}"
+           for i in range(n_surrogates_val)
+           )
 
-            print(
-                f"── Epoch {epoch + 1} Val ──    "
-                f"loss={val_metrics['l_tot']:.4f}  "
-                f"l_noise={val_metrics['l_noise']:.4f}  "
-                f"l_surr={val_metrics['l_surrogates']:.4f}  "
-                f"{surrogate_str_val}  "
-                f"monitored={monitored:.6f}\n"
-            )
+          # ── KL breakdown ──
+          kl_str_val = "  ".join(
+           f"l_kl_{i}={val_metrics[f'l_kl_{i}']:.4f}"
+           for i in range(n_surrogates_val)
+          )
 
-            # ── Best model: salva sempre il migliore senza early stopping ──
-            if monitored < best_monitored:
+          # ── Reconstruction breakdown ──
+          res_str_val = "  ".join(
+           f"l_res_{i}={val_metrics[f'l_res_{i}']:.4f}"
+           for i in range(n_surrogates_val)
+          )
+
+          # ── surrogate losses for weighting ──
+          val_surrogates = [
+           val_metrics[f"l_surrogate_{i}"]
+           for i in range(n_surrogates_val)
+          ]
+
+          # normalizzazione coerente con train
+          val_normalized = loss_normalizer.normalize(val_surrogates)
+
+          # usa gli stessi pesi del train (importante!)
+          weights = dyn_weighter.get_weights()
+          weights_sum = sum(weights)
+
+          monitored = sum(
+           w * l for w, l in zip(weights, val_normalized)
+          ) / weights_sum
+
+          # ── print ──
+          print(
+           f"── Epoch {epoch + 1} Val ──    "
+           f"loss={val_metrics['l_tot']:.4f}  "
+           f"l_noise={val_metrics['l_noise']:.4f}  "
+           f"l_surr={val_metrics['l_surrogates']:.4f}  "
+           f"{surrogate_str_val}  "
+           f"\nKL: {kl_str_val}  "
+           f"\nRES: {res_str_val}  "
+           f"\nmonitored={monitored:.6f}\n"
+          )
+
+          # ── Best model: salva sempre il migliore senza early stopping ──
+          if monitored < best_monitored:
                 best_monitored = monitored
                 best_val_loss  = val_metrics["l_tot"]
                 Path(best_checkpoint_path).parent.mkdir(parents=True, exist_ok=True)
@@ -335,27 +402,50 @@ def training_loop(
                     f"  ✓ Best model saved "
                     f"(monitored={best_monitored:.6f}, val_loss={best_val_loss:.4f})"
                     f" → {best_checkpoint_path}\n"
-                )
+            )
+        wandb.log({
+          "train/loss":         train_metrics["l_tot"],
+          "train/l_noise":      train_metrics["l_noise"],
+          "train/l_surrogates": train_metrics["l_surrogates"],
 
-            wandb.log({
-                "train/loss":         train_metrics["l_tot"],
-                "train/l_noise":      train_metrics["l_noise"],
-                "train/l_surrogates": train_metrics["l_surrogates"],
-                **{f"train/l_surrogate_{i}": train_metrics[f"l_surrogate_{i}"]
-                   for i in range(n_surrogates)},
-                **{f"train/l_surrogate_{i}_norm": normalized_losses[i]
-                   for i in range(n_surrogates)},
-                **{f"train/weight_{i}": w for i, w in enumerate(weights)},
-                "val/loss":           val_metrics["l_tot"],
-                "val/l_noise":        val_metrics["l_noise"],
-                "val/l_surrogates":   val_metrics["l_surrogates"],
-                **{f"val/l_surrogate_{i}": val_metrics[f"l_surrogate_{i}"]
-                   for i in range(n_surrogates_val)},
-                **{f"val/l_surrogate_{i}_norm": val_normalized[i]
-                   for i in range(n_surrogates_val)},
-                "val/monitored":      monitored,
-                "epoch": epoch + 1,
-            }, step=epoch + 1)
+          **{f"train/l_surrogate_{i}": train_metrics[f"l_surrogate_{i}"]
+           for i in range(n_surrogates)},
+
+          **{f"train/l_surrogate_{i}_norm": normalized_losses[i]
+           for i in range(n_surrogates)},
+
+          **{f"train/weight_{i}": w for i, w in enumerate(weights)},
+
+          # ───────── KL train ─────────
+          **{f"train/l_kl_{i}": train_metrics[f"l_kl_{i}"]
+            for i in range(n_surrogates)},
+
+          # ───────── RES train ────────
+          **{f"train/l_res_{i}": train_metrics[f"l_res_{i}"]
+            for i in range(n_surrogates)},
+
+          # ───────── VAL ──────────────
+          "val/loss":           val_metrics["l_tot"],
+          "val/l_noise":        val_metrics["l_noise"],
+          "val/l_surrogates":   val_metrics["l_surrogates"],
+
+          **{f"val/l_surrogate_{i}": val_metrics[f"l_surrogate_{i}"]
+            for i in range(n_surrogates_val)},
+
+          **{f"val/l_surrogate_{i}_norm": val_normalized[i]
+           for i in range(n_surrogates_val)},
+
+          # ───────── KL val ───────────
+          **{f"val/l_kl_{i}": val_metrics[f"l_kl_{i}"]
+           for i in range(n_surrogates_val)},
+
+          # ───────── RES val ──────────
+          **{f"val/l_res_{i}": val_metrics[f"l_res_{i}"]
+            for i in range(n_surrogates_val)},
+
+          "val/monitored":      monitored,
+          "epoch": epoch + 1,
+         }, step=epoch + 1)
 
         # ── Checkpoint ──
         save_training_checkpoint(
@@ -412,12 +502,14 @@ def validation_loop(
     unet,
     val_dataloader,
     surrogate_clip_models,
-    vae,
+    surrogate_vae_models,
+    lpips_fn,
     dyn_weighter,
     alpha:       float = 1.0,
     beta:        float = 1.0,
     eta:         float = 0.2,
-    lambda_vae: float = 0.03,
+    lambda_kl: float = 0.03,
+    lambda_res: float = 0.03,
     noise_on_mask: bool = False,
     device:      str   = "cuda",
 ) -> dict:
@@ -453,14 +545,18 @@ def validation_loop(
                 Y_patch_list.append(Y_patch)
 
             # ── VAE ──
-            posterior_im     = vae.encode(I_im).latent_dist
-            posterior_target = vae.encode(I_target).latent_dist
+            posterior_im_list, posterior_target_list = [], []
+            for vae_model in surrogate_vae_models:
+                posterior_im = vae_model.encode(I_im).latent_dist
+                posterior_target = vae_model.encode(I_target).latent_dist
+                posterior_im_list.append(posterior_im)
+                posterior_target_list.append(posterior_target)
 
             # ── Loss — total_loss gestisce pesi e dyn_weighter internamente ──
-            _, log = total_loss(I_im=I_im, I=I, M=1 -M, X_cls_list=X_cls_list, Y_cls_list=Y_cls_list,
-                                X_patch_list=X_patch_list, Y_patch_list=Y_patch_list, posterior_im= posterior_im,
-                                posterior_target= posterior_target, dyn_weighter=dyn_weighter, alpha=alpha, beta=beta, eta=eta,
-                                lambda_vae=lambda_vae, noise_on_mask=noise_on_mask)
+            _, log = total_loss(I_im=I_im, I=I, M=1 -M, I_target=I_target, X_cls_list=X_cls_list, Y_cls_list=Y_cls_list,
+                                X_patch_list=X_patch_list, Y_patch_list=Y_patch_list,surrogate_vae_models=surrogate_vae_models ,posterior_im_list=posterior_im_list,
+                                posterior_target_list=posterior_target_list, lpips=lpips_fn, dyn_weighter=dyn_weighter, alpha=alpha, beta=beta, eta=eta,
+                                lambda_kl=lambda_kl, lambda_res=lambda_res, noise_on_mask=noise_on_mask, device=device)
 
             for k, v in log.items():
                 if k == "weights":
@@ -513,7 +609,7 @@ if __name__ == "__main__":
     g = torch.Generator()
     g.manual_seed(SEED)
 
-    batch=32
+    batch=20
     print(batch)
 
     train_loader = DataLoader(
@@ -546,10 +642,11 @@ if __name__ == "__main__":
         lr=1e-4,
         batch=batch,
         weight_decay=1e-2,
-        alpha=1.5,
+        alpha=1.0,
         beta=1.0,
         eta=0.2,
-        lambda_vae = 0.1,
+        lambda_kl = 0.1,
+        lambda_res = 1,
         eps= (32 / 255 * 2),
         val_every=1,
         best_checkpoint_path="checkpoints/unet_best_zpsi7srq.pth",

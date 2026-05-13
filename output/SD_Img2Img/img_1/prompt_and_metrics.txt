@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a garden
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 29.6771
+SSIM: 0.8989
+FSIM: 0.9030
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 12.9617
+SSIM: 0.5739
+FSIM: 0.5211
+
+CLIP score (Image vs Prompt)
+Edited Original:  25.2583
+Edited Immunized: 25.8907
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.6451
+Caption orig: A man wearing a gray coat and a white hat is standing on a street.
+Caption adv:  A man wearing a hat and a coat is standing on a bridge.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.3622
+Background SSIM   (basso=protezione ok): 0.5435
+Subject LPIPS     (basso=soggetto ok)  : 0.4876
+Editing score                          : 0.2892
+Mask coverage (% background)           : 0.7122

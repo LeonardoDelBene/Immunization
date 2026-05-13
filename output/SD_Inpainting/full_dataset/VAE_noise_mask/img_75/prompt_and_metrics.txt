@@ -1,0 +1,21 @@
+--- Prompt ---
+A person in a butcher’s shop
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 24.8434
+SSIM: 0.9173
+FSIM: 0.8332
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 16.6381
+SSIM: 0.5968
+FSIM: 0.5613
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.5373
+Background SSIM   (basso=protezione ok): 0.5023
+Subject LPIPS     (basso=soggetto ok)  : 0.3621
+Editing score                          : 0.4470
+Mask coverage (% background)           : 0.6353

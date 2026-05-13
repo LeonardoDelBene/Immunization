@@ -1,0 +1,21 @@
+--- Prompt ---
+A person in a technology trade show
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 30.5238
+SSIM: 0.9461
+FSIM: 0.8681
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 12.4574
+SSIM: 0.5447
+FSIM: 0.4036
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.6113
+Background SSIM   (basso=protezione ok): 0.4711
+Subject LPIPS     (basso=soggetto ok)  : 0.3949
+Editing score                          : 0.4662
+Mask coverage (% background)           : 0.7481

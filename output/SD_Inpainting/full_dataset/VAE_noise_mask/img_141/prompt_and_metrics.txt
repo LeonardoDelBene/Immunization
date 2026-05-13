@@ -1,0 +1,21 @@
+--- Prompt ---
+A person in a lobby
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 26.3305
+SSIM: 0.9063
+FSIM: 0.9135
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 18.6021
+SSIM: 0.7616
+FSIM: 0.5219
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.4740
+Background SSIM   (basso=protezione ok): 0.7988
+Subject LPIPS     (basso=soggetto ok)  : 0.4419
+Editing score                          : 0.2848
+Mask coverage (% background)           : 0.7054

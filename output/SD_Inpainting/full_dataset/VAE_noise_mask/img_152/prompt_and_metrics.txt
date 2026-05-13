@@ -1,0 +1,21 @@
+--- Prompt ---
+A person in a soap store
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 27.1073
+SSIM: 0.9291
+FSIM: 0.8218
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 12.2372
+SSIM: 0.4532
+FSIM: 0.4484
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.5826
+Background SSIM   (basso=protezione ok): 0.3364
+Subject LPIPS     (basso=soggetto ok)  : 0.4103
+Editing score                          : 0.4859
+Mask coverage (% background)           : 0.7111

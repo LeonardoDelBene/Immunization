@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a high-end restaurant
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 29.2559
+SSIM: 0.8550
+FSIM: 0.8742
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 15.3886
+SSIM: 0.4767
+FSIM: 0.4993
+
+CLIP score (Image vs Prompt)
+Edited Original:  31.9877
+Edited Immunized: 30.0824
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        0.0841
+Caption orig: A woman in a black suit stands in a restaurant, looking at the camera.
+Caption adv:  A man and a woman are sitting at a table, with the woman being a doll.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.3000
+Success:   True
+Accuracy:  1.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.5697
+Background SSIM   (basso=protezione ok): 0.4533
+Subject LPIPS     (basso=soggetto ok)  : 0.6215
+Editing score                          : 0.3919
+Mask coverage (% background)           : 0.6925

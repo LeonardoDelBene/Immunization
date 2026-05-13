@@ -1,0 +1,35 @@
+--- Prompt ---
+A person in a fire drill
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 30.2234
+SSIM: 0.9363
+FSIM: 0.9095
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 18.1884
+SSIM: 0.7484
+FSIM: 0.6683
+
+CLIP score (Image vs Prompt)
+Edited Original:  27.3550
+Edited Immunized: 28.8728
+
+Caption Similarity (Edited Original vs Edited Immunized)
+Score:        1.0000
+Caption orig: A woman in a floral dress stands in front of a group of firefighters.
+Caption adv:  A woman in a floral dress stands in front of a group of firefighters.
+
+Accuracy Rate (Edited Original vs Edited Immunized)
+LLM score: 0.9000
+Success:   False
+Accuracy:  0.0000
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.2958
+Background SSIM   (basso=protezione ok): 0.7351
+Subject LPIPS     (basso=soggetto ok)  : 0.3101
+Editing score                          : 0.3118
+Mask coverage (% background)           : 0.7133

@@ -1,0 +1,21 @@
+--- Prompt ---
+A person in a dance festival
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 29.8393
+SSIM: 0.9099
+FSIM: 0.8953
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 17.1018
+SSIM: 0.5882
+FSIM: 0.4921
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.5818
+Background SSIM   (basso=protezione ok): 0.5658
+Subject LPIPS     (basso=soggetto ok)  : 0.5465
+Editing score                          : 0.3630
+Mask coverage (% background)           : 0.7193

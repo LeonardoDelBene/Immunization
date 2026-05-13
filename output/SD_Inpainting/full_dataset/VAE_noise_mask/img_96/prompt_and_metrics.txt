@@ -1,0 +1,21 @@
+--- Prompt ---
+A person in a street food court
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 30.2225
+SSIM: 0.9207
+FSIM: 0.9141
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 15.4921
+SSIM: 0.5753
+FSIM: 0.5206
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.5408
+Background SSIM   (basso=protezione ok): 0.5527
+Subject LPIPS     (basso=soggetto ok)  : 0.5733
+Editing score                          : 0.3505
+Mask coverage (% background)           : 0.7527

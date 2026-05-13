@@ -1,0 +1,21 @@
+--- Prompt ---
+A person in a basement
+
+--- Metrics ---
+
+Image Quality (Original vs Immunized)
+PSNR: 29.2399
+SSIM: 0.9122
+FSIM: 0.8758
+
+Protection Effectiveness (Edited Original vs Edited Immunized)
+PSNR: 19.6344
+SSIM: 0.5471
+FSIM: 0.4973
+
+Masked Editing Score
+Background LPIPS  (alto=protezione ok) : 0.5063
+Background SSIM   (basso=protezione ok): 0.5186
+Subject LPIPS     (basso=soggetto ok)  : 0.6456
+Editing score                          : 0.3469
+Mask coverage (% background)           : 0.7293
