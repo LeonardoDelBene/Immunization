@@ -4,32 +4,34 @@ A person in a tech launch event
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 31.0508
-SSIM: 0.9347
-FSIM: 0.8351
+PSNR: 30.8524
+SSIM: 0.9342
+FSIM: 0.8339
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 13.7762
-SSIM: 0.5094
-FSIM: 0.4667
-
-CLIP score (Image vs Prompt)
-Edited Original:  29.1313
-Edited Immunized: 25.1249
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.3584
-Caption orig: A group of people are standing together, with a woman in a brown coat and a woman in a white shirt standing out.
-Caption adv:  A woman wearing a brown coat and a scarf is smiling at the camera.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.4000
-Success:   True
-Accuracy:  1.0000
+PSNR: 13.8496
+SSIM: 0.5049
+FSIM: 0.4698
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.7087
-Background SSIM   (basso=protezione ok): 0.4203
-Subject LPIPS     (basso=soggetto ok)  : 0.3376
-Editing score                          : 0.5548
-Mask coverage (% background)           : 0.7223
+Global LPIPS                           : 0.5642
+Background LPIPS                       : 0.7055
+Subject LPIPS                          : 0.3345
+Separation                             : 0.6784
+Editing score                          : 0.7055
+Mask coverage                          : 0.7223
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person in the image is still present and appears to be in a tech launch event setting."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image lacks the context of a tech launch event and instead shows a person standing in front of a blurred background, which does not align with the specified editing prompt.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image lacks the context of a tech launch event and instead shows a person standing in front of a blurred background, which does not align with the specified editing prompt.\"\n}\n```"
+}

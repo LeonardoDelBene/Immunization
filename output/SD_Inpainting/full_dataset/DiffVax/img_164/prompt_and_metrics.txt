@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a customs checkpoint
+A person in a flower stall
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 33.722811232298376,
+  "psnr_edited_original_vs_edited_immunized": 12.832736589597156
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 33.7233
-SSIM: 0.9871
-FSIM: 0.9619
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 15.0621
-SSIM: 0.5799
-FSIM: 0.4219
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9871421953196041,
+  "ssim_edited_original_vs_edited_immunized": 0.49842131721585936
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  28.7472
-Edited Immunized: 18.4427
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.7039
-Caption orig: A woman wearing a black dress and sunglasses walks past a blue sign with a yellow arrow.
-Caption adv:  A woman wearing a black dress and sunglasses walks past a wall with a pattern of pink dots.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9619865857845227,
+  "fsim_edited_original_vs_edited_immunized": 0.46483971004142854
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.8229
-Background SSIM   (basso=protezione ok): 0.4443
-Subject LPIPS     (basso=soggetto ok)  : 0.1221
-Editing score                          : 0.5271
-Mask coverage (% background)           : 0.7139
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.12213462755979414
+Global LPIPS : 0.03376578167080879
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.12213462755979414
+Global LPIPS : 0.44099730253219604
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as the person is still in front of a flower stall with colorful flowers around her. The image appears clear and recognizable.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as the person is still in front of a flower stall with colorful flowers around her. The image appears clear and recognizable.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 2.5,
+  "factor_scores": {
+    "background_infiltration": 4,
+    "global_coherence_ruin": 4,
+    "identity_erasure": 1,
+    "scale_distortion": 1,
+    "spatial_chaos": 1,
+    "texture_degradation": 4,
+    "distortion_effectiveness": 4,
+    "light_color_mismatch": 4,
+    "edge_visibility": 1,
+    "alignment_sabotage": 4,
+    "editing_incompleteness": 1,
+    "total_implausibility": 1
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 4,
+      "justification": "Some background elements are slightly blurred."
+    },
+    "global_coherence_ruin": {
+      "score": 4,
+      "justification": "The overall scene remains coherent but has a slight blur."
+    },
+    "identity_erasure": {
+      "score": 1,
+      "justification": "The subject's identity is not affected."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No objects are rendered disproportionately."
+    },
+    "spatial_chaos": {
+      "score": 1,
+      "justification": "Spatial relationships are maintained."
+    },
+    "texture_degradation": {
+      "score": 4,
+      "justification": "Textures appear slightly degraded."
+    },
+    "distortion_effectiveness": {
+      "score": 4,
+      "justification": "There is some visible noise."
+    },
+    "light_color_mismatch": {
+      "score": 4,
+      "justification": "Colors are consistent but have a slight shift."
+    },
+    "edge_visibility": {
+      "score": 1,
+      "justification": "No sharp edges or seams are visible."
+    },
+    "alignment_sabotage": {
+      "score": 4,
+      "justification": "The image aligns well with the original instruction."
+    },
+    "editing_incompleteness": {
+      "score": 1,
+      "justification": "The edit is complete."
+    },
+    "total_implausibility": {
+      "score": 1,
+      "justification": "The result is logically sensible and recognizable."
+    }
+  },
+  "raw_output": "```json\n{\n  \"background_infiltration\": {\"score\": 4, \"justification\": \"Some background elements are slightly blurred.\"},\n  \"global_coherence_ruin\": {\"score\": 4, \"justification\": \"The overall scene remains coherent but has a slight blur.\"},\n  \"identity_erasure\": {\"score\": 1, \"justification\": \"The subject's identity is not affected.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No objects are rendered disproportionately.\"},\n  \"spatial_chaos\": {\"score\": 1, \"justification\": \"Spatial relationships are maintained.\"},\n  \"texture_degradation\": {\"score\": 4, \"justification\": \"Textures appear slightly degraded.\"},\n  \"distortion_effectiveness\": {\"score\": 4, \"justification\": \"There is some visible noise.\"},\n  \"light_color_mismatch\": {\"score\": 4, \"justification\": \"Colors are consistent but have a slight shift.\"},\n  \"edge_visibility\": {\"score\": 1, \"justification\": \"No sharp edges or seams are visible.\"},\n  \"alignment_sabotage\": {\"score\": 4, \"justification\": \"The image aligns well with the original instruction.\"},\n  \"editing_incompleteness\": {\"score\": 1, \"justification\": \"The edit is complete.\"},\n  \"total_implausibility\": {\"score\": 1, \"justification\": \"The result is logically sensible and recognizable.\"}\n}\n```"
+}

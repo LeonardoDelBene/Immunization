@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a garage
+A person in a tech startup launch
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 34.977519988256894,
+  "psnr_edited_original_vs_edited_immunized": 12.882730739464767
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 34.9763
-SSIM: 0.9890
-FSIM: 0.9639
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 13.7121
-SSIM: 0.5111
-FSIM: 0.4478
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9889815888642134,
+  "ssim_edited_original_vs_edited_immunized": 0.5439463156130804
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  28.4025
-Edited Immunized: 21.6080
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6075
-Caption orig: A woman wearing a black and white polka dot sweater stands in front of a car.
-Caption adv:  A woman wearing a black and white polka dot sweater and a black skirt.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9639942554668365,
+  "fsim_edited_original_vs_edited_immunized": 0.44603284613492367
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.8000
-Success:   False
-Accuracy:  0.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.8698
-Background SSIM   (basso=protezione ok): 0.3275
-Subject LPIPS     (basso=soggetto ok)  : 0.0850
-Editing score                          : 0.5694
-Mask coverage (% background)           : 0.7104
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.08502248910683334
+Global LPIPS : 0.022347528487443924
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.08502248910683334
+Global LPIPS : 0.4730496406555176
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as there are no significant changes to the person's appearance or background. The image remains clear and recognizable.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as there are no significant changes to the person's appearance or background. The image remains clear and recognizable.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 5.5,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 1,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 1,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background is filled with colorful, unrelated icons."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall appearance is completely altered with a chaotic background."
+    },
+    "identity_erasure": {
+      "score": 1,
+      "justification": "The subject remains recognizable despite the background changes."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No objects are rendered disproportionately."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "Spatial relationships are destroyed with random icons scattered around."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "The original texture is replaced by a noisy, patterned background."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Visible noise and digital artifacts are introduced throughout the image."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "Colors are inconsistent with the rest of the scene due to the background."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Visible seams and edges are present where the background meets the subject."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The final image completely deviates from the intended tech startup launch theme."
+    },
+    "editing_incompleteness": {
+      "score": 1,
+      "justification": "The editing is not removed; instead, new elements are added."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The result is visually absurd with a chaotic and unrelated background."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background is filled with colorful, unrelated icons.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall appearance is completely altered with a chaotic background.\"},\n  \"identity_erasure\": {\"score\": 1, \"justification\": \"The subject remains recognizable despite the background changes.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No objects are rendered disproportionately.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"Spatial relationships are destroyed with random icons scattered around.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"The original texture is replaced by a noisy, patterned background.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Visible noise and digital artifacts are introduced throughout the image.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"Colors are inconsistent with the rest of the scene due to the background.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Visible seams and edges are present where the background meets the subject.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The final image completely deviates from the intended tech startup launch theme.\"},\n  \"editing_incompleteness\": {\"score\": 1, \"justification\": \"The editing is not removed; instead, new elements are added.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The result is visually absurd with a chaotic and unrelated background.\"}\n}"
+}

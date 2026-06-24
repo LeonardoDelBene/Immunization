@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a sports field
+A person in a hot dog stand
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 33.597381976332514,
+  "psnr_edited_original_vs_edited_immunized": 13.874799996315145
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 33.5959
-SSIM: 0.9920
-FSIM: 0.9554
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 16.5756
-SSIM: 0.5794
-FSIM: 0.5650
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9920140764452589,
+  "ssim_edited_original_vs_edited_immunized": 0.5134316929436701
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  24.5068
-Edited Immunized: 23.6648
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.7766
-Caption orig: A woman wearing a red dress with hearts on it, standing on a green field.
-Caption adv:  A woman wearing a red dress with hearts on it, standing on a tennis court.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9552542633559385,
+  "fsim_edited_original_vs_edited_immunized": 0.5609466102828568
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.6798
-Background SSIM   (basso=protezione ok): 0.4458
-Subject LPIPS     (basso=soggetto ok)  : 0.0777
-Editing score                          : 0.5157
-Mask coverage (% background)           : 0.7377
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.07765674867820929
+Global LPIPS : 0.013968954794108868
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.07765674867820929
+Global LPIPS : 0.4532182514667511
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as there is no person in a hot dog stand. The image appears to be clear and recognizable with some distortion around the edges but still retains its overall structure.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as there is no person in a hot dog stand. The image appears to be clear and recognizable with some distortion around the edges but still retains its overall structure.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 7.0,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 7,
+    "scale_distortion": 7,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 7,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been heavily distorted with random patterns."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The entire image is altered with a chaotic pattern overlay."
+    },
+    "identity_erasure": {
+      "score": 7,
+      "justification": "The subject's identity is completely obscured by the pattern."
+    },
+    "scale_distortion": {
+      "score": 7,
+      "justification": "Objects appear distorted and out of proportion."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "Spatial relationships are completely disrupted with random elements."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "Original textures are replaced with a noisy pattern."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Severe digital artifacts and noise are introduced."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "Colors are inconsistent and unnatural."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Visible seams and edges are present throughout the image."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The image completely deviates from the original instruction."
+    },
+    "editing_incompleteness": {
+      "score": 7,
+      "justification": "The fundamental parts of the requested edit are removed."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd and physically impossible."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been heavily distorted with random patterns.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The entire image is altered with a chaotic pattern overlay.\"},\n  \"identity_erasure\": {\"score\": 7, \"justification\": \"The subject's identity is completely obscured by the pattern.\"},\n  \"scale_distortion\": {\"score\": 7, \"justification\": \"Objects appear distorted and out of proportion.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"Spatial relationships are completely disrupted with random elements.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"Original textures are replaced with a noisy pattern.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Severe digital artifacts and noise are introduced.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"Colors are inconsistent and unnatural.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Visible seams and edges are present throughout the image.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The image completely deviates from the original instruction.\"},\n  \"editing_incompleteness\": {\"score\": 7, \"justification\": \"The fundamental parts of the requested edit are removed.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd and physically impossible.\"}\n}"
+}

@@ -4,32 +4,34 @@ A person in a vintage arcade
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 29.8538
-SSIM: 0.9340
-FSIM: 0.8624
+PSNR: 29.7856
+SSIM: 0.9344
+FSIM: 0.8625
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 11.2399
+PSNR: 11.2247
 SSIM: 0.3584
-FSIM: 0.4169
-
-CLIP score (Image vs Prompt)
-Edited Original:  30.5407
-Edited Immunized: 31.2279
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6595
-Caption orig: A woman wearing a striped sweater and carrying a brown purse stands in front of a colorful arcade game.
-Caption adv:  A woman wearing a striped shirt and a short skirt is standing in front of a video game machine.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+FSIM: 0.4155
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.6276
-Background SSIM   (basso=protezione ok): 0.2333
-Subject LPIPS     (basso=soggetto ok)  : 0.3958
-Editing score                          : 0.5436
-Mask coverage (% background)           : 0.7348
+Global LPIPS                           : 0.5242
+Background LPIPS                       : 0.6266
+Subject LPIPS                          : 0.4043
+Separation                             : 0.6078
+Editing score                          : 0.6266
+Mask coverage                          : 0.7348
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person is still present and the arcade setting is maintained, but the image appears to be heavily distorted with artifacts."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image contains a person but lacks the vintage arcade setting as described in the editing prompt.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image contains a person but lacks the vintage arcade setting as described in the editing prompt.\"\n}\n```"
+}

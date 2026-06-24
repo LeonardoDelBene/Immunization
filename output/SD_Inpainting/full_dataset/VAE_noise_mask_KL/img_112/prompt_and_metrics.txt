@@ -4,32 +4,34 @@ A person in a jail
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 32.6003
-SSIM: 0.9513
-FSIM: 0.8875
+PSNR: 32.2986
+SSIM: 0.9506
+FSIM: 0.8861
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 18.1025
-SSIM: 0.4377
-FSIM: 0.5481
-
-CLIP score (Image vs Prompt)
-Edited Original:  25.9586
-Edited Immunized: 27.5275
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6744
-Caption orig: A woman wearing a striped shirt and sunglasses is standing in a hallway.
-Caption adv:  A woman wearing a striped shirt and sunglasses is standing in front of a mirror.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 18.2781
+SSIM: 0.4315
+FSIM: 0.5533
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.6084
-Background SSIM   (basso=protezione ok): 0.2965
-Subject LPIPS     (basso=soggetto ok)  : 0.2183
-Editing score                          : 0.6235
-Mask coverage (% background)           : 0.7262
+Global LPIPS                           : 0.4809
+Background LPIPS                       : 0.6287
+Subject LPIPS                          : 0.2146
+Separation                             : 0.7455
+Editing score                          : 0.6287
+Mask coverage                          : 0.7262
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person is not in a jail setting; the background appears to be a different environment."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The image contains a person but does not depict them in a jail setting. The background appears to be a wire mesh fence, which could suggest an outdoor area rather than a jail.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The image contains a person but does not depict them in a jail setting. The background appears to be a wire mesh fence, which could suggest an outdoor area rather than a jail.\"\n}\n```"
+}

@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a ceramic art exhibit
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 29.3608
+PSNR: 29.3613
 SSIM: 0.8899
 FSIM: 0.8439
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 19.8383
-SSIM: 0.7143
-FSIM: 0.5881
-
-CLIP score (Image vs Prompt)
-Edited Original:  31.4958
-Edited Immunized: 30.1657
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        1.0000
-Caption orig: A man wearing a leather jacket and a white vest stands in front of a statue.
-Caption adv:  A man wearing a leather jacket and a white vest stands in front of a statue.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.9000
-Success:   False
-Accuracy:  0.0000
+PSNR: 21.1404
+SSIM: 0.7186
+FSIM: 0.6106
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.3313
-Background SSIM   (basso=protezione ok): 0.7422
-Subject LPIPS     (basso=soggetto ok)  : 0.4680
-Editing score                          : 0.2291
-Mask coverage (% background)           : 0.6780
+Global LPIPS                           : 0.2909
+Background LPIPS                       : 0.1616
+Subject LPIPS                          : 0.6535
+Separation                             : 0.8017
+Editing score                          : 0.6535
+Mask coverage                          : 0.6780
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person in the adversarial image is wearing a jacket with a pattern that does not match the original image, which suggests a change in clothing rather than adding a cap."
+}

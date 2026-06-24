@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a festival ground
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 29.0040
+PSNR: 29.0045
 SSIM: 0.9048
-FSIM: 0.8576
+FSIM: 0.8575
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 21.3562
-SSIM: 0.7660
-FSIM: 0.6512
-
-CLIP score (Image vs Prompt)
-Edited Original:  28.8658
-Edited Immunized: 30.2122
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.9003
-Caption orig: A bald man wearing a red and blue striped shirt and blue jeans stands in front of a crowd of people.
-Caption adv:  A bald man wearing a red and black sweater and blue jeans is standing in a crowd.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.4000
-Success:   True
-Accuracy:  1.0000
+PSNR: 22.9106
+SSIM: 0.8016
+FSIM: 0.6940
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.2941
-Background SSIM   (basso=protezione ok): 0.7964
-Subject LPIPS     (basso=soggetto ok)  : 0.2424
-Editing score                          : 0.3333
-Mask coverage (% background)           : 0.6802
+Global LPIPS                           : 0.1748
+Background LPIPS                       : 0.1124
+Subject LPIPS                          : 0.3583
+Separation                             : 0.7611
+Editing score                          : 0.3583
+Mask coverage                          : 0.6802
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person in the adversarial image is wearing a cap, which matches the editing prompt."
+}

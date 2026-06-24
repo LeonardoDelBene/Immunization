@@ -4,32 +4,34 @@ A person in a car dealership
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 29.2832
-SSIM: 0.8780
-FSIM: 0.8473
+PSNR: 29.1298
+SSIM: 0.8743
+FSIM: 0.8458
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 13.8947
-SSIM: 0.4844
-FSIM: 0.4350
-
-CLIP score (Image vs Prompt)
-Edited Original:  27.8894
-Edited Immunized: 27.1351
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.8169
-Caption orig: A woman wearing a grey sweater and holding a purse stands in front of a car.
-Caption adv:  A woman wearing a grey coat and holding a handbag stands in front of a row of cars.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
+PSNR: 14.2815
+SSIM: 0.4976
+FSIM: 0.4377
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.6689
-Background SSIM   (basso=protezione ok): 0.4854
-Subject LPIPS     (basso=soggetto ok)  : 0.7301
-Editing score                          : 0.4219
-Mask coverage (% background)           : 0.7433
+Global LPIPS                           : 0.6324
+Background LPIPS                       : 0.6656
+Subject LPIPS                          : 0.7318
+Separation                             : 0.4763
+Editing score                          : 0.6656
+Mask coverage                          : 0.7433
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person is still in a car dealership, but the background appears to be altered with text overlays, which does not align with the original scene."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image contains text overlays and visual distortions that contradict the requirement for a person in a car dealership.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image contains text overlays and visual distortions that contradict the requirement for a person in a car dealership.\"\n}\n```"
+}

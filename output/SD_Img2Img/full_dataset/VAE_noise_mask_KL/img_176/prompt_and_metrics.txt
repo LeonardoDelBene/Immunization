@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a church sanctuary
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 29.1242
+PSNR: 29.1247
 SSIM: 0.9020
 FSIM: 0.8895
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 16.5475
-SSIM: 0.5741
-FSIM: 0.5284
-
-CLIP score (Image vs Prompt)
-Edited Original:  26.3578
-Edited Immunized: 28.7966
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        1.0000
-Caption orig: A woman wearing a black coat and scarf is standing in front of a church.
-Caption adv:  A woman wearing a black coat and scarf is standing in front of a church.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 1.0000
-Success:   False
-Accuracy:  0.0000
+PSNR: 20.5797
+SSIM: 0.7294
+FSIM: 0.6582
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.5194
-Background SSIM   (basso=protezione ok): 0.5124
-Subject LPIPS     (basso=soggetto ok)  : 0.4241
-Editing score                          : 0.3996
-Mask coverage (% background)           : 0.6704
+Global LPIPS                           : 0.2572
+Background LPIPS                       : 0.1185
+Subject LPIPS                          : 0.6383
+Separation                             : 0.8434
+Editing score                          : 0.6383
+Mask coverage                          : 0.6704
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person in the adversarial image is wearing a headscarf instead of a cap, which does not satisfy the editing instruction."
+}

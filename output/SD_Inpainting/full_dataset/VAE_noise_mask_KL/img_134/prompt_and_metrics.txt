@@ -4,32 +4,34 @@ A person in a public botanical garden
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 31.4192
-SSIM: 0.8978
-FSIM: 0.7711
+PSNR: 31.2658
+SSIM: 0.8968
+FSIM: 0.7669
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 18.4295
-SSIM: 0.4600
-FSIM: 0.4847
-
-CLIP score (Image vs Prompt)
-Edited Original:  29.4525
-Edited Immunized: 27.7453
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.7096
-Caption orig: A woman wearing a black dress stands in a garden.
-Caption adv:  A woman wearing a black dress stands in front of a forest.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 18.4875
+SSIM: 0.4546
+FSIM: 0.4897
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.5532
-Background SSIM   (basso=protezione ok): 0.3876
-Subject LPIPS     (basso=soggetto ok)  : 0.6513
-Editing score                          : 0.4050
-Mask coverage (% background)           : 0.7053
+Global LPIPS                           : 0.5305
+Background LPIPS                       : 0.5050
+Subject LPIPS                          : 0.6567
+Separation                             : 0.4347
+Editing score                          : 0.5050
+Mask coverage                          : 0.7053
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person is still present in the image, but their face is blurred and the overall image appears distorted, which does not align with the original editing prompt."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image contains a person but lacks the context of a public botanical garden. The background appears distorted and does not resemble a botanical garden setting.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image contains a person but lacks the context of a public botanical garden. The background appears distorted and does not resemble a botanical garden setting.\"\n}\n```"
+}

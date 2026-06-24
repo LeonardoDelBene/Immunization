@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a tech store
+A person in a public restroom
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 34.661268220196824,
+  "psnr_edited_original_vs_edited_immunized": 19.659675920792385
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 34.6615
-SSIM: 0.9893
-FSIM: 0.9728
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 12.6357
-SSIM: 0.4695
-FSIM: 0.4629
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9892907024312109,
+  "ssim_edited_original_vs_edited_immunized": 0.6733665869679265
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  23.9737
-Edited Immunized: 18.4641
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.7722
-Caption orig: A woman wearing sunglasses and a green shirt stands in front of a wall of televisions.
-Caption adv:  A woman wearing a green shirt and sunglasses stands in front of a pink background.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.972813226744094,
+  "fsim_edited_original_vs_edited_immunized": 0.6611907683552709
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.8814
-Background SSIM   (basso=protezione ok): 0.2918
-Subject LPIPS     (basso=soggetto ok)  : 0.1282
-Editing score                          : 0.5782
-Mask coverage (% background)           : 0.7224
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.1281669860942756
+Global LPIPS : 0.03223077207803726
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.1281669860942756
+Global LPIPS : 0.6051748991012573
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The background has been changed from a plain wall to one with a patterned texture, which is a significant change. The edit is visible, but the image remains clear and recognizable.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The background has been changed from a plain wall to one with a patterned texture, which is a significant change. The edit is visible, but the image remains clear and recognizable.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 4.0,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 1,
+    "scale_distortion": 1,
+    "spatial_chaos": 1,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 1,
+    "edge_visibility": 1,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 1,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been changed from a plain wall to one with a patterned texture."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall appearance of the image is significantly altered."
+    },
+    "identity_erasure": {
+      "score": 1,
+      "justification": "The subject remains recognizable."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No objects are rendered disproportionate."
+    },
+    "spatial_chaos": {
+      "score": 1,
+      "justification": "Spatial relationships are maintained."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "The original textures have been replaced by a patterned texture."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Visible changes in the background texture."
+    },
+    "light_color_mismatch": {
+      "score": 1,
+      "justification": "Colors remain consistent."
+    },
+    "edge_visibility": {
+      "score": 1,
+      "justification": "No visible edges or seams."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The image completely deviates from the original instruction."
+    },
+    "editing_incompleteness": {
+      "score": 1,
+      "justification": "The fundamental part of the requested edit (background) is changed."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd due to the background change."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been changed from a plain wall to one with a patterned texture.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall appearance of the image is significantly altered.\"},\n  \"identity_erasure\": {\"score\": 1, \"justification\": \"The subject remains recognizable.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No objects are rendered disproportionate.\"},\n  \"spatial_chaos\": {\"score\": 1, \"justification\": \"Spatial relationships are maintained.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"The original textures have been replaced by a patterned texture.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Visible changes in the background texture.\"},\n  \"light_color_mismatch\": {\"score\": 1, \"justification\": \"Colors remain consistent.\"},\n  \"edge_visibility\": {\"score\": 1, \"justification\": \"No visible edges or seams.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The image completely deviates from the original instruction.\"},\n  \"editing_incompleteness\": {\"score\": 1, \"justification\": \"The fundamental part of the requested edit (background) is changed.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd due to the background change.\"}\n}"
+}

@@ -4,32 +4,34 @@ A person in a casino lounge
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 28.8801
-SSIM: 0.9228
-FSIM: 0.9296
+PSNR: 28.9905
+SSIM: 0.9243
+FSIM: 0.9300
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 11.0380
-SSIM: 0.3497
-FSIM: 0.4174
-
-CLIP score (Image vs Prompt)
-Edited Original:  28.4783
-Edited Immunized: 23.1145
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6068
-Caption orig: A woman wearing a black jacket and white shirt is standing in a casino.
-Caption adv:  A woman wearing a black jacket and white shirt is standing in front of a colorful background.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 10.8611
+SSIM: 0.3510
+FSIM: 0.4122
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.8080
-Background SSIM   (basso=protezione ok): 0.1856
-Subject LPIPS     (basso=soggetto ok)  : 0.3613
-Editing score                          : 0.6507
-Mask coverage (% background)           : 0.6992
+Global LPIPS                           : 0.6464
+Background LPIPS                       : 0.8157
+Subject LPIPS                          : 0.3547
+Separation                             : 0.6969
+Editing score                          : 0.8157
+Mask coverage                          : 0.6992
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person is still in a casino lounge, but the background has been altered to feature neon lights and microphones, which does not align with the original setting."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image does not depict a person in a casino lounge as specified in the editing prompt. Instead, it shows a person in a setting that appears to be a music venue or concert stage.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image does not depict a person in a casino lounge as specified in the editing prompt. Instead, it shows a person in a setting that appears to be a music venue or concert stage.\"\n}\n```"
+}

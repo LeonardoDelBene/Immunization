@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a church sanctuary
+A person in a city parade
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 34.815780596842366,
+  "psnr_edited_original_vs_edited_immunized": 18.566490995226776
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 34.8160
-SSIM: 0.9900
-FSIM: 0.9644
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 14.7756
-SSIM: 0.5189
-FSIM: 0.4839
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9900334774992038,
+  "ssim_edited_original_vs_edited_immunized": 0.818233458576735
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  25.6009
-Edited Immunized: 19.6523
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.7729
-Caption orig: A woman wearing a black coat and a scarf is standing in front of a stained glass window.
-Caption adv:  A woman wearing a black coat and a scarf is standing in front of a wall.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9644239755528745,
+  "fsim_edited_original_vs_edited_immunized": 0.7027215619407089
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.9991
-Background SSIM   (basso=protezione ok): 0.3039
-Subject LPIPS     (basso=soggetto ok)  : 0.0815
-Editing score                          : 0.5897
-Mask coverage (% background)           : 0.6704
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.08154383665228748
+Global LPIPS : 0.015098636969923973
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.08154383665228748
+Global LPIPS : 0.2625814974308014
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as there are no significant changes to the image. The image remains clear and recognizable with no noticeable degradation.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as there are no significant changes to the image. The image remains clear and recognizable with no noticeable degradation.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 3.5,
+  "factor_scores": {
+    "background_infiltration": 4,
+    "global_coherence_ruin": 4,
+    "identity_erasure": 3,
+    "scale_distortion": 2,
+    "spatial_chaos": 3,
+    "texture_degradation": 4,
+    "distortion_effectiveness": 4,
+    "light_color_mismatch": 3,
+    "edge_visibility": 4,
+    "alignment_sabotage": 4,
+    "editing_incompleteness": 3,
+    "total_implausibility": 4
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 4,
+      "justification": "The background has some colorful specks, but the main subject remains recognizable."
+    },
+    "global_coherence_ruin": {
+      "score": 4,
+      "justification": "The overall scene is still coherent, but there's a slight disruption."
+    },
+    "identity_erasure": {
+      "score": 3,
+      "justification": "The person's identity is still discernible, though slightly obscured."
+    },
+    "scale_distortion": {
+      "score": 2,
+      "justification": "No significant change in object sizes."
+    },
+    "spatial_chaos": {
+      "score": 3,
+      "justification": "Some elements in the background are slightly out of place."
+    },
+    "texture_degradation": {
+      "score": 4,
+      "justification": "The texture around the edges shows some noise."
+    },
+    "distortion_effectiveness": {
+      "score": 4,
+      "justification": "There are visible distortions around the edges."
+    },
+    "light_color_mismatch": {
+      "score": 3,
+      "justification": "Colors are slightly off, especially around the edges."
+    },
+    "edge_visibility": {
+      "score": 4,
+      "justification": "There are visible edges and seams around the altered areas."
+    },
+    "alignment_sabotage": {
+      "score": 4,
+      "justification": "The overall alignment is disrupted, especially in the background."
+    },
+    "editing_incompleteness": {
+      "score": 3,
+      "justification": "The main subject is still recognizable, but some details are altered."
+    },
+    "total_implausibility": {
+      "score": 4,
+      "justification": "The altered areas look unnatural and disrupt the coherence of the scene."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 4, \"justification\": \"The background has some colorful specks, but the main subject remains recognizable.\"},\n  \"global_coherence_ruin\": {\"score\": 4, \"justification\": \"The overall scene is still coherent, but there's a slight disruption.\"},\n  \"identity_erasure\": {\"score\": 3, \"justification\": \"The person's identity is still discernible, though slightly obscured.\"},\n  \"scale_distortion\": {\"score\": 2, \"justification\": \"No significant change in object sizes.\"},\n  \"spatial_chaos\": {\"score\": 3, \"justification\": \"Some elements in the background are slightly out of place.\"},\n  \"texture_degradation\": {\"score\": 4, \"justification\": \"The texture around the edges shows some noise.\"},\n  \"distortion_effectiveness\": {\"score\": 4, \"justification\": \"There are visible distortions around the edges.\"},\n  \"light_color_mismatch\": {\"score\": 3, \"justification\": \"Colors are slightly off, especially around the edges.\"},\n  \"edge_visibility\": {\"score\": 4, \"justification\": \"There are visible edges and seams around the altered areas.\"},\n  \"alignment_sabotage\": {\"score\": 4, \"justification\": \"The overall alignment is disrupted, especially in the background.\"},\n  \"editing_incompleteness\": {\"score\": 3, \"justification\": \"The main subject is still recognizable, but some details are altered.\"},\n  \"total_implausibility\": {\"score\": 4, \"justification\": \"The altered areas look unnatural and disrupt the coherence of the scene.\"}\n}"
+}

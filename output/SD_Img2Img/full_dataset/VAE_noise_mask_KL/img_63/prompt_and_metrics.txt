@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a TV studio
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 28.6686
+PSNR: 28.6689
 SSIM: 0.8891
 FSIM: 0.8104
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 15.8838
-SSIM: 0.5616
-FSIM: 0.4630
-
-CLIP score (Image vs Prompt)
-Edited Original:  23.4397
-Edited Immunized: 31.5708
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.5558
-Caption orig: A woman wearing a flowered dress and headphones is standing in front of a picture of a man wearing headphones.
-Caption adv:  A woman in a white dress is standing in front of a camera.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 23.2730
+SSIM: 0.7994
+FSIM: 0.6377
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.5718
-Background SSIM   (basso=protezione ok): 0.5467
-Subject LPIPS     (basso=soggetto ok)  : 0.5753
-Editing score                          : 0.3647
-Mask coverage (% background)           : 0.7128
+Global LPIPS                           : 0.2645
+Background LPIPS                       : 0.1536
+Subject LPIPS                          : 0.5862
+Separation                             : 0.7924
+Editing score                          : 0.5862
+Mask coverage                          : 0.7128
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person in the adversarial image is wearing a hat, which satisfies the editing instruction."
+}

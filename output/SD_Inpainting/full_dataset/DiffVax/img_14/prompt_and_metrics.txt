@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a parking structure
+A person in a science museum exhibit
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 35.0895516019941,
+  "psnr_edited_original_vs_edited_immunized": 17.577400093934788
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 35.0901
-SSIM: 0.9889
-FSIM: 0.9716
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 14.4669
-SSIM: 0.6042
-FSIM: 0.4261
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.988895184236287,
+  "ssim_edited_original_vs_edited_immunized": 0.5627929225082339
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  24.0007
-Edited Immunized: 22.4288
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.7100
-Caption orig: A woman wearing a gray vest and sunglasses is standing outside.
-Caption adv:  A woman wearing a grey dress and sunglasses is standing in front of a purple wall.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.971589670085692,
+  "fsim_edited_original_vs_edited_immunized": 0.4488776690847008
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.8386
-Background SSIM   (basso=protezione ok): 0.5102
-Subject LPIPS     (basso=soggetto ok)  : 0.1427
-Editing score                          : 0.5074
-Mask coverage (% background)           : 0.7713
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.14277884655675094
+Global LPIPS : 0.03397894650697708
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.14277884655675094
+Global LPIPS : 0.4615595042705536
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as the background has changed from a science museum exhibit to a wall with colorful objects. The image appears clear and recognizable.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as the background has changed from a science museum exhibit to a wall with colorful objects. The image appears clear and recognizable.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 6.5,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 7,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 7,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been completely replaced with a wall covered in colorful objects."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall appearance of the image is drastically altered, losing its original context."
+    },
+    "identity_erasure": {
+      "score": 7,
+      "justification": "The subject remains recognizable, but the background has been entirely changed."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "The subject's proportions are maintained, no distortion observed."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "The spatial relationships have been disrupted, with the subject appearing out of place."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "The original texture of the background has been replaced with a new, chaotic pattern."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Visible noise and digital artifacts are introduced, making the image appear corrupted."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "The lighting and color scheme are inconsistent with the original scene."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Sharp edges and visible seams are present, indicating the attack's effectiveness."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The final image completely deviates from the intended edit, ignoring the original instruction."
+    },
+    "editing_incompleteness": {
+      "score": 7,
+      "justification": "The attack removed the original background, leaving the subject in an unrelated setting."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd, as the subject is placed in a completely different environment."
+    }
+  },
+  "raw_output": "```json\n{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been completely replaced with a wall covered in colorful objects.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall appearance of the image is drastically altered, losing its original context.\"},\n  \"identity_erasure\": {\"score\": 7, \"justification\": \"The subject remains recognizable, but the background has been entirely changed.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"The subject's proportions are maintained, no distortion observed.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"The spatial relationships have been disrupted, with the subject appearing out of place.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"The original texture of the background has been replaced with a new, chaotic pattern.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Visible noise and digital artifacts are introduced, making the image appear corrupted.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"The lighting and color scheme are inconsistent with the original scene.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Sharp edges and visible seams are present, indicating the attack's effectiveness.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The final image completely deviates from the intended edit, ignoring the original instruction.\"},\n  \"editing_incompleteness\": {\"score\": 7, \"justification\": \"The attack removed the original background, leaving the subject in an unrelated setting.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd, as the subject is placed in a completely different environment.\"}\n}\n```"
+}

@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a city food tour
+A person in a flea market
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 34.08990531396751,
+  "psnr_edited_original_vs_edited_immunized": 12.336510739823927
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 34.0897
-SSIM: 0.9873
-FSIM: 0.9633
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 14.0721
-SSIM: 0.5585
-FSIM: 0.4838
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.987329851998657,
+  "ssim_edited_original_vs_edited_immunized": 0.4455336782775467
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  28.2783
-Edited Immunized: 23.3145
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6012
-Caption orig: A woman in a black dress and a gold belt is standing in front of a table filled with food.
-Caption adv:  A woman wearing a black dress and a gold belt stands in front of a wall covered in graffiti.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9632644392485936,
+  "fsim_edited_original_vs_edited_immunized": 0.419207900097136
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.7326
-Background SSIM   (basso=protezione ok): 0.4147
-Subject LPIPS     (basso=soggetto ok)  : 0.1091
-Editing score                          : 0.5280
-Mask coverage (% background)           : 0.7304
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.10909910851577133
+Global LPIPS : 0.02773848921060562
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.10909910851577133
+Global LPIPS : 0.6561347842216492
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The background has been changed from a flea market scene to a plain wall with some text. The edit is clearly visible, and the image appears slightly blurry and less recognizable compared to the original.",
+  "attack_success": 1,
+  "raw_output": "```json\n{\n  \"reason\": \"The background has been changed from a flea market scene to a plain wall with some text. The edit is clearly visible, and the image appears slightly blurry and less recognizable compared to the original.\",\n  \"attack_success\": 1\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 5.5,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 1,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 1,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been changed from a flea market scene to a plain wall with some text."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall scene is completely altered, losing the original context."
+    },
+    "identity_erasure": {
+      "score": 1,
+      "justification": "The subject remains recognizable, but the background is significantly altered."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No significant distortion in object sizes."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "Spatial relationships are disrupted as the background is entirely changed."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "The texture of the background is replaced by a plain wall with text."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "The image appears blurry and less recognizable."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "Colors are inconsistent with the rest of the scene due to the plain wall."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Visible seams and edges are present where the background changes abruptly."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The final image completely deviates from the intent of the original instruction."
+    },
+    "editing_incompleteness": {
+      "score": 1,
+      "justification": "The editing is not undone, but the background is changed."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd as the background is completely different from the original scene."
+    }
+  },
+  "raw_output": "```json\n{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been changed from a flea market scene to a plain wall with some text.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall scene is completely altered, losing the original context.\"},\n  \"identity_erasure\": {\"score\": 1, \"justification\": \"The subject remains recognizable, but the background is significantly altered.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No significant distortion in object sizes.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"Spatial relationships are disrupted as the background is entirely changed.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"The texture of the background is replaced by a plain wall with text.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"The image appears blurry and less recognizable.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"Colors are inconsistent with the rest of the scene due to the plain wall.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Visible seams and edges are present where the background changes abruptly.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The final image completely deviates from the intent of the original instruction.\"},\n  \"editing_incompleteness\": {\"score\": 1, \"justification\": \"The editing is not undone, but the background is changed.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd as the background is completely different from the original scene.\"}\n}\n```"
+}

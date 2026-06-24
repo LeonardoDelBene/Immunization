@@ -4,32 +4,34 @@ A person in a dance school
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 29.8275
-SSIM: 0.9122
-FSIM: 0.8810
+PSNR: 30.4840
+SSIM: 0.9146
+FSIM: 0.8834
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 11.8892
-SSIM: 0.4464
-FSIM: 0.4228
-
-CLIP score (Image vs Prompt)
-Edited Original:  27.2043
-Edited Immunized: 27.8063
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.5784
-Caption orig: A young woman wearing a red shirt and a flower crown is standing on a stage, surrounded by other dancers.
-Caption adv:  A young girl wearing a red dress and a flower in her hair is standing in front of a group of children.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 12.5013
+SSIM: 0.4583
+FSIM: 0.4299
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.6652
-Background SSIM   (basso=protezione ok): 0.3671
-Subject LPIPS     (basso=soggetto ok)  : 0.4393
-Editing score                          : 0.4924
-Mask coverage (% background)           : 0.7229
+Global LPIPS                           : 0.5640
+Background LPIPS                       : 0.6552
+Subject LPIPS                          : 0.4112
+Separation                             : 0.6144
+Editing score                          : 0.6552
+Mask coverage                          : 0.7229
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person in the dance school is still present, but the image appears to be heavily distorted with artifacts and noise, which does not align with the editing instruction."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image does not depict a person in a dance school as the background and attire have been altered significantly, making it unrecognizable.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image does not depict a person in a dance school as the background and attire have been altered significantly, making it unrecognizable.\"\n}\n```"
+}

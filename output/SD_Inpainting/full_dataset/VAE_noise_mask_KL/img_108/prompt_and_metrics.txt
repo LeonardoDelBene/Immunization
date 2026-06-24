@@ -4,32 +4,34 @@ A person in a refugee camp
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 28.8672
-SSIM: 0.8720
-FSIM: 0.8557
+PSNR: 28.8343
+SSIM: 0.8718
+FSIM: 0.8573
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 19.6186
-SSIM: 0.6662
-FSIM: 0.5699
-
-CLIP score (Image vs Prompt)
-Edited Original:  29.1463
-Edited Immunized: 31.1192
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.8193
-Caption orig: A man wearing a blue jacket and a red, white, and blue striped shirt stands in front of a tent.
-Caption adv:  A man wearing a black jacket and a red hat stands in front of a tent.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 19.7765
+SSIM: 0.6695
+FSIM: 0.5689
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.3556
-Background SSIM   (basso=protezione ok): 0.7123
-Subject LPIPS     (basso=soggetto ok)  : 0.6058
-Editing score                          : 0.2285
-Mask coverage (% background)           : 0.7021
+Global LPIPS                           : 0.4043
+Background LPIPS                       : 0.3517
+Subject LPIPS                          : 0.6103
+Separation                             : 0.3656
+Editing score                          : 0.3517
+Mask coverage                          : 0.7021
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person is still wearing a hat, which does not align with the editing instruction to remove the hat."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image contains a person but lacks the semantic elements of a refugee camp, such as tents and other individuals in similar attire.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image contains a person but lacks the semantic elements of a refugee camp, such as tents and other individuals in similar attire.\"\n}\n```"
+}

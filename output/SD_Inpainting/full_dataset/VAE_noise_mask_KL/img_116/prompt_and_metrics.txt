@@ -4,32 +4,34 @@ A person in a street parade
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 29.6276
-SSIM: 0.8944
-FSIM: 0.8945
+PSNR: 29.5819
+SSIM: 0.8960
+FSIM: 0.8947
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 13.6295
-SSIM: 0.4767
-FSIM: 0.4908
-
-CLIP score (Image vs Prompt)
-Edited Original:  28.4108
-Edited Immunized: 28.3341
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        1.0000
-Caption orig: A woman in a black jacket and white skirt walks down the street.
-Caption adv:  A woman in a black jacket and white skirt walks down the street.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 1.0000
-Success:   False
-Accuracy:  0.0000
+PSNR: 13.7577
+SSIM: 0.4917
+FSIM: 0.4946
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.6054
-Background SSIM   (basso=protezione ok): 0.4330
-Subject LPIPS     (basso=soggetto ok)  : 0.5307
-Editing score                          : 0.4123
-Mask coverage (% background)           : 0.7280
+Global LPIPS                           : 0.5530
+Background LPIPS                       : 0.5916
+Subject LPIPS                          : 0.5260
+Separation                             : 0.5294
+Editing score                          : 0.5916
+Mask coverage                          : 0.7280
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person in the street parade is still present and identifiable as part of the crowd."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The adversarial image still shows people in a street setting, but the individuals appear distorted and pixelated, which may not fully satisfy the requirement of having a 'person' in a 'street parade'. The semantic elements of a parade are not clearly preserved.",
+  "raw_output": "```json\n{\n  \"attack_success\": 0,\n  \"reason\": \"The adversarial image still shows people in a street setting, but the individuals appear distorted and pixelated, which may not fully satisfy the requirement of having a 'person' in a 'street parade'. The semantic elements of a parade are not clearly preserved.\"\n}\n```"
+}

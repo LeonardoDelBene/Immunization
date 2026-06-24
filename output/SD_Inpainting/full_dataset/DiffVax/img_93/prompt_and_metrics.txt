@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a customs checkpoint
+A person in a hot dog stand
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 33.9917730698178,
+  "psnr_edited_original_vs_edited_immunized": 13.208457879001037
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 33.9916
-SSIM: 0.9904
-FSIM: 0.9543
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 15.1433
-SSIM: 0.6012
-FSIM: 0.5128
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9904395706638792,
+  "ssim_edited_original_vs_edited_immunized": 0.5662375185857123
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  24.7080
-Edited Immunized: 18.5058
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6980
-Caption orig: A woman wearing a pink coat and black shorts is standing in an airport.
-Caption adv:  A woman wearing a pink coat and black shorts stands in front of a pink background.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9543171915788639,
+  "fsim_edited_original_vs_edited_immunized": 0.5230041261294563
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.7784
-Background SSIM   (basso=protezione ok): 0.4029
-Subject LPIPS     (basso=soggetto ok)  : 0.0492
-Editing score                          : 0.5403
-Mask coverage (% background)           : 0.6436
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.049221647115957265
+Global LPIPS : 0.014028937555849552
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.049221647115957265
+Global LPIPS : 0.46579957008361816
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as there is no change in the background or any other elements. The image remains clear and recognizable.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as there is no change in the background or any other elements. The image remains clear and recognizable.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 6.5,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 7,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 7,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been completely changed to a textured pattern."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall appearance is drastically altered, losing the original setting."
+    },
+    "identity_erasure": {
+      "score": 7,
+      "justification": "The subject's surroundings have been entirely replaced, making the context unrecognizable."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "The image retains its proportions and size."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "The spatial relationships are completely disrupted, with the subject seemingly floating."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "The original textures have been replaced with a noisy, artificial pattern."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Visible noise and digital artifacts are introduced throughout the image."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "The lighting and colors are inconsistent with the original scene."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Sharp edges and visible seams are present in the attacked areas."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The final image completely deviates from the intended setting of a hot dog stand."
+    },
+    "editing_incompleteness": {
+      "score": 7,
+      "justification": "The editing is left incomplete as the background is entirely altered."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd and physically impossible due to the background change."
+    }
+  },
+  "raw_output": "```json\n{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been completely changed to a textured pattern.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall appearance is drastically altered, losing the original setting.\"},\n  \"identity_erasure\": {\"score\": 7, \"justification\": \"The subject's surroundings have been entirely replaced, making the context unrecognizable.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"The image retains its proportions and size.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"The spatial relationships are completely disrupted, with the subject seemingly floating.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"The original textures have been replaced with a noisy, artificial pattern.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Visible noise and digital artifacts are introduced throughout the image.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"The lighting and colors are inconsistent with the original scene.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Sharp edges and visible seams are present in the attacked areas.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The final image completely deviates from the intended setting of a hot dog stand.\"},\n  \"editing_incompleteness\": {\"score\": 7, \"justification\": \"The editing is left incomplete as the background is entirely altered.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd and physically impossible due to the background change.\"}\n}\n```"
+}

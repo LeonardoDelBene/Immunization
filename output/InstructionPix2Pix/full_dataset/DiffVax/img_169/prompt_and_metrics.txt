@@ -1,35 +1,138 @@
---- Prompt ---
-Put a red hat on the person in the image.
+add freckles to the person's face
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 35.528251785454934,
+  "psnr_edited_original_vs_edited_immunized": 25.84852620684647
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 35.1432
-SSIM: 0.9870
-FSIM: 0.9506
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 18.0010
-SSIM: 0.8510
-FSIM: 0.7583
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9886567003794992,
+  "ssim_edited_original_vs_edited_immunized": 0.8979168057056207
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  27.4515
-Edited Immunized: 27.9428
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.9970
-Caption orig: A man wearing a red hat and a red jacket is walking down the street.
-Caption adv:  A man wearing a red hat and red jacket is walking down the street.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9645110856074269,
+  "fsim_edited_original_vs_edited_immunized": 0.8035041683418552
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.9000
-Success:   False
-Accuracy:  0.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.3588
-Background SSIM   (basso=protezione ok): 0.5766
-Subject LPIPS     (basso=soggetto ok)  : 0.1715
-Editing score                          : 0.4676
-Mask coverage (% background)           : 0.2498
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.1337341516951159
+Global LPIPS : 0.03251127153635025
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.2118701386048824
+Global LPIPS : 0.06078051030635834
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is visible as there are colorful dots added to the person's face. The image appears clear and recognizable.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is visible as there are colorful dots added to the person's face. The image appears clear and recognizable.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 3.5833333333333335,
+  "factor_scores": {
+    "background_infiltration": 4,
+    "global_coherence_ruin": 4,
+    "identity_erasure": 4,
+    "scale_distortion": 3,
+    "spatial_chaos": 3,
+    "texture_degradation": 4,
+    "distortion_effectiveness": 4,
+    "light_color_mismatch": 3,
+    "edge_visibility": 3,
+    "alignment_sabotage": 4,
+    "editing_incompleteness": 3,
+    "total_implausibility": 4
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 4,
+      "justification": "Some background elements have slight color shifts."
+    },
+    "global_coherence_ruin": {
+      "score": 4,
+      "justification": "The overall scene remains coherent but has some distortion."
+    },
+    "identity_erasure": {
+      "score": 4,
+      "justification": "The person's face is partially covered but still recognizable."
+    },
+    "scale_distortion": {
+      "score": 3,
+      "justification": "No significant changes in object sizes."
+    },
+    "spatial_chaos": {
+      "score": 3,
+      "justification": "Spatial relationships are slightly altered but still logical."
+    },
+    "texture_degradation": {
+      "score": 4,
+      "justification": "Textures around the face area are slightly altered."
+    },
+    "distortion_effectiveness": {
+      "score": 4,
+      "justification": "There are visible distortions around the face area."
+    },
+    "light_color_mismatch": {
+      "score": 3,
+      "justification": "Colors around the face area are slightly off."
+    },
+    "edge_visibility": {
+      "score": 3,
+      "justification": "There are subtle visible edges around the face area."
+    },
+    "alignment_sabotage": {
+      "score": 4,
+      "justification": "The overall alignment is slightly off due to the distortion."
+    },
+    "editing_incompleteness": {
+      "score": 3,
+      "justification": "The edit is not fully completed as the face is partially covered."
+    },
+    "total_implausibility": {
+      "score": 4,
+      "justification": "The result is somewhat implausible due to the distortion around the face area."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 4, \"justification\": \"Some background elements have slight color shifts.\"},\n  \"global_coherence_ruin\": {\"score\": 4, \"justification\": \"The overall scene remains coherent but has some distortion.\"},\n  \"identity_erasure\": {\"score\": 4, \"justification\": \"The person's face is partially covered but still recognizable.\"},\n  \"scale_distortion\": {\"score\": 3, \"justification\": \"No significant changes in object sizes.\"},\n  \"spatial_chaos\": {\"score\": 3, \"justification\": \"Spatial relationships are slightly altered but still logical.\"},\n  \"texture_degradation\": {\"score\": 4, \"justification\": \"Textures around the face area are slightly altered.\"},\n  \"distortion_effectiveness\": {\"score\": 4, \"justification\": \"There are visible distortions around the face area.\"},\n  \"light_color_mismatch\": {\"score\": 3, \"justification\": \"Colors around the face area are slightly off.\"},\n  \"edge_visibility\": {\"score\": 3, \"justification\": \"There are subtle visible edges around the face area.\"},\n  \"alignment_sabotage\": {\"score\": 4, \"justification\": \"The overall alignment is slightly off due to the distortion.\"},\n  \"editing_incompleteness\": {\"score\": 3, \"justification\": \"The edit is not fully completed as the face is partially covered.\"},\n  \"total_implausibility\": {\"score\": 4, \"justification\": \"The result is somewhat implausible due to the distortion around the face area.\"}\n}"
+}

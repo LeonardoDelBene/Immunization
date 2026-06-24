@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a garage
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 28.2331
+PSNR: 28.2342
 SSIM: 0.8922
 FSIM: 0.8830
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 15.7015
-SSIM: 0.5532
-FSIM: 0.5322
-
-CLIP score (Image vs Prompt)
-Edited Original:  24.6765
-Edited Immunized: 26.0997
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.5753
-Caption orig: A man wearing a brown jacket and a white shirt stands in front of a statue.
-Caption adv:  A man wearing a brown jacket stands next to another man in a white shirt.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 21.8630
+SSIM: 0.7737
+FSIM: 0.7110
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.5548
-Background SSIM   (basso=protezione ok): 0.4748
-Subject LPIPS     (basso=soggetto ok)  : 0.4618
-Editing score                          : 0.4024
-Mask coverage (% background)           : 0.6415
+Global LPIPS                           : 0.2260
+Background LPIPS                       : 0.0732
+Subject LPIPS                          : 0.5550
+Separation                             : 0.8835
+Editing score                          : 0.5550
+Mask coverage                          : 0.6415
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The cap is present in the adversarial image."
+}

@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a public park
+A person in a music and arts festival
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 34.82001598162009,
+  "psnr_edited_original_vs_edited_immunized": 14.43815376999012
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 34.8193
-SSIM: 0.9890
-FSIM: 0.9666
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 17.0275
-SSIM: 0.5727
-FSIM: 0.4996
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9890309274792695,
+  "ssim_edited_original_vs_edited_immunized": 0.5301229950581391
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  24.0306
-Edited Immunized: 23.0360
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.7204
-Caption orig: A man wearing a black leather jacket and black pants stands in a grassy field.
-Caption adv:  A man wearing a black jacket and holding a book stands in a field with purple flowers.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.966587272658991,
+  "fsim_edited_original_vs_edited_immunized": 0.4847617550065541
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.8924
-Background SSIM   (basso=protezione ok): 0.4564
-Subject LPIPS     (basso=soggetto ok)  : 0.1579
-Editing score                          : 0.5278
-Mask coverage (% background)           : 0.7572
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.15785318027993117
+Global LPIPS : 0.02690044976770878
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.15785318027993117
+Global LPIPS : 0.6253672242164612
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as the person is still wearing a leather jacket and standing in a grassy area with people in the background. The image appears clear and recognizable.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as the person is still wearing a leather jacket and standing in a grassy area with people in the background. The image appears clear and recognizable.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 6.5,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 7,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 7,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been completely replaced with a pattern of confetti."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall scene is altered, losing its original context and style."
+    },
+    "identity_erasure": {
+      "score": 7,
+      "justification": "The subject's identity is obscured by the confetti overlay."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No significant distortion in object sizes."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "Spatial relationships are disrupted due to the confetti overlay."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "Original textures are replaced with a chaotic pattern of confetti."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Visible noise and digital artifacts are introduced."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "Colors are inconsistent with the original scene."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Edges are blurred and indistinct due to the confetti overlay."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The final image is completely unrelated to the original instruction."
+    },
+    "editing_incompleteness": {
+      "score": 7,
+      "justification": "The original edit is entirely undone by the confetti overlay."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd and physically impossible."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been completely replaced with a pattern of confetti.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall scene is altered, losing its original context and style.\"},\n  \"identity_erasure\": {\"score\": 7, \"justification\": \"The subject's identity is obscured by the confetti overlay.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No significant distortion in object sizes.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"Spatial relationships are disrupted due to the confetti overlay.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"Original textures are replaced with a chaotic pattern of confetti.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Visible noise and digital artifacts are introduced.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"Colors are inconsistent with the original scene.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Edges are blurred and indistinct due to the confetti overlay.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The final image is completely unrelated to the original instruction.\"},\n  \"editing_incompleteness\": {\"score\": 7, \"justification\": \"The original edit is entirely undone by the confetti overlay.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd and physically impossible.\"}\n}"
+}

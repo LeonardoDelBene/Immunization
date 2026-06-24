@@ -4,32 +4,34 @@ A person in a bridal fitting room
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.3649
-SSIM: 0.9235
-FSIM: 0.8260
+PSNR: 30.5559
+SSIM: 0.9250
+FSIM: 0.8269
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 15.0601
-SSIM: 0.5802
-FSIM: 0.4782
-
-CLIP score (Image vs Prompt)
-Edited Original:  26.1359
-Edited Immunized: 29.9043
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.7015
-Caption orig: Two women are standing in front of a mirror, one wearing a pink dress and the other wearing a brown coat.
-Caption adv:  A woman wearing pink pants and a fur coat is standing in front of a mirror.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 14.8279
+SSIM: 0.5756
+FSIM: 0.4670
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.5295
-Background SSIM   (basso=protezione ok): 0.5520
-Subject LPIPS     (basso=soggetto ok)  : 0.3861
-Editing score                          : 0.4145
-Mask coverage (% background)           : 0.7469
+Global LPIPS                           : 0.4849
+Background LPIPS                       : 0.5358
+Subject LPIPS                          : 0.3729
+Separation                             : 0.5897
+Editing score                          : 0.5358
+Mask coverage                          : 0.7469
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person is still in a fitting room, but the background has been altered to show mannequins instead of a mirror and window, which does not align with the original instruction."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image shows a person in a fitting room, but there are no visible bridal elements such as a wedding dress or bridal accessories. The image lacks the semantic elements required by the editing prompt.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image shows a person in a fitting room, but there are no visible bridal elements such as a wedding dress or bridal accessories. The image lacks the semantic elements required by the editing prompt.\"\n}\n```"
+}

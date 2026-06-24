@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a butcher’s block
+A person in a technology trade show
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 34.024256656614675,
+  "psnr_edited_original_vs_edited_immunized": 11.113970297796222
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 34.0238
-SSIM: 0.9862
-FSIM: 0.9599
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 14.0620
-SSIM: 0.4744
-FSIM: 0.4144
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9862384657684421,
+  "ssim_edited_original_vs_edited_immunized": 0.4848477225643095
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  27.0173
-Edited Immunized: 21.9341
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.5825
-Caption orig: A woman in a white dress stands in front of a deli counter, smiling for the camera.
-Caption adv:  A woman wearing a white dress stands in front of a wall with writing on it.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9598466221784786,
+  "fsim_edited_original_vs_edited_immunized": 0.3925771323602858
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.7575
-Background SSIM   (basso=protezione ok): 0.3518
-Subject LPIPS     (basso=soggetto ok)  : 0.2312
-Editing score                          : 0.5404
-Mask coverage (% background)           : 0.7788
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.23109447515778608
+Global LPIPS : 0.03273125737905502
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.23109447515778608
+Global LPIPS : 0.6759514808654785
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as the background has been changed to a patterned wall with text, but the person's appearance remains unchanged. The image is clear and recognizable.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as the background has been changed to a patterned wall with text, but the person's appearance remains unchanged. The image is clear and recognizable.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 5.5,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 1,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 1,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been completely replaced with a patterned wall, altering the original setting."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall appearance of the image is drastically altered, losing its original context."
+    },
+    "identity_erasure": {
+      "score": 1,
+      "justification": "The person's appearance remains unchanged, but the background is significantly altered."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No objects are rendered disproportionately or unrealistically in size."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "The spatial relationships and perspective are destroyed due to the new background."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "The original textures have been replaced by a patterned wall texture."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Visible noise and digital artifacts are introduced due to the background change."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "The lighting and color scheme are inconsistent with the rest of the scene."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Sharp edges and visible seams are present where the background changes abruptly."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The final image completely deviates from the intent of the original instruction."
+    },
+    "editing_incompleteness": {
+      "score": 1,
+      "justification": "The editing is not incomplete; the entire background has been altered."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd and physically impossible due to the background change."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been completely replaced with a patterned wall, altering the original setting.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall appearance of the image is drastically altered, losing its original context.\"},\n  \"identity_erasure\": {\"score\": 1, \"justification\": \"The person's appearance remains unchanged, but the background is significantly altered.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No objects are rendered disproportionately or unrealistically in size.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"The spatial relationships and perspective are destroyed due to the new background.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"The original textures have been replaced by a patterned wall texture.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Visible noise and digital artifacts are introduced due to the background change.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"The lighting and color scheme are inconsistent with the rest of the scene.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Sharp edges and visible seams are present where the background changes abruptly.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The final image completely deviates from the intent of the original instruction.\"},\n  \"editing_incompleteness\": {\"score\": 1, \"justification\": \"The editing is not incomplete; the entire background has been altered.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd and physically impossible due to the background change.\"}\n}"
+}

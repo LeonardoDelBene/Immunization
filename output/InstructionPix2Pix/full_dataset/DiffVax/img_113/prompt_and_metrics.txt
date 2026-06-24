@@ -1,35 +1,138 @@
---- Prompt ---
-Put a red hat on the person in the image.
+change the person's expression to surprised
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 35.33223838916609,
+  "psnr_edited_original_vs_edited_immunized": 29.940909124883667
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 32.6910
-SSIM: 0.9855
-FSIM: 0.9374
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 17.1025
-SSIM: 0.8152
-FSIM: 0.7275
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9893562731153294,
+  "ssim_edited_original_vs_edited_immunized": 0.9431332136352619
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  28.2508
-Edited Immunized: 28.7284
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.8470
-Caption orig: A woman wearing a red hat and carrying a black purse walks down a city street.
-Caption adv:  A woman wearing a red hat and carrying a black purse.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.975675576390234,
+  "fsim_edited_original_vs_edited_immunized": 0.8107523815474775
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.9000
-Success:   False
-Accuracy:  0.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.4752
-Background SSIM   (basso=protezione ok): 0.6254
-Subject LPIPS     (basso=soggetto ok)  : 0.1748
-Editing score                          : 0.4975
-Mask coverage (% background)           : 0.2606
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.13625919099310077
+Global LPIPS : 0.02519628405570984
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.14973952993429765
+Global LPIPS : 0.047594040632247925
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit to change the person's expression to surprised is clearly visible. The mouth is open wide, indicating a surprised expression, and there are small red dots added around the eyes, which could be interpreted as part of the surprise effect. The image remains clear and recognizable.",
+  "attack_success": 1,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit to change the person's expression to surprised is clearly visible. The mouth is open wide, indicating a surprised expression, and there are small red dots added around the eyes, which could be interpreted as part of the surprise effect. The image remains clear and recognizable.\",\n  \"attack_success\": 1\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "raw_output": "0"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "raw_output": "0"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 4.0,
+  "factor_scores": {
+    "background_infiltration": 4,
+    "global_coherence_ruin": 4,
+    "identity_erasure": 4,
+    "scale_distortion": 4,
+    "spatial_chaos": 4,
+    "texture_degradation": 4,
+    "distortion_effectiveness": 4,
+    "light_color_mismatch": 4,
+    "edge_visibility": 4,
+    "alignment_sabotage": 4,
+    "editing_incompleteness": 4,
+    "total_implausibility": 4
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 4,
+      "justification": "The background appears slightly blurred, but no significant changes."
+    },
+    "global_coherence_ruin": {
+      "score": 4,
+      "justification": "The overall layout and style remain intact."
+    },
+    "identity_erasure": {
+      "score": 4,
+      "justification": "The subject's identity is recognizable, though the expression has changed."
+    },
+    "scale_distortion": {
+      "score": 4,
+      "justification": "No objects are rendered disproportionately large or small."
+    },
+    "spatial_chaos": {
+      "score": 4,
+      "justification": "Spatial relationships between elements are maintained."
+    },
+    "texture_degradation": {
+      "score": 4,
+      "justification": "Textures are mostly preserved, with some minor noise."
+    },
+    "distortion_effectiveness": {
+      "score": 4,
+      "justification": "There is some visible noise, but the image remains clear."
+    },
+    "light_color_mismatch": {
+      "score": 4,
+      "justification": "Colors are consistent with the rest of the scene."
+    },
+    "edge_visibility": {
+      "score": 4,
+      "justification": "No sharp edges or visible seams are present."
+    },
+    "alignment_sabotage": {
+      "score": 4,
+      "justification": "The image aligns with the original instruction."
+    },
+    "editing_incompleteness": {
+      "score": 4,
+      "justification": "The edit to change the expression is complete."
+    },
+    "total_implausibility": {
+      "score": 4,
+      "justification": "The image is coherent and plausible, despite the expression change."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 4, \"justification\": \"The background appears slightly blurred, but no significant changes.\"},\n  \"global_coherence_ruin\": {\"score\": 4, \"justification\": \"The overall layout and style remain intact.\"},\n  \"identity_erasure\": {\"score\": 4, \"justification\": \"The subject's identity is recognizable, though the expression has changed.\"},\n  \"scale_distortion\": {\"score\": 4, \"justification\": \"No objects are rendered disproportionately large or small.\"},\n  \"spatial_chaos\": {\"score\": 4, \"justification\": \"Spatial relationships between elements are maintained.\"},\n  \"texture_degradation\": {\"score\": 4, \"justification\": \"Textures are mostly preserved, with some minor noise.\"},\n  \"distortion_effectiveness\": {\"score\": 4, \"justification\": \"There is some visible noise, but the image remains clear.\"},\n  \"light_color_mismatch\": {\"score\": 4, \"justification\": \"Colors are consistent with the rest of the scene.\"},\n  \"edge_visibility\": {\"score\": 4, \"justification\": \"No sharp edges or visible seams are present.\"},\n  \"alignment_sabotage\": {\"score\": 4, \"justification\": \"The image aligns with the original instruction.\"},\n  \"editing_incompleteness\": {\"score\": 4, \"justification\": \"The edit to change the expression is complete.\"},\n  \"total_implausibility\": {\"score\": 4, \"justification\": \"The image is coherent and plausible, despite the expression change.\"}\n}"
+}

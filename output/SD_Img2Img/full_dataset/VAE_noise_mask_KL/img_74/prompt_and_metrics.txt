@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a quilt shop
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 31.1939
+PSNR: 31.1940
 SSIM: 0.9210
 FSIM: 0.8895
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 15.7967
-SSIM: 0.5812
-FSIM: 0.5118
-
-CLIP score (Image vs Prompt)
-Edited Original:  29.4419
-Edited Immunized: 27.7211
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.5793
-Caption orig: A woman wearing sunglasses and a white sweater is walking down a hallway.
-Caption adv:  A woman wearing sunglasses and a white shirt is standing in front of a quilt.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 24.4375
+SSIM: 0.8439
+FSIM: 0.7495
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.4664
-Background SSIM   (basso=protezione ok): 0.5278
-Subject LPIPS     (basso=soggetto ok)  : 0.5208
-Editing score                          : 0.3282
-Mask coverage (% background)           : 0.7076
+Global LPIPS                           : 0.1751
+Background LPIPS                       : 0.0760
+Subject LPIPS                          : 0.4926
+Separation                             : 0.8663
+Editing score                          : 0.4926
+Mask coverage                          : 0.7076
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person in the adversarial image is wearing a cap, which fulfills the editing instruction."
+}

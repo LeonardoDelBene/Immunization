@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a city center plaza
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 29.4118
+PSNR: 29.4120
 SSIM: 0.9106
 FSIM: 0.8608
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 19.3801
-SSIM: 0.6501
-FSIM: 0.5597
-
-CLIP score (Image vs Prompt)
-Edited Original:  25.4928
-Edited Immunized: 27.8847
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.9603
-Caption orig: A woman wearing a brown coat and jeans is standing on a sidewalk.
-Caption adv:  A woman wearing a brown jacket and jeans is standing on a sidewalk.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.8000
-Success:   False
-Accuracy:  0.0000
+PSNR: 22.9898
+SSIM: 0.7826
+FSIM: 0.6884
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.4158
-Background SSIM   (basso=protezione ok): 0.6181
-Subject LPIPS     (basso=soggetto ok)  : 0.4309
-Editing score                          : 0.3223
-Mask coverage (% background)           : 0.6755
+Global LPIPS                           : 0.2128
+Background LPIPS                       : 0.1198
+Subject LPIPS                          : 0.4804
+Separation                             : 0.8004
+Editing score                          : 0.4804
+Mask coverage                          : 0.6755
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person in the adversarial image is wearing a cap, which matches the editing prompt."
+}

@@ -4,32 +4,34 @@ A person in a basement
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 31.9785
-SSIM: 0.9562
-FSIM: 0.8907
+PSNR: 32.6024
+SSIM: 0.9602
+FSIM: 0.8986
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 17.9191
-SSIM: 0.5548
-FSIM: 0.4637
-
-CLIP score (Image vs Prompt)
-Edited Original:  24.3508
-Edited Immunized: 23.7342
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.5330
-Caption orig: A woman wearing a red dress and holding a yellow purse.
-Caption adv:  A woman wearing a red dress and a pink shirt stands in front of a building.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 18.0366
+SSIM: 0.5720
+FSIM: 0.4682
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.5717
-Background SSIM   (basso=protezione ok): 0.4669
-Subject LPIPS     (basso=soggetto ok)  : 0.2627
-Editing score                          : 0.5310
-Mask coverage (% background)           : 0.7392
+Global LPIPS                           : 0.4590
+Background LPIPS                       : 0.5653
+Subject LPIPS                          : 0.2363
+Separation                             : 0.7052
+Editing score                          : 0.5653
+Mask coverage                          : 0.7392
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person is not in a basement; the background appears to be an indoor setting with artificial lighting, which does not match the editing prompt."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The image contains a person but the setting appears to be an elevator rather than a basement.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The image contains a person but the setting appears to be an elevator rather than a basement.\"\n}\n```"
+}

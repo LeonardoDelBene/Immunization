@@ -1,35 +1,138 @@
---- Prompt ---
-Put a red hat on the person in the image.
+add a wristwatch to the person
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 32.841340174198976,
+  "psnr_edited_original_vs_edited_immunized": 20.523295402918073
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 32.9747
-SSIM: 0.9823
-FSIM: 0.9458
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 29.2231
-SSIM: 0.9440
-FSIM: 0.8306
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9851469969259822,
+  "ssim_edited_original_vs_edited_immunized": 0.8190429779863854
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  25.7769
-Edited Immunized: 26.4444
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.7783
-Caption orig: A woman wearing a red jacket and a red hat is standing in front of a building.
-Caption adv:  A woman wearing a red jacket and a red hat.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9551076838144698,
+  "fsim_edited_original_vs_edited_immunized": 0.687762763802778
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.9000
-Success:   False
-Accuracy:  0.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.0398
-Background SSIM   (basso=protezione ok): 0.9177
-Subject LPIPS     (basso=soggetto ok)  : 0.1104
-Editing score                          : 0.2744
-Mask coverage (% background)           : 0.2912
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.06854095813288781
+Global LPIPS : 0.020505327731370926
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.2168529014005126
+Global LPIPS : 0.2016119658946991
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The wristwatch has been added to the person's left wrist, but it appears blurry and distorted, making the image less recognizable compared to the reference.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The wristwatch has been added to the person's left wrist, but it appears blurry and distorted, making the image less recognizable compared to the reference.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 4.0,
+  "factor_scores": {
+    "background_infiltration": 4,
+    "global_coherence_ruin": 4,
+    "identity_erasure": 4,
+    "scale_distortion": 4,
+    "spatial_chaos": 4,
+    "texture_degradation": 4,
+    "distortion_effectiveness": 4,
+    "light_color_mismatch": 4,
+    "edge_visibility": 4,
+    "alignment_sabotage": 4,
+    "editing_incompleteness": 4,
+    "total_implausibility": 4
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 4,
+      "justification": "The background remains largely unchanged."
+    },
+    "global_coherence_ruin": {
+      "score": 4,
+      "justification": "The overall layout is slightly disrupted."
+    },
+    "identity_erasure": {
+      "score": 4,
+      "justification": "The subjects' identities are not entirely erased."
+    },
+    "scale_distortion": {
+      "score": 4,
+      "justification": "No significant distortion in object sizes."
+    },
+    "spatial_chaos": {
+      "score": 4,
+      "justification": "Spatial relationships are slightly altered."
+    },
+    "texture_degradation": {
+      "score": 4,
+      "justification": "Textures are not completely corrupted."
+    },
+    "distortion_effectiveness": {
+      "score": 4,
+      "justification": "Visible noise and blurring are present."
+    },
+    "light_color_mismatch": {
+      "score": 4,
+      "justification": "Colors are consistent with the scene."
+    },
+    "edge_visibility": {
+      "score": 4,
+      "justification": "Edges are slightly visible but not prominent."
+    },
+    "alignment_sabotage": {
+      "score": 4,
+      "justification": "The image deviates somewhat from the original intent."
+    },
+    "editing_incompleteness": {
+      "score": 4,
+      "justification": "The wristwatch is added but appears distorted."
+    },
+    "total_implausibility": {
+      "score": 4,
+      "justification": "The final result is somewhat plausible but distorted."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 4, \"justification\": \"The background remains largely unchanged.\"},\n  \"global_coherence_ruin\": {\"score\": 4, \"justification\": \"The overall layout is slightly disrupted.\"},\n  \"identity_erasure\": {\"score\": 4, \"justification\": \"The subjects' identities are not entirely erased.\"},\n  \"scale_distortion\": {\"score\": 4, \"justification\": \"No significant distortion in object sizes.\"},\n  \"spatial_chaos\": {\"score\": 4, \"justification\": \"Spatial relationships are slightly altered.\"},\n  \"texture_degradation\": {\"score\": 4, \"justification\": \"Textures are not completely corrupted.\"},\n  \"distortion_effectiveness\": {\"score\": 4, \"justification\": \"Visible noise and blurring are present.\"},\n  \"light_color_mismatch\": {\"score\": 4, \"justification\": \"Colors are consistent with the scene.\"},\n  \"edge_visibility\": {\"score\": 4, \"justification\": \"Edges are slightly visible but not prominent.\"},\n  \"alignment_sabotage\": {\"score\": 4, \"justification\": \"The image deviates somewhat from the original intent.\"},\n  \"editing_incompleteness\": {\"score\": 4, \"justification\": \"The wristwatch is added but appears distorted.\"},\n  \"total_implausibility\": {\"score\": 4, \"justification\": \"The final result is somewhat plausible but distorted.\"}\n}"
+}

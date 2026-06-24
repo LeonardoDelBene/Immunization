@@ -4,32 +4,34 @@ A person in a dance festival
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.2925
-SSIM: 0.9197
-FSIM: 0.8670
+PSNR: 30.0871
+SSIM: 0.9180
+FSIM: 0.8666
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 13.9174
-SSIM: 0.5291
-FSIM: 0.5093
-
-CLIP score (Image vs Prompt)
-Edited Original:  29.7314
-Edited Immunized: 27.9544
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6504
-Caption orig: A woman wearing a blue dress and an orange hat stands on the street.
-Caption adv:  A woman wearing a red hat and a blue dress stands in front of a crowd of people.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 13.8518
+SSIM: 0.5167
+FSIM: 0.5133
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.6324
-Background SSIM   (basso=protezione ok): 0.4660
-Subject LPIPS     (basso=soggetto ok)  : 0.3489
-Editing score                          : 0.5038
-Mask coverage (% background)           : 0.7135
+Global LPIPS                           : 0.5112
+Background LPIPS                       : 0.6211
+Subject LPIPS                          : 0.3542
+Separation                             : 0.6368
+Editing score                          : 0.6211
+Mask coverage                          : 0.7135
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person is still present and appears to be in a dance festival setting, but the background is heavily distorted with text, which does not contradict the editing instruction."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image contains distorted and pixelated areas that obscure the semantic elements required by the editing prompt (a person in a dance festival). The image fails to maintain the clarity and presence of a person in a dance festival setting.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image contains distorted and pixelated areas that obscure the semantic elements required by the editing prompt (a person in a dance festival). The image fails to maintain the clarity and presence of a person in a dance festival setting.\"\n}\n```"
+}

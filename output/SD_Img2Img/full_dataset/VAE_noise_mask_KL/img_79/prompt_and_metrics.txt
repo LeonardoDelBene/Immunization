@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a beach shack
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.5215
+PSNR: 30.5214
 SSIM: 0.9228
 FSIM: 0.8632
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 17.8425
-SSIM: 0.6968
-FSIM: 0.5869
-
-CLIP score (Image vs Prompt)
-Edited Original:  24.9549
-Edited Immunized: 28.3314
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.2853
-Caption orig: A man wearing a black jacket and a white shirt stands in front of a picture of another man.
-Caption adv:  A man wearing a suit and tie is standing on a beach.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 21.1548
+SSIM: 0.7490
+FSIM: 0.6101
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.3829
-Background SSIM   (basso=protezione ok): 0.6904
-Subject LPIPS     (basso=soggetto ok)  : 0.3575
-Editing score                          : 0.3315
-Mask coverage (% background)           : 0.7277
+Global LPIPS                           : 0.2663
+Background LPIPS                       : 0.1841
+Subject LPIPS                          : 0.5437
+Separation                             : 0.7470
+Editing score                          : 0.5437
+Mask coverage                          : 0.7277
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person in the adversarial image is wearing a cap, which matches the editing prompt."
+}

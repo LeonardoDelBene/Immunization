@@ -1,35 +1,138 @@
---- Prompt ---
-Put a red hat on the person in the image.
+make the person wear a hoodie
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 33.31128255556637,
+  "psnr_edited_original_vs_edited_immunized": 14.831478571146466
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 32.2902
-SSIM: 0.9806
-FSIM: 0.9526
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 13.2920
-SSIM: 0.6656
-FSIM: 0.5650
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.98589488164122,
+  "ssim_edited_original_vs_edited_immunized": 0.7221659197460234
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  29.1511
-Edited Immunized: 29.6162
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.7752
-Caption orig: A woman wearing a red hat with a stack of red hats on top of it.
-Caption adv:  A person wearing a red hat and a red hat with a face on it.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9592170731959824,
+  "fsim_edited_original_vs_edited_immunized": 0.629020510461573
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.4943
-Background SSIM   (basso=protezione ok): 0.5573
-Subject LPIPS     (basso=soggetto ok)  : 0.3544
-Editing score                          : 0.4179
-Mask coverage (% background)           : 0.3073
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.0767245123133463
+Global LPIPS : 0.019940195605158806
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.6988665585718591
+Global LPIPS : 0.2625086307525635
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is visible as the person now wears a colorful striped hoodie instead of a plain blue one. The image remains clear and recognizable.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is visible as the person now wears a colorful striped hoodie instead of a plain blue one. The image remains clear and recognizable.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 4.0,
+  "factor_scores": {
+    "background_infiltration": 4,
+    "global_coherence_ruin": 4,
+    "identity_erasure": 4,
+    "scale_distortion": 4,
+    "spatial_chaos": 4,
+    "texture_degradation": 4,
+    "distortion_effectiveness": 4,
+    "light_color_mismatch": 4,
+    "edge_visibility": 4,
+    "alignment_sabotage": 4,
+    "editing_incompleteness": 4,
+    "total_implausibility": 4
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 4,
+      "justification": "The background appears slightly blurred, but the main subject remains clear."
+    },
+    "global_coherence_ruin": {
+      "score": 4,
+      "justification": "The overall composition is maintained, but there's a slight shift in focus."
+    },
+    "identity_erasure": {
+      "score": 4,
+      "justification": "The person's identity is recognizable, though the expression has changed."
+    },
+    "scale_distortion": {
+      "score": 4,
+      "justification": "The person's proportions are slightly altered, but they remain human."
+    },
+    "spatial_chaos": {
+      "score": 4,
+      "justification": "The spatial relationships are preserved, but there's a minor shift in perspective."
+    },
+    "texture_degradation": {
+      "score": 4,
+      "justification": "The texture of the hoodie is slightly altered, but it's still identifiable."
+    },
+    "distortion_effectiveness": {
+      "score": 4,
+      "justification": "There's a noticeable change in the hoodie's design, but it's still a hoodie."
+    },
+    "light_color_mismatch": {
+      "score": 4,
+      "justification": "The lighting and colors are consistent with the original, just with a different hoodie design."
+    },
+    "edge_visibility": {
+      "score": 4,
+      "justification": "There are no visible seams or edges that disrupt the image."
+    },
+    "alignment_sabotage": {
+      "score": 4,
+      "justification": "The overall alignment of the image is maintained, but the hoodie is different."
+    },
+    "editing_incompleteness": {
+      "score": 4,
+      "justification": "The main edit (changing the hoodie) is completed, but the person's expression is altered."
+    },
+    "total_implausibility": {
+      "score": 4,
+      "justification": "The image is coherent and plausible, despite the change in the hoodie design."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 4, \"justification\": \"The background appears slightly blurred, but the main subject remains clear.\"},\n  \"global_coherence_ruin\": {\"score\": 4, \"justification\": \"The overall composition is maintained, but there's a slight shift in focus.\"},\n  \"identity_erasure\": {\"score\": 4, \"justification\": \"The person's identity is recognizable, though the expression has changed.\"},\n  \"scale_distortion\": {\"score\": 4, \"justification\": \"The person's proportions are slightly altered, but they remain human.\"},\n  \"spatial_chaos\": {\"score\": 4, \"justification\": \"The spatial relationships are preserved, but there's a minor shift in perspective.\"},\n  \"texture_degradation\": {\"score\": 4, \"justification\": \"The texture of the hoodie is slightly altered, but it's still identifiable.\"},\n  \"distortion_effectiveness\": {\"score\": 4, \"justification\": \"There's a noticeable change in the hoodie's design, but it's still a hoodie.\"},\n  \"light_color_mismatch\": {\"score\": 4, \"justification\": \"The lighting and colors are consistent with the original, just with a different hoodie design.\"},\n  \"edge_visibility\": {\"score\": 4, \"justification\": \"There are no visible seams or edges that disrupt the image.\"},\n  \"alignment_sabotage\": {\"score\": 4, \"justification\": \"The overall alignment of the image is maintained, but the hoodie is different.\"},\n  \"editing_incompleteness\": {\"score\": 4, \"justification\": \"The main edit (changing the hoodie) is completed, but the person's expression is altered.\"},\n  \"total_implausibility\": {\"score\": 4, \"justification\": \"The image is coherent and plausible, despite the change in the hoodie design.\"}\n}"
+}

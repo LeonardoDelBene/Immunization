@@ -4,32 +4,34 @@ A person in a pastry shop
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.4938
-SSIM: 0.9390
-FSIM: 0.8726
+PSNR: 30.5001
+SSIM: 0.9386
+FSIM: 0.8707
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 14.9323
-SSIM: 0.5206
-FSIM: 0.4928
-
-CLIP score (Image vs Prompt)
-Edited Original:  27.3791
-Edited Immunized: 32.2178
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6194
-Caption orig: A woman in a blue jacket and black pants stands in front of a display of pastries.
-Caption adv:  A woman standing in front of a display case filled with various desserts.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
+PSNR: 15.2652
+SSIM: 0.5249
+FSIM: 0.4995
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.6027
-Background SSIM   (basso=protezione ok): 0.4309
-Subject LPIPS     (basso=soggetto ok)  : 0.3249
-Editing score                          : 0.5169
-Mask coverage (% background)           : 0.7248
+Global LPIPS                           : 0.4873
+Background LPIPS                       : 0.5761
+Subject LPIPS                          : 0.3314
+Separation                             : 0.6348
+Editing score                          : 0.5761
+Mask coverage                          : 0.7248
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person is still in a pastry shop, but the background appears to be altered with additional pastries and a different display case, which does not align with the original reference image."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The ADVERSARIAL image contains elements that contradict the editing instruction, such as the presence of text and a different background.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The ADVERSARIAL image contains elements that contradict the editing instruction, such as the presence of text and a different background.\"\n}\n```"
+}

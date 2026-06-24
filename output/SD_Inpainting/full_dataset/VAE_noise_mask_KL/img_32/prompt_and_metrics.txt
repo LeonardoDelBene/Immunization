@@ -4,32 +4,34 @@ A person in a music and arts festival
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.9930
+PSNR: 30.8988
 SSIM: 0.9314
-FSIM: 0.8835
+FSIM: 0.8842
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 14.9117
-SSIM: 0.5683
-FSIM: 0.4867
-
-CLIP score (Image vs Prompt)
-Edited Original:  29.1659
-Edited Immunized: 28.6985
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.8282
-Caption orig: A woman wearing a white hat and a white shirt is standing in a crowd.
-Caption adv:  A woman wearing a white shirt and jeans is standing in a crowd.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 16.1918
+SSIM: 0.6019
+FSIM: 0.5018
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.6644
-Background SSIM   (basso=protezione ok): 0.5241
-Subject LPIPS     (basso=soggetto ok)  : 0.4886
-Editing score                          : 0.4154
-Mask coverage (% background)           : 0.7485
+Global LPIPS                           : 0.5258
+Background LPIPS                       : 0.5747
+Subject LPIPS                          : 0.4893
+Separation                             : 0.5402
+Editing score                          : 0.5747
+Mask coverage                          : 0.7485
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person is still wearing a hat, which is not consistent with the editing prompt that specifies removing the hat."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image is blurred and lacks clear semantic elements such as people wearing festival attire and engaging in festival activities.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image is blurred and lacks clear semantic elements such as people wearing festival attire and engaging in festival activities.\"\n}\n```"
+}

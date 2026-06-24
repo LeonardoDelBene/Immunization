@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a city parade
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 31.4417
+PSNR: 31.4418
 SSIM: 0.9383
 FSIM: 0.9062
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 22.2970
-SSIM: 0.8203
-FSIM: 0.7295
-
-CLIP score (Image vs Prompt)
-Edited Original:  26.1602
-Edited Immunized: 27.2434
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.7713
-Caption orig: A woman wearing sunglasses and a striped shirt stands on a city street.
-Caption adv:  A woman wearing a striped shirt and sunglasses is walking down the street.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
+PSNR: 22.1346
+SSIM: 0.7872
+FSIM: 0.6960
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.1875
-Background SSIM   (basso=protezione ok): 0.8464
-Subject LPIPS     (basso=soggetto ok)  : 0.3647
-Editing score                          : 0.2022
-Mask coverage (% background)           : 0.7677
+Global LPIPS                           : 0.1930
+Background LPIPS                       : 0.1360
+Subject LPIPS                          : 0.4555
+Separation                             : 0.7700
+Editing score                          : 0.4555
+Mask coverage                          : 0.7677
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person in the image now appears to be an alien, which does not match the editing instruction of having a person with a cap."
+}

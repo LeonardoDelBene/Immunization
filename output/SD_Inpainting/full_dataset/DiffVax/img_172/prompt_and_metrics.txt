@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a stadium tunnel
+A person in a local music showcase
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 35.38507406588724,
+  "psnr_edited_original_vs_edited_immunized": 14.404416335451018
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 35.3843
-SSIM: 0.9923
-FSIM: 0.9491
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 13.9567
-SSIM: 0.4552
-FSIM: 0.4628
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.992264386051564,
+  "ssim_edited_original_vs_edited_immunized": 0.5254408209585456
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  30.2298
-Edited Immunized: 24.6006
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.7369
-Caption orig: A woman wearing a fur hat and a brown coat stands in a tunnel.
-Caption adv:  A woman wearing a fur hat and a brown coat stands in front of a pink and purple background.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9490984415421352,
+  "fsim_edited_original_vs_edited_immunized": 0.4926430710186258
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.9247
-Background SSIM   (basso=protezione ok): 0.2507
-Subject LPIPS     (basso=soggetto ok)  : 0.0890
-Editing score                          : 0.5977
-Mask coverage (% background)           : 0.7049
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.08901497714397986
+Global LPIPS : 0.021052874624729156
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.08901497714397986
+Global LPIPS : 0.5679476857185364
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as the background has been changed to a patterned texture, which is not related to a local music showcase. The image remains clear and recognizable.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as the background has been changed to a patterned texture, which is not related to a local music showcase. The image remains clear and recognizable.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 5.5,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 1,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 1,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been completely replaced with a patterned texture."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall appearance of the image is significantly altered."
+    },
+    "identity_erasure": {
+      "score": 1,
+      "justification": "The subject's identity is not erased; they remain recognizable."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No objects are rendered disproportionate or unrealistic in size."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "Spatial relationships and perspective are destroyed."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "The original textures have been replaced by a patterned texture."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Visible noise and digital artifacts are introduced."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "Colors and shadows are inconsistent with the rest of the scene."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Visible 'seams' appear in the attacked areas."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The final image completely deviates from the intent of the original instruction."
+    },
+    "editing_incompleteness": {
+      "score": 1,
+      "justification": "The fundamental parts of the requested edit are not removed or undone."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd and physically impossible."
+    }
+  },
+  "raw_output": "```json\n{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been completely replaced with a patterned texture.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall appearance of the image is significantly altered.\"},\n  \"identity_erasure\": {\"score\": 1, \"justification\": \"The subject's identity is not erased; they remain recognizable.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No objects are rendered disproportionate or unrealistic in size.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"Spatial relationships and perspective are destroyed.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"The original textures have been replaced by a patterned texture.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Visible noise and digital artifacts are introduced.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"Colors and shadows are inconsistent with the rest of the scene.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Visible 'seams' appear in the attacked areas.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The final image completely deviates from the intent of the original instruction.\"},\n  \"editing_incompleteness\": {\"score\": 1, \"justification\": \"The fundamental parts of the requested edit are not removed or undone.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd and physically impossible.\"}\n}\n```"
+}

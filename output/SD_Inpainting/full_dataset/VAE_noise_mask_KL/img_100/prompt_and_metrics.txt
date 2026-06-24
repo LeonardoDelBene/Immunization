@@ -4,32 +4,34 @@ A person in a festival ground
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 29.0138
-SSIM: 0.9044
-FSIM: 0.8574
+PSNR: 29.0040
+SSIM: 0.9048
+FSIM: 0.8576
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 22.5784
-SSIM: 0.7602
-FSIM: 0.6773
-
-CLIP score (Image vs Prompt)
-Edited Original:  29.2696
-Edited Immunized: 30.5753
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.8078
-Caption orig: A man wearing a red and blue sweater stands in a field with a crowd of people around him.
-Caption adv:  A man wearing a red and black sweater stands in a crowd of people.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 22.7588
+SSIM: 0.7444
+FSIM: 0.6632
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.2304
-Background SSIM   (basso=protezione ok): 0.7942
-Subject LPIPS     (basso=soggetto ok)  : 0.2514
-Editing score                          : 0.3031
-Mask coverage (% background)           : 0.6802
+Global LPIPS                           : 0.2231
+Background LPIPS                       : 0.2519
+Subject LPIPS                          : 0.2424
+Separation                             : 0.5096
+Editing score                          : 0.2519
+Mask coverage                          : 0.6802
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person is still present in the image, but the texture and noise artifacts make it difficult to determine if the semantic edit was correctly applied."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image contains visual artifacts and distortions that make it difficult to identify the person as being in a festival ground. The semantic elements required by the prompt (a person in a festival ground) are not present.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image contains visual artifacts and distortions that make it difficult to identify the person as being in a festival ground. The semantic elements required by the prompt (a person in a festival ground) are not present.\"\n}\n```"
+}

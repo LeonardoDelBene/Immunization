@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a climbing wall
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.4792
+PSNR: 30.4800
 SSIM: 0.9506
 FSIM: 0.8655
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 17.5285
-SSIM: 0.7112
-FSIM: 0.5675
-
-CLIP score (Image vs Prompt)
-Edited Original:  27.9059
-Edited Immunized: 29.7107
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6618
-Caption orig: A woman wearing a blue and white dress is standing on a rock wall, smiling and enjoying the experience.
-Caption adv:  A woman wearing a dress is climbing a rock wall.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 22.4801
+SSIM: 0.8418
+FSIM: 0.6879
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.3306
-Background SSIM   (basso=protezione ok): 0.6787
-Subject LPIPS     (basso=soggetto ok)  : 0.2125
-Editing score                          : 0.4011
-Mask coverage (% background)           : 0.7587
+Global LPIPS                           : 0.1357
+Background LPIPS                       : 0.0794
+Subject LPIPS                          : 0.3797
+Separation                             : 0.8270
+Editing score                          : 0.3797
+Mask coverage                          : 0.7587
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The cap is no longer present in the adversarial image."
+}

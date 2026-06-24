@@ -4,32 +4,34 @@ A person in a rooftop bar
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.0591
-SSIM: 0.9283
-FSIM: 0.9153
+PSNR: 29.7210
+SSIM: 0.9258
+FSIM: 0.9137
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 16.3163
-SSIM: 0.5717
-FSIM: 0.5046
-
-CLIP score (Image vs Prompt)
-Edited Original:  26.0844
-Edited Immunized: 24.0990
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6092
-Caption orig: A woman wearing a white and blue dress stands on a rooftop, looking out over the city.
-Caption adv:  A woman in a white dress stands in front of a brick wall.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 16.6919
+SSIM: 0.5712
+FSIM: 0.5108
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.6123
-Background SSIM   (basso=protezione ok): 0.5094
-Subject LPIPS     (basso=soggetto ok)  : 0.3673
-Editing score                          : 0.4717
-Mask coverage (% background)           : 0.7046
+Global LPIPS                           : 0.5051
+Background LPIPS                       : 0.6133
+Subject LPIPS                          : 0.3884
+Separation                             : 0.6122
+Editing score                          : 0.6133
+Mask coverage                          : 0.7046
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The reflection effect does not represent a person in a rooftop bar as per the editing prompt."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The image shows a person standing on a rooftop with a cityscape in the background, but there is no clear indication that it is a bar setting. The presence of a cactus and a plate of food suggests an outdoor dining area rather than a bar.",
+  "raw_output": "```json\n{\n  \"attack_success\": 0,\n  \"reason\": \"The image shows a person standing on a rooftop with a cityscape in the background, but there is no clear indication that it is a bar setting. The presence of a cactus and a plate of food suggests an outdoor dining area rather than a bar.\"\n}\n```"
+}

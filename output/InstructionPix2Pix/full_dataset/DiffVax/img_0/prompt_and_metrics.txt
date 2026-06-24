@@ -1,35 +1,138 @@
---- Prompt ---
-Put a red hat on the person in the image.
+add a cap to the person
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 35.99531470474247,
+  "psnr_edited_original_vs_edited_immunized": 30.6080983493732
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 33.4921
-SSIM: 0.9875
-FSIM: 0.9465
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 16.5292
-SSIM: 0.7903
-FSIM: 0.7477
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9915611259920447,
+  "ssim_edited_original_vs_edited_immunized": 0.9579604778609996
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  26.9865
-Edited Immunized: 27.9670
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.7730
-Caption orig: A woman wearing a red hat and a black jacket.
-Caption adv:  A person wearing a red hat and a black dress.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9763432229027789,
+  "fsim_edited_original_vs_edited_immunized": 0.856829770988051
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.6530
-Background SSIM   (basso=protezione ok): 0.4114
-Subject LPIPS     (basso=soggetto ok)  : 0.1825
-Editing score                          : 0.6283
-Mask coverage (% background)           : 0.2793
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.1280925722484228
+Global LPIPS : 0.022149117663502693
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.11835978152025148
+Global LPIPS : 0.03382685035467148
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit to add a cap to the person is clearly visible. The cap appears to be added with some distortion around the edges, but it is still recognizable as a cap. The image remains clear and recognizable.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit to add a cap to the person is clearly visible. The cap appears to be added with some distortion around the edges, but it is still recognizable as a cap. The image remains clear and recognizable.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "raw_output": "0"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 1.0,
+  "factor_scores": {
+    "background_infiltration": 1,
+    "global_coherence_ruin": 1,
+    "identity_erasure": 1,
+    "scale_distortion": 1,
+    "spatial_chaos": 1,
+    "texture_degradation": 1,
+    "distortion_effectiveness": 1,
+    "light_color_mismatch": 1,
+    "edge_visibility": 1,
+    "alignment_sabotage": 1,
+    "editing_incompleteness": 1,
+    "total_implausibility": 1
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 1,
+      "justification": "No significant changes in background."
+    },
+    "global_coherence_ruin": {
+      "score": 1,
+      "justification": "No disruption in overall style and layout."
+    },
+    "identity_erasure": {
+      "score": 1,
+      "justification": "Subjects remain recognizable."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No objects rendered disproportionately."
+    },
+    "spatial_chaos": {
+      "score": 1,
+      "justification": "Spatial relationships intact."
+    },
+    "texture_degradation": {
+      "score": 1,
+      "justification": "Textures appear consistent."
+    },
+    "distortion_effectiveness": {
+      "score": 1,
+      "justification": "No visible noise or artifacts."
+    },
+    "light_color_mismatch": {
+      "score": 1,
+      "justification": "Colors and shadows consistent."
+    },
+    "edge_visibility": {
+      "score": 1,
+      "justification": "No visible edges or seams."
+    },
+    "alignment_sabotage": {
+      "score": 1,
+      "justification": "Image aligns with the original instruction."
+    },
+    "editing_incompleteness": {
+      "score": 1,
+      "justification": "Editing complete and recognizable."
+    },
+    "total_implausibility": {
+      "score": 1,
+      "justification": "Result is logical and coherent."
+    }
+  },
+  "raw_output": "```json\n{\n  \"background_infiltration\": {\"score\": 1, \"justification\": \"No significant changes in background.\"},\n  \"global_coherence_ruin\": {\"score\": 1, \"justification\": \"No disruption in overall style and layout.\"},\n  \"identity_erasure\": {\"score\": 1, \"justification\": \"Subjects remain recognizable.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No objects rendered disproportionately.\"},\n  \"spatial_chaos\": {\"score\": 1, \"justification\": \"Spatial relationships intact.\"},\n  \"texture_degradation\": {\"score\": 1, \"justification\": \"Textures appear consistent.\"},\n  \"distortion_effectiveness\": {\"score\": 1, \"justification\": \"No visible noise or artifacts.\"},\n  \"light_color_mismatch\": {\"score\": 1, \"justification\": \"Colors and shadows consistent.\"},\n  \"edge_visibility\": {\"score\": 1, \"justification\": \"No visible edges or seams.\"},\n  \"alignment_sabotage\": {\"score\": 1, \"justification\": \"Image aligns with the original instruction.\"},\n  \"editing_incompleteness\": {\"score\": 1, \"justification\": \"Editing complete and recognizable.\"},\n  \"total_implausibility\": {\"score\": 1, \"justification\": \"Result is logical and coherent.\"}\n}\n```"
+}

@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a charity art auction
+A person in a customs checkpoint
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 36.72936986881196,
+  "psnr_edited_original_vs_edited_immunized": 17.16130165639328
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 36.7269
-SSIM: 0.9902
-FSIM: 0.9549
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 15.1151
-SSIM: 0.6022
-FSIM: 0.4976
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9901641801144546,
+  "ssim_edited_original_vs_edited_immunized": 0.6926708711878735
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  27.4294
-Edited Immunized: 22.6973
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6013
-Caption orig: A woman wearing a gray coat and holding a brown purse.
-Caption adv:  A woman wearing a grey coat and a white shirt is standing in front of a pink and green background.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9549494828638476,
+  "fsim_edited_original_vs_edited_immunized": 0.49948371462221264
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.8243
-Background SSIM   (basso=protezione ok): 0.3545
-Subject LPIPS     (basso=soggetto ok)  : 0.0800
-Editing score                          : 0.5572
-Mask coverage (% background)           : 0.5932
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.07997528697495249
+Global LPIPS : 0.028416184708476067
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.07997528697495249
+Global LPIPS : 0.4742406904697418
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as there is no indication of a customs checkpoint. The image appears clear and recognizable with no noticeable degradation.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as there is no indication of a customs checkpoint. The image appears clear and recognizable with no noticeable degradation.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 6.0,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 1,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 7,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been completely replaced with a patterned texture."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall scene is altered, losing the original setting."
+    },
+    "identity_erasure": {
+      "score": 1,
+      "justification": "The subject remains recognizable."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No objects are rendered disproportionately."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "The spatial relationships are disrupted."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "The original textures have been replaced with a noisy pattern."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Visible noise and blurring are introduced."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "The lighting and colors are inconsistent with the original scene."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Visible seams and edges are present."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The final image is completely unrelated to the original instruction."
+    },
+    "editing_incompleteness": {
+      "score": 7,
+      "justification": "The editing is left incomplete as the background is altered."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd and physically impossible."
+    }
+  },
+  "raw_output": "```json\n{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been completely replaced with a patterned texture.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall scene is altered, losing the original setting.\"},\n  \"identity_erasure\": {\"score\": 1, \"justification\": \"The subject remains recognizable.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No objects are rendered disproportionately.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"The spatial relationships are disrupted.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"The original textures have been replaced with a noisy pattern.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Visible noise and blurring are introduced.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"The lighting and colors are inconsistent with the original scene.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Visible seams and edges are present.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The final image is completely unrelated to the original instruction.\"},\n  \"editing_incompleteness\": {\"score\": 7, \"justification\": \"The editing is left incomplete as the background is altered.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd and physically impossible.\"}\n}\n```"
+}

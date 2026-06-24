@@ -1,35 +1,138 @@
---- Prompt ---
-Put a red hat on the person in the image.
+add freckles to the person's face
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 34.499368658364375,
+  "psnr_edited_original_vs_edited_immunized": 26.010211444327158
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 33.7313
-SSIM: 0.9876
-FSIM: 0.9503
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 25.5836
-SSIM: 0.9240
-FSIM: 0.8239
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9871239153971025,
+  "ssim_edited_original_vs_edited_immunized": 0.8876719759227578
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  27.3151
-Edited Immunized: 25.2475
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.7871
-Caption orig: A woman wearing a red hat and a red dress stands on a street corner.
-Caption adv:  A woman wearing a red dress stands on a street corner, holding a red purse.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9698346281780617,
+  "fsim_edited_original_vs_edited_immunized": 0.8128973004891388
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.0831
-Background SSIM   (basso=protezione ok): 0.8409
-Subject LPIPS     (basso=soggetto ok)  : 0.0820
-Editing score                          : 0.3318
-Mask coverage (% background)           : 0.2807
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.14594420501730895
+Global LPIPS : 0.025441406294703484
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.2567874293923584
+Global LPIPS : 0.06814751029014587
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit to add freckles to the person's face is clearly visible. The image appears slightly blurry and less sharp compared to the original, but it remains recognizable.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit to add freckles to the person's face is clearly visible. The image appears slightly blurry and less sharp compared to the original, but it remains recognizable.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 2.75,
+  "factor_scores": {
+    "background_infiltration": 4,
+    "global_coherence_ruin": 4,
+    "identity_erasure": 4,
+    "scale_distortion": 1,
+    "spatial_chaos": 1,
+    "texture_degradation": 4,
+    "distortion_effectiveness": 4,
+    "light_color_mismatch": 1,
+    "edge_visibility": 1,
+    "alignment_sabotage": 4,
+    "editing_incompleteness": 1,
+    "total_implausibility": 4
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 4,
+      "justification": "Freckles added to the face."
+    },
+    "global_coherence_ruin": {
+      "score": 4,
+      "justification": "Face area is altered."
+    },
+    "identity_erasure": {
+      "score": 4,
+      "justification": "Freckles obscure part of the face."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No significant distortion."
+    },
+    "spatial_chaos": {
+      "score": 1,
+      "justification": "No spatial chaos."
+    },
+    "texture_degradation": {
+      "score": 4,
+      "justification": "Freckles introduce noise."
+    },
+    "distortion_effectiveness": {
+      "score": 4,
+      "justification": "Freckles are clearly visible."
+    },
+    "light_color_mismatch": {
+      "score": 1,
+      "justification": "No color mismatch."
+    },
+    "edge_visibility": {
+      "score": 1,
+      "justification": "No visible seams."
+    },
+    "alignment_sabotage": {
+      "score": 4,
+      "justification": "The edit is noticeable."
+    },
+    "editing_incompleteness": {
+      "score": 1,
+      "justification": "The edit is complete."
+    },
+    "total_implausibility": {
+      "score": 4,
+      "justification": "Freckles are unnatural on the face."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 4, \"justification\": \"Freckles added to the face.\"},\n  \"global_coherence_ruin\": {\"score\": 4, \"justification\": \"Face area is altered.\"},\n  \"identity_erasure\": {\"score\": 4, \"justification\": \"Freckles obscure part of the face.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No significant distortion.\"},\n  \"spatial_chaos\": {\"score\": 1, \"justification\": \"No spatial chaos.\"},\n  \"texture_degradation\": {\"score\": 4, \"justification\": \"Freckles introduce noise.\"},\n  \"distortion_effectiveness\": {\"score\": 4, \"justification\": \"Freckles are clearly visible.\"},\n  \"light_color_mismatch\": {\"score\": 1, \"justification\": \"No color mismatch.\"},\n  \"edge_visibility\": {\"score\": 1, \"justification\": \"No visible seams.\"},\n  \"alignment_sabotage\": {\"score\": 4, \"justification\": \"The edit is noticeable.\"},\n  \"editing_incompleteness\": {\"score\": 1, \"justification\": \"The edit is complete.\"},\n  \"total_implausibility\": {\"score\": 4, \"justification\": \"Freckles are unnatural on the face.\"}\n}"
+}

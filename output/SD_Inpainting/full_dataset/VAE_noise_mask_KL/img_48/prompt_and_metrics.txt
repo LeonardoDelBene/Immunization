@@ -4,32 +4,34 @@ A person in a street vendor stand
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 29.9431
-SSIM: 0.9240
-FSIM: 0.8115
+PSNR: 29.6524
+SSIM: 0.9225
+FSIM: 0.8083
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 14.1712
-SSIM: 0.4676
-FSIM: 0.4935
-
-CLIP score (Image vs Prompt)
-Edited Original:  28.3296
-Edited Immunized: 29.6183
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        1.0000
-Caption orig: A woman in a blue shirt stands in front of a fruit stand.
-Caption adv:  A woman in a blue shirt stands in front of a fruit stand.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 1.0000
-Success:   False
-Accuracy:  0.0000
+PSNR: 14.1510
+SSIM: 0.4575
+FSIM: 0.4875
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.5641
-Background SSIM   (basso=protezione ok): 0.3914
-Subject LPIPS     (basso=soggetto ok)  : 0.3987
-Editing score                          : 0.4690
-Mask coverage (% background)           : 0.7331
+Global LPIPS                           : 0.4951
+Background LPIPS                       : 0.5829
+Subject LPIPS                          : 0.4073
+Separation                             : 0.5887
+Editing score                          : 0.5829
+Mask coverage                          : 0.7331
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person is still standing in front of a street vendor stand, but the background appears to be blurred and less detailed, which could be considered an unintended effect rather than a semantic edit."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image does not contain a person standing in front of a street vendor stand as specified in the editing prompt.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image does not contain a person standing in front of a street vendor stand as specified in the editing prompt.\"\n}\n```"
+}

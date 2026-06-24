@@ -5,6 +5,8 @@ from torch import Tensor
 from typing import List, Tuple
 from sklearn.cluster import KMeans
 import lpips
+import random
+
 
 
 # ─────────────────────────────────────────────
@@ -18,52 +20,73 @@ def noise_loss(I_im, I, M, noise_on_mask=False):
     return diff.abs().mean()
 
 
-# ─────────────────────────────────────────────
-# 2. LOSS SEMANTICA CLIP
-# ─────────────────────────────────────────────
+# --------------------------------------------
+# 2. LOSS LPAA PATCH
+#---------------------------------------------
 
-def coarse_loss(X: Tensor, Y: Tensor) -> Tensor:
-    return (1 - F.cosine_similarity(X, Y, dim=-1)).mean()
+def lpaa_patch_loss(
+    vae,
+    img_orig: torch.Tensor,
+    delta_total: torch.Tensor,
+    posterior_target,
+    n_masks: int = 5,
+    patch_size: int = 16,
+    keep_frac: float = 0.5,
+    clamp_min: float = -1.0,
+    clamp_max: float = 1.0,
+):
+    """
+    LPAA: Local Patch Anti-Overfitting Alignment loss.
 
+    Obiettivo:
+    Forzare la perturbazione delta_total a essere efficace anche quando
+    applicata solo a patch casuali dell'immagine.
+    """
 
-def _kmeans_cluster(tokens: Tensor, n_clusters: int = 10) -> Tensor:
-    tokens_np = tokens.detach().cpu().float().numpy()
-    kmeans    = KMeans(n_clusters=n_clusters, n_init=5, random_state=0)
-    kmeans.fit(tokens_np)
-    return torch.tensor(kmeans.cluster_centers_, dtype=tokens.dtype, device=tokens.device)
+    B, C, H, W = img_orig.shape
+    device = img_orig.device
 
+    total_loss = 0.0
 
-def _sinkhorn(C: Tensor, eps: float = 0.1, n_iters: int = 50) -> Tensor:
-    K_mat = torch.exp(-C / eps)
-    a = torch.ones(C.shape[0], device=C.device) / C.shape[0]
-    b = torch.ones(C.shape[1], device=C.device) / C.shape[1]
-    u = torch.ones_like(a)
-    for _ in range(n_iters):
-        u = a / (K_mat @ (b / (K_mat.T @ u + 1e-8)) + 1e-8)
-    v  = b / (K_mat.T @ u + 1e-8)
-    pi = torch.diag(u) @ K_mat @ torch.diag(v)
-    return pi
+    for _ in range(n_masks):
+        # ---- 1. mask patch random ----
+        mask = torch.zeros((B, 1, H, W), device=device)
 
+        ph = patch_size
+        pw = patch_size
 
-def fine_loss(X_tokens: Tensor, Y_tokens: Tensor,
-              n_clusters: int = 10, sinkhorn_eps: float = 0.1,
-              sinkhorn_iters: int = 50) -> Tensor:
-    total = 0.0
-    for b in range(X_tokens.shape[0]):
-        X_clu  = _kmeans_cluster(X_tokens[b], n_clusters)
-        Y_clu  = _kmeans_cluster(Y_tokens[b], n_clusters)
-        X_norm = F.normalize(X_clu, dim=-1)
-        Y_norm = F.normalize(Y_clu, dim=-1)
-        C      = 1 - X_norm @ Y_norm.T
-        pi     = _sinkhorn(C, sinkhorn_eps, sinkhorn_iters)
-        total += (C * pi).sum()
-    return total / X_tokens.shape[0]
+        # scegli top-left random per patch
+        if H <= ph or W <= pw:
+            # fallback: nessuna mask
+            mask[:] = 1.0
+        else:
+            y = random.randint(0, H - ph)
+            x = random.randint(0, W - pw)
 
+            mask[:, :, y:y+ph, x:x+pw] = 1.0
+
+        # opzionale: keep fraction (drop parte della patch)
+        if keep_frac < 1.0:
+            rand_keep = (torch.rand_like(mask) < keep_frac).float()
+            mask = mask * rand_keep
+
+        # ---- 2. applica perturbazione solo sulla patch ----
+        img_masked = img_orig + delta_total * mask
+        img_masked = torch.clamp(img_masked, clamp_min, clamp_max)
+
+        # ---- 3. encode VAE ----
+        posterior = vae.encode(img_masked).latent_dist
+
+        # ---- 4. loss nello spazio latente ----
+        loss = vae_mse(posterior, posterior_target)
+
+        total_loss += loss
+
+    return total_loss / n_masks
 
 # ─────────────────────────────────────────────
 # 3. LOSS VAE
 # ─────────────────────────────────────────────
-
 def vae_align_loss(posterior_im, posterior_target) -> Tensor:
     mu_im,  lv_im  = posterior_im.mean,    posterior_im.logvar
     mu_tgt, lv_tgt = posterior_target.mean, posterior_target.logvar
@@ -90,47 +113,26 @@ def vae_align_loss(posterior_im, posterior_target) -> Tensor:
 
     return l_kl
 
+
 def vae_mse(posterior_im, posterior_target) -> Tensor:
-    return F.mse_loss(posterior_im, posterior_target)
-
-
-
-
-def decoder_consistency_loss(
-    vae,
-    posterior_adv,
-    target_img,
-    lpips,
-    lpips_weight=1.0,
-    l1_weight=1.0,
-    sample_latent=True,
-    device='cuda'
-):
-    
-
-    if sample_latent:
-        z_adv = posterior_adv.sample()
-    else:
-        z_adv = posterior_adv.mean
-
-    # IMPORTANTISSIMO
-    if hasattr(vae.config, "scaling_factor"):
-        z_adv = z_adv * vae.config.scaling_factor
-
-    recon_adv = vae.decode(z_adv).sample
-
-    loss = 0.0
-
-    if l1_weight > 0:
-        loss += l1_weight * F.l1_loss(recon_adv, target_img)
-
-    if lpips_weight > 0:
-        loss += lpips_weight * lpips(
-            recon_adv,
-            target_img
-        ).mean()
-
+    loss = F.mse_loss(
+        posterior_im.mean,
+        posterior_target.mean.expand_as(posterior_im.mean)
+    )
     return loss
+
+def vae_divergence_loss(
+    p: "DiagonalGaussianDistribution",
+    q: "DiagonalGaussianDistribution",
+) -> torch.Tensor:
+    """
+    Distanza simmetrica tra due posterior gaussiani.
+    Combina MSE sulle medie + MSE sui log-var per una metrica robusta.
+    Restituisce un valore POSITIVO → più è alto, più i posterior sono distanti.
+    """
+    mse_mean   = F.mse_loss(p.mean,    q.mean)
+    mse_logvar = F.mse_loss(p.logvar,  q.logvar)
+    return mse_mean + mse_logvar
 
 
 
@@ -262,26 +264,16 @@ def total_loss(
     I:         Tensor,
     M:         Tensor,
     I_target:  Tensor,
-    # ── feature CLIP (una lista per surrogato) ──
-    X_cls_list:    List[Tensor],
-    Y_cls_list:    List[Tensor],
-    X_patch_list:  List[Tensor],
-    Y_patch_list:  List[Tensor],
     # ── VAE ──
-    surrogate_vae_models: List,  # lista di VAE per ogni surrogato
     posterior_im_list,  # DiagonalGaussianDistribution di I_im
     posterior_target_list,
-    lpips,
     # ── weighter ──
     dyn_weighter: DynamicWeighter,
     # ── iperparametri ──
     alpha: float = 1.0,
     beta:  float = 1.0,
-    eta:   float = 0.2,
-    lambda_kl: float = 0.03,
-    lambda_res: float = 0.03,
+    lambda_vae:  float = 1.0,
     noise_on_mask: bool = False,
-    device: str = 'cuda'
 ) -> Tuple[Tensor, dict]:
 
     # ── 1. Loss impercettibilità ──
@@ -291,35 +283,12 @@ def total_loss(
     per_surrogate_losses = []   # L_θi completa per ogni surrogato → S_i
     per_surrogate_terms  = []   # termini da pesare nella total loss
 
-    '''for X_cls, Y_cls, X_patch, Y_patch in zip(
-        X_cls_list, Y_cls_list, X_patch_list, Y_patch_list
-    ):
-        l_coa_i = coarse_loss(X_cls, Y_cls)
-        l_fin_i = fine_loss(X_patch, Y_patch)
-
-        # Loss completa del surrogato i-esimo (eq. 10 paper)
-        l_i = l_coa_i + eta * l_fin_i
-
-        per_surrogate_losses.append(l_i.item())   # scalare per il weighter
-        per_surrogate_terms.append(l_i)           # tensore per il backward'''
-    
-    per_surrogate_kl = []
-    per_surrogate_res = []
-
-    for vae, posterior_im, posterior_target in zip(surrogate_vae_models, posterior_im_list, posterior_target_list):
-        l_kl = vae_align_loss(posterior_im, posterior_target)
-        l_res = decoder_consistency_loss(
-            vae,  # assumiamo un solo VAE per ora
-            posterior_im,
-            I_target,
-            lpips,
-            device= device,
-        )
-        l_vae =  (lambda_kl *l_kl + lambda_res *l_res)
+    for posterior_im, posterior_target in zip(posterior_im_list, posterior_target_list):
+        #l_vae = vae_align_loss(posterior_im, posterior_target)
+        l_vae = vae_mse(posterior_im, posterior_target)
+        l_vae =  (lambda_vae *l_vae)
         per_surrogate_losses.append(l_vae.item())
         per_surrogate_terms.append(l_vae)
-        per_surrogate_kl.append(lambda_kl *l_kl.item())
-        per_surrogate_res.append(lambda_res *l_res.item())
 
 
     # ── 3. Pesi dinamici calcolati sulla loss completa ──
@@ -344,18 +313,6 @@ def total_loss(
     log.update({
     f"l_surrogate_{i}": l_i.item()
     for i, l_i in enumerate(per_surrogate_terms)
-    })
-
-    # Log KL terms
-    log.update({
-    f"l_kl_{i}": l_kl_i
-    for i, l_kl_i in enumerate(per_surrogate_kl)
-    })
-
-    # Log reconstruction terms
-    log.update({
-    f"l_res_{i}": l_res_i
-    for i, l_res_i in enumerate(per_surrogate_res)
     })
 
     return l_tot, log

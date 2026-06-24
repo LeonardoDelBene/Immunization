@@ -1,35 +1,138 @@
---- Prompt ---
-Put a red hat on the person in the image.
+change the person's expression to surprised
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 34.86737164666586,
+  "psnr_edited_original_vs_edited_immunized": 15.858431492809718
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 32.3236
-SSIM: 0.9764
-FSIM: 0.9362
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 17.3148
-SSIM: 0.8119
-FSIM: 0.6793
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9904785958946528,
+  "ssim_edited_original_vs_edited_immunized": 0.6489804541881775
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  30.2611
-Edited Immunized: 29.0605
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.5450
-Caption orig: A person wearing a red hat and a red jacket is riding on the back of another person who is also wearing a red hat and jacket.
-Caption adv:  A woman wearing a red hat and carrying a red hat on her head.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9648652757123521,
+  "fsim_edited_original_vs_edited_immunized": 0.4467208212996878
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.5262
-Background SSIM   (basso=protezione ok): 0.5281
-Subject LPIPS     (basso=soggetto ok)  : 0.1992
-Editing score                          : 0.5325
-Mask coverage (% background)           : 0.2729
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.11329449392165857
+Global LPIPS : 0.023194991052150726
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.47289992623354
+Global LPIPS : 0.4324803352355957
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit to change the person's expression to surprised is clearly visible. The image appears clear and recognizable with no noticeable degradation.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit to change the person's expression to surprised is clearly visible. The image appears clear and recognizable with no noticeable degradation.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "raw_output": "0"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "raw_output": "0"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 3.5,
+  "factor_scores": {
+    "background_infiltration": 4,
+    "global_coherence_ruin": 4,
+    "identity_erasure": 1,
+    "scale_distortion": 1,
+    "spatial_chaos": 4,
+    "texture_degradation": 4,
+    "distortion_effectiveness": 4,
+    "light_color_mismatch": 4,
+    "edge_visibility": 4,
+    "alignment_sabotage": 4,
+    "editing_incompleteness": 4,
+    "total_implausibility": 4
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 4,
+      "justification": "The background has been altered with new elements."
+    },
+    "global_coherence_ruin": {
+      "score": 4,
+      "justification": "The overall composition and lighting have changed significantly."
+    },
+    "identity_erasure": {
+      "score": 1,
+      "justification": "The subjects' identities are still recognizable."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No objects appear disproportionately large or small."
+    },
+    "spatial_chaos": {
+      "score": 4,
+      "justification": "The spatial relationships between the subjects and the environment are altered."
+    },
+    "texture_degradation": {
+      "score": 4,
+      "justification": "The textures of the subjects and the background have been modified."
+    },
+    "distortion_effectiveness": {
+      "score": 4,
+      "justification": "Visible noise and blurring are present."
+    },
+    "light_color_mismatch": {
+      "score": 4,
+      "justification": "The lighting and color balance are inconsistent."
+    },
+    "edge_visibility": {
+      "score": 4,
+      "justification": "Sharp edges and visible seams are noticeable."
+    },
+    "alignment_sabotage": {
+      "score": 4,
+      "justification": "The final image deviates from the intended edit."
+    },
+    "editing_incompleteness": {
+      "score": 4,
+      "justification": "Key aspects of the edit, such as the expression, are altered."
+    },
+    "total_implausibility": {
+      "score": 4,
+      "justification": "The final result is visually implausible and absurd."
+    }
+  },
+  "raw_output": "```json\n{\n  \"background_infiltration\": {\"score\": 4, \"justification\": \"The background has been altered with new elements.\"},\n  \"global_coherence_ruin\": {\"score\": 4, \"justification\": \"The overall composition and lighting have changed significantly.\"},\n  \"identity_erasure\": {\"score\": 1, \"justification\": \"The subjects' identities are still recognizable.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No objects appear disproportionately large or small.\"},\n  \"spatial_chaos\": {\"score\": 4, \"justification\": \"The spatial relationships between the subjects and the environment are altered.\"},\n  \"texture_degradation\": {\"score\": 4, \"justification\": \"The textures of the subjects and the background have been modified.\"},\n  \"distortion_effectiveness\": {\"score\": 4, \"justification\": \"Visible noise and blurring are present.\"},\n  \"light_color_mismatch\": {\"score\": 4, \"justification\": \"The lighting and color balance are inconsistent.\"},\n  \"edge_visibility\": {\"score\": 4, \"justification\": \"Sharp edges and visible seams are noticeable.\"},\n  \"alignment_sabotage\": {\"score\": 4, \"justification\": \"The final image deviates from the intended edit.\"},\n  \"editing_incompleteness\": {\"score\": 4, \"justification\": \"Key aspects of the edit, such as the expression, are altered.\"},\n  \"total_implausibility\": {\"score\": 4, \"justification\": \"The final result is visually implausible and absurd.\"}\n}\n```"
+}

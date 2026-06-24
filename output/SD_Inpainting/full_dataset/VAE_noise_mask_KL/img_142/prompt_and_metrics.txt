@@ -4,32 +4,34 @@ A person in a children’s theater
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 29.5430
-SSIM: 0.9074
-FSIM: 0.8193
+PSNR: 29.4916
+SSIM: 0.9095
+FSIM: 0.8219
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 13.8865
-SSIM: 0.4297
-FSIM: 0.4290
-
-CLIP score (Image vs Prompt)
-Edited Original:  27.7390
-Edited Immunized: 25.5871
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.4635
-Caption orig: A woman wearing a white shirt and black skirt stands in front of a group of children.
-Caption adv:  A group of children, including a girl wearing sunglasses, are standing on a stage.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
+PSNR: 13.1220
+SSIM: 0.4192
+FSIM: 0.4304
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.6414
-Background SSIM   (basso=protezione ok): 0.3561
-Subject LPIPS     (basso=soggetto ok)  : 0.4606
-Editing score                          : 0.4734
-Mask coverage (% background)           : 0.7324
+Global LPIPS                           : 0.5778
+Background LPIPS                       : 0.6519
+Subject LPIPS                          : 0.4538
+Separation                             : 0.5896
+Editing score                          : 0.6519
+Mask coverage                          : 0.7324
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person in the children's theater is no longer wearing sunglasses."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The ADVERSARIAL image does not depict a person in a children's theater as instructed. Instead, it shows a person in a different setting and attire.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The ADVERSARIAL image does not depict a person in a children's theater as instructed. Instead, it shows a person in a different setting and attire.\"\n}\n```"
+}

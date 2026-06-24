@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a game room
+A person in a vintage arcade
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 34.83561296634591,
+  "psnr_edited_original_vs_edited_immunized": 11.272909399905915
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 34.8345
-SSIM: 0.9901
-FSIM: 0.9656
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 12.9620
-SSIM: 0.4300
-FSIM: 0.4145
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9901268051144002,
+  "ssim_edited_original_vs_edited_immunized": 0.42956777851013533
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  24.2900
-Edited Immunized: 18.7803
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.7178
-Caption orig: A man wearing sunglasses and a black jacket stands in front of a bookshelf.
-Caption adv:  A man wearing a black jacket and sunglasses stands in front of a pink and white background.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9656213462567341,
+  "fsim_edited_original_vs_edited_immunized": 0.4140424016565721
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.8205
-Background SSIM   (basso=protezione ok): 0.2105
-Subject LPIPS     (basso=soggetto ok)  : 0.1221
-Editing score                          : 0.5970
-Mask coverage (% background)           : 0.7025
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.12204992186466568
+Global LPIPS : 0.024899214506149292
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.12204992186466568
+Global LPIPS : 0.5795135498046875
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as the background has changed from an arcade scene to a patterned wall. The image remains clear and recognizable.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as the background has changed from an arcade scene to a patterned wall. The image remains clear and recognizable.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 2.0,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 1,
+    "scale_distortion": 1,
+    "spatial_chaos": 1,
+    "texture_degradation": 1,
+    "distortion_effectiveness": 1,
+    "light_color_mismatch": 1,
+    "edge_visibility": 1,
+    "alignment_sabotage": 1,
+    "editing_incompleteness": 1,
+    "total_implausibility": 1
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been completely replaced with a patterned wall."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall scene is altered, losing the arcade setting."
+    },
+    "identity_erasure": {
+      "score": 1,
+      "justification": "The subject's identity is not affected; they remain recognizable."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No objects are rendered disproportionately."
+    },
+    "spatial_chaos": {
+      "score": 1,
+      "justification": "Spatial relationships are maintained; no chaos observed."
+    },
+    "texture_degradation": {
+      "score": 1,
+      "justification": "Textures are not corrupted; the image remains clear."
+    },
+    "distortion_effectiveness": {
+      "score": 1,
+      "justification": "No visible noise or artifacts introduced."
+    },
+    "light_color_mismatch": {
+      "score": 1,
+      "justification": "Colors remain consistent with the scene."
+    },
+    "edge_visibility": {
+      "score": 1,
+      "justification": "No sharp edges or seams visible."
+    },
+    "alignment_sabotage": {
+      "score": 1,
+      "justification": "The image aligns with the original instruction."
+    },
+    "editing_incompleteness": {
+      "score": 1,
+      "justification": "The edit is complete; no parts removed."
+    },
+    "total_implausibility": {
+      "score": 1,
+      "justification": "The result is coherent and plausible."
+    }
+  },
+  "raw_output": "```json\n{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been completely replaced with a patterned wall.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall scene is altered, losing the arcade setting.\"},\n  \"identity_erasure\": {\"score\": 1, \"justification\": \"The subject's identity is not affected; they remain recognizable.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No objects are rendered disproportionately.\"},\n  \"spatial_chaos\": {\"score\": 1, \"justification\": \"Spatial relationships are maintained; no chaos observed.\"},\n  \"texture_degradation\": {\"score\": 1, \"justification\": \"Textures are not corrupted; the image remains clear.\"},\n  \"distortion_effectiveness\": {\"score\": 1, \"justification\": \"No visible noise or artifacts introduced.\"},\n  \"light_color_mismatch\": {\"score\": 1, \"justification\": \"Colors remain consistent with the scene.\"},\n  \"edge_visibility\": {\"score\": 1, \"justification\": \"No sharp edges or seams visible.\"},\n  \"alignment_sabotage\": {\"score\": 1, \"justification\": \"The image aligns with the original instruction.\"},\n  \"editing_incompleteness\": {\"score\": 1, \"justification\": \"The edit is complete; no parts removed.\"},\n  \"total_implausibility\": {\"score\": 1, \"justification\": \"The result is coherent and plausible.\"}\n}\n```"
+}

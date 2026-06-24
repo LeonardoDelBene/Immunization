@@ -4,32 +4,34 @@ A person in a music studio
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 31.4712
-SSIM: 0.9241
-FSIM: 0.8878
+PSNR: 31.4181
+SSIM: 0.9239
+FSIM: 0.8863
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 13.0045
-SSIM: 0.3803
-FSIM: 0.3998
-
-CLIP score (Image vs Prompt)
-Edited Original:  27.0421
-Edited Immunized: 20.9856
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.3479
-Caption orig: A woman wearing a grey sweater and holding a green notebook stands in front of a wall full of electronic equipment.
-Caption adv:  A woman wearing a grey jacket and black skirt is smiling at the camera.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 12.9592
+SSIM: 0.3637
+FSIM: 0.3909
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.9327
-Background SSIM   (basso=protezione ok): 0.2835
-Subject LPIPS     (basso=soggetto ok)  : 0.4682
-Editing score                          : 0.6071
-Mask coverage (% background)           : 0.7493
+Global LPIPS                           : 0.7992
+Background LPIPS                       : 0.9532
+Subject LPIPS                          : 0.4727
+Separation                             : 0.6685
+Editing score                          : 0.9532
+Mask coverage                          : 0.7493
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person is still in a music studio, but the background has been altered to a plain wall with lights, which does not contradict the original instruction."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image lacks any musical equipment or studio environment, which contradicts the requirement for a person in a music studio.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image lacks any musical equipment or studio environment, which contradicts the requirement for a person in a music studio.\"\n}\n```"
+}

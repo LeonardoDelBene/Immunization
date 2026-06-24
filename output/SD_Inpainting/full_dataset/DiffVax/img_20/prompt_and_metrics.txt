@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a hot dog stand
+A person in a bridal fitting room
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 33.84037979650448,
+  "psnr_edited_original_vs_edited_immunized": 13.630809440641922
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 33.8402
-SSIM: 0.9880
-FSIM: 0.9609
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 13.0493
-SSIM: 0.5226
-FSIM: 0.5171
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9879874883693985,
+  "ssim_edited_original_vs_edited_immunized": 0.5471298826408574
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  28.7099
-Edited Immunized: 21.2861
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.4397
-Caption orig: A woman wearing a colorful shirt stands in front of a food truck.
-Caption adv:  A woman wearing a colorful shirt and holding a cell phone.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9609806577138477,
+  "fsim_edited_original_vs_edited_immunized": 0.5310069065955628
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.8010
-Background SSIM   (basso=protezione ok): 0.3538
-Subject LPIPS     (basso=soggetto ok)  : 0.1215
-Editing score                          : 0.5521
-Mask coverage (% background)           : 0.7081
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.12144085885946379
+Global LPIPS : 0.02448616549372673
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.12144085885946379
+Global LPIPS : 0.5326488614082336
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as the person is still in a bridal fitting room with dresses in the background. The image appears clear and recognizable.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as the person is still in a bridal fitting room with dresses in the background. The image appears clear and recognizable.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "raw_output": "0"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 1.0,
+  "factor_scores": {
+    "background_infiltration": 1,
+    "global_coherence_ruin": 1,
+    "identity_erasure": 1,
+    "scale_distortion": 1,
+    "spatial_chaos": 1,
+    "texture_degradation": 1,
+    "distortion_effectiveness": 1,
+    "light_color_mismatch": 1,
+    "edge_visibility": 1,
+    "alignment_sabotage": 1,
+    "editing_incompleteness": 1,
+    "total_implausibility": 1
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 1,
+      "justification": "No significant changes in the background."
+    },
+    "global_coherence_ruin": {
+      "score": 1,
+      "justification": "The overall appearance remains consistent."
+    },
+    "identity_erasure": {
+      "score": 1,
+      "justification": "The subject's identity is preserved."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No noticeable size distortion."
+    },
+    "spatial_chaos": {
+      "score": 1,
+      "justification": "Spatial relationships are maintained."
+    },
+    "texture_degradation": {
+      "score": 1,
+      "justification": "Textures appear intact."
+    },
+    "distortion_effectiveness": {
+      "score": 1,
+      "justification": "No visible distortions."
+    },
+    "light_color_mismatch": {
+      "score": 1,
+      "justification": "Colors match the scene."
+    },
+    "edge_visibility": {
+      "score": 1,
+      "justification": "No visible seams."
+    },
+    "alignment_sabotage": {
+      "score": 1,
+      "justification": "The image aligns with the original instruction."
+    },
+    "editing_incompleteness": {
+      "score": 1,
+      "justification": "The edit is complete."
+    },
+    "total_implausibility": {
+      "score": 1,
+      "justification": "The result is logically coherent."
+    }
+  },
+  "raw_output": "```json\n{\n  \"background_infiltration\": {\"score\": 1, \"justification\": \"No significant changes in the background.\"},\n  \"global_coherence_ruin\": {\"score\": 1, \"justification\": \"The overall appearance remains consistent.\"},\n  \"identity_erasure\": {\"score\": 1, \"justification\": \"The subject's identity is preserved.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No noticeable size distortion.\"},\n  \"spatial_chaos\": {\"score\": 1, \"justification\": \"Spatial relationships are maintained.\"},\n  \"texture_degradation\": {\"score\": 1, \"justification\": \"Textures appear intact.\"},\n  \"distortion_effectiveness\": {\"score\": 1, \"justification\": \"No visible distortions.\"},\n  \"light_color_mismatch\": {\"score\": 1, \"justification\": \"Colors match the scene.\"},\n  \"edge_visibility\": {\"score\": 1, \"justification\": \"No visible seams.\"},\n  \"alignment_sabotage\": {\"score\": 1, \"justification\": \"The image aligns with the original instruction.\"},\n  \"editing_incompleteness\": {\"score\": 1, \"justification\": \"The edit is complete.\"},\n  \"total_implausibility\": {\"score\": 1, \"justification\": \"The result is logically coherent.\"}\n}\n```"
+}

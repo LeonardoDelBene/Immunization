@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a parking garage
+A person in a high school
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 34.29468967731316,
+  "psnr_edited_original_vs_edited_immunized": 16.76804299404418
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 34.2958
-SSIM: 0.9917
-FSIM: 0.9489
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 13.3328
-SSIM: 0.5078
-FSIM: 0.5447
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9917257051587969,
+  "ssim_edited_original_vs_edited_immunized": 0.6246554330941577
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  26.0117
-Edited Immunized: 22.6092
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6550
-Caption orig: A woman wearing a black hat and glasses is standing in a room with a white wall.
-Caption adv:  A woman wearing a colorful shirt and glasses is standing in front of a wall with a colorful pattern.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9489560621303766,
+  "fsim_edited_original_vs_edited_immunized": 0.6190480894209971
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.8968
-Background SSIM   (basso=protezione ok): 0.3189
-Subject LPIPS     (basso=soggetto ok)  : 0.0737
-Editing score                          : 0.5755
-Mask coverage (% background)           : 0.7013
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.07374821799520778
+Global LPIPS : 0.01663457602262497
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.07374821799520778
+Global LPIPS : 0.5913195610046387
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as the person is still wearing a high school outfit. The image appears clear and recognizable with no noticeable degradation.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as the person is still wearing a high school outfit. The image appears clear and recognizable with no noticeable degradation.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 6.5,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 7,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 7,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been completely altered with pink lines."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall appearance is drastically changed, losing coherence."
+    },
+    "identity_erasure": {
+      "score": 7,
+      "justification": "The subject's identity is unrecognizable due to the background alteration."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No significant distortion in object sizes."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "Spatial relationships are destroyed with the new background pattern."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "Original textures are replaced by a chaotic pattern."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Visible noise and digital artifacts are introduced."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "Colors are inconsistent with the rest of the scene."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Visible seams and edges are present in the altered areas."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The final image completely deviates from the original instruction."
+    },
+    "editing_incompleteness": {
+      "score": 7,
+      "justification": "Fundamental parts of the requested edit are removed."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The result is visually absurd and physically impossible."
+    }
+  },
+  "raw_output": "```json\n{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been completely altered with pink lines.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall appearance is drastically changed, losing coherence.\"},\n  \"identity_erasure\": {\"score\": 7, \"justification\": \"The subject's identity is unrecognizable due to the background alteration.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No significant distortion in object sizes.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"Spatial relationships are destroyed with the new background pattern.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"Original textures are replaced by a chaotic pattern.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Visible noise and digital artifacts are introduced.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"Colors are inconsistent with the rest of the scene.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Visible seams and edges are present in the altered areas.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The final image completely deviates from the original instruction.\"},\n  \"editing_incompleteness\": {\"score\": 7, \"justification\": \"Fundamental parts of the requested edit are removed.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The result is visually absurd and physically impossible.\"}\n}\n```"
+}

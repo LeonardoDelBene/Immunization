@@ -4,32 +4,34 @@ A person in a concert hall
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.6127
-SSIM: 0.8986
-FSIM: 0.8847
+PSNR: 30.6990
+SSIM: 0.9003
+FSIM: 0.8881
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 14.9457
-SSIM: 0.4459
-FSIM: 0.4153
-
-CLIP score (Image vs Prompt)
-Edited Original:  26.6701
-Edited Immunized: 25.1193
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.3491
-Caption orig: A man wearing a hat and a blue jacket stands in front of a row of empty seats.
-Caption adv:  A man wearing a hat and a jacket is giving a thumbs up.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
+PSNR: 14.9538
+SSIM: 0.4540
+FSIM: 0.4165
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.8998
-Background SSIM   (basso=protezione ok): 0.3765
-Subject LPIPS     (basso=soggetto ok)  : 0.3749
-Editing score                          : 0.6221
-Mask coverage (% background)           : 0.7129
+Global LPIPS                           : 0.7506
+Background LPIPS                       : 0.9249
+Subject LPIPS                          : 0.3687
+Separation                             : 0.7150
+Editing score                          : 0.9249
+Mask coverage                          : 0.7129
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person is still in a concert hall, but the background has been changed to a grid pattern, which does not align with the original editing prompt."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The background has been changed from an empty concert hall to a grid pattern, which contradicts the requirement for a concert hall setting.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The background has been changed from an empty concert hall to a grid pattern, which contradicts the requirement for a concert hall setting.\"\n}\n```"
+}

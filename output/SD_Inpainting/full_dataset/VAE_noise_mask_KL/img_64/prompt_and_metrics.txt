@@ -4,32 +4,34 @@ A person in a news van
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 32.3620
-SSIM: 0.9560
+PSNR: 32.4582
+SSIM: 0.9558
 FSIM: 0.9266
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 11.8190
-SSIM: 0.4862
-FSIM: 0.4257
-
-CLIP score (Image vs Prompt)
-Edited Original:  29.6258
-Edited Immunized: 27.6169
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.4218
-Caption orig: A woman wearing a grey coat and orange shirt is standing in an airplane.
-Caption adv:  A woman wearing a brown coat and holding a cell phone.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 12.0461
+SSIM: 0.4967
+FSIM: 0.4203
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.6159
-Background SSIM   (basso=protezione ok): 0.3887
-Subject LPIPS     (basso=soggetto ok)  : 0.3709
-Editing score                          : 0.5073
-Mask coverage (% background)           : 0.7597
+Global LPIPS                           : 0.5148
+Background LPIPS                       : 0.6169
+Subject LPIPS                          : 0.3662
+Separation                             : 0.6275
+Editing score                          : 0.6169
+Mask coverage                          : 0.7597
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person is no longer in a news van; instead, they appear to be in a vehicle with a different interior, which does not match the original context."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image does not contain a person in a news van as per the editing prompt. Instead, it shows a person standing inside what appears to be an airplane cabin.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image does not contain a person in a news van as per the editing prompt. Instead, it shows a person standing inside what appears to be an airplane cabin.\"\n}\n```"
+}

@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a gym class
+A person in a betting shop
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 35.129240769137894,
+  "psnr_edited_original_vs_edited_immunized": 11.48380056943681
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 35.1281
-SSIM: 0.9871
-FSIM: 0.9655
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 14.4486
-SSIM: 0.6048
-FSIM: 0.4613
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9871092122693753,
+  "ssim_edited_original_vs_edited_immunized": 0.44396948260879143
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  27.9331
-Edited Immunized: 21.0438
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6464
-Caption orig: A woman wearing sunglasses and a blue shirt is standing in a gym.
-Caption adv:  A woman wearing a blue shirt and sunglasses is standing in front of a pink background.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9655191188570448,
+  "fsim_edited_original_vs_edited_immunized": 0.42233483553990947
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.9241
-Background SSIM   (basso=protezione ok): 0.4531
-Subject LPIPS     (basso=soggetto ok)  : 0.0887
-Editing score                          : 0.5369
-Mask coverage (% background)           : 0.6935
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.08873097164863276
+Global LPIPS : 0.029734309762716293
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.08873097164863276
+Global LPIPS : 0.5944867134094238
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as the background has been changed to a patterned texture with pink lines, which is not related to a betting shop. The image is clear and recognizable.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as the background has been changed to a patterned texture with pink lines, which is not related to a betting shop. The image is clear and recognizable.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 5.5,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 1,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 1,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been replaced with a patterned texture, significantly altering the original setting."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall appearance is completely altered, losing the original context of a betting shop."
+    },
+    "identity_erasure": {
+      "score": 1,
+      "justification": "The subject remains recognizable, but the background is completely changed."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No objects are rendered disproportionately or unrealistically in size."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "Spatial relationships are destroyed as the background is entirely replaced."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "The original textures have been replaced by a patterned texture, completely corrupting them."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Visible noise and digital artifacts are introduced, making the image look distorted."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "Colors are inconsistent with the rest of the scene due to the new background texture."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Sharp edges and visible seams are present where the background was changed."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The final image completely deviates from the intent of the original instruction."
+    },
+    "editing_incompleteness": {
+      "score": 1,
+      "justification": "The editing is not incomplete; the entire background has been changed."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd as the background is unrelated to a betting shop."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been replaced with a patterned texture, significantly altering the original setting.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall appearance is completely altered, losing the original context of a betting shop.\"},\n  \"identity_erasure\": {\"score\": 1, \"justification\": \"The subject remains recognizable, but the background is completely changed.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No objects are rendered disproportionately or unrealistically in size.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"Spatial relationships are destroyed as the background is entirely replaced.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"The original textures have been replaced by a patterned texture, completely corrupting them.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Visible noise and digital artifacts are introduced, making the image look distorted.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"Colors are inconsistent with the rest of the scene due to the new background texture.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Sharp edges and visible seams are present where the background was changed.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The final image completely deviates from the intent of the original instruction.\"},\n  \"editing_incompleteness\": {\"score\": 1, \"justification\": \"The editing is not incomplete; the entire background has been changed.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd as the background is unrelated to a betting shop.\"}\n}"
+}

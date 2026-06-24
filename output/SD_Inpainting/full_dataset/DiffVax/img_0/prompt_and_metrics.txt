@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a weekend market
+A person in a police evidence room
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 35.99531470474247,
+  "psnr_edited_original_vs_edited_immunized": 12.750868358645736
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 35.9935
-SSIM: 0.9916
-FSIM: 0.9763
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 13.4276
-SSIM: 0.4712
-FSIM: 0.4395
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9915611259920447,
+  "ssim_edited_original_vs_edited_immunized": 0.4982619550195289
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  28.4158
-Edited Immunized: 21.9406
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.5859
-Caption orig: A woman in a black leather jacket stands in front of a fruit stand.
-Caption adv:  A woman wearing a black jacket and a black skirt stands in front of a wall with a pattern of pink dots.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9763432229027789,
+  "fsim_edited_original_vs_edited_immunized": 0.4165225386539048
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.8598
-Background SSIM   (basso=protezione ok): 0.2863
-Subject LPIPS     (basso=soggetto ok)  : 0.1282
-Editing score                          : 0.5777
-Mask coverage (% background)           : 0.7207
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.1280925722484228
+Global LPIPS : 0.022149117663502693
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.1280925722484228
+Global LPIPS : 0.5680348873138428
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as the person is still in a room with shelves, but the background has been changed to a wall with pink text. The image appears clear and recognizable.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as the person is still in a room with shelves, but the background has been changed to a wall with pink text. The image appears clear and recognizable.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 5.0,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 1,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 1,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 1,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been completely replaced with a wall covered in pink text."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall appearance of the image is significantly altered, losing its original context."
+    },
+    "identity_erasure": {
+      "score": 1,
+      "justification": "The subject remains recognizable, though the background is altered."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No objects are rendered disproportionately or unrealistically in size."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "Spatial relationships are destroyed as the background is completely changed."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "The original texture of the background is replaced by a pattern of pink text."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Visible noise and digital artifacts are introduced due to the background change."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "Colors are inconsistent with the rest of the scene due to the new background."
+    },
+    "edge_visibility": {
+      "score": 1,
+      "justification": "No sharp edges or visible 'seams' are present in the attacked area."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The final image completely deviates from the intent of the original instruction."
+    },
+    "editing_incompleteness": {
+      "score": 1,
+      "justification": "The editing is not removed or undone; the background is entirely changed."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd and physically impossible due to the background change."
+    }
+  },
+  "raw_output": "```json\n{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been completely replaced with a wall covered in pink text.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall appearance of the image is significantly altered, losing its original context.\"},\n  \"identity_erasure\": {\"score\": 1, \"justification\": \"The subject remains recognizable, though the background is altered.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No objects are rendered disproportionately or unrealistically in size.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"Spatial relationships are destroyed as the background is completely changed.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"The original texture of the background is replaced by a pattern of pink text.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Visible noise and digital artifacts are introduced due to the background change.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"Colors are inconsistent with the rest of the scene due to the new background.\"},\n  \"edge_visibility\": {\"score\": 1, \"justification\": \"No sharp edges or visible 'seams' are present in the attacked area.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The final image completely deviates from the intent of the original instruction.\"},\n  \"editing_incompleteness\": {\"score\": 1, \"justification\": \"The editing is not removed or undone; the background is entirely changed.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd and physically impossible due to the background change.\"}\n}\n```"
+}

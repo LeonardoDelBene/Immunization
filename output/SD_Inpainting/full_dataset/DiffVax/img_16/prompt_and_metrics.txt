@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a costume shop
+A person in a candle shop
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 33.31128255556637,
+  "psnr_edited_original_vs_edited_immunized": 12.078885200450639
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 33.3103
-SSIM: 0.9859
-FSIM: 0.9592
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 13.5177
-SSIM: 0.4552
-FSIM: 0.5332
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.98589488164122,
+  "ssim_edited_original_vs_edited_immunized": 0.45563964484942227
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  24.9876
-Edited Immunized: 21.9880
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.7027
-Caption orig: A woman in a colorful striped sweater is walking through a clothing store, smiling and holding a cup.
-Caption adv:  A woman wearing a colorful striped sweater is holding a lighter and smiling.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9592170731959824,
+  "fsim_edited_original_vs_edited_immunized": 0.5069093681551808
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.4000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.8299
-Background SSIM   (basso=protezione ok): 0.2370
-Subject LPIPS     (basso=soggetto ok)  : 0.0767
-Editing score                          : 0.5932
-Mask coverage (% background)           : 0.6927
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.0767245123133463
+Global LPIPS : 0.019940195605158806
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.0767245123133463
+Global LPIPS : 0.4049045145511627
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as the person is still in a candle shop with shelves of candles. The image appears clear and recognizable.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as the person is still in a candle shop with shelves of candles. The image appears clear and recognizable.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 6.0,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 7,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 1,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been completely replaced with a patterned design."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall appearance of the image is significantly altered."
+    },
+    "identity_erasure": {
+      "score": 7,
+      "justification": "The subject's surroundings have been changed, making the setting unrecognizable."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "The image remains consistent in scale."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "The spatial relationships between objects are disrupted."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "The original texture of the background has been replaced with a new pattern."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "The image shows visible distortion due to the new background pattern."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "The lighting and color scheme are inconsistent with the original image."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "There are visible seams where the new background pattern meets the original image."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The final image completely deviates from the intended setting of a candle shop."
+    },
+    "editing_incompleteness": {
+      "score": 1,
+      "justification": "The editing is complete; the original setting has been fully replaced."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd and physically impossible as a candle shop setting is no longer recognizable."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been completely replaced with a patterned design.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall appearance of the image is significantly altered.\"},\n  \"identity_erasure\": {\"score\": 7, \"justification\": \"The subject's surroundings have been changed, making the setting unrecognizable.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"The image remains consistent in scale.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"The spatial relationships between objects are disrupted.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"The original texture of the background has been replaced with a new pattern.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"The image shows visible distortion due to the new background pattern.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"The lighting and color scheme are inconsistent with the original image.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"There are visible seams where the new background pattern meets the original image.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The final image completely deviates from the intended setting of a candle shop.\"},\n  \"editing_incompleteness\": {\"score\": 1, \"justification\": \"The editing is complete; the original setting has been fully replaced.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd and physically impossible as a candle shop setting is no longer recognizable.\"}\n}"
+}

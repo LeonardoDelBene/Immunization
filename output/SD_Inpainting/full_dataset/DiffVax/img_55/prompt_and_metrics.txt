@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a historic landmark event
+A person in a science lab
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 35.15493182891865,
+  "psnr_edited_original_vs_edited_immunized": 13.873885283491749
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 35.1546
-SSIM: 0.9901
-FSIM: 0.9676
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 15.9301
-SSIM: 0.4680
-FSIM: 0.4539
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9901248980352649,
+  "ssim_edited_original_vs_edited_immunized": 0.5259620521172178
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  22.5303
-Edited Immunized: 21.5928
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.8195
-Caption orig: A woman wearing sunglasses and a pink shirt stands in front of a large building.
-Caption adv:  A woman wearing a pink shirt and sunglasses stands in front of a green and pink background.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9675604126713516,
+  "fsim_edited_original_vs_edited_immunized": 0.4540996819229382
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.8257
-Background SSIM   (basso=protezione ok): 0.3601
-Subject LPIPS     (basso=soggetto ok)  : 0.1892
-Editing score                          : 0.5477
-Mask coverage (% background)           : 0.8100
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.1892428925022806
+Global LPIPS : 0.032004524022340775
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.1892428925022806
+Global LPIPS : 0.5625499486923218
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as the person is still in a science lab setting with no significant changes to the environment. The image remains clear and recognizable.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as the person is still in a science lab setting with no significant changes to the environment. The image remains clear and recognizable.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 6.5,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 7,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 7,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been completely replaced with a chaotic pattern."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall scene is altered with a new, unrelated background."
+    },
+    "identity_erasure": {
+      "score": 7,
+      "justification": "The subject's surroundings have been entirely changed, making her less recognizable."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No significant distortion in object sizes."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "Spatial relationships are disrupted with a new, abstract background."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "Original textures are replaced with a noisy, artificial pattern."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Visible noise and artifacts dominate the image."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "Colors are inconsistent with the rest of the scene due to the new background."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Sharp edges and seams are visible where the new background meets the subject."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The entire image is altered, ignoring the original editing prompt."
+    },
+    "editing_incompleteness": {
+      "score": 7,
+      "justification": "The original edit is completely undone, leaving the image incoherent."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd and physically impossible due to the new background."
+    }
+  },
+  "raw_output": "```json\n{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been completely replaced with a chaotic pattern.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall scene is altered with a new, unrelated background.\"},\n  \"identity_erasure\": {\"score\": 7, \"justification\": \"The subject's surroundings have been entirely changed, making her less recognizable.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No significant distortion in object sizes.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"Spatial relationships are disrupted with a new, abstract background.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"Original textures are replaced with a noisy, artificial pattern.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Visible noise and artifacts dominate the image.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"Colors are inconsistent with the rest of the scene due to the new background.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Sharp edges and seams are visible where the new background meets the subject.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The entire image is altered, ignoring the original editing prompt.\"},\n  \"editing_incompleteness\": {\"score\": 7, \"justification\": \"The original edit is completely undone, leaving the image incoherent.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd and physically impossible due to the new background.\"}\n}\n```"
+}

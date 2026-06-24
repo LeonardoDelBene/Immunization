@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a locker room
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 29.9132
-SSIM: 0.9171
+PSNR: 29.9135
+SSIM: 0.9172
 FSIM: 0.8982
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 6.9409
-SSIM: 0.1560
-FSIM: 0.3457
-
-CLIP score (Image vs Prompt)
-Edited Original:  18.3240
-Edited Immunized: 26.2702
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.5575
-Caption orig: A woman wearing a burgundy coat and yellow skirt.
-Caption adv:  A woman wearing a brown coat and a yellow skirt is standing in front of a locker room.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
+PSNR: 22.7074
+SSIM: 0.7992
+FSIM: 0.6861
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 1.0024
-Background SSIM   (basso=protezione ok): 0.0000
-Subject LPIPS     (basso=soggetto ok)  : 0.4530
-Editing score                          : 0.7282
-Mask coverage (% background)           : 0.7547
+Global LPIPS                           : 0.2079
+Background LPIPS                       : 0.1028
+Subject LPIPS                          : 0.6061
+Separation                             : 0.8549
+Editing score                          : 0.6061
+Mask coverage                          : 0.7547
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person in the image now appears to be wearing a cap."
+}

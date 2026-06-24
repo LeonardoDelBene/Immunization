@@ -4,32 +4,34 @@ A person in a garage
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 27.8939
-SSIM: 0.8934
-FSIM: 0.8831
+PSNR: 28.2331
+SSIM: 0.8922
+FSIM: 0.8830
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 16.2031
-SSIM: 0.5236
-FSIM: 0.5174
-
-CLIP score (Image vs Prompt)
-Edited Original:  26.9376
-Edited Immunized: 25.4321
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.4262
-Caption orig: A man wearing a green jacket stands in front of a wall filled with various tools and equipment.
-Caption adv:  A man wearing a white shirt and a black coat stands in front of a car.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 8.2573
+SSIM: 0.2473
+FSIM: 0.3551
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.5873
-Background SSIM   (basso=protezione ok): 0.4336
-Subject LPIPS     (basso=soggetto ok)  : 0.4628
-Editing score                          : 0.4271
-Mask coverage (% background)           : 0.6415
+Global LPIPS                           : 0.7387
+Background LPIPS                       : 0.9645
+Subject LPIPS                          : 0.4618
+Separation                             : 0.6762
+Editing score                          : 0.9645
+Mask coverage                          : 0.6415
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person is no longer in a garage; they appear against a plain background."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image lacks any background elements that resemble a garage, and instead shows a plain white background.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image lacks any background elements that resemble a garage, and instead shows a plain white background.\"\n}\n```"
+}

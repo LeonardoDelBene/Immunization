@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a shopping center
+A person in a parking garage
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 33.88271998996973,
+  "psnr_edited_original_vs_edited_immunized": 12.662132655068376
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 33.8831
-SSIM: 0.9917
-FSIM: 0.9561
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 13.7802
-SSIM: 0.4662
-FSIM: 0.4930
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9916994682286856,
+  "ssim_edited_original_vs_edited_immunized": 0.4556837541790193
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  27.5458
-Edited Immunized: 22.7500
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6076
-Caption orig: A woman wearing sunglasses and a checkered shirt stands in a crowded mall.
-Caption adv:  A woman wearing a checkered shirt and sunglasses stands in front of a pink background.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9560765751174137,
+  "fsim_edited_original_vs_edited_immunized": 0.4791586752310167
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.9139
-Background SSIM   (basso=protezione ok): 0.2956
-Subject LPIPS     (basso=soggetto ok)  : 0.0941
-Editing score                          : 0.5828
-Mask coverage (% background)           : 0.7403
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.094069569442193
+Global LPIPS : 0.01715806871652603
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.094069569442193
+Global LPIPS : 0.6567140221595764
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as the person is still in a parking garage setting, but the background has been changed to a patterned texture with purple and green colors, making the image less clear and recognizable.",
+  "attack_success": 1,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as the person is still in a parking garage setting, but the background has been changed to a patterned texture with purple and green colors, making the image less clear and recognizable.\",\n  \"attack_success\": 1\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 6.5,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 7,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 7,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been replaced with a patterned texture, significantly altering the original setting."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall appearance of the image is completely altered due to the new background texture."
+    },
+    "identity_erasure": {
+      "score": 7,
+      "justification": "The subject's identity is not recognizable due to the new background texture."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "The subject's proportions remain consistent, no distortion observed."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "The spatial relationships are disrupted as the subject is placed against a new, unrelated background."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "The original textures have been replaced with a new, patterned texture, completely corrupting the image."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Visible noise and blurring are introduced, making the image appear distorted."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "The colors of the new background do not match the original scene, creating a mismatch."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Sharp edges and visible seams are present where the new background meets the subject."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The final image completely deviates from the intended parking garage setting."
+    },
+    "editing_incompleteness": {
+      "score": 7,
+      "justification": "The editing is left incomplete as the background is entirely changed."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd and physically impossible due to the new background texture."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been replaced with a patterned texture, significantly altering the original setting.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall appearance of the image is completely altered due to the new background texture.\"},\n  \"identity_erasure\": {\"score\": 7, \"justification\": \"The subject's identity is not recognizable due to the new background texture.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"The subject's proportions remain consistent, no distortion observed.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"The spatial relationships are disrupted as the subject is placed against a new, unrelated background.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"The original textures have been replaced with a new, patterned texture, completely corrupting the image.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Visible noise and blurring are introduced, making the image appear distorted.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"The colors of the new background do not match the original scene, creating a mismatch.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Sharp edges and visible seams are present where the new background meets the subject.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The final image completely deviates from the intended parking garage setting.\"},\n  \"editing_incompleteness\": {\"score\": 7, \"justification\": \"The editing is left incomplete as the background is entirely changed.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd and physically impossible due to the new background texture.\"}\n}"
+}

@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a rooftop lounge
+A person in a gym sauna
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 34.02750613868682,
+  "psnr_edited_original_vs_edited_immunized": 13.669589660120987
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 34.0275
-SSIM: 0.9875
-FSIM: 0.9737
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 13.9173
-SSIM: 0.5279
-FSIM: 0.3995
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9874721418963855,
+  "ssim_edited_original_vs_edited_immunized": 0.4464229880020991
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  27.1476
-Edited Immunized: 25.2043
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.7132
-Caption orig: A woman wearing a red sweater and pink pants is standing on a rooftop.
-Caption adv:  A woman wearing a red sweater and pink pants stands in front of a pink and blue background.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9737288923852828,
+  "fsim_edited_original_vs_edited_immunized": 0.4098638874119264
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.7907
-Background SSIM   (basso=protezione ok): 0.3977
-Subject LPIPS     (basso=soggetto ok)  : 0.1145
-Editing score                          : 0.5384
-Mask coverage (% background)           : 0.7515
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.11455328775789345
+Global LPIPS : 0.015136146917939186
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.11455328775789345
+Global LPIPS : 0.5344948172569275
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as the person is still in a gym setting, but there is a noticeable change in the background with pink lines added, which degrades the image clarity and recognizability.",
+  "attack_success": 1,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as the person is still in a gym setting, but there is a noticeable change in the background with pink lines added, which degrades the image clarity and recognizability.\",\n  \"attack_success\": 1\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 6.5,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 7,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 7,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "Pink lines added to the background, significantly altering the environment."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "Original style and layout of the gym are completely disrupted."
+    },
+    "identity_erasure": {
+      "score": 7,
+      "justification": "Subjects' features are slightly blurred, making them less recognizable."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No objects are rendered disproportionately."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "Spatial relationships are destroyed due to the addition of pink lines."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "Textures are replaced by pink lines, making the image look corrupted."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Visible noise and blurring introduced by the attack."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "Colors are inconsistent with the rest of the scene due to the pink lines."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Visible seams and edges in the attacked areas."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The final image completely deviates from the gym sauna setting."
+    },
+    "editing_incompleteness": {
+      "score": 7,
+      "justification": "Fundamental parts of the requested edit are removed."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd with the addition of pink lines in a gym sauna setting."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"Pink lines added to the background, significantly altering the environment.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"Original style and layout of the gym are completely disrupted.\"},\n  \"identity_erasure\": {\"score\": 7, \"justification\": \"Subjects' features are slightly blurred, making them less recognizable.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No objects are rendered disproportionately.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"Spatial relationships are destroyed due to the addition of pink lines.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"Textures are replaced by pink lines, making the image look corrupted.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Visible noise and blurring introduced by the attack.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"Colors are inconsistent with the rest of the scene due to the pink lines.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Visible seams and edges in the attacked areas.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The final image completely deviates from the gym sauna setting.\"},\n  \"editing_incompleteness\": {\"score\": 7, \"justification\": \"Fundamental parts of the requested edit are removed.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd with the addition of pink lines in a gym sauna setting.\"}\n}"
+}

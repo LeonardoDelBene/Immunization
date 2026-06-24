@@ -1,28 +1,22 @@
 --- Prompt ---
-person in a garden
+A person in a dance school
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 32.3676
-SSIM: 0.9539
-FSIM: 0.9305
+PSNR: 34.6784
+SSIM: 0.9453
+FSIM: 0.9398
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 18.0358
-SSIM: 0.5619
-FSIM: 0.5614
+PSNR: 19.5286
+SSIM: 0.6193
+FSIM: 0.5233
 
-CLIP score (Image vs Prompt)
-Edited Original:  26.9946
-Edited Immunized: 24.5120
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.4537
-Caption orig: A woman with blue hair and a gray jacket is smiling and posing for a picture.
-Caption adv:  A woman with blue hair and a white jacket stands in a garden filled with pink flowers.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   False
-Accuracy:  0.0000
+Masked Editing Score
+Global LPIPS                           : 0.5841
+Background LPIPS                       : 0.7395
+Subject LPIPS                          : 0.1980
+Separation                             : 0.7888
+Editing score                          : 0.7395
+Mask coverage                          : 0.7346

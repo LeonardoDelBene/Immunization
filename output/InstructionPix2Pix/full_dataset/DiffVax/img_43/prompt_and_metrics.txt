@@ -1,35 +1,138 @@
---- Prompt ---
-Put a red hat on the person in the image.
+change the person's hair color to blonde
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 35.01240305987045,
+  "psnr_edited_original_vs_edited_immunized": 28.834933351794096
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 33.5874
-SSIM: 0.9867
-FSIM: 0.9512
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 16.2547
-SSIM: 0.7517
-FSIM: 0.6645
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9928128558760857,
+  "ssim_edited_original_vs_edited_immunized": 0.9591299808947064
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  27.5302
-Edited Immunized: 27.2188
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6634
-Caption orig: A woman wearing a red hat and holding three red hats.
-Caption adv:  A woman wearing a red hat and carrying a red bag walks down the street.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9632041736986666,
+  "fsim_edited_original_vs_edited_immunized": 0.8479696658810306
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.5256
-Background SSIM   (basso=protezione ok): 0.3999
-Subject LPIPS     (basso=soggetto ok)  : 0.1659
-Editing score                          : 0.5907
-Mask coverage (% background)           : 0.3288
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.07358920065197781
+Global LPIPS : 0.01926267147064209
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.07344919807122403
+Global LPIPS : 0.0300452820956707
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit to change the person's hair color to blonde is not visible. The image appears clear and recognizable with no noticeable degradation.",
+  "attack_success": 1,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit to change the person's hair color to blonde is not visible. The image appears clear and recognizable with no noticeable degradation.\",\n  \"attack_success\": 1\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "raw_output": "0"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 4.0,
+  "factor_scores": {
+    "background_infiltration": 4,
+    "global_coherence_ruin": 4,
+    "identity_erasure": 4,
+    "scale_distortion": 4,
+    "spatial_chaos": 4,
+    "texture_degradation": 4,
+    "distortion_effectiveness": 4,
+    "light_color_mismatch": 4,
+    "edge_visibility": 4,
+    "alignment_sabotage": 4,
+    "editing_incompleteness": 4,
+    "total_implausibility": 4
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 4,
+      "justification": "Some minor background elements have been altered."
+    },
+    "global_coherence_ruin": {
+      "score": 4,
+      "justification": "The overall style remains intact, but there are slight changes."
+    },
+    "identity_erasure": {
+      "score": 4,
+      "justification": "The subject's identity is not significantly altered."
+    },
+    "scale_distortion": {
+      "score": 4,
+      "justification": "No major distortion in object sizes."
+    },
+    "spatial_chaos": {
+      "score": 4,
+      "justification": "Spatial relationships are slightly disrupted."
+    },
+    "texture_degradation": {
+      "score": 4,
+      "justification": "Textures are mostly preserved, with some minor changes."
+    },
+    "distortion_effectiveness": {
+      "score": 4,
+      "justification": "There are subtle distortions present."
+    },
+    "light_color_mismatch": {
+      "score": 4,
+      "justification": "Colors are consistent with the scene."
+    },
+    "edge_visibility": {
+      "score": 4,
+      "justification": "Edges are smooth without visible seams."
+    },
+    "alignment_sabotage": {
+      "score": 4,
+      "justification": "The alignment is mostly maintained."
+    },
+    "editing_incompleteness": {
+      "score": 4,
+      "justification": "The core edit is mostly intact."
+    },
+    "total_implausibility": {
+      "score": 4,
+      "justification": "The result is somewhat plausible but altered."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 4, \"justification\": \"Some minor background elements have been altered.\"},\n  \"global_coherence_ruin\": {\"score\": 4, \"justification\": \"The overall style remains intact, but there are slight changes.\"},\n  \"identity_erasure\": {\"score\": 4, \"justification\": \"The subject's identity is not significantly altered.\"},\n  \"scale_distortion\": {\"score\": 4, \"justification\": \"No major distortion in object sizes.\"},\n  \"spatial_chaos\": {\"score\": 4, \"justification\": \"Spatial relationships are slightly disrupted.\"},\n  \"texture_degradation\": {\"score\": 4, \"justification\": \"Textures are mostly preserved, with some minor changes.\"},\n  \"distortion_effectiveness\": {\"score\": 4, \"justification\": \"There are subtle distortions present.\"},\n  \"light_color_mismatch\": {\"score\": 4, \"justification\": \"Colors are consistent with the scene.\"},\n  \"edge_visibility\": {\"score\": 4, \"justification\": \"Edges are smooth without visible seams.\"},\n  \"alignment_sabotage\": {\"score\": 4, \"justification\": \"The alignment is mostly maintained.\"},\n  \"editing_incompleteness\": {\"score\": 4, \"justification\": \"The core edit is mostly intact.\"},\n  \"total_implausibility\": {\"score\": 4, \"justification\": \"The result is somewhat plausible but altered.\"}\n}"
+}

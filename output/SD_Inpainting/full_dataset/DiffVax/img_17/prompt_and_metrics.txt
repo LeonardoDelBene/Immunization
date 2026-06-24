@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a gym sauna
+A person in a technology fair
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 34.86807839544858,
+  "psnr_edited_original_vs_edited_immunized": 12.064300532013625
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 34.8678
-SSIM: 0.9878
-FSIM: 0.9566
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 13.9555
-SSIM: 0.4640
-FSIM: 0.4085
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9877679263375381,
+  "ssim_edited_original_vs_edited_immunized": 0.529433838777741
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  23.3877
-Edited Immunized: 20.7784
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.4133
-Caption orig: A man wearing a leopard print shirt and a black jacket stands in front of a mirror.
-Caption adv:  A man wearing a black jacket and holding a purple and black object.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9565520828757009,
+  "fsim_edited_original_vs_edited_immunized": 0.43663963742743067
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.8112
-Background SSIM   (basso=protezione ok): 0.2938
-Subject LPIPS     (basso=soggetto ok)  : 0.1395
-Editing score                          : 0.5698
-Mask coverage (% background)           : 0.7327
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.13947156989578133
+Global LPIPS : 0.034342531114816666
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.13947156989578133
+Global LPIPS : 0.6256628632545471
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The background has been changed to a colorful, patterned texture, which is a significant edit. The image remains clear and recognizable, but the change is noticeable.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The background has been changed to a colorful, patterned texture, which is a significant edit. The image remains clear and recognizable, but the change is noticeable.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 5.5,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 1,
+    "scale_distortion": 1,
+    "spatial_chaos": 1,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 7,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been replaced with a colorful, patterned texture."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall appearance of the image is significantly altered."
+    },
+    "identity_erasure": {
+      "score": 1,
+      "justification": "The subject remains recognizable despite the background change."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "The subject's proportions are maintained."
+    },
+    "spatial_chaos": {
+      "score": 1,
+      "justification": "The spatial relationships are preserved."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "The original textures have been replaced with a noisy pattern."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Visible noise and blurring are introduced."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "The colors are inconsistent with the rest of the scene."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Sharp edges and visible seams are present."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The image completely deviates from the original instruction."
+    },
+    "editing_incompleteness": {
+      "score": 7,
+      "justification": "The fundamental part of the requested edit (background) is removed."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd and physically impossible."
+    }
+  },
+  "raw_output": "```json\n{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been replaced with a colorful, patterned texture.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall appearance of the image is significantly altered.\"},\n  \"identity_erasure\": {\"score\": 1, \"justification\": \"The subject remains recognizable despite the background change.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"The subject's proportions are maintained.\"},\n  \"spatial_chaos\": {\"score\": 1, \"justification\": \"The spatial relationships are preserved.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"The original textures have been replaced with a noisy pattern.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Visible noise and blurring are introduced.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"The colors are inconsistent with the rest of the scene.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Sharp edges and visible seams are present.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The image completely deviates from the original instruction.\"},\n  \"editing_incompleteness\": {\"score\": 7, \"justification\": \"The fundamental part of the requested edit (background) is removed.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd and physically impossible.\"}\n}\n```"
+}

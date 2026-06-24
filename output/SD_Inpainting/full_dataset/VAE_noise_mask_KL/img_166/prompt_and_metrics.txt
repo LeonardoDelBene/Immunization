@@ -4,32 +4,34 @@ A person in a pet adoption center
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.8068
-SSIM: 0.9482
-FSIM: 0.8754
+PSNR: 30.8793
+SSIM: 0.9503
+FSIM: 0.8774
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 15.4600
-SSIM: 0.4727
-FSIM: 0.4824
-
-CLIP score (Image vs Prompt)
-Edited Original:  21.2412
-Edited Immunized: 23.0898
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.3147
-Caption orig: A woman wearing a colorful jacket and holding a stuffed animal.
-Caption adv:  A woman in a red jacket and red pants is walking down a hallway.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 14.9397
+SSIM: 0.4947
+FSIM: 0.4858
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.6242
-Background SSIM   (basso=protezione ok): 0.3799
-Subject LPIPS     (basso=soggetto ok)  : 0.2717
-Editing score                          : 0.5727
-Mask coverage (% background)           : 0.7620
+Global LPIPS                           : 0.5103
+Background LPIPS                       : 0.6222
+Subject LPIPS                          : 0.2629
+Separation                             : 0.7030
+Editing score                          : 0.6222
+Mask coverage                          : 0.7620
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person is still holding a stuffed animal, which does not align with the editing prompt that specifies a person in a pet adoption center."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The image contains a person but lacks any indication of a pet adoption center, such as cages, signs, or other relevant elements.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The image contains a person but lacks any indication of a pet adoption center, such as cages, signs, or other relevant elements.\"\n}\n```"
+}

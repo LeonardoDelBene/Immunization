@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a swimming pool
+A person in a flower garden
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 35.287555254223236,
+  "psnr_edited_original_vs_edited_immunized": 15.389944331118812
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 35.2869
-SSIM: 0.9908
-FSIM: 0.9631
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 15.3782
-SSIM: 0.7101
-FSIM: 0.5245
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9907890200867389,
+  "ssim_edited_original_vs_edited_immunized": 0.45491002993910284
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  30.1524
-Edited Immunized: 22.1337
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6677
-Caption orig: A man wearing a green shirt and a backpack is standing next to a pool.
-Caption adv:  A man wearing a backpack and a green shirt stands in front of a pink wall.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9631088210051092,
+  "fsim_edited_original_vs_edited_immunized": 0.48666457692563464
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.8612
-Background SSIM   (basso=protezione ok): 0.6262
-Subject LPIPS     (basso=soggetto ok)  : 0.1116
-Editing score                          : 0.4770
-Mask coverage (% background)           : 0.7294
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.11162706829813415
+Global LPIPS : 0.02333912067115307
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.11162706829813415
+Global LPIPS : 0.6099565625190735
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is visible as the background has been changed from a flower garden with yellow flowers to a dense field of purple flowers. The image remains clear and recognizable.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is visible as the background has been changed from a flower garden with yellow flowers to a dense field of purple flowers. The image remains clear and recognizable.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 5.5,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 1,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 1,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been completely replaced with a dense field of purple flowers."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall appearance of the image is significantly altered, losing its original style and layout."
+    },
+    "identity_erasure": {
+      "score": 1,
+      "justification": "The subject remains recognizable, despite the background change."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "The subject's proportions are maintained, no distortion observed."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "Spatial relationships are disrupted; the subject appears to be in a different environment."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "The original textures have been replaced with a uniform pattern of purple flowers."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Visible noise and blurring are introduced, especially around the edges of the new background."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "Colors are inconsistent; the purple flowers do not match the natural lighting of the original scene."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Sharp edges and visible seams are present where the new background meets the subject."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The final image completely deviates from the intended edit of a person in a flower garden."
+    },
+    "editing_incompleteness": {
+      "score": 1,
+      "justification": "The editing is not incomplete; the entire background has been altered."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd, as the subject is placed in an unnatural setting with mismatched colors and textures."
+    }
+  },
+  "raw_output": "```json\n{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been completely replaced with a dense field of purple flowers.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall appearance of the image is significantly altered, losing its original style and layout.\"},\n  \"identity_erasure\": {\"score\": 1, \"justification\": \"The subject remains recognizable, despite the background change.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"The subject's proportions are maintained, no distortion observed.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"Spatial relationships are disrupted; the subject appears to be in a different environment.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"The original textures have been replaced with a uniform pattern of purple flowers.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Visible noise and blurring are introduced, especially around the edges of the new background.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"Colors are inconsistent; the purple flowers do not match the natural lighting of the original scene.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Sharp edges and visible seams are present where the new background meets the subject.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The final image completely deviates from the intended edit of a person in a flower garden.\"},\n  \"editing_incompleteness\": {\"score\": 1, \"justification\": \"The editing is not incomplete; the entire background has been altered.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd, as the subject is placed in an unnatural setting with mismatched colors and textures.\"}\n}\n```"
+}

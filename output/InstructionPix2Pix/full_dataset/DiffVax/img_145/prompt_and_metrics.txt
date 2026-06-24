@@ -1,35 +1,138 @@
---- Prompt ---
-Put a red hat on the person in the image.
+add a beard to the person
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 34.538272800815776,
+  "psnr_edited_original_vs_edited_immunized": 29.342767340753433
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 31.8127
-SSIM: 0.9863
-FSIM: 0.9544
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 19.5898
-SSIM: 0.8731
-FSIM: 0.7696
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.99071423199321,
+  "ssim_edited_original_vs_edited_immunized": 0.959882150399623
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  24.3397
-Edited Immunized: 26.7348
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.5364
-Caption orig: A man wearing a red hat and a red shirt with a picture of a dog on it.
-Caption adv:  A man wearing a red shirt with a red hat on backwards is walking down the street.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9676217702323385,
+  "fsim_edited_original_vs_edited_immunized": 0.8522270770670097
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.2496
-Background SSIM   (basso=protezione ok): 0.7079
-Subject LPIPS     (basso=soggetto ok)  : 0.1188
-Editing score                          : 0.4162
-Mask coverage (% background)           : 0.2997
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.08253674557186885
+Global LPIPS : 0.017354348674416542
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.08701684616203072
+Global LPIPS : 0.029509713873267174
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The beard appears to be added to the person's face, but the image is slightly blurry and less clear compared to the reference image.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The beard appears to be added to the person's face, but the image is slightly blurry and less clear compared to the reference image.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "raw_output": "0"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 1.0,
+  "factor_scores": {
+    "background_infiltration": 1,
+    "global_coherence_ruin": 1,
+    "identity_erasure": 1,
+    "scale_distortion": 1,
+    "spatial_chaos": 1,
+    "texture_degradation": 1,
+    "distortion_effectiveness": 1,
+    "light_color_mismatch": 1,
+    "edge_visibility": 1,
+    "alignment_sabotage": 1,
+    "editing_incompleteness": 1,
+    "total_implausibility": 1
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 1,
+      "justification": "No significant changes in background."
+    },
+    "global_coherence_ruin": {
+      "score": 1,
+      "justification": "No disruption in overall style and layout."
+    },
+    "identity_erasure": {
+      "score": 1,
+      "justification": "Subjects remain recognizable."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No objects rendered disproportionately."
+    },
+    "spatial_chaos": {
+      "score": 1,
+      "justification": "Spatial relationships preserved."
+    },
+    "texture_degradation": {
+      "score": 1,
+      "justification": "Textures appear consistent."
+    },
+    "distortion_effectiveness": {
+      "score": 1,
+      "justification": "No visible noise or artifacts."
+    },
+    "light_color_mismatch": {
+      "score": 1,
+      "justification": "Colors and shadows consistent."
+    },
+    "edge_visibility": {
+      "score": 1,
+      "justification": "No visible seams or edges."
+    },
+    "alignment_sabotage": {
+      "score": 1,
+      "justification": "Image aligns with the original instruction."
+    },
+    "editing_incompleteness": {
+      "score": 1,
+      "justification": "Beard added as per instruction."
+    },
+    "total_implausibility": {
+      "score": 1,
+      "justification": "Result is coherent and logical."
+    }
+  },
+  "raw_output": "```json\n{\n  \"background_infiltration\": {\"score\": 1, \"justification\": \"No significant changes in background.\"},\n  \"global_coherence_ruin\": {\"score\": 1, \"justification\": \"No disruption in overall style and layout.\"},\n  \"identity_erasure\": {\"score\": 1, \"justification\": \"Subjects remain recognizable.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No objects rendered disproportionately.\"},\n  \"spatial_chaos\": {\"score\": 1, \"justification\": \"Spatial relationships preserved.\"},\n  \"texture_degradation\": {\"score\": 1, \"justification\": \"Textures appear consistent.\"},\n  \"distortion_effectiveness\": {\"score\": 1, \"justification\": \"No visible noise or artifacts.\"},\n  \"light_color_mismatch\": {\"score\": 1, \"justification\": \"Colors and shadows consistent.\"},\n  \"edge_visibility\": {\"score\": 1, \"justification\": \"No visible seams or edges.\"},\n  \"alignment_sabotage\": {\"score\": 1, \"justification\": \"Image aligns with the original instruction.\"},\n  \"editing_incompleteness\": {\"score\": 1, \"justification\": \"Beard added as per instruction.\"},\n  \"total_implausibility\": {\"score\": 1, \"justification\": \"Result is coherent and logical.\"}\n}\n```"
+}

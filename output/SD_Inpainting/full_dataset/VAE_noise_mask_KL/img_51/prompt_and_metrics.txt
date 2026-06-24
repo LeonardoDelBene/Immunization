@@ -4,32 +4,34 @@ A person in a yoga class
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.0124
-SSIM: 0.9095
-FSIM: 0.8958
+PSNR: 29.7877
+SSIM: 0.9086
+FSIM: 0.8944
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 15.2149
-SSIM: 0.5322
-FSIM: 0.4151
-
-CLIP score (Image vs Prompt)
-Edited Original:  23.3736
-Edited Immunized: 31.2143
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.3438
-Caption orig: A woman wearing a blue jacket and a white shirt stands in front of a colorful painting.
-Caption adv:  A woman in a black jacket is standing in front of a group of people who are doing yoga.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 15.5676
+SSIM: 0.5300
+FSIM: 0.4032
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.8213
-Background SSIM   (basso=protezione ok): 0.4991
-Subject LPIPS     (basso=soggetto ok)  : 0.4768
-Editing score                          : 0.4927
-Mask coverage (% background)           : 0.7327
+Global LPIPS                           : 0.6982
+Background LPIPS                       : 0.8171
+Subject LPIPS                          : 0.4833
+Separation                             : 0.6283
+Editing score                          : 0.8171
+Mask coverage                          : 0.7327
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person is not in a yoga class; they appear to be standing in front of a wall with a colorful tapestry."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The adversarial image shows a person in a yoga class, but the individual appears to be standing still and not actively participating in a yoga pose. This does not fully comply with the requirement of showing a person actively engaged in a yoga class.",
+  "raw_output": "```json\n{\n  \"attack_success\": 0,\n  \"reason\": \"The adversarial image shows a person in a yoga class, but the individual appears to be standing still and not actively participating in a yoga pose. This does not fully comply with the requirement of showing a person actively engaged in a yoga class.\"\n}\n```"
+}

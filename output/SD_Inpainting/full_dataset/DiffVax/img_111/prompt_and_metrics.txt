@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a vintage record shop
+A person in a gym sauna
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 35.99257384860255,
+  "psnr_edited_original_vs_edited_immunized": 14.6923581526002
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 35.9923
-SSIM: 0.9917
-FSIM: 0.9567
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 13.7045
-SSIM: 0.4044
-FSIM: 0.4867
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9917115214973747,
+  "ssim_edited_original_vs_edited_immunized": 0.5060156243070795
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  28.8454
-Edited Immunized: 22.8158
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.7596
-Caption orig: A woman wearing a blue coat and sunglasses stands in front of a bookshelf.
-Caption adv:  A woman wearing a blue coat and sunglasses is standing in front of a pink background.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9566996137142066,
+  "fsim_edited_original_vs_edited_immunized": 0.44089515585928246
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.9041
-Background SSIM   (basso=protezione ok): 0.1497
-Subject LPIPS     (basso=soggetto ok)  : 0.0909
-Editing score                          : 0.6258
-Mask coverage (% background)           : 0.6804
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.09093468619719088
+Global LPIPS : 0.020888201892375946
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.09093468619719088
+Global LPIPS : 0.5521478652954102
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as the background has changed from a gym sauna to a room with purple lights and holes. The image remains clear and recognizable.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as the background has changed from a gym sauna to a room with purple lights and holes. The image remains clear and recognizable.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 6.5,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 7,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 7,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been completely altered to a room with purple lights and holes."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall appearance of the image is totally altered."
+    },
+    "identity_erasure": {
+      "score": 7,
+      "justification": "The subject's identity is lost due to the background change."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "The image remains clear and recognizable."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "Spatial relationships have been destroyed."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "Textures have been replaced by a pattern of holes."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Visible noise and digital artifacts are introduced."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "Colors are completely off due to the new background."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Visible 'seams' appear at the edges of the background change."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The image completely deviates from the original instruction."
+    },
+    "editing_incompleteness": {
+      "score": 7,
+      "justification": "The editing is left incomplete as the background is altered."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd and physically impossible."
+    }
+  },
+  "raw_output": "```json\n{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been completely altered to a room with purple lights and holes.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall appearance of the image is totally altered.\"},\n  \"identity_erasure\": {\"score\": 7, \"justification\": \"The subject's identity is lost due to the background change.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"The image remains clear and recognizable.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"Spatial relationships have been destroyed.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"Textures have been replaced by a pattern of holes.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Visible noise and digital artifacts are introduced.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"Colors are completely off due to the new background.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Visible 'seams' appear at the edges of the background change.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The image completely deviates from the original instruction.\"},\n  \"editing_incompleteness\": {\"score\": 7, \"justification\": \"The editing is left incomplete as the background is altered.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd and physically impossible.\"}\n}\n```"
+}

@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a festival ground
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 31.8799
+PSNR: 31.8804
 SSIM: 0.9420
 FSIM: 0.8904
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 19.9302
-SSIM: 0.7679
-FSIM: 0.5954
-
-CLIP score (Image vs Prompt)
-Edited Original:  26.3977
-Edited Immunized: 27.9555
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6286
-Caption orig: A woman wearing a black dress and a leopard print belt is standing in front of a tent.
-Caption adv:  A woman wearing a black dress and white pants is standing in front of a crowd of people.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 3.6242
+SSIM: 0.0005
+FSIM: nan
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.2786
-Background SSIM   (basso=protezione ok): 0.7769
-Subject LPIPS     (basso=soggetto ok)  : 0.4524
-Editing score                          : 0.2069
-Mask coverage (% background)           : 0.7764
+Global LPIPS                           : 1.0493
+Background LPIPS                       : 0.9568
+Subject LPIPS                          : 0.9776
+Separation                             : 0.5054
+Editing score                          : 0.9776
+Mask coverage                          : 0.7764
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person in the image is wearing a cap, which matches the editing prompt."
+}

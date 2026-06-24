@@ -4,32 +4,34 @@ A person in a youth hostel
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 31.1747
-SSIM: 0.9550
-FSIM: 0.9097
+PSNR: 31.2124
+SSIM: 0.9552
+FSIM: 0.9091
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 16.6499
-SSIM: 0.6299
-FSIM: 0.4868
-
-CLIP score (Image vs Prompt)
-Edited Original:  20.7628
-Edited Immunized: 20.1116
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.5261
-Caption orig: A woman wearing a brown jacket and sunglasses is standing in front of a sign.
-Caption adv:  A woman wearing a leopard print dress and sunglasses stands in front of a mirror.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 16.7803
+SSIM: 0.6432
+FSIM: 0.4949
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.7937
-Background SSIM   (basso=protezione ok): 0.5710
-Subject LPIPS     (basso=soggetto ok)  : 0.3210
-Editing score                          : 0.5536
-Mask coverage (% background)           : 0.7487
+Global LPIPS                           : 0.6115
+Background LPIPS                       : 0.7827
+Subject LPIPS                          : 0.3205
+Separation                             : 0.7095
+Editing score                          : 0.7827
+Mask coverage                          : 0.7487
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person is not in a youth hostel; instead, they appear to be in a store window display."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The image shows a person standing in front of a window display, which does not align with the requirement of being in a youth hostel.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The image shows a person standing in front of a window display, which does not align with the requirement of being in a youth hostel.\"\n}\n```"
+}

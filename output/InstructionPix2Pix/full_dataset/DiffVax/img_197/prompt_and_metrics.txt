@@ -1,35 +1,138 @@
---- Prompt ---
-Put a red hat on the person in the image.
+add earrings to the person
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 35.54307551723994,
+  "psnr_edited_original_vs_edited_immunized": 25.055771820566264
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 32.8962
-SSIM: 0.9826
-FSIM: 0.9552
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 16.6812
-SSIM: 0.7539
-FSIM: 0.6236
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9913348802309808,
+  "ssim_edited_original_vs_edited_immunized": 0.8490500872512587
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  24.6686
-Edited Immunized: 28.0535
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.3375
-Caption orig: A woman wearing a red mask and a red dress is walking down the street.
-Caption adv:  A person wearing a red hat and a red coat is standing in front of a white van.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9592052960636451,
+  "fsim_edited_original_vs_edited_immunized": 0.7385192411789504
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.6360
-Background SSIM   (basso=protezione ok): 0.2934
-Subject LPIPS     (basso=soggetto ok)  : 0.1740
-Editing score                          : 0.6620
-Mask coverage (% background)           : 0.2921
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.10963926222317293
+Global LPIPS : 0.02777905762195587
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.1514668495064341
+Global LPIPS : 0.17694240808486938
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is visible as the person now has earrings. The image appears slightly blurry and less clear compared to the reference image.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is visible as the person now has earrings. The image appears slightly blurry and less clear compared to the reference image.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 4.0,
+  "factor_scores": {
+    "background_infiltration": 4,
+    "global_coherence_ruin": 4,
+    "identity_erasure": 4,
+    "scale_distortion": 4,
+    "spatial_chaos": 4,
+    "texture_degradation": 4,
+    "distortion_effectiveness": 4,
+    "light_color_mismatch": 4,
+    "edge_visibility": 4,
+    "alignment_sabotage": 4,
+    "editing_incompleteness": 4,
+    "total_implausibility": 4
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 4,
+      "justification": "The background shows some minor changes, but the overall scene remains recognizable."
+    },
+    "global_coherence_ruin": {
+      "score": 4,
+      "justification": "The global coherence is slightly disrupted, but the image is still coherent."
+    },
+    "identity_erasure": {
+      "score": 4,
+      "justification": "The subject's identity is not erased, but there are some changes."
+    },
+    "scale_distortion": {
+      "score": 4,
+      "justification": "There is no significant scale distortion."
+    },
+    "spatial_chaos": {
+      "score": 4,
+      "justification": "Spatial relationships are slightly altered but still logical."
+    },
+    "texture_degradation": {
+      "score": 4,
+      "justification": "Textures are slightly degraded, but the original texture is still discernible."
+    },
+    "distortion_effectiveness": {
+      "score": 4,
+      "justification": "There are visible distortions, but they are not severe."
+    },
+    "light_color_mismatch": {
+      "score": 4,
+      "justification": "Colors are consistent with the rest of the scene."
+    },
+    "edge_visibility": {
+      "score": 4,
+      "justification": "There are some visible edges, but they are not prominent."
+    },
+    "alignment_sabotage": {
+      "score": 4,
+      "justification": "The alignment is slightly affected, but the instruction is still followed."
+    },
+    "editing_incompleteness": {
+      "score": 4,
+      "justification": "The edit is mostly complete, but there are some changes."
+    },
+    "total_implausibility": {
+      "score": 4,
+      "justification": "The result is somewhat implausible due to the distortions, but it is not entirely absurd."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 4, \"justification\": \"The background shows some minor changes, but the overall scene remains recognizable.\"},\n  \"global_coherence_ruin\": {\"score\": 4, \"justification\": \"The global coherence is slightly disrupted, but the image is still coherent.\"},\n  \"identity_erasure\": {\"score\": 4, \"justification\": \"The subject's identity is not erased, but there are some changes.\"},\n  \"scale_distortion\": {\"score\": 4, \"justification\": \"There is no significant scale distortion.\"},\n  \"spatial_chaos\": {\"score\": 4, \"justification\": \"Spatial relationships are slightly altered but still logical.\"},\n  \"texture_degradation\": {\"score\": 4, \"justification\": \"Textures are slightly degraded, but the original texture is still discernible.\"},\n  \"distortion_effectiveness\": {\"score\": 4, \"justification\": \"There are visible distortions, but they are not severe.\"},\n  \"light_color_mismatch\": {\"score\": 4, \"justification\": \"Colors are consistent with the rest of the scene.\"},\n  \"edge_visibility\": {\"score\": 4, \"justification\": \"There are some visible edges, but they are not prominent.\"},\n  \"alignment_sabotage\": {\"score\": 4, \"justification\": \"The alignment is slightly affected, but the instruction is still followed.\"},\n  \"editing_incompleteness\": {\"score\": 4, \"justification\": \"The edit is mostly complete, but there are some changes.\"},\n  \"total_implausibility\": {\"score\": 4, \"justification\": \"The result is somewhat implausible due to the distortions, but it is not entirely absurd.\"}\n}"
+}

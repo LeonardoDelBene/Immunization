@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a basement
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.2493
+PSNR: 30.2494
 SSIM: 0.9128
 FSIM: 0.8647
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 21.8413
-SSIM: 0.7617
-FSIM: 0.6477
-
-CLIP score (Image vs Prompt)
-Edited Original:  25.6437
-Edited Immunized: 26.1822
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6000
-Caption orig: A woman in a white shirt and blue jeans is standing in front of a building.
-Caption adv:  A woman in a white shirt and blue jeans is walking down a dark alley.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 24.5893
+SSIM: 0.8403
+FSIM: 0.7251
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.2212
-Background SSIM   (basso=protezione ok): 0.7948
-Subject LPIPS     (basso=soggetto ok)  : 0.5062
-Editing score                          : 0.1500
-Mask coverage (% background)           : 0.7293
+Global LPIPS                           : 0.1905
+Background LPIPS                       : 0.1130
+Subject LPIPS                          : 0.4808
+Separation                             : 0.8097
+Editing score                          : 0.4808
+Mask coverage                          : 0.7293
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person in the adversarial image is wearing a cap, which matches the editing prompt."
+}

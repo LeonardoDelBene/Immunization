@@ -4,32 +4,34 @@ A person in a frozen yogurt shop
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 34.3591
-SSIM: 0.9576
-FSIM: 0.9195
+PSNR: 32.5344
+SSIM: 0.9355
+FSIM: 0.8855
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 13.3931
-SSIM: 0.6177
-FSIM: 0.5264
-
-CLIP score (Image vs Prompt)
-Edited Original:  28.3602
-Edited Immunized: 32.2680
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.7525
-Caption orig: A man wearing a blue jacket and a green sweater stands in front of a display of candy.
-Caption adv:  A man wearing a blue jacket and a green sweater stands in front of a display of ice cream.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 13.7878
+SSIM: 0.5923
+FSIM: 0.5133
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.5909
-Background SSIM   (basso=protezione ok): 0.5164
-Subject LPIPS     (basso=soggetto ok)  : 0.1430
-Editing score                          : 0.5956
-Mask coverage (% background)           : 0.6916
+Global LPIPS                           : 0.4447
+Background LPIPS                       : 0.6040
+Subject LPIPS                          : 0.1714
+Separation                             : 0.7789
+Editing score                          : 0.6040
+Mask coverage                          : 0.6916
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person is still in a frozen yogurt shop, but the background has been altered to include cupcakes and a different sign, which does not align with the original reference image."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The ADVERSARIAL image does not contain any frozen yogurt shop elements such as cups, toppings, or signage related to frozen yogurt.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The ADVERSARIAL image does not contain any frozen yogurt shop elements such as cups, toppings, or signage related to frozen yogurt.\"\n}\n```"
+}

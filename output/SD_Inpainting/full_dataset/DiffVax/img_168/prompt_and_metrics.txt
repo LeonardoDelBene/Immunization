@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a tech startup launch
+A person in a golf course clubhouse
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 35.54399287648187,
+  "psnr_edited_original_vs_edited_immunized": 15.96300375344569
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 35.5443
-SSIM: 0.9878
-FSIM: 0.9569
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 20.2044
-SSIM: 0.6758
-FSIM: 0.4784
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9877682020463064,
+  "ssim_edited_original_vs_edited_immunized": 0.6086730326127104
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  24.4055
-Edited Immunized: 22.1752
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.8814
-Caption orig: A man wearing a blue jacket and white pants stands in front of a wall filled with various drawings and symbols.
-Caption adv:  A man wearing a blue jacket and white pants stands in front of a wall with green and pink letters.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9569205109740574,
+  "fsim_edited_original_vs_edited_immunized": 0.47476953019656293
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.7091
-Background SSIM   (basso=protezione ok): 0.5730
-Subject LPIPS     (basso=soggetto ok)  : 0.1160
-Editing score                          : 0.4777
-Mask coverage (% background)           : 0.7269
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.11596341357936857
+Global LPIPS : 0.0336175337433815
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.11596341357936857
+Global LPIPS : 0.6171785593032837
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as there is no significant change in the scene. The image remains clear and recognizable with a golf course background, but the presence of pink spots and a golf ball suggests an unintended alteration.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as there is no significant change in the scene. The image remains clear and recognizable with a golf course background, but the presence of pink spots and a golf ball suggests an unintended alteration.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 5.5,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 1,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 1,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "Pink spots cover the entire background, altering the original setting."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall appearance is completely altered due to the pink spots."
+    },
+    "identity_erasure": {
+      "score": 1,
+      "justification": "The subject remains recognizable, though the background is altered."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No objects are rendered disproportionately or unrealistically in size."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "Spatial relationships are destroyed by the random placement of pink spots."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "The original texture is replaced by a chaotic pattern of pink spots."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Severe noise and digital artifacts are introduced throughout the image."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "Colors are completely off due to the pink spots overlaying the entire image."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Visible seams and edges are present where the pink spots transition into the original image."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The final image is completely deviated from the intended golf course clubhouse scene."
+    },
+    "editing_incompleteness": {
+      "score": 1,
+      "justification": "The editing is not incomplete; the entire image is altered."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd and physically impossible due to the chaotic pattern."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"Pink spots cover the entire background, altering the original setting.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall appearance is completely altered due to the pink spots.\"},\n  \"identity_erasure\": {\"score\": 1, \"justification\": \"The subject remains recognizable, though the background is altered.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No objects are rendered disproportionately or unrealistically in size.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"Spatial relationships are destroyed by the random placement of pink spots.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"The original texture is replaced by a chaotic pattern of pink spots.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Severe noise and digital artifacts are introduced throughout the image.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"Colors are completely off due to the pink spots overlaying the entire image.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Visible seams and edges are present where the pink spots transition into the original image.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The final image is completely deviated from the intended golf course clubhouse scene.\"},\n  \"editing_incompleteness\": {\"score\": 1, \"justification\": \"The editing is not incomplete; the entire image is altered.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd and physically impossible due to the chaotic pattern.\"}\n}"
+}

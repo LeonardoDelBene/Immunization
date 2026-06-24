@@ -3,12 +3,14 @@
 # factory.py
 
 from enum import Enum
+
+from metrics.editing_score import EditingScore
 from .psnr import PSNR
 from .ssim import SSIM
 from .clip_score import ClipScore
 from .fsim import FSIM
 from .caption_similarity import CaptionSimilarity, AccuracyRate
-from .masked_editing_score import MaskedEditingScore
+from .lpips_score import LipisScore
 
 
 class MetricType(Enum):
@@ -20,6 +22,7 @@ class MetricType(Enum):
     ACC     = "ACC"
     CLIP_DIR = "CLIP_DIR"
     MASKED  = "MASKED"
+    QWEN    = "QWEN"
 
 
 def create_metric(metric_type: MetricType, **kwargs):
@@ -36,6 +39,8 @@ def create_metric(metric_type: MetricType, **kwargs):
     elif metric_type == MetricType.ACC:
         return AccuracyRate(**kwargs)
     elif metric_type == MetricType.MASKED:
-        return MaskedEditingScore(**kwargs)
+        return LipisScore(**kwargs)
+    elif metric_type == MetricType.QWEN:
+        return EditingScore(**kwargs)
     else:
         raise ValueError(f"Invalid metric name: {metric_type}")

@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a farmers' cooperative
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 29.9340
+PSNR: 29.9351
 SSIM: 0.9527
-FSIM: 0.8452
+FSIM: 0.8453
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 20.2474
-SSIM: 0.8073
-FSIM: 0.6527
-
-CLIP score (Image vs Prompt)
-Edited Original:  23.5806
-Edited Immunized: 23.1651
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.7307
-Caption orig: A woman wearing a blue hat and a floral jacket stands in a field.
-Caption adv:  A woman wearing a white dress and sunglasses stands in a field.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 22.0096
+SSIM: 0.8345
+FSIM: 0.6509
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.3056
-Background SSIM   (basso=protezione ok): 0.7958
-Subject LPIPS     (basso=soggetto ok)  : 0.2290
-Editing score                          : 0.3461
-Mask coverage (% background)           : 0.7052
+Global LPIPS                           : 0.1972
+Background LPIPS                       : 0.1083
+Subject LPIPS                          : 0.4804
+Separation                             : 0.8160
+Editing score                          : 0.4804
+Mask coverage                          : 0.7052
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person in the adversarial image is wearing a cap, which matches the editing prompt."
+}

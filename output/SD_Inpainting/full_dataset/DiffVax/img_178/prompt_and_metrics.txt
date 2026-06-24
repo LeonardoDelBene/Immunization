@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a summer camp
+A person in a vineyard
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 35.057276717332215,
+  "psnr_edited_original_vs_edited_immunized": 15.399269883783004
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 35.0562
-SSIM: 0.9875
-FSIM: 0.9707
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 16.2269
-SSIM: 0.5838
-FSIM: 0.4465
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9875235337663524,
+  "ssim_edited_original_vs_edited_immunized": 0.5277786980253737
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  24.9440
-Edited Immunized: 18.8267
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.5104
-Caption orig: A woman wearing a black shirt and a yellow skirt is walking down a path.
-Caption adv:  A woman wearing a black shirt and a brown skirt is standing in front of a colorful wall.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9707496964851977,
+  "fsim_edited_original_vs_edited_immunized": 0.4505123292674302
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.9060
-Background SSIM   (basso=protezione ok): 0.4628
-Subject LPIPS     (basso=soggetto ok)  : 0.1390
-Editing score                          : 0.5285
-Mask coverage (% background)           : 0.7361
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.1389172810434259
+Global LPIPS : 0.025833401829004288
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.1389172810434259
+Global LPIPS : 0.5601474642753601
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as the background has changed from a vineyard to a wall with purple flowers, but the overall clarity and recognizability of the image remain high.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as the background has changed from a vineyard to a wall with purple flowers, but the overall clarity and recognizability of the image remain high.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 5.5,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 1,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 1,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been completely replaced with a wall featuring purple flowers."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall appearance of the image is significantly altered, losing its coherence."
+    },
+    "identity_erasure": {
+      "score": 1,
+      "justification": "The subject remains recognizable, though the background has been changed."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No objects appear disproportionately large or small."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "The spatial relationships have been disrupted, with the subject now in front of a wall instead of a vineyard."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "The original texture of the background has been replaced with a new pattern."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Visible changes in texture and background indicate a successful distortion."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "The colors of the new background do not match the original vineyard setting."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Sharp edges are visible where the new background meets the original image."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The image no longer aligns with the original instruction of a person in a vineyard."
+    },
+    "editing_incompleteness": {
+      "score": 1,
+      "justification": "The editing is not incomplete; the entire background has been changed."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd, as the subject is now in front of a wall with purple flowers in a vineyard setting."
+    }
+  },
+  "raw_output": "```json\n{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been completely replaced with a wall featuring purple flowers.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall appearance of the image is significantly altered, losing its coherence.\"},\n  \"identity_erasure\": {\"score\": 1, \"justification\": \"The subject remains recognizable, though the background has been changed.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No objects appear disproportionately large or small.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"The spatial relationships have been disrupted, with the subject now in front of a wall instead of a vineyard.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"The original texture of the background has been replaced with a new pattern.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Visible changes in texture and background indicate a successful distortion.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"The colors of the new background do not match the original vineyard setting.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Sharp edges are visible where the new background meets the original image.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The image no longer aligns with the original instruction of a person in a vineyard.\"},\n  \"editing_incompleteness\": {\"score\": 1, \"justification\": \"The editing is not incomplete; the entire background has been changed.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd, as the subject is now in front of a wall with purple flowers in a vineyard setting.\"}\n}\n```"
+}

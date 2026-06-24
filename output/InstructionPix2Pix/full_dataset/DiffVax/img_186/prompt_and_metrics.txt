@@ -1,35 +1,138 @@
---- Prompt ---
-Put a red hat on the person in the image.
+change the person's outfit color to blue
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 35.260688390562834,
+  "psnr_edited_original_vs_edited_immunized": 28.648242727985647
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 32.6941
-SSIM: 0.9848
-FSIM: 0.9486
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 17.1506
-SSIM: 0.7751
-FSIM: 0.7258
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9910056591279809,
+  "ssim_edited_original_vs_edited_immunized": 0.9342289077558953
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  28.2711
-Edited Immunized: 25.0161
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.9230
-Caption orig: A person wearing a red hat and a red jacket is walking down the street.
-Caption adv:  A man wearing a red jacket and a red hat is walking down the street.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9699958846502382,
+  "fsim_edited_original_vs_edited_immunized": 0.8213995843752114
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.3950
-Background SSIM   (basso=protezione ok): 0.5540
-Subject LPIPS     (basso=soggetto ok)  : 0.2097
-Editing score                          : 0.4660
-Mask coverage (% background)           : 0.3585
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.11901714969368817
+Global LPIPS : 0.021398866549134254
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.06485908112290553
+Global LPIPS : 0.03875330090522766
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit to change the person's outfit color to blue is clearly visible. The coat appears to be a different shade of blue compared to the original image, and the overall clarity and recognizability of the image remain high.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit to change the person's outfit color to blue is clearly visible. The coat appears to be a different shade of blue compared to the original image, and the overall clarity and recognizability of the image remain high.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "raw_output": "0"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "raw_output": "0"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 1.0,
+  "factor_scores": {
+    "background_infiltration": 1,
+    "global_coherence_ruin": 1,
+    "identity_erasure": 1,
+    "scale_distortion": 1,
+    "spatial_chaos": 1,
+    "texture_degradation": 1,
+    "distortion_effectiveness": 1,
+    "light_color_mismatch": 1,
+    "edge_visibility": 1,
+    "alignment_sabotage": 1,
+    "editing_incompleteness": 1,
+    "total_implausibility": 1
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 1,
+      "justification": "No significant changes in background."
+    },
+    "global_coherence_ruin": {
+      "score": 1,
+      "justification": "No disruption in global coherence."
+    },
+    "identity_erasure": {
+      "score": 1,
+      "justification": "Subjects remain recognizable."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No distortion in object sizes."
+    },
+    "spatial_chaos": {
+      "score": 1,
+      "justification": "Spatial relationships are maintained."
+    },
+    "texture_degradation": {
+      "score": 1,
+      "justification": "Textures appear consistent."
+    },
+    "distortion_effectiveness": {
+      "score": 1,
+      "justification": "No visible distortions."
+    },
+    "light_color_mismatch": {
+      "score": 1,
+      "justification": "Colors match the scene."
+    },
+    "edge_visibility": {
+      "score": 1,
+      "justification": "No visible seams."
+    },
+    "alignment_sabotage": {
+      "score": 1,
+      "justification": "Image aligns with the instruction."
+    },
+    "editing_incompleteness": {
+      "score": 1,
+      "justification": "Editing is complete."
+    },
+    "total_implausibility": {
+      "score": 1,
+      "justification": "Result is logically coherent."
+    }
+  },
+  "raw_output": "```json\n{\n  \"background_infiltration\": {\"score\": 1, \"justification\": \"No significant changes in background.\"},\n  \"global_coherence_ruin\": {\"score\": 1, \"justification\": \"No disruption in global coherence.\"},\n  \"identity_erasure\": {\"score\": 1, \"justification\": \"Subjects remain recognizable.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No distortion in object sizes.\"},\n  \"spatial_chaos\": {\"score\": 1, \"justification\": \"Spatial relationships are maintained.\"},\n  \"texture_degradation\": {\"score\": 1, \"justification\": \"Textures appear consistent.\"},\n  \"distortion_effectiveness\": {\"score\": 1, \"justification\": \"No visible distortions.\"},\n  \"light_color_mismatch\": {\"score\": 1, \"justification\": \"Colors match the scene.\"},\n  \"edge_visibility\": {\"score\": 1, \"justification\": \"No visible seams.\"},\n  \"alignment_sabotage\": {\"score\": 1, \"justification\": \"Image aligns with the instruction.\"},\n  \"editing_incompleteness\": {\"score\": 1, \"justification\": \"Editing is complete.\"},\n  \"total_implausibility\": {\"score\": 1, \"justification\": \"Result is logically coherent.\"}\n}\n```"
+}

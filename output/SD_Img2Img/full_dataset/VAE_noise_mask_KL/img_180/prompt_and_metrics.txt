@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a gym sauna
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 28.9838
+PSNR: 28.9839
 SSIM: 0.8853
-FSIM: 0.8271
+FSIM: 0.8272
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 16.3220
-SSIM: 0.5939
-FSIM: 0.5148
-
-CLIP score (Image vs Prompt)
-Edited Original:  20.1678
-Edited Immunized: 23.4149
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.5524
-Caption orig: A man wearing a brown hat and a brown jacket is standing next to a statue of a boxer.
-Caption adv:  A man wearing a hat and a jacket is standing in front of a weight machine.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 22.1283
+SSIM: 0.7467
+FSIM: 0.5695
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.4901
-Background SSIM   (basso=protezione ok): 0.5920
-Subject LPIPS     (basso=soggetto ok)  : 0.5592
-Editing score                          : 0.3184
-Mask coverage (% background)           : 0.7044
+Global LPIPS                           : 0.2449
+Background LPIPS                       : 0.1549
+Subject LPIPS                          : 0.5739
+Separation                             : 0.7874
+Editing score                          : 0.5739
+Mask coverage                          : 0.7044
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person is still wearing a cap, but the shirt and jacket have been changed, which does not align with the original editing prompt."
+}

@@ -4,32 +4,34 @@ A person in a music and arts festival
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.1347
-SSIM: 0.9033
-FSIM: 0.8711
+PSNR: 29.8729
+SSIM: 0.9023
+FSIM: 0.8693
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 14.6550
-SSIM: 0.5461
-FSIM: 0.4838
-
-CLIP score (Image vs Prompt)
-Edited Original:  26.5066
-Edited Immunized: 27.2162
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.5459
-Caption orig: A man wearing a brown trench coat stands in front of a crowd of people.
-Caption adv:  A woman wearing a brown coat and earrings walks through a crowd of people.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 14.7886
+SSIM: 0.5393
+FSIM: 0.4812
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.6572
-Background SSIM   (basso=protezione ok): 0.5020
-Subject LPIPS     (basso=soggetto ok)  : 0.4975
-Editing score                          : 0.4138
-Mask coverage (% background)           : 0.6906
+Global LPIPS                           : 0.5595
+Background LPIPS                       : 0.6701
+Subject LPIPS                          : 0.5038
+Separation                             : 0.5708
+Editing score                          : 0.6701
+Mask coverage                          : 0.6906
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person is still wearing a coat, which does not align with the instruction to remove the coat."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image lacks any clear indication of a music and arts festival setting, such as musical instruments, performers, or festival-specific decorations.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image lacks any clear indication of a music and arts festival setting, such as musical instruments, performers, or festival-specific decorations.\"\n}\n```"
+}

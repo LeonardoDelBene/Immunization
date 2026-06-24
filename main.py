@@ -6,7 +6,7 @@ import torchvision.transforms as T
 from PIL import ImageOps
 from datasets import load_from_disk
 import torch
-
+import random
 
 from utils import (
     load_sample_from_hf,
@@ -14,7 +14,8 @@ from utils import (
     recover_image,
     set_seed_lib,
 )
-from model import Attack, AttackSD, AttackInstructPix2Pix, DiffVaxImmunization
+from data import COCOLocal, OxfordPetLocal
+from model import Attack, AttackSD, AttackInstructPix2Pix, Immunization, AttackSDXL
 from metrics import create_metric, MetricType
 
 warnings.filterwarnings("ignore", message="QuickGELU mismatch", category=UserWarning, module="open_clip")
@@ -31,15 +32,17 @@ def get_attack_subfolder(model_attack: str) -> str:
         "sd_inpainting": "SD_Inpainting",
         "sd_pix2pix": "InstructionPix2Pix",
         "sd_img2img": "SD_Img2Img",
+        "sd_xl_img2img": "SD_XL_Img2Img"
     }
     return mapping.get(model_attack, model_attack)
 
 
 def get_attack_model_label(model_attack: str) -> str:
     labels = {
-        "sd_inpainting": "SD Inpainting",
-        "sd_pix2pix": "Instruction Pix2Pix",
-        "sd_img2img": "SD Img2Img",
+        "sd_inpainting":  "SD Inpainting",
+        "sd_pix2pix":     "Instruction Pix2Pix",
+        "sd_img2img":     "SD Img2Img",
+        "sd_xl_img2img":  "SD XL Img2Img",  # ←
     }
     return labels.get(model_attack, model_attack)
 
@@ -63,30 +66,51 @@ def load_models(config):
         attack_model = Attack()
     elif model_attack == "sd_img2img":
         attack_model = AttackSD()
+    elif model_attack == "sd_xl_img2img":
+        attack_model = AttackSDXL()
     else:
         raise ValueError(
-            f"Unknown attack model type '{model_attack}'. Expected 'sd_inpainting', 'sd_pix2pix', or 'sd_img2img'."
+            f"Unknown attack model type '{model_attack}'. Expected 'sd_inpainting', 'sd_pix2pix', 'sd_img2img', 'sd_xl_img2img'."
         )
 
-    immunization_mdl = DiffVaxImmunization(
+    # Use SD 1.5 VAE for immunization regardless of attack model to ensure consistent loss scale
+    
+    immunization_mdl = Immunization(
         load_existing=config["load_existing"],
         load_path=config["checkpoint_path"],
+        molt_filter=config["molt_filter"]
     )
     print("Done.")
     return attack_model, immunization_mdl
 
 
 def load_sample(config):
-    dataset = load_from_disk(config["dataset_path"])
-    dataset_split = dataset[config["dataset_split"]]
-    sample = dataset_split[config["sample_idx"]]
-    image, image_mask = load_sample_from_hf(sample, split=config["dataset_split"])
-    if config["run_full_dataset"]:
-        edit_prompt = sample["prompts"][0]
-        print(f"Prompt: {edit_prompt}")
-    else:
+    # Support multiple dataset sources: DiffVax (HF on-disk), COCO local, Oxford-Pet local
+    ds_type = config.get("dataset_type", "DiffVax")
+    if ds_type == "DiffVax":
+        dataset = load_from_disk("./data/DiffVaxDataset_local")
+        dataset_split = dataset[config["dataset_split"]]
+        sample = dataset_split[config["sample_idx"]]
+        image, image_mask = load_sample_from_hf(sample, split=config["dataset_split"])
+        # prompt comes from sample for DiffVax
+        if config["run_full_dataset"]:
+            edit_prompt = sample.get("prompts", [config["edit_prompt"]])[0]
+        else:
+            edit_prompt = config["edit_prompt"]
+    elif ds_type == "COCO":
+        dataset = COCOLocal(split=config["dataset_split"])
+        image, image_mask = dataset[config["sample_idx"]]
         edit_prompt = config["edit_prompt"]
-        print(f"Prompt: {config['edit_prompt']}")
+        print(f"Using COCO local dataset, sample {config['sample_idx']}")
+    elif ds_type == "Oxford-Pet":
+        dataset = OxfordPetLocal(root="./data/Oxford-Pet", split=config["dataset_split"])
+        image, image_mask = dataset[config["sample_idx"]]
+        edit_prompt = config["edit_prompt"]
+        print(f"Using Oxford-Pet local dataset, sample {config['sample_idx']}")
+    else:
+        raise ValueError(f"Unsupported dataset_type: {ds_type}")
+
+    print(f"Prompt: {edit_prompt}")
     return image, image_mask, edit_prompt
 
 
@@ -94,14 +118,14 @@ def load_sample(config):
 # IMMUNIZATION
 # ─────────────────────────────────────────────
 
-def immunize(image, image_mask, immunization_mdl, seed):
+def immunize(image, image_mask, immunization_mdl, seed, noise_mode, is_2_stage, pgd):
     to_pil = T.ToPILImage()
     mask_torch, image_torch, _ = prepare_mask_and_masked_image(image, image_mask)
     image_torch = image_torch.half().cuda()
     mask_torch  = mask_torch.half().cuda()
 
     set_seed_lib(seed)
-    immunized_img = immunization_mdl.immunize_img(image_torch, mask_torch)
+    immunized_img, l_vae, l_noise = immunization_mdl.immunize_img_targeted(image_torch, mask_torch,noise_mode= noise_mode,is_2_stage=is_2_stage, pgd=pgd)
 
     adv_X = (immunized_img / 2 + 0.5).clamp(0, 1) # porta l'img in [0,1]
     adv_image_png = to_pil(adv_X[0]).convert("RGB")
@@ -127,8 +151,14 @@ def edit_images(attack_model, image, adv_image_png, image_mask, edit_prompt, mod
     elif model_attack == "sd_img2img":
         edited_orig = attack_model.edit_image(edit_prompt, image)[0]
         edited_adv  = attack_model.edit_image(edit_prompt, adv_image_png)[0]
-        edited_orig_recovered = recover_image(edited_orig, image, image_mask, background=False)
-        edited_adv_recovered  = recover_image(edited_adv,  adv_image_png, image_mask, background=False)
+        edited_orig_recovered = edited_orig
+        edited_adv_recovered  = edited_adv
+    elif model_attack == "sd_xl_img2img":
+        edited_orig = attack_model.edit_image(edit_prompt, image, None)[0]
+        edited_adv  = attack_model.edit_image(edit_prompt, adv_image_png, None)[0]
+        edited_orig_recovered = edited_orig #recover_image(edited_orig, image, image_mask, background=False)
+        edited_adv_recovered  = edited_adv #recover_image(edited_adv,  adv_image_png, image_mask, background=False)
+
     else:
         raise ValueError(
             f"Unknown attack model type '{model_attack}'. Expected 'sd_inpainting', 'sd_pix2pix', or 'sd_img2img'."
@@ -142,11 +172,12 @@ def edit_images(attack_model, image, adv_image_png, image_mask, edit_prompt, mod
 # SAVE
 # ─────────────────────────────────────────────
 
-def save_images(output_dir, image, adv_image_png, edited_orig_recovered, edited_adv_recovered):
+def save_images(output_dir, image, adv_image_png, edited_orig_recovered, edited_adv_recovered, image_mask):
     image.save(os.path.join(output_dir, "original_image.png"))
     adv_image_png.save(os.path.join(output_dir, "immunized_image.png"))
     edited_orig_recovered.save(os.path.join(output_dir, "edited_original.png"))
     edited_adv_recovered.save(os.path.join(output_dir, "edited_immunized.png"))
+    image_mask.save(os.path.join(output_dir,"mask.png"))
     print(f"Images saved in {output_dir}")
 
 
@@ -168,26 +199,16 @@ def save_metrics(output_dir, edit_prompt, metrics: dict):
         f.write(f"SSIM: {metrics['ssim_edit']:.4f}\n")
         f.write(f"FSIM: {metrics['fsim_edit']:.4f}\n\n")
 
-        '''f.write("CLIP score (Image vs Prompt)\n")
-        f.write(f"Edited Original:  {metrics['clip_orig']:.4f}\n")
-        f.write(f"Edited Immunized: {metrics['clip_adv']:.4f}\n\n")
-
-        f.write("Caption Similarity (Edited Original vs Edited Immunized)\n")
-        f.write(f"Score:        {metrics['caption_sim']:.4f}\n")
-        f.write(f"Caption orig: {metrics['caption_orig']}\n")
-        f.write(f"Caption adv:  {metrics['caption_adv']}\n\n")
-
-        f.write("Accuracy Rate (Edited Original vs Edited Immunized)\n")
-        f.write(f"LLM score: {metrics['accuracy_score']:.4f}\n")
-        f.write(f"Success:   {metrics['accuracy_success']}\n")
-        f.write(f"Accuracy:  {metrics['accuracy_rate']:.4f}\n\n")'''
-
         f.write("Masked Editing Score\n")
-        f.write(f"Background LPIPS  (alto=protezione ok) : {metrics['masked_bg_lpips']:.4f}\n")
-        f.write(f"Background SSIM   (basso=protezione ok): {metrics['masked_bg_ssim']:.4f}\n")
-        f.write(f"Subject LPIPS     (basso=soggetto ok)  : {metrics['masked_subject_lpips']:.4f}\n")
-        f.write(f"Editing score                          : {metrics['masked_editing_score']:.4f}\n")
-        f.write(f"Mask coverage (% background)           : {metrics['masked_coverage']:.4f}\n")
+        f.write(f"Global LPIPS                           : {metrics['global_lpips']:.4f}\n")
+        f.write(f"Subject LPIPS                          : {metrics['masked_subject_lpips']:.4f}\n\n")
+
+        f.write("\nQwen Editing Score\n")
+        f.write(f"Attack success score (1-7 avg): {metrics['attack_success_score']:.4f}\n")
+        f.write("Per-factor scores:\n")
+        for factor, score in metrics['attack_success_factors'].items():
+            f.write(f"  {factor:30s}: {score}\n")
+        f.write(f"Raw LLM response: {metrics['response']}\n")
 
     print(f"Metrics saved in {prompt_file}")
 
@@ -201,10 +222,8 @@ def load_metrics_models():
         "psnr":    create_metric(MetricType.PSNR),
         "ssim":    create_metric(MetricType.SSIM),
         "fsim":    create_metric(MetricType.FSIM),
-        #"clip":    create_metric(MetricType.CLIP,   model="ViT-B-32", pretrained_on="openai"),
-        #"caption": create_metric(MetricType.CAP,    load_in_4bit=True),
-        #"accuracy": create_metric(MetricType.ACC,   load_in_4bit=True, threshold=0.5),
         "masked":  create_metric(MetricType.MASKED, lpips_net="alex"),
+        "editing_score": create_metric(MetricType.QWEN),
     }
     print("Metric models loaded.")
     return metrics_models
@@ -214,14 +233,12 @@ def compute_metrics(image, mask, adv_image_png, edited_orig_recovered, edited_ad
     psnr_metric    = metrics_models["psnr"]
     ssim_metric    = metrics_models["ssim"]
     fsim_metric    = metrics_models["fsim"]
-    #clip_metric    = metrics_models["clip"]
-    #caption_metric = metrics_models["caption"]
-    #accuracy_metric = metrics_models["accuracy"]
     masked_metric  = metrics_models["masked"]
+    qwen_metric    = metrics_models["editing_score"]
 
-    #cap_score    = caption_metric.compute(edited_orig_recovered, edited_adv_recovered)
-    #acc_score    = accuracy_metric.compute(edited_orig_recovered, edited_adv_recovered)
-    masked_score = masked_metric.compute(edited_orig_recovered, edited_adv_recovered, mask)
+    masked_score = masked_metric.compute(image, adv_image_png, mask)
+    qwen_score   = qwen_metric.compute(edited_orig_recovered, edited_adv_recovered, edit_prompt)
+
 
     metrics = {
         # Image quality
@@ -232,60 +249,38 @@ def compute_metrics(image, mask, adv_image_png, edited_orig_recovered, edited_ad
         "psnr_edit":     psnr_metric.calculate_metric_between_images(edited_orig_recovered, edited_adv_recovered),
         "ssim_edit":     ssim_metric.calculate_metric_between_images(edited_orig_recovered, edited_adv_recovered),
         "fsim_edit":     fsim_metric.calculate_metric_between_images(edited_orig_recovered, edited_adv_recovered),
-        # CLIP
-        #"clip_orig":     clip_metric.calculate_clip_score(edited_orig_recovered, edit_prompt),
-        #"clip_adv":      clip_metric.calculate_clip_score(edited_adv_recovered,  edit_prompt),
-        # Caption similarity
-        #"caption_sim":   cap_score["caption_similarity"],
-        #"caption_orig":  cap_score["caption_1"],
-        #"caption_adv":   cap_score["caption_2"],
-        # Accuracy rate
-        #"accuracy_rate":    acc_score["accuracy_rate"],
-        #"accuracy_score":   acc_score["llm_score"],
-        #"accuracy_success": acc_score["success"],
-        # Masked editing score
-        "masked_bg_lpips": masked_score["bg_lpips"],
-        "masked_bg_ssim": masked_score["bg_ssim"],
+
+        "attack_success_score": qwen_score["attack_success_score"],
+        "attack_success_factors": qwen_score["factor_scores"],
+        "attack_success_details": qwen_score["factor_details"],
+        "response": qwen_score["raw_output"],
+
+        "global_lpips": masked_score["global_lpips"],
         "masked_subject_lpips": masked_score["subject_lpips"],
-        "masked_editing_score": masked_score["editing_score"],
-        "masked_coverage": masked_score["mask_coverage"],
+
     }
 
     print("\n--- Image Quality (Original vs Immunized) ---")
     print(f"PSNR : {metrics['psnr_orig_adv']:.4f}")
     print(f"SSIM : {metrics['ssim_orig_adv']:.4f}")
-    print(f"FSIM : {metrics['fsim_orig_adv']:.4f}")
+    print(f"FSIM : {metrics['fsim_orig_adv']:.4f}") 
 
     print("\n--- Protection Effectiveness (Edited Original vs Edited Immunized) ---")
     print(f"PSNR : {metrics['psnr_edit']:.4f}")
     print(f"SSIM : {metrics['ssim_edit']:.4f}")
     print(f"FSIM : {metrics['fsim_edit']:.4f}")
 
-    '''print("\n--- CLIP score (Image vs Prompt) ---")
-    print(f"Orig : {metrics['clip_orig']:.4f}")
-    print(f"Adv  : {metrics['clip_adv']:.4f}")
-
-    print("\n--- Caption Similarity (Edited Original vs Edited Immunized) ---")
-    print(f"Score       : {metrics['caption_sim']:.4f}")
-    print(f"Caption orig: {metrics['caption_orig']}")
-    print(f"Caption adv : {metrics['caption_adv']}")
-
-    print("\n--- Accuracy Rate (Edited Original vs Edited Immunized) ---")
-    print(f"LLM score : {metrics['accuracy_score']:.4f}")
-    print(f"Threshold : {accuracy_metric.threshold:.2f}")
-    print(f"Success   : {metrics['accuracy_success']}")
-    print(f"Accuracy  : {metrics['accuracy_rate']:.4f}")'''
-
     print("\n--- Masked Editing Score ---")
-    print("\n--- Masked Editing Score ---")
-    print(f"Background LPIPS  (alto=protezione ok) : {metrics['masked_bg_lpips']:.4f}")
-    print(f"Background SSIM   (basso=protezione ok): {metrics['masked_bg_ssim']:.4f}")
-    print(f"Subject LPIPS     (basso=soggetto ok)  : {metrics['masked_subject_lpips']:.4f}")
-    print(f"Editing score                          : {metrics['masked_editing_score']:.4f}")
-    print(f"Mask coverage (% background)           : {metrics['masked_coverage']:.4f}")
+    print(f"Global LPIPS                           : {metrics['global_lpips']:.4f}")
+    print(f"Subject LPIPS                          : {metrics['masked_subject_lpips']:.4f}")
+
+    print("\n--- Qwen Editing Score ---")
+    print(f"Attack success score (1-7 avg): {metrics['attack_success_score']:.4f}")
+    for factor, score in metrics['attack_success_factors'].items():
+        print(f"  {factor:30s}: {score}")
+    print(f"Raw LLM response: {metrics['response']}")
 
     return metrics
-
 # ─────────────────────────────────────────────
 # PLOT
 # ─────────────────────────────────────────────
@@ -308,23 +303,64 @@ def plot_results(image, adv_image_png, edited_orig_recovered, edited_adv_recover
 
 
 def run_on_full_dataset(config):
-    """Esegue la pipeline completa su tutto il dataset di validation."""
+    """Esegue la pipeline completa su tutto il dataset di validation con tutti e 3 i modelli di editing."""
 
-    output_dir_base = get_output_dir(
-        config["base_output_dir"],
-        config["model_attack"],
-        config["run_wandb"],
-        sample_idx="full_dataset"
+    # Carica tutti e 3 i modelli di attacco
+    print("Loading all diffusion models and immunization checkpoint...")
+    attack_model_inpaint = Attack()
+    attack_model_img2img = AttackSD()
+    attack_model_pix2pix = AttackInstructPix2Pix()
+    
+    # Usa il VAE dal primo modello (sono uguali)
+    immunization_mdl = Immunization(
+        load_existing=config["load_existing"],
+        load_path=config["checkpoint_path"],
+        vae=attack_model_inpaint.model.vae,
+        molt_filter=config["molt_filter"]
     )
+    print("Done.")
 
-    attack_model, immunization_mdl = load_models(config)
-    metrics_models = load_metrics_models()
+    # Load dataset depending on configured dataset_type
+    ds_type = config.get("dataset_type", "DiffVax")
+    if ds_type == "DiffVax":
+        dataset = load_from_disk("./data/DiffVaxDataset_local")[config["dataset_split"]]
+    elif ds_type == "COCO":
+        dataset = COCOLocal(split=config["dataset_split"])
+    elif ds_type == "Oxford-Pet":
+        dataset = OxfordPetLocal(root="./data/Oxford-Pet", split=config["dataset_split"])
+    else:
+        raise ValueError(f"Unsupported dataset_type: {ds_type}")
 
-    dataset = load_from_disk(config["dataset_path"])
-    dataset = dataset[config["dataset_split"]]
     print(f"Dataset size: {len(dataset)} samples")
 
-    all_metrics = []
+    # Lista dei modelli di attacco con i loro nomi
+    attack_models = [
+        ("sd_inpainting", attack_model_inpaint),
+        ("sd_img2img", attack_model_img2img),
+        ("sd_pix2pix", attack_model_pix2pix),
+    ]
+
+    prompts = [
+                    "add a cap to the person",
+                    "add sunglasses to the person",
+                    "add a bouquet of flower in the person's hand",
+                    "add a backpack to the person",
+                    "make the person smile",
+                    "change the person's hair color to blonde",
+                    "add a bouquet of flowers in person's hand",
+                    "add earrings to the person",
+                    "change the person's hair color to red",
+                    "add a wristwatch to the person",
+                    "make the person older",
+                    "make the person younger",
+                    "add a beard to the person",
+                    "change the person's hairstyle to curly hair",
+                    "add a tattoo on the person's arm",
+                    "change the person's outfit color to blue",
+                    "make the person wear a hoodie",
+                    "add freckles to the person's face",
+                    "change the person's expression to surprised"
+    ]
 
     for sample_idx in range(len(dataset)):
         print(f"\n{'='*50}")
@@ -335,142 +371,53 @@ def run_on_full_dataset(config):
             # --- Carica sample ---
             sample = dataset[sample_idx]
             image, image_mask = load_sample_from_hf(sample, split=config["dataset_split"])
-            if config["model_attack"] == "sd_pix2pix":
-                edit_prompt = config["edit_prompt"]
-            else:
-                edit_prompt = sample["prompts"][0]
-            print(f"Prompt: {edit_prompt}")
 
-            if not config["edit_background"]:
-                image_mask = ImageOps.invert(image_mask)
+            # --- Immunizzazione (una sola volta) ---
+            adv_image_png = immunize(image, image_mask, immunization_mdl, config["seed"],config['noise_mode'], config["is_2_stage"], config.get("pgd", True))
 
-            # --- Cartella output per questo sample ---
-            sample_output_dir = os.path.join(output_dir_base, f"img_{sample_idx}")
-            os.makedirs(sample_output_dir, exist_ok=True)
+            # --- Editing con tutti e 3 i modelli ---
+            for model_name, attack_model in attack_models:
+                try:
+                    output_dir_base = get_output_dir(
+                        config["base_output_dir"],
+                        model_name,
+                        config["run_wandb"],
+                        sample_idx="full_dataset"
+                    )
+                    sample_output_dir = os.path.join(output_dir_base, f"img_{sample_idx}")
+                    os.makedirs(sample_output_dir, exist_ok=True)
 
-            # --- Immunizzazione ---
-            adv_image_png = immunize(image, image_mask, immunization_mdl, config["seed"])
+                    if model_name == "sd_inpainting":
+                        edit_prompt = sample.get("prompts", [config["edit_prompt"]])[1]
+                        print(f"Edit prompt: {edit_prompt}\n")
+                    else:
+                        edit_prompt = prompts[sample_idx % len(prompts)]
+                        print(f"Edit prompt: {edit_prompt}\n")
 
-            # --- Editing ---
-            edited_orig_recovered, edited_adv_recovered = edit_images(
-                attack_model, image, adv_image_png, image_mask,
-                edit_prompt, config["model_attack"]
-            )
 
-            # --- Salvataggio immagini ---
-            save_images(sample_output_dir, image, adv_image_png,
-                        edited_orig_recovered, edited_adv_recovered)
+                    edited_orig_recovered, edited_adv_recovered = edit_images(
+                        attack_model, image, adv_image_png, image_mask,
+                        edit_prompt, model_name)
+                    
 
-            # --- Metriche ---
-            metrics = compute_metrics(
-                image,image_mask ,adv_image_png,
-                edited_orig_recovered, edited_adv_recovered,
-                edit_prompt,
-                metrics_models
-            )
-            save_metrics(sample_output_dir, edit_prompt, metrics)
+                    # --- Salvataggio immagini ---
+                    save_images(sample_output_dir, image, adv_image_png,
+                                edited_orig_recovered, edited_adv_recovered, image_mask)
 
-            # Accumula metriche per il summary finale
-            all_metrics.append({"sample_idx": sample_idx, "prompt": edit_prompt, **metrics})
+                    # --- Salvataggio prompt ---
+                    prompt_path = os.path.join(sample_output_dir, "prompt_and_metrics.txt")
+                    with open(prompt_path, "w", encoding="utf-8") as f:
+                        f.write(edit_prompt)
+
+                except Exception as e:
+                    print(f"[ERROR] Sample {sample_idx} with model {model_name} failed: {e}")
+                    continue
 
         except Exception as e:
             print(f"[ERROR] Sample {sample_idx} failed: {e}")
             continue
 
-    # --- Summary globale ---
-    save_global_summary(output_dir_base, all_metrics)
-
-
-
-
-def save_global_summary(output_dir, all_metrics):
-    """Salva un file di riepilogo con le metriche medie su tutto il dataset."""
-
-    if not all_metrics:
-        print("No metrics to summarize.")
-        return
-
-    numeric_keys = ["psnr_orig_adv", "ssim_orig_adv", "fsim_orig_adv",
-                    "psnr_edit",     "ssim_edit",      "fsim_edit",
-                    #"clip_orig",     "clip_adv",        "caption_sim",
-                    #"accuracy_score",
-                    "masked_bg_lpips", "masked_bg_ssim",
-                    "masked_subject_lpips", "masked_editing_score", "masked_coverage"]
-
-    averages = {k: sum(m[k] for m in all_metrics) / len(all_metrics) for k in numeric_keys}
-
-    #success_rate = sum(m["accuracy_success"] for m in all_metrics) / len(all_metrics) * 100
-
-    summary_path = os.path.join(output_dir, "global_summary.txt")
-    with open(summary_path, "w") as f:
-        f.write(f"Global Summary — {len(all_metrics)} samples\n")
-        f.write("=" * 50 + "\n\n")
-
-        f.write("Average Image Quality (Original vs Immunized)\n")
-        f.write(f"PSNR: {averages['psnr_orig_adv']:.4f}\n")
-        f.write(f"SSIM: {averages['ssim_orig_adv']:.4f}\n")
-        f.write(f"FSIM: {averages['fsim_orig_adv']:.4f}\n\n")
-
-        f.write("Average Protection Effectiveness (Edited Original vs Edited Immunized)\n")
-        f.write(f"PSNR: {averages['psnr_edit']:.4f}\n")
-        f.write(f"SSIM: {averages['ssim_edit']:.4f}\n")
-        f.write(f"FSIM: {averages['fsim_edit']:.4f}\n\n")
-
-        '''f.write("Average CLIP score\n")
-        f.write(f"Edited Original:  {averages['clip_orig']:.4f}\n")
-        f.write(f"Edited Immunized: {averages['clip_adv']:.4f}\n\n")
-
-        f.write("Average Caption Similarity (Edited Original vs Edited Immunized)\n")
-        f.write(f"Score: {averages['caption_sim']:.4f}\n\n")
-
-        f.write("Accuracy Rate (Edited Original vs Edited Immunized)\n")
-        f.write(f"Avg LLM score : {averages['accuracy_score']:.4f}\n")
-        f.write(f"Success rate  : {success_rate:.1f}% ({sum(m['accuracy_success'] for m in all_metrics)}/{len(all_metrics)} samples above threshold)\n\n")
-'''
-        f.write("Average Masked Editing Score\n")
-        f.write(f"Background LPIPS  (alto=protezione ok) : {averages['masked_bg_lpips']:.4f}\n")
-        f.write(f"Background SSIM   (basso=protezione ok): {averages['masked_bg_ssim']:.4f}\n")
-        f.write(f"Subject LPIPS     (basso=soggetto ok)  : {averages['masked_subject_lpips']:.4f}\n")
-        f.write(f"Editing score                          : {averages['masked_editing_score']:.4f}\n")
-        f.write(f"Mask coverage (% background)           : {averages['masked_coverage']:.4f}\n\n")
-
-        f.write("=" * 50 + "\n")
-        f.write("Per-sample detail\n\n")
-        for m in all_metrics:
-            f.write(f"[{m['sample_idx']}] {m['prompt']}\n")
-            f.write(f"  PSNR orig/adv: {m['psnr_orig_adv']:.4f} | edit: {m['psnr_edit']:.4f}\n")
-            f.write(f"  SSIM orig/adv: {m['ssim_orig_adv']:.4f} | edit: {m['ssim_edit']:.4f}\n")
-            f.write(f"  FSIM orig/adv: {m['fsim_orig_adv']:.4f} | edit: {m['fsim_edit']:.4f}\n")
-            '''f.write(f"  CLIP orig: {m['clip_orig']:.4f} | adv: {m['clip_adv']:.4f}\n")
-            f.write(f"  Caption similarity: {m['caption_sim']:.4f}\n")
-            f.write(f"  Caption orig: {m['caption_orig']}\n")
-            f.write(f"  Caption adv:  {m['caption_adv']}\n")'''
-            f.write(f"  Accuracy LLM score: {m['accuracy_score']:.4f} | success: {m['accuracy_success']}\n")
-            f.write(f"  Background LPIPS: {m['masked_bg_lpips']:.4f} | Background SSIM: {m['masked_bg_ssim']:.4f}\n")
-            f.write(f"  Subject LPIPS: {m['masked_subject_lpips']:.4f} | Editing score: {m['masked_editing_score']:.4f}\n\n")
-
-    print(f"\nGlobal summary saved in {summary_path}")
-
-    print("\n" + "=" * 50)
-    print(f"GLOBAL AVERAGES ({len(all_metrics)} samples)")
-    print("=" * 50)
-    print(f"PSNR orig/adv : {averages['psnr_orig_adv']:.4f}")
-    print(f"SSIM orig/adv : {averages['ssim_orig_adv']:.4f}")
-    print(f"FSIM orig/adv : {averages['fsim_orig_adv']:.4f}")
-    print(f"PSNR edit     : {averages['psnr_edit']:.4f}")
-    print(f"SSIM edit     : {averages['ssim_edit']:.4f}")
-    print(f"FSIM edit     : {averages['fsim_edit']:.4f}")
-    '''print(f"CLIP orig     : {averages['clip_orig']:.4f}")
-    print(f"CLIP adv      : {averages['clip_adv']:.4f}")
-    print(f"Caption sim   : {averages['caption_sim']:.4f}")
-    print(f"Accuracy score: {averages['accuracy_score']:.4f}")
-    print(f"Success rate  : {success_rate:.1f}% ({sum(m['accuracy_success'] for m in all_metrics)}/{len(all_metrics)} samples above threshold)")'''
-    print(f"BG LPIPS      : {averages['masked_bg_lpips']:.4f}")
-    print(f"BG SSIM       : {averages['masked_bg_ssim']:.4f}")
-    print(f"Subject LPIPS : {averages['masked_subject_lpips']:.4f}")
-    print(f"Editing score : {averages['masked_editing_score']:.4f}")
-    print(f"Mask coverage : {averages['masked_coverage']:.4f}")
-
+    return print("Full dataset processing completed.")
 
 # ─────────────────────────────────────────────
 # CONFIG
@@ -478,18 +425,22 @@ def save_global_summary(output_dir, all_metrics):
 
 def get_config():
     return {
-        "model_attack":        "sd_inpainting", # "sd_pix2pix", "sd_inpainting", o "sd_img2img"
-        "edit_prompt":          "A person in a slum", # usato solo per sd_pix2pix, altrimenti viene preso da ogni sample
+        "dataset_type":         "DiffVax",  # DiffVax | COCO | Oxford-Pet
+        "dataset_split":        "validation",
+        "sample_idx":           0,
+        "model_attack":         "sd_inpainting", # "sd_pix2pix", "sd_inpainting", o "sd_img2img", "sd_xl_img2img"
+        "edit_prompt":          "A person in a garden", # usato solo per sd_pix2pix, altrimenti viene preso da ogni sample
+        "noise_mode":           "all",
         "seed":                 2043,
-        "edit_background":      True,
+        "is_2_stage":           True,
+        "pgd":                  False,
         "load_existing":        True,
-        "checkpoint_path":      os.path.join("checkpoints", "unet_best_2jwqkvf1.pth"),
+        "checkpoint_path":      os.path.join("checkpoints", "unet_best_nv5dqvvb.pth"), #  KL : unet_best_zpsi7srq.pth MSE: unet_best_nv5dqvvb.pth DiffVax: diffvax_trained.pth
+        "molt_filter":          2,
         "base_output_dir":      "output",
         "dataset_path":         "./data/DiffVaxDataset_local",
-        "dataset_split":        "train",
-        "sample_idx":           30,
         "run_full_dataset":     False,
-        "run_wandb":            "VAE_noise_mask"
+        "run_wandb":            "VAE_MSE_2_STAGE_16"
     }
 
 def main():
@@ -505,21 +456,28 @@ def main():
             config["sample_idx"]
         )
         attack_model, immunization_mdl = load_models(config)
+
         image, image_mask, _ = load_sample(config)
-        if not config["edit_background"]:
-            image_mask = ImageOps.invert(image_mask)
-        adv_image_png = immunize(image, image_mask, immunization_mdl, config["seed"])
+
+        adv_image_png = immunize(image, image_mask, immunization_mdl, config["seed"],config['noise_mode'], config["is_2_stage"], config['pgd'])
+
         edited_orig_recovered, edited_adv_recovered = edit_images(
             attack_model, image, adv_image_png, image_mask,
             config["edit_prompt"], config["model_attack"]
         )
-        save_images(output_dir, image, adv_image_png, edited_orig_recovered, edited_adv_recovered)
+
+        save_images(output_dir, image, adv_image_png, edited_orig_recovered, edited_adv_recovered, image_mask)
+
         metrics_model = load_metrics_models()
         metrics = compute_metrics(image, image_mask, adv_image_png, edited_orig_recovered, edited_adv_recovered,
                                   config["edit_prompt"], metrics_model)
+        
         save_metrics(output_dir, config["edit_prompt"], metrics)
+
         plot_results(image, adv_image_png, edited_orig_recovered, edited_adv_recovered,
                      config["edit_prompt"], config["model_attack"])
+
+        
 
 
 # ─────────────────────────────────────────────

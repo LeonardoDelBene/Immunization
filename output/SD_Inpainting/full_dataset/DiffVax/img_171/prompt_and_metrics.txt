@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a call center
+A person in a probation office
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 36.19717347841707,
+  "psnr_edited_original_vs_edited_immunized": 23.095762207641055
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 36.1967
-SSIM: 0.9903
-FSIM: 0.9735
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 16.4520
-SSIM: 0.7123
-FSIM: 0.5730
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9903412196300773,
+  "ssim_edited_original_vs_edited_immunized": 0.7000314318564093
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  27.4458
-Edited Immunized: 21.1117
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.5163
-Caption orig: A man wearing a black vest and headphones stands in front of a laptop.
-Caption adv:  A man wearing a black vest and sunglasses stands in front of a wall covered in writing.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.973456295271507,
+  "fsim_edited_original_vs_edited_immunized": 0.6062812156477229
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.8849
-Background SSIM   (basso=protezione ok): 0.6247
-Subject LPIPS     (basso=soggetto ok)  : 0.1190
-Editing score                          : 0.4793
-Mask coverage (% background)           : 0.7237
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.11906923264971211
+Global LPIPS : 0.019519619643688202
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.11906923264971211
+Global LPIPS : 0.5751597285270691
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as the background has been changed from 'PREFACTIOM' to a pattern of pink dots, but the person's appearance remains unchanged. The image is clear and recognizable.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as the background has been changed from 'PREFACTIOM' to a pattern of pink dots, but the person's appearance remains unchanged. The image is clear and recognizable.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 6.0,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 1,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 7,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been completely replaced with a pattern of pink dots."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall appearance of the image is significantly altered."
+    },
+    "identity_erasure": {
+      "score": 1,
+      "justification": "The subject's identity is not erased; they remain recognizable."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No objects are rendered disproportionate or unrealistic in size."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "Spatial relationships and perspective are destroyed by the new background pattern."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "The original texture is completely replaced by a new pattern."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Visible noise and digital artifacts are introduced by the new background pattern."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "Colors are completely off due to the new background pattern."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Very visible edges and seams appear where the new background pattern meets the subject."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The final image completely deviates from the intent of the original instruction."
+    },
+    "editing_incompleteness": {
+      "score": 7,
+      "justification": "The editing is left incomplete as the background is entirely altered."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd and physically impossible due to the new background pattern."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been completely replaced with a pattern of pink dots.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall appearance of the image is significantly altered.\"},\n  \"identity_erasure\": {\"score\": 1, \"justification\": \"The subject's identity is not erased; they remain recognizable.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No objects are rendered disproportionate or unrealistic in size.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"Spatial relationships and perspective are destroyed by the new background pattern.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"The original texture is completely replaced by a new pattern.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Visible noise and digital artifacts are introduced by the new background pattern.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"Colors are completely off due to the new background pattern.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Very visible edges and seams appear where the new background pattern meets the subject.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The final image completely deviates from the intent of the original instruction.\"},\n  \"editing_incompleteness\": {\"score\": 7, \"justification\": \"The editing is left incomplete as the background is entirely altered.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd and physically impossible due to the new background pattern.\"}\n}"
+}

@@ -4,32 +4,34 @@ A person in a summer camp
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.5314
-SSIM: 0.9149
-FSIM: 0.9269
+PSNR: 30.3610
+SSIM: 0.9139
+FSIM: 0.9258
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 17.4825
-SSIM: 0.5881
-FSIM: 0.4742
-
-CLIP score (Image vs Prompt)
-Edited Original:  24.9440
-Edited Immunized: 22.0003
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6952
-Caption orig: A woman wearing a black shirt and a yellow skirt is walking down a path.
-Caption adv:  A woman wearing a black shirt and a skirt is walking in a park.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
+PSNR: 17.1821
+SSIM: 0.5705
+FSIM: 0.4677
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.6112
-Background SSIM   (basso=protezione ok): 0.5684
-Subject LPIPS     (basso=soggetto ok)  : 0.5706
-Editing score                          : 0.3740
-Mask coverage (% background)           : 0.7361
+Global LPIPS                           : 0.5866
+Background LPIPS                       : 0.6276
+Subject LPIPS                          : 0.5769
+Separation                             : 0.5211
+Editing score                          : 0.6276
+Mask coverage                          : 0.7361
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person is still wearing a black turtleneck and skirt, which does not match the summer camp attire."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image lacks any visible children or camp-related elements, which contradicts the requirement for a 'person in a summer camp'.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image lacks any visible children or camp-related elements, which contradicts the requirement for a 'person in a summer camp'.\"\n}\n```"
+}

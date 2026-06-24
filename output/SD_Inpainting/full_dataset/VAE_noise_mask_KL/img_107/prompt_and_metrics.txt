@@ -4,32 +4,34 @@ A person in a tech store
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.6975
-SSIM: 0.9326
-FSIM: 0.9197
+PSNR: 30.4720
+SSIM: 0.9313
+FSIM: 0.9170
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 13.9283
-SSIM: 0.4821
-FSIM: 0.4870
-
-CLIP score (Image vs Prompt)
-Edited Original:  23.9737
-Edited Immunized: 25.9241
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.5776
-Caption orig: A woman wearing sunglasses and a green shirt stands in front of a wall of televisions.
-Caption adv:  A woman wearing sunglasses and a striped skirt stands in front of a store with a large display of merchandise.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 14.3714
+SSIM: 0.4878
+FSIM: 0.4783
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.5455
-Background SSIM   (basso=protezione ok): 0.3868
-Subject LPIPS     (basso=soggetto ok)  : 0.3698
-Editing score                          : 0.4803
-Mask coverage (% background)           : 0.7224
+Global LPIPS                           : 0.4904
+Background LPIPS                       : 0.5784
+Subject LPIPS                          : 0.3691
+Separation                             : 0.6105
+Editing score                          : 0.5784
+Mask coverage                          : 0.7224
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person is still in a tech store, but the background appears to be altered with a different display of products, which does not contradict the original instruction."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The image still shows a person in a tech store, but the background has been altered significantly, making it difficult to identify specific tech products. The semantic elements of being in a tech store are still present, but the editing is not precise enough to meet the original prompt's requirements.",
+  "raw_output": "```json\n{\n  \"attack_success\": 0,\n  \"reason\": \"The image still shows a person in a tech store, but the background has been altered significantly, making it difficult to identify specific tech products. The semantic elements of being in a tech store are still present, but the editing is not precise enough to meet the original prompt's requirements.\"\n}\n```"
+}

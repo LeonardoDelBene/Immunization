@@ -1,35 +1,28 @@
 --- Prompt ---
-person in a castle
+A person in a garden
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 32.2051
-SSIM: 0.9518
-FSIM: 0.9502
+PSNR: 37.9978
+SSIM: 0.9503
+FSIM: 0.9692
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 18.1991
-SSIM: 0.6203
-FSIM: 0.4562
-
-CLIP score (Image vs Prompt)
-Edited Original:  30.3136
-Edited Immunized: 29.3476
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.9444
-Caption orig: A woman wearing a red sweater and pink pants stands in front of a castle.
-Caption adv:  A woman wearing a red shirt and pink pants stands in front of a castle.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.8000
-Success:   False
-Accuracy:  0.0000
+PSNR: 18.9459
+SSIM: 0.5940
+FSIM: 0.5711
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.5020
-Background SSIM   (basso=protezione ok): 0.5683
-Subject LPIPS     (basso=soggetto ok)  : 0.2748
-Editing score                          : 0.4475
-Mask coverage (% background)           : 0.7515
+Global LPIPS                           : 0.0458
+Subject LPIPS                          : 0.2016
+
+
+Qwen Editing Score
+Attack success (binary): 0
+Raw LLM response: ```json
+{
+  "attack_success": 0,
+  "reason": "The image still shows a person in a garden, but the background has been altered with a pattern that does not align with the original scene. This change contradicts the requirement for a natural garden setting."
+}
+```

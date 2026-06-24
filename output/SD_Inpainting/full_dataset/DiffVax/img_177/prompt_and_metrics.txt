@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a rehab facility
+A person in a game room
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 33.85803191754632,
+  "psnr_edited_original_vs_edited_immunized": 12.03188083007717
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 33.8572
-SSIM: 0.9899
-FSIM: 0.9500
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 13.8705
-SSIM: 0.4592
-FSIM: 0.6190
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9898819019915802,
+  "ssim_edited_original_vs_edited_immunized": 0.4213999696639186
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  24.1795
-Edited Immunized: 22.0289
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.8123
-Caption orig: A woman wearing a leopard print jacket and sunglasses is standing in a yard.
-Caption adv:  A woman wearing a leopard print jacket and sunglasses is standing in front of a green background.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9500321873233436,
+  "fsim_edited_original_vs_edited_immunized": 0.5530916028940355
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.8650
-Background SSIM   (basso=protezione ok): 0.2288
-Subject LPIPS     (basso=soggetto ok)  : 0.1065
-Editing score                          : 0.5970
-Mask coverage (% background)           : 0.6844
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.10656556753305564
+Global LPIPS : 0.02777368202805519
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.10656556753305564
+Global LPIPS : 0.5810078978538513
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as the person is still in a game room setting, but the background has been changed to a green wall with pink speckles, which is not clear and recognizable.",
+  "attack_success": 1,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as the person is still in a game room setting, but the background has been changed to a green wall with pink speckles, which is not clear and recognizable.\",\n  \"attack_success\": 1\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 6.5,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 7,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 7,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been completely replaced with a green wall with pink speckles."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall appearance of the image is significantly altered, losing coherence."
+    },
+    "identity_erasure": {
+      "score": 7,
+      "justification": "The subject's background has been entirely changed, erasing the original context."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No noticeable distortion in object sizes."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "Spatial relationships are disrupted due to the new background."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "The original texture is replaced by a noisy pattern."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Visible noise and digital artifacts are introduced."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "Colors are inconsistent with the rest of the scene."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Visible seams and edges are present in the attacked area."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The final image completely deviates from the original instruction."
+    },
+    "editing_incompleteness": {
+      "score": 7,
+      "justification": "The editing is left incomplete as the background is altered."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd and physically impossible."
+    }
+  },
+  "raw_output": "```json\n{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been completely replaced with a green wall with pink speckles.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall appearance of the image is significantly altered, losing coherence.\"},\n  \"identity_erasure\": {\"score\": 7, \"justification\": \"The subject's background has been entirely changed, erasing the original context.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No noticeable distortion in object sizes.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"Spatial relationships are disrupted due to the new background.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"The original texture is replaced by a noisy pattern.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Visible noise and digital artifacts are introduced.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"Colors are inconsistent with the rest of the scene.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Visible seams and edges are present in the attacked area.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The final image completely deviates from the original instruction.\"},\n  \"editing_incompleteness\": {\"score\": 7, \"justification\": \"The editing is left incomplete as the background is altered.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd and physically impossible.\"}\n}\n```"
+}

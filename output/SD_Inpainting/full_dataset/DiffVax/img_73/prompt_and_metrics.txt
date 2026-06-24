@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a boxing ring
+A person in a quilt shop
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 34.654060121778144,
+  "psnr_edited_original_vs_edited_immunized": 12.97202777639047
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 34.6545
-SSIM: 0.9889
-FSIM: 0.9413
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 13.2972
-SSIM: 0.5613
-FSIM: 0.4992
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9889321843597751,
+  "ssim_edited_original_vs_edited_immunized": 0.4366725582788471
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  29.2361
-Edited Immunized: 20.6903
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.7419
-Caption orig: A woman wearing a hat and a scarf is standing in front of a boxing ring.
-Caption adv:  A woman wearing a hat and a scarf is standing in front of a pink background.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9412372817063174,
+  "fsim_edited_original_vs_edited_immunized": 0.48313029903043075
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.8113
-Background SSIM   (basso=protezione ok): 0.4293
-Subject LPIPS     (basso=soggetto ok)  : 0.1767
-Editing score                          : 0.5264
-Mask coverage (% background)           : 0.7372
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.17673244217137538
+Global LPIPS : 0.0294460691511631
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.17673244217137538
+Global LPIPS : 0.5957258939743042
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as the background has been changed from a quilt shop to a patterned fabric. The image remains clear and recognizable.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as the background has been changed from a quilt shop to a patterned fabric. The image remains clear and recognizable.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 6.0,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 1,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 7,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been completely replaced with a patterned fabric."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall appearance of the image is significantly altered."
+    },
+    "identity_erasure": {
+      "score": 1,
+      "justification": "The subject remains recognizable."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No objects are rendered disproportionate."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "Spatial relationships are destroyed."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "Original textures have been replaced with a patterned texture."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Visible noise and digital artifacts are introduced."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "Colors are inconsistent with the rest of the scene."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Visible seams and edges are present."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The image completely deviates from the original instruction."
+    },
+    "editing_incompleteness": {
+      "score": 7,
+      "justification": "The editing is left incomplete."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd and physically impossible."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been completely replaced with a patterned fabric.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall appearance of the image is significantly altered.\"},\n  \"identity_erasure\": {\"score\": 1, \"justification\": \"The subject remains recognizable.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No objects are rendered disproportionate.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"Spatial relationships are destroyed.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"Original textures have been replaced with a patterned texture.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Visible noise and digital artifacts are introduced.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"Colors are inconsistent with the rest of the scene.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Visible seams and edges are present.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The image completely deviates from the original instruction.\"},\n  \"editing_incompleteness\": {\"score\": 7, \"justification\": \"The editing is left incomplete.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd and physically impossible.\"}\n}"
+}

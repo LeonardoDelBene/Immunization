@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a tech store
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.4720
+PSNR: 30.4722
 SSIM: 0.9313
-FSIM: 0.9170
+FSIM: 0.9171
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 23.2519
-SSIM: 0.8328
-FSIM: 0.7109
-
-CLIP score (Image vs Prompt)
-Edited Original:  27.5095
-Edited Immunized: 27.1599
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.1421
-Caption orig: A man and a woman are standing in front of a computer monitor.
-Caption adv:  A man wearing a beard and glasses is smiling at the camera.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 21.0963
+SSIM: 0.7962
+FSIM: 0.7106
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.1569
-Background SSIM   (basso=protezione ok): 0.8658
-Subject LPIPS     (basso=soggetto ok)  : 0.3691
-Editing score                          : 0.1816
-Mask coverage (% background)           : 0.7224
+Global LPIPS                           : 0.1867
+Background LPIPS                       : 0.0827
+Subject LPIPS                          : 0.5294
+Separation                             : 0.8649
+Editing score                          : 0.5294
+Mask coverage                          : 0.7224
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person in the image now has a cap, which fulfills the editing instruction."
+}

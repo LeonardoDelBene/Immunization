@@ -4,32 +4,34 @@ A person in a strip club
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.1398
-SSIM: 0.9166
-FSIM: 0.8713
+PSNR: 30.0512
+SSIM: 0.9158
+FSIM: 0.8708
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 15.8690
-SSIM: 0.5155
-FSIM: 0.4677
-
-CLIP score (Image vs Prompt)
-Edited Original:  22.7374
-Edited Immunized: 22.5293
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.4194
-Caption orig: A man wearing a black vest and sunglasses stands in a room with a purple glow.
-Caption adv:  A woman wearing a black vest and sunglasses stands in front of a mirror.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 16.0332
+SSIM: 0.5126
+FSIM: 0.4708
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.7150
-Background SSIM   (basso=protezione ok): 0.4534
-Subject LPIPS     (basso=soggetto ok)  : 0.4238
-Editing score                          : 0.4957
-Mask coverage (% background)           : 0.7229
+Global LPIPS                           : 0.6037
+Background LPIPS                       : 0.7086
+Subject LPIPS                          : 0.4251
+Separation                             : 0.6250
+Editing score                          : 0.7086
+Mask coverage                          : 0.7229
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person is still wearing sunglasses and a sleeveless vest, which does not align with the editing prompt for a person in a strip club."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image lacks any visual elements that suggest a strip club setting, such as stage lighting, performers, or typical decor. The background appears to be a plain wall, which contradicts the requirement for a strip club environment.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image lacks any visual elements that suggest a strip club setting, such as stage lighting, performers, or typical decor. The background appears to be a plain wall, which contradicts the requirement for a strip club environment.\"\n}\n```"
+}

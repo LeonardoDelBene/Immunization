@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a digital art gallery
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 29.9412
+PSNR: 29.9416
 SSIM: 0.9262
-FSIM: 0.9086
+FSIM: 0.9087
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 12.6953
-SSIM: 0.5077
-FSIM: 0.4955
-
-CLIP score (Image vs Prompt)
-Edited Original:  27.0024
-Edited Immunized: 32.0844
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.8075
-Caption orig: A woman wearing glasses and a blue shirt stands in front of a collage of pictures.
-Caption adv:  A woman wearing glasses and a floral shirt stands in front of a wall of pictures.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 20.7394
+SSIM: 0.7751
+FSIM: 0.7171
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.5221
-Background SSIM   (basso=protezione ok): 0.4288
-Subject LPIPS     (basso=soggetto ok)  : 0.4191
-Editing score                          : 0.4288
-Mask coverage (% background)           : 0.7352
+Global LPIPS                           : 0.2198
+Background LPIPS                       : 0.1104
+Subject LPIPS                          : 0.5959
+Separation                             : 0.8436
+Editing score                          : 0.5959
+Mask coverage                          : 0.7352
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person in the image now has a cap, which fulfills the editing instruction."
+}

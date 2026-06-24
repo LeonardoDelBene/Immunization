@@ -1,5 +1,5 @@
 --- Prompt ---
-A person in a bridal fitting room
+A person with a cap
 
 --- Metrics ---
 
@@ -9,27 +9,21 @@ SSIM: 0.8810
 FSIM: 0.8864
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 19.1035
-SSIM: 0.6138
-FSIM: 0.5730
-
-CLIP score (Image vs Prompt)
-Edited Original:  24.5484
-Edited Immunized: 24.5110
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.5524
-Caption orig: A woman wearing a green jacket and blue pants stands in front of a mirror.
-Caption adv:  A woman wearing a brown jacket and blue jeans stands in front of a closet full of clothes.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 20.3952
+SSIM: 0.6624
+FSIM: 0.6322
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.3526
-Background SSIM   (basso=protezione ok): 0.5870
-Subject LPIPS     (basso=soggetto ok)  : 0.4178
-Editing score                          : 0.3142
-Mask coverage (% background)           : 0.6491
+Global LPIPS                           : 0.3051
+Background LPIPS                       : 0.1687
+Subject LPIPS                          : 0.5883
+Separation                             : 0.7772
+Editing score                          : 0.5883
+Mask coverage                          : 0.6491
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person in the image is wearing a cap, which matches the editing prompt."
+}

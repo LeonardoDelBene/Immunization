@@ -1,5 +1,5 @@
 --- Prompt ---
-A person in a casino lounge
+A person with a cap
 
 --- Metrics ---
 
@@ -9,27 +9,21 @@ SSIM: 0.9243
 FSIM: 0.9300
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 14.8836
-SSIM: 0.5483
-FSIM: 0.5536
-
-CLIP score (Image vs Prompt)
-Edited Original:  28.2691
-Edited Immunized: 27.1307
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.3324
-Caption orig: A woman in a black jacket stands in front of a group of men, who are sitting at a table.
-Caption adv:  A woman in a white shirt stands in a casino, surrounded by other women.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 22.4609
+SSIM: 0.8083
+FSIM: 0.7318
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.4814
-Background SSIM   (basso=protezione ok): 0.4615
-Subject LPIPS     (basso=soggetto ok)  : 0.3547
-Editing score                          : 0.4413
-Mask coverage (% background)           : 0.6992
+Global LPIPS                           : 0.1944
+Background LPIPS                       : 0.0874
+Subject LPIPS                          : 0.5025
+Separation                             : 0.8518
+Editing score                          : 0.5025
+Mask coverage                          : 0.6992
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person in the image does not have a cap."
+}

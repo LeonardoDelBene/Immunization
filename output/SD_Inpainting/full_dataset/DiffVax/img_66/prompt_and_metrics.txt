@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a climbing wall
+A person in a street market event
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 32.86396767339329,
+  "psnr_edited_original_vs_edited_immunized": 13.209537944865602
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 32.8645
-SSIM: 0.9904
-FSIM: 0.9479
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 10.8777
-SSIM: 0.4275
-FSIM: 0.4751
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9904222131380304,
+  "ssim_edited_original_vs_edited_immunized": 0.48626980163504907
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  29.4958
-Edited Immunized: 30.8977
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.8569
-Caption orig: A woman wearing a colorful dress stands in front of a colorful wall.
-Caption adv:  A woman wearing a blue and white dress stands in front of a colorful rock wall.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9479527799333849,
+  "fsim_edited_original_vs_edited_immunized": 0.5416220201416752
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.4000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.7327
-Background SSIM   (basso=protezione ok): 0.2639
-Subject LPIPS     (basso=soggetto ok)  : 0.0994
-Editing score                          : 0.5739
-Mask coverage (% background)           : 0.7587
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.09931296733916796
+Global LPIPS : 0.014684190973639488
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.09931296733916796
+Global LPIPS : 0.43801194429397583
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as the background has been replaced with a patterned texture, but the overall clarity and recognizability of the image remain high.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as the background has been replaced with a patterned texture, but the overall clarity and recognizability of the image remain high.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 6.0,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 1,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 7,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been replaced with a patterned texture."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall appearance is significantly altered."
+    },
+    "identity_erasure": {
+      "score": 1,
+      "justification": "The subject remains recognizable."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No objects are rendered disproportionate."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "Spatial relationships are destroyed."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "Textures are completely corrupted."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Severe distortions are introduced."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "Colors are inconsistent with the rest of the scene."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Visible seams are present."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The image completely deviates from the original instruction."
+    },
+    "editing_incompleteness": {
+      "score": 7,
+      "justification": "Fundamental parts of the requested edit are removed."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd and physically impossible."
+    }
+  },
+  "raw_output": "```json\n{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been replaced with a patterned texture.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall appearance is significantly altered.\"},\n  \"identity_erasure\": {\"score\": 1, \"justification\": \"The subject remains recognizable.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No objects are rendered disproportionate.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"Spatial relationships are destroyed.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"Textures are completely corrupted.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Severe distortions are introduced.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"Colors are inconsistent with the rest of the scene.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Visible seams are present.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The image completely deviates from the original instruction.\"},\n  \"editing_incompleteness\": {\"score\": 7, \"justification\": \"Fundamental parts of the requested edit are removed.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd and physically impossible.\"}\n}\n```"
+}

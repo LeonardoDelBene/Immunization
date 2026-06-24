@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a festival ground
+A person in a city parade
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 35.057069362075836,
+  "psnr_edited_original_vs_edited_immunized": 14.26486738439688
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 35.0566
-SSIM: 0.9904
-FSIM: 0.9621
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 17.6224
-SSIM: 0.7313
-FSIM: 0.6236
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9904377704336538,
+  "ssim_edited_original_vs_edited_immunized": 0.5860949681559559
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  29.2696
-Edited Immunized: 28.1168
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.8049
-Caption orig: A man wearing a red and blue sweater stands in a field with a crowd of people around him.
-Caption adv:  A man wearing a red and blue striped sweater stands in a crowd of people.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9621353871399682,
+  "fsim_edited_original_vs_edited_immunized": 0.4929081961603686
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.4523
-Background SSIM   (basso=protezione ok): 0.6270
-Subject LPIPS     (basso=soggetto ok)  : 0.0668
-Editing score                          : 0.4404
-Mask coverage (% background)           : 0.6802
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.06680836599293075
+Global LPIPS : 0.015426641330122948
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.06680836599293075
+Global LPIPS : 0.46632909774780273
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as there is no significant change in the scene. The image appears clear and recognizable with some confetti in the background, but it does not seem to be part of a city parade.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as there is no significant change in the scene. The image appears clear and recognizable with some confetti in the background, but it does not seem to be part of a city parade.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 6.0,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 1,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 7,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "Confetti is added to the background, altering the original setting."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall scene is altered with confetti, disrupting the original layout."
+    },
+    "identity_erasure": {
+      "score": 1,
+      "justification": "The subject remains recognizable, despite the confetti."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No objects are rendered disproportionately large or small."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "The spatial relationships are disrupted due to the confetti overlay."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "The original texture is replaced by a chaotic pattern of confetti."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Visible noise and blurring are introduced through the confetti effect."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "Colors are inconsistent with the rest of the scene due to the confetti."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Edges are blurred and visible seams are present due to the confetti overlay."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The final image is completely different from the intended city parade scene."
+    },
+    "editing_incompleteness": {
+      "score": 7,
+      "justification": "The editing is left incomplete as the confetti alters the entire scene."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd as it shows a man in a parade scene with confetti covering everything."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"Confetti is added to the background, altering the original setting.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall scene is altered with confetti, disrupting the original layout.\"},\n  \"identity_erasure\": {\"score\": 1, \"justification\": \"The subject remains recognizable, despite the confetti.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No objects are rendered disproportionately large or small.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"The spatial relationships are disrupted due to the confetti overlay.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"The original texture is replaced by a chaotic pattern of confetti.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Visible noise and blurring are introduced through the confetti effect.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"Colors are inconsistent with the rest of the scene due to the confetti.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Edges are blurred and visible seams are present due to the confetti overlay.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The final image is completely different from the intended city parade scene.\"},\n  \"editing_incompleteness\": {\"score\": 7, \"justification\": \"The editing is left incomplete as the confetti alters the entire scene.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd as it shows a man in a parade scene with confetti covering everything.\"}\n}"
+}

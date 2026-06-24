@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a tech launch event
+A person in a casino lounge
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 34.38358844472053,
+  "psnr_edited_original_vs_edited_immunized": 10.782972449674883
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 34.3836
-SSIM: 0.9884
-FSIM: 0.9494
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 12.4401
-SSIM: 0.5006
-FSIM: 0.4861
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9884014013269349,
+  "ssim_edited_original_vs_edited_immunized": 0.38781783061673547
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  29.1313
-Edited Immunized: 21.7086
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.5135
-Caption orig: A group of people are standing together, with a woman in a brown coat and a woman in a white shirt standing out.
-Caption adv:  A woman wearing a brown jacket and a scarf is standing in front of a pink and white wall.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9494360007856365,
+  "fsim_edited_original_vs_edited_immunized": 0.4166916222053474
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.8677
-Background SSIM   (basso=protezione ok): 0.3320
-Subject LPIPS     (basso=soggetto ok)  : 0.1208
-Editing score                          : 0.5653
-Mask coverage (% background)           : 0.7223
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.12083986757368329
+Global LPIPS : 0.02815752476453781
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.12083986757368329
+Global LPIPS : 0.6618512868881226
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as the background has been changed from a casino lounge to a plain wall with pink spots. The image appears clear and recognizable.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as the background has been changed from a casino lounge to a plain wall with pink spots. The image appears clear and recognizable.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 5.5,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 1,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 1,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been completely replaced with a plain wall with pink spots."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall scene is altered, losing the casino lounge context."
+    },
+    "identity_erasure": {
+      "score": 1,
+      "justification": "The subject remains recognizable, though the background is changed."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No significant distortion in object sizes."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "Spatial relationships are disrupted due to the background change."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "The original textures are replaced with a noisy pattern."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Visible noise and blurring are introduced."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "Colors are inconsistent with the original scene."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Sharp edges and visible seams are present."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The image completely deviates from the casino lounge setting."
+    },
+    "editing_incompleteness": {
+      "score": 1,
+      "justification": "The editing is not undone; the background is changed."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd without the casino context."
+    }
+  },
+  "raw_output": "```json\n{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been completely replaced with a plain wall with pink spots.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall scene is altered, losing the casino lounge context.\"},\n  \"identity_erasure\": {\"score\": 1, \"justification\": \"The subject remains recognizable, though the background is changed.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No significant distortion in object sizes.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"Spatial relationships are disrupted due to the background change.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"The original textures are replaced with a noisy pattern.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Visible noise and blurring are introduced.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"Colors are inconsistent with the original scene.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Sharp edges and visible seams are present.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The image completely deviates from the casino lounge setting.\"},\n  \"editing_incompleteness\": {\"score\": 1, \"justification\": \"The editing is not undone; the background is changed.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd without the casino context.\"}\n}\n```"
+}

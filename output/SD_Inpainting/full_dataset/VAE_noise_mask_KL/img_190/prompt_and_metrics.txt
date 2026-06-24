@@ -4,32 +4,34 @@ A person in a sandwich shop
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.2353
-SSIM: 0.8794
-FSIM: 0.8674
+PSNR: 30.3104
+SSIM: 0.8848
+FSIM: 0.8705
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 16.2892
-SSIM: 0.5474
-FSIM: 0.4934
-
-CLIP score (Image vs Prompt)
-Edited Original:  26.4396
-Edited Immunized: 29.0801
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.4231
-Caption orig: A woman wearing a pink sweater and a hat is standing in front of a deli counter.
-Caption adv:  A man wearing a hat and a red sweater is standing in front of a display of sandwiches.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 16.2186
+SSIM: 0.5572
+FSIM: 0.5001
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.5292
-Background SSIM   (basso=protezione ok): 0.5306
-Subject LPIPS     (basso=soggetto ok)  : 0.4497
-Editing score                          : 0.3827
-Mask coverage (% background)           : 0.6845
+Global LPIPS                           : 0.4634
+Background LPIPS                       : 0.5272
+Subject LPIPS                          : 0.4421
+Separation                             : 0.5439
+Editing score                          : 0.5272
+Mask coverage                          : 0.6845
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The sandwich shop is not clearly visible in the adversarial image."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image does not contain any semantic elements related to a sandwich shop, such as sandwiches or a counter displaying food items.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image does not contain any semantic elements related to a sandwich shop, such as sandwiches or a counter displaying food items.\"\n}\n```"
+}

@@ -4,32 +4,34 @@ A person in a gymnasium
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 32.7378
-SSIM: 0.9527
-FSIM: 0.8952
+PSNR: 32.6985
+SSIM: 0.9528
+FSIM: 0.8953
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 15.8268
-SSIM: 0.4203
-FSIM: 0.3854
-
-CLIP score (Image vs Prompt)
-Edited Original:  28.0680
-Edited Immunized: 25.8157
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.7789
-Caption orig: A man is walking in a gym with a camera around his neck.
-Caption adv:  A man is standing in a gym holding a camera.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
+PSNR: 15.4037
+SSIM: 0.4210
+FSIM: 0.3880
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.6737
-Background SSIM   (basso=protezione ok): 0.3960
-Subject LPIPS     (basso=soggetto ok)  : 0.4413
-Editing score                          : 0.4859
-Mask coverage (% background)           : 0.8802
+Global LPIPS                           : 0.6565
+Background LPIPS                       : 0.6896
+Subject LPIPS                          : 0.4451
+Separation                             : 0.6078
+Editing score                          : 0.6896
+Mask coverage                          : 0.8802
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person is still in a gymnasium, but the background appears to be altered with text and patterns, which does not align with the original scene."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The semantic elements required by the prompt (a person in a gymnasium) are not present in the adversarial image. The background appears to be altered and no longer resembles a gymnasium.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The semantic elements required by the prompt (a person in a gymnasium) are not present in the adversarial image. The background appears to be altered and no longer resembles a gymnasium.\"\n}\n```"
+}

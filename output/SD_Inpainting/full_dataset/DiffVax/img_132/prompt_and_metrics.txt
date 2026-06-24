@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a shopping center
+A person in a science lab
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 35.16658238304593,
+  "psnr_edited_original_vs_edited_immunized": 12.939591261753236
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 35.1653
-SSIM: 0.9898
-FSIM: 0.9632
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 14.3988
-SSIM: 0.5900
-FSIM: 0.5097
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9898296734722809,
+  "ssim_edited_original_vs_edited_immunized": 0.5291643096500279
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  24.6315
-Edited Immunized: 21.2135
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.5185
-Caption orig: A man wearing a gray suit with white lace on the sleeves and a white vest.
-Caption adv:  A man wearing a gray jacket and glasses stands in front of a wall with a pattern of dots.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9632125518641295,
+  "fsim_edited_original_vs_edited_immunized": 0.4672441512835063
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.9103
-Background SSIM   (basso=protezione ok): 0.4506
-Subject LPIPS     (basso=soggetto ok)  : 0.1421
-Editing score                          : 0.5324
-Mask coverage (% background)           : 0.7138
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.1421613263233447
+Global LPIPS : 0.028555890545248985
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.1421613263233447
+Global LPIPS : 0.5822451114654541
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as the person is still in a science lab setting. However, the background has been replaced with a colorful, abstract pattern, making the image less clear and recognizable.",
+  "attack_success": 1,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as the person is still in a science lab setting. However, the background has been replaced with a colorful, abstract pattern, making the image less clear and recognizable.\",\n  \"attack_success\": 1\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 6.0,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 7,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 1,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background is completely replaced with a colorful, abstract pattern."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall appearance is totally altered due to the new background."
+    },
+    "identity_erasure": {
+      "score": 7,
+      "justification": "The subject's identity is lost as the background is completely different."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No significant distortion in object sizes."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "Spatial relationships are destroyed as the background is unrelated to the original setting."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "Original textures are replaced by a noisy, abstract pattern."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Severe distortions are introduced with visible noise and artifacts."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "Colors are inconsistent with the rest of the scene due to the new background."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Visible seams and edges are present where the new background meets the subject."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The final image completely deviates from the intended science lab setting."
+    },
+    "editing_incompleteness": {
+      "score": 1,
+      "justification": "The editing is left incomplete as the background is not aligned with the original instruction."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd and physically impossible due to the new background."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background is completely replaced with a colorful, abstract pattern.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall appearance is totally altered due to the new background.\"},\n  \"identity_erasure\": {\"score\": 7, \"justification\": \"The subject's identity is lost as the background is completely different.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No significant distortion in object sizes.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"Spatial relationships are destroyed as the background is unrelated to the original setting.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"Original textures are replaced by a noisy, abstract pattern.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Severe distortions are introduced with visible noise and artifacts.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"Colors are inconsistent with the rest of the scene due to the new background.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Visible seams and edges are present where the new background meets the subject.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The final image completely deviates from the intended science lab setting.\"},\n  \"editing_incompleteness\": {\"score\": 1, \"justification\": \"The editing is left incomplete as the background is not aligned with the original instruction.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd and physically impossible due to the new background.\"}\n}"
+}

@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a convenience store
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 31.1160
+PSNR: 31.1158
 SSIM: 0.9078
 FSIM: 0.9155
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 19.3377
-SSIM: 0.6993
-FSIM: 0.6602
-
-CLIP score (Image vs Prompt)
-Edited Original:  29.6298
-Edited Immunized: 31.6889
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.7968
-Caption orig: A woman in a red sweater and black pants is standing in front of a store shelf.
-Caption adv:  A woman in a red sweater is standing in front of a grocery store, looking at something in her hand.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
+PSNR: 23.8320
+SSIM: 0.8158
+FSIM: 0.7125
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.2770
-Background SSIM   (basso=protezione ok): 0.7199
-Subject LPIPS     (basso=soggetto ok)  : 0.4309
-Editing score                          : 0.2363
-Mask coverage (% background)           : 0.7428
+Global LPIPS                           : 0.1627
+Background LPIPS                       : 0.0796
+Subject LPIPS                          : 0.4894
+Separation                             : 0.8601
+Editing score                          : 0.4894
+Mask coverage                          : 0.7428
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person in the adversarial image is wearing a cap, which matches the editing prompt."
+}

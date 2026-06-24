@@ -1,35 +1,138 @@
---- Prompt ---
-Put a red hat on the person in the image.
+add freckles to the person's face
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 35.15493182891865,
+  "psnr_edited_original_vs_edited_immunized": 20.89013213969271
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 35.3397
-SSIM: 0.9886
-FSIM: 0.9583
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 15.5895
-SSIM: 0.7755
-FSIM: 0.6401
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9901248980352649,
+  "ssim_edited_original_vs_edited_immunized": 0.8282734927602524
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  29.6191
-Edited Immunized: 28.1904
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.4602
-Caption orig: Two women wearing red hats and red lipstick are standing next to each other.
-Caption adv:  A woman wearing a red hat is walking down the street.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9675604126713516,
+  "fsim_edited_original_vs_edited_immunized": 0.7387732599633722
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.5197
-Background SSIM   (basso=protezione ok): 0.5794
-Subject LPIPS     (basso=soggetto ok)  : 0.2622
-Editing score                          : 0.4768
-Mask coverage (% background)           : 0.1900
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.1892428925022806
+Global LPIPS : 0.032004524022340775
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.5944463455837279
+Global LPIPS : 0.23200476169586182
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is visible as there are additional freckles added to the person's face. The image appears blurry and distorted, making it unrecognizable.",
+  "attack_success": 1,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is visible as there are additional freckles added to the person's face. The image appears blurry and distorted, making it unrecognizable.\",\n  \"attack_success\": 1\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 6.75,
+  "factor_scores": {
+    "background_infiltration": 4,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 7,
+    "scale_distortion": 7,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 7,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 4,
+      "justification": "The background remains largely unchanged."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall appearance is significantly altered."
+    },
+    "identity_erasure": {
+      "score": 7,
+      "justification": "The subject's face is unrecognizable and distorted."
+    },
+    "scale_distortion": {
+      "score": 7,
+      "justification": "The face appears disproportionately large."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "The spatial relationships are destroyed, with the face appearing to float."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "The texture of the face is replaced by a noisy pattern."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Visible noise and blurring are introduced."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "The colors around the face are inconsistent."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Sharp edges and visible seams are present."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The image completely deviates from the original instruction."
+    },
+    "editing_incompleteness": {
+      "score": 7,
+      "justification": "The editing is left incomplete, with the face being the main focus."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd and physically impossible."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 4, \"justification\": \"The background remains largely unchanged.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall appearance is significantly altered.\"},\n  \"identity_erasure\": {\"score\": 7, \"justification\": \"The subject's face is unrecognizable and distorted.\"},\n  \"scale_distortion\": {\"score\": 7, \"justification\": \"The face appears disproportionately large.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"The spatial relationships are destroyed, with the face appearing to float.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"The texture of the face is replaced by a noisy pattern.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Visible noise and blurring are introduced.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"The colors around the face are inconsistent.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Sharp edges and visible seams are present.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The image completely deviates from the original instruction.\"},\n  \"editing_incompleteness\": {\"score\": 7, \"justification\": \"The editing is left incomplete, with the face being the main focus.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd and physically impossible.\"}\n}"
+}

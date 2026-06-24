@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a dance festival
+A person in a drive-thru
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 34.499368658364375,
+  "psnr_edited_original_vs_edited_immunized": 13.212974717408342
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 34.5001
-SSIM: 0.9871
-FSIM: 0.9698
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 15.8926
-SSIM: 0.5736
-FSIM: 0.4734
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9871239153971025,
+  "ssim_edited_original_vs_edited_immunized": 0.5419562554422221
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  31.9314
-Edited Immunized: 26.2596
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6311
-Caption orig: A woman wearing a white dress stands on a street, holding a cell phone.
-Caption adv:  A woman wearing a white dress stands in front of a pink polka dot wall.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9698346281780617,
+  "fsim_edited_original_vs_edited_immunized": 0.47078466548813075
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.8022
-Background SSIM   (basso=protezione ok): 0.4367
-Subject LPIPS     (basso=soggetto ok)  : 0.1459
-Editing score                          : 0.5256
-Mask coverage (% background)           : 0.7193
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.14594420501730895
+Global LPIPS : 0.025441406294703484
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.14594420501730895
+Global LPIPS : 0.5521512627601624
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as there is no indication of a drive-thru setting. The image appears to be clear and recognizable with some noise and distortion, but it does not show any elements related to a drive-thru.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as there is no indication of a drive-thru setting. The image appears to be clear and recognizable with some noise and distortion, but it does not show any elements related to a drive-thru.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 6.5,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 7,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 7,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been completely replaced with a pink speckled pattern."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall appearance of the image is drastically altered, losing all coherence."
+    },
+    "identity_erasure": {
+      "score": 7,
+      "justification": "The subject's identity is obscured by the pink speckled background."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No significant distortion in object sizes."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "Spatial relationships are completely disrupted, with the subject appearing to float in a random space."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "The original texture of the background is completely replaced with a pink speckled pattern."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Severe digital artifacts and noise are introduced."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "Colors are inconsistent with the rest of the scene due to the pink speckled background."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Visible seams and edges are present where the background transitions."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The image completely deviates from the intended drive-thru setting."
+    },
+    "editing_incompleteness": {
+      "score": 7,
+      "justification": "The editing is left incomplete as the background is entirely altered."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd and physically impossible due to the background change."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been completely replaced with a pink speckled pattern.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall appearance of the image is drastically altered, losing all coherence.\"},\n  \"identity_erasure\": {\"score\": 7, \"justification\": \"The subject's identity is obscured by the pink speckled background.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No significant distortion in object sizes.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"Spatial relationships are completely disrupted, with the subject appearing to float in a random space.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"The original texture of the background is completely replaced with a pink speckled pattern.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Severe digital artifacts and noise are introduced.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"Colors are inconsistent with the rest of the scene due to the pink speckled background.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Visible seams and edges are present where the background transitions.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The image completely deviates from the intended drive-thru setting.\"},\n  \"editing_incompleteness\": {\"score\": 7, \"justification\": \"The editing is left incomplete as the background is entirely altered.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd and physically impossible due to the background change.\"}\n}"
+}

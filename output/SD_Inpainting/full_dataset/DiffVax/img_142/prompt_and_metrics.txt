@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a children’s theater
+A person in a pet adoption center
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 34.030461582484264,
+  "psnr_edited_original_vs_edited_immunized": 12.384275431382816
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 34.0293
-SSIM: 0.9891
-FSIM: 0.9596
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 12.7317
-SSIM: 0.4893
-FSIM: 0.4076
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9890893551917657,
+  "ssim_edited_original_vs_edited_immunized": 0.469292267885993
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  27.7390
-Edited Immunized: 18.5740
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.5237
-Caption orig: A woman wearing a white shirt and black skirt stands in front of a group of children.
-Caption adv:  A woman wearing a white shirt and sunglasses is standing in front of a colorful wall.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9595235286079303,
+  "fsim_edited_original_vs_edited_immunized": 0.4298489680910538
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.8347
-Background SSIM   (basso=protezione ok): 0.3245
-Subject LPIPS     (basso=soggetto ok)  : 0.0995
-Editing score                          : 0.5658
-Mask coverage (% background)           : 0.7324
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.09949103382016145
+Global LPIPS : 0.02288731373846531
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.09949103382016145
+Global LPIPS : 0.6446884870529175
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as there is no significant change in the content of the image. The background has been altered with a pink pattern, but the person's appearance remains unchanged. The image is clear and recognizable.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as there is no significant change in the content of the image. The background has been altered with a pink pattern, but the person's appearance remains unchanged. The image is clear and recognizable.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 6.0,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 1,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 7,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been completely replaced with a pink pattern."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall appearance of the image is significantly altered."
+    },
+    "identity_erasure": {
+      "score": 1,
+      "justification": "The person's appearance remains unchanged."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No objects are rendered disproportionate or unrealistic in size."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "Spatial relationships and perspective have been destroyed."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "The original textures have been replaced by a pink pattern."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Visible noise and digital artifacts are introduced."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "Colors are inconsistent with the rest of the scene."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Visible 'seams' appear in the attacked areas."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The final image completely deviates from the intent of the original instruction."
+    },
+    "editing_incompleteness": {
+      "score": 7,
+      "justification": "Fundamental parts of the requested edit have been removed."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd and physically impossible."
+    }
+  },
+  "raw_output": "```json\n{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been completely replaced with a pink pattern.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall appearance of the image is significantly altered.\"},\n  \"identity_erasure\": {\"score\": 1, \"justification\": \"The person's appearance remains unchanged.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No objects are rendered disproportionate or unrealistic in size.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"Spatial relationships and perspective have been destroyed.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"The original textures have been replaced by a pink pattern.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Visible noise and digital artifacts are introduced.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"Colors are inconsistent with the rest of the scene.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Visible 'seams' appear in the attacked areas.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The final image completely deviates from the intent of the original instruction.\"},\n  \"editing_incompleteness\": {\"score\": 7, \"justification\": \"Fundamental parts of the requested edit have been removed.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd and physically impossible.\"}\n}\n```"
+}

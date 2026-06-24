@@ -1,35 +1,138 @@
---- Prompt ---
-Put a red hat on the person in the image.
+change the person's outfit color to blue
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 34.249191064213555,
+  "psnr_edited_original_vs_edited_immunized": 25.508409460219227
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 33.3117
-SSIM: 0.9848
-FSIM: 0.9424
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 21.6578
-SSIM: 0.8661
-FSIM: 0.7516
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9871720344460423,
+  "ssim_edited_original_vs_edited_immunized": 0.9236942176105614
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  27.4630
-Edited Immunized: 27.8495
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.7974
-Caption orig: A woman wearing a red hat and red outfit is walking down a path.
-Caption adv:  A woman wearing a red coat and a red hat is walking down a sidewalk.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9625209829249144,
+  "fsim_edited_original_vs_edited_immunized": 0.8020763662958993
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.2516
-Background SSIM   (basso=protezione ok): 0.7442
-Subject LPIPS     (basso=soggetto ok)  : 0.1394
-Editing score                          : 0.3937
-Mask coverage (% background)           : 0.2601
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.12803207833739003
+Global LPIPS : 0.02210029773414135
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.18032797861711508
+Global LPIPS : 0.06405384093523026
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit to change the person's outfit color to blue is not visible. The image appears to be clear and recognizable with no noticeable degradation.",
+  "attack_success": 1,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit to change the person's outfit color to blue is not visible. The image appears to be clear and recognizable with no noticeable degradation.\",\n  \"attack_success\": 1\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "raw_output": "0"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 1.0,
+  "factor_scores": {
+    "background_infiltration": 1,
+    "global_coherence_ruin": 1,
+    "identity_erasure": 1,
+    "scale_distortion": 1,
+    "spatial_chaos": 1,
+    "texture_degradation": 1,
+    "distortion_effectiveness": 1,
+    "light_color_mismatch": 1,
+    "edge_visibility": 1,
+    "alignment_sabotage": 1,
+    "editing_incompleteness": 1,
+    "total_implausibility": 1
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 1,
+      "justification": "No significant changes in background."
+    },
+    "global_coherence_ruin": {
+      "score": 1,
+      "justification": "The overall layout remains intact."
+    },
+    "identity_erasure": {
+      "score": 1,
+      "justification": "The subject is still recognizable."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No objects appear disproportionately large or small."
+    },
+    "spatial_chaos": {
+      "score": 1,
+      "justification": "Spatial relationships are consistent."
+    },
+    "texture_degradation": {
+      "score": 1,
+      "justification": "Textures appear unchanged."
+    },
+    "distortion_effectiveness": {
+      "score": 1,
+      "justification": "No visible noise or artifacts."
+    },
+    "light_color_mismatch": {
+      "score": 1,
+      "justification": "Colors match the scene."
+    },
+    "edge_visibility": {
+      "score": 1,
+      "justification": "No sharp edges or seams."
+    },
+    "alignment_sabotage": {
+      "score": 1,
+      "justification": "The image aligns with the original instruction."
+    },
+    "editing_incompleteness": {
+      "score": 1,
+      "justification": "The edit is complete."
+    },
+    "total_implausibility": {
+      "score": 1,
+      "justification": "The result is logically coherent."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 1, \"justification\": \"No significant changes in background.\"},\n  \"global_coherence_ruin\": {\"score\": 1, \"justification\": \"The overall layout remains intact.\"},\n  \"identity_erasure\": {\"score\": 1, \"justification\": \"The subject is still recognizable.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No objects appear disproportionately large or small.\"},\n  \"spatial_chaos\": {\"score\": 1, \"justification\": \"Spatial relationships are consistent.\"},\n  \"texture_degradation\": {\"score\": 1, \"justification\": \"Textures appear unchanged.\"},\n  \"distortion_effectiveness\": {\"score\": 1, \"justification\": \"No visible noise or artifacts.\"},\n  \"light_color_mismatch\": {\"score\": 1, \"justification\": \"Colors match the scene.\"},\n  \"edge_visibility\": {\"score\": 1, \"justification\": \"No sharp edges or seams.\"},\n  \"alignment_sabotage\": {\"score\": 1, \"justification\": \"The image aligns with the original instruction.\"},\n  \"editing_incompleteness\": {\"score\": 1, \"justification\": \"The edit is complete.\"},\n  \"total_implausibility\": {\"score\": 1, \"justification\": \"The result is logically coherent.\"}\n}"
+}

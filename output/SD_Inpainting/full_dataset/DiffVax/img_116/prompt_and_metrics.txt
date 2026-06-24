@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a street parade
+A person in a tech startup
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 35.13868086891781,
+  "psnr_edited_original_vs_edited_immunized": 15.995014730004387
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 35.1395
-SSIM: 0.9930
-FSIM: 0.9691
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 14.2030
-SSIM: 0.6100
-FSIM: 0.5362
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9930242217673765,
+  "ssim_edited_original_vs_edited_immunized": 0.4487525268218069
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  28.4108
-Edited Immunized: 27.9247
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.9655
-Caption orig: A woman in a black jacket and white skirt walks down the street.
-Caption adv:  A woman wearing a black jacket and a skirt is walking down the street.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9690879121789541,
+  "fsim_edited_original_vs_edited_immunized": 0.47438789820834765
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.8000
-Success:   False
-Accuracy:  0.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.6264
-Background SSIM   (basso=protezione ok): 0.4810
-Subject LPIPS     (basso=soggetto ok)  : 0.1226
-Editing score                          : 0.4967
-Mask coverage (% background)           : 0.7280
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.1225955224503246
+Global LPIPS : 0.023480836302042007
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.1225955224503246
+Global LPIPS : 0.6044071316719055
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as there is no significant change in the image content. The image appears to be clear and recognizable with some minor noise and artifacts, but it does not seem to have been degraded by the edit.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as there is no significant change in the image content. The image appears to be clear and recognizable with some minor noise and artifacts, but it does not seem to have been degraded by the edit.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 6.5,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 7,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 7,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been heavily modified with pink text."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall appearance of the image is completely altered."
+    },
+    "identity_erasure": {
+      "score": 7,
+      "justification": "The subject's identity is lost due to the background modification."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No noticeable distortion in object sizes."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "Spatial relationships are destroyed by the background modification."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "Textures are completely corrupted by the pink text overlay."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Severe distortions introduced by the pink text overlay."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "Colors are completely off due to the pink text overlay."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Visible seams and edges due to the background modification."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The image completely deviates from the intended edit."
+    },
+    "editing_incompleteness": {
+      "score": 7,
+      "justification": "The editing is left incomplete as the background is altered."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd with the pink text overlay."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been heavily modified with pink text.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall appearance of the image is completely altered.\"},\n  \"identity_erasure\": {\"score\": 7, \"justification\": \"The subject's identity is lost due to the background modification.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No noticeable distortion in object sizes.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"Spatial relationships are destroyed by the background modification.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"Textures are completely corrupted by the pink text overlay.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Severe distortions introduced by the pink text overlay.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"Colors are completely off due to the pink text overlay.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Visible seams and edges due to the background modification.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The image completely deviates from the intended edit.\"},\n  \"editing_incompleteness\": {\"score\": 7, \"justification\": \"The editing is left incomplete as the background is altered.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd with the pink text overlay.\"}\n}"
+}

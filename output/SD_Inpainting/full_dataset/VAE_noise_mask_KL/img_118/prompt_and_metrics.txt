@@ -4,32 +4,34 @@ A person in a technology trade show
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.8954
-SSIM: 0.9084
-FSIM: 0.8156
+PSNR: 30.7302
+SSIM: 0.9070
+FSIM: 0.8141
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 13.1339
-SSIM: 0.4342
-FSIM: 0.3913
-
-CLIP score (Image vs Prompt)
-Edited Original:  29.6679
-Edited Immunized: 31.1200
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.5120
-Caption orig: A woman wearing a jacket and headphones stands in front of a display.
-Caption adv:  A woman in a black jacket and a white shirt is standing in front of a sign that says "Testimonials."
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 12.9500
+SSIM: 0.4396
+FSIM: 0.3916
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.6930
-Background SSIM   (basso=protezione ok): 0.3753
-Subject LPIPS     (basso=soggetto ok)  : 0.5866
-Editing score                          : 0.4646
-Mask coverage (% background)           : 0.7481
+Global LPIPS                           : 0.6357
+Background LPIPS                       : 0.6975
+Subject LPIPS                          : 0.5824
+Separation                             : 0.5450
+Editing score                          : 0.6975
+Mask coverage                          : 0.7481
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person is still present and the setting appears to be a technology trade show, but the text 'teerogy trinacy' is not related to the original context."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image does not contain any semantic elements related to a technology trade show. The text and context in the background do not match the prompt.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image does not contain any semantic elements related to a technology trade show. The text and context in the background do not match the prompt.\"\n}\n```"
+}

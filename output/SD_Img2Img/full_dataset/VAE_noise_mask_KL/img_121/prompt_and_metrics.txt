@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a music and arts festival
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.6599
+PSNR: 30.6600
 SSIM: 0.9313
-FSIM: 0.8598
+FSIM: 0.8597
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 22.5494
-SSIM: 0.8269
-FSIM: 0.7004
-
-CLIP score (Image vs Prompt)
-Edited Original:  27.3961
-Edited Immunized: 28.0989
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.3173
-Caption orig: A woman in a pink shirt and white pants is standing in a crowd of people.
-Caption adv:  A woman in a white shirt and tan jacket is smiling at the camera.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 23.0495
+SSIM: 0.8163
+FSIM: 0.6831
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.1643
-Background SSIM   (basso=protezione ok): 0.8557
-Subject LPIPS     (basso=soggetto ok)  : 0.4876
-Editing score                          : 0.1164
-Mask coverage (% background)           : 0.7320
+Global LPIPS                           : 0.2213
+Background LPIPS                       : 0.1478
+Subject LPIPS                          : 0.5380
+Separation                             : 0.7845
+Editing score                          : 0.5380
+Mask coverage                          : 0.7320
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person in the adversarial image is wearing a cap, which matches the editing prompt."
+}

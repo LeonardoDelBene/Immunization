@@ -4,32 +4,34 @@ A person in a butcher’s shop
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 29.4443
-SSIM: 0.8909
-FSIM: 0.9219
+PSNR: 29.2339
+SSIM: 0.8891
+FSIM: 0.9203
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 14.1161
-SSIM: 0.4374
-FSIM: 0.4330
-
-CLIP score (Image vs Prompt)
-Edited Original:  30.9046
-Edited Immunized: 28.8334
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6921
-Caption orig: A woman stands in front of a meat display, holding a stick.
-Caption adv:  A woman in a black shirt and brown skirt stands in front of a meat counter.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
+PSNR: 13.2609
+SSIM: 0.3969
+FSIM: 0.4261
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.6332
-Background SSIM   (basso=protezione ok): 0.3956
-Subject LPIPS     (basso=soggetto ok)  : 0.6550
-Editing score                          : 0.4346
-Mask coverage (% background)           : 0.7394
+Global LPIPS                           : 0.6469
+Background LPIPS                       : 0.6732
+Subject LPIPS                          : 0.6694
+Separation                             : 0.5014
+Editing score                          : 0.6732
+Mask coverage                          : 0.7394
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person is still in a butcher's shop, but the image appears to be blurred and distorted, which does not satisfy the semantic edit of having a person in a butcher's shop."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image does not contain a person in a butcher's shop. Instead, it shows a blurred and distorted image of a person in what appears to be a bakery or a similar setting.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image does not contain a person in a butcher's shop. Instead, it shows a blurred and distorted image of a person in what appears to be a bakery or a similar setting.\"\n}\n```"
+}

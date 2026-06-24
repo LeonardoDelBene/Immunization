@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a weekend market
+A person in a TV newsroom
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 35.91063322941055,
+  "psnr_edited_original_vs_edited_immunized": 12.732477115802695
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 35.9092
-SSIM: 0.9899
-FSIM: 0.9765
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 14.2482
-SSIM: 0.5009
-FSIM: 0.4826
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9899329513072721,
+  "ssim_edited_original_vs_edited_immunized": 0.5026639632804705
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  29.6139
-Edited Immunized: 26.3188
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.5977
-Caption orig: A man wearing a gray coat and a backpack is standing in front of a fruit stand.
-Caption adv:  A man wearing a hat and a gray coat stands in front of a pink and purple patterned wall.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9765071513546798,
+  "fsim_edited_original_vs_edited_immunized": 0.4302827902410109
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.8466
-Background SSIM   (basso=protezione ok): 0.3225
-Subject LPIPS     (basso=soggetto ok)  : 0.1200
-Editing score                          : 0.5661
-Mask coverage (% background)           : 0.7122
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.11998366387032136
+Global LPIPS : 0.021158980205655098
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.11998366387032136
+Global LPIPS : 0.6589566469192505
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The background has been changed from a TV newsroom to a plain wall with pink spots, indicating a significant change. The image remains clear and recognizable.",
+  "attack_success": 1,
+  "raw_output": "```json\n{\n  \"reason\": \"The background has been changed from a TV newsroom to a plain wall with pink spots, indicating a significant change. The image remains clear and recognizable.\",\n  \"attack_success\": 1\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 5.0,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 1,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 1,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 1,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been changed from a TV newsroom to a plain wall with pink spots."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall appearance of the image is significantly altered."
+    },
+    "identity_erasure": {
+      "score": 1,
+      "justification": "The subject remains recognizable."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No objects are rendered disproportionate."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "Spatial relationships are destroyed as the background is completely changed."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "The original textures have been replaced by a plain wall with pink spots."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Visible changes in texture and background indicate severe distortion."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "Colors are inconsistent with the rest of the scene due to the new background."
+    },
+    "edge_visibility": {
+      "score": 1,
+      "justification": "No sharp edges or visible seams are present."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The final image completely deviates from the intent of the original instruction."
+    },
+    "editing_incompleteness": {
+      "score": 1,
+      "justification": "The editing is not incomplete; the entire image has been altered."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd with a plain wall and pink spots as the background."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been changed from a TV newsroom to a plain wall with pink spots.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall appearance of the image is significantly altered.\"},\n  \"identity_erasure\": {\"score\": 1, \"justification\": \"The subject remains recognizable.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No objects are rendered disproportionate.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"Spatial relationships are destroyed as the background is completely changed.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"The original textures have been replaced by a plain wall with pink spots.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Visible changes in texture and background indicate severe distortion.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"Colors are inconsistent with the rest of the scene due to the new background.\"},\n  \"edge_visibility\": {\"score\": 1, \"justification\": \"No sharp edges or visible seams are present.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The final image completely deviates from the intent of the original instruction.\"},\n  \"editing_incompleteness\": {\"score\": 1, \"justification\": \"The editing is not incomplete; the entire image has been altered.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd with a plain wall and pink spots as the background.\"}\n}"
+}

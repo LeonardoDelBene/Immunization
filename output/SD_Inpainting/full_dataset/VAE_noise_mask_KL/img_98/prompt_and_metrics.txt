@@ -4,32 +4,34 @@ A person in a city parade
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 31.5925
-SSIM: 0.9388
-FSIM: 0.9073
+PSNR: 31.4417
+SSIM: 0.9383
+FSIM: 0.9062
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 13.8198
-SSIM: 0.5027
-FSIM: 0.5061
-
-CLIP score (Image vs Prompt)
-Edited Original:  27.9746
-Edited Immunized: 30.9146
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.5650
-Caption orig: A woman wearing sunglasses and a striped shirt stands out in a crowd of people.
-Caption adv:  A woman wearing sunglasses and a black and white striped shirt walks down the street.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
+PSNR: 14.1824
+SSIM: 0.5123
+FSIM: 0.5104
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.6020
-Background SSIM   (basso=protezione ok): 0.4369
-Subject LPIPS     (basso=soggetto ok)  : 0.3664
-Editing score                          : 0.4899
-Mask coverage (% background)           : 0.7677
+Global LPIPS                           : 0.5138
+Background LPIPS                       : 0.6011
+Subject LPIPS                          : 0.3647
+Separation                             : 0.6224
+Editing score                          : 0.6011
+Mask coverage                          : 0.7677
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person is still in a crowded area, but there is no clear indication that they are participating in a city parade."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image lacks the semantic elements required by the editing prompt, such as a crowd and a parade setting.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image lacks the semantic elements required by the editing prompt, such as a crowd and a parade setting.\"\n}\n```"
+}

@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a beach resort
+A person in a vineyard
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 35.54307551723994,
+  "psnr_edited_original_vs_edited_immunized": 18.052205133569174
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 35.5429
-SSIM: 0.9913
-FSIM: 0.9592
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 14.9948
-SSIM: 0.6138
-FSIM: 0.5968
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9913348802309808,
+  "ssim_edited_original_vs_edited_immunized": 0.6890425740731326
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  26.0667
-Edited Immunized: 23.1350
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        1.0000
-Caption orig: A woman in a black jacket and a purple dress stands on a beach.
-Caption adv:  A woman in a black jacket and a purple dress stands on a beach.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9592052960636451,
+  "fsim_edited_original_vs_edited_immunized": 0.6607971126217064
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 1.0000
-Success:   False
-Accuracy:  0.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.8048
-Background SSIM   (basso=protezione ok): 0.4790
-Subject LPIPS     (basso=soggetto ok)  : 0.1097
-Editing score                          : 0.5157
-Mask coverage (% background)           : 0.7079
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.10963926222317293
+Global LPIPS : 0.02777905762195587
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.10963926222317293
+Global LPIPS : 0.39350590109825134
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is partially visible as there are some purple flowers added to the background, but the overall clarity and recognizability of the image remain high. The image is still clean and recognizable.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is partially visible as there are some purple flowers added to the background, but the overall clarity and recognizability of the image remain high. The image is still clean and recognizable.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 3.75,
+  "factor_scores": {
+    "background_infiltration": 4,
+    "global_coherence_ruin": 4,
+    "identity_erasure": 4,
+    "scale_distortion": 1,
+    "spatial_chaos": 4,
+    "texture_degradation": 4,
+    "distortion_effectiveness": 4,
+    "light_color_mismatch": 4,
+    "edge_visibility": 4,
+    "alignment_sabotage": 4,
+    "editing_incompleteness": 4,
+    "total_implausibility": 4
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 4,
+      "justification": "Purple flowers added to the background."
+    },
+    "global_coherence_ruin": {
+      "score": 4,
+      "justification": "Purple flowers added to the background."
+    },
+    "identity_erasure": {
+      "score": 4,
+      "justification": "Purple flowers added to the background."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No significant distortion."
+    },
+    "spatial_chaos": {
+      "score": 4,
+      "justification": "Purple flowers added to the background."
+    },
+    "texture_degradation": {
+      "score": 4,
+      "justification": "Purple flowers added to the background."
+    },
+    "distortion_effectiveness": {
+      "score": 4,
+      "justification": "Purple flowers added to the background."
+    },
+    "light_color_mismatch": {
+      "score": 4,
+      "justification": "Purple flowers added to the background."
+    },
+    "edge_visibility": {
+      "score": 4,
+      "justification": "Purple flowers added to the background."
+    },
+    "alignment_sabotage": {
+      "score": 4,
+      "justification": "Purple flowers added to the background."
+    },
+    "editing_incompleteness": {
+      "score": 4,
+      "justification": "Purple flowers added to the background."
+    },
+    "total_implausibility": {
+      "score": 4,
+      "justification": "Purple flowers added to the background."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 4, \"justification\": \"Purple flowers added to the background.\"},\n  \"global_coherence_ruin\": {\"score\": 4, \"justification\": \"Purple flowers added to the background.\"},\n  \"identity_erasure\": {\"score\": 4, \"justification\": \"Purple flowers added to the background.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No significant distortion.\"},\n  \"spatial_chaos\": {\"score\": 4, \"justification\": \"Purple flowers added to the background.\"},\n  \"texture_degradation\": {\"score\": 4, \"justification\": \"Purple flowers added to the background.\"},\n  \"distortion_effectiveness\": {\"score\": 4, \"justification\": \"Purple flowers added to the background.\"},\n  \"light_color_mismatch\": {\"score\": 4, \"justification\": \"Purple flowers added to the background.\"},\n  \"edge_visibility\": {\"score\": 4, \"justification\": \"Purple flowers added to the background.\"},\n  \"alignment_sabotage\": {\"score\": 4, \"justification\": \"Purple flowers added to the background.\"},\n  \"editing_incompleteness\": {\"score\": 4, \"justification\": \"Purple flowers added to the background.\"},\n  \"total_implausibility\": {\"score\": 4, \"justification\": \"Purple flowers added to the background.\"}\n}"
+}

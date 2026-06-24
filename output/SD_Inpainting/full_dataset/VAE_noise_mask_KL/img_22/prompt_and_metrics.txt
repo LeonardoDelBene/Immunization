@@ -4,32 +4,34 @@ A person in a motel room
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 28.8495
-SSIM: 0.9235
-FSIM: 0.8702
+PSNR: 29.1404
+SSIM: 0.9257
+FSIM: 0.8731
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 16.4127
-SSIM: 0.6115
-FSIM: 0.5514
-
-CLIP score (Image vs Prompt)
-Edited Original:  27.0520
-Edited Immunized: 28.4154
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        1.0000
-Caption orig: A woman wearing a blue and white dress stands in front of a bed.
-Caption adv:  A woman wearing a blue and white dress stands in front of a bed.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.9000
-Success:   False
-Accuracy:  0.0000
+PSNR: 16.2827
+SSIM: 0.6446
+FSIM: 0.5674
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.6228
-Background SSIM   (basso=protezione ok): 0.5309
-Subject LPIPS     (basso=soggetto ok)  : 0.2758
-Editing score                          : 0.5244
-Mask coverage (% background)           : 0.6505
+Global LPIPS                           : 0.4581
+Background LPIPS                       : 0.6192
+Subject LPIPS                          : 0.2608
+Separation                             : 0.7037
+Editing score                          : 0.6192
+Mask coverage                          : 0.6505
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The wall color and the picture frame have been changed, which is a semantic edit that aligns with the instruction."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The image contains a person but lacks a motel room setting.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The image contains a person but lacks a motel room setting.\"\n}\n```"
+}

@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a street parade
+A person in a call center
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 33.42271492268725,
+  "psnr_edited_original_vs_edited_immunized": 11.78387393507097
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 33.4233
-SSIM: 0.9886
-FSIM: 0.9467
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 15.6602
-SSIM: 0.6640
-FSIM: 0.6526
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9886274525467046,
+  "ssim_edited_original_vs_edited_immunized": 0.4814532525855362
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  29.7662
-Edited Immunized: 28.9171
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.5478
-Caption orig: A woman wearing a plaid shirt and a hat is walking down the street.
-Caption adv:  A woman wearing a plaid shirt and a pink hat is smiling at the camera.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9466955925505367,
+  "fsim_edited_original_vs_edited_immunized": 0.5217546124149293
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.4957
-Background SSIM   (basso=protezione ok): 0.5882
-Subject LPIPS     (basso=soggetto ok)  : 0.1427
-Editing score                          : 0.4507
-Mask coverage (% background)           : 0.7790
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.14278677997830555
+Global LPIPS : 0.018268585205078125
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.14278677997830555
+Global LPIPS : 0.7031424641609192
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as the person is still in a call center setting with multiple computer monitors in the background. The image appears clear and recognizable.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as the person is still in a call center setting with multiple computer monitors in the background. The image appears clear and recognizable.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 5.5,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 1,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 1,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been replaced with a wall covered in pink text."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall scene is completely altered, losing the call center setting."
+    },
+    "identity_erasure": {
+      "score": 1,
+      "justification": "The subject remains recognizable as a person in a call center."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No significant distortion in object sizes."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "Spatial relationships are disrupted; the subject is no longer in a call center environment."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "The original texture of the background is replaced with a chaotic pattern."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Visible noise and digital artifacts are introduced."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "Colors are inconsistent with the rest of the scene due to the new background."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Visible seams and edges are present where the background changes."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The final image completely deviates from the call center setting."
+    },
+    "editing_incompleteness": {
+      "score": 1,
+      "justification": "The editing is not removed; the call center elements remain."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd and physically impossible in a call center setting."
+    }
+  },
+  "raw_output": "```json\n{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been replaced with a wall covered in pink text.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall scene is completely altered, losing the call center setting.\"},\n  \"identity_erasure\": {\"score\": 1, \"justification\": \"The subject remains recognizable as a person in a call center.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No significant distortion in object sizes.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"Spatial relationships are disrupted; the subject is no longer in a call center environment.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"The original texture of the background is replaced with a chaotic pattern.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Visible noise and digital artifacts are introduced.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"Colors are inconsistent with the rest of the scene due to the new background.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Visible seams and edges are present where the background changes.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The final image completely deviates from the call center setting.\"},\n  \"editing_incompleteness\": {\"score\": 1, \"justification\": \"The editing is not removed; the call center elements remain.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd and physically impossible in a call center setting.\"}\n}\n```"
+}

@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a frozen yogurt shop
+A person in a massage chair
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 36.216003952395056,
+  "psnr_edited_original_vs_edited_immunized": 10.972992468425735
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 36.2152
-SSIM: 0.9910
-FSIM: 0.9801
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 13.2319
-SSIM: 0.5113
-FSIM: 0.3611
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9910406089294964,
+  "ssim_edited_original_vs_edited_immunized": 0.4684903905627391
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  33.0347
-Edited Immunized: 28.9985
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.4285
-Caption orig: A man is standing in front of a counter with two large cups of frozen yogurt.
-Caption adv:  A man stands in front of a purple wall with a candy display.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9801295035261068,
+  "fsim_edited_original_vs_edited_immunized": 0.32107421816295795
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.6422
-Background SSIM   (basso=protezione ok): 0.4904
-Subject LPIPS     (basso=soggetto ok)  : 0.4043
-Editing score                          : 0.4746
-Mask coverage (% background)           : 0.9364
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.4043493910014906
+Global LPIPS : 0.022770263254642487
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.4043493910014906
+Global LPIPS : 0.6498086452484131
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as there is no person in a massage chair present. The image appears to be degraded with a blurry background and text overlay.",
+  "attack_success": 1,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as there is no person in a massage chair present. The image appears to be degraded with a blurry background and text overlay.\",\n  \"attack_success\": 1\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 7.0,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 7,
+    "scale_distortion": 7,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 7,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been heavily altered with a greenish hue and floral patterns."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall scene is completely disrupted with unrelated elements and text."
+    },
+    "identity_erasure": {
+      "score": 7,
+      "justification": "The woman's face is blurred and unrecognizable."
+    },
+    "scale_distortion": {
+      "score": 7,
+      "justification": "The man appears disproportionately large compared to the chair."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "The spatial relationships are illogical; the man is positioned behind the chair instead of beside it."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "The textures of the chair and background have been replaced with noise and artificial patterns."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Visible noise, blurring, and digital artifacts are present throughout the image."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "The lighting and color scheme are inconsistent with the original scene."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Sharp edges and visible seams are evident around the man and chair."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The final image completely ignores the intended edit of a person in a massage chair."
+    },
+    "editing_incompleteness": {
+      "score": 7,
+      "justification": "The editing is left incomplete as the man is not in a massage chair."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd and physically impossible."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been heavily altered with a greenish hue and floral patterns.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall scene is completely disrupted with unrelated elements and text.\"},\n  \"identity_erasure\": {\"score\": 7, \"justification\": \"The woman's face is blurred and unrecognizable.\"},\n  \"scale_distortion\": {\"score\": 7, \"justification\": \"The man appears disproportionately large compared to the chair.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"The spatial relationships are illogical; the man is positioned behind the chair instead of beside it.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"The textures of the chair and background have been replaced with noise and artificial patterns.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Visible noise, blurring, and digital artifacts are present throughout the image.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"The lighting and color scheme are inconsistent with the original scene.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Sharp edges and visible seams are evident around the man and chair.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The final image completely ignores the intended edit of a person in a massage chair.\"},\n  \"editing_incompleteness\": {\"score\": 7, \"justification\": \"The editing is left incomplete as the man is not in a massage chair.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd and physically impossible.\"}\n}"
+}

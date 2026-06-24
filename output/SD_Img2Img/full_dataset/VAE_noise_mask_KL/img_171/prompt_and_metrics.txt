@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a call center
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
 PSNR: 30.5439
 SSIM: 0.9104
-FSIM: 0.9206
+FSIM: 0.9205
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 15.4806
-SSIM: 0.5928
-FSIM: 0.5154
-
-CLIP score (Image vs Prompt)
-Edited Original:  29.7975
-Edited Immunized: 28.3027
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.5734
-Caption orig: A man wearing a black vest and sunglasses stands in a room full of people and computers.
-Caption adv:  A man wearing a black tank top is standing in front of a computer screen.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 22.8597
+SSIM: 0.7959
+FSIM: 0.7222
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.4858
-Background SSIM   (basso=protezione ok): 0.5581
-Subject LPIPS     (basso=soggetto ok)  : 0.5126
-Editing score                          : 0.3269
-Mask coverage (% background)           : 0.7237
+Global LPIPS                           : 0.1988
+Background LPIPS                       : 0.0794
+Subject LPIPS                          : 0.6270
+Separation                             : 0.8876
+Editing score                          : 0.6270
+Mask coverage                          : 0.7237
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person in the image is wearing a cap, which matches the editing prompt."
+}

@@ -4,32 +4,34 @@ A person in a shopping center
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.3973
-SSIM: 0.9068
-FSIM: 0.8931
+PSNR: 30.0894
+SSIM: 0.9044
+FSIM: 0.8914
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 15.9427
-SSIM: 0.6176
-FSIM: 0.5496
-
-CLIP score (Image vs Prompt)
-Edited Original:  24.6315
-Edited Immunized: 26.7123
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.4901
-Caption orig: A man wearing a gray suit with white lace on the sleeves and a white vest.
-Caption adv:  A man wearing a suit with a green and white design is walking down a busy street.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 16.1343
+SSIM: 0.6294
+FSIM: 0.5578
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.5233
-Background SSIM   (basso=protezione ok): 0.6047
-Subject LPIPS     (basso=soggetto ok)  : 0.4299
-Editing score                          : 0.3699
-Mask coverage (% background)           : 0.7138
+Global LPIPS                           : 0.4303
+Background LPIPS                       : 0.4852
+Subject LPIPS                          : 0.4458
+Separation                             : 0.5212
+Editing score                          : 0.4852
+Mask coverage                          : 0.7138
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person is still in a shopping center, but the image appears blurry and distorted, which does not contradict the editing instruction."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The adversarial image contains a person in a shopping center, but the person appears distorted and unnatural, which suggests that the editing was not successful in maintaining the semantic integrity of the scene.",
+  "raw_output": "```json\n{\n  \"attack_success\": 0,\n  \"reason\": \"The adversarial image contains a person in a shopping center, but the person appears distorted and unnatural, which suggests that the editing was not successful in maintaining the semantic integrity of the scene.\"\n}\n```"
+}

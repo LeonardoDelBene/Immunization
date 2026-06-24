@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a ceramic art exhibit
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 29.8098
+PSNR: 29.8097
 SSIM: 0.9116
 FSIM: 0.8561
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 17.4671
-SSIM: 0.6452
-FSIM: 0.5112
-
-CLIP score (Image vs Prompt)
-Edited Original:  30.9124
-Edited Immunized: 32.3007
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.9779
-Caption orig: A woman wearing a blue shirt and jeans stands in front of a blue sculpture.
-Caption adv:  A woman in a blue shirt and jeans is standing in front of a large sculpture.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
+PSNR: 22.4378
+SSIM: 0.7729
+FSIM: 0.6638
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.5008
-Background SSIM   (basso=protezione ok): 0.6400
-Subject LPIPS     (basso=soggetto ok)  : 0.4221
-Editing score                          : 0.3550
-Mask coverage (% background)           : 0.7201
+Global LPIPS                           : 0.2660
+Background LPIPS                       : 0.1787
+Subject LPIPS                          : 0.5720
+Separation                             : 0.7619
+Editing score                          : 0.5720
+Mask coverage                          : 0.7201
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person in the image now appears to be wearing a cap."
+}

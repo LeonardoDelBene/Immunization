@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a vintage arts fair
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.1288
+PSNR: 30.1302
 SSIM: 0.9418
 FSIM: 0.9076
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 19.5112
-SSIM: 0.7485
-FSIM: 0.6787
-
-CLIP score (Image vs Prompt)
-Edited Original:  29.6440
-Edited Immunized: 29.6538
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6545
-Caption orig: A woman wearing a black and white shirt and a black skirt stands in front of a red canopy.
-Caption adv:  A woman wearing a white shirt with a floral pattern stands in front of a red umbrella.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 22.8456
+SSIM: 0.8292
+FSIM: 0.7229
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.3084
-Background SSIM   (basso=protezione ok): 0.7421
-Subject LPIPS     (basso=soggetto ok)  : 0.2601
-Editing score                          : 0.3447
-Mask coverage (% background)           : 0.7475
+Global LPIPS                           : 0.1520
+Background LPIPS                       : 0.1002
+Subject LPIPS                          : 0.3618
+Separation                             : 0.7831
+Editing score                          : 0.3618
+Mask coverage                          : 0.7475
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The cap is present in both images, so there is no semantic edit change."
+}

@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a travel agency
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 29.6239
+PSNR: 29.6244
 SSIM: 0.8992
 FSIM: 0.9287
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 21.3420
-SSIM: 0.7340
-FSIM: 0.6892
-
-CLIP score (Image vs Prompt)
-Edited Original:  19.0488
-Edited Immunized: 22.7410
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.7256
-Caption orig: A woman wearing a fur coat and carrying a purse walks down a city street.
-Caption adv:  A woman in a black and blue coat walks down a street.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 20.3052
+SSIM: 0.6617
+FSIM: 0.6225
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.3338
-Background SSIM   (basso=protezione ok): 0.7623
-Subject LPIPS     (basso=soggetto ok)  : 0.3789
-Editing score                          : 0.2775
-Mask coverage (% background)           : 0.6978
+Global LPIPS                           : 0.2996
+Background LPIPS                       : 0.2039
+Subject LPIPS                          : 0.6011
+Separation                             : 0.7467
+Editing score                          : 0.6011
+Mask coverage                          : 0.6978
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person in the image now has a cap, which was the intended edit."
+}

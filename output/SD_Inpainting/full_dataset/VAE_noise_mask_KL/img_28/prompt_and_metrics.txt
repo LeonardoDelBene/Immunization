@@ -4,32 +4,34 @@ A person in a tech startup
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.4361
-SSIM: 0.8838
-FSIM: 0.9188
+PSNR: 30.4703
+SSIM: 0.8850
+FSIM: 0.9187
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 19.0495
-SSIM: 0.6398
-FSIM: 0.4721
-
-CLIP score (Image vs Prompt)
-Edited Original:  20.7768
-Edited Immunized: 25.1812
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.7415
-Caption orig: A woman wearing a black and white shirt and sunglasses is standing in front of a chalkboard.
-Caption adv:  A woman wearing a black shirt and sunglasses is standing in front of a green background.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 17.8127
+SSIM: 0.5923
+FSIM: 0.4416
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.6089
-Background SSIM   (basso=protezione ok): 0.6620
-Subject LPIPS     (basso=soggetto ok)  : 0.4591
-Editing score                          : 0.3695
-Mask coverage (% background)           : 0.7033
+Global LPIPS                           : 0.5580
+Background LPIPS                       : 0.6596
+Subject LPIPS                          : 0.4447
+Separation                             : 0.5973
+Editing score                          : 0.6596
+Mask coverage                          : 0.7033
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person is still wearing sunglasses and holding a bag, which does not contradict the editing instruction."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image contains a person but lacks any clear indication of being in a tech startup setting. The background and objects do not align with the expected elements of a tech startup environment.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image contains a person but lacks any clear indication of being in a tech startup setting. The background and objects do not align with the expected elements of a tech startup environment.\"\n}\n```"
+}

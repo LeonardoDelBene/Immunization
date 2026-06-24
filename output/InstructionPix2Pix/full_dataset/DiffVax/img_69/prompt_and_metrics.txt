@@ -1,35 +1,138 @@
---- Prompt ---
-Put a red hat on the person in the image.
+add a beard to the person
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 34.62469740314844,
+  "psnr_edited_original_vs_edited_immunized": 18.164255272794726
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 34.2918
-SSIM: 0.9834
-FSIM: 0.9510
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 16.4466
-SSIM: 0.7007
-FSIM: 0.6122
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9862159899466293,
+  "ssim_edited_original_vs_edited_immunized": 0.7614639582543522
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  27.7449
-Edited Immunized: 24.7393
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.8150
-Caption orig: A woman wearing a red hat and carrying a shopping bag walks down the street.
-Caption adv:  A woman wearing a red hat and a brown dress is walking down the street.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9596411830346282,
+  "fsim_edited_original_vs_edited_immunized": 0.6657657669179221
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.5806
-Background SSIM   (basso=protezione ok): 0.3842
-Subject LPIPS     (basso=soggetto ok)  : 0.2735
-Editing score                          : 0.5529
-Mask coverage (% background)           : 0.2530
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.15191520930715247
+Global LPIPS : 0.03721635788679123
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.6156920591069521
+Global LPIPS : 0.23319211602210999
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The beard has been added to the person, but the image appears slightly blurry and less clear compared to the reference image.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The beard has been added to the person, but the image appears slightly blurry and less clear compared to the reference image.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 4.0,
+  "factor_scores": {
+    "background_infiltration": 4,
+    "global_coherence_ruin": 4,
+    "identity_erasure": 4,
+    "scale_distortion": 4,
+    "spatial_chaos": 4,
+    "texture_degradation": 4,
+    "distortion_effectiveness": 4,
+    "light_color_mismatch": 4,
+    "edge_visibility": 4,
+    "alignment_sabotage": 4,
+    "editing_incompleteness": 4,
+    "total_implausibility": 4
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 4,
+      "justification": "The background remains largely unchanged."
+    },
+    "global_coherence_ruin": {
+      "score": 4,
+      "justification": "The overall scene is coherent but the man's attire and beard appear unnatural."
+    },
+    "identity_erasure": {
+      "score": 4,
+      "justification": "The man's identity is recognizable but his attire and beard look unusual."
+    },
+    "scale_distortion": {
+      "score": 4,
+      "justification": "The man's beard and attire are proportionate but seem out of place."
+    },
+    "spatial_chaos": {
+      "score": 4,
+      "justification": "Spatial relationships are maintained but the man's attire and beard are not natural."
+    },
+    "texture_degradation": {
+      "score": 4,
+      "justification": "Textures are mostly preserved but the man's attire and beard have a different texture."
+    },
+    "distortion_effectiveness": {
+      "score": 4,
+      "justification": "The beard and attire are distorted but the overall image is still understandable."
+    },
+    "light_color_mismatch": {
+      "score": 4,
+      "justification": "Colors are consistent but the man's attire and beard are not natural."
+    },
+    "edge_visibility": {
+      "score": 4,
+      "justification": "Edges are smooth but the man's attire and beard are not natural."
+    },
+    "alignment_sabotage": {
+      "score": 4,
+      "justification": "The image aligns with the instruction but the man's attire and beard are not natural."
+    },
+    "editing_incompleteness": {
+      "score": 4,
+      "justification": "The beard is added but the man's attire is not natural."
+    },
+    "total_implausibility": {
+      "score": 4,
+      "justification": "The man's attire and beard are unnatural but the image is still somewhat coherent."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 4, \"justification\": \"The background remains largely unchanged.\"},\n  \"global_coherence_ruin\": {\"score\": 4, \"justification\": \"The overall scene is coherent but the man's attire and beard appear unnatural.\"},\n  \"identity_erasure\": {\"score\": 4, \"justification\": \"The man's identity is recognizable but his attire and beard look unusual.\"},\n  \"scale_distortion\": {\"score\": 4, \"justification\": \"The man's beard and attire are proportionate but seem out of place.\"},\n  \"spatial_chaos\": {\"score\": 4, \"justification\": \"Spatial relationships are maintained but the man's attire and beard are not natural.\"},\n  \"texture_degradation\": {\"score\": 4, \"justification\": \"Textures are mostly preserved but the man's attire and beard have a different texture.\"},\n  \"distortion_effectiveness\": {\"score\": 4, \"justification\": \"The beard and attire are distorted but the overall image is still understandable.\"},\n  \"light_color_mismatch\": {\"score\": 4, \"justification\": \"Colors are consistent but the man's attire and beard are not natural.\"},\n  \"edge_visibility\": {\"score\": 4, \"justification\": \"Edges are smooth but the man's attire and beard are not natural.\"},\n  \"alignment_sabotage\": {\"score\": 4, \"justification\": \"The image aligns with the instruction but the man's attire and beard are not natural.\"},\n  \"editing_incompleteness\": {\"score\": 4, \"justification\": \"The beard is added but the man's attire is not natural.\"},\n  \"total_implausibility\": {\"score\": 4, \"justification\": \"The man's attire and beard are unnatural but the image is still somewhat coherent.\"}\n}"
+}

@@ -4,32 +4,34 @@ A person in a jail
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.4689
-SSIM: 0.9262
-FSIM: 0.9209
+PSNR: 30.5796
+SSIM: 0.9253
+FSIM: 0.9213
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 15.1431
-SSIM: 0.3491
-FSIM: 0.5001
-
-CLIP score (Image vs Prompt)
-Edited Original:  21.2950
-Edited Immunized: 26.2496
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6694
-Caption orig: A young man wearing a black shirt with a picture of a dog on it.
-Caption adv:  A man wearing a black shirt with a dog on it stands in front of a brick wall.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
+PSNR: 14.9845
+SSIM: 0.3576
+FSIM: 0.5093
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.7116
-Background SSIM   (basso=protezione ok): 0.1817
-Subject LPIPS     (basso=soggetto ok)  : 0.2720
-Editing score                          : 0.6669
-Mask coverage (% background)           : 0.7003
+Global LPIPS                           : 0.5737
+Background LPIPS                       : 0.7571
+Subject LPIPS                          : 0.2818
+Separation                             : 0.7288
+Editing score                          : 0.7571
+Mask coverage                          : 0.7003
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person is still wearing a t-shirt with a dog and a flag design, which does not match the jail setting."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The image contains a person but does not depict them in a jail setting. The background appears to be a fence, which is not indicative of a jail environment.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The image contains a person but does not depict them in a jail setting. The background appears to be a fence, which is not indicative of a jail environment.\"\n}\n```"
+}

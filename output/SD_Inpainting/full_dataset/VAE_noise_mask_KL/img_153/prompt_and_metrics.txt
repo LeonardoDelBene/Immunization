@@ -4,32 +4,34 @@ A person in a parking garage
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 29.6128
-SSIM: 0.8629
-FSIM: 0.7941
+PSNR: 29.3437
+SSIM: 0.8610
+FSIM: 0.7927
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 16.8568
-SSIM: 0.4784
-FSIM: 0.4251
-
-CLIP score (Image vs Prompt)
-Edited Original:  26.5037
-Edited Immunized: 25.8353
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.5230
-Caption orig: A woman wearing a black jacket and a scarf is standing in a room.
-Caption adv:  A woman in a black dress and a scarf is standing in front of a mirror.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 16.8262
+SSIM: 0.4790
+FSIM: 0.4079
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.6852
-Background SSIM   (basso=protezione ok): 0.4577
-Subject LPIPS     (basso=soggetto ok)  : 0.6337
-Editing score                          : 0.4368
-Mask coverage (% background)           : 0.6923
+Global LPIPS                           : 0.6327
+Background LPIPS                       : 0.6692
+Subject LPIPS                          : 0.6429
+Separation                             : 0.5100
+Editing score                          : 0.6692
+Mask coverage                          : 0.6923
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person is still in a parking garage, but the image appears to be distorted with artifacts, which does not affect the semantic edit."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image shows a person in an indoor setting that appears to be a parking garage, but the image quality is severely distorted and pixelated, making it difficult to discern specific details. This distortion significantly alters the semantic content, failing to meet the requirement for a clear and recognizable parking garage scene.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image shows a person in an indoor setting that appears to be a parking garage, but the image quality is severely distorted and pixelated, making it difficult to discern specific details. This distortion significantly alters the semantic content, failing to meet the requirement for a clear and recognizable parking garage scene.\"\n}\n```"
+}

@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a tech startup launch
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
 PSNR: 29.4936
 SSIM: 0.9016
-FSIM: 0.8279
+FSIM: 0.8278
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 17.0015
-SSIM: 0.5348
-FSIM: 0.4955
-
-CLIP score (Image vs Prompt)
-Edited Original:  26.4051
-Edited Immunized: 25.9130
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.5159
-Caption orig: A man in a suit stands in front of a laptop, surrounded by other people.
-Caption adv:  A man in a black jacket stands in front of a group of people, who are all looking at him.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 22.2165
+SSIM: 0.7128
+FSIM: 0.6041
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.5808
-Background SSIM   (basso=protezione ok): 0.4966
-Subject LPIPS     (basso=soggetto ok)  : 0.5856
-Editing score                          : 0.3834
-Mask coverage (% background)           : 0.7269
+Global LPIPS                           : 0.3310
+Background LPIPS                       : 0.2510
+Subject LPIPS                          : 0.6459
+Separation                             : 0.7202
+Editing score                          : 0.6459
+Mask coverage                          : 0.7269
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person in the adversarial image is wearing a jacket with a pattern that does not match the original image where the person was wearing a plain jacket."
+}

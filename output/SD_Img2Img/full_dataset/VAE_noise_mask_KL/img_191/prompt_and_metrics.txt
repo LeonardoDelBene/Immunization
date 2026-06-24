@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a dormitory
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 31.5114
+PSNR: 31.5112
 SSIM: 0.9217
 FSIM: 0.9410
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 17.0953
-SSIM: 0.4999
-FSIM: 0.5185
-
-CLIP score (Image vs Prompt)
-Edited Original:  27.6280
-Edited Immunized: 28.9979
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.2917
-Caption orig: A woman wearing a blue dress with polka dots is standing in front of a mirror.
-Caption adv:  A woman with a large afro is standing in a room with other people.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 20.7442
+SSIM: 0.7636
+FSIM: 0.6986
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.5216
-Background SSIM   (basso=protezione ok): 0.4381
-Subject LPIPS     (basso=soggetto ok)  : 0.3078
-Editing score                          : 0.4925
-Mask coverage (% background)           : 0.7529
+Global LPIPS                           : 0.2134
+Background LPIPS                       : 0.0973
+Subject LPIPS                          : 0.5786
+Separation                             : 0.8560
+Editing score                          : 0.5786
+Mask coverage                          : 0.7529
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The cap is still present in the adversarial image."
+}

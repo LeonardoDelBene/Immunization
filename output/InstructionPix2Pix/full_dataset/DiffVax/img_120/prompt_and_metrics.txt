@@ -1,35 +1,138 @@
---- Prompt ---
-Put a red hat on the person in the image.
+add a bouquet of flowers in person's hand
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 34.174908907758194,
+  "psnr_edited_original_vs_edited_immunized": 19.1152196569389
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 32.9642
-SSIM: 0.9888
-FSIM: 0.9503
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 15.1151
-SSIM: 0.7530
-FSIM: 0.5174
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9924642684196444,
+  "ssim_edited_original_vs_edited_immunized": 0.7889902371322516
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  28.6537
-Edited Immunized: 27.7079
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.8999
-Caption orig: A woman wearing a red hat and holding a red hat on her head.
-Caption adv:  A woman wearing a red hat and carrying a red hat on her back.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9576870701695356,
+  "fsim_edited_original_vs_edited_immunized": 0.6186172070050208
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.6053
-Background SSIM   (basso=protezione ok): 0.4746
-Subject LPIPS     (basso=soggetto ok)  : 0.2662
-Editing score                          : 0.5400
-Mask coverage (% background)           : 0.2038
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.1407584880755385
+Global LPIPS : 0.01752718724310398
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.366572633700244
+Global LPIPS : 0.20817384123802185
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit of adding a bouquet of flowers in the person's hand is not clearly visible. The image appears blurry and the details are not sharp, making it difficult to recognize the edited part.",
+  "attack_success": 1,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit of adding a bouquet of flowers in the person's hand is not clearly visible. The image appears blurry and the details are not sharp, making it difficult to recognize the edited part.\",\n  \"attack_success\": 1\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 2.5833333333333335,
+  "factor_scores": {
+    "background_infiltration": 4,
+    "global_coherence_ruin": 3,
+    "identity_erasure": 2,
+    "scale_distortion": 1,
+    "spatial_chaos": 2,
+    "texture_degradation": 3,
+    "distortion_effectiveness": 4,
+    "light_color_mismatch": 2,
+    "edge_visibility": 3,
+    "alignment_sabotage": 4,
+    "editing_incompleteness": 1,
+    "total_implausibility": 2
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 4,
+      "justification": "The background has some blurred elements, but the main subject remains clear."
+    },
+    "global_coherence_ruin": {
+      "score": 3,
+      "justification": "The overall layout is slightly altered, but the image retains coherence."
+    },
+    "identity_erasure": {
+      "score": 2,
+      "justification": "The person's identity is not significantly erased, though there is some blurring."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No objects are rendered disproportionately large or small."
+    },
+    "spatial_chaos": {
+      "score": 2,
+      "justification": "Spatial relationships are slightly disrupted due to blurring."
+    },
+    "texture_degradation": {
+      "score": 3,
+      "justification": "Textures are somewhat degraded, but not completely corrupted."
+    },
+    "distortion_effectiveness": {
+      "score": 4,
+      "justification": "There is noticeable noise and blurring, affecting the image quality."
+    },
+    "light_color_mismatch": {
+      "score": 2,
+      "justification": "Colors are consistent, but there is a slight shift due to blurring."
+    },
+    "edge_visibility": {
+      "score": 3,
+      "justification": "Some edges are less sharp, indicating blurring."
+    },
+    "alignment_sabotage": {
+      "score": 4,
+      "justification": "The alignment of the image is slightly off, affecting the overall composition."
+    },
+    "editing_incompleteness": {
+      "score": 1,
+      "justification": "The edit of adding a bouquet of flowers is not clearly visible."
+    },
+    "total_implausibility": {
+      "score": 2,
+      "justification": "The image appears blurry, but the overall scene is still recognizable as a street setting."
+    }
+  },
+  "raw_output": "```json\n{\n  \"background_infiltration\": {\"score\": 4, \"justification\": \"The background has some blurred elements, but the main subject remains clear.\"},\n  \"global_coherence_ruin\": {\"score\": 3, \"justification\": \"The overall layout is slightly altered, but the image retains coherence.\"},\n  \"identity_erasure\": {\"score\": 2, \"justification\": \"The person's identity is not significantly erased, though there is some blurring.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No objects are rendered disproportionately large or small.\"},\n  \"spatial_chaos\": {\"score\": 2, \"justification\": \"Spatial relationships are slightly disrupted due to blurring.\"},\n  \"texture_degradation\": {\"score\": 3, \"justification\": \"Textures are somewhat degraded, but not completely corrupted.\"},\n  \"distortion_effectiveness\": {\"score\": 4, \"justification\": \"There is noticeable noise and blurring, affecting the image quality.\"},\n  \"light_color_mismatch\": {\"score\": 2, \"justification\": \"Colors are consistent, but there is a slight shift due to blurring.\"},\n  \"edge_visibility\": {\"score\": 3, \"justification\": \"Some edges are less sharp, indicating blurring.\"},\n  \"alignment_sabotage\": {\"score\": 4, \"justification\": \"The alignment of the image is slightly off, affecting the overall composition.\"},\n  \"editing_incompleteness\": {\"score\": 1, \"justification\": \"The edit of adding a bouquet of flowers is not clearly visible.\"},\n  \"total_implausibility\": {\"score\": 2, \"justification\": \"The image appears blurry, but the overall scene is still recognizable as a street setting.\"}\n}\n```"
+}

@@ -4,32 +4,34 @@ A person in a garage
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.0389
-SSIM: 0.9147
-FSIM: 0.8657
+PSNR: 29.9636
+SSIM: 0.9150
+FSIM: 0.8659
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 13.7325
-SSIM: 0.4374
-FSIM: 0.4277
-
-CLIP score (Image vs Prompt)
-Edited Original:  28.4025
-Edited Immunized: 26.1264
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6229
-Caption orig: A woman wearing a black and white polka dot sweater stands in front of a car.
-Caption adv:  A woman wearing a black and white polka dot sweater and a white collar.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.8000
-Success:   False
-Accuracy:  0.0000
+PSNR: 13.7531
+SSIM: 0.4209
+FSIM: 0.4253
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.7792
-Background SSIM   (basso=protezione ok): 0.3333
-Subject LPIPS     (basso=soggetto ok)  : 0.3689
-Editing score                          : 0.5904
-Mask coverage (% background)           : 0.7104
+Global LPIPS                           : 0.6485
+Background LPIPS                       : 0.7975
+Subject LPIPS                          : 0.3679
+Separation                             : 0.6843
+Editing score                          : 0.7975
+Mask coverage                          : 0.7104
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person is no longer in a garage; they appear to be in an indoor setting with a plain background."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image lacks any visible garage setting or car, which contradicts the editing prompt.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image lacks any visible garage setting or car, which contradicts the editing prompt.\"\n}\n```"
+}

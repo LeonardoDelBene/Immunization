@@ -4,32 +4,34 @@ A person in a soap store
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 28.6377
-SSIM: 0.8496
-FSIM: 0.8654
+PSNR: 28.5407
+SSIM: 0.8521
+FSIM: 0.8666
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 10.0571
-SSIM: 0.3542
-FSIM: 0.3940
-
-CLIP score (Image vs Prompt)
-Edited Original:  25.9495
-Edited Immunized: 25.3972
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.1622
-Caption orig: A woman wearing a black coat and holding a black umbrella.
-Caption adv:  A woman in a white dress stands in front of a hair salon.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 10.3538
+SSIM: 0.3601
+FSIM: 0.4020
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.6812
-Background SSIM   (basso=protezione ok): 0.1816
-Subject LPIPS     (basso=soggetto ok)  : 0.4433
-Editing score                          : 0.5520
-Mask coverage (% background)           : 0.6035
+Global LPIPS                           : 0.6000
+Background LPIPS                       : 0.6734
+Subject LPIPS                          : 0.4512
+Separation                             : 0.5988
+Editing score                          : 0.6734
+Mask coverage                          : 0.6035
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person is still in a store, but the shelves appear to be filled with different products, which does not match the soap store setting."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The semantic elements required by the prompt (a person in a soap store) are not present in the adversarial image. The background appears to be a different setting, and there are no visible soap products.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The semantic elements required by the prompt (a person in a soap store) are not present in the adversarial image. The background appears to be a different setting, and there are no visible soap products.\"\n}\n```"
+}

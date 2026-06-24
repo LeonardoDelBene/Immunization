@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a frozen yogurt shop
+A person in a tech gadget fair
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 33.9037492874022,
+  "psnr_edited_original_vs_edited_immunized": 12.456613532506395
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 33.9021
-SSIM: 0.9865
-FSIM: 0.9482
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 12.3925
-SSIM: 0.5609
-FSIM: 0.4795
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9865046545927706,
+  "ssim_edited_original_vs_edited_immunized": 0.5398447289736695
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  28.3602
-Edited Immunized: 28.1183
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.5750
-Caption orig: A man wearing a blue jacket and a green sweater stands in front of a display of candy.
-Caption adv:  A man wearing a blue jacket and a white shirt stands in front of a pink and green wall.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9483457753686256,
+  "fsim_edited_original_vs_edited_immunized": 0.4680215878938936
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.8590
-Background SSIM   (basso=protezione ok): 0.3903
-Subject LPIPS     (basso=soggetto ok)  : 0.0801
-Editing score                          : 0.5499
-Mask coverage (% background)           : 0.6916
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.08006357911540479
+Global LPIPS : 0.022126639261841774
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.08006357911540479
+Global LPIPS : 0.48820430040359497
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as the background has been changed from a tech gadget fair to a climbing wall with colorful spots. The image remains clear and recognizable.",
+  "attack_success": 1,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as the background has been changed from a tech gadget fair to a climbing wall with colorful spots. The image remains clear and recognizable.\",\n  \"attack_success\": 1\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 5.5,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 1,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 1,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been completely replaced with a climbing wall, altering the setting."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall scene is drastically altered, losing the original context."
+    },
+    "identity_erasure": {
+      "score": 1,
+      "justification": "The subject's identity is not erased; they remain recognizable."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No significant distortion in object sizes."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "Spatial relationships are disrupted, with the subject standing in front of a climbing wall."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "The texture of the background is completely replaced with a patterned design."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Visible noise and digital artifacts are introduced in the background."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "Colors in the background are inconsistent with the rest of the scene."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Visible seams and edges are present where the background changes."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The final image completely deviates from the intended tech gadget fair setting."
+    },
+    "editing_incompleteness": {
+      "score": 1,
+      "justification": "The editing is not incomplete; the entire background is altered."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd, showing a person in front of a climbing wall in a tech gadget fair setting."
+    }
+  },
+  "raw_output": "```json\n{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been completely replaced with a climbing wall, altering the setting.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall scene is drastically altered, losing the original context.\"},\n  \"identity_erasure\": {\"score\": 1, \"justification\": \"The subject's identity is not erased; they remain recognizable.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No significant distortion in object sizes.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"Spatial relationships are disrupted, with the subject standing in front of a climbing wall.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"The texture of the background is completely replaced with a patterned design.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Visible noise and digital artifacts are introduced in the background.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"Colors in the background are inconsistent with the rest of the scene.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Visible seams and edges are present where the background changes.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The final image completely deviates from the intended tech gadget fair setting.\"},\n  \"editing_incompleteness\": {\"score\": 1, \"justification\": \"The editing is not incomplete; the entire background is altered.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd, showing a person in front of a climbing wall in a tech gadget fair setting.\"}\n}\n```"
+}

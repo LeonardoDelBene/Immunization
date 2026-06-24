@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a computer lab
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.3440
+PSNR: 30.3442
 SSIM: 0.9362
 FSIM: 0.8473
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 16.9975
-SSIM: 0.7069
-FSIM: 0.5815
-
-CLIP score (Image vs Prompt)
-Edited Original:  28.0741
-Edited Immunized: 27.0677
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.5889
-Caption orig: A woman wearing a blue jacket and a striped dress is smiling at the camera.
-Caption adv:  A woman wearing a blue jacket and a striped dress stands in front of a computer.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 22.6873
+SSIM: 0.8113
+FSIM: 0.6542
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.4484
-Background SSIM   (basso=protezione ok): 0.6672
-Subject LPIPS     (basso=soggetto ok)  : 0.2108
-Editing score                          : 0.4527
-Mask coverage (% background)           : 0.6867
+Global LPIPS                           : 0.1752
+Background LPIPS                       : 0.1611
+Subject LPIPS                          : 0.2890
+Separation                             : 0.6421
+Editing score                          : 0.2890
+Mask coverage                          : 0.6867
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The cap is present in both images, so the semantic edit is correctly applied."
+}

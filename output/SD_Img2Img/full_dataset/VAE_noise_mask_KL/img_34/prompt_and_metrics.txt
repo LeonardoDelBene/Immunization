@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a city food tour
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
 PSNR: 29.8813
 SSIM: 0.8942
-FSIM: 0.8864
+FSIM: 0.8863
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 17.5729
-SSIM: 0.5747
-FSIM: 0.5728
-
-CLIP score (Image vs Prompt)
-Edited Original:  20.8460
-Edited Immunized: 22.3560
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.7926
-Caption orig: A woman wearing a black dress and a gold belt is standing on a street corner.
-Caption adv:  A woman wearing a black dress and a gold belt is standing in front of a building.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
+PSNR: 23.4297
+SSIM: 0.7426
+FSIM: 0.6697
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.5071
-Background SSIM   (basso=protezione ok): 0.5637
-Subject LPIPS     (basso=soggetto ok)  : 0.4460
-Editing score                          : 0.3661
-Mask coverage (% background)           : 0.7304
+Global LPIPS                           : 0.2828
+Background LPIPS                       : 0.1719
+Subject LPIPS                          : 0.6001
+Separation                             : 0.7773
+Editing score                          : 0.6001
+Mask coverage                          : 0.7304
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person in the image now appears to be wearing a cap."
+}

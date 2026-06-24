@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a high-end restaurant
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.9662
+PSNR: 30.9663
 SSIM: 0.9174
-FSIM: 0.9043
+FSIM: 0.9044
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 15.9471
-SSIM: 0.4912
-FSIM: 0.4842
-
-CLIP score (Image vs Prompt)
-Edited Original:  28.0206
-Edited Immunized: 29.1415
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.3034
-Caption orig: A woman wearing a black jacket and jeans is standing in a room with a dining table.
-Caption adv:  A man is sitting at a table with a woman in front of him.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 22.0218
+SSIM: 0.7338
+FSIM: 0.6523
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.6314
-Background SSIM   (basso=protezione ok): 0.4241
-Subject LPIPS     (basso=soggetto ok)  : 0.4406
-Editing score                          : 0.4610
-Mask coverage (% background)           : 0.7324
+Global LPIPS                           : 0.2903
+Background LPIPS                       : 0.2066
+Subject LPIPS                          : 0.6629
+Separation                             : 0.7624
+Editing score                          : 0.6629
+Mask coverage                          : 0.7324
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person in the image now appears to be wearing a hood, which does not match the original editing prompt requesting a cap."
+}

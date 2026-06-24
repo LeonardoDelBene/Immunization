@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a hot dog stand
+A person in a creative writing event
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 34.1504358949169,
+  "psnr_edited_original_vs_edited_immunized": 15.441701426529997
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 34.1506
-SSIM: 0.9892
-FSIM: 0.9598
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 14.0637
-SSIM: 0.5054
-FSIM: 0.5248
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9892341130725454,
+  "ssim_edited_original_vs_edited_immunized": 0.4063421207761288
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  28.0738
-Edited Immunized: 22.9702
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.7414
-Caption orig: A man wearing a hat and a plaid shirt stands in front of a food stand.
-Caption adv:  A man wearing a hat and a plaid shirt is standing in front of a wall with polka dots.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9599249798366974,
+  "fsim_edited_original_vs_edited_immunized": 0.5058519362685993
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.8190
-Background SSIM   (basso=protezione ok): 0.3444
-Subject LPIPS     (basso=soggetto ok)  : 0.1404
-Editing score                          : 0.5553
-Mask coverage (% background)           : 0.7291
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.14044763800813787
+Global LPIPS : 0.02632051520049572
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.14044763800813787
+Global LPIPS : 0.5765293836593628
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The background has been changed from a bookshelf to a wall with pink dots, indicating that the edit was applied. The image remains clear and recognizable.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The background has been changed from a bookshelf to a wall with pink dots, indicating that the edit was applied. The image remains clear and recognizable.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 6.5,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 7,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 7,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been completely replaced with a wall covered in pink dots."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall appearance of the image is drastically altered, losing all coherence."
+    },
+    "identity_erasure": {
+      "score": 7,
+      "justification": "The subject's background has been entirely changed, making the setting unrecognizable."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "The image appears normal in terms of object sizes."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "The spatial relationships have been completely disrupted, with the subject seemingly floating in a chaotic pattern."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "The original texture of the background has been replaced with a noisy, patterned texture."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Visible noise and digital artifacts are present throughout the image."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "The colors of the pink dots do not match the rest of the scene, creating a mismatch."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Sharp edges and visible seams are present around the subject and the new background."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The final image completely ignores the original instruction of a person in a creative writing event."
+    },
+    "editing_incompleteness": {
+      "score": 7,
+      "justification": "The editing has removed the original background, leaving the subject without context."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd, as the subject is placed in a completely unrelated and implausible setting."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been completely replaced with a wall covered in pink dots.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall appearance of the image is drastically altered, losing all coherence.\"},\n  \"identity_erasure\": {\"score\": 7, \"justification\": \"The subject's background has been entirely changed, making the setting unrecognizable.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"The image appears normal in terms of object sizes.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"The spatial relationships have been completely disrupted, with the subject seemingly floating in a chaotic pattern.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"The original texture of the background has been replaced with a noisy, patterned texture.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Visible noise and digital artifacts are present throughout the image.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"The colors of the pink dots do not match the rest of the scene, creating a mismatch.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Sharp edges and visible seams are present around the subject and the new background.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The final image completely ignores the original instruction of a person in a creative writing event.\"},\n  \"editing_incompleteness\": {\"score\": 7, \"justification\": \"The editing has removed the original background, leaving the subject without context.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd, as the subject is placed in a completely unrelated and implausible setting.\"}\n}"
+}

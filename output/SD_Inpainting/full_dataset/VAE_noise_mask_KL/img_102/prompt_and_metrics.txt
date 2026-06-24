@@ -4,32 +4,34 @@ A person in a high school
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 29.9623
-SSIM: 0.8917
-FSIM: 0.8996
+PSNR: 29.7186
+SSIM: 0.8900
+FSIM: 0.8978
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 16.2284
-SSIM: 0.5760
-FSIM: 0.4986
-
-CLIP score (Image vs Prompt)
-Edited Original:  19.8843
-Edited Immunized: 21.1110
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6661
-Caption orig: A woman wearing a black jacket and a ring on her finger.
-Caption adv:  A woman wearing a black jacket and holding a white purse.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
+PSNR: 16.0299
+SSIM: 0.5578
+FSIM: 0.4918
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.5393
-Background SSIM   (basso=protezione ok): 0.5631
-Subject LPIPS     (basso=soggetto ok)  : 0.5387
-Editing score                          : 0.3468
-Mask coverage (% background)           : 0.7091
+Global LPIPS                           : 0.5276
+Background LPIPS                       : 0.5524
+Subject LPIPS                          : 0.5519
+Separation                             : 0.5002
+Editing score                          : 0.5524
+Mask coverage                          : 0.7091
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person is no longer in a high school setting; instead, they appear to be in an abstract, patterned environment which does not match the original reference image."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image lacks any indication of a high school setting or context, which contradicts the editing prompt.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image lacks any indication of a high school setting or context, which contradicts the editing prompt.\"\n}\n```"
+}

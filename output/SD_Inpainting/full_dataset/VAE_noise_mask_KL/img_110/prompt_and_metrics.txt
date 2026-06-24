@@ -4,32 +4,34 @@ A person in a farmers' cooperative
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 29.2292
-SSIM: 0.9102
-FSIM: 0.8725
+PSNR: 29.5668
+SSIM: 0.9100
+FSIM: 0.8733
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 16.0178
-SSIM: 0.4339
-FSIM: 0.4466
-
-CLIP score (Image vs Prompt)
-Edited Original:  27.7335
-Edited Immunized: 26.1174
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.4432
-Caption orig: A woman in a brown coat and orange shirt stands in a field of green plants.
-Caption adv:  A woman wearing a brown coat and carrying a brown purse.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 16.0105
+SSIM: 0.4330
+FSIM: 0.4451
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.6895
-Background SSIM   (basso=protezione ok): 0.2973
-Subject LPIPS     (basso=soggetto ok)  : 0.3946
-Editing score                          : 0.5499
-Mask coverage (% background)           : 0.6754
+Global LPIPS                           : 0.5840
+Background LPIPS                       : 0.6932
+Subject LPIPS                          : 0.3944
+Separation                             : 0.6373
+Editing score                          : 0.6932
+Mask coverage                          : 0.6754
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person is still present, but the background has been changed from a field to an indoor setting with hanging plants, which does not align with the editing instruction."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image shows a person standing in what appears to be a greenhouse filled with plants, which does not align with the requirement of being in a farmers' cooperative.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image shows a person standing in what appears to be a greenhouse filled with plants, which does not align with the requirement of being in a farmers' cooperative.\"\n}\n```"
+}

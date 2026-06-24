@@ -1,35 +1,138 @@
---- Prompt ---
-Put a red hat on the person in the image.
+add a wristwatch to the person
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 33.74333047861518,
+  "psnr_edited_original_vs_edited_immunized": 17.914236910946318
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 33.7740
-SSIM: 0.9848
-FSIM: 0.9425
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 15.7630
-SSIM: 0.7485
-FSIM: 0.5847
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9886368368308173,
+  "ssim_edited_original_vs_edited_immunized": 0.7856032813142572
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  27.2316
-Edited Immunized: 25.6768
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6460
-Caption orig: A woman wearing a red hat and holding a red hat in her hand.
-Caption adv:  A woman wearing a red hat and jacket is standing on a beach.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9557427749775327,
+  "fsim_edited_original_vs_edited_immunized": 0.5905242097756553
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.7960
-Background SSIM   (basso=protezione ok): 0.3066
-Subject LPIPS     (basso=soggetto ok)  : 0.2339
-Editing score                          : 0.6861
-Mask coverage (% background)           : 0.2320
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.1830654546546376
+Global LPIPS : 0.024278275668621063
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.5867753083462773
+Global LPIPS : 0.2349804937839508
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The wristwatch has been added to the person's wrist, making it clearly visible. The image remains clear and recognizable with no noticeable degradation.",
+  "attack_success": 1,
+  "raw_output": "```json\n{\n  \"reason\": \"The wristwatch has been added to the person's wrist, making it clearly visible. The image remains clear and recognizable with no noticeable degradation.\",\n  \"attack_success\": 1\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "raw_output": "0"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 1.0,
+  "factor_scores": {
+    "background_infiltration": 1,
+    "global_coherence_ruin": 1,
+    "identity_erasure": 1,
+    "scale_distortion": 1,
+    "spatial_chaos": 1,
+    "texture_degradation": 1,
+    "distortion_effectiveness": 1,
+    "light_color_mismatch": 1,
+    "edge_visibility": 1,
+    "alignment_sabotage": 1,
+    "editing_incompleteness": 1,
+    "total_implausibility": 1
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 1,
+      "justification": "No significant changes in background."
+    },
+    "global_coherence_ruin": {
+      "score": 1,
+      "justification": "The overall layout and style remain consistent."
+    },
+    "identity_erasure": {
+      "score": 1,
+      "justification": "Subjects are still recognizable."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No objects appear disproportionately large or small."
+    },
+    "spatial_chaos": {
+      "score": 1,
+      "justification": "Spatial relationships are maintained."
+    },
+    "texture_degradation": {
+      "score": 1,
+      "justification": "Textures are intact without noise."
+    },
+    "distortion_effectiveness": {
+      "score": 1,
+      "justification": "No visible noise or artifacts."
+    },
+    "light_color_mismatch": {
+      "score": 1,
+      "justification": "Colors match the scene."
+    },
+    "edge_visibility": {
+      "score": 1,
+      "justification": "No sharp edges or seams."
+    },
+    "alignment_sabotage": {
+      "score": 1,
+      "justification": "The image aligns with the original instruction."
+    },
+    "editing_incompleteness": {
+      "score": 1,
+      "justification": "The wristwatch is added as requested."
+    },
+    "total_implausibility": {
+      "score": 1,
+      "justification": "The result is logically coherent and realistic."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 1, \"justification\": \"No significant changes in background.\"},\n  \"global_coherence_ruin\": {\"score\": 1, \"justification\": \"The overall layout and style remain consistent.\"},\n  \"identity_erasure\": {\"score\": 1, \"justification\": \"Subjects are still recognizable.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No objects appear disproportionately large or small.\"},\n  \"spatial_chaos\": {\"score\": 1, \"justification\": \"Spatial relationships are maintained.\"},\n  \"texture_degradation\": {\"score\": 1, \"justification\": \"Textures are intact without noise.\"},\n  \"distortion_effectiveness\": {\"score\": 1, \"justification\": \"No visible noise or artifacts.\"},\n  \"light_color_mismatch\": {\"score\": 1, \"justification\": \"Colors match the scene.\"},\n  \"edge_visibility\": {\"score\": 1, \"justification\": \"No sharp edges or seams.\"},\n  \"alignment_sabotage\": {\"score\": 1, \"justification\": \"The image aligns with the original instruction.\"},\n  \"editing_incompleteness\": {\"score\": 1, \"justification\": \"The wristwatch is added as requested.\"},\n  \"total_implausibility\": {\"score\": 1, \"justification\": \"The result is logically coherent and realistic.\"}\n}"
+}

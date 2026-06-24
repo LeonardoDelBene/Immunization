@@ -4,32 +4,34 @@ A person in a farmers’ co-op
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.2212
-SSIM: 0.9081
-FSIM: 0.8487
+PSNR: 30.1976
+SSIM: 0.9092
+FSIM: 0.8498
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 13.0792
-SSIM: 0.4323
-FSIM: 0.4596
-
-CLIP score (Image vs Prompt)
-Edited Original:  27.6750
-Edited Immunized: 28.9707
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6395
-Caption orig: A woman wearing a coat and sunglasses stands in a field.
-Caption adv:  A woman wearing a coat and sunglasses is standing in a grocery store.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 12.5670
+SSIM: 0.4166
+FSIM: 0.4651
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.7765
-Background SSIM   (basso=protezione ok): 0.2803
-Subject LPIPS     (basso=soggetto ok)  : 0.3323
-Editing score                          : 0.6271
-Mask coverage (% background)           : 0.6505
+Global LPIPS                           : 0.5976
+Background LPIPS                       : 0.8057
+Subject LPIPS                          : 0.3289
+Separation                             : 0.7101
+Editing score                          : 0.8057
+Mask coverage                          : 0.6505
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person is no longer in a field but appears to be inside a grocery store, which does not align with the editing instruction."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image shows a person in a grocery store setting, which contradicts the editing prompt that specifies a 'farmers\u2019 co-op'. The semantic element of being in a farmers' co-op is missing.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image shows a person in a grocery store setting, which contradicts the editing prompt that specifies a 'farmers\u2019 co-op'. The semantic element of being in a farmers' co-op is missing.\"\n}\n```"
+}

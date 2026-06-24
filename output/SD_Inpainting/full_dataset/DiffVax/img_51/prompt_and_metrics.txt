@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a yoga class
+A person in a glass factory
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 34.9621733884094,
+  "psnr_edited_original_vs_edited_immunized": 16.452115263791374
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 34.9607
-SSIM: 0.9917
-FSIM: 0.9715
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 15.8564
-SSIM: 0.6802
-FSIM: 0.5251
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9916738373299413,
+  "ssim_edited_original_vs_edited_immunized": 0.43120335305984286
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  23.3736
-Edited Immunized: 20.6160
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.7172
-Caption orig: A woman wearing a blue jacket and a white shirt stands in front of a colorful painting.
-Caption adv:  A woman wearing a blue jacket and a white shirt stands in front of a pink and grey wall.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9715563793287814,
+  "fsim_edited_original_vs_edited_immunized": 0.47559789490063525
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 1.0101
-Background SSIM   (basso=protezione ok): 0.5861
-Subject LPIPS     (basso=soggetto ok)  : 0.1249
-Editing score                          : 0.5030
-Mask coverage (% background)           : 0.7327
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.12489691690488915
+Global LPIPS : 0.027847282588481903
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.12489691690488915
+Global LPIPS : 0.6096429228782654
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as there is no significant change in the background or the person's appearance. The image remains clear and recognizable.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as there is no significant change in the background or the person's appearance. The image remains clear and recognizable.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 6.5,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 7,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 7,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been completely replaced with a pattern of pink dots."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall appearance of the image is drastically altered, losing all coherence."
+    },
+    "identity_erasure": {
+      "score": 7,
+      "justification": "The subject's identity is obscured by the new background pattern."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No noticeable distortion in object sizes."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "Spatial relationships are completely disrupted by the new background."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "The original texture is replaced by a noisy pattern."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Visible noise and blurring are introduced throughout the image."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "Colors are inconsistent with the rest of the scene due to the new background."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Sharp edges and visible seams are present in the attacked areas."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The final image completely deviates from the intended edit of a person in a glass factory."
+    },
+    "editing_incompleteness": {
+      "score": 7,
+      "justification": "The editing is left incomplete as the background is entirely changed."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd and physically impossible due to the new background pattern."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been completely replaced with a pattern of pink dots.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall appearance of the image is drastically altered, losing all coherence.\"},\n  \"identity_erasure\": {\"score\": 7, \"justification\": \"The subject's identity is obscured by the new background pattern.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No noticeable distortion in object sizes.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"Spatial relationships are completely disrupted by the new background.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"The original texture is replaced by a noisy pattern.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Visible noise and blurring are introduced throughout the image.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"Colors are inconsistent with the rest of the scene due to the new background.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Sharp edges and visible seams are present in the attacked areas.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The final image completely deviates from the intended edit of a person in a glass factory.\"},\n  \"editing_incompleteness\": {\"score\": 7, \"justification\": \"The editing is left incomplete as the background is entirely changed.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd and physically impossible due to the new background pattern.\"}\n}"
+}

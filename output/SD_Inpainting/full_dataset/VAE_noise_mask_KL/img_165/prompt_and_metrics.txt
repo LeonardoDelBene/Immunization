@@ -4,32 +4,34 @@ A person in a fast food drive-in
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 29.8913
-SSIM: 0.9051
-FSIM: 0.8024
+PSNR: 29.6315
+SSIM: 0.9034
+FSIM: 0.8007
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 12.3351
-SSIM: 0.4433
-FSIM: 0.4062
-
-CLIP score (Image vs Prompt)
-Edited Original:  26.5827
-Edited Immunized: 25.5419
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.7013
-Caption orig: A woman wearing a hat and a plaid dress stands in front of a car.
-Caption adv:  A woman wearing a black dress and hat is standing in front of a window.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 12.1491
+SSIM: 0.4401
+FSIM: 0.3995
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.7274
-Background SSIM   (basso=protezione ok): 0.3881
-Subject LPIPS     (basso=soggetto ok)  : 0.5546
-Editing score                          : 0.4745
-Mask coverage (% background)           : 0.7404
+Global LPIPS                           : 0.6674
+Background LPIPS                       : 0.7602
+Subject LPIPS                          : 0.5628
+Separation                             : 0.5746
+Editing score                          : 0.7602
+Mask coverage                          : 0.7404
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person is still holding a large object, which does not align with the editing prompt of a person in a fast food drive-in."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image does not depict a person in a fast food drive-in. Instead, it shows a person standing in front of a building with a sign that appears to be unrelated to a fast food drive-in.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image does not depict a person in a fast food drive-in. Instead, it shows a person standing in front of a building with a sign that appears to be unrelated to a fast food drive-in.\"\n}\n```"
+}

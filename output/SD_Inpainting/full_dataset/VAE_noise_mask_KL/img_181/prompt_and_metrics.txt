@@ -4,32 +4,34 @@ A person in a shopping center
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.2082
-SSIM: 0.9555
-FSIM: 0.8887
+PSNR: 30.2261
+SSIM: 0.9560
+FSIM: 0.8900
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 17.5895
-SSIM: 0.6776
-FSIM: 0.5896
-
-CLIP score (Image vs Prompt)
-Edited Original:  27.5458
-Edited Immunized: 27.3155
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.9075
-Caption orig: A woman wearing sunglasses and a checkered shirt stands in a crowded mall.
-Caption adv:  A woman wearing sunglasses and a black and white shirt is standing in a mall.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.4000
-Success:   True
-Accuracy:  1.0000
+PSNR: 18.2776
+SSIM: 0.7051
+FSIM: 0.6087
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.3955
-Background SSIM   (basso=protezione ok): 0.6279
-Subject LPIPS     (basso=soggetto ok)  : 0.2602
-Editing score                          : 0.4137
-Mask coverage (% background)           : 0.7403
+Global LPIPS                           : 0.3116
+Background LPIPS                       : 0.3615
+Subject LPIPS                          : 0.2459
+Separation                             : 0.5952
+Editing score                          : 0.3615
+Mask coverage                          : 0.7403
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person is still in a shopping center, but the image appears to be blurred and distorted, which does not satisfy the editing instruction."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image contains distorted and pixelated areas that obscure the semantic elements required by the prompt (a person in a shopping center). The image fails to maintain the clarity and presence of a person in a shopping environment.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image contains distorted and pixelated areas that obscure the semantic elements required by the prompt (a person in a shopping center). The image fails to maintain the clarity and presence of a person in a shopping environment.\"\n}\n```"
+}

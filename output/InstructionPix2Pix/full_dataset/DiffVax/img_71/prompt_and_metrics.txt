@@ -1,35 +1,138 @@
---- Prompt ---
-Put a red hat on the person in the image.
+add a tattoo on the person's arm
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 34.86351039585411,
+  "psnr_edited_original_vs_edited_immunized": 22.128887315440863
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 32.7364
-SSIM: 0.9861
-FSIM: 0.9430
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 14.3251
-SSIM: 0.7574
-FSIM: 0.6576
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9894825385008672,
+  "ssim_edited_original_vs_edited_immunized": 0.8664663646669881
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  25.6442
-Edited Immunized: 26.9454
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.5363
-Caption orig: A woman wearing a red hat and a brown dress is smiling and holding a book.
-Caption adv:  A woman wearing a red hat and carrying a red purse walks down the street.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9683324917508466,
+  "fsim_edited_original_vs_edited_immunized": 0.7275441779843534
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.6214
-Background SSIM   (basso=protezione ok): 0.4546
-Subject LPIPS     (basso=soggetto ok)  : 0.2424
-Editing score                          : 0.5667
-Mask coverage (% background)           : 0.2766
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.10090311294722493
+Global LPIPS : 0.022923298180103302
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.45865833025521974
+Global LPIPS : 0.1409442126750946
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is visible as there are additional tattoos on the person's arm. The image appears clear and recognizable.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is visible as there are additional tattoos on the person's arm. The image appears clear and recognizable.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 4.0,
+  "factor_scores": {
+    "background_infiltration": 4,
+    "global_coherence_ruin": 4,
+    "identity_erasure": 4,
+    "scale_distortion": 4,
+    "spatial_chaos": 4,
+    "texture_degradation": 4,
+    "distortion_effectiveness": 4,
+    "light_color_mismatch": 4,
+    "edge_visibility": 4,
+    "alignment_sabotage": 4,
+    "editing_incompleteness": 4,
+    "total_implausibility": 4
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 4,
+      "justification": "The background remains largely unchanged, with minor details like the backpack and people slightly altered."
+    },
+    "global_coherence_ruin": {
+      "score": 4,
+      "justification": "The overall layout and style of the image are preserved, though some elements are slightly distorted."
+    },
+    "identity_erasure": {
+      "score": 4,
+      "justification": "The subject's identity is not erased, but the added tattoos make her appear different."
+    },
+    "scale_distortion": {
+      "score": 4,
+      "justification": "The subject's body proportions are slightly altered due to the added tattoos."
+    },
+    "spatial_chaos": {
+      "score": 4,
+      "justification": "The spatial relationships between the subject and the background are maintained, but the added tattoos disrupt the original composition."
+    },
+    "texture_degradation": {
+      "score": 4,
+      "justification": "The original texture of the skin is somewhat altered by the added tattoos, but the overall texture is still recognizable."
+    },
+    "distortion_effectiveness": {
+      "score": 4,
+      "justification": "The added tattoos introduce visible noise and blurring, but they do not completely destroy the image."
+    },
+    "light_color_mismatch": {
+      "score": 4,
+      "justification": "The colors and shadows around the added tattoos are consistent with the rest of the scene."
+    },
+    "edge_visibility": {
+      "score": 4,
+      "justification": "There are no very visible edges or seams introduced by the added tattoos."
+    },
+    "alignment_sabotage": {
+      "score": 4,
+      "justification": "The final image still aligns with the original instruction, albeit with the addition of tattoos."
+    },
+    "editing_incompleteness": {
+      "score": 4,
+      "justification": "The added tattoos are a fundamental part of the requested edit, completing the task."
+    },
+    "total_implausibility": {
+      "score": 4,
+      "justification": "The final result is not visually absurd or physically impossible, as the added tattoos are a reasonable edit request."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 4, \"justification\": \"The background remains largely unchanged, with minor details like the backpack and people slightly altered.\"},\n  \"global_coherence_ruin\": {\"score\": 4, \"justification\": \"The overall layout and style of the image are preserved, though some elements are slightly distorted.\"},\n  \"identity_erasure\": {\"score\": 4, \"justification\": \"The subject's identity is not erased, but the added tattoos make her appear different.\"},\n  \"scale_distortion\": {\"score\": 4, \"justification\": \"The subject's body proportions are slightly altered due to the added tattoos.\"},\n  \"spatial_chaos\": {\"score\": 4, \"justification\": \"The spatial relationships between the subject and the background are maintained, but the added tattoos disrupt the original composition.\"},\n  \"texture_degradation\": {\"score\": 4, \"justification\": \"The original texture of the skin is somewhat altered by the added tattoos, but the overall texture is still recognizable.\"},\n  \"distortion_effectiveness\": {\"score\": 4, \"justification\": \"The added tattoos introduce visible noise and blurring, but they do not completely destroy the image.\"},\n  \"light_color_mismatch\": {\"score\": 4, \"justification\": \"The colors and shadows around the added tattoos are consistent with the rest of the scene.\"},\n  \"edge_visibility\": {\"score\": 4, \"justification\": \"There are no very visible edges or seams introduced by the added tattoos.\"},\n  \"alignment_sabotage\": {\"score\": 4, \"justification\": \"The final image still aligns with the original instruction, albeit with the addition of tattoos.\"},\n  \"editing_incompleteness\": {\"score\": 4, \"justification\": \"The added tattoos are a fundamental part of the requested edit, completing the task.\"},\n  \"total_implausibility\": {\"score\": 4, \"justification\": \"The final result is not visually absurd or physically impossible, as the added tattoos are a reasonable edit request.\"}\n}"
+}

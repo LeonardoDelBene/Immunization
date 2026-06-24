@@ -4,32 +4,34 @@ A person in a shipping yard
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 29.7127
-SSIM: 0.9493
-FSIM: 0.8602
+PSNR: 29.6963
+SSIM: 0.9498
+FSIM: 0.8619
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 12.7749
-SSIM: 0.4443
-FSIM: 0.4810
-
-CLIP score (Image vs Prompt)
-Edited Original:  27.4037
-Edited Immunized: 27.0087
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6476
-Caption orig: A woman wearing a black and white dress stands in front of a large red building.
-Caption adv:  A woman wearing a black and white dress stands in front of a large collection of shipping containers.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 13.4583
+SSIM: 0.4696
+FSIM: 0.4865
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.7289
-Background SSIM   (basso=protezione ok): 0.2897
-Subject LPIPS     (basso=soggetto ok)  : 0.3339
-Editing score                          : 0.6043
-Mask coverage (% background)           : 0.7048
+Global LPIPS                           : 0.5416
+Background LPIPS                       : 0.6849
+Subject LPIPS                          : 0.3339
+Separation                             : 0.6723
+Editing score                          : 0.6849
+Mask coverage                          : 0.7048
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person is still in a shipping yard, but the background appears to be altered with additional elements that do not match the original scene."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The adversarial image still shows a person standing in front of shipping containers, which aligns with the editing prompt. However, the image appears to be heavily distorted and pixelated, making it difficult to discern specific details. Despite the distortion, the overall context of a person in a shipping yard is maintained.",
+  "raw_output": "```json\n{\n  \"attack_success\": 0,\n  \"reason\": \"The adversarial image still shows a person standing in front of shipping containers, which aligns with the editing prompt. However, the image appears to be heavily distorted and pixelated, making it difficult to discern specific details. Despite the distortion, the overall context of a person in a shipping yard is maintained.\"\n}\n```"
+}

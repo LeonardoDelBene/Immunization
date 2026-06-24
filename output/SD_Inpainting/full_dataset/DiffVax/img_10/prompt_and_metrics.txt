@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a basement
+A person in a movie set
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 35.484733323024656,
+  "psnr_edited_original_vs_edited_immunized": 16.63810285488601
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 35.4858
-SSIM: 0.9844
-FSIM: 0.9480
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 17.4699
-SSIM: 0.4824
-FSIM: 0.4490
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9844358495043187,
+  "ssim_edited_original_vs_edited_immunized": 0.6110482193990344
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  21.2357
-Edited Immunized: 21.0448
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.8660
-Caption orig: A woman wearing a pink jacket and a blue skirt stands in front of a wall.
-Caption adv:  A woman wearing a pink jacket and a blue skirt stands in front of a pink background.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9479664049415294,
+  "fsim_edited_original_vs_edited_immunized": 0.5123568104793126
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.8393
-Background SSIM   (basso=protezione ok): 0.3020
-Subject LPIPS     (basso=soggetto ok)  : 0.0855
-Editing score                          : 0.5740
-Mask coverage (% background)           : 0.7170
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.08554309647431224
+Global LPIPS : 0.025137772783637047
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.08554309647431224
+Global LPIPS : 0.4445685148239136
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as there is no significant change in the image content. The image appears clear and recognizable with no noticeable degradation.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as there is no significant change in the image content. The image appears clear and recognizable with no noticeable degradation.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 6.5,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 7,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 7,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been heavily altered with a floral pattern."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall appearance is completely altered, losing the original setting."
+    },
+    "identity_erasure": {
+      "score": 7,
+      "justification": "The subject's identity is unrecognizable due to the background alteration."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No objects are rendered disproportionate or unrealistic in size."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "Spatial relationships are destroyed, with the subject appearing to be in front of a tree trunk."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "The original textures have been replaced by a noisy, artificial pattern."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Severe distortions are introduced, including blurring and digital artifacts."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "Colors are inconsistent with the rest of the scene, especially the background."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Visible seams and edges are present around the subject and background."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The final image completely deviates from the intended movie set scene."
+    },
+    "editing_incompleteness": {
+      "score": 7,
+      "justification": "The editing is left incomplete as the background is entirely altered."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd and physically impossible due to the background alteration."
+    }
+  },
+  "raw_output": "```json\n{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been heavily altered with a floral pattern.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall appearance is completely altered, losing the original setting.\"},\n  \"identity_erasure\": {\"score\": 7, \"justification\": \"The subject's identity is unrecognizable due to the background alteration.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No objects are rendered disproportionate or unrealistic in size.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"Spatial relationships are destroyed, with the subject appearing to be in front of a tree trunk.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"The original textures have been replaced by a noisy, artificial pattern.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Severe distortions are introduced, including blurring and digital artifacts.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"Colors are inconsistent with the rest of the scene, especially the background.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Visible seams and edges are present around the subject and background.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The final image completely deviates from the intended movie set scene.\"},\n  \"editing_incompleteness\": {\"score\": 7, \"justification\": \"The editing is left incomplete as the background is entirely altered.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd and physically impossible due to the background alteration.\"}\n}\n```"
+}

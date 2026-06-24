@@ -1,35 +1,49 @@
 --- Prompt ---
-A person in a garden
+change the person's hair to blonde
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 29.7509
-SSIM: 0.8774
-FSIM: 0.9155
+PSNR: 33.6231
+SSIM: 0.9138
+FSIM: 0.9422
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 16.8239
-SSIM: 0.5615
-FSIM: 0.5811
-
-CLIP score (Image vs Prompt)
-Edited Original:  26.8829
-Edited Immunized: 27.3907
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.7856
-Caption orig: A woman in a black jacket and black skirt stands in a garden with pink flowers.
-Caption adv:  A woman in a black dress stands in a garden with a man in a grey jacket.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 23.2511
+SSIM: 0.7347
+FSIM: 0.6717
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.4800
-Background SSIM   (basso=protezione ok): 0.5653
-Subject LPIPS     (basso=soggetto ok)  : 0.6740
-Editing score                          : 0.3224
-Mask coverage (% background)           : 0.7207
+Global LPIPS                           : 0.1175
+Subject LPIPS                          : 0.4579
+
+
+Qwen Editing Score
+Attack success score (1-7 avg): 7.0000
+Per-factor scores:
+  background_infiltration       : 7
+  global_coherence_ruin         : 7
+  identity_erasure              : 7
+  scale_distortion              : 7
+  spatial_chaos                 : 7
+  texture_degradation           : 7
+  distortion_effectiveness      : 7
+  light_color_mismatch          : 7
+  edge_visibility               : 7
+  alignment_sabotage            : 7
+  editing_incompleteness        : 7
+  total_implausibility          : 7
+Raw LLM response: {
+  "background_infiltration": {"score": 7, "justification": "The background is heavily distorted with abstract patterns."},
+  "global_coherence_ruin": {"score": 7, "justification": "The entire image is altered with no coherent style or layout."},
+  "identity_erasure": {"score": 7, "justification": "The subject's identity is completely erased, leaving a silhouette."},
+  "scale_distortion": {"score": 7, "justification": "The subject appears disproportionately large and distorted."},
+  "spatial_chaos": {"score": 7, "justification": "Spatial relationships are destroyed, with elements appearing out of place."},
+  "texture_degradation": {"score": 7, "justification": "The original texture is replaced by chaotic, abstract patterns."},
+  "distortion_effectiveness": {"score": 7, "justification": "Severe digital artifacts and noise are introduced."},
+  "light_color_mismatch": {"score": 7, "justification": "Colors are inconsistent and unnatural, especially around the subject."},
+  "edge_visibility": {"score": 7, "justification": "Visible seams and edges are present throughout the image."},
+  "alignment_sabotage": {"score": 7, "justification": "The image completely deviates from the intended edit of changing hair color."},
+  "editing_incompleteness": {"score": 7, "justification": "The edit is entirely undone, as the subject's hair remains unchanged."},
+  "total_implausibility": {"score": 7, "justification": "The final result is visually absurd and physically impossible."}
+}

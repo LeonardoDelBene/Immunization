@@ -1,35 +1,138 @@
---- Prompt ---
-Put a red hat on the person in the image.
+add sunglasses to the person
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 36.84935879871324,
+  "psnr_edited_original_vs_edited_immunized": 33.561527870517274
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 33.6586
-SSIM: 0.9849
-FSIM: 0.9398
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 22.8804
-SSIM: 0.9079
-FSIM: 0.7947
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9917946161962797,
+  "ssim_edited_original_vs_edited_immunized": 0.9676939391845615
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  26.9853
-Edited Immunized: 27.0810
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        1.0000
-Caption orig: A woman wearing a red hat and a red shirt is standing on the sidewalk.
-Caption adv:  A woman wearing a red hat and a red shirt is standing on the sidewalk.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.97540208157393,
+  "fsim_edited_original_vs_edited_immunized": 0.8634019601166232
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 1.0000
-Success:   False
-Accuracy:  0.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.1297
-Background SSIM   (basso=protezione ok): 0.8235
-Subject LPIPS     (basso=soggetto ok)  : 0.1322
-Editing score                          : 0.3256
-Mask coverage (% background)           : 0.2473
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.14312387588593603
+Global LPIPS : 0.02244589850306511
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.13365737051416376
+Global LPIPS : 0.032548271119594574
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as there are no sunglasses present on the person. The image appears clear and recognizable.",
+  "attack_success": 1,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as there are no sunglasses present on the person. The image appears clear and recognizable.\",\n  \"attack_success\": 1\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 1.0,
+  "factor_scores": {
+    "background_infiltration": 1,
+    "global_coherence_ruin": 1,
+    "identity_erasure": 1,
+    "scale_distortion": 1,
+    "spatial_chaos": 1,
+    "texture_degradation": 1,
+    "distortion_effectiveness": 1,
+    "light_color_mismatch": 1,
+    "edge_visibility": 1,
+    "alignment_sabotage": 1,
+    "editing_incompleteness": 1,
+    "total_implausibility": 1
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 1,
+      "justification": "No significant changes in background."
+    },
+    "global_coherence_ruin": {
+      "score": 1,
+      "justification": "No disruption in overall style and layout."
+    },
+    "identity_erasure": {
+      "score": 1,
+      "justification": "Subjects remain recognizable."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No objects rendered disproportionately."
+    },
+    "spatial_chaos": {
+      "score": 1,
+      "justification": "Spatial relationships intact."
+    },
+    "texture_degradation": {
+      "score": 1,
+      "justification": "Textures appear consistent."
+    },
+    "distortion_effectiveness": {
+      "score": 1,
+      "justification": "No visible noise or artifacts."
+    },
+    "light_color_mismatch": {
+      "score": 1,
+      "justification": "Colors and shadows consistent."
+    },
+    "edge_visibility": {
+      "score": 1,
+      "justification": "No visible edges or seams."
+    },
+    "alignment_sabotage": {
+      "score": 1,
+      "justification": "Image aligns with the original instruction."
+    },
+    "editing_incompleteness": {
+      "score": 1,
+      "justification": "Editing complete; sunglasses not added."
+    },
+    "total_implausibility": {
+      "score": 1,
+      "justification": "Result is coherent and realistic."
+    }
+  },
+  "raw_output": "```json\n{\n  \"background_infiltration\": {\"score\": 1, \"justification\": \"No significant changes in background.\"},\n  \"global_coherence_ruin\": {\"score\": 1, \"justification\": \"No disruption in overall style and layout.\"},\n  \"identity_erasure\": {\"score\": 1, \"justification\": \"Subjects remain recognizable.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No objects rendered disproportionately.\"},\n  \"spatial_chaos\": {\"score\": 1, \"justification\": \"Spatial relationships intact.\"},\n  \"texture_degradation\": {\"score\": 1, \"justification\": \"Textures appear consistent.\"},\n  \"distortion_effectiveness\": {\"score\": 1, \"justification\": \"No visible noise or artifacts.\"},\n  \"light_color_mismatch\": {\"score\": 1, \"justification\": \"Colors and shadows consistent.\"},\n  \"edge_visibility\": {\"score\": 1, \"justification\": \"No visible edges or seams.\"},\n  \"alignment_sabotage\": {\"score\": 1, \"justification\": \"Image aligns with the original instruction.\"},\n  \"editing_incompleteness\": {\"score\": 1, \"justification\": \"Editing complete; sunglasses not added.\"},\n  \"total_implausibility\": {\"score\": 1, \"justification\": \"Result is coherent and realistic.\"}\n}\n```"
+}

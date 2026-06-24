@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a beachside boardwalk
+A person in a hotel
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 35.681743565439355,
+  "psnr_edited_original_vs_edited_immunized": 16.193810609680398
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 35.6812
-SSIM: 0.9903
-FSIM: 0.9714
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 15.0914
-SSIM: 0.5615
-FSIM: 0.4975
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9903484973039761,
+  "ssim_edited_original_vs_edited_immunized": 0.550955175298106
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  27.5987
-Edited Immunized: 21.8003
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6584
-Caption orig: A woman wearing a white sweater and a green and white skirt is standing on a beach.
-Caption adv:  A woman wearing a white sweater and a green and white skirt stands in front of a colorful wall.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9714453700132232,
+  "fsim_edited_original_vs_edited_immunized": 0.4926617677707729
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.8506
-Background SSIM   (basso=protezione ok): 0.4308
-Subject LPIPS     (basso=soggetto ok)  : 0.1086
-Editing score                          : 0.5348
-Mask coverage (% background)           : 0.7403
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.10855322271513125
+Global LPIPS : 0.01794831082224846
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.10855322271513125
+Global LPIPS : 0.6405858993530273
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The background has been changed from a hotel reception area to a wall with pink abstract patterns, indicating the edit was applied. The image remains clear and recognizable.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The background has been changed from a hotel reception area to a wall with pink abstract patterns, indicating the edit was applied. The image remains clear and recognizable.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 6.0,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 1,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 7,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been changed from a hotel reception area to a wall with pink abstract patterns."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall appearance of the image is significantly altered."
+    },
+    "identity_erasure": {
+      "score": 1,
+      "justification": "The subject remains recognizable."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No objects are rendered disproportionate."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "Spatial relationships have been destroyed."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "The original textures have been replaced by noise."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Visible noise and digital artifacts are present."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "Colors are inconsistent with the rest of the scene."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Visible 'seams' appear in the attacked areas."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The final image completely deviates from the intent of the original instruction."
+    },
+    "editing_incompleteness": {
+      "score": 7,
+      "justification": "Fundamental parts of the requested edit have been removed."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd and physically impossible."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been changed from a hotel reception area to a wall with pink abstract patterns.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall appearance of the image is significantly altered.\"},\n  \"identity_erasure\": {\"score\": 1, \"justification\": \"The subject remains recognizable.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No objects are rendered disproportionate.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"Spatial relationships have been destroyed.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"The original textures have been replaced by noise.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Visible noise and digital artifacts are present.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"Colors are inconsistent with the rest of the scene.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Visible 'seams' appear in the attacked areas.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The final image completely deviates from the intent of the original instruction.\"},\n  \"editing_incompleteness\": {\"score\": 7, \"justification\": \"Fundamental parts of the requested edit have been removed.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd and physically impossible.\"}\n}"
+}

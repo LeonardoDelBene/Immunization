@@ -4,32 +4,34 @@ A person in a flower garden
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.2600
-SSIM: 0.9329
-FSIM: 0.8830
+PSNR: 31.9412
+SSIM: 0.9443
+FSIM: 0.8995
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 15.6853
-SSIM: 0.4732
-FSIM: 0.5296
-
-CLIP score (Image vs Prompt)
-Edited Original:  27.8157
-Edited Immunized: 28.7541
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.7809
-Caption orig: A woman wearing a red jacket and sunglasses is talking on her cell phone.
-Caption adv:  A woman in a red jacket and sunglasses is talking on her cell phone while standing in a field of flowers.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
+PSNR: 15.9319
+SSIM: 0.4715
+FSIM: 0.5139
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.5578
-Background SSIM   (basso=protezione ok): 0.3728
-Subject LPIPS     (basso=soggetto ok)  : 0.2622
-Editing score                          : 0.5540
-Mask coverage (% background)           : 0.7318
+Global LPIPS                           : 0.4671
+Background LPIPS                       : 0.5542
+Subject LPIPS                          : 0.2209
+Separation                             : 0.7150
+Editing score                          : 0.5542
+Mask coverage                          : 0.7318
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person is still in a flower garden, but the background appears distorted and unnatural due to the editing process."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The adversarial image contains a person in a flower garden, but the person's face is heavily distorted and unrecognizable, which contradicts the requirement for a clear and identifiable person.",
+  "raw_output": "```json\n{\n  \"attack_success\": 0,\n  \"reason\": \"The adversarial image contains a person in a flower garden, but the person's face is heavily distorted and unrecognizable, which contradicts the requirement for a clear and identifiable person.\"\n}\n```"
+}

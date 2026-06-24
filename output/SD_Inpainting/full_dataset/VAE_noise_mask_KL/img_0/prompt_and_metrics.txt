@@ -4,32 +4,34 @@ A person in a weekend market
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 29.9791
-SSIM: 0.8787
-FSIM: 0.9162
+PSNR: 29.7509
+SSIM: 0.8774
+FSIM: 0.9155
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 15.0030
-SSIM: 0.4291
-FSIM: 0.4582
-
-CLIP score (Image vs Prompt)
-Edited Original:  28.4158
-Edited Immunized: 29.1602
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.3076
-Caption orig: A woman in a black leather jacket stands in front of a fruit stand.
-Caption adv:  A woman in a black dress is walking down a crowded street.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 14.8124
+SSIM: 0.4346
+FSIM: 0.4630
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.7239
-Background SSIM   (basso=protezione ok): 0.3854
-Subject LPIPS     (basso=soggetto ok)  : 0.6749
-Editing score                          : 0.4740
-Mask coverage (% background)           : 0.7207
+Global LPIPS                           : 0.6495
+Background LPIPS                       : 0.6870
+Subject LPIPS                          : 0.6740
+Separation                             : 0.5048
+Editing score                          : 0.6870
+Mask coverage                          : 0.7207
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person is still present in the image, but the background appears blurred and distorted, which does not align with the original scene of a weekend market."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image lacks clear semantic elements required by the editing prompt such as a person and a weekend market setting.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image lacks clear semantic elements required by the editing prompt such as a person and a weekend market setting.\"\n}\n```"
+}

@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a gymnasium
+A person in a transit station
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 34.565236715666025,
+  "psnr_edited_original_vs_edited_immunized": 15.59571915097784
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 34.5639
-SSIM: 0.9860
-FSIM: 0.9654
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 13.8848
-SSIM: 0.3930
-FSIM: 0.3459
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9859561145399112,
+  "ssim_edited_original_vs_edited_immunized": 0.5600704718302306
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  28.0680
-Edited Immunized: 19.9627
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.3871
-Caption orig: A man is walking in a gym with a camera around his neck.
-Caption adv:  A man wearing a blue shirt and holding a camera is standing in front of a pink and yellow wall.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9653728289366669,
+  "fsim_edited_original_vs_edited_immunized": 0.46973559757461
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.9596
-Background SSIM   (basso=protezione ok): 0.3234
-Subject LPIPS     (basso=soggetto ok)  : 0.2198
-Editing score                          : 0.5698
-Mask coverage (% background)           : 0.8802
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.21977497439992652
+Global LPIPS : 0.03634142503142357
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.21977497439992652
+Global LPIPS : 0.5056636929512024
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as the person remains in a transit station. However, the image appears to be slightly blurred and the background has some unusual patterns, which might indicate degradation.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as the person remains in a transit station. However, the image appears to be slightly blurred and the background has some unusual patterns, which might indicate degradation.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 7.0,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 7,
+    "scale_distortion": 7,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 7,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background is heavily distorted with unusual patterns."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall appearance is totally altered with no coherent style or layout."
+    },
+    "identity_erasure": {
+      "score": 7,
+      "justification": "The subject's identity is lost due to the distortion."
+    },
+    "scale_distortion": {
+      "score": 7,
+      "justification": "Objects appear disproportionately large and unrealistic."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "Spatial relationships are destroyed, making the scene illogical."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "Textures are completely corrupted with noise and adversarial patterns."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Severe distortions are introduced, including blurring and digital artifacts."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "Colors and shadows are inconsistent with the rest of the scene."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Visible edges and seams are present in the attacked areas."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The final image completely deviates from the intent of the original instruction."
+    },
+    "editing_incompleteness": {
+      "score": 7,
+      "justification": "Fundamental parts of the requested edit are removed."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd and physically impossible."
+    }
+  },
+  "raw_output": "```json\n{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background is heavily distorted with unusual patterns.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall appearance is totally altered with no coherent style or layout.\"},\n  \"identity_erasure\": {\"score\": 7, \"justification\": \"The subject's identity is lost due to the distortion.\"},\n  \"scale_distortion\": {\"score\": 7, \"justification\": \"Objects appear disproportionately large and unrealistic.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"Spatial relationships are destroyed, making the scene illogical.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"Textures are completely corrupted with noise and adversarial patterns.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Severe distortions are introduced, including blurring and digital artifacts.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"Colors and shadows are inconsistent with the rest of the scene.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Visible edges and seams are present in the attacked areas.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The final image completely deviates from the intent of the original instruction.\"},\n  \"editing_incompleteness\": {\"score\": 7, \"justification\": \"Fundamental parts of the requested edit are removed.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd and physically impossible.\"}\n}\n```"
+}

@@ -4,32 +4,34 @@ A person in a call center
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.1322
-SSIM: 0.9328
-FSIM: 0.8891
+PSNR: 30.0949
+SSIM: 0.9332
+FSIM: 0.8903
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 14.2076
-SSIM: 0.5056
-FSIM: 0.4513
-
-CLIP score (Image vs Prompt)
-Edited Original:  27.7899
-Edited Immunized: 25.9892
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6762
-Caption orig: A woman wearing glasses and a hat is standing in an office.
-Caption adv:  A woman wearing a white hat and glasses is standing in front of a computer.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
+PSNR: 14.3694
+SSIM: 0.5020
+FSIM: 0.4489
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.6567
-Background SSIM   (basso=protezione ok): 0.4152
-Subject LPIPS     (basso=soggetto ok)  : 0.4357
-Editing score                          : 0.4767
-Mask coverage (% background)           : 0.7224
+Global LPIPS                           : 0.5660
+Background LPIPS                       : 0.6645
+Subject LPIPS                          : 0.4319
+Separation                             : 0.6061
+Editing score                          : 0.6645
+Mask coverage                          : 0.7224
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person is still wearing a headset, which suggests they are not in a call center."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image contains a person wearing a headset, which is consistent with being in a call center setting. However, the overall scene appears distorted and unnatural, indicating that the editing instruction was not fully satisfied.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image contains a person wearing a headset, which is consistent with being in a call center setting. However, the overall scene appears distorted and unnatural, indicating that the editing instruction was not fully satisfied.\"\n}\n```"
+}

@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a digital art gallery
+A person in a stadium tunnel
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 35.47225600865412,
+  "psnr_edited_original_vs_edited_immunized": 14.127763390678547
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 35.4716
-SSIM: 0.9893
-FSIM: 0.9617
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 13.7806
-SSIM: 0.4033
-FSIM: 0.3944
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9893201018488518,
+  "ssim_edited_original_vs_edited_immunized": 0.5460045459700668
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  29.8861
-Edited Immunized: 25.2945
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.5809
-Caption orig: A woman wearing a black jacket and a striped skirt stands in front of a colorful art display.
-Caption adv:  A woman wearing a black jacket and a striped skirt is smiling for the camera.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9617423503470861,
+  "fsim_edited_original_vs_edited_immunized": 0.41197293812444974
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.8644
-Background SSIM   (basso=protezione ok): 0.2013
-Subject LPIPS     (basso=soggetto ok)  : 0.1181
-Editing score                          : 0.6044
-Mask coverage (% background)           : 0.7300
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.118131349234355
+Global LPIPS : 0.024398518726229668
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.118131349234355
+Global LPIPS : 0.6516228318214417
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as the person is still in a tunnel-like environment. However, the image appears to be degraded with a greenish tint and pink spots, making it less clear and recognizable compared to the reference image.",
+  "attack_success": 1,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as the person is still in a tunnel-like environment. However, the image appears to be degraded with a greenish tint and pink spots, making it less clear and recognizable compared to the reference image.\",\n  \"attack_success\": 1\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 6.5,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 7,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 7,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been completely replaced with a greenish texture."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall appearance is drastically altered, losing the original setting."
+    },
+    "identity_erasure": {
+      "score": 7,
+      "justification": "The subject's identity is obscured by the new background texture."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No significant distortion in object sizes."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "Spatial relationships are disrupted due to the new background."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "The original texture is replaced with a noisy pattern."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Visible noise and blurring are introduced."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "Colors are inconsistent with the original scene."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Edges are blurred and not clearly defined."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The image completely deviates from the intended edit."
+    },
+    "editing_incompleteness": {
+      "score": 7,
+      "justification": "The original edit is entirely undone."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd and physically impossible."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been completely replaced with a greenish texture.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall appearance is drastically altered, losing the original setting.\"},\n  \"identity_erasure\": {\"score\": 7, \"justification\": \"The subject's identity is obscured by the new background texture.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No significant distortion in object sizes.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"Spatial relationships are disrupted due to the new background.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"The original texture is replaced with a noisy pattern.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Visible noise and blurring are introduced.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"Colors are inconsistent with the original scene.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Edges are blurred and not clearly defined.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The image completely deviates from the intended edit.\"},\n  \"editing_incompleteness\": {\"score\": 7, \"justification\": \"The original edit is entirely undone.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd and physically impossible.\"}\n}"
+}

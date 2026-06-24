@@ -1,35 +1,138 @@
---- Prompt ---
-Put a red hat on the person in the image.
+add a backpack to the person
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 34.176958637805825,
+  "psnr_edited_original_vs_edited_immunized": 20.22564282116244
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 33.8106
-SSIM: 0.9849
-FSIM: 0.9381
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 23.8482
-SSIM: 0.9021
-FSIM: 0.7919
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9867534874739876,
+  "ssim_edited_original_vs_edited_immunized": 0.8382883537162905
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  26.6750
-Edited Immunized: 26.7919
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.9061
-Caption orig: A man wearing a red hat and sunglasses is talking on his cell phone.
-Caption adv:  A man wearing a red hat and a red shirt is talking on his cell phone.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9566425099015367,
+  "fsim_edited_original_vs_edited_immunized": 0.6937183571716662
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.3313
-Background SSIM   (basso=protezione ok): 0.6659
-Subject LPIPS     (basso=soggetto ok)  : 0.0825
-Editing score                          : 0.4832
-Mask coverage (% background)           : 0.1574
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.27944462688182115
+Global LPIPS : 0.036624129861593246
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.6539533867995403
+Global LPIPS : 0.1449802815914154
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The backpack has been added to the person, but it appears to be a different style and color than the one in the reference image. The image is clear and recognizable.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The backpack has been added to the person, but it appears to be a different style and color than the one in the reference image. The image is clear and recognizable.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 4.0,
+  "factor_scores": {
+    "background_infiltration": 4,
+    "global_coherence_ruin": 4,
+    "identity_erasure": 4,
+    "scale_distortion": 4,
+    "spatial_chaos": 4,
+    "texture_degradation": 4,
+    "distortion_effectiveness": 4,
+    "light_color_mismatch": 4,
+    "edge_visibility": 4,
+    "alignment_sabotage": 4,
+    "editing_incompleteness": 4,
+    "total_implausibility": 4
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 4,
+      "justification": "The background remains largely unchanged."
+    },
+    "global_coherence_ruin": {
+      "score": 4,
+      "justification": "The overall layout is slightly altered but still coherent."
+    },
+    "identity_erasure": {
+      "score": 4,
+      "justification": "The person's identity is recognizable but the backpack appears different."
+    },
+    "scale_distortion": {
+      "score": 4,
+      "justification": "The backpack's size is slightly altered but not drastically."
+    },
+    "spatial_chaos": {
+      "score": 4,
+      "justification": "Spatial relationships are maintained, though there is a slight shift."
+    },
+    "texture_degradation": {
+      "score": 4,
+      "justification": "Textures are mostly preserved, with some minor changes."
+    },
+    "distortion_effectiveness": {
+      "score": 4,
+      "justification": "There are visible changes but the image remains understandable."
+    },
+    "light_color_mismatch": {
+      "score": 4,
+      "justification": "Colors are consistent, with a slight change in the backpack's shade."
+    },
+    "edge_visibility": {
+      "score": 4,
+      "justification": "Edges are smooth, with no noticeable seams."
+    },
+    "alignment_sabotage": {
+      "score": 4,
+      "justification": "The overall alignment is maintained, though details are altered."
+    },
+    "editing_incompleteness": {
+      "score": 4,
+      "justification": "The backpack is added, but its style is different."
+    },
+    "total_implausibility": {
+      "score": 4,
+      "justification": "The image is coherent but the backpack's style is unusual."
+    }
+  },
+  "raw_output": "```json\n{\n  \"background_infiltration\": {\"score\": 4, \"justification\": \"The background remains largely unchanged.\"},\n  \"global_coherence_ruin\": {\"score\": 4, \"justification\": \"The overall layout is slightly altered but still coherent.\"},\n  \"identity_erasure\": {\"score\": 4, \"justification\": \"The person's identity is recognizable but the backpack appears different.\"},\n  \"scale_distortion\": {\"score\": 4, \"justification\": \"The backpack's size is slightly altered but not drastically.\"},\n  \"spatial_chaos\": {\"score\": 4, \"justification\": \"Spatial relationships are maintained, though there is a slight shift.\"},\n  \"texture_degradation\": {\"score\": 4, \"justification\": \"Textures are mostly preserved, with some minor changes.\"},\n  \"distortion_effectiveness\": {\"score\": 4, \"justification\": \"There are visible changes but the image remains understandable.\"},\n  \"light_color_mismatch\": {\"score\": 4, \"justification\": \"Colors are consistent, with a slight change in the backpack's shade.\"},\n  \"edge_visibility\": {\"score\": 4, \"justification\": \"Edges are smooth, with no noticeable seams.\"},\n  \"alignment_sabotage\": {\"score\": 4, \"justification\": \"The overall alignment is maintained, though details are altered.\"},\n  \"editing_incompleteness\": {\"score\": 4, \"justification\": \"The backpack is added, but its style is different.\"},\n  \"total_implausibility\": {\"score\": 4, \"justification\": \"The image is coherent but the backpack's style is unusual.\"}\n}\n```"
+}

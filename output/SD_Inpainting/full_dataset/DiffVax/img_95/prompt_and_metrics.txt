@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a flower stall
+A person in a city center plaza
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 33.30305841895848,
+  "psnr_edited_original_vs_edited_immunized": 14.109722800342182
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 33.3031
-SSIM: 0.9897
-FSIM: 0.9626
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 14.0518
-SSIM: 0.5259
-FSIM: 0.5837
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9896653046793835,
+  "ssim_edited_original_vs_edited_immunized": 0.5473630692350798
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  31.9631
-Edited Immunized: 30.8924
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.8582
-Caption orig: A woman wearing a gray sweater and a floral skirt stands in front of a vibrant flower display.
-Caption adv:  A woman wearing a gray sweater and a floral skirt stands in front of a colorful flower wall.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9625239655251411,
+  "fsim_edited_original_vs_edited_immunized": 0.5544003803620002
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.6269
-Background SSIM   (basso=protezione ok): 0.3410
-Subject LPIPS     (basso=soggetto ok)  : 0.1158
-Editing score                          : 0.5393
-Mask coverage (% background)           : 0.6924
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.11587372991714479
+Global LPIPS : 0.02710481733083725
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.11587372991714479
+Global LPIPS : 0.542431116104126
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as the background has been altered with colorful scribbles, making it unrecognizable. The image is no longer clear and recognizable.",
+  "attack_success": 1,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as the background has been altered with colorful scribbles, making it unrecognizable. The image is no longer clear and recognizable.\",\n  \"attack_success\": 1\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 6.5,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 7,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 7,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background is completely altered with colorful scribbles."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall appearance is totally altered and no longer coherent."
+    },
+    "identity_erasure": {
+      "score": 7,
+      "justification": "The background subjects are unrecognizable due to the scribbles."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No objects are rendered disproportionate or unrealistic."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "Spatial relationships are destroyed with the scribbles."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "Textures are completely replaced by the scribbles."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Severe distortions are introduced with the scribbles."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "Colors are completely off due to the scribbles."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Visible edges and seams are present in the scribbled areas."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The image completely deviates from the intended city center plaza setting."
+    },
+    "editing_incompleteness": {
+      "score": 7,
+      "justification": "The editing is left incomplete as the background is altered."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd with the scribbles covering the entire background."
+    }
+  },
+  "raw_output": "```json\n{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background is completely altered with colorful scribbles.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall appearance is totally altered and no longer coherent.\"},\n  \"identity_erasure\": {\"score\": 7, \"justification\": \"The background subjects are unrecognizable due to the scribbles.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No objects are rendered disproportionate or unrealistic.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"Spatial relationships are destroyed with the scribbles.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"Textures are completely replaced by the scribbles.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Severe distortions are introduced with the scribbles.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"Colors are completely off due to the scribbles.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Visible edges and seams are present in the scribbled areas.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The image completely deviates from the intended city center plaza setting.\"},\n  \"editing_incompleteness\": {\"score\": 7, \"justification\": \"The editing is left incomplete as the background is altered.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd with the scribbles covering the entire background.\"}\n}\n```"
+}

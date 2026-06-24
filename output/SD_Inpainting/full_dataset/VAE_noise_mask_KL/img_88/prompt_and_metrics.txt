@@ -4,32 +4,34 @@ A person in a local bakery
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.9384
-SSIM: 0.9166
-FSIM: 0.8835
+PSNR: 30.8473
+SSIM: 0.9153
+FSIM: 0.8839
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 13.0147
-SSIM: 0.4196
-FSIM: 0.4290
-
-CLIP score (Image vs Prompt)
-Edited Original:  30.8093
-Edited Immunized: 32.3294
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6223
-Caption orig: A woman in a blue jacket is standing in front of a bakery display, smiling and pointing at the pastries.
-Caption adv:  A woman is standing in front of a display of donuts.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
+PSNR: 13.3695
+SSIM: 0.4410
+FSIM: 0.4482
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.5629
-Background SSIM   (basso=protezione ok): 0.3807
-Subject LPIPS     (basso=soggetto ok)  : 0.5400
-Editing score                          : 0.4109
-Mask coverage (% background)           : 0.7937
+Global LPIPS                           : 0.5314
+Background LPIPS                       : 0.5376
+Subject LPIPS                          : 0.5491
+Separation                             : 0.4947
+Editing score                          : 0.5376
+Mask coverage                          : 0.7937
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person is still present in the bakery, but the image appears to be distorted with artifacts, which does not affect the semantic edit."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The adversarial image still shows a person in a bakery, but the person appears distorted and the overall scene is blurred, which may not fully satisfy the requirement of having a clear and recognizable person in a local bakery.",
+  "raw_output": "```json\n{\n  \"attack_success\": 0,\n  \"reason\": \"The adversarial image still shows a person in a bakery, but the person appears distorted and the overall scene is blurred, which may not fully satisfy the requirement of having a clear and recognizable person in a local bakery.\"\n}\n```"
+}

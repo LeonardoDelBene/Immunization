@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a dance school
+A person in a public botanical garden
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 35.03587997683476,
+  "psnr_edited_original_vs_edited_immunized": 16.24400608027505
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 35.0351
-SSIM: 0.9890
-FSIM: 0.9738
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 19.7011
-SSIM: 0.7048
-FSIM: 0.5122
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9889608229048733,
+  "ssim_edited_original_vs_edited_immunized": 0.5057619654210214
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  22.5138
-Edited Immunized: 22.4902
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.7932
-Caption orig: A woman with blue hair and a grey jacket stands in front of a brick wall.
-Caption adv:  A woman with blue hair and a gray jacket stands in front of a pink and purple background.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9737875789136402,
+  "fsim_edited_original_vs_edited_immunized": 0.513093084702282
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.8825
-Background SSIM   (basso=protezione ok): 0.6198
-Subject LPIPS     (basso=soggetto ok)  : 0.1256
-Editing score                          : 0.4801
-Mask coverage (% background)           : 0.7346
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.1255819516113396
+Global LPIPS : 0.022408347576856613
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.1255819516113396
+Global LPIPS : 0.5233750343322754
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as the background has been changed from a natural botanical garden setting to a patterned, artificial-looking backdrop with pink dots. The image remains clear and recognizable.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as the background has been changed from a natural botanical garden setting to a patterned, artificial-looking backdrop with pink dots. The image remains clear and recognizable.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 5.5,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 1,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 1,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been completely replaced with a patterned, artificial-looking backdrop."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall appearance of the image is significantly altered, losing its natural botanical garden setting."
+    },
+    "identity_erasure": {
+      "score": 1,
+      "justification": "The subject's identity is not erased; they remain recognizable."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No objects are rendered disproportionate or unrealistic in size."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "Spatial relationships and perspective are destroyed, with the background appearing unnatural."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "The original textures have been replaced by a patterned, artificial texture."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Visible noise and digital artifacts are introduced, making the image appear distorted."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "Colors and shadows are inconsistent with the rest of the scene due to the artificial background."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Sharp edges and visible 'seams' appear where the background transitions into the foreground."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The final image completely deviates from the intent of the original instruction, which was a natural botanical garden setting."
+    },
+    "editing_incompleteness": {
+      "score": 1,
+      "justification": "The editing is not incomplete; the entire image has been altered."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd, as the background is completely unnatural and artificial."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been completely replaced with a patterned, artificial-looking backdrop.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall appearance of the image is significantly altered, losing its natural botanical garden setting.\"},\n  \"identity_erasure\": {\"score\": 1, \"justification\": \"The subject's identity is not erased; they remain recognizable.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No objects are rendered disproportionate or unrealistic in size.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"Spatial relationships and perspective are destroyed, with the background appearing unnatural.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"The original textures have been replaced by a patterned, artificial texture.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Visible noise and digital artifacts are introduced, making the image appear distorted.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"Colors and shadows are inconsistent with the rest of the scene due to the artificial background.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Sharp edges and visible 'seams' appear where the background transitions into the foreground.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The final image completely deviates from the intent of the original instruction, which was a natural botanical garden setting.\"},\n  \"editing_incompleteness\": {\"score\": 1, \"justification\": \"The editing is not incomplete; the entire image has been altered.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd, as the background is completely unnatural and artificial.\"}\n}"
+}

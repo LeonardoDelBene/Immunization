@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a shipping yard
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 29.6963
+PSNR: 29.6968
 SSIM: 0.9498
-FSIM: 0.8619
+FSIM: 0.8618
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 15.6901
-SSIM: 0.5874
-FSIM: 0.5448
-
-CLIP score (Image vs Prompt)
-Edited Original:  26.0170
-Edited Immunized: 31.0994
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6830
-Caption orig: A woman wearing a black and white dress stands in front of a large cargo ship.
-Caption adv:  A woman wearing a blue hat and a black and white dress stands in front of a large shipping container.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 5.8875
+SSIM: 0.0021
+FSIM: nan
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.4496
-Background SSIM   (basso=protezione ok): 0.4885
-Subject LPIPS     (basso=soggetto ok)  : 0.3339
-Editing score                          : 0.4330
-Mask coverage (% background)           : 0.7048
+Global LPIPS                           : 1.0510
+Background LPIPS                       : 0.9987
+Subject LPIPS                          : 0.9376
+Separation                             : 0.4842
+Editing score                          : 0.9376
+Mask coverage                          : 0.7048
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person in the adversarial image is wearing a cap, which matches the editing prompt."
+}

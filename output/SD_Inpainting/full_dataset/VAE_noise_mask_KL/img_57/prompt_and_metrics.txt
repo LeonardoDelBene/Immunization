@@ -4,32 +4,34 @@ A person in a dance school
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.6982
-SSIM: 0.9148
-FSIM: 0.9113
+PSNR: 30.6610
+SSIM: 0.9146
+FSIM: 0.9112
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 14.7040
-SSIM: 0.4671
-FSIM: 0.4280
-
-CLIP score (Image vs Prompt)
-Edited Original:  22.5138
-Edited Immunized: 23.4792
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.4116
-Caption orig: A woman with blue hair and a grey jacket stands in front of a brick wall.
-Caption adv:  A woman wearing a blue shirt and a white jacket is smiling at the camera.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 14.6072
+SSIM: 0.4689
+FSIM: 0.4355
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.8573
-Background SSIM   (basso=protezione ok): 0.4010
-Subject LPIPS     (basso=soggetto ok)  : 0.4427
-Editing score                          : 0.5570
-Mask coverage (% background)           : 0.7346
+Global LPIPS                           : 0.7266
+Background LPIPS                       : 0.8720
+Subject LPIPS                          : 0.4396
+Separation                             : 0.6648
+Editing score                          : 0.8720
+Mask coverage                          : 0.7346
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person is still present, but the background and multiple copies of the person suggest an unintended edit."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image contains multiple people, which contradicts the requirement for a single person in a dance school setting.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image contains multiple people, which contradicts the requirement for a single person in a dance school setting.\"\n}\n```"
+}

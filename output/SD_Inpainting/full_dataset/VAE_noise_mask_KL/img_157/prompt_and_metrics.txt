@@ -4,32 +4,34 @@ A person in a local art market
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.8223
-SSIM: 0.9329
-FSIM: 0.8995
+PSNR: 30.5921
+SSIM: 0.9319
+FSIM: 0.8992
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 15.1792
-SSIM: 0.4803
-FSIM: 0.4796
-
-CLIP score (Image vs Prompt)
-Edited Original:  29.6562
-Edited Immunized: 25.4667
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6274
-Caption orig: A woman wearing a black jacket and jeans stands in front of a collection of paintings.
-Caption adv:  A woman wearing a black jacket and black pants is standing in a crowded area.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 15.0892
+SSIM: 0.4873
+FSIM: 0.4823
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.6926
-Background SSIM   (basso=protezione ok): 0.3976
-Subject LPIPS     (basso=soggetto ok)  : 0.3323
-Editing score                          : 0.5584
-Mask coverage (% background)           : 0.7395
+Global LPIPS                           : 0.5419
+Background LPIPS                       : 0.6635
+Subject LPIPS                          : 0.3333
+Separation                             : 0.6656
+Editing score                          : 0.6635
+Mask coverage                          : 0.7395
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person is no longer in a local art market; instead, they appear to be in an outdoor market with stalls and people in the background."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image lacks the presence of a local art market as described in the editing prompt. Instead, it shows an outdoor market scene with different stalls and people, which does not align with the requirement for a local art market.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image lacks the presence of a local art market as described in the editing prompt. Instead, it shows an outdoor market scene with different stalls and people, which does not align with the requirement for a local art market.\"\n}\n```"
+}

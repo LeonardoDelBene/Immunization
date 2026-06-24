@@ -4,32 +4,34 @@ A person in a butcher’s block
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 33.0062
-SSIM: 0.9874
-FSIM: 0.9087
+PSNR: 32.7636
+SSIM: 0.9870
+FSIM: 0.9074
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 16.8209
-SSIM: 0.5865
-FSIM: 0.6140
-
-CLIP score (Image vs Prompt)
-Edited Original:  26.8447
-Edited Immunized: 26.2646
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.7039
-Caption orig: A man wearing a leopard print jacket stands in front of a deli counter.
-Caption adv:  A man wearing a leopard print jacket stands in front of a bakery display.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 17.0416
+SSIM: 0.5977
+FSIM: 0.6247
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.5073
-Background SSIM   (basso=protezione ok): 0.4282
-Subject LPIPS     (basso=soggetto ok)  : 0.2104
-Editing score                          : 0.5483
-Mask coverage (% background)           : 0.6972
+Global LPIPS                           : 0.3797
+Background LPIPS                       : 0.4990
+Subject LPIPS                          : 0.2188
+Separation                             : 0.6952
+Editing score                          : 0.4990
+Mask coverage                          : 0.6972
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person is no longer in a butcher's block; instead, they appear to be in a bakery with bread and pastries."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image shows a person in a butcher's shop, but the background has been altered to include bread instead of meat, which contradicts the original editing prompt.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image shows a person in a butcher's shop, but the background has been altered to include bread instead of meat, which contradicts the original editing prompt.\"\n}\n```"
+}

@@ -4,32 +4,34 @@ A person in a digital art gallery
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.2558
-SSIM: 0.9271
-FSIM: 0.9104
+PSNR: 29.9412
+SSIM: 0.9262
+FSIM: 0.9086
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 12.0557
-SSIM: 0.3712
-FSIM: 0.4240
-
-CLIP score (Image vs Prompt)
-Edited Original:  31.0771
-Edited Immunized: 28.6903
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6550
-Caption orig: A woman with glasses and a green cell phone standing in front of a collection of artwork.
-Caption adv:  A woman wearing glasses and a floral shirt stands in front of a purple background.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 12.1487
+SSIM: 0.3643
+FSIM: 0.4242
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.8302
-Background SSIM   (basso=protezione ok): 0.2569
-Subject LPIPS     (basso=soggetto ok)  : 0.4050
-Editing score                          : 0.6120
-Mask coverage (% background)           : 0.7352
+Global LPIPS                           : 0.6895
+Background LPIPS                       : 0.8336
+Subject LPIPS                          : 0.4191
+Separation                             : 0.6654
+Editing score                          : 0.8336
+Mask coverage                          : 0.7352
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person is still in a digital art gallery, but the background has been altered to a purple and green pattern, which does not contradict the original instruction."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image lacks the context of a digital art gallery, as indicated by the absence of artwork and the plain background.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image lacks the context of a digital art gallery, as indicated by the absence of artwork and the plain background.\"\n}\n```"
+}

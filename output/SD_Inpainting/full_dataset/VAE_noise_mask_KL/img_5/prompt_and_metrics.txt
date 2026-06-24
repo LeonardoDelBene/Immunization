@@ -4,32 +4,34 @@ A person in a food truck park
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.1495
-SSIM: 0.9096
-FSIM: 0.9073
+PSNR: 29.9635
+SSIM: 0.9082
+FSIM: 0.9071
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 12.1301
-SSIM: 0.4324
-FSIM: 0.3993
-
-CLIP score (Image vs Prompt)
-Edited Original:  27.1622
-Edited Immunized: 27.7330
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.5035
-Caption orig: A woman wearing a black and white shirt is holding a cup.
-Caption adv:  A woman wearing a black and white shirt and sunglasses is standing in front of a food truck.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
+PSNR: 11.9432
+SSIM: 0.4109
+FSIM: 0.3929
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.8135
-Background SSIM   (basso=protezione ok): 0.3404
-Subject LPIPS     (basso=soggetto ok)  : 0.3955
-Editing score                          : 0.5860
-Mask coverage (% background)           : 0.7179
+Global LPIPS                           : 0.6428
+Background LPIPS                       : 0.7889
+Subject LPIPS                          : 0.4018
+Separation                             : 0.6626
+Editing score                          : 0.7889
+Mask coverage                          : 0.7179
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person is still in front of a food truck, but the background has been altered to resemble a subway car, which does not align with the original editing prompt."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image does not contain a food truck or any indication of being in a food truck park.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image does not contain a food truck or any indication of being in a food truck park.\"\n}\n```"
+}

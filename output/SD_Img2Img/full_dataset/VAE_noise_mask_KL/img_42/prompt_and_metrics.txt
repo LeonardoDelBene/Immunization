@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a golf course clubhouse
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.8762
+PSNR: 30.8766
 SSIM: 0.9111
 FSIM: 0.9319
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 16.3588
-SSIM: 0.5414
-FSIM: 0.5132
-
-CLIP score (Image vs Prompt)
-Edited Original:  26.8789
-Edited Immunized: 24.5825
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.2205
-Caption orig: A man wearing a black tank top and black shorts stands outside.
-Caption adv:  A man and a woman are standing next to each other, with the woman's reflection in the man's shirt.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 24.5909
+SSIM: 0.8196
+FSIM: 0.7587
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.5989
-Background SSIM   (basso=protezione ok): 0.5059
-Subject LPIPS     (basso=soggetto ok)  : 0.5671
-Editing score                          : 0.3878
-Mask coverage (% background)           : 0.7378
+Global LPIPS                           : 0.1697
+Background LPIPS                       : 0.0488
+Subject LPIPS                          : 0.5717
+Separation                             : 0.9213
+Editing score                          : 0.5717
+Mask coverage                          : 0.7378
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person in the adversarial image is wearing a dress instead of a cap."
+}

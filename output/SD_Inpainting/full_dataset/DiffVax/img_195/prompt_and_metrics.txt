@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a travel kiosk
+A person in a public park gazebo
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 35.2717587268316,
+  "psnr_edited_original_vs_edited_immunized": 15.770817191625417
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 35.2705
-SSIM: 0.9912
-FSIM: 0.9669
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 14.1702
-SSIM: 0.5963
-FSIM: 0.5087
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9912153679230521,
+  "ssim_edited_original_vs_edited_immunized": 0.5961615896077047
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  32.3913
-Edited Immunized: 22.3835
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.7094
-Caption orig: A man wearing a plaid jacket and red pants stands in front of a large screen.
-Caption adv:  A man wearing a plaid jacket and red pants stands in front of a wall with a pattern of dots.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9669439336505316,
+  "fsim_edited_original_vs_edited_immunized": 0.5632023126691338
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.7979
-Background SSIM   (basso=protezione ok): 0.4263
-Subject LPIPS     (basso=soggetto ok)  : 0.1034
-Editing score                          : 0.5313
-Mask coverage (% background)           : 0.6810
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.10338266698638712
+Global LPIPS : 0.020769715309143066
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.10338266698638712
+Global LPIPS : 0.37715503573417664
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as there is no person in a public park gazebo. The image appears to be degraded with a transparent overlay and pink lines, making it unrecognizable.",
+  "attack_success": 1,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as there is no person in a public park gazebo. The image appears to be degraded with a transparent overlay and pink lines, making it unrecognizable.\",\n  \"attack_success\": 1\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 7.0,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 7,
+    "scale_distortion": 7,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 7,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been heavily altered with a spider web pattern."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall appearance is completely altered due to the spider web overlay."
+    },
+    "identity_erasure": {
+      "score": 7,
+      "justification": "The subject's face and features are obscured by the spider web pattern."
+    },
+    "scale_distortion": {
+      "score": 7,
+      "justification": "The spider web pattern distorts the scale of the gazebo and the subject."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "The spatial relationships are disrupted by the random placement of the spider web."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "The original texture of the image is replaced by a chaotic spider web pattern."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "The image exhibits severe distortions with visible noise and digital artifacts."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "The colors are inconsistent with the rest of the scene due to the spider web overlay."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Visible edges and seams are present around the spider web pattern."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The final image completely deviates from the intended edit of a person in a public park gazebo."
+    },
+    "editing_incompleteness": {
+      "score": 7,
+      "justification": "The editing is left incomplete as the subject is unrecognizable."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd and physically impossible due to the spider web overlay."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been heavily altered with a spider web pattern.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall appearance is completely altered due to the spider web overlay.\"},\n  \"identity_erasure\": {\"score\": 7, \"justification\": \"The subject's face and features are obscured by the spider web pattern.\"},\n  \"scale_distortion\": {\"score\": 7, \"justification\": \"The spider web pattern distorts the scale of the gazebo and the subject.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"The spatial relationships are disrupted by the random placement of the spider web.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"The original texture of the image is replaced by a chaotic spider web pattern.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"The image exhibits severe distortions with visible noise and digital artifacts.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"The colors are inconsistent with the rest of the scene due to the spider web overlay.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Visible edges and seams are present around the spider web pattern.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The final image completely deviates from the intended edit of a person in a public park gazebo.\"},\n  \"editing_incompleteness\": {\"score\": 7, \"justification\": \"The editing is left incomplete as the subject is unrecognizable.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd and physically impossible due to the spider web overlay.\"}\n}"
+}

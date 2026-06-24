@@ -4,32 +4,34 @@ A person in a beach resort
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.6627
-SSIM: 0.9459
-FSIM: 0.8985
+PSNR: 31.4927
+SSIM: 0.9472
+FSIM: 0.8999
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 13.3424
-SSIM: 0.5469
-FSIM: 0.4373
-
-CLIP score (Image vs Prompt)
-Edited Original:  26.2360
-Edited Immunized: 27.2355
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6742
-Caption orig: A woman wearing a white shirt and sunglasses is standing in front of palm trees.
-Caption adv:  A woman in a white dress stands on a beach, holding a handbag and wearing sunglasses.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
+PSNR: 13.2241
+SSIM: 0.5425
+FSIM: 0.4304
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.5803
-Background SSIM   (basso=protezione ok): 0.4955
-Subject LPIPS     (basso=soggetto ok)  : 0.4225
-Editing score                          : 0.4300
-Mask coverage (% background)           : 0.7755
+Global LPIPS                           : 0.5320
+Background LPIPS                       : 0.5874
+Subject LPIPS                          : 0.4062
+Separation                             : 0.5912
+Editing score                          : 0.5874
+Mask coverage                          : 0.7755
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The palm tree is present, but the overall scene does not match the beach resort setting as expected."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The image still shows a person in a beach setting with palm trees and a beach background, which aligns with the editing prompt.",
+  "raw_output": "```json\n{\n  \"attack_success\": 0,\n  \"reason\": \"The image still shows a person in a beach setting with palm trees and a beach background, which aligns with the editing prompt.\"\n}\n```"
+}

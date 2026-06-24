@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a soap store
+A person in a subway car
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 35.051299769120554,
+  "psnr_edited_original_vs_edited_immunized": 10.911307846355069
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 35.0493
-SSIM: 0.9854
-FSIM: 0.9614
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 11.3448
-SSIM: 0.4891
-FSIM: 0.4373
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.985454866054385,
+  "ssim_edited_original_vs_edited_immunized": 0.5431567871563922
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  25.9495
-Edited Immunized: 24.9927
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.4978
-Caption orig: A woman wearing a black coat and holding a black umbrella.
-Caption adv:  A woman wearing a black jacket and a green dress stands in front of a colorful wall.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9614384324116848,
+  "fsim_edited_original_vs_edited_immunized": 0.4843007729338698
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.7303
-Background SSIM   (basso=protezione ok): 0.1670
-Subject LPIPS     (basso=soggetto ok)  : 0.0615
-Editing score                          : 0.6055
-Mask coverage (% background)           : 0.6035
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.0615096792971852
+Global LPIPS : 0.02169305831193924
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.0615096792971852
+Global LPIPS : 0.43620795011520386
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as the background has changed from a subway car interior to a wall with pink patterns. The image appears clear and recognizable.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as the background has changed from a subway car interior to a wall with pink patterns. The image appears clear and recognizable.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 6.5,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 7,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 7,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been completely replaced with a wall featuring pink patterns."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall scene is drastically altered, losing its original subway setting."
+    },
+    "identity_erasure": {
+      "score": 7,
+      "justification": "The subjects' surroundings have been entirely changed, making them appear out of place."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "The image remains consistent in scale; no objects are rendered disproportionately."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "The spatial relationships are completely disrupted, with the subjects positioned against a wall instead of in a subway car."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "The original textures have been replaced with a patterned wall, significantly altering the image."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Visible noise and digital artifacts are introduced, making the image appear manipulated."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "The lighting and color scheme are inconsistent with the original subway environment."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Sharp edges and visible seams are present where the background has been altered."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The final image completely ignores the original instruction of a subway car setting."
+    },
+    "editing_incompleteness": {
+      "score": 7,
+      "justification": "The fundamental part of the requested edit (subway setting) has been removed."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd, depicting a person in a subway car with a wall of pink patterns behind them."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been completely replaced with a wall featuring pink patterns.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall scene is drastically altered, losing its original subway setting.\"},\n  \"identity_erasure\": {\"score\": 7, \"justification\": \"The subjects' surroundings have been entirely changed, making them appear out of place.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"The image remains consistent in scale; no objects are rendered disproportionately.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"The spatial relationships are completely disrupted, with the subjects positioned against a wall instead of in a subway car.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"The original textures have been replaced with a patterned wall, significantly altering the image.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Visible noise and digital artifacts are introduced, making the image appear manipulated.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"The lighting and color scheme are inconsistent with the original subway environment.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Sharp edges and visible seams are present where the background has been altered.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The final image completely ignores the original instruction of a subway car setting.\"},\n  \"editing_incompleteness\": {\"score\": 7, \"justification\": \"The fundamental part of the requested edit (subway setting) has been removed.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd, depicting a person in a subway car with a wall of pink patterns behind them.\"}\n}"
+}

@@ -4,32 +4,34 @@ A person in a rooftop lounge
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 31.8427
-SSIM: 0.9494
-FSIM: 0.9213
+PSNR: 31.7892
+SSIM: 0.9498
+FSIM: 0.9206
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 15.7996
-SSIM: 0.5622
-FSIM: 0.5289
-
-CLIP score (Image vs Prompt)
-Edited Original:  27.0886
-Edited Immunized: 27.1475
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.7555
-Caption orig: A woman wearing a black and white polka dot shirt stands on a rooftop in a city.
-Caption adv:  A woman wearing a black and white shirt stands in front of a city skyline.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
+PSNR: 15.5321
+SSIM: 0.5612
+FSIM: 0.5317
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.5537
-Background SSIM   (basso=protezione ok): 0.4981
-Subject LPIPS     (basso=soggetto ok)  : 0.2635
-Editing score                          : 0.5140
-Mask coverage (% background)           : 0.7603
+Global LPIPS                           : 0.4537
+Background LPIPS                       : 0.5556
+Subject LPIPS                          : 0.2697
+Separation                             : 0.6732
+Editing score                          : 0.5556
+Mask coverage                          : 0.7603
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person is still present in the image, but the background appears to be altered, which could be considered an unintended edit."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image contains distorted and unnatural elements that do not align with the semantic requirement of a 'person in a rooftop lounge'. The image appears to be heavily altered, making it impossible to identify the subject as a person in such an environment.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image contains distorted and unnatural elements that do not align with the semantic requirement of a 'person in a rooftop lounge'. The image appears to be heavily altered, making it impossible to identify the subject as a person in such an environment.\"\n}\n```"
+}

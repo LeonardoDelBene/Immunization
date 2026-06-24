@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a probation office
+A person in a beach resort
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 34.86737164666586,
+  "psnr_edited_original_vs_edited_immunized": 12.040336421402575
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 34.8659
-SSIM: 0.9905
-FSIM: 0.9649
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 15.0423
-SSIM: 0.6231
-FSIM: 0.4572
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9904785958946528,
+  "ssim_edited_original_vs_edited_immunized": 0.5577064076873904
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  27.8003
-Edited Immunized: 23.2764
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.7864
-Caption orig: A woman wearing a white shirt with an "ARM" logo stands in front of a sign.
-Caption adv:  A woman wearing a white shirt with an "ARM" logo stands in front of a wall covered in pink hearts.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9648652757123521,
+  "fsim_edited_original_vs_edited_immunized": 0.4699105936784171
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.7294
-Background SSIM   (basso=protezione ok): 0.4983
-Subject LPIPS     (basso=soggetto ok)  : 0.1133
-Editing score                          : 0.5022
-Mask coverage (% background)           : 0.7271
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.11329449392165857
+Global LPIPS : 0.023194991052150726
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.11329449392165857
+Global LPIPS : 0.563041627407074
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The background has been changed from a beach scene with palm trees and a boat to a fabric with pink flowers, indicating a significant change. The image remains clear and recognizable.",
+  "attack_success": 1,
+  "raw_output": "```json\n{\n  \"reason\": \"The background has been changed from a beach scene with palm trees and a boat to a fabric with pink flowers, indicating a significant change. The image remains clear and recognizable.\",\n  \"attack_success\": 1\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 5.0,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 1,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 1,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 1,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been changed from a beach scene with palm trees and a boat to a fabric with pink flowers."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall scene is completely altered, losing the original beach setting."
+    },
+    "identity_erasure": {
+      "score": 1,
+      "justification": "The subject remains recognizable, but the background is significantly changed."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No objects are rendered disproportionately or unrealistically in size."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "The spatial relationships and perspective are destroyed as the background is completely different."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "The original textures have been replaced by a fabric pattern with pink flowers."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Visible noise and digital artifacts are introduced due to the background change."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "The colors and shadows are inconsistent with the new background fabric."
+    },
+    "edge_visibility": {
+      "score": 1,
+      "justification": "There are no sharp edges or visible 'seams' in the attacked area."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The final image completely deviates from the intended beach setting."
+    },
+    "editing_incompleteness": {
+      "score": 1,
+      "justification": "The editing is not incomplete; the entire background has been changed."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd as it shows a person standing in front of a fabric backdrop instead of a beach."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been changed from a beach scene with palm trees and a boat to a fabric with pink flowers.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall scene is completely altered, losing the original beach setting.\"},\n  \"identity_erasure\": {\"score\": 1, \"justification\": \"The subject remains recognizable, but the background is significantly changed.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No objects are rendered disproportionately or unrealistically in size.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"The spatial relationships and perspective are destroyed as the background is completely different.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"The original textures have been replaced by a fabric pattern with pink flowers.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Visible noise and digital artifacts are introduced due to the background change.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"The colors and shadows are inconsistent with the new background fabric.\"},\n  \"edge_visibility\": {\"score\": 1, \"justification\": \"There are no sharp edges or visible 'seams' in the attacked area.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The final image completely deviates from the intended beach setting.\"},\n  \"editing_incompleteness\": {\"score\": 1, \"justification\": \"The editing is not incomplete; the entire background has been changed.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd as it shows a person standing in front of a fabric backdrop instead of a beach.\"}\n}"
+}

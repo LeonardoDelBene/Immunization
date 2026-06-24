@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a prison shower
+A person in a barber chair
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 34.898113031150984,
+  "psnr_edited_original_vs_edited_immunized": 12.238102184593348
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 34.8968
-SSIM: 0.9898
-FSIM: 0.9665
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 17.3442
-SSIM: 0.5099
-FSIM: 0.4147
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9898396943599446,
+  "ssim_edited_original_vs_edited_immunized": 0.4786656443923474
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  26.4887
-Edited Immunized: 21.1392
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6456
-Caption orig: A woman in a blue shirt and orange pants stands in a shower stall.
-Caption adv:  A woman wearing a blue shirt and orange pants stands in front of a pink and purple wall.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9665123598519424,
+  "fsim_edited_original_vs_edited_immunized": 0.41571641670251314
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.7847
-Background SSIM   (basso=protezione ok): 0.3554
-Subject LPIPS     (basso=soggetto ok)  : 0.1150
-Editing score                          : 0.5505
-Mask coverage (% background)           : 0.7348
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.11503908204212683
+Global LPIPS : 0.02166542410850525
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.11503908204212683
+Global LPIPS : 0.6488186120986938
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as the person is still in a barber chair, but the background has been changed to a plain wall with pink spots. The image appears clear and recognizable.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as the person is still in a barber chair, but the background has been changed to a plain wall with pink spots. The image appears clear and recognizable.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 6.0,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 1,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 7,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been completely replaced with a plain wall featuring pink spots."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall scene is altered, losing the barber shop context."
+    },
+    "identity_erasure": {
+      "score": 1,
+      "justification": "The subject remains recognizable as a person in a barber chair."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No significant distortion in object sizes."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "Spatial relationships are disrupted; the subject is no longer in a barber chair."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "The original texture is replaced with a patterned background."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Visible noise and digital artifacts are introduced."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "Colors are inconsistent with the original scene."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Sharp edges and seams are visible between the subject and the new background."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The final image completely deviates from the intended edit."
+    },
+    "editing_incompleteness": {
+      "score": 7,
+      "justification": "The editing is left incomplete as the background is altered."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd and physically impossible."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been completely replaced with a plain wall featuring pink spots.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall scene is altered, losing the barber shop context.\"},\n  \"identity_erasure\": {\"score\": 1, \"justification\": \"The subject remains recognizable as a person in a barber chair.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No significant distortion in object sizes.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"Spatial relationships are disrupted; the subject is no longer in a barber chair.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"The original texture is replaced with a patterned background.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Visible noise and digital artifacts are introduced.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"Colors are inconsistent with the original scene.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Sharp edges and seams are visible between the subject and the new background.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The final image completely deviates from the intended edit.\"},\n  \"editing_incompleteness\": {\"score\": 7, \"justification\": \"The editing is left incomplete as the background is altered.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd and physically impossible.\"}\n}"
+}

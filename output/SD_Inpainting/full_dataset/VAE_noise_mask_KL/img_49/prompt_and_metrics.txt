@@ -4,32 +4,34 @@ A person in a science museum exhibit
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 31.1472
-SSIM: 0.9268
-FSIM: 0.8879
+PSNR: 30.9024
+SSIM: 0.9255
+FSIM: 0.8860
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 19.1268
-SSIM: 0.5483
-FSIM: 0.4215
-
-CLIP score (Image vs Prompt)
-Edited Original:  28.7754
-Edited Immunized: 31.9668
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.5497
-Caption orig: A woman wearing sunglasses and a brown dress stands in front of a display of animal sculptures.
-Caption adv:  A woman wearing sunglasses and a black dress stands in front of a wall of text.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 18.5923
+SSIM: 0.5247
+FSIM: 0.4195
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.6551
-Background SSIM   (basso=protezione ok): 0.5124
-Subject LPIPS     (basso=soggetto ok)  : 0.5190
-Editing score                          : 0.4083
-Mask coverage (% background)           : 0.7607
+Global LPIPS                           : 0.5978
+Background LPIPS                       : 0.6680
+Subject LPIPS                          : 0.5371
+Separation                             : 0.5543
+Editing score                          : 0.6680
+Mask coverage                          : 0.7607
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person is no longer in a science museum exhibit; instead, they appear to be in front of a wall with text."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image does not contain a person in a science museum exhibit. Instead, it shows a green figure against a background of text.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image does not contain a person in a science museum exhibit. Instead, it shows a green figure against a background of text.\"\n}\n```"
+}

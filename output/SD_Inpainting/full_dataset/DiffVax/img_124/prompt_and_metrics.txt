@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a rooftop bar
+A person in a butcher’s block
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 34.95776602636027,
+  "psnr_edited_original_vs_edited_immunized": 13.946192339688064
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 34.9569
-SSIM: 0.9876
-FSIM: 0.9702
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 14.3280
-SSIM: 0.5459
-FSIM: 0.5067
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9875811545087064,
+  "ssim_edited_original_vs_edited_immunized": 0.5236003527927818
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  26.0844
-Edited Immunized: 21.5372
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.5575
-Caption orig: A woman wearing a white and blue dress stands on a rooftop, looking out over the city.
-Caption adv:  A woman wearing a blue and white dress stands in front of a wall with a pattern of pink dots.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9702063171019498,
+  "fsim_edited_original_vs_edited_immunized": 0.5305970081074509
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.9382
-Background SSIM   (basso=protezione ok): 0.3871
-Subject LPIPS     (basso=soggetto ok)  : 0.1445
-Editing score                          : 0.5541
-Mask coverage (% background)           : 0.7046
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.14445245223697104
+Global LPIPS : 0.02585206739604473
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.14445245223697104
+Global LPIPS : 0.6033203601837158
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as there is no butcher's block present. The image appears to be clear and recognizable with no noticeable degradation.",
+  "attack_success": 1,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as there is no butcher's block present. The image appears to be clear and recognizable with no noticeable degradation.\",\n  \"attack_success\": 1\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 6.0,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 1,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 7,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been completely replaced with a patterned texture."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall appearance of the image is significantly altered."
+    },
+    "identity_erasure": {
+      "score": 1,
+      "justification": "The subject remains recognizable."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No objects are rendered disproportionate."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "Spatial relationships are destroyed."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "Original textures have been replaced with a new pattern."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Visible noise and digital artifacts are introduced."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "Colors are inconsistent with the rest of the scene."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Visible seams and edges are present."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The image completely deviates from the intended edit."
+    },
+    "editing_incompleteness": {
+      "score": 7,
+      "justification": "The edit is removed entirely."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd and physically impossible."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been completely replaced with a patterned texture.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall appearance of the image is significantly altered.\"},\n  \"identity_erasure\": {\"score\": 1, \"justification\": \"The subject remains recognizable.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No objects are rendered disproportionate.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"Spatial relationships are destroyed.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"Original textures have been replaced with a new pattern.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Visible noise and digital artifacts are introduced.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"Colors are inconsistent with the rest of the scene.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Visible seams and edges are present.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The image completely deviates from the intended edit.\"},\n  \"editing_incompleteness\": {\"score\": 7, \"justification\": \"The edit is removed entirely.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd and physically impossible.\"}\n}"
+}

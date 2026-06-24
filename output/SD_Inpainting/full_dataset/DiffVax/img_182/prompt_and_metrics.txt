@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a city center plaza
+A person in a concert hall
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 34.93569232879128,
+  "psnr_edited_original_vs_edited_immunized": 13.342915316956795
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 34.9349
-SSIM: 0.9885
-FSIM: 0.9668
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 14.8930
-SSIM: 0.6589
-FSIM: 0.5298
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9885072734103856,
+  "ssim_edited_original_vs_edited_immunized": 0.5050485347108934
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  28.1113
-Edited Immunized: 24.0480
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.7291
-Caption orig: A woman wearing a brown coat and a striped shirt is standing on a sidewalk.
-Caption adv:  A woman wearing a brown coat and striped shirt stands in front of a wall with purple dots.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9668175799603319,
+  "fsim_edited_original_vs_edited_immunized": 0.45404974870968634
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.8503
-Background SSIM   (basso=protezione ok): 0.5255
-Subject LPIPS     (basso=soggetto ok)  : 0.1323
-Editing score                          : 0.5047
-Mask coverage (% background)           : 0.6755
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.13228977659934266
+Global LPIPS : 0.03327341377735138
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.13228977659934266
+Global LPIPS : 0.6797415018081665
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as the person is still in a concert hall setting. However, the image appears to be degraded with a noisy texture overlay, making it unrecognizable.",
+  "attack_success": 1,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as the person is still in a concert hall setting. However, the image appears to be degraded with a noisy texture overlay, making it unrecognizable.\",\n  \"attack_success\": 1\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 6.5,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 7,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 7,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been completely replaced with a noisy pattern."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The entire image is altered, losing all original context."
+    },
+    "identity_erasure": {
+      "score": 7,
+      "justification": "The subject's identity is obscured by the noise."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No significant distortion in object sizes."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "Spatial relationships are disrupted due to the noise."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "Original textures are replaced with a noisy pattern."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Severe noise and blurring are introduced."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "Colors are inconsistent with the rest of the scene."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Visible seams and edges are present."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The image completely deviates from the original instruction."
+    },
+    "editing_incompleteness": {
+      "score": 7,
+      "justification": "The editing is left incomplete with a noisy background."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd and physically impossible."
+    }
+  },
+  "raw_output": "```json\n{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been completely replaced with a noisy pattern.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The entire image is altered, losing all original context.\"},\n  \"identity_erasure\": {\"score\": 7, \"justification\": \"The subject's identity is obscured by the noise.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No significant distortion in object sizes.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"Spatial relationships are disrupted due to the noise.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"Original textures are replaced with a noisy pattern.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Severe noise and blurring are introduced.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"Colors are inconsistent with the rest of the scene.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Visible seams and edges are present.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The image completely deviates from the original instruction.\"},\n  \"editing_incompleteness\": {\"score\": 7, \"justification\": \"The editing is left incomplete with a noisy background.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd and physically impossible.\"}\n}\n```"
+}

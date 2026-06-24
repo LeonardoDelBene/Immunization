@@ -4,32 +4,34 @@ A person in a travel agency
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 29.8424
-SSIM: 0.8990
-FSIM: 0.9301
+PSNR: 29.6239
+SSIM: 0.8992
+FSIM: 0.9287
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 18.2251
-SSIM: 0.6558
-FSIM: 0.5907
-
-CLIP score (Image vs Prompt)
-Edited Original:  21.8369
-Edited Immunized: 24.2554
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.7018
-Caption orig: A woman wearing a fur coat and carrying a purse walks down a street.
-Caption adv:  A woman in a black and blue coat is walking down a busy street.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 17.9110
+SSIM: 0.6495
+FSIM: 0.5870
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.4779
-Background SSIM   (basso=protezione ok): 0.6582
-Subject LPIPS     (basso=soggetto ok)  : 0.3756
-Editing score                          : 0.3684
-Mask coverage (% background)           : 0.6978
+Global LPIPS                           : 0.4282
+Background LPIPS                       : 0.4811
+Subject LPIPS                          : 0.3789
+Separation                             : 0.5594
+Editing score                          : 0.4811
+Mask coverage                          : 0.6978
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person is no longer in a travel agency setting; instead, they appear to be in an indoor environment with artificial lighting and different background elements."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image does not depict a person in a travel agency as specified in the editing prompt.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image does not depict a person in a travel agency as specified in the editing prompt.\"\n}\n```"
+}

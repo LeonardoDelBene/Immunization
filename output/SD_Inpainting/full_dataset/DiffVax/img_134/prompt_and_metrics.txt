@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a public botanical garden
+A person in a local music showcase
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 34.73422536717524,
+  "psnr_edited_original_vs_edited_immunized": 13.238898779679737
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 34.7329
-SSIM: 0.9914
-FSIM: 0.9534
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 17.5785
-SSIM: 0.5605
-FSIM: 0.4996
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9914350152979813,
+  "ssim_edited_original_vs_edited_immunized": 0.5392536883930014
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  29.4525
-Edited Immunized: 27.9184
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.7588
-Caption orig: A woman wearing a black dress stands in a garden.
-Caption adv:  A woman wearing a black dress stands in front of a tree with pink flowers.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9533594103376162,
+  "fsim_edited_original_vs_edited_immunized": 0.3996370818090227
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.6029
-Background SSIM   (basso=protezione ok): 0.3967
-Subject LPIPS     (basso=soggetto ok)  : 0.1149
-Editing score                          : 0.5203
-Mask coverage (% background)           : 0.7053
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.11478254158281288
+Global LPIPS : 0.024946345016360283
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.11478254158281288
+Global LPIPS : 0.5728762745857239
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The background has been changed from a music showcase setting with people and equipment to a colorful, abstract pattern. The edit is clearly visible, and the image appears clean and recognizable.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The background has been changed from a music showcase setting with people and equipment to a colorful, abstract pattern. The edit is clearly visible, and the image appears clean and recognizable.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 6.5,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 7,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 7,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been replaced with a colorful, abstract pattern."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall scene is completely altered, losing its original context."
+    },
+    "identity_erasure": {
+      "score": 7,
+      "justification": "The subjects' identities are obscured by the new background."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No significant distortion in object sizes."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "Spatial relationships are disrupted as the background is unrelated to the original setting."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "The original texture is replaced by a noisy, abstract pattern."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Visible noise and blurring are introduced."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "Colors are inconsistent with the original scene."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Visible seams and edges are present in the new background."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The final image is completely unrelated to the original instruction."
+    },
+    "editing_incompleteness": {
+      "score": 7,
+      "justification": "The fundamental part of the edit (the background) is removed."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The result is visually absurd and physically impossible in the context of a music showcase setting."
+    }
+  },
+  "raw_output": "```json\n{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been replaced with a colorful, abstract pattern.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall scene is completely altered, losing its original context.\"},\n  \"identity_erasure\": {\"score\": 7, \"justification\": \"The subjects' identities are obscured by the new background.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No significant distortion in object sizes.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"Spatial relationships are disrupted as the background is unrelated to the original setting.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"The original texture is replaced by a noisy, abstract pattern.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Visible noise and blurring are introduced.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"Colors are inconsistent with the original scene.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Visible seams and edges are present in the new background.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The final image is completely unrelated to the original instruction.\"},\n  \"editing_incompleteness\": {\"score\": 7, \"justification\": \"The fundamental part of the edit (the background) is removed.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The result is visually absurd and physically impossible in the context of a music showcase setting.\"}\n}\n```"
+}

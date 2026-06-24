@@ -1,35 +1,138 @@
---- Prompt ---
-Put a red hat on the person in the image.
+change the person's hair color to blonde
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 34.716675337153056,
+  "psnr_edited_original_vs_edited_immunized": 30.18303206492931
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 34.0305
-SSIM: 0.9858
-FSIM: 0.9471
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 14.9318
-SSIM: 0.8037
-FSIM: 0.7170
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9880277331282564,
+  "ssim_edited_original_vs_edited_immunized": 0.9439169685703522
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  27.2418
-Edited Immunized: 28.6045
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.8968
-Caption orig: A woman wearing a red hat and a jacket stands in front of a graffiti wall.
-Caption adv:  A person wearing a red jacket and a red hat stands in front of a graffiti wall.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.959017475554004,
+  "fsim_edited_original_vs_edited_immunized": 0.8233001115295561
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.4227
-Background SSIM   (basso=protezione ok): 0.6001
-Subject LPIPS     (basso=soggetto ok)  : 0.1893
-Editing score                          : 0.4754
-Mask coverage (% background)           : 0.2605
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.12745490353871958
+Global LPIPS : 0.019948787987232208
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.10418883494703807
+Global LPIPS : 0.03227098658680916
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as the person's hair remains its original color. The image appears clear and recognizable.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as the person's hair remains its original color. The image appears clear and recognizable.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 1.25,
+  "factor_scores": {
+    "background_infiltration": 3,
+    "global_coherence_ruin": 2,
+    "identity_erasure": 1,
+    "scale_distortion": 1,
+    "spatial_chaos": 1,
+    "texture_degradation": 1,
+    "distortion_effectiveness": 1,
+    "light_color_mismatch": 1,
+    "edge_visibility": 1,
+    "alignment_sabotage": 1,
+    "editing_incompleteness": 1,
+    "total_implausibility": 1
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 3,
+      "justification": "Some small red dots are added to the background, but they do not significantly alter the overall background."
+    },
+    "global_coherence_ruin": {
+      "score": 2,
+      "justification": "The global coherence is slightly disrupted due to the addition of small red dots."
+    },
+    "identity_erasure": {
+      "score": 1,
+      "justification": "The subject's identity is not erased; she is still recognizable."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No objects are rendered disproportionately or unrealistically in size."
+    },
+    "spatial_chaos": {
+      "score": 1,
+      "justification": "Spatial relationships and perspective are not destroyed."
+    },
+    "texture_degradation": {
+      "score": 1,
+      "justification": "Textures are not replaced by noise or adversarial patterns."
+    },
+    "distortion_effectiveness": {
+      "score": 1,
+      "justification": "No visible noise, blurring, or digital artifacts are introduced."
+    },
+    "light_color_mismatch": {
+      "score": 1,
+      "justification": "Colors and shadows are consistent with the rest of the scene."
+    },
+    "edge_visibility": {
+      "score": 1,
+      "justification": "There are no sharp edges, halos, or visible 'seams' in the attacked areas."
+    },
+    "alignment_sabotage": {
+      "score": 1,
+      "justification": "The final image does not completely deviate from the intent of the original instruction."
+    },
+    "editing_incompleteness": {
+      "score": 1,
+      "justification": "The fundamental part of the requested edit (changing hair color) is not removed or undone."
+    },
+    "total_implausibility": {
+      "score": 1,
+      "justification": "The final result is not visually absurd or physically impossible."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 3, \"justification\": \"Some small red dots are added to the background, but they do not significantly alter the overall background.\"},\n  \"global_coherence_ruin\": {\"score\": 2, \"justification\": \"The global coherence is slightly disrupted due to the addition of small red dots.\"},\n  \"identity_erasure\": {\"score\": 1, \"justification\": \"The subject's identity is not erased; she is still recognizable.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No objects are rendered disproportionately or unrealistically in size.\"},\n  \"spatial_chaos\": {\"score\": 1, \"justification\": \"Spatial relationships and perspective are not destroyed.\"},\n  \"texture_degradation\": {\"score\": 1, \"justification\": \"Textures are not replaced by noise or adversarial patterns.\"},\n  \"distortion_effectiveness\": {\"score\": 1, \"justification\": \"No visible noise, blurring, or digital artifacts are introduced.\"},\n  \"light_color_mismatch\": {\"score\": 1, \"justification\": \"Colors and shadows are consistent with the rest of the scene.\"},\n  \"edge_visibility\": {\"score\": 1, \"justification\": \"There are no sharp edges, halos, or visible 'seams' in the attacked areas.\"},\n  \"alignment_sabotage\": {\"score\": 1, \"justification\": \"The final image does not completely deviate from the intent of the original instruction.\"},\n  \"editing_incompleteness\": {\"score\": 1, \"justification\": \"The fundamental part of the requested edit (changing hair color) is not removed or undone.\"},\n  \"total_implausibility\": {\"score\": 1, \"justification\": \"The final result is not visually absurd or physically impossible.\"}\n}"
+}

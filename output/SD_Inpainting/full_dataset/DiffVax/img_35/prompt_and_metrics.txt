@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a flower garden
+A person in a sports field
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 32.62502281207699,
+  "psnr_edited_original_vs_edited_immunized": 16.45650976896297
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 32.6239
-SSIM: 0.9876
-FSIM: 0.9540
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 13.6828
-SSIM: 0.4452
-FSIM: 0.4911
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9876129363078805,
+  "ssim_edited_original_vs_edited_immunized": 0.5925681740343959
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  27.8157
-Edited Immunized: 27.0182
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        1.0000
-Caption orig: A woman wearing a red jacket and sunglasses is talking on her cell phone.
-Caption adv:  A woman wearing a red jacket and sunglasses is talking on her cell phone.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9540201947841703,
+  "fsim_edited_original_vs_edited_immunized": 0.462014051044301
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 1.0000
-Success:   False
-Accuracy:  0.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.7825
-Background SSIM   (basso=protezione ok): 0.2582
-Subject LPIPS     (basso=soggetto ok)  : 0.0839
-Editing score                          : 0.5817
-Mask coverage (% background)           : 0.7318
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.08385281538264984
+Global LPIPS : 0.016335908323526382
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.08385281538264984
+Global LPIPS : 0.600760281085968
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The background has been changed from a sports field to a patterned wall, which is a significant edit. The image remains clear and recognizable.",
+  "attack_success": 1,
+  "raw_output": "```json\n{\n  \"reason\": \"The background has been changed from a sports field to a patterned wall, which is a significant edit. The image remains clear and recognizable.\",\n  \"attack_success\": 1\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 2.0,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 1,
+    "scale_distortion": 1,
+    "spatial_chaos": 1,
+    "texture_degradation": 1,
+    "distortion_effectiveness": 1,
+    "light_color_mismatch": 1,
+    "edge_visibility": 1,
+    "alignment_sabotage": 1,
+    "editing_incompleteness": 1,
+    "total_implausibility": 1
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been changed from a sports field to a patterned wall."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall appearance of the image is significantly altered."
+    },
+    "identity_erasure": {
+      "score": 1,
+      "justification": "The subject remains recognizable as a person in a sports field."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No objects are rendered disproportionately."
+    },
+    "spatial_chaos": {
+      "score": 1,
+      "justification": "Spatial relationships are maintained."
+    },
+    "texture_degradation": {
+      "score": 1,
+      "justification": "Textures are not replaced by noise or adversarial patterns."
+    },
+    "distortion_effectiveness": {
+      "score": 1,
+      "justification": "No visible noise, blurring, or digital artifacts."
+    },
+    "light_color_mismatch": {
+      "score": 1,
+      "justification": "Colors and shadows are consistent with the rest of the scene."
+    },
+    "edge_visibility": {
+      "score": 1,
+      "justification": "No sharp edges or visible 'seams' appear."
+    },
+    "alignment_sabotage": {
+      "score": 1,
+      "justification": "The image aligns with the original instruction."
+    },
+    "editing_incompleteness": {
+      "score": 1,
+      "justification": "No fundamental parts of the requested edit are removed."
+    },
+    "total_implausibility": {
+      "score": 1,
+      "justification": "The result is not visually absurd or physically impossible."
+    }
+  },
+  "raw_output": "```json\n{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been changed from a sports field to a patterned wall.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall appearance of the image is significantly altered.\"},\n  \"identity_erasure\": {\"score\": 1, \"justification\": \"The subject remains recognizable as a person in a sports field.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No objects are rendered disproportionately.\"},\n  \"spatial_chaos\": {\"score\": 1, \"justification\": \"Spatial relationships are maintained.\"},\n  \"texture_degradation\": {\"score\": 1, \"justification\": \"Textures are not replaced by noise or adversarial patterns.\"},\n  \"distortion_effectiveness\": {\"score\": 1, \"justification\": \"No visible noise, blurring, or digital artifacts.\"},\n  \"light_color_mismatch\": {\"score\": 1, \"justification\": \"Colors and shadows are consistent with the rest of the scene.\"},\n  \"edge_visibility\": {\"score\": 1, \"justification\": \"No sharp edges or visible 'seams' appear.\"},\n  \"alignment_sabotage\": {\"score\": 1, \"justification\": \"The image aligns with the original instruction.\"},\n  \"editing_incompleteness\": {\"score\": 1, \"justification\": \"No fundamental parts of the requested edit are removed.\"},\n  \"total_implausibility\": {\"score\": 1, \"justification\": \"The result is not visually absurd or physically impossible.\"}\n}\n```"
+}

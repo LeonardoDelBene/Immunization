@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a church sanctuary
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 29.7069
+PSNR: 29.7075
 SSIM: 0.9020
 FSIM: 0.8337
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 16.6784
-SSIM: 0.5452
-FSIM: 0.5080
-
-CLIP score (Image vs Prompt)
-Edited Original:  28.2468
-Edited Immunized: 25.2257
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6247
-Caption orig: A woman wearing a brown jacket and a blue shirt stands in front of a church.
-Caption adv:  A woman wearing a brown jacket and a hat is standing in front of a row of chairs.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 21.8415
+SSIM: 0.7094
+FSIM: 0.5761
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.6051
-Background SSIM   (basso=protezione ok): 0.4799
-Subject LPIPS     (basso=soggetto ok)  : 0.4286
-Editing score                          : 0.4409
-Mask coverage (% background)           : 0.6841
+Global LPIPS                           : 0.3780
+Background LPIPS                       : 0.2679
+Subject LPIPS                          : 0.6713
+Separation                             : 0.7147
+Editing score                          : 0.6713
+Mask coverage                          : 0.6841
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person in the adversarial image is wearing a hat, which satisfies the editing instruction."
+}

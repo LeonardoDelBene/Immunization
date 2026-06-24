@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a cocktail bar
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.5503
+PSNR: 30.5505
 SSIM: 0.9284
-FSIM: 0.8579
+FSIM: 0.8580
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 17.3779
-SSIM: 0.6775
-FSIM: 0.5551
-
-CLIP score (Image vs Prompt)
-Edited Original:  22.4212
-Edited Immunized: 23.6744
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6536
-Caption orig: A woman wearing a blue and white jacket and a white skirt is standing in front of a man.
-Caption adv:  A woman wearing a black and white jacket and a skirt is standing in front of a light.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 23.4050
+SSIM: 0.8061
+FSIM: 0.6506
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.5295
-Background SSIM   (basso=protezione ok): 0.6515
-Subject LPIPS     (basso=soggetto ok)  : 0.3743
-Editing score                          : 0.3918
-Mask coverage (% background)           : 0.7073
+Global LPIPS                           : 0.2251
+Background LPIPS                       : 0.1732
+Subject LPIPS                          : 0.4228
+Separation                             : 0.7093
+Editing score                          : 0.4228
+Mask coverage                          : 0.7073
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person in the image is wearing a cap, which matches the editing prompt."
+}

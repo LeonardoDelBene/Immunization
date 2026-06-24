@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a food truck park
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 29.9635
+PSNR: 29.9639
 SSIM: 0.9082
 FSIM: 0.9071
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 15.0565
-SSIM: 0.5423
-FSIM: 0.4644
-
-CLIP score (Image vs Prompt)
-Edited Original:  27.9292
-Edited Immunized: 27.7924
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.8496
-Caption orig: A woman wearing a black and white shirt is standing in front of a green food truck.
-Caption adv:  A woman wearing a black and white dress stands next to a green food truck.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
+PSNR: 22.1626
+SSIM: 0.7862
+FSIM: 0.7000
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.5507
-Background SSIM   (basso=protezione ok): 0.4916
-Subject LPIPS     (basso=soggetto ok)  : 0.4018
-Editing score                          : 0.4317
-Mask coverage (% background)           : 0.7179
+Global LPIPS                           : 0.2224
+Background LPIPS                       : 0.1149
+Subject LPIPS                          : 0.5967
+Separation                             : 0.8386
+Editing score                          : 0.5967
+Mask coverage                          : 0.7179
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person in the adversarial image is wearing a cap, which satisfies the editing instruction."
+}

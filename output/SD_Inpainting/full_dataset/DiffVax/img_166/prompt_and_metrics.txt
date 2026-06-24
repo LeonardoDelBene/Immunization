@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a pet adoption center
+A person in a children's museum
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 33.28309513212804,
+  "psnr_edited_original_vs_edited_immunized": 13.371837376717973
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 33.2832
-SSIM: 0.9870
-FSIM: 0.9522
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 15.0395
-SSIM: 0.4975
-FSIM: 0.4943
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9869922724484458,
+  "ssim_edited_original_vs_edited_immunized": 0.4874325227447378
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  21.2412
-Edited Immunized: 24.3535
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.5307
-Caption orig: A woman wearing a colorful jacket and holding a stuffed animal.
-Caption adv:  A woman wearing a colorful jacket and pants stands in front of a pink wall.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9522329624923772,
+  "fsim_edited_original_vs_edited_immunized": 0.48628529413987703
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.6982
-Background SSIM   (basso=protezione ok): 0.3585
-Subject LPIPS     (basso=soggetto ok)  : 0.1240
-Editing score                          : 0.5404
-Mask coverage (% background)           : 0.7620
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.1240046064782153
+Global LPIPS : 0.031064549461007118
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.1240046064782153
+Global LPIPS : 0.5505945682525635
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as the person is still in a children's museum setting with colorful walls. The image appears clear and recognizable.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as the person is still in a children's museum setting with colorful walls. The image appears clear and recognizable.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 4.0,
+  "factor_scores": {
+    "background_infiltration": 4,
+    "global_coherence_ruin": 4,
+    "identity_erasure": 4,
+    "scale_distortion": 4,
+    "spatial_chaos": 4,
+    "texture_degradation": 4,
+    "distortion_effectiveness": 4,
+    "light_color_mismatch": 4,
+    "edge_visibility": 4,
+    "alignment_sabotage": 4,
+    "editing_incompleteness": 4,
+    "total_implausibility": 4
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 4,
+      "justification": "The background has been changed to a different pattern, but the main subject remains."
+    },
+    "global_coherence_ruin": {
+      "score": 4,
+      "justification": "The overall scene is altered, but the subject is still recognizable."
+    },
+    "identity_erasure": {
+      "score": 4,
+      "justification": "The subject is still identifiable, though the background has been changed."
+    },
+    "scale_distortion": {
+      "score": 4,
+      "justification": "The subject's proportions are slightly altered, but not drastically."
+    },
+    "spatial_chaos": {
+      "score": 4,
+      "justification": "The spatial relationships are disrupted, but the subject is still in focus."
+    },
+    "texture_degradation": {
+      "score": 4,
+      "justification": "The texture of the background has been changed, but the subject remains clear."
+    },
+    "distortion_effectiveness": {
+      "score": 4,
+      "justification": "There is some distortion, but the subject is still recognizable."
+    },
+    "light_color_mismatch": {
+      "score": 4,
+      "justification": "The lighting and colors have been altered, but the subject is still clear."
+    },
+    "edge_visibility": {
+      "score": 4,
+      "justification": "There are some visible edges due to the change in background texture."
+    },
+    "alignment_sabotage": {
+      "score": 4,
+      "justification": "The alignment of the subject is slightly off, but the overall intent is maintained."
+    },
+    "editing_incompleteness": {
+      "score": 4,
+      "justification": "The subject is still present, but the background has been changed."
+    },
+    "total_implausibility": {
+      "score": 4,
+      "justification": "The background change makes the scene less coherent, but the subject is still recognizable."
+    }
+  },
+  "raw_output": "```json\n{\n  \"background_infiltration\": {\"score\": 4, \"justification\": \"The background has been changed to a different pattern, but the main subject remains.\"},\n  \"global_coherence_ruin\": {\"score\": 4, \"justification\": \"The overall scene is altered, but the subject is still recognizable.\"},\n  \"identity_erasure\": {\"score\": 4, \"justification\": \"The subject is still identifiable, though the background has been changed.\"},\n  \"scale_distortion\": {\"score\": 4, \"justification\": \"The subject's proportions are slightly altered, but not drastically.\"},\n  \"spatial_chaos\": {\"score\": 4, \"justification\": \"The spatial relationships are disrupted, but the subject is still in focus.\"},\n  \"texture_degradation\": {\"score\": 4, \"justification\": \"The texture of the background has been changed, but the subject remains clear.\"},\n  \"distortion_effectiveness\": {\"score\": 4, \"justification\": \"There is some distortion, but the subject is still recognizable.\"},\n  \"light_color_mismatch\": {\"score\": 4, \"justification\": \"The lighting and colors have been altered, but the subject is still clear.\"},\n  \"edge_visibility\": {\"score\": 4, \"justification\": \"There are some visible edges due to the change in background texture.\"},\n  \"alignment_sabotage\": {\"score\": 4, \"justification\": \"The alignment of the subject is slightly off, but the overall intent is maintained.\"},\n  \"editing_incompleteness\": {\"score\": 4, \"justification\": \"The subject is still present, but the background has been changed.\"},\n  \"total_implausibility\": {\"score\": 4, \"justification\": \"The background change makes the scene less coherent, but the subject is still recognizable.\"}\n}\n```"
+}

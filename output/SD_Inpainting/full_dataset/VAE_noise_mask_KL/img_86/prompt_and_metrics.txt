@@ -4,32 +4,34 @@ A person in a shopping center
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.8320
-SSIM: 0.9026
-FSIM: 0.8666
+PSNR: 30.6113
+SSIM: 0.9001
+FSIM: 0.8633
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 15.9412
-SSIM: 0.5913
-FSIM: 0.5158
-
-CLIP score (Image vs Prompt)
-Edited Original:  27.1941
-Edited Immunized: 28.6742
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.4689
-Caption orig: A woman wearing sunglasses and a black and blue dress is holding a shopping bag.
-Caption adv:  A woman wearing a blue and white dress and sunglasses is walking down a hallway.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 15.7782
+SSIM: 0.5786
+FSIM: 0.5119
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.5734
-Background SSIM   (basso=protezione ok): 0.5708
-Subject LPIPS     (basso=soggetto ok)  : 0.4323
-Editing score                          : 0.3987
-Mask coverage (% background)           : 0.7111
+Global LPIPS                           : 0.5004
+Background LPIPS                       : 0.5861
+Subject LPIPS                          : 0.4326
+Separation                             : 0.5753
+Editing score                          : 0.5861
+Mask coverage                          : 0.7111
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person is still in a shopping center, but the image appears to be heavily distorted with artifacts and noise, which is not relevant to the semantic edit."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image lacks the presence of a person and does not depict a shopping center environment.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image lacks the presence of a person and does not depict a shopping center environment.\"\n}\n```"
+}

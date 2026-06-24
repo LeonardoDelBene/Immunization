@@ -4,32 +4,34 @@ A person in a high-end restaurant
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 31.2366
-SSIM: 0.9185
-FSIM: 0.9061
+PSNR: 30.9662
+SSIM: 0.9174
+FSIM: 0.9043
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 14.4111
-SSIM: 0.5275
-FSIM: 0.4803
-
-CLIP score (Image vs Prompt)
-Edited Original:  29.2284
-Edited Immunized: 28.7235
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.4863
-Caption orig: A woman wearing a black jacket and scarf is walking through a restaurant.
-Caption adv:  A woman in a black jacket and black pants is standing in front of a table with a wine glass on it.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 14.6790
+SSIM: 0.5373
+FSIM: 0.4868
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.6216
-Background SSIM   (basso=protezione ok): 0.4757
-Subject LPIPS     (basso=soggetto ok)  : 0.4263
-Editing score                          : 0.4501
-Mask coverage (% background)           : 0.7324
+Global LPIPS                           : 0.5520
+Background LPIPS                       : 0.6419
+Subject LPIPS                          : 0.4406
+Separation                             : 0.5930
+Editing score                          : 0.6419
+Mask coverage                          : 0.7324
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person is still in a restaurant setting, but the image appears to have been edited to remove the high-end restaurant elements such as the tableware and the ambiance, which contradicts the original editing prompt."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image does not depict a person in a high-end restaurant. The person's attire and the setting do not align with the prompt.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image does not depict a person in a high-end restaurant. The person's attire and the setting do not align with the prompt.\"\n}\n```"
+}

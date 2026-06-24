@@ -4,32 +4,34 @@ A person in a hot dog stand
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 29.9977
-SSIM: 0.9240
-FSIM: 0.8697
+PSNR: 29.9148
+SSIM: 0.9248
+FSIM: 0.8699
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 15.7429
-SSIM: 0.5060
-FSIM: 0.5095
-
-CLIP score (Image vs Prompt)
-Edited Original:  28.0738
-Edited Immunized: 28.9494
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6489
-Caption orig: A man wearing a hat and a plaid shirt stands in front of a food stand.
-Caption adv:  A man wearing a plaid shirt is standing in a kitchen.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 16.0750
+SSIM: 0.5119
+FSIM: 0.5082
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.6142
-Background SSIM   (basso=protezione ok): 0.4356
-Subject LPIPS     (basso=soggetto ok)  : 0.4355
-Editing score                          : 0.4537
-Mask coverage (% background)           : 0.7291
+Global LPIPS                           : 0.5372
+Background LPIPS                       : 0.6164
+Subject LPIPS                          : 0.4337
+Separation                             : 0.5870
+Editing score                          : 0.6164
+Mask coverage                          : 0.7291
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person is still in front of a food stand, but there is no hot dog stand visible."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image does not contain any hot dogs or a hot dog stand, which contradicts the editing instruction.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image does not contain any hot dogs or a hot dog stand, which contradicts the editing instruction.\"\n}\n```"
+}

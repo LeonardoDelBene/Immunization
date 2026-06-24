@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a digital art gallery
+A person in a cocktail bar
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 34.65342876388113,
+  "psnr_edited_original_vs_edited_immunized": 13.445120644151787
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 34.6526
-SSIM: 0.9908
-FSIM: 0.9616
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 15.4128
-SSIM: 0.4818
-FSIM: 0.5016
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9908377079397921,
+  "ssim_edited_original_vs_edited_immunized": 0.49159569920843005
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  29.3013
-Edited Immunized: 25.4374
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.7038
-Caption orig: A woman wearing sunglasses and a scarf stands in front of a wall of colorful pictures.
-Caption adv:  A woman wearing a black coat and sunglasses is standing in front of a green and purple background.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9615591142851447,
+  "fsim_edited_original_vs_edited_immunized": 0.4579603659108968
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.7568
-Background SSIM   (basso=protezione ok): 0.2682
-Subject LPIPS     (basso=soggetto ok)  : 0.1174
-Editing score                          : 0.5737
-Mask coverage (% background)           : 0.6873
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.11743882439657123
+Global LPIPS : 0.031321004033088684
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.11743882439657123
+Global LPIPS : 0.5890970826148987
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The background has been changed from a bar setting with bottles to a wall with pink and green spots, indicating a significant change. The image remains clear and recognizable.",
+  "attack_success": 1,
+  "raw_output": "```json\n{\n  \"reason\": \"The background has been changed from a bar setting with bottles to a wall with pink and green spots, indicating a significant change. The image remains clear and recognizable.\",\n  \"attack_success\": 1\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 5.0,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 1,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 1,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 1,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been changed from a bar setting with bottles to a wall with pink and green spots."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall appearance of the image is significantly altered, losing its original context."
+    },
+    "identity_erasure": {
+      "score": 1,
+      "justification": "The subject remains recognizable, but the background has been changed."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "The subject's proportions are maintained, no distortion observed."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "The spatial relationships have been disrupted, with the background elements no longer fitting the scene."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "The original texture of the background has been replaced with a patterned texture."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Visible changes in the background texture and color scheme."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "The lighting and colors in the background do not match the original scene."
+    },
+    "edge_visibility": {
+      "score": 1,
+      "justification": "No sharp edges or visible seams are present."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The final image completely deviates from the intended bar setting."
+    },
+    "editing_incompleteness": {
+      "score": 1,
+      "justification": "The editing is not incomplete; the entire background has been altered."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd as it shows a person in a bar setting with a completely different background texture."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been changed from a bar setting with bottles to a wall with pink and green spots.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall appearance of the image is significantly altered, losing its original context.\"},\n  \"identity_erasure\": {\"score\": 1, \"justification\": \"The subject remains recognizable, but the background has been changed.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"The subject's proportions are maintained, no distortion observed.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"The spatial relationships have been disrupted, with the background elements no longer fitting the scene.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"The original texture of the background has been replaced with a patterned texture.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Visible changes in the background texture and color scheme.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"The lighting and colors in the background do not match the original scene.\"},\n  \"edge_visibility\": {\"score\": 1, \"justification\": \"No sharp edges or visible seams are present.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The final image completely deviates from the intended bar setting.\"},\n  \"editing_incompleteness\": {\"score\": 1, \"justification\": \"The editing is not incomplete; the entire background has been altered.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd as it shows a person in a bar setting with a completely different background texture.\"}\n}"
+}

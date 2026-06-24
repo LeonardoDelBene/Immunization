@@ -4,32 +4,34 @@ A person in a beach shack
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.6102
-SSIM: 0.9230
-FSIM: 0.8625
+PSNR: 30.5215
+SSIM: 0.9228
+FSIM: 0.8632
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 12.9716
-SSIM: 0.4264
-FSIM: 0.4903
-
-CLIP score (Image vs Prompt)
-Edited Original:  28.9013
-Edited Immunized: 28.8176
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.5934
-Caption orig: A man wearing a black jacket and a hat is standing in front of a hut.
-Caption adv:  A man wearing a black jacket and a white shirt is standing in front of a window.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 13.4352
+SSIM: 0.4430
+FSIM: 0.5034
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.6018
-Background SSIM   (basso=protezione ok): 0.3233
-Subject LPIPS     (basso=soggetto ok)  : 0.3586
-Editing score                          : 0.5285
-Mask coverage (% background)           : 0.7277
+Global LPIPS                           : 0.5247
+Background LPIPS                       : 0.6226
+Subject LPIPS                          : 0.3575
+Separation                             : 0.6352
+Editing score                          : 0.6226
+Mask coverage                          : 0.7277
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person is still in a beach shack, but the image appears to be distorted and pixelated, which may be due to an artifact rather than a semantic edit."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image does not contain a person in a beach shack as per the editing prompt. The person is present but the setting appears to be a different type of structure.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image does not contain a person in a beach shack as per the editing prompt. The person is present but the setting appears to be a different type of structure.\"\n}\n```"
+}

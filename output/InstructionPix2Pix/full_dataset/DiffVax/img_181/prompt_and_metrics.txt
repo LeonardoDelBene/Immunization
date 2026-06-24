@@ -1,35 +1,138 @@
---- Prompt ---
-Put a red hat on the person in the image.
+make the person older
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 33.88271998996973,
+  "psnr_edited_original_vs_edited_immunized": 25.19791721869773
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 33.6717
-SSIM: 0.9878
-FSIM: 0.9579
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 19.1372
-SSIM: 0.8841
-FSIM: 0.7406
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9916994682286856,
+  "ssim_edited_original_vs_edited_immunized": 0.9429508475547043
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  27.8643
-Edited Immunized: 25.6904
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.8290
-Caption orig: A woman wearing a red hat and a black shirt is standing on a city street.
-Caption adv:  A woman wearing a red polka dot shirt and a red mask stands on a city street.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9560765751174137,
+  "fsim_edited_original_vs_edited_immunized": 0.8158641044001174
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.2411
-Background SSIM   (basso=protezione ok): 0.7474
-Subject LPIPS     (basso=soggetto ok)  : 0.1364
-Editing score                          : 0.3904
-Mask coverage (% background)           : 0.2597
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.094069569442193
+Global LPIPS : 0.01715806871652603
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.11375605832842986
+Global LPIPS : 0.03288008272647858
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit to make the person older is visible as there are additional red dots on the person's face and body, which were not present in the reference image. The image remains clear and recognizable.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit to make the person older is visible as there are additional red dots on the person's face and body, which were not present in the reference image. The image remains clear and recognizable.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 2.75,
+  "factor_scores": {
+    "background_infiltration": 4,
+    "global_coherence_ruin": 4,
+    "identity_erasure": 4,
+    "scale_distortion": 1,
+    "spatial_chaos": 1,
+    "texture_degradation": 1,
+    "distortion_effectiveness": 4,
+    "light_color_mismatch": 1,
+    "edge_visibility": 1,
+    "alignment_sabotage": 4,
+    "editing_incompleteness": 4,
+    "total_implausibility": 4
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 4,
+      "justification": "Red dots added to the person's face."
+    },
+    "global_coherence_ruin": {
+      "score": 4,
+      "justification": "Red dots added to the person's face."
+    },
+    "identity_erasure": {
+      "score": 4,
+      "justification": "Red dots added to the person's face."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No noticeable distortion."
+    },
+    "spatial_chaos": {
+      "score": 1,
+      "justification": "No noticeable chaos."
+    },
+    "texture_degradation": {
+      "score": 1,
+      "justification": "No noticeable degradation."
+    },
+    "distortion_effectiveness": {
+      "score": 4,
+      "justification": "Red dots added to the person's face."
+    },
+    "light_color_mismatch": {
+      "score": 1,
+      "justification": "No noticeable mismatch."
+    },
+    "edge_visibility": {
+      "score": 1,
+      "justification": "No visible edges."
+    },
+    "alignment_sabotage": {
+      "score": 4,
+      "justification": "Red dots added to the person's face."
+    },
+    "editing_incompleteness": {
+      "score": 4,
+      "justification": "Red dots added to the person's face."
+    },
+    "total_implausibility": {
+      "score": 4,
+      "justification": "Red dots added to the person's face."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 4, \"justification\": \"Red dots added to the person's face.\"},\n  \"global_coherence_ruin\": {\"score\": 4, \"justification\": \"Red dots added to the person's face.\"},\n  \"identity_erasure\": {\"score\": 4, \"justification\": \"Red dots added to the person's face.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No noticeable distortion.\"},\n  \"spatial_chaos\": {\"score\": 1, \"justification\": \"No noticeable chaos.\"},\n  \"texture_degradation\": {\"score\": 1, \"justification\": \"No noticeable degradation.\"},\n  \"distortion_effectiveness\": {\"score\": 4, \"justification\": \"Red dots added to the person's face.\"},\n  \"light_color_mismatch\": {\"score\": 1, \"justification\": \"No noticeable mismatch.\"},\n  \"edge_visibility\": {\"score\": 1, \"justification\": \"No visible edges.\"},\n  \"alignment_sabotage\": {\"score\": 4, \"justification\": \"Red dots added to the person's face.\"},\n  \"editing_incompleteness\": {\"score\": 4, \"justification\": \"Red dots added to the person's face.\"},\n  \"total_implausibility\": {\"score\": 4, \"justification\": \"Red dots added to the person's face.\"}\n}"
+}

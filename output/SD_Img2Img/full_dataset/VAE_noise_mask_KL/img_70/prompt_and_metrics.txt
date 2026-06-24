@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a frozen yogurt shop
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 32.5344
+PSNR: 32.5352
 SSIM: 0.9355
 FSIM: 0.8855
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 19.9843
-SSIM: 0.6961
-FSIM: 0.5828
-
-CLIP score (Image vs Prompt)
-Edited Original:  29.8597
-Edited Immunized: 27.3803
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.7344
-Caption orig: A man wearing a blue jacket and a green sweater stands in front of a counter.
-Caption adv:  A man wearing a blue jacket and a green sweater stands in front of a food stand.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
+PSNR: 25.3930
+SSIM: 0.8615
+FSIM: 0.7583
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.3641
-Background SSIM   (basso=protezione ok): 0.6552
-Subject LPIPS     (basso=soggetto ok)  : 0.1714
-Editing score                          : 0.4462
-Mask coverage (% background)           : 0.6916
+Global LPIPS                           : 0.1156
+Background LPIPS                       : 0.0819
+Subject LPIPS                          : 0.2531
+Separation                             : 0.7555
+Editing score                          : 0.2531
+Mask coverage                          : 0.6916
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person in the adversarial image is wearing a cap, which satisfies the editing instruction."
+}

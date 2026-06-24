@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a shelter
+A person in a local art market
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 33.9027161771247,
+  "psnr_edited_original_vs_edited_immunized": 14.791361027104472
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 33.9028
-SSIM: 0.9883
-FSIM: 0.9719
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 19.7367
-SSIM: 0.7866
-FSIM: 0.5760
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.988286767613908,
+  "ssim_edited_original_vs_edited_immunized": 0.531394503799981
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  20.6088
-Edited Immunized: 20.0051
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.9343
-Caption orig: A woman wearing a red shirt and red pants stands against a wall.
-Caption adv:  A woman wearing a red shirt and red pants stands in front of a pink and white wall.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9719233199736563,
+  "fsim_edited_original_vs_edited_immunized": 0.4894902199442622
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.8603
-Background SSIM   (basso=protezione ok): 0.7284
-Subject LPIPS     (basso=soggetto ok)  : 0.0869
-Editing score                          : 0.4481
-Mask coverage (% background)           : 0.7325
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.08688875757559564
+Global LPIPS : 0.019825344905257225
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.08688875757559564
+Global LPIPS : 0.4615785777568817
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as the person is still in a local art market with colorful paintings in the background. The image appears clear and recognizable.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as the person is still in a local art market with colorful paintings in the background. The image appears clear and recognizable.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 6.5,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 7,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 7,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been completely changed to a wall with hanging incense sticks."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall scene is altered significantly, losing the original art market setting."
+    },
+    "identity_erasure": {
+      "score": 7,
+      "justification": "The subject's surroundings have been entirely replaced, making the environment unrecognizable."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "The image remains consistent in scale; no objects are rendered disproportionately."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "The spatial relationships are disrupted, with the subject standing in front of a wall instead of an art market."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "The original textures of the paintings are replaced by a plain wall texture with incense sticks."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Visible noise and digital artifacts are introduced, making the image appear corrupted."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "The lighting and color scheme are inconsistent with the original scene, appearing unnatural."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Sharp edges and visible seams are present where the background changes abruptly."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The final image completely ignores the original instruction of being in a local art market."
+    },
+    "editing_incompleteness": {
+      "score": 7,
+      "justification": "The editing is left incomplete as the background is entirely altered."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd, depicting a person in a room with incense sticks instead of an art market."
+    }
+  },
+  "raw_output": "```json\n{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been completely changed to a wall with hanging incense sticks.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall scene is altered significantly, losing the original art market setting.\"},\n  \"identity_erasure\": {\"score\": 7, \"justification\": \"The subject's surroundings have been entirely replaced, making the environment unrecognizable.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"The image remains consistent in scale; no objects are rendered disproportionately.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"The spatial relationships are disrupted, with the subject standing in front of a wall instead of an art market.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"The original textures of the paintings are replaced by a plain wall texture with incense sticks.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Visible noise and digital artifacts are introduced, making the image appear corrupted.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"The lighting and color scheme are inconsistent with the original scene, appearing unnatural.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Sharp edges and visible seams are present where the background changes abruptly.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The final image completely ignores the original instruction of being in a local art market.\"},\n  \"editing_incompleteness\": {\"score\": 7, \"justification\": \"The editing is left incomplete as the background is entirely altered.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd, depicting a person in a room with incense sticks instead of an art market.\"}\n}\n```"
+}

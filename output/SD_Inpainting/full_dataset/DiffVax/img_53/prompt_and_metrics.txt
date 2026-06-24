@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a rooftop lounge
+A person in a vegetable stand
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 34.47360104691156,
+  "psnr_edited_original_vs_edited_immunized": 12.188344374879751
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 34.4737
-SSIM: 0.9892
-FSIM: 0.9651
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 12.8542
-SSIM: 0.4467
-FSIM: 0.4320
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9892191825987404,
+  "ssim_edited_original_vs_edited_immunized": 0.4043563986465733
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  27.0886
-Edited Immunized: 23.3051
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6412
-Caption orig: A woman wearing a black and white polka dot shirt stands on a rooftop in a city.
-Caption adv:  A woman wearing a black and white polka dot shirt stands in front of a colorful background.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9651058694674656,
+  "fsim_edited_original_vs_edited_immunized": 0.4852909590586525
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.8654
-Background SSIM   (basso=protezione ok): 0.2930
-Subject LPIPS     (basso=soggetto ok)  : 0.1029
-Editing score                          : 0.5781
-Mask coverage (% background)           : 0.7603
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.1028813804170667
+Global LPIPS : 0.021874934434890747
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.1028813804170667
+Global LPIPS : 0.5196938514709473
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as the person is still standing in front of a vegetable stand. The image appears clear and recognizable with no noticeable degradation.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as the person is still standing in front of a vegetable stand. The image appears clear and recognizable with no noticeable degradation.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 6.5,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 7,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 7,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been replaced with a patterned texture."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall scene is altered with new textures and objects."
+    },
+    "identity_erasure": {
+      "score": 7,
+      "justification": "The background elements are unrecognizable and unrelated to the original setting."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "The background elements maintain their original proportions."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "The spatial relationships between objects are disrupted."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "The original textures have been replaced with a noisy pattern."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Visible noise and blurring are introduced."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "The lighting and colors are inconsistent with the original scene."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Sharp edges and visible seams are present."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The final image is completely different from the original instruction."
+    },
+    "editing_incompleteness": {
+      "score": 7,
+      "justification": "The background has been entirely changed, leaving the subject unchanged."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd and physically impossible."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been replaced with a patterned texture.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall scene is altered with new textures and objects.\"},\n  \"identity_erasure\": {\"score\": 7, \"justification\": \"The background elements are unrecognizable and unrelated to the original setting.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"The background elements maintain their original proportions.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"The spatial relationships between objects are disrupted.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"The original textures have been replaced with a noisy pattern.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Visible noise and blurring are introduced.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"The lighting and colors are inconsistent with the original scene.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Sharp edges and visible seams are present.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The final image is completely different from the original instruction.\"},\n  \"editing_incompleteness\": {\"score\": 7, \"justification\": \"The background has been entirely changed, leaving the subject unchanged.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd and physically impossible.\"}\n}"
+}

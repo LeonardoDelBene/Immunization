@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a street parade
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.2436
+PSNR: 30.2453
 SSIM: 0.9749
 FSIM: 0.8830
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 17.1565
-SSIM: 0.6526
-FSIM: 0.6236
-
-CLIP score (Image vs Prompt)
-Edited Original:  30.2798
-Edited Immunized: 30.9912
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6255
-Caption orig: A woman wearing a plaid shirt and a black dress is standing in front of a group of people.
-Caption adv:  A woman in a checkered shirt is standing on a street with a group of people around her.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.4000
-Success:   True
-Accuracy:  1.0000
+PSNR: 20.8243
+SSIM: 0.8394
+FSIM: 0.6925
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.4184
-Background SSIM   (basso=protezione ok): 0.5876
-Subject LPIPS     (basso=soggetto ok)  : 0.2289
-Editing score                          : 0.4537
-Mask coverage (% background)           : 0.7790
+Global LPIPS                           : 0.1329
+Background LPIPS                       : 0.0538
+Subject LPIPS                          : 0.4836
+Separation                             : 0.9000
+Editing score                          : 0.4836
+Mask coverage                          : 0.7790
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The cap is still present in the adversarial image, so the semantic edit is not correctly applied."
+}

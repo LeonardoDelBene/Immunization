@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a rehab facility
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.1324
+PSNR: 30.1329
 SSIM: 0.9446
-FSIM: 0.8821
+FSIM: 0.8820
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 19.4616
-SSIM: 0.6786
-FSIM: 0.6276
-
-CLIP score (Image vs Prompt)
-Edited Original:  23.6711
-Edited Immunized: 27.0735
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6765
-Caption orig: A woman wearing a leopard print jacket and sunglasses is standing in front of a chair.
-Caption adv:  A woman wearing a leopard print jacket and sunglasses is smiling.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
+PSNR: 19.8141
+SSIM: 0.7459
+FSIM: 0.6246
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.4357
-Background SSIM   (basso=protezione ok): 0.6115
-Subject LPIPS     (basso=soggetto ok)  : 0.2422
-Editing score                          : 0.4455
-Mask coverage (% background)           : 0.6844
+Global LPIPS                           : 0.2249
+Background LPIPS                       : 0.1715
+Subject LPIPS                          : 0.4145
+Separation                             : 0.7073
+Editing score                          : 0.4145
+Mask coverage                          : 0.6844
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person in the adversarial image is wearing a cap, which matches the editing prompt."
+}

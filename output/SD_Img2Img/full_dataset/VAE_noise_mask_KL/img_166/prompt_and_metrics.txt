@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a pet adoption center
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.8793
+PSNR: 30.8803
 SSIM: 0.9503
 FSIM: 0.8774
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 18.7900
-SSIM: 0.6741
-FSIM: 0.6245
-
-CLIP score (Image vs Prompt)
-Edited Original:  17.5912
-Edited Immunized: 23.4924
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.7297
-Caption orig: A woman wearing a colorful jacket and a pink shirt is standing next to a dog.
-Caption adv:  A man wearing a colorful jacket is standing next to a dog.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 23.8424
+SSIM: 0.8384
+FSIM: 0.7059
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.4425
-Background SSIM   (basso=protezione ok): 0.6375
-Subject LPIPS     (basso=soggetto ok)  : 0.2629
-Editing score                          : 0.4280
-Mask coverage (% background)           : 0.7620
+Global LPIPS                           : 0.1641
+Background LPIPS                       : 0.1348
+Subject LPIPS                          : 0.3136
+Separation                             : 0.6994
+Editing score                          : 0.3136
+Mask coverage                          : 0.7620
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person in the adversarial image is wearing pants instead of shorts."
+}

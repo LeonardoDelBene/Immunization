@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a music studio
+A person in a local crafts market
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 34.78830810441157,
+  "psnr_edited_original_vs_edited_immunized": 13.891340529084903
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 34.7877
-SSIM: 0.9891
-FSIM: 0.9573
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 12.1431
-SSIM: 0.4258
-FSIM: 0.4346
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9890845854705361,
+  "ssim_edited_original_vs_edited_immunized": 0.4825061360927645
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  27.0421
-Edited Immunized: 17.5307
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6916
-Caption orig: A woman wearing a grey sweater and holding a green notebook stands in front of a wall full of electronic equipment.
-Caption adv:  A woman wearing a brown sweater and a green purse is standing in front of a pink and purple wall.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9572194443198775,
+  "fsim_edited_original_vs_edited_immunized": 0.5059031659814406
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.9225
-Background SSIM   (basso=protezione ok): 0.2566
-Subject LPIPS     (basso=soggetto ok)  : 0.1305
-Editing score                          : 0.5927
-Mask coverage (% background)           : 0.7493
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.13054453273550828
+Global LPIPS : 0.025583354756236076
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.13054453273550828
+Global LPIPS : 0.4849407374858856
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as the background has been changed to a patterned fabric, but the overall clarity and recognizability of the image remain high.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as the background has been changed to a patterned fabric, but the overall clarity and recognizability of the image remain high.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 5.5,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 1,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 1,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been replaced with a patterned fabric, significantly altering the original setting."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall appearance of the image is drastically changed, losing its original context."
+    },
+    "identity_erasure": {
+      "score": 1,
+      "justification": "The subject remains recognizable, though the background is altered."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No significant distortion in object sizes observed."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "Spatial relationships are disrupted due to the new background pattern."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "The original textures have been replaced with a new pattern, altering the image's texture."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Visible changes in the background create a strong distortion effect."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "Colors in the background do not match the rest of the scene, creating inconsistency."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Sharp edges are visible where the new background meets the original image."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The final image completely deviates from the original instruction by changing the background."
+    },
+    "editing_incompleteness": {
+      "score": 1,
+      "justification": "The editing is not incomplete; the entire background has been altered."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd as the background is completely different from the original setting."
+    }
+  },
+  "raw_output": "```json\n{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been replaced with a patterned fabric, significantly altering the original setting.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall appearance of the image is drastically changed, losing its original context.\"},\n  \"identity_erasure\": {\"score\": 1, \"justification\": \"The subject remains recognizable, though the background is altered.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No significant distortion in object sizes observed.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"Spatial relationships are disrupted due to the new background pattern.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"The original textures have been replaced with a new pattern, altering the image's texture.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Visible changes in the background create a strong distortion effect.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"Colors in the background do not match the rest of the scene, creating inconsistency.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Sharp edges are visible where the new background meets the original image.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The final image completely deviates from the original instruction by changing the background.\"},\n  \"editing_incompleteness\": {\"score\": 1, \"justification\": \"The editing is not incomplete; the entire background has been altered.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd as the background is completely different from the original setting.\"}\n}\n```"
+}

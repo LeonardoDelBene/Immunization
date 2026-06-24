@@ -4,32 +4,34 @@ A person in a rehab facility
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.2701
-SSIM: 0.9449
-FSIM: 0.8828
+PSNR: 30.1324
+SSIM: 0.9446
+FSIM: 0.8821
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 12.4386
-SSIM: 0.4401
-FSIM: 0.5625
-
-CLIP score (Image vs Prompt)
-Edited Original:  24.1795
-Edited Immunized: 26.3731
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.8012
-Caption orig: A woman wearing a leopard print jacket and sunglasses is standing in a yard.
-Caption adv:  A woman wearing a leopard print jacket and sunglasses.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.9000
-Success:   False
-Accuracy:  0.0000
+PSNR: 13.4973
+SSIM: 0.4521
+FSIM: 0.5606
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.8326
-Background SSIM   (basso=protezione ok): 0.2695
-Subject LPIPS     (basso=soggetto ok)  : 0.2284
-Editing score                          : 0.7152
-Mask coverage (% background)           : 0.6844
+Global LPIPS                           : 0.5791
+Background LPIPS                       : 0.7932
+Subject LPIPS                          : 0.2422
+Separation                             : 0.7661
+Editing score                          : 0.7932
+Mask coverage                          : 0.6844
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person is not in a rehab facility; instead, they appear outdoors in a grassy area."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image contains text and a background that do not align with the requirement of showing a person in a rehab facility.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image contains text and a background that do not align with the requirement of showing a person in a rehab facility.\"\n}\n```"
+}

@@ -4,32 +4,34 @@ A person in a historic landmark event
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 31.3851
-SSIM: 0.9522
-FSIM: 0.9142
+PSNR: 31.4440
+SSIM: 0.9516
+FSIM: 0.9130
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 15.0183
-SSIM: 0.4411
-FSIM: 0.4413
-
-CLIP score (Image vs Prompt)
-Edited Original:  22.5303
-Edited Immunized: 23.6898
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.4633
-Caption orig: A woman wearing sunglasses and a pink shirt stands in front of a large building.
-Caption adv:  A woman wearing a white dress stands in a hallway.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 13.3343
+SSIM: 0.4212
+FSIM: 0.4389
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.7116
-Background SSIM   (basso=protezione ok): 0.3762
-Subject LPIPS     (basso=soggetto ok)  : 0.4264
-Editing score                          : 0.5160
-Mask coverage (% background)           : 0.8100
+Global LPIPS                           : 0.6245
+Background LPIPS                       : 0.7240
+Subject LPIPS                          : 0.4275
+Separation                             : 0.6287
+Editing score                          : 0.7240
+Mask coverage                          : 0.8100
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person is present in the image, but the background has been changed from an outdoor historic landmark to an indoor setting with arches, which does not align with the original prompt."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image does not depict a person in a historic landmark event as per the editing prompt. Instead, it shows a person in an abstract, distorted environment that lacks clear historical architecture.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image does not depict a person in a historic landmark event as per the editing prompt. Instead, it shows a person in an abstract, distorted environment that lacks clear historical architecture.\"\n}\n```"
+}

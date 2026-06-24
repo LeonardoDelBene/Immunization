@@ -4,6 +4,7 @@ import torch
 import torch.optim as optim
 import torch.nn.functional as F
 import torchvision.transforms as T
+from torchvision import transforms
 import random
 import warnings
 import numpy as np
@@ -14,10 +15,9 @@ from torch.utils.data import DataLoader, Subset
 from data import ImmunizationDataset
 from model import NestedUNet
 from utils import set_seed_lib
-from transformers import CLIPModel, CLIPProcessor
 from tqdm import tqdm
 import wandb
-from metrics.factory import create_metric, MetricType
+from PIL import Image, ImageOps
 
 warnings.filterwarnings("ignore", message="QuickGELU mismatch", category=UserWarning, module="open_clip")
 
@@ -118,9 +118,7 @@ def training_loop(
         weight_decay: float = 0.01,
         alpha: float = 1.0,
         beta: float = 1.0,
-        lambda_kl: float = 0.03,
-        lambda_res: float = 0.03,
-        eta: float = 0.2,
+        lambda_vae: float = 0.1,
         eps: float = 32/255 * 2,
         val_every: int = 1,
         best_checkpoint_path: str = "checkpoints/unet_best.pth",
@@ -132,36 +130,26 @@ def training_loop(
         dyn_weight_window: int   = 20,
         dyn_weight_T_temp: float = 0.1,
         dyn_weight_s_clip: float = 2.0,
+        target: str = "gray",
 ):
-    # ── Surrogate CLIP ──
-    surrogate_clip_configs = [
-        #"openai/clip-vit-base-patch32",
-        #"openai/clip-vit-base-patch16",
-        #"openai/clip-vit-large-patch14"
-    ]
-    surrogate_clip_models = []
-    surrogate_vae_models = []
-    for model_name in surrogate_clip_configs:
-        model = CLIPModel.from_pretrained(model_name).to(device).eval()
-        for param in model.parameters():
-            param.requires_grad = False
-        surrogate_clip_models.append(model)
 
-    vae = AutoencoderKL.from_pretrained(
+    surrogate_vae_models = []
+
+    vae1 = AutoencoderKL.from_pretrained(
         "runwayml/stable-diffusion-inpainting", subfolder="vae"
     ).to(device).eval()
-    for param in vae.parameters():
+    for param in vae1.parameters():
         param.requires_grad = False
+    surrogate_vae_models.append(vae1)
 
-    '''vae_p2p = AutoencoderKL.from_pretrained(
-        "timbrooks/instruct-pix2pix", subfolder="vae"
+    '''vae2 = AutoencoderKL.from_pretrained(
+        "stabilityai/stable-diffusion-xl-base-1.0", subfolder = "vae"
     ).to(device).eval()
-    for param in vae_p2p.parameters():
-        param.requires_grad = False'''
-    
-    surrogate_vae_models.append(vae)
+    for param in vae2.parameters():
+        param.requires_grad = False
+    surrogate_vae_models.append(vae2)'''
 
-    n_surrogates = len(surrogate_clip_models) + len(surrogate_vae_models) # 3 CLIP + 2 VAE
+    n_surrogates =len(surrogate_vae_models) 
 
     # ── Ottimizzatore, weighter e normalizer ──
     optimizer       = optim.AdamW(unet.parameters(), lr=lr, weight_decay=weight_decay)
@@ -201,13 +189,14 @@ def training_loop(
         config={
             "dataset": dataset, "n_epochs": n_epochs, "lr": lr,
             "batch size": batch, "weight_decay": weight_decay,
-            "alpha": alpha, "beta": beta, "eta": eta,
-            "lambda_kl": lambda_kl, "lambda_res": lambda_res, "eps": eps,
+            "alpha": alpha, "beta": beta,
+            "lambda_vae": lambda_vae, "eps": eps,
             "noise_on_mask": noise_on_mask, "nb_filter": nb_filter,
             "dyn_weight_window": dyn_weight_window,
             "dyn_weight_T_temp": dyn_weight_T_temp,
             "dyn_weight_s_clip": dyn_weight_s_clip,
             "early_stopping": "disabled",
+            "target": target,
         }
     )
 
@@ -224,18 +213,42 @@ def training_loop(
         dyn_weighter.reset()
         loss_normalizer.reset()
 
-    lpips_fn = lpips.LPIPS(net='alex').to(device)
+    target_size = getattr(dataloader.dataset, "image_size", None)
+    if target_size is None:
+        # Fallback to the default training size if the dataset does not expose image_size
+        target_size = 224
 
+    if target == "gray":
+        I_target = Image.new("RGB", (target_size, target_size), (128, 128, 128))
+    elif target == "black":
+        I_target = Image.new("RGB", (target_size, target_size), (0, 0, 0))
+    elif target == "white":
+        I_target = Image.new("RGB", (target_size, target_size), (255, 255, 255))
+    elif target == "mean":
+        I_target = Image.open("data/diffvax_mean_posterior.png").resize((target_size, target_size), Image.BICUBIC)
+    else:
+        raise ValueError(f"target '{target}' non valido. Scegli tra: gray, black, white")
+    
+    I_target = transforms.ToTensor()(I_target)   # [0, 1]
+    I_target = (I_target * 2.0 - 1.0)            # [-1, 1]
+    I_target = I_target.unsqueeze(0).to(device)  # [1, 3, target_size, target_size]
+
+    posterior_target_list = []
+    for vae in surrogate_vae_models:
+        posterior_target = vae.encode(I_target).latent_dist
+        posterior_target_list.append(posterior_target)
+
+
+    
     for epoch in range(start_epoch, n_epochs):
 
         train_metrics = defaultdict(float)
         train_weights = []
 
-        for batch_idx, (I, M, I_target) in enumerate(
+        for batch_idx, (I, M) in enumerate(
                 tqdm(dataloader, desc=f"Epoch {epoch + 1}/{n_epochs}", leave=False)):
-            I        = I.to(device)
-            M        = M.to(device)
-            I_target = I_target.to(device)
+            I = I.to(device)
+            M = M.to(device)
 
             optimizer.zero_grad()
             unet_out = unet(I)
@@ -245,34 +258,19 @@ def training_loop(
 
             I_im = torch.clamp(I + unet_out, -1.0, 1.0)
 
-            X_cls_list,   Y_cls_list   = [], []
-            X_patch_list, Y_patch_list = [], []
-            I_im_clip     = to_clip_space(I_im)
-            I_target_clip = to_clip_space(I_target)
 
-            for clip_model in surrogate_clip_models:
-                X_cls, X_patch = get_visual_tokens(clip_model, I_im_clip)
-                Y_cls, Y_patch = get_visual_tokens(clip_model, I_target_clip)
-                X_cls_list.append(X_cls);    Y_cls_list.append(Y_cls)
-                X_patch_list.append(X_patch); Y_patch_list.append(Y_patch)
-
-            posterior_im_list, posterior_target_list = [], []
+            posterior_im_list = []
             for vae_model in surrogate_vae_models:
                  posterior_im = vae_model.encode(I_im).latent_dist
-                 posterior_target = vae_model.encode(I_target).latent_dist
                  posterior_im_list.append(posterior_im)
-                 posterior_target_list.append(posterior_target)
 
 
             loss, log = total_loss(
                 I_im=I_im, I=I, M=1 - M, I_target=I_target,
-                X_cls_list=X_cls_list, Y_cls_list=Y_cls_list,
-                X_patch_list=X_patch_list, Y_patch_list=Y_patch_list,
-                surrogate_vae_models=surrogate_vae_models,
-                posterior_im_list=posterior_im_list, posterior_target_list=posterior_target_list, lpips=lpips_fn,
+                posterior_im_list=posterior_im_list, posterior_target_list=posterior_target_list,
                 dyn_weighter=dyn_weighter,
-                alpha=alpha, beta=beta, eta=eta, lambda_kl=lambda_kl, lambda_res=lambda_res,
-                noise_on_mask=noise_on_mask,device=device,
+                alpha=alpha, beta=beta, lambda_vae= lambda_vae,
+                noise_on_mask=noise_on_mask,
             )
 
             loss.backward()
@@ -304,12 +302,6 @@ def training_loop(
         dyn_weighter.step(normalized_losses)
         weights = dyn_weighter.get_weights()
 
-        # ── stringa KL ──
-        kl_str = "  ".join(f"l_kl_{i}={train_metrics[f'l_kl_{i}']:.4f}"for i in range(n_surrogates))
-
-        # ── stringa reconstruction ──
-        res_str = "  ".join(f"l_res_{i}={train_metrics[f'l_res_{i}']:.4f}" for i in range(n_surrogates))
-
         # ── print ──
         print(
             f"\n── Epoch {epoch + 1} Train ──  "
@@ -317,8 +309,6 @@ def training_loop(
             f"l_noise={train_metrics['l_noise']:.4f}  "
             f"l_surrogates={train_metrics['l_surrogates']:.4f}  "
             f"{surrogate_str}  "
-            f"\nKL: {kl_str}  "
-            f"\nRES: {res_str}  "
             f"\nnorm={[f'{l:.4f}' for l in normalized_losses]}  "
             f"weights={[f'{w:.4f}' for w in weights]}"
          )
@@ -328,16 +318,12 @@ def training_loop(
           val_metrics = validation_loop(
            unet=unet,
            val_dataloader=val_dataloader,
-           surrogate_clip_models=surrogate_clip_models,
            surrogate_vae_models=surrogate_vae_models,
-           lpips_fn=lpips_fn,
+           posterior_target_list= posterior_target_list,
            dyn_weighter=dyn_weighter,
            alpha=alpha,
            beta=beta,
-           eta=eta,
-           lambda_kl=lambda_kl,
-           lambda_res=lambda_res,
-           device=device,
+           lambda_vae=lambda_vae,
            noise_on_mask=noise_on_mask,
            )
 
@@ -350,18 +336,6 @@ def training_loop(
            f"l_surrogate_{i}={val_metrics[f'l_surrogate_{i}']:.4f}"
            for i in range(n_surrogates_val)
            )
-
-          # ── KL breakdown ──
-          kl_str_val = "  ".join(
-           f"l_kl_{i}={val_metrics[f'l_kl_{i}']:.4f}"
-           for i in range(n_surrogates_val)
-          )
-
-          # ── Reconstruction breakdown ──
-          res_str_val = "  ".join(
-           f"l_res_{i}={val_metrics[f'l_res_{i}']:.4f}"
-           for i in range(n_surrogates_val)
-          )
 
           # ── surrogate losses for weighting ──
           val_surrogates = [
@@ -387,12 +361,12 @@ def training_loop(
            f"l_noise={val_metrics['l_noise']:.4f}  "
            f"l_surr={val_metrics['l_surrogates']:.4f}  "
            f"{surrogate_str_val}  "
-           f"\nKL: {kl_str_val}  "
-           f"\nRES: {res_str_val}  "
            f"\nmonitored={monitored:.6f}\n"
           )
 
-          # ── Best model: salva sempre il migliore senza early stopping ──
+          # ── Best model: salva il modello quando migliora `monitored`
+          #    oppure quando migliora la validation loss (val_metrics['l_tot']).
+          saved = False
           if monitored < best_monitored:
                 best_monitored = monitored
                 best_val_loss  = val_metrics["l_tot"]
@@ -402,7 +376,20 @@ def training_loop(
                     f"  ✓ Best model saved "
                     f"(monitored={best_monitored:.6f}, val_loss={best_val_loss:.4f})"
                     f" → {best_checkpoint_path}\n"
-            )
+                )
+                saved = True
+
+          # salva anche se la validation loss migliora (caso in cui `monitored` non è usato
+          # come criterio principale ma vogliamo comunque mantenere il checkpoint migliore
+          # rispetto alla val loss)
+          if (not saved) and (val_metrics["l_tot"] < best_val_loss):
+                best_val_loss = val_metrics["l_tot"]
+                Path(best_checkpoint_path).parent.mkdir(parents=True, exist_ok=True)
+                torch.save(unet.state_dict(), best_checkpoint_path)
+                print(
+                    f"  ✓ Best model saved (val_loss improved={best_val_loss:.4f}) "
+                    f"→ {best_checkpoint_path}\n"
+                )
         wandb.log({
           "train/loss":         train_metrics["l_tot"],
           "train/l_noise":      train_metrics["l_noise"],
@@ -416,14 +403,6 @@ def training_loop(
 
           **{f"train/weight_{i}": w for i, w in enumerate(weights)},
 
-          # ───────── KL train ─────────
-          **{f"train/l_kl_{i}": train_metrics[f"l_kl_{i}"]
-            for i in range(n_surrogates)},
-
-          # ───────── RES train ────────
-          **{f"train/l_res_{i}": train_metrics[f"l_res_{i}"]
-            for i in range(n_surrogates)},
-
           # ───────── VAL ──────────────
           "val/loss":           val_metrics["l_tot"],
           "val/l_noise":        val_metrics["l_noise"],
@@ -434,14 +413,6 @@ def training_loop(
 
           **{f"val/l_surrogate_{i}_norm": val_normalized[i]
            for i in range(n_surrogates_val)},
-
-          # ───────── KL val ───────────
-          **{f"val/l_kl_{i}": val_metrics[f"l_kl_{i}"]
-           for i in range(n_surrogates_val)},
-
-          # ───────── RES val ──────────
-          **{f"val/l_res_{i}": val_metrics[f"l_res_{i}"]
-            for i in range(n_surrogates_val)},
 
           "val/monitored":      monitored,
           "epoch": epoch + 1,
@@ -463,65 +434,27 @@ def training_loop(
     return unet
 
 
-def to_clip_space(x: torch.Tensor) -> torch.Tensor:
-    """
-    Da [-1, 1] (B, 3, H, W) → normalizzazione CLIP 224x224
-    """
-    # [-1, 1] → [0, 1]
-    x = (x + 1.0) / 2.0
-
-    ''''# Resize a 224x224
-    x = torch.nn.functional.interpolate(
-        x, size=(224, 224), mode="bilinear", align_corners=False
-    )'''
-
-    # Normalizzazione CLIP
-    mean = torch.tensor([0.48145466, 0.4578275, 0.40821073], device=x.device).view(1, 3, 1, 1)
-    std  = torch.tensor([0.26862954, 0.26130258, 0.27577711], device=x.device).view(1, 3, 1, 1)
-    return (x - mean) / std
-
-def get_visual_tokens(clip_model: CLIPModel, x: torch.Tensor):
-    """
-    Estrae CLS token e patch tokens dal vision encoder di CLIP (HuggingFace).
-    x: (B, 3, 224, 224) normalizzato per CLIP
-    """
-    outputs = clip_model.vision_model(pixel_values=x, output_hidden_states=False)
-
-    # last_hidden_state: (B, N+1, D)  — CLS + patch tokens
-    tokens     = outputs.last_hidden_state         # (B, N+1, D)
-    cls_token  = outputs.pooler_output             # (B, D)  già estratto
-    cls_token  = F.normalize(cls_token, dim=-1)
-    patch_tokens = tokens[:, 1:, :]                # (B, N, D)
-
-    return cls_token, patch_tokens
-
-
 
 
 def validation_loop(
     unet,
     val_dataloader,
-    surrogate_clip_models,
     surrogate_vae_models,
-    lpips_fn,
+    posterior_target_list,
     dyn_weighter,
     alpha:       float = 1.0,
     beta:        float = 1.0,
-    eta:         float = 0.2,
-    lambda_kl: float = 0.03,
-    lambda_res: float = 0.03,
+    lambda_vae: float = 0.03,
     noise_on_mask: bool = False,
-    device:      str   = "cuda",
 ) -> dict:
 
     unet.eval()
     val_metrics = {}
 
     with torch.no_grad():
-        for I, M, I_target in tqdm(val_dataloader, desc="Validation", leave=False):
+        for I, M in tqdm(val_dataloader, desc="Validation", leave=False):
             I        = I.to(device)
             M        = M.to(device)
-            I_target = I_target.to(device)
 
             # ── Forward ──
             unet_out = unet(I)
@@ -529,34 +462,17 @@ def validation_loop(
                 unet_out = unet_out * (1 - M)
             I_im     = torch.clamp(I + unet_out, -1.0, 1.0)
 
-            # ── Feature CLIP ──
-            X_cls_list,   Y_cls_list   = [], []
-            X_patch_list, Y_patch_list = [], []
-
-            I_im_clip = to_clip_space(I_im)
-            I_target_clip = to_clip_space(I_target)
-
-            for clip_model in surrogate_clip_models:
-                X_cls, X_patch = get_visual_tokens(clip_model, I_im_clip)
-                Y_cls, Y_patch = get_visual_tokens(clip_model, I_target_clip)
-                X_cls_list.append(X_cls)
-                Y_cls_list.append(Y_cls)
-                X_patch_list.append(X_patch)
-                Y_patch_list.append(Y_patch)
-
             # ── VAE ──
-            posterior_im_list, posterior_target_list = [], []
+            posterior_im_list= []
             for vae_model in surrogate_vae_models:
                 posterior_im = vae_model.encode(I_im).latent_dist
-                posterior_target = vae_model.encode(I_target).latent_dist
                 posterior_im_list.append(posterior_im)
-                posterior_target_list.append(posterior_target)
 
             # ── Loss — total_loss gestisce pesi e dyn_weighter internamente ──
-            _, log = total_loss(I_im=I_im, I=I, M=1 -M, I_target=I_target, X_cls_list=X_cls_list, Y_cls_list=Y_cls_list,
-                                X_patch_list=X_patch_list, Y_patch_list=Y_patch_list,surrogate_vae_models=surrogate_vae_models ,posterior_im_list=posterior_im_list,
-                                posterior_target_list=posterior_target_list, lpips=lpips_fn, dyn_weighter=dyn_weighter, alpha=alpha, beta=beta, eta=eta,
-                                lambda_kl=lambda_kl, lambda_res=lambda_res, noise_on_mask=noise_on_mask, device=device)
+            _, log = total_loss(I_im=I_im, I=I, M=1 -M, I_target=None, 
+                                posterior_im_list=posterior_im_list,
+                                posterior_target_list=posterior_target_list, dyn_weighter=dyn_weighter, alpha=alpha, beta=beta,
+                                lambda_vae=lambda_vae, noise_on_mask=noise_on_mask)
 
             for k, v in log.items():
                 if k == "weights":
@@ -598,6 +514,7 @@ if __name__ == "__main__":
     N_DEBUG = 100
 
     dataset = "DiffVax" #DiffVax | Oxford-Pet | COCO
+    target = "white" # "gray", "black", "white" o nome file in data/
 
     train_dataset = ImmunizationDataset(dataset= dataset, split="train")
     val_dataset = ImmunizationDataset(dataset= dataset, split="validation")
@@ -609,8 +526,8 @@ if __name__ == "__main__":
     g = torch.Generator()
     g.manual_seed(SEED)
 
-    batch=20
-    print(batch)
+    batch=16
+
 
     train_loader = DataLoader(
         train_dataset,
@@ -628,7 +545,7 @@ if __name__ == "__main__":
         worker_init_fn=seed_worker,
     )
 
-    nb_filter = [32,64,128,256,512]
+    nb_filter = [x * 2 for x in [32, 64, 128, 256, 512]]
 
     unet = NestedUNet(num_classes=3, nb_filter=nb_filter).to(device)
 
@@ -644,18 +561,17 @@ if __name__ == "__main__":
         weight_decay=1e-2,
         alpha=1.0,
         beta=1.0,
-        eta=0.2,
-        lambda_kl = 0.1,
-        lambda_res = 1,
-        eps= (32 / 255 * 2),
+        lambda_vae=1,
+        eps= (64 / 255),
         val_every=1,
-        best_checkpoint_path="checkpoints/unet_best_zpsi7srq.pth",
+        best_checkpoint_path="checkpoints/unet_best_o23oqvbx.pth",
         training_checkpoint_dir="checkpoints/training/",
         device=device,
         resume_from_checkpoint=False, # Cambia a False per ricominciare da zero
-        resume_only_weights = True, # True per caricare i pesi dal checkpoint
-        noise_on_mask=True,
+        resume_only_weights = False, # True per caricare i pesi dal checkpoint
+        noise_on_mask=False,
         dyn_weight_window= 30,  # ← nuovo parametro
         dyn_weight_T_temp = 0.1,  # ← nuovo parametro
         dyn_weight_s_clip= 2.0,
+        target=target,
     )

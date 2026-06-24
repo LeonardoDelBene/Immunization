@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a vintage arts fair
+A person in a boxing ring
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 35.5711085180911,
+  "psnr_edited_original_vs_edited_immunized": 14.980964349530318
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 35.5713
-SSIM: 0.9888
-FSIM: 0.9724
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 13.2570
-SSIM: 0.5018
-FSIM: 0.4713
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9888154924007105,
+  "ssim_edited_original_vs_edited_immunized": 0.6937657459366467
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  29.2873
-Edited Immunized: 23.5429
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6445
-Caption orig: A woman wearing a gray vest and a short skirt is standing in a field.
-Caption adv:  A woman wearing a gray vest and black skirt stands in front of a pink and white flowery wallpaper.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9724272459054485,
+  "fsim_edited_original_vs_edited_immunized": 0.5127949551246272
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.8208
-Background SSIM   (basso=protezione ok): 0.3641
-Subject LPIPS     (basso=soggetto ok)  : 0.1500
-Editing score                          : 0.5489
-Mask coverage (% background)           : 0.7547
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.15001785172192822
+Global LPIPS : 0.02582099288702011
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.15001785172192822
+Global LPIPS : 0.617746114730835
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The background has been changed from a boxing ring to a wall with pink spots, indicating the edit was applied. The image remains clear and recognizable.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The background has been changed from a boxing ring to a wall with pink spots, indicating the edit was applied. The image remains clear and recognizable.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 5.5,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 1,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 1,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been changed from a boxing ring to a wall with pink spots."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall appearance of the image is significantly altered."
+    },
+    "identity_erasure": {
+      "score": 1,
+      "justification": "The subject's identity is not erased; she remains recognizable."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No objects are rendered disproportionate or unrealistic in size."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "Spatial relationships and perspective are destroyed as the background is changed."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "The original textures have been replaced by a patterned wall."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Visible noise and digital artifacts are introduced due to the change in background."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "Colors and shadows are inconsistent with the new background."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Sharp edges and visible seams appear where the background changes abruptly."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The final image completely deviates from the intent of the original instruction."
+    },
+    "editing_incompleteness": {
+      "score": 1,
+      "justification": "The fundamental part of the requested edit (boxing ring) is removed."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd as the background is completely unrelated to the original setting."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been changed from a boxing ring to a wall with pink spots.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall appearance of the image is significantly altered.\"},\n  \"identity_erasure\": {\"score\": 1, \"justification\": \"The subject's identity is not erased; she remains recognizable.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No objects are rendered disproportionate or unrealistic in size.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"Spatial relationships and perspective are destroyed as the background is changed.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"The original textures have been replaced by a patterned wall.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Visible noise and digital artifacts are introduced due to the change in background.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"Colors and shadows are inconsistent with the new background.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Sharp edges and visible seams appear where the background changes abruptly.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The final image completely deviates from the intent of the original instruction.\"},\n  \"editing_incompleteness\": {\"score\": 1, \"justification\": \"The fundamental part of the requested edit (boxing ring) is removed.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd as the background is completely unrelated to the original setting.\"}\n}"
+}

@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a bowling alley
+A person in a climbing wall
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 35.304873281016434,
+  "psnr_edited_original_vs_edited_immunized": 12.768584869641659
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 35.3048
-SSIM: 0.9879
-FSIM: 0.9728
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 12.0480
-SSIM: 0.4257
-FSIM: 0.3807
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9879088296331155,
+  "ssim_edited_original_vs_edited_immunized": 0.458286016267921
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  31.2439
-Edited Immunized: 23.1343
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.5082
-Caption orig: A woman in a black shirt and blonde hair is standing in a bowling alley.
-Caption adv:  A blonde woman wearing a black sweater and black pants.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9728522900985771,
+  "fsim_edited_original_vs_edited_immunized": 0.41471598464617676
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.9488
-Background SSIM   (basso=protezione ok): 0.2441
-Subject LPIPS     (basso=soggetto ok)  : 0.1365
-Editing score                          : 0.5986
-Mask coverage (% background)           : 0.7379
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.1364680635778629
+Global LPIPS : 0.030834315344691277
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.1364680635778629
+Global LPIPS : 0.5327655076980591
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as the background has changed from a colorful climbing wall to a more uniform grayish-green color. The image remains clear and recognizable.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as the background has changed from a colorful climbing wall to a more uniform grayish-green color. The image remains clear and recognizable.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 1.0,
+  "factor_scores": {
+    "background_infiltration": 1,
+    "global_coherence_ruin": 1,
+    "identity_erasure": 1,
+    "scale_distortion": 1,
+    "spatial_chaos": 1,
+    "texture_degradation": 1,
+    "distortion_effectiveness": 1,
+    "light_color_mismatch": 1,
+    "edge_visibility": 1,
+    "alignment_sabotage": 1,
+    "editing_incompleteness": 1,
+    "total_implausibility": 1
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 1,
+      "justification": "No significant changes in the background."
+    },
+    "global_coherence_ruin": {
+      "score": 1,
+      "justification": "The overall appearance remains consistent."
+    },
+    "identity_erasure": {
+      "score": 1,
+      "justification": "The subject is still recognizable."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No objects are rendered disproportionately."
+    },
+    "spatial_chaos": {
+      "score": 1,
+      "justification": "Spatial relationships are maintained."
+    },
+    "texture_degradation": {
+      "score": 1,
+      "justification": "Textures are preserved without corruption."
+    },
+    "distortion_effectiveness": {
+      "score": 1,
+      "justification": "No visible noise or artifacts."
+    },
+    "light_color_mismatch": {
+      "score": 1,
+      "justification": "Colors are consistent with the scene."
+    },
+    "edge_visibility": {
+      "score": 1,
+      "justification": "No sharp edges or seams."
+    },
+    "alignment_sabotage": {
+      "score": 1,
+      "justification": "The image aligns with the original instruction."
+    },
+    "editing_incompleteness": {
+      "score": 1,
+      "justification": "The edit is complete and intact."
+    },
+    "total_implausibility": {
+      "score": 1,
+      "justification": "The result is logically coherent and realistic."
+    }
+  },
+  "raw_output": "```json\n{\n  \"background_infiltration\": {\"score\": 1, \"justification\": \"No significant changes in the background.\"},\n  \"global_coherence_ruin\": {\"score\": 1, \"justification\": \"The overall appearance remains consistent.\"},\n  \"identity_erasure\": {\"score\": 1, \"justification\": \"The subject is still recognizable.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No objects are rendered disproportionately.\"},\n  \"spatial_chaos\": {\"score\": 1, \"justification\": \"Spatial relationships are maintained.\"},\n  \"texture_degradation\": {\"score\": 1, \"justification\": \"Textures are preserved without corruption.\"},\n  \"distortion_effectiveness\": {\"score\": 1, \"justification\": \"No visible noise or artifacts.\"},\n  \"light_color_mismatch\": {\"score\": 1, \"justification\": \"Colors are consistent with the scene.\"},\n  \"edge_visibility\": {\"score\": 1, \"justification\": \"No sharp edges or seams.\"},\n  \"alignment_sabotage\": {\"score\": 1, \"justification\": \"The image aligns with the original instruction.\"},\n  \"editing_incompleteness\": {\"score\": 1, \"justification\": \"The edit is complete and intact.\"},\n  \"total_implausibility\": {\"score\": 1, \"justification\": \"The result is logically coherent and realistic.\"}\n}\n```"
+}

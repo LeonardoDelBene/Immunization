@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a butcher’s block
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 32.7636
+PSNR: 32.7651
 SSIM: 0.9870
 FSIM: 0.9074
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 18.4056
-SSIM: 0.7453
-FSIM: 0.6607
-
-CLIP score (Image vs Prompt)
-Edited Original:  23.2868
-Edited Immunized: 23.0179
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.7333
-Caption orig: A man wearing a leopard print jacket and glasses is standing in front of a refrigerator.
-Caption adv:  A man wearing a leopard print jacket stands in front of a fruit stand.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 19.4755
+SSIM: 0.8251
+FSIM: 0.6852
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.4366
-Background SSIM   (basso=protezione ok): 0.6562
-Subject LPIPS     (basso=soggetto ok)  : 0.2188
-Editing score                          : 0.4465
-Mask coverage (% background)           : 0.6972
+Global LPIPS                           : 0.1855
+Background LPIPS                       : 0.0983
+Subject LPIPS                          : 0.4497
+Separation                             : 0.8207
+Editing score                          : 0.4497
+Mask coverage                          : 0.6972
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The cap color has been changed from blue to green, which does not align with the original editing prompt requesting a cap."
+}

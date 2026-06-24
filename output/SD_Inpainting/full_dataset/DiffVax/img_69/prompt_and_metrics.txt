@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a swimming pool
+A person in a street vendor stand
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 34.62469740314844,
+  "psnr_edited_original_vs_edited_immunized": 14.47987932507651
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 34.6247
-SSIM: 0.9862
-FSIM: 0.9596
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 13.7070
-SSIM: 0.5638
-FSIM: 0.5224
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9862159899466293,
+  "ssim_edited_original_vs_edited_immunized": 0.508013944706111
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  28.3834
-Edited Immunized: 22.9557
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.5546
-Caption orig: A woman wearing a brown dress is walking in a pool area.
-Caption adv:  A woman wearing a brown dress and a head wrap is standing in front of a colorful background.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9596411830346282,
+  "fsim_edited_original_vs_edited_immunized": 0.5299682957798925
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.8085
-Background SSIM   (basso=protezione ok): 0.4438
-Subject LPIPS     (basso=soggetto ok)  : 0.1519
-Editing score                          : 0.5236
-Mask coverage (% background)           : 0.7470
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.15191520930715247
+Global LPIPS : 0.03721635788679123
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.15191520930715247
+Global LPIPS : 0.49820664525032043
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The background has been changed from a busy market scene with various fruits and vegetables to a plain curtain with a pattern. The edit is clearly visible, and the image appears slightly blurry and less recognizable compared to the original.",
+  "attack_success": 1,
+  "raw_output": "```json\n{\n  \"reason\": \"The background has been changed from a busy market scene with various fruits and vegetables to a plain curtain with a pattern. The edit is clearly visible, and the image appears slightly blurry and less recognizable compared to the original.\",\n  \"attack_success\": 1\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 6.5,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 7,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 7,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been changed from a busy market scene to a plain curtain with a pattern."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall appearance of the image is significantly altered, losing its original context."
+    },
+    "identity_erasure": {
+      "score": 7,
+      "justification": "The subject's surroundings have been completely changed, making her appear out of place."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No noticeable distortion in object sizes."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "The spatial relationships between the subject and the background are disrupted."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "The original textures of the market scene are replaced by a plain curtain texture."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "The image appears blurry and less recognizable compared to the original."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "The lighting and color scheme are inconsistent with the original scene."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Visible seams and edges are present where the background has been changed."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The final image completely deviates from the intended street vendor stand setting."
+    },
+    "editing_incompleteness": {
+      "score": 7,
+      "justification": "The editing removes the entire market scene, leaving the subject in an incomprehensible environment."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd as the subject is placed in a completely different and implausible setting."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been changed from a busy market scene to a plain curtain with a pattern.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall appearance of the image is significantly altered, losing its original context.\"},\n  \"identity_erasure\": {\"score\": 7, \"justification\": \"The subject's surroundings have been completely changed, making her appear out of place.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No noticeable distortion in object sizes.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"The spatial relationships between the subject and the background are disrupted.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"The original textures of the market scene are replaced by a plain curtain texture.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"The image appears blurry and less recognizable compared to the original.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"The lighting and color scheme are inconsistent with the original scene.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Visible seams and edges are present where the background has been changed.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The final image completely deviates from the intended street vendor stand setting.\"},\n  \"editing_incompleteness\": {\"score\": 7, \"justification\": \"The editing removes the entire market scene, leaving the subject in an incomprehensible environment.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd as the subject is placed in a completely different and implausible setting.\"}\n}"
+}

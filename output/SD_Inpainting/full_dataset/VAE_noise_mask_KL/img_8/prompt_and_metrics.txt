@@ -4,32 +4,34 @@ A person in a historic landmark event
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.2817
-SSIM: 0.8961
-FSIM: 0.8126
+PSNR: 30.2543
+SSIM: 0.8965
+FSIM: 0.8135
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 18.8203
-SSIM: 0.5140
-FSIM: 0.4853
-
-CLIP score (Image vs Prompt)
-Edited Original:  22.8094
-Edited Immunized: 22.6802
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.5879
-Caption orig: A woman wearing a black jacket and black pants stands in front of a stone building.
-Caption adv:  A woman with long hair and a black jacket stands on a sidewalk.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 19.1055
+SSIM: 0.5316
+FSIM: 0.4859
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.6262
-Background SSIM   (basso=protezione ok): 0.4851
-Subject LPIPS     (basso=soggetto ok)  : 0.5243
-Editing score                          : 0.4049
-Mask coverage (% background)           : 0.7277
+Global LPIPS                           : 0.5678
+Background LPIPS                       : 0.6334
+Subject LPIPS                          : 0.5187
+Separation                             : 0.5498
+Editing score                          : 0.6334
+Mask coverage                          : 0.7277
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person is not in a historic landmark event; instead, they appear to be in an urban setting with modern architecture."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image lacks any clear indication of a historic landmark event. The background appears to be a modern urban setting rather than a historic one.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image lacks any clear indication of a historic landmark event. The background appears to be a modern urban setting rather than a historic one.\"\n}\n```"
+}

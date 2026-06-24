@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a gym sauna
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.0795
+PSNR: 30.0797
 SSIM: 0.9221
 FSIM: 0.8409
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 17.6917
-SSIM: 0.6727
-FSIM: 0.6005
-
-CLIP score (Image vs Prompt)
-Edited Original:  24.7332
-Edited Immunized: 26.4611
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.5807
-Caption orig: A woman wearing a green shirt and a brown skirt is standing next to a weight machine.
-Caption adv:  A woman is standing in front of a weight machine, smiling and posing for the camera.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
+PSNR: 22.9778
+SSIM: 0.7902
+FSIM: 0.6427
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.3607
-Background SSIM   (basso=protezione ok): 0.6557
-Subject LPIPS     (basso=soggetto ok)  : 0.4032
-Editing score                          : 0.3056
-Mask coverage (% background)           : 0.7203
+Global LPIPS                           : 0.2223
+Background LPIPS                       : 0.1629
+Subject LPIPS                          : 0.4499
+Separation                             : 0.7342
+Editing score                          : 0.4499
+Mask coverage                          : 0.7203
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person in the adversarial image is wearing a cap, which matches the editing prompt."
+}

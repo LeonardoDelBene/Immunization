@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a stadium tunnel
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 28.8219
-SSIM: 0.8851
+PSNR: 28.8223
+SSIM: 0.8852
 FSIM: 0.7773
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 16.9776
-SSIM: 0.5530
-FSIM: 0.5021
-
-CLIP score (Image vs Prompt)
-Edited Original:  28.1426
-Edited Immunized: 30.2041
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.9619
-Caption orig: A woman wearing a fur hat and a brown coat walks down a tunnel.
-Caption adv:  A woman wearing a fur coat and a hat is walking down a tunnel.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
+PSNR: 21.4610
+SSIM: 0.7516
+FSIM: 0.5677
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.4438
-Background SSIM   (basso=protezione ok): 0.5328
-Subject LPIPS     (basso=soggetto ok)  : 0.6071
-Editing score                          : 0.3177
-Mask coverage (% background)           : 0.7049
+Global LPIPS                           : 0.2989
+Background LPIPS                       : 0.1596
+Subject LPIPS                          : 0.7650
+Separation                             : 0.8274
+Editing score                          : 0.7650
+Mask coverage                          : 0.7049
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person in the image is wearing a cap, which matches the editing prompt."
+}

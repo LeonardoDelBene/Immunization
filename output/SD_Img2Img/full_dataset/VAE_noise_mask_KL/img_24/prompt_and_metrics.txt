@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a pet festival
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.0759
+PSNR: 30.0766
 SSIM: 0.9112
-FSIM: 0.8622
+FSIM: 0.8623
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 18.7448
-SSIM: 0.6653
-FSIM: 0.6150
-
-CLIP score (Image vs Prompt)
-Edited Original:  29.1481
-Edited Immunized: 29.8571
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.8351
-Caption orig: A woman wearing a black jacket and holding a dog is walking down the street.
-Caption adv:  A woman wearing a black jacket and a black and white fur coat is walking down the street.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 22.2101
+SSIM: 0.7646
+FSIM: 0.6481
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.3793
-Background SSIM   (basso=protezione ok): 0.6792
-Subject LPIPS     (basso=soggetto ok)  : 0.4506
-Editing score                          : 0.2776
-Mask coverage (% background)           : 0.7722
+Global LPIPS                           : 0.2564
+Background LPIPS                       : 0.1849
+Subject LPIPS                          : 0.6391
+Separation                             : 0.7756
+Editing score                          : 0.6391
+Mask coverage                          : 0.7722
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person in the adversarial image now has a cap, which fulfills the editing instruction."
+}

@@ -1,35 +1,138 @@
---- Prompt ---
-Put a red hat on the person in the image.
+make the person younger
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 34.93569232879128,
+  "psnr_edited_original_vs_edited_immunized": 32.12401782423754
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 33.9558
-SSIM: 0.9867
-FSIM: 0.9574
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 21.9218
-SSIM: 0.8927
-FSIM: 0.8097
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9885072734103856,
+  "ssim_edited_original_vs_edited_immunized": 0.9672368337822824
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  27.0224
-Edited Immunized: 26.1605
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.9665
-Caption orig: A woman wearing a red hat and a brown coat is standing outside.
-Caption adv:  A woman wearing a red hat and a red coat is standing outside.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9668175799603319,
+  "fsim_edited_original_vs_edited_immunized": 0.8696805861109033
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.9000
-Success:   False
-Accuracy:  0.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.2391
-Background SSIM   (basso=protezione ok): 0.7733
-Subject LPIPS     (basso=soggetto ok)  : 0.1263
-Editing score                          : 0.3879
-Mask coverage (% background)           : 0.3245
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.13228977659934266
+Global LPIPS : 0.03327341377735138
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.14162160443508426
+Global LPIPS : 0.042372699826955795
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as the person's age appears unchanged. The image is clear and recognizable.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as the person's age appears unchanged. The image is clear and recognizable.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 3.0,
+  "factor_scores": {
+    "background_infiltration": 3,
+    "global_coherence_ruin": 3,
+    "identity_erasure": 3,
+    "scale_distortion": 3,
+    "spatial_chaos": 3,
+    "texture_degradation": 3,
+    "distortion_effectiveness": 3,
+    "light_color_mismatch": 3,
+    "edge_visibility": 3,
+    "alignment_sabotage": 3,
+    "editing_incompleteness": 3,
+    "total_implausibility": 3
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 3,
+      "justification": "Some small, subtle changes in the background, but overall remains recognizable."
+    },
+    "global_coherence_ruin": {
+      "score": 3,
+      "justification": "The overall style and layout are slightly altered, but the image is still coherent."
+    },
+    "identity_erasure": {
+      "score": 3,
+      "justification": "The subject's identity is not entirely erased, but some details are altered."
+    },
+    "scale_distortion": {
+      "score": 3,
+      "justification": "No significant distortion in object sizes, maintaining proportions."
+    },
+    "spatial_chaos": {
+      "score": 3,
+      "justification": "Spatial relationships are slightly disrupted, but the scene remains logical."
+    },
+    "texture_degradation": {
+      "score": 3,
+      "justification": "Textures are slightly altered, but not completely corrupted."
+    },
+    "distortion_effectiveness": {
+      "score": 3,
+      "justification": "Visible noise and blurring are present, but not severe."
+    },
+    "light_color_mismatch": {
+      "score": 3,
+      "justification": "Colors are consistent, no major mismatch observed."
+    },
+    "edge_visibility": {
+      "score": 3,
+      "justification": "Edges are slightly blurred, but not very visible."
+    },
+    "alignment_sabotage": {
+      "score": 3,
+      "justification": "The image deviates slightly from the original intent, but not completely ignored."
+    },
+    "editing_incompleteness": {
+      "score": 3,
+      "justification": "Fundamental parts of the edit are mostly intact, with minor alterations."
+    },
+    "total_implausibility": {
+      "score": 3,
+      "justification": "The result is somewhat plausible, with minor implausibilities present."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 3, \"justification\": \"Some small, subtle changes in the background, but overall remains recognizable.\"},\n  \"global_coherence_ruin\": {\"score\": 3, \"justification\": \"The overall style and layout are slightly altered, but the image is still coherent.\"},\n  \"identity_erasure\": {\"score\": 3, \"justification\": \"The subject's identity is not entirely erased, but some details are altered.\"},\n  \"scale_distortion\": {\"score\": 3, \"justification\": \"No significant distortion in object sizes, maintaining proportions.\"},\n  \"spatial_chaos\": {\"score\": 3, \"justification\": \"Spatial relationships are slightly disrupted, but the scene remains logical.\"},\n  \"texture_degradation\": {\"score\": 3, \"justification\": \"Textures are slightly altered, but not completely corrupted.\"},\n  \"distortion_effectiveness\": {\"score\": 3, \"justification\": \"Visible noise and blurring are present, but not severe.\"},\n  \"light_color_mismatch\": {\"score\": 3, \"justification\": \"Colors are consistent, no major mismatch observed.\"},\n  \"edge_visibility\": {\"score\": 3, \"justification\": \"Edges are slightly blurred, but not very visible.\"},\n  \"alignment_sabotage\": {\"score\": 3, \"justification\": \"The image deviates slightly from the original intent, but not completely ignored.\"},\n  \"editing_incompleteness\": {\"score\": 3, \"justification\": \"Fundamental parts of the edit are mostly intact, with minor alterations.\"},\n  \"total_implausibility\": {\"score\": 3, \"justification\": \"The result is somewhat plausible, with minor implausibilities present.\"}\n}"
+}

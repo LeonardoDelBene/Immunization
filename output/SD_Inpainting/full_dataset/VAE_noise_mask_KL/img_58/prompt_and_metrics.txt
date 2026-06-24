@@ -4,32 +4,34 @@ A person in a bowling alley
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.7699
-SSIM: 0.9262
-FSIM: 0.8818
+PSNR: 31.0072
+SSIM: 0.9279
+FSIM: 0.8847
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 13.5116
-SSIM: 0.4167
-FSIM: 0.4336
-
-CLIP score (Image vs Prompt)
-Edited Original:  31.7944
-Edited Immunized: 30.4826
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.8692
-Caption orig: A woman wearing a red shirt and sunglasses is walking down a bowling alley.
-Caption adv:  A woman wearing a red shirt and sunglasses is standing in a bowling alley.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 12.6035
+SSIM: 0.3726
+FSIM: 0.4244
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.6382
-Background SSIM   (basso=protezione ok): 0.3266
-Subject LPIPS     (basso=soggetto ok)  : 0.3756
-Editing score                          : 0.5320
-Mask coverage (% background)           : 0.7510
+Global LPIPS                           : 0.5702
+Background LPIPS                       : 0.6673
+Subject LPIPS                          : 0.3674
+Separation                             : 0.6450
+Editing score                          : 0.6673
+Mask coverage                          : 0.7510
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The bowling pins and balls are present, indicating that the bowling alley environment has been successfully added."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The image contains bowling balls and pins, which are not present in the original reference image. This contradicts the requirement for a person in a bowling alley.",
+  "raw_output": "```json\n{\n  \"attack_success\": 0,\n  \"reason\": \"The image contains bowling balls and pins, which are not present in the original reference image. This contradicts the requirement for a person in a bowling alley.\"\n}\n```"
+}

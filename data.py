@@ -1,3 +1,5 @@
+import os
+
 import torch
 from torchvision.transforms import InterpolationMode
 from torch.utils.data import Dataset
@@ -98,12 +100,10 @@ class ImmunizationDataset(Dataset):
         self,
         dataset:        str = "DiffVax",  # DiffVax | Oxford-Pet
         split:          str = "train",
-        target:          str = "./data/target.png",
         image_size:     int = 224,
     ):
         self.split      = split
         self.image_size = image_size
-        self.target = target
 
         if dataset == "DiffVax":
             dataset = load_from_disk("data/DiffVaxDataset_local")
@@ -115,18 +115,6 @@ class ImmunizationDataset(Dataset):
         else:
             raise ValueError(f"dataset non supportato: {dataset}")
 
-
-
-
-        # ── Transform per l'immagine target ──
-        # prepare_mask_and_masked_image gestisce già I e M → [-1,1] e [0,1]
-        # serve solo per il target
-        self.target_transform = transforms.Compose([
-            transforms.Resize((image_size, image_size)),
-            transforms.ToTensor(),
-            transforms.Normalize([0.5, 0.5, 0.5],
-                                 [0.5, 0.5, 0.5]),  # → [-1, 1]
-        ])
 
         self.image_transform = transforms.Resize(
             (image_size, image_size),
@@ -142,24 +130,23 @@ class ImmunizationDataset(Dataset):
         return len(self.dataset)
 
     def __getitem__(self, idx: int):
-        if isinstance(self.dataset, OxfordPetLocal):
-            image, mask = self.dataset[idx]
-        else:
-            sample = self.dataset[idx]
-            image, mask = load_sample_from_hf(sample, split=self.split)
+     if isinstance(self.dataset, OxfordPetLocal):
+        image, mask = self.dataset[idx]
+     elif isinstance(self.dataset, COCOLocal):        
+        image, mask = self.dataset[idx]
+     else:
+        sample = self.dataset[idx]
+        image, mask = load_sample_from_hf(sample, split=self.split)
 
-        image = self.image_transform(image)
-        mask = self.mask_transform(mask)
+     image = self.image_transform(image)
+     mask = self.mask_transform(mask)
 
-        mask = ImageOps.invert(mask)
+     mask = ImageOps.invert(mask)
 
-        M, _, I = prepare_mask_and_masked_image(image, mask)
-        I = I.squeeze(0) # rimuove dimensione batch aggiunta da prepare_mask
-        M = M.squeeze(0)
-        I_target = self.target_transform(Image.open(self.target).convert("RGB"))  # target è l'immagine originale trasformata
-
-        return I, M, I_target
-
+     M, _, I = prepare_mask_and_masked_image(image, mask)
+     I = I.squeeze(0)
+     M = M.squeeze(0)
+     return I, M
 
 import matplotlib.pyplot as plt
 import matplotlib.gridspec as gridspec

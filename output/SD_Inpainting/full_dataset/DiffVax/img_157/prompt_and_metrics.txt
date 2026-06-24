@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a local art market
+A person in a hotel
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 34.716675337153056,
+  "psnr_edited_original_vs_edited_immunized": 15.733986615263113
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 34.7164
-SSIM: 0.9880
-FSIM: 0.9590
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 14.0950
-SSIM: 0.4589
-FSIM: 0.4662
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9880277331282564,
+  "ssim_edited_original_vs_edited_immunized": 0.5150284586069253
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  29.6562
-Edited Immunized: 22.2152
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.3913
-Caption orig: A woman wearing a black jacket and jeans stands in front of a collection of paintings.
-Caption adv:  A young man wearing a black jacket and blue jeans stands in front of a green wall with a pattern of pink dots.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.959017475554004,
+  "fsim_edited_original_vs_edited_immunized": 0.4608073969301714
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.8714
-Background SSIM   (basso=protezione ok): 0.2929
-Subject LPIPS     (basso=soggetto ok)  : 0.1275
-Editing score                          : 0.5769
-Mask coverage (% background)           : 0.7395
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.12745490353871958
+Global LPIPS : 0.019948787987232208
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.12745490353871958
+Global LPIPS : 0.6072641015052795
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as the person is still wearing a jacket and standing in front of a building. The background has been changed from a building to a green wall with pink spots, but the person's clothing and pose remain unchanged. The image appears clear and recognizable.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as the person is still wearing a jacket and standing in front of a building. The background has been changed from a building to a green wall with pink spots, but the person's clothing and pose remain unchanged. The image appears clear and recognizable.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 5.0,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 1,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 1,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 1,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been completely replaced with a green wall featuring pink spots."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall appearance of the image is drastically altered, losing all coherence."
+    },
+    "identity_erasure": {
+      "score": 1,
+      "justification": "The subject remains recognizable, despite the background change."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "The subject's proportions are maintained, showing no distortion."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "The spatial relationship between the subject and the background is completely disrupted."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "The original texture of the background is replaced with a patterned texture."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Visible noise and digital artifacts are introduced into the background area."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "The colors of the background are inconsistent with the rest of the scene."
+    },
+    "edge_visibility": {
+      "score": 1,
+      "justification": "No sharp edges or visible seams are present in the attacked areas."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The final image completely deviates from the intended edit of a person in a hotel."
+    },
+    "editing_incompleteness": {
+      "score": 1,
+      "justification": "The editing is not incomplete; the background has been successfully changed."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd due to the mismatch between the subject and the new background."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been completely replaced with a green wall featuring pink spots.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall appearance of the image is drastically altered, losing all coherence.\"},\n  \"identity_erasure\": {\"score\": 1, \"justification\": \"The subject remains recognizable, despite the background change.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"The subject's proportions are maintained, showing no distortion.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"The spatial relationship between the subject and the background is completely disrupted.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"The original texture of the background is replaced with a patterned texture.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Visible noise and digital artifacts are introduced into the background area.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"The colors of the background are inconsistent with the rest of the scene.\"},\n  \"edge_visibility\": {\"score\": 1, \"justification\": \"No sharp edges or visible seams are present in the attacked areas.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The final image completely deviates from the intended edit of a person in a hotel.\"},\n  \"editing_incompleteness\": {\"score\": 1, \"justification\": \"The editing is not incomplete; the background has been successfully changed.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd due to the mismatch between the subject and the new background.\"}\n}"
+}

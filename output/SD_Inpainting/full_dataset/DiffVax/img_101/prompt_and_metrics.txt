@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a bridal fitting room
+A person in a movie set
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 32.45224084574993,
+  "psnr_edited_original_vs_edited_immunized": 17.313754996521066
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 32.4530
-SSIM: 0.9847
-FSIM: 0.9455
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 13.4388
-SSIM: 0.5622
-FSIM: 0.5128
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9846534470278998,
+  "ssim_edited_original_vs_edited_immunized": 0.6128399669402037
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  26.1359
-Edited Immunized: 26.5118
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.4335
-Caption orig: Two women are standing in front of a mirror, one wearing a pink dress and the other wearing a brown coat.
-Caption adv:  A woman wearing a brown fur coat and pink pants stands in front of a pink and grey wall.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9455034343327898,
+  "fsim_edited_original_vs_edited_immunized": 0.5641942733154791
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.7391
-Background SSIM   (basso=protezione ok): 0.4417
-Subject LPIPS     (basso=soggetto ok)  : 0.1701
-Editing score                          : 0.5161
-Mask coverage (% background)           : 0.7469
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.17013152584835842
+Global LPIPS : 0.029221002012491226
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.17013152584835842
+Global LPIPS : 0.5073675513267517
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as the person's background has been changed from a movie set to a patterned wall. The image remains clear and recognizable.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as the person's background has been changed from a movie set to a patterned wall. The image remains clear and recognizable.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 4.5,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 1,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 1,
+    "edge_visibility": 1,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 1,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been completely replaced with a patterned wall."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall appearance of the image is significantly altered."
+    },
+    "identity_erasure": {
+      "score": 1,
+      "justification": "The subject remains recognizable despite the background change."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "The subject's proportions are maintained."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "The spatial relationships have been disrupted."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "The original texture has been replaced with a patterned wall."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Visible changes in texture and background."
+    },
+    "light_color_mismatch": {
+      "score": 1,
+      "justification": "The lighting and colors remain consistent."
+    },
+    "edge_visibility": {
+      "score": 1,
+      "justification": "No visible edges or seams."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The image no longer aligns with the original instruction."
+    },
+    "editing_incompleteness": {
+      "score": 1,
+      "justification": "The editing is complete; the background has been changed."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd due to the background change."
+    }
+  },
+  "raw_output": "```json\n{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been completely replaced with a patterned wall.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall appearance of the image is significantly altered.\"},\n  \"identity_erasure\": {\"score\": 1, \"justification\": \"The subject remains recognizable despite the background change.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"The subject's proportions are maintained.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"The spatial relationships have been disrupted.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"The original texture has been replaced with a patterned wall.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Visible changes in texture and background.\"},\n  \"light_color_mismatch\": {\"score\": 1, \"justification\": \"The lighting and colors remain consistent.\"},\n  \"edge_visibility\": {\"score\": 1, \"justification\": \"No visible edges or seams.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The image no longer aligns with the original instruction.\"},\n  \"editing_incompleteness\": {\"score\": 1, \"justification\": \"The editing is complete; the background has been changed.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd due to the background change.\"}\n}\n```"
+}

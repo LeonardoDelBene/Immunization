@@ -1,35 +1,138 @@
---- Prompt ---
-Put a red hat on the person in the image.
+make the person wear a hoodie
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 34.565236715666025,
+  "psnr_edited_original_vs_edited_immunized": 16.116298141469066
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 36.7623
-SSIM: 0.9837
-FSIM: 0.9560
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 12.1986
-SSIM: 0.6117
-FSIM: 0.4317
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9859561145399112,
+  "ssim_edited_original_vs_edited_immunized": 0.6684653604146272
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  26.1322
-Edited Immunized: 28.0864
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.4220
-Caption orig: A woman wearing a red hat and a white shirt is walking down the street.
-Caption adv:  Two women wearing red hats and red dresses, one standing on the shoulders of the other.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9653728289366669,
+  "fsim_edited_original_vs_edited_immunized": 0.4612025645823124
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.7567
-Background SSIM   (basso=protezione ok): 0.2028
-Subject LPIPS     (basso=soggetto ok)  : 0.3697
-Editing score                          : 0.6200
-Mask coverage (% background)           : 0.1198
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.21977497439992652
+Global LPIPS : 0.03634142503142357
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.4063274296087033
+Global LPIPS : 0.29346179962158203
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The person is wearing a hoodie, but there appears to be an additional figure in the background which is not part of the original image. The image is somewhat blurry and the background is distorted.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The person is wearing a hoodie, but there appears to be an additional figure in the background which is not part of the original image. The image is somewhat blurry and the background is distorted.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 6.0,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 1,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 7,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been significantly altered with an additional figure."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall scene is altered with a new figure in the background."
+    },
+    "identity_erasure": {
+      "score": 1,
+      "justification": "The person's identity remains intact."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No objects are rendered disproportionately."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "Spatial relationships are disrupted with the addition of a new figure."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "Textures are corrupted with the addition of a new figure."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Visible noise and blurring are introduced due to the new figure."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "Colors and shadows are inconsistent with the rest of the scene."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Visible edges and seams are present around the new figure."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The final image completely deviates from the original instruction."
+    },
+    "editing_incompleteness": {
+      "score": 7,
+      "justification": "The editing is left incomplete as the new figure is not part of the original request."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd with an additional figure in the background."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been significantly altered with an additional figure.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall scene is altered with a new figure in the background.\"},\n  \"identity_erasure\": {\"score\": 1, \"justification\": \"The person's identity remains intact.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No objects are rendered disproportionately.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"Spatial relationships are disrupted with the addition of a new figure.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"Textures are corrupted with the addition of a new figure.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Visible noise and blurring are introduced due to the new figure.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"Colors and shadows are inconsistent with the rest of the scene.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Visible edges and seams are present around the new figure.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The final image completely deviates from the original instruction.\"},\n  \"editing_incompleteness\": {\"score\": 7, \"justification\": \"The editing is left incomplete as the new figure is not part of the original request.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd with an additional figure in the background.\"}\n}"
+}

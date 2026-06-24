@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a church hall
+A person in a flea market
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 34.07745830778172,
+  "psnr_edited_original_vs_edited_immunized": 13.865577261139993
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 34.0780
-SSIM: 0.9854
-FSIM: 0.9597
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 12.9727
-SSIM: 0.5101
-FSIM: 0.4553
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9853977940309152,
+  "ssim_edited_original_vs_edited_immunized": 0.5083297765326839
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  24.3386
-Edited Immunized: 22.1551
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6334
-Caption orig: A man wearing glasses and a gray sweater stands in front of a church.
-Caption adv:  A man wearing glasses and a grey sweater stands in front of a wall with pink flowers on it.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9597188420280979,
+  "fsim_edited_original_vs_edited_immunized": 0.44537243703114876
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.9520
-Background SSIM   (basso=protezione ok): 0.3191
-Subject LPIPS     (basso=soggetto ok)  : 0.1112
-Editing score                          : 0.5783
-Mask coverage (% background)           : 0.6848
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.11115325744969021
+Global LPIPS : 0.02652517519891262
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.11115325744969021
+Global LPIPS : 0.6080121994018555
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as the background has been changed from a flea market scene to a patterned wall. The image remains clear and recognizable.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as the background has been changed from a flea market scene to a patterned wall. The image remains clear and recognizable.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 5.5,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 1,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 1,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been completely replaced with a patterned wall."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall scene is altered, losing the original flea market setting."
+    },
+    "identity_erasure": {
+      "score": 1,
+      "justification": "The subject's identity is not erased; they remain recognizable."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No objects are rendered disproportionately or unrealistically."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "Spatial relationships are disrupted as the background is entirely changed."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "The original texture of the background is replaced with a patterned design."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Visible noise and digital artifacts are introduced due to the background change."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "Colors and shadows are inconsistent with the new background."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Sharp edges and visible seams are present where the background changes abruptly."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The final image completely deviates from the intended flea market scene."
+    },
+    "editing_incompleteness": {
+      "score": 1,
+      "justification": "The editing is not incomplete; the entire background is altered."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd as it shows a person in front of a patterned wall instead of a flea market."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been completely replaced with a patterned wall.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall scene is altered, losing the original flea market setting.\"},\n  \"identity_erasure\": {\"score\": 1, \"justification\": \"The subject's identity is not erased; they remain recognizable.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No objects are rendered disproportionately or unrealistically.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"Spatial relationships are disrupted as the background is entirely changed.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"The original texture of the background is replaced with a patterned design.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Visible noise and digital artifacts are introduced due to the background change.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"Colors and shadows are inconsistent with the new background.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Sharp edges and visible seams are present where the background changes abruptly.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The final image completely deviates from the intended flea market scene.\"},\n  \"editing_incompleteness\": {\"score\": 1, \"justification\": \"The editing is not incomplete; the entire background is altered.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd as it shows a person in front of a patterned wall instead of a flea market.\"}\n}"
+}

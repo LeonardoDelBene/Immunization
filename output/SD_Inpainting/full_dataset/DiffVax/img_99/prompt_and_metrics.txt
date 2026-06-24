@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a creative writing event
+A person in a butcher’s block
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 35.27112950000917,
+  "psnr_edited_original_vs_edited_immunized": 13.580539545856844
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 35.2711
-SSIM: 0.9881
-FSIM: 0.9671
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 17.6657
-SSIM: 0.4693
-FSIM: 0.4847
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9880738742296171,
+  "ssim_edited_original_vs_edited_immunized": 0.48923692619500847
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  21.6731
-Edited Immunized: 20.4632
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.5510
-Caption orig: A woman wearing a brown coat and holding a book stands in front of a colorful wall.
-Caption adv:  A woman wearing a brown coat and holding a pair of scissors.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9671295869074773,
+  "fsim_edited_original_vs_edited_immunized": 0.4499464474196102
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.6994
-Background SSIM   (basso=protezione ok): 0.2892
-Subject LPIPS     (basso=soggetto ok)  : 0.1362
-Editing score                          : 0.5604
-Mask coverage (% background)           : 0.7213
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.13624461945944188
+Global LPIPS : 0.033743228763341904
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.13624461945944188
+Global LPIPS : 0.565965473651886
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as there is no butcher's block present in the image. The background has been changed from a butcher shop to a wall with red markings, but this does not align with the specified edit. The image remains clear and recognizable.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as there is no butcher's block present in the image. The background has been changed from a butcher shop to a wall with red markings, but this does not align with the specified edit. The image remains clear and recognizable.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 6.5,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 7,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 7,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been completely replaced with a patterned texture."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall scene is altered, losing the original context."
+    },
+    "identity_erasure": {
+      "score": 7,
+      "justification": "The subject is recognizable but the background is entirely changed."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No significant distortion in object sizes."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "Spatial relationships are disrupted due to the new background."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "The original texture is replaced with a patterned texture."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Visible noise and digital artifacts are introduced."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "Colors are inconsistent with the rest of the scene."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Edges are very visible due to the change in background."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The final image completely deviates from the original instruction."
+    },
+    "editing_incompleteness": {
+      "score": 7,
+      "justification": "The editing is left incomplete as the background is altered."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd and physically impossible."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been completely replaced with a patterned texture.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall scene is altered, losing the original context.\"},\n  \"identity_erasure\": {\"score\": 7, \"justification\": \"The subject is recognizable but the background is entirely changed.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No significant distortion in object sizes.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"Spatial relationships are disrupted due to the new background.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"The original texture is replaced with a patterned texture.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Visible noise and digital artifacts are introduced.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"Colors are inconsistent with the rest of the scene.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Edges are very visible due to the change in background.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The final image completely deviates from the original instruction.\"},\n  \"editing_incompleteness\": {\"score\": 7, \"justification\": \"The editing is left incomplete as the background is altered.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd and physically impossible.\"}\n}"
+}

@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a ice cream parlor
+A person in a vintage arts fair
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 35.74631237372317,
+  "psnr_edited_original_vs_edited_immunized": 13.68133097523291
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 35.7450
-SSIM: 0.9913
-FSIM: 0.9680
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 13.8508
-SSIM: 0.5450
-FSIM: 0.4845
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9912765966473338,
+  "ssim_edited_original_vs_edited_immunized": 0.5146503788182756
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  30.4990
-Edited Immunized: 27.3713
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.8556
-Caption orig: A woman wearing a black jacket and a black skirt is standing in front of a large ice cream cone.
-Caption adv:  A woman wearing a black jacket and a black skirt is standing in front of a painting of a ice cream cone.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9680498318060704,
+  "fsim_edited_original_vs_edited_immunized": 0.48016603420946646
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.8292
-Background SSIM   (basso=protezione ok): 0.3723
-Subject LPIPS     (basso=soggetto ok)  : 0.1311
-Editing score                          : 0.5486
-Mask coverage (% background)           : 0.6974
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.1310757881850379
+Global LPIPS : 0.030889704823493958
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.1310757881850379
+Global LPIPS : 0.5806790590286255
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The background has been changed from an outdoor arts fair scene with people and tents to a patterned wall. The edit is clearly visible, and the image appears clean and recognizable.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The background has been changed from an outdoor arts fair scene with people and tents to a patterned wall. The edit is clearly visible, and the image appears clean and recognizable.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 5.0,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 1,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 1,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 1,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been replaced with a patterned wall, significantly altering the setting."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall scene is completely altered, losing the original context and style."
+    },
+    "identity_erasure": {
+      "score": 1,
+      "justification": "The subject remains recognizable, but the background is completely changed."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No significant distortion in object sizes; the subject's proportions are maintained."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "Spatial relationships are disrupted as the subject is placed against a new, unrelated background."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "The original texture of the background is completely replaced with a new, patterned texture."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Visible noise and a new texture pattern are introduced, severely distorting the original image."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "Colors are inconsistent with the new background, creating a mismatch with the original scene."
+    },
+    "edge_visibility": {
+      "score": 1,
+      "justification": "No visible edges or seams are present, as the subject is seamlessly integrated into the new background."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The final image completely ignores the original instruction by changing the background entirely."
+    },
+    "editing_incompleteness": {
+      "score": 1,
+      "justification": "The editing is not incomplete; the entire background is replaced."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd, as the subject is placed in a completely different and implausible setting."
+    }
+  },
+  "raw_output": "```json\n{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been replaced with a patterned wall, significantly altering the setting.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall scene is completely altered, losing the original context and style.\"},\n  \"identity_erasure\": {\"score\": 1, \"justification\": \"The subject remains recognizable, but the background is completely changed.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No significant distortion in object sizes; the subject's proportions are maintained.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"Spatial relationships are disrupted as the subject is placed against a new, unrelated background.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"The original texture of the background is completely replaced with a new, patterned texture.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Visible noise and a new texture pattern are introduced, severely distorting the original image.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"Colors are inconsistent with the new background, creating a mismatch with the original scene.\"},\n  \"edge_visibility\": {\"score\": 1, \"justification\": \"No visible edges or seams are present, as the subject is seamlessly integrated into the new background.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The final image completely ignores the original instruction by changing the background entirely.\"},\n  \"editing_incompleteness\": {\"score\": 1, \"justification\": \"The editing is not incomplete; the entire background is replaced.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd, as the subject is placed in a completely different and implausible setting.\"}\n}\n```"
+}

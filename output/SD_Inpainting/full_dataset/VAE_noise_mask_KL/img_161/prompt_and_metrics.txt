@@ -4,32 +4,34 @@ A person in a tech store
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 32.2952
-SSIM: 0.9505
-FSIM: 0.9228
+PSNR: 33.8160
+SSIM: 0.9567
+FSIM: 0.9317
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 11.7600
-SSIM: 0.4250
-FSIM: 0.4313
-
-CLIP score (Image vs Prompt)
-Edited Original:  24.7791
-Edited Immunized: 24.9370
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6571
-Caption orig: A woman wearing a red shirt and black skirt stands in front of a display of electronic devices.
-Caption adv:  A woman in a red shirt and black skirt is standing in front of a store.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
+PSNR: 11.1668
+SSIM: 0.4073
+FSIM: 0.4203
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.6554
-Background SSIM   (basso=protezione ok): 0.2653
-Subject LPIPS     (basso=soggetto ok)  : 0.1545
-Editing score                          : 0.6898
-Mask coverage (% background)           : 0.7088
+Global LPIPS                           : 0.5202
+Background LPIPS                       : 0.6933
+Subject LPIPS                          : 0.1395
+Separation                             : 0.8325
+Editing score                          : 0.6933
+Mask coverage                          : 0.7088
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person is still in a tech store, but the shelves now contain different items such as shoes and beauty products, which does not align with the original editing prompt."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image shows a person in a store with shelves filled with various electronic devices, which aligns with the editing prompt. However, the background appears to be a different type of store (possibly a cosmetics or fashion store) rather than a tech store. This discrepancy indicates that the semantic elements required by the prompt are not fully satisfied.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image shows a person in a store with shelves filled with various electronic devices, which aligns with the editing prompt. However, the background appears to be a different type of store (possibly a cosmetics or fashion store) rather than a tech store. This discrepancy indicates that the semantic elements required by the prompt are not fully satisfied.\"\n}\n```"
+}

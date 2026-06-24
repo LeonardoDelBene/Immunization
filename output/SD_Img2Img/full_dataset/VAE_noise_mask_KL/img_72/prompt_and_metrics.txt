@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a parking garage
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.6246
+PSNR: 30.6265
 SSIM: 0.9778
 FSIM: 0.9062
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 18.7113
-SSIM: 0.6333
-FSIM: 0.6095
-
-CLIP score (Image vs Prompt)
-Edited Original:  28.0008
-Edited Immunized: 27.2137
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.8051
-Caption orig: A woman wearing a hat and glasses is standing in a dark room.
-Caption adv:  A woman wearing a knitted sweater and a hat is standing in a dark room.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.4000
-Success:   True
-Accuracy:  1.0000
+PSNR: 20.5375
+SSIM: 0.8704
+FSIM: 0.7219
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.5894
-Background SSIM   (basso=protezione ok): 0.5127
-Subject LPIPS     (basso=soggetto ok)  : 0.1363
-Editing score                          : 0.6002
-Mask coverage (% background)           : 0.7013
+Global LPIPS                           : 0.0836
+Background LPIPS                       : 0.0491
+Subject LPIPS                          : 0.2092
+Separation                             : 0.8098
+Editing score                          : 0.2092
+Mask coverage                          : 0.7013
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The cap appears to be present in both images, indicating that the semantic edit was not applied."
+}

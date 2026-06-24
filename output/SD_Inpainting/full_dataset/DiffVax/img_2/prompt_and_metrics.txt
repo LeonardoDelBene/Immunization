@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a church sanctuary
+A person in a charity art auction
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 34.566658854080885,
+  "psnr_edited_original_vs_edited_immunized": 12.853609534017279
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 34.5646
-SSIM: 0.9865
-FSIM: 0.9540
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 13.4269
-SSIM: 0.5292
-FSIM: 0.5146
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9864712174138625,
+  "ssim_edited_original_vs_edited_immunized": 0.5262513086363126
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  28.3546
-Edited Immunized: 21.4061
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6837
-Caption orig: A woman wearing a brown jacket and a gray shirt is standing in front of a church.
-Caption adv:  A woman wearing a brown jacket and a gray shirt.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9541029731127617,
+  "fsim_edited_original_vs_edited_immunized": 0.48974669287112677
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.8000
-Success:   False
-Accuracy:  0.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.9428
-Background SSIM   (basso=protezione ok): 0.3293
-Subject LPIPS     (basso=soggetto ok)  : 0.1054
-Editing score                          : 0.5747
-Mask coverage (% background)           : 0.6841
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.10542348586237964
+Global LPIPS : 0.03569265082478523
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.10542348586237964
+Global LPIPS : 0.5240593552589417
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as the person is still holding the framed artwork, but the background has changed from a crowd of people to a green wall with pink spots. The image appears clear and recognizable.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as the person is still holding the framed artwork, but the background has changed from a crowd of people to a green wall with pink spots. The image appears clear and recognizable.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 5.0,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 1,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 1,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 1,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been completely replaced with a green wall featuring pink spots."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall scene is drastically altered, losing the original context and setting."
+    },
+    "identity_erasure": {
+      "score": 1,
+      "justification": "The subject remains recognizable, but the background has been changed."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No significant distortion in object sizes."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "The spatial relationships are disrupted, with the subject seemingly floating in a new environment."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "The original textures have been replaced with a new pattern, significantly altering the image."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Visible changes in texture and background create a distorted effect."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "The lighting and color scheme are inconsistent with the original scene."
+    },
+    "edge_visibility": {
+      "score": 1,
+      "justification": "No visible edges or seams are present."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The final image completely ignores the original instruction by changing the background."
+    },
+    "editing_incompleteness": {
+      "score": 1,
+      "justification": "The editing is not incomplete; the entire background has been altered."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd, as the subject is in an impossible setting."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been completely replaced with a green wall featuring pink spots.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall scene is drastically altered, losing the original context and setting.\"},\n  \"identity_erasure\": {\"score\": 1, \"justification\": \"The subject remains recognizable, but the background has been changed.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No significant distortion in object sizes.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"The spatial relationships are disrupted, with the subject seemingly floating in a new environment.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"The original textures have been replaced with a new pattern, significantly altering the image.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Visible changes in texture and background create a distorted effect.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"The lighting and color scheme are inconsistent with the original scene.\"},\n  \"edge_visibility\": {\"score\": 1, \"justification\": \"No visible edges or seams are present.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The final image completely ignores the original instruction by changing the background.\"},\n  \"editing_incompleteness\": {\"score\": 1, \"justification\": \"The editing is not incomplete; the entire background has been altered.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd, as the subject is in an impossible setting.\"}\n}"
+}

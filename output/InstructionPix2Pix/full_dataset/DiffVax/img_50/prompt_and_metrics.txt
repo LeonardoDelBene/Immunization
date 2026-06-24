@@ -1,35 +1,138 @@
---- Prompt ---
-Put a red hat on the person in the image.
+add a beard to the person
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 35.76803235918798,
+  "psnr_edited_original_vs_edited_immunized": 29.99001935832647
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 34.2867
-SSIM: 0.9878
-FSIM: 0.9414
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 16.4484
-SSIM: 0.7913
-FSIM: 0.7388
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9922249257758468,
+  "ssim_edited_original_vs_edited_immunized": 0.9364322401499944
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  29.7587
-Edited Immunized: 30.0802
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.9251
-Caption orig: A woman wearing a red hat and a grey coat is standing next to a body of water.
-Caption adv:  A woman wearing a red hat and a red coat stands in front of a body of water.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9627483317061039,
+  "fsim_edited_original_vs_edited_immunized": 0.8299054797706441
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.7302
-Background SSIM   (basso=protezione ok): 0.3186
-Subject LPIPS     (basso=soggetto ok)  : 0.1527
-Editing score                          : 0.7049
-Mask coverage (% background)           : 0.2567
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.1871287759190114
+Global LPIPS : 0.024928778409957886
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.18155418349955577
+Global LPIPS : 0.038035448640584946
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The beard appears to be added to the person's face, but there is some distortion around the beard area, making it less clear and recognizable compared to the original image.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The beard appears to be added to the person's face, but there is some distortion around the beard area, making it less clear and recognizable compared to the original image.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "raw_output": "0"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 3.75,
+  "factor_scores": {
+    "background_infiltration": 4,
+    "global_coherence_ruin": 4,
+    "identity_erasure": 4,
+    "scale_distortion": 3,
+    "spatial_chaos": 3,
+    "texture_degradation": 4,
+    "distortion_effectiveness": 4,
+    "light_color_mismatch": 3,
+    "edge_visibility": 4,
+    "alignment_sabotage": 4,
+    "editing_incompleteness": 4,
+    "total_implausibility": 4
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 4,
+      "justification": "The background remains largely unchanged."
+    },
+    "global_coherence_ruin": {
+      "score": 4,
+      "justification": "The overall layout and style are slightly disrupted."
+    },
+    "identity_erasure": {
+      "score": 4,
+      "justification": "The subject's identity is not entirely erased, but the beard is more prominent."
+    },
+    "scale_distortion": {
+      "score": 3,
+      "justification": "No significant object size distortion observed."
+    },
+    "spatial_chaos": {
+      "score": 3,
+      "justification": "Spatial relationships appear slightly altered due to the beard."
+    },
+    "texture_degradation": {
+      "score": 4,
+      "justification": "Some texture changes are noticeable around the beard area."
+    },
+    "distortion_effectiveness": {
+      "score": 4,
+      "justification": "The beard introduces visible noise and blurring."
+    },
+    "light_color_mismatch": {
+      "score": 3,
+      "justification": "Colors around the beard area appear slightly off."
+    },
+    "edge_visibility": {
+      "score": 4,
+      "justification": "Visible seams and edges are present around the beard."
+    },
+    "alignment_sabotage": {
+      "score": 4,
+      "justification": "The beard significantly alters the alignment of facial features."
+    },
+    "editing_incompleteness": {
+      "score": 4,
+      "justification": "The beard is added, but the original edit instruction was to add a beard, not to alter the entire face."
+    },
+    "total_implausibility": {
+      "score": 4,
+      "justification": "The beard is unnatural and makes the image less coherent."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 4, \"justification\": \"The background remains largely unchanged.\"},\n  \"global_coherence_ruin\": {\"score\": 4, \"justification\": \"The overall layout and style are slightly disrupted.\"},\n  \"identity_erasure\": {\"score\": 4, \"justification\": \"The subject's identity is not entirely erased, but the beard is more prominent.\"},\n  \"scale_distortion\": {\"score\": 3, \"justification\": \"No significant object size distortion observed.\"},\n  \"spatial_chaos\": {\"score\": 3, \"justification\": \"Spatial relationships appear slightly altered due to the beard.\"},\n  \"texture_degradation\": {\"score\": 4, \"justification\": \"Some texture changes are noticeable around the beard area.\"},\n  \"distortion_effectiveness\": {\"score\": 4, \"justification\": \"The beard introduces visible noise and blurring.\"},\n  \"light_color_mismatch\": {\"score\": 3, \"justification\": \"Colors around the beard area appear slightly off.\"},\n  \"edge_visibility\": {\"score\": 4, \"justification\": \"Visible seams and edges are present around the beard.\"},\n  \"alignment_sabotage\": {\"score\": 4, \"justification\": \"The beard significantly alters the alignment of facial features.\"},\n  \"editing_incompleteness\": {\"score\": 4, \"justification\": \"The beard is added, but the original edit instruction was to add a beard, not to alter the entire face.\"},\n  \"total_implausibility\": {\"score\": 4, \"justification\": \"The beard is unnatural and makes the image less coherent.\"}\n}"
+}

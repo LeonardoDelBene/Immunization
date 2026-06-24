@@ -1,5 +1,5 @@
 --- Prompt ---
-A person in a dance festival
+A person with a cap
 
 --- Metrics ---
 
@@ -9,27 +9,21 @@ SSIM: 0.9131
 FSIM: 0.8904
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 18.2527
-SSIM: 0.6263
-FSIM: 0.5555
-
-CLIP score (Image vs Prompt)
-Edited Original:  28.6279
-Edited Immunized: 29.4046
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.4541
-Caption orig: A woman in a white dress stands in front of a picture of another woman.
-Caption adv:  A person wearing a white robe stands in front of a crowd of people.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 24.1642
+SSIM: 0.8585
+FSIM: 0.7655
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.5798
-Background SSIM   (basso=protezione ok): 0.6007
-Subject LPIPS     (basso=soggetto ok)  : 0.4587
-Editing score                          : 0.3765
-Mask coverage (% background)           : 0.7193
+Global LPIPS                           : 0.1556
+Background LPIPS                       : 0.0617
+Subject LPIPS                          : 0.4680
+Separation                             : 0.8835
+Editing score                          : 0.4680
+Mask coverage                          : 0.7193
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person in the adversarial image is wearing a different type of hat (green beanie) than specified in the editing prompt."
+}

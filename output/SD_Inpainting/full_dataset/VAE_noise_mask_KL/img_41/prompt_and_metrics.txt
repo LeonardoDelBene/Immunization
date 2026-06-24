@@ -4,32 +4,34 @@ A person in a butcher shop
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 32.7748
-SSIM: 0.9463
-FSIM: 0.9074
+PSNR: 32.5674
+SSIM: 0.9452
+FSIM: 0.9042
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 16.0861
-SSIM: 0.5555
-FSIM: 0.4934
-
-CLIP score (Image vs Prompt)
-Edited Original:  29.0402
-Edited Immunized: 30.6946
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.7217
-Caption orig: A man wearing sunglasses and a blue shirt stands in front of a meat counter.
-Caption adv:  A man wearing sunglasses and a black shirt is standing in front of a deli counter.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 15.2054
+SSIM: 0.4924
+FSIM: 0.4406
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.4874
-Background SSIM   (basso=protezione ok): 0.5465
-Subject LPIPS     (basso=soggetto ok)  : 0.5313
-Editing score                          : 0.3310
-Mask coverage (% background)           : 0.8426
+Global LPIPS                           : 0.5594
+Background LPIPS                       : 0.5728
+Subject LPIPS                          : 0.5449
+Separation                             : 0.5125
+Editing score                          : 0.5728
+Mask coverage                          : 0.8426
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person is still wearing sunglasses and the background remains a butcher shop with meat, indicating that the semantic edit was not correctly applied."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image contains a person but the background appears to be a fish market rather than a butcher shop.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image contains a person but the background appears to be a fish market rather than a butcher shop.\"\n}\n```"
+}

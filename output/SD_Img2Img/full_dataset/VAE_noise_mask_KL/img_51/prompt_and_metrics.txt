@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a yoga class
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 29.7877
+PSNR: 29.7876
 SSIM: 0.9086
 FSIM: 0.8944
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 17.2466
-SSIM: 0.6172
-FSIM: 0.5299
-
-CLIP score (Image vs Prompt)
-Edited Original:  30.7972
-Edited Immunized: 30.8849
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.8373
-Caption orig: A woman in a black jacket and white shirt is doing a handstand on a yoga mat.
-Caption adv:  A woman in a black and white jacket is doing a yoga pose.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.4000
-Success:   True
-Accuracy:  1.0000
+PSNR: 22.7017
+SSIM: 0.7866
+FSIM: 0.7074
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.4416
-Background SSIM   (basso=protezione ok): 0.6068
-Subject LPIPS     (basso=soggetto ok)  : 0.4833
-Editing score                          : 0.3046
-Mask coverage (% background)           : 0.7327
+Global LPIPS                           : 0.2124
+Background LPIPS                       : 0.1124
+Subject LPIPS                          : 0.6271
+Separation                             : 0.8481
+Editing score                          : 0.6271
+Mask coverage                          : 0.7327
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person in the image is wearing a cap, which matches the editing prompt."
+}

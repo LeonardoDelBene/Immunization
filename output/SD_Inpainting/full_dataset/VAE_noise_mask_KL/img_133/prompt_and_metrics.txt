@@ -4,32 +4,34 @@ A person in a local crafts market
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 31.5873
-SSIM: 0.9543
-FSIM: 0.9129
+PSNR: 31.5063
+SSIM: 0.9549
+FSIM: 0.9140
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 18.6557
-SSIM: 0.6203
-FSIM: 0.5926
-
-CLIP score (Image vs Prompt)
-Edited Original:  29.0418
-Edited Immunized: 29.3061
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        1.0000
-Caption orig: A woman wearing a floral shirt stands in front of a colorful display of scarves.
-Caption adv:  A woman wearing a floral shirt stands in front of a colorful display of scarves.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.9000
-Success:   False
-Accuracy:  0.0000
+PSNR: 18.6137
+SSIM: 0.6081
+FSIM: 0.5878
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.3445
-Background SSIM   (basso=protezione ok): 0.5817
-Subject LPIPS     (basso=soggetto ok)  : 0.3981
-Editing score                          : 0.3244
-Mask coverage (% background)           : 0.7787
+Global LPIPS                           : 0.3320
+Background LPIPS                       : 0.3541
+Subject LPIPS                          : 0.4000
+Separation                             : 0.4696
+Editing score                          : 0.3541
+Mask coverage                          : 0.7787
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person's hair appears to be edited, but the overall scene remains consistent with a crafts market setting."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image shows a person in a local crafts market, but the person's face has been blurred, which contradicts the requirement for a clear and identifiable person.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image shows a person in a local crafts market, but the person's face has been blurred, which contradicts the requirement for a clear and identifiable person.\"\n}\n```"
+}

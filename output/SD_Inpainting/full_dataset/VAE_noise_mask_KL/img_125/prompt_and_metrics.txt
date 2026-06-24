@@ -4,32 +4,34 @@ A person in a ceramic art exhibit
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 29.9126
-SSIM: 0.9117
-FSIM: 0.8562
+PSNR: 29.8098
+SSIM: 0.9116
+FSIM: 0.8561
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 15.1671
-SSIM: 0.5061
-FSIM: 0.4456
-
-CLIP score (Image vs Prompt)
-Edited Original:  30.5467
-Edited Immunized: 30.3762
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.8590
-Caption orig: A woman in a blue shirt stands in front of a display of vases.
-Caption adv:  A woman wearing a blue shirt and jeans stands in front of a wall of vases.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
+PSNR: 15.3277
+SSIM: 0.4925
+FSIM: 0.4469
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.7077
-Background SSIM   (basso=protezione ok): 0.4516
-Subject LPIPS     (basso=soggetto ok)  : 0.4120
-Editing score                          : 0.5004
-Mask coverage (% background)           : 0.7201
+Global LPIPS                           : 0.5977
+Background LPIPS                       : 0.7325
+Subject LPIPS                          : 0.4221
+Separation                             : 0.6344
+Editing score                          : 0.7325
+Mask coverage                          : 0.7201
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The background has changed from a ceramic art exhibit to a tiled wall, which does not match the editing instruction."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image does not contain any ceramic art exhibits or people in an art exhibit setting.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image does not contain any ceramic art exhibits or people in an art exhibit setting.\"\n}\n```"
+}

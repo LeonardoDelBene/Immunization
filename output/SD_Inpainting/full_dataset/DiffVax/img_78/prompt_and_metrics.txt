@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a shipping yard
+A person in a laundry room
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 34.21827054608378,
+  "psnr_edited_original_vs_edited_immunized": 15.229297746140071
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 34.2175
-SSIM: 0.9895
-FSIM: 0.9580
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 15.2573
-SSIM: 0.5528
-FSIM: 0.5811
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9894720753594667,
+  "ssim_edited_original_vs_edited_immunized": 0.5402815705864489
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  27.4037
-Edited Immunized: 21.0076
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.7858
-Caption orig: A woman wearing a black and white dress stands in front of a large red building.
-Caption adv:  A woman wearing a black and white dress stands in front of a colorful background.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.958022168870989,
+  "fsim_edited_original_vs_edited_immunized": 0.6217627707533456
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.8423
-Background SSIM   (basso=protezione ok): 0.3859
-Subject LPIPS     (basso=soggetto ok)  : 0.1105
-Editing score                          : 0.5474
-Mask coverage (% background)           : 0.7048
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.11047549697768189
+Global LPIPS : 0.023029811680316925
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.11047549697768189
+Global LPIPS : 0.5925201177597046
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as the person is still in a laundry room, but the background has been changed from a typical laundry room with machines to a green screen with pink spots. The image remains clear and recognizable.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as the person is still in a laundry room, but the background has been changed from a typical laundry room with machines to a green screen with pink spots. The image remains clear and recognizable.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 5.5,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 1,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 1,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been replaced with a green screen featuring pink spots."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall appearance of the image is significantly altered."
+    },
+    "identity_erasure": {
+      "score": 1,
+      "justification": "The subject's identity is not erased; they remain recognizable."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No objects are rendered disproportionate or unrealistic in size."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "Spatial relationships have been destroyed, with the background being replaced."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "The original textures have been replaced with a green screen texture."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Visible noise and digital artifacts are introduced due to the replacement of the background."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "Colors are inconsistent with the rest of the scene due to the green screen background."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Visible seams are present where the green screen meets the subject."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The final image completely deviates from the intent of the original instruction."
+    },
+    "editing_incompleteness": {
+      "score": 1,
+      "justification": "The editing is not incomplete; the entire background has been altered."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd with a green screen background and pink spots."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been replaced with a green screen featuring pink spots.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall appearance of the image is significantly altered.\"},\n  \"identity_erasure\": {\"score\": 1, \"justification\": \"The subject's identity is not erased; they remain recognizable.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No objects are rendered disproportionate or unrealistic in size.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"Spatial relationships have been destroyed, with the background being replaced.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"The original textures have been replaced with a green screen texture.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Visible noise and digital artifacts are introduced due to the replacement of the background.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"Colors are inconsistent with the rest of the scene due to the green screen background.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Visible seams are present where the green screen meets the subject.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The final image completely deviates from the intent of the original instruction.\"},\n  \"editing_incompleteness\": {\"score\": 1, \"justification\": \"The editing is not incomplete; the entire background has been altered.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd with a green screen background and pink spots.\"}\n}"
+}

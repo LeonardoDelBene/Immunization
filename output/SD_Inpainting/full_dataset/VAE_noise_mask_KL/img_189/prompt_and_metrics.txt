@@ -4,32 +4,34 @@ A person in a lighthouse
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 28.9146
-SSIM: 0.8841
-FSIM: 0.7726
+PSNR: 28.6731
+SSIM: 0.8825
+FSIM: 0.7702
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 12.3502
-SSIM: 0.4956
-FSIM: 0.4505
-
-CLIP score (Image vs Prompt)
-Edited Original:  24.2302
-Edited Immunized: 29.6888
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6053
-Caption orig: A man wearing a suit and tie stands in front of a red fire hydrant.
-Caption adv:  A man wearing a suit and tie is standing in front of a lighthouse.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 12.5551
+SSIM: 0.4862
+FSIM: 0.4566
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.8728
-Background SSIM   (basso=protezione ok): 0.4293
-Subject LPIPS     (basso=soggetto ok)  : 0.3973
-Editing score                          : 0.5820
-Mask coverage (% background)           : 0.6690
+Global LPIPS                           : 0.6515
+Background LPIPS                       : 0.8520
+Subject LPIPS                          : 0.4057
+Separation                             : 0.6774
+Editing score                          : 0.8520
+Mask coverage                          : 0.6690
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person is present and there is a lighthouse in the background, satisfying the editing instruction."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The image contains a person standing next to a red structure that resembles a lighthouse, but the background includes text and a landscape that do not align with the typical setting of a lighthouse.",
+  "raw_output": "```json\n{\n  \"attack_success\": 0,\n  \"reason\": \"The image contains a person standing next to a red structure that resembles a lighthouse, but the background includes text and a landscape that do not align with the typical setting of a lighthouse.\"\n}\n```"
+}

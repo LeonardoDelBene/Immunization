@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a summer camp
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.4199
+PSNR: 30.4202
 SSIM: 0.9165
 FSIM: 0.8991
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 16.6450
-SSIM: 0.6015
-FSIM: 0.5388
-
-CLIP score (Image vs Prompt)
-Edited Original:  28.3640
-Edited Immunized: 27.8735
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.3216
-Caption orig: A woman wearing a backpack and a black vest is smiling at the camera.
-Caption adv:  A woman in a black shirt and green pants is standing under a blue tent.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 22.6344
+SSIM: 0.7831
+FSIM: 0.6747
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.4579
-Background SSIM   (basso=protezione ok): 0.5945
-Subject LPIPS     (basso=soggetto ok)  : 0.4814
-Editing score                          : 0.3160
-Mask coverage (% background)           : 0.7733
+Global LPIPS                           : 0.2111
+Background LPIPS                       : 0.1220
+Subject LPIPS                          : 0.6137
+Separation                             : 0.8341
+Editing score                          : 0.6137
+Mask coverage                          : 0.7733
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person in the image now has a cap, which fulfills the editing instruction."
+}

@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a bowling alley
+A person in a tram stop
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 34.54502579277052,
+  "psnr_edited_original_vs_edited_immunized": 13.371740580250414
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 34.5437
-SSIM: 0.9884
-FSIM: 0.9626
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 12.3801
-SSIM: 0.4793
-FSIM: 0.4275
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9884363870164669,
+  "ssim_edited_original_vs_edited_immunized": 0.524576288937448
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  31.7944
-Edited Immunized: 27.6311
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.5317
-Caption orig: A woman wearing a red shirt and sunglasses is walking down a bowling alley.
-Caption adv:  A woman wearing a red shirt and sunglasses is standing in front of a pink background.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9625690857083794,
+  "fsim_edited_original_vs_edited_immunized": 0.46843798126837616
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.9859
-Background SSIM   (basso=protezione ok): 0.3241
-Subject LPIPS     (basso=soggetto ok)  : 0.1320
-Editing score                          : 0.5787
-Mask coverage (% background)           : 0.7510
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.13198257888421727
+Global LPIPS : 0.023353829979896545
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.13198257888421727
+Global LPIPS : 0.5790218114852905
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as the person is still standing at a tram stop. The image appears clear and recognizable with no noticeable degradation.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as the person is still standing at a tram stop. The image appears clear and recognizable with no noticeable degradation.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 6.5,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 7,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 7,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been replaced with a green and purple pattern."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall scene is completely altered, losing its original context."
+    },
+    "identity_erasure": {
+      "score": 7,
+      "justification": "The subject's surroundings have been changed, making her less recognizable."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No significant distortion in object sizes."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "The spatial relationships are disrupted, with the subject seemingly trapped in a different environment."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "The original texture of the background has been replaced with a new, artificial pattern."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Visible noise and digital artifacts are introduced, making the image look manipulated."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "The lighting and colors are inconsistent with the original scene."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Sharp edges and visible seams are present around the subject."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The final image completely deviates from the original instruction."
+    },
+    "editing_incompleteness": {
+      "score": 7,
+      "justification": "The editing has removed the original tram stop background."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd and physically impossible."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been replaced with a green and purple pattern.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall scene is completely altered, losing its original context.\"},\n  \"identity_erasure\": {\"score\": 7, \"justification\": \"The subject's surroundings have been changed, making her less recognizable.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No significant distortion in object sizes.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"The spatial relationships are disrupted, with the subject seemingly trapped in a different environment.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"The original texture of the background has been replaced with a new, artificial pattern.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Visible noise and digital artifacts are introduced, making the image look manipulated.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"The lighting and colors are inconsistent with the original scene.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Sharp edges and visible seams are present around the subject.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The final image completely deviates from the original instruction.\"},\n  \"editing_incompleteness\": {\"score\": 7, \"justification\": \"The editing has removed the original tram stop background.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd and physically impossible.\"}\n}"
+}

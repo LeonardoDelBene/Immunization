@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a mall
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 32.0927
+PSNR: 32.0940
 SSIM: 0.9674
 FSIM: 0.9457
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 16.1437
-SSIM: 0.5076
-FSIM: 0.5030
-
-CLIP score (Image vs Prompt)
-Edited Original:  25.2229
-Edited Immunized: 26.8219
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6938
-Caption orig: A woman wearing a brown jacket and a scarf is standing in a mall.
-Caption adv:  A woman is standing in a mall, talking on her cell phone.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 24.1194
+SSIM: 0.8783
+FSIM: 0.7607
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.4567
-Background SSIM   (basso=protezione ok): 0.4609
-Subject LPIPS     (basso=soggetto ok)  : 0.4293
-Editing score                          : 0.3868
-Mask coverage (% background)           : 0.8454
+Global LPIPS                           : 0.1381
+Background LPIPS                       : 0.1041
+Subject LPIPS                          : 0.4196
+Separation                             : 0.8012
+Editing score                          : 0.4196
+Mask coverage                          : 0.8454
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person in the adversarial image is wearing a hat, but it appears to be a wide-brimmed hat rather than a cap as specified in the editing prompt."
+}

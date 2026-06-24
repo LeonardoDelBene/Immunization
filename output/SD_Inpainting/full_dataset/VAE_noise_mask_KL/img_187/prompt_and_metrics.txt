@@ -4,32 +4,34 @@ A person in a convenience store
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 31.2291
-SSIM: 0.9075
-FSIM: 0.9160
+PSNR: 31.1160
+SSIM: 0.9078
+FSIM: 0.9155
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 14.9227
-SSIM: 0.4555
-FSIM: 0.5292
-
-CLIP score (Image vs Prompt)
-Edited Original:  28.3747
-Edited Immunized: 31.2395
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.7126
-Caption orig: A woman in a red sweater and black pants is standing in front of a grocery store, looking at the items on the shelves.
-Caption adv:  A woman in a red shirt and a hat is standing in front of a shelf of food.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 13.9690
+SSIM: 0.4287
+FSIM: 0.4976
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.3818
-Background SSIM   (basso=protezione ok): 0.3946
-Subject LPIPS     (basso=soggetto ok)  : 0.4429
-Editing score                          : 0.3686
-Mask coverage (% background)           : 0.7428
+Global LPIPS                           : 0.3918
+Background LPIPS                       : 0.3984
+Subject LPIPS                          : 0.4309
+Separation                             : 0.4804
+Editing score                          : 0.3984
+Mask coverage                          : 0.7428
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person is still in a convenience store, but the image appears to be heavily distorted with artifacts and noise, which is not relevant to the semantic edit."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image contains a person standing in a convenience store aisle, but the person's face appears distorted and unnatural, which contradicts the requirement for a clear and recognizable person.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image contains a person standing in a convenience store aisle, but the person's face appears distorted and unnatural, which contradicts the requirement for a clear and recognizable person.\"\n}\n```"
+}

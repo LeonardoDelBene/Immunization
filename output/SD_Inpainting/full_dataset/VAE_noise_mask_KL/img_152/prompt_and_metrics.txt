@@ -4,32 +4,34 @@ A person in a soap store
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 29.4433
-SSIM: 0.9179
-FSIM: 0.8095
+PSNR: 29.5302
+SSIM: 0.9194
+FSIM: 0.8122
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 11.9938
-SSIM: 0.4097
-FSIM: 0.4432
-
-CLIP score (Image vs Prompt)
-Edited Original:  23.5692
-Edited Immunized: 27.2317
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.9153
-Caption orig: A woman wearing a red shirt and sunglasses is standing in front of a shelf of hair products.
-Caption adv:  A woman wearing a red shirt and a polka dot skirt stands in front of a shelf of hair products.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 12.3770
+SSIM: 0.4394
+FSIM: 0.4593
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.6864
-Background SSIM   (basso=protezione ok): 0.2929
-Subject LPIPS     (basso=soggetto ok)  : 0.3669
-Editing score                          : 0.5665
-Mask coverage (% background)           : 0.7111
+Global LPIPS                           : 0.5155
+Background LPIPS                       : 0.6047
+Subject LPIPS                          : 0.3597
+Separation                             : 0.6270
+Editing score                          : 0.6047
+Mask coverage                          : 0.7111
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The shelves appear to be in a different setting, possibly a pharmacy or a different type of store, which does not align with the original instruction of being in a soap store."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The semantic elements required by the prompt (a person in a soap store) are not present. The image appears to be blurred and lacks clear details that would indicate the setting is a soap store.",
+  "raw_output": "```json\n{\n  \"attack_success\": 0,\n  \"reason\": \"The semantic elements required by the prompt (a person in a soap store) are not present. The image appears to be blurred and lacks clear details that would indicate the setting is a soap store.\"\n}\n```"
+}

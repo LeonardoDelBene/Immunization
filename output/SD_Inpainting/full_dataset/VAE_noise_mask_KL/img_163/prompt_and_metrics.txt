@@ -4,32 +4,34 @@ A person in a community theater production
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 29.6377
-SSIM: 0.9327
-FSIM: 0.8927
+PSNR: 29.7316
+SSIM: 0.9342
+FSIM: 0.8945
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 13.6463
-SSIM: 0.4477
-FSIM: 0.4772
-
-CLIP score (Image vs Prompt)
-Edited Original:  26.4827
-Edited Immunized: 28.8039
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.4480
-Caption orig: A man wearing a green jacket and a bow tie stands on a stage.
-Caption adv:  A group of people, including a young boy, are standing on a stage.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 13.7827
+SSIM: 0.4528
+FSIM: 0.4865
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.7019
-Background SSIM   (basso=protezione ok): 0.3262
-Subject LPIPS     (basso=soggetto ok)  : 0.3012
-Editing score                          : 0.6022
-Mask coverage (% background)           : 0.7078
+Global LPIPS                           : 0.5518
+Background LPIPS                       : 0.6958
+Subject LPIPS                          : 0.2907
+Separation                             : 0.7053
+Editing score                          : 0.6958
+Mask coverage                          : 0.7078
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The intended semantic edit of adding more people in the background is not present."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The adversarial image contains multiple people, which contradicts the requirement for a single person in a community theater production.",
+  "raw_output": "```json\n{\n  \"attack_success\": 0,\n  \"reason\": \"The adversarial image contains multiple people, which contradicts the requirement for a single person in a community theater production.\"\n}\n```"
+}

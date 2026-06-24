@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a community arts and crafts market
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.9129
-SSIM: 0.9454
+PSNR: 30.9137
+SSIM: 0.9455
 FSIM: 0.8943
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 17.8859
-SSIM: 0.6962
-FSIM: 0.6391
-
-CLIP score (Image vs Prompt)
-Edited Original:  25.9805
-Edited Immunized: 27.6160
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.7834
-Caption orig: A woman wearing sunglasses and a striped shirt is standing in front of a table at a market.
-Caption adv:  A woman wearing sunglasses and a striped shirt is walking through a market.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 21.2391
+SSIM: 0.8169
+FSIM: 0.7039
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.3642
-Background SSIM   (basso=protezione ok): 0.6299
-Subject LPIPS     (basso=soggetto ok)  : 0.2079
-Editing score                          : 0.4319
-Mask coverage (% background)           : 0.6712
+Global LPIPS                           : 0.1583
+Background LPIPS                       : 0.1281
+Subject LPIPS                          : 0.3250
+Separation                             : 0.7172
+Editing score                          : 0.3250
+Mask coverage                          : 0.6712
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The cap is no longer present in the adversarial image."
+}

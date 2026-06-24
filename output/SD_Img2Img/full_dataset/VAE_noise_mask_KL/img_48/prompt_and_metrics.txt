@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a street vendor stand
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 29.6524
+PSNR: 29.6526
 SSIM: 0.9225
-FSIM: 0.8083
+FSIM: 0.8084
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 19.3428
-SSIM: 0.7289
-FSIM: 0.6090
-
-CLIP score (Image vs Prompt)
-Edited Original:  25.9757
-Edited Immunized: 28.1920
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.4885
-Caption orig: A woman wearing a blue shirt and carrying a purse stands in front of a fruit stand.
-Caption adv:  A woman in a blue shirt and jeans stands in front of a market, looking at the camera.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 22.4086
+SSIM: 0.7950
+FSIM: 0.6230
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.4100
-Background SSIM   (basso=protezione ok): 0.7372
-Subject LPIPS     (basso=soggetto ok)  : 0.4073
-Editing score                          : 0.2985
-Mask coverage (% background)           : 0.7331
+Global LPIPS                           : 0.2192
+Background LPIPS                       : 0.1379
+Subject LPIPS                          : 0.5693
+Separation                             : 0.8050
+Editing score                          : 0.5693
+Mask coverage                          : 0.7331
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person in the adversarial image is wearing a cap, which fulfills the editing instruction."
+}

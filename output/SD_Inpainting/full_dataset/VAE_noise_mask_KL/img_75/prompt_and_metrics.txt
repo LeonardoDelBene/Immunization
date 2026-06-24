@@ -4,32 +4,34 @@ A person in a butcher’s shop
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 29.3992
-SSIM: 0.9296
-FSIM: 0.8611
+PSNR: 29.5464
+SSIM: 0.9319
+FSIM: 0.8650
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 16.2496
-SSIM: 0.5776
-FSIM: 0.5812
-
-CLIP score (Image vs Prompt)
-Edited Original:  29.7592
-Edited Immunized: 28.2921
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6694
-Caption orig: A woman wearing a colorful coat stands in front of a meat counter.
-Caption adv:  A woman wearing a colorful coat stands in front of a bakery display.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 16.2666
+SSIM: 0.5802
+FSIM: 0.5858
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.4985
-Background SSIM   (basso=protezione ok): 0.4530
-Subject LPIPS     (basso=soggetto ok)  : 0.2058
-Editing score                          : 0.5400
-Mask coverage (% background)           : 0.6353
+Global LPIPS                           : 0.3766
+Background LPIPS                       : 0.5124
+Subject LPIPS                          : 0.2003
+Separation                             : 0.7190
+Editing score                          : 0.5124
+Mask coverage                          : 0.6353
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The image now shows a person in a butcher's shop with meat and bread in the background, satisfying the editing instruction."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image shows a person in a butcher's shop, but the background has been altered to include vegetables instead of meat, which contradicts the editing instruction.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image shows a person in a butcher's shop, but the background has been altered to include vegetables instead of meat, which contradicts the editing instruction.\"\n}\n```"
+}

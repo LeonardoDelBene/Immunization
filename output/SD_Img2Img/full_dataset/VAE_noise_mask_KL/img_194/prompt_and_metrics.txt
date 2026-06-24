@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a hotel lobby
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.4684
+PSNR: 30.4685
 SSIM: 0.9344
-FSIM: 0.8934
+FSIM: 0.8933
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 18.1619
-SSIM: 0.5989
-FSIM: 0.5472
-
-CLIP score (Image vs Prompt)
-Edited Original:  24.4978
-Edited Immunized: 26.5397
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.3595
-Caption orig: A woman wearing a white shirt with a picture of a woman's face on it.
-Caption adv:  A woman wearing a dress with a face on it walks down a hallway.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.4000
-Success:   True
-Accuracy:  1.0000
+PSNR: 23.8624
+SSIM: 0.8598
+FSIM: 0.7230
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.4561
-Background SSIM   (basso=protezione ok): 0.5512
-Subject LPIPS     (basso=soggetto ok)  : 0.3520
-Editing score                          : 0.4059
-Mask coverage (% background)           : 0.7431
+Global LPIPS                           : 0.1591
+Background LPIPS                       : 0.0888
+Subject LPIPS                          : 0.4069
+Separation                             : 0.8208
+Editing score                          : 0.4069
+Mask coverage                          : 0.7431
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person in the adversarial image is wearing a cap, which matches the editing prompt."
+}

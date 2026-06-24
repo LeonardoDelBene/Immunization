@@ -4,32 +4,34 @@ A person in a digital art gallery
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 29.9848
-SSIM: 0.8865
+PSNR: 29.8589
+SSIM: 0.8861
 FSIM: 0.8765
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 10.6408
-SSIM: 0.3037
-FSIM: 0.4061
-
-CLIP score (Image vs Prompt)
-Edited Original:  29.3013
-Edited Immunized: 29.4488
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.8204
-Caption orig: A woman wearing sunglasses and a scarf stands in front of a wall of colorful pictures.
-Caption adv:  A woman wearing sunglasses and a scarf is standing in front of a black background.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 11.8438
+SSIM: 0.3059
+FSIM: 0.4051
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.8934
-Background SSIM   (basso=protezione ok): 0.1676
-Subject LPIPS     (basso=soggetto ok)  : 0.4843
-Editing score                          : 0.6165
-Mask coverage (% background)           : 0.6873
+Global LPIPS                           : 0.7522
+Background LPIPS                       : 0.8944
+Subject LPIPS                          : 0.4847
+Separation                             : 0.6485
+Editing score                          : 0.8944
+Mask coverage                          : 0.6873
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person is no longer in a digital art gallery; they appear to be in an empty space with no artwork behind them."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image lacks the digital art gallery background and instead shows a plain, solid color, which contradicts the editing instruction.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image lacks the digital art gallery background and instead shows a plain, solid color, which contradicts the editing instruction.\"\n}\n```"
+}

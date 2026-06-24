@@ -1,35 +1,138 @@
---- Prompt ---
-Put a red hat on the person in the image.
+add a bouquet of flowers in person's hand
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 35.74631237372317,
+  "psnr_edited_original_vs_edited_immunized": 22.83237236135838
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 33.1732
-SSIM: 0.9859
-FSIM: 0.9499
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 15.4713
-SSIM: 0.7134
-FSIM: 0.6662
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9912765966473338,
+  "ssim_edited_original_vs_edited_immunized": 0.9123077680096121
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  28.2632
-Edited Immunized: 26.8892
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6080
-Caption orig: Two women wearing red hats and red coats are walking down the street.
-Caption adv:  A woman wearing a red hat and a black jacket.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9680498318060704,
+  "fsim_edited_original_vs_edited_immunized": 0.785148890573156
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.7427
-Background SSIM   (basso=protezione ok): 0.2484
-Subject LPIPS     (basso=soggetto ok)  : 0.1980
-Editing score                          : 0.7038
-Mask coverage (% background)           : 0.3026
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.1310757881850379
+Global LPIPS : 0.030889704823493958
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.28141610776345755
+Global LPIPS : 0.12186237424612045
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit of adding a bouquet of flowers in the person's hand is clearly visible. The image appears slightly blurry and less recognizable compared to the reference image.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit of adding a bouquet of flowers in the person's hand is clearly visible. The image appears slightly blurry and less recognizable compared to the reference image.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 4.0,
+  "factor_scores": {
+    "background_infiltration": 4,
+    "global_coherence_ruin": 4,
+    "identity_erasure": 4,
+    "scale_distortion": 4,
+    "spatial_chaos": 4,
+    "texture_degradation": 4,
+    "distortion_effectiveness": 4,
+    "light_color_mismatch": 4,
+    "edge_visibility": 4,
+    "alignment_sabotage": 4,
+    "editing_incompleteness": 4,
+    "total_implausibility": 4
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 4,
+      "justification": "The background remains largely unchanged."
+    },
+    "global_coherence_ruin": {
+      "score": 4,
+      "justification": "The overall style and layout appear slightly altered."
+    },
+    "identity_erasure": {
+      "score": 4,
+      "justification": "The subject's identity is not significantly eroded."
+    },
+    "scale_distortion": {
+      "score": 4,
+      "justification": "No objects are rendered disproportionately large or small."
+    },
+    "spatial_chaos": {
+      "score": 4,
+      "justification": "Spatial relationships seem intact."
+    },
+    "texture_degradation": {
+      "score": 4,
+      "justification": "Textures appear mostly intact."
+    },
+    "distortion_effectiveness": {
+      "score": 4,
+      "justification": "Some noise and blurring are present."
+    },
+    "light_color_mismatch": {
+      "score": 4,
+      "justification": "Colors are consistent with the scene."
+    },
+    "edge_visibility": {
+      "score": 4,
+      "justification": "No visible seams or edges."
+    },
+    "alignment_sabotage": {
+      "score": 4,
+      "justification": "The image still aligns with the original instruction."
+    },
+    "editing_incompleteness": {
+      "score": 4,
+      "justification": "The edit of adding flowers is still recognizable."
+    },
+    "total_implausibility": {
+      "score": 4,
+      "justification": "The result is somewhat plausible but altered."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 4, \"justification\": \"The background remains largely unchanged.\"},\n  \"global_coherence_ruin\": {\"score\": 4, \"justification\": \"The overall style and layout appear slightly altered.\"},\n  \"identity_erasure\": {\"score\": 4, \"justification\": \"The subject's identity is not significantly eroded.\"},\n  \"scale_distortion\": {\"score\": 4, \"justification\": \"No objects are rendered disproportionately large or small.\"},\n  \"spatial_chaos\": {\"score\": 4, \"justification\": \"Spatial relationships seem intact.\"},\n  \"texture_degradation\": {\"score\": 4, \"justification\": \"Textures appear mostly intact.\"},\n  \"distortion_effectiveness\": {\"score\": 4, \"justification\": \"Some noise and blurring are present.\"},\n  \"light_color_mismatch\": {\"score\": 4, \"justification\": \"Colors are consistent with the scene.\"},\n  \"edge_visibility\": {\"score\": 4, \"justification\": \"No visible seams or edges.\"},\n  \"alignment_sabotage\": {\"score\": 4, \"justification\": \"The image still aligns with the original instruction.\"},\n  \"editing_incompleteness\": {\"score\": 4, \"justification\": \"The edit of adding flowers is still recognizable.\"},\n  \"total_implausibility\": {\"score\": 4, \"justification\": \"The result is somewhat plausible but altered.\"}\n}"
+}

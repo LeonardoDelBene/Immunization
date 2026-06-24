@@ -4,32 +4,34 @@ A person in a quilt shop
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 31.4581
-SSIM: 0.9228
-FSIM: 0.8920
+PSNR: 31.1939
+SSIM: 0.9210
+FSIM: 0.8895
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 15.3053
-SSIM: 0.4601
-FSIM: 0.4488
-
-CLIP score (Image vs Prompt)
-Edited Original:  28.1227
-Edited Immunized: 30.7015
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.5515
-Caption orig: A woman wearing sunglasses and a white sweater stands in front of a colorful quilt.
-Caption adv:  A woman wearing sunglasses and a white shirt is walking down a hallway.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 15.6469
+SSIM: 0.4679
+FSIM: 0.4588
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.5235
-Background SSIM   (basso=protezione ok): 0.3609
-Subject LPIPS     (basso=soggetto ok)  : 0.5235
-Editing score                          : 0.4011
-Mask coverage (% background)           : 0.7076
+Global LPIPS                           : 0.4943
+Background LPIPS                       : 0.5162
+Subject LPIPS                          : 0.5208
+Separation                             : 0.4978
+Editing score                          : 0.5162
+Mask coverage                          : 0.7076
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person is still present in the image, but their face is blurred, which does not contradict the editing instruction."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The adversarial image shows a person standing in front of a wall of quilts, which aligns with the editing prompt. However, the person's face is blurred, which may be an unintended effect rather than a deliberate edit. The semantic elements (a person and quilts) are present, but the blurring could be considered a failure in maintaining the intended visual integrity.",
+  "raw_output": "```json\n{\n  \"attack_success\": 0,\n  \"reason\": \"The adversarial image shows a person standing in front of a wall of quilts, which aligns with the editing prompt. However, the person's face is blurred, which may be an unintended effect rather than a deliberate edit. The semantic elements (a person and quilts) are present, but the blurring could be considered a failure in maintaining the intended visual integrity.\"\n}\n```"
+}

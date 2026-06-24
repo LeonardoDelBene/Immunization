@@ -4,32 +4,34 @@ A person in a parking garage
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.6986
-SSIM: 0.9775
-FSIM: 0.9049
+PSNR: 30.6246
+SSIM: 0.9778
+FSIM: 0.9062
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 17.4849
-SSIM: 0.6512
-FSIM: 0.5876
-
-CLIP score (Image vs Prompt)
-Edited Original:  26.0117
-Edited Immunized: 25.6561
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.4898
-Caption orig: A woman wearing a black hat and glasses is standing in a room with a white wall.
-Caption adv:  A woman wearing a colorful shirt and glasses is standing in a parking garage.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 17.8325
+SSIM: 0.6878
+FSIM: 0.6169
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.4703
-Background SSIM   (basso=protezione ok): 0.5433
-Subject LPIPS     (basso=soggetto ok)  : 0.1354
-Editing score                          : 0.5439
-Mask coverage (% background)           : 0.7013
+Global LPIPS                           : 0.3048
+Background LPIPS                       : 0.4388
+Subject LPIPS                          : 0.1363
+Separation                             : 0.7630
+Editing score                          : 0.4388
+Mask coverage                          : 0.7013
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person is still in a parking garage, but there is an additional sign that was not part of the original reference image."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The image still shows a person standing in an open area with pillars, which does not match the requirement of being in a parking garage.",
+  "raw_output": "```json\n{\n  \"attack_success\": 0,\n  \"reason\": \"The image still shows a person standing in an open area with pillars, which does not match the requirement of being in a parking garage.\"\n}\n```"
+}

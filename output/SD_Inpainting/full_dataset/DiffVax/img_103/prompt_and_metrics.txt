@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a creative writing event
+A person in a food art festival
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 35.87871432966678,
+  "psnr_edited_original_vs_edited_immunized": 12.732388595991353
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 35.8779
-SSIM: 0.9878
-FSIM: 0.9634
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 12.5191
-SSIM: 0.5317
-FSIM: 0.4859
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9878443153066033,
+  "ssim_edited_original_vs_edited_immunized": 0.5358517708233015
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  23.4773
-Edited Immunized: 20.9785
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.5090
-Caption orig: A woman wearing a white coat stands in front of a crowd of people.
-Caption adv:  A woman wearing a white coat with a fur trim and holding a white purse.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9634470093910821,
+  "fsim_edited_original_vs_edited_immunized": 0.4958488558135386
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.8526
-Background SSIM   (basso=protezione ok): 0.2811
-Subject LPIPS     (basso=soggetto ok)  : 0.1010
-Editing score                          : 0.5805
-Mask coverage (% background)           : 0.6305
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.1010120636138917
+Global LPIPS : 0.030532261356711388
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.1010120636138917
+Global LPIPS : 0.5095393657684326
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as the person is still wearing a fur coat, but the background has been changed to a patterned texture with purple spots, making the image less clear and recognizable.",
+  "attack_success": 1,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as the person is still wearing a fur coat, but the background has been changed to a patterned texture with purple spots, making the image less clear and recognizable.\",\n  \"attack_success\": 1\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 5.75,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 4,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 1,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been replaced with a patterned texture, significantly altering the original setting."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall appearance of the image is drastically changed, losing coherence with the original context."
+    },
+    "identity_erasure": {
+      "score": 4,
+      "justification": "The subject remains recognizable, but the background has been altered."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No noticeable distortion in object sizes."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "Spatial relationships are disrupted due to the new background texture."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "The original textures have been replaced with a noisy pattern."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Visible noise and blurring are introduced, affecting the clarity."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "Colors are inconsistent with the rest of the scene due to the new background."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Sharp edges and visible seams are present in the altered areas."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The image completely deviates from the intended food art festival theme."
+    },
+    "editing_incompleteness": {
+      "score": 1,
+      "justification": "The core elements of the edit (person in a fur coat) remain intact."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd with a patterned background and no coherent setting."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been replaced with a patterned texture, significantly altering the original setting.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall appearance of the image is drastically changed, losing coherence with the original context.\"},\n  \"identity_erasure\": {\"score\": 4, \"justification\": \"The subject remains recognizable, but the background has been altered.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No noticeable distortion in object sizes.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"Spatial relationships are disrupted due to the new background texture.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"The original textures have been replaced with a noisy pattern.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Visible noise and blurring are introduced, affecting the clarity.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"Colors are inconsistent with the rest of the scene due to the new background.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Sharp edges and visible seams are present in the altered areas.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The image completely deviates from the intended food art festival theme.\"},\n  \"editing_incompleteness\": {\"score\": 1, \"justification\": \"The core elements of the edit (person in a fur coat) remain intact.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd with a patterned background and no coherent setting.\"}\n}"
+}

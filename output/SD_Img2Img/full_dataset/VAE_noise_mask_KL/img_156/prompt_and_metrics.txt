@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a beachside boardwalk
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 31.3172
+PSNR: 31.3174
 SSIM: 0.9343
 FSIM: 0.9206
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 18.2757
-SSIM: 0.6500
-FSIM: 0.6130
-
-CLIP score (Image vs Prompt)
-Edited Original:  27.4088
-Edited Immunized: 28.8679
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        1.0000
-Caption orig: A woman wearing a white shirt and a green skirt is standing on a boardwalk.
-Caption adv:  A woman wearing a white shirt and a green skirt is standing on a boardwalk.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 1.0000
-Success:   False
-Accuracy:  0.0000
+PSNR: 23.2921
+SSIM: 0.8000
+FSIM: 0.7205
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.3097
-Background SSIM   (basso=protezione ok): 0.6201
-Subject LPIPS     (basso=soggetto ok)  : 0.3562
-Editing score                          : 0.3242
-Mask coverage (% background)           : 0.7403
+Global LPIPS                           : 0.2043
+Background LPIPS                       : 0.1409
+Subject LPIPS                          : 0.3950
+Separation                             : 0.7371
+Editing score                          : 0.3950
+Mask coverage                          : 0.7403
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person in the image now appears to be wearing a cap."
+}

@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a convenience store
+A person in a public restroom
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 34.091287396677366,
+  "psnr_edited_original_vs_edited_immunized": 15.00461851241006
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 34.0903
-SSIM: 0.9904
-FSIM: 0.9686
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 11.9271
-SSIM: 0.3971
-FSIM: 0.4252
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9904331624735024,
+  "ssim_edited_original_vs_edited_immunized": 0.516956570888296
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  28.3747
-Edited Immunized: 30.2011
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6213
-Caption orig: A woman in a red sweater and black pants is standing in front of a grocery store, looking at the items on the shelves.
-Caption adv:  A woman in a red sweater and black pants is standing in front of a refrigerator, holding a cup.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9686197769134569,
+  "fsim_edited_original_vs_edited_immunized": 0.41482664764292737
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.6564
-Background SSIM   (basso=protezione ok): 0.2043
-Subject LPIPS     (basso=soggetto ok)  : 0.1148
-Editing score                          : 0.5832
-Mask coverage (% background)           : 0.7428
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.11476992625307744
+Global LPIPS : 0.0185338594019413
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.11476992625307744
+Global LPIPS : 0.6664674282073975
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as the person is still in a public restroom setting. The background has changed from a red wall with a door to a green wall with pink splatters, but the person's position and attire remain unchanged. The image appears clear and recognizable.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as the person is still in a public restroom setting. The background has changed from a red wall with a door to a green wall with pink splatters, but the person's position and attire remain unchanged. The image appears clear and recognizable.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 5.5,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 1,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 1,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been completely replaced with a new pattern, altering the original setting."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall appearance of the image is drastically changed, losing coherence with the original setting."
+    },
+    "identity_erasure": {
+      "score": 1,
+      "justification": "The subject remains recognizable, with no significant distortion."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "The subject's proportions are maintained, showing no distortion."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "The spatial relationships have been disrupted, with the subject appearing out of place."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "The original texture of the background has been replaced with a new, noisy pattern."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Visible noise and digital artifacts are introduced, significantly degrading the image."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "The colors are inconsistent with the rest of the scene, creating a mismatch."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Sharp edges and visible seams are present in the attacked areas."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The final image completely deviates from the intended public restroom setting."
+    },
+    "editing_incompleteness": {
+      "score": 1,
+      "justification": "The fundamental part of the requested edit (the background) has been removed."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd, depicting a person in a public restroom with a completely different background pattern."
+    }
+  },
+  "raw_output": "```json\n{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been completely replaced with a new pattern, altering the original setting.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall appearance of the image is drastically changed, losing coherence with the original setting.\"},\n  \"identity_erasure\": {\"score\": 1, \"justification\": \"The subject remains recognizable, with no significant distortion.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"The subject's proportions are maintained, showing no distortion.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"The spatial relationships have been disrupted, with the subject appearing out of place.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"The original texture of the background has been replaced with a new, noisy pattern.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Visible noise and digital artifacts are introduced, significantly degrading the image.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"The colors are inconsistent with the rest of the scene, creating a mismatch.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Sharp edges and visible seams are present in the attacked areas.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The final image completely deviates from the intended public restroom setting.\"},\n  \"editing_incompleteness\": {\"score\": 1, \"justification\": \"The fundamental part of the requested edit (the background) has been removed.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd, depicting a person in a public restroom with a completely different background pattern.\"}\n}\n```"
+}

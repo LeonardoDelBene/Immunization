@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a swimming pool
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.6059
+PSNR: 30.6064
 SSIM: 0.9473
 FSIM: 0.8768
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 18.4311
-SSIM: 0.6666
-FSIM: 0.5783
-
-CLIP score (Image vs Prompt)
-Edited Original:  28.7527
-Edited Immunized: 28.9291
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.4899
-Caption orig: A woman wearing a brown dress is walking next to a swimming pool.
-Caption adv:  A statue of a woman is placed in a swimming pool.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 23.0024
+SSIM: 0.8218
+FSIM: 0.6882
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.3665
-Background SSIM   (basso=protezione ok): 0.6287
-Subject LPIPS     (basso=soggetto ok)  : 0.3848
-Editing score                          : 0.3271
-Mask coverage (% background)           : 0.7470
+Global LPIPS                           : 0.1847
+Background LPIPS                       : 0.0993
+Subject LPIPS                          : 0.5180
+Separation                             : 0.8391
+Editing score                          : 0.5180
+Mask coverage                          : 0.7470
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person in the image now appears to be wearing a cap, which fulfills the editing instruction."
+}

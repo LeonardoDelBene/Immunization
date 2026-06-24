@@ -4,32 +4,34 @@ A person in a community arts and crafts market
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.9385
-SSIM: 0.9444
-FSIM: 0.8933
+PSNR: 30.9129
+SSIM: 0.9454
+FSIM: 0.8943
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 13.8752
-SSIM: 0.5157
-FSIM: 0.5266
-
-CLIP score (Image vs Prompt)
-Edited Original:  26.2227
-Edited Immunized: 25.3497
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.4835
-Caption orig: A woman wearing sunglasses and a brown vest is standing in front of a table with various items on it.
-Caption adv:  A woman wearing sunglasses and a striped shirt is walking down a street.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 13.6917
+SSIM: 0.5141
+FSIM: 0.5236
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.6004
-Background SSIM   (basso=protezione ok): 0.3680
-Subject LPIPS     (basso=soggetto ok)  : 0.2105
-Editing score                          : 0.6034
-Mask coverage (% background)           : 0.6712
+Global LPIPS                           : 0.4345
+Background LPIPS                       : 0.5991
+Subject LPIPS                          : 0.2079
+Separation                             : 0.7423
+Editing score                          : 0.5991
+Mask coverage                          : 0.6712
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person is still in a community arts and crafts market, but the background appears to be altered, which could be considered an unintended change."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image lacks the presence of a community arts and crafts market, as indicated by the absence of stalls, merchandise, and the overall environment typical of such a setting.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image lacks the presence of a community arts and crafts market, as indicated by the absence of stalls, merchandise, and the overall environment typical of such a setting.\"\n}\n```"
+}

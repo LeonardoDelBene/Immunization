@@ -1,35 +1,138 @@
---- Prompt ---
-Put a red hat on the person in the image.
+add a bouquet of flowers in person's hand
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 34.37370733720731,
+  "psnr_edited_original_vs_edited_immunized": 23.11417734591337
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 35.1931
-SSIM: 0.9869
-FSIM: 0.9490
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 19.6288
-SSIM: 0.8579
-FSIM: 0.7478
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9841380082002914,
+  "ssim_edited_original_vs_edited_immunized": 0.8825389378247769
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  26.3116
-Edited Immunized: 27.2080
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6590
-Caption orig: A woman in a red hat and white shirt is looking at her cell phone while walking down the street.
-Caption adv:  A woman wearing a red hat and carrying a black purse walks down the street.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9623450197715359,
+  "fsim_edited_original_vs_edited_immunized": 0.7513276480530114
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.4000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.3269
-Background SSIM   (basso=protezione ok): 0.7825
-Subject LPIPS     (basso=soggetto ok)  : 0.1985
-Editing score                          : 0.3769
-Mask coverage (% background)           : 0.1920
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.2863863390536041
+Global LPIPS : 0.036827828735113144
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.4825801798866484
+Global LPIPS : 0.1347264051437378
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit of adding a bouquet of flowers in the person's hand is clearly visible. The image remains clear and recognizable with no noticeable degradation.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit of adding a bouquet of flowers in the person's hand is clearly visible. The image remains clear and recognizable with no noticeable degradation.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "raw_output": "0"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "raw_output": "0"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 4.0,
+  "factor_scores": {
+    "background_infiltration": 4,
+    "global_coherence_ruin": 4,
+    "identity_erasure": 4,
+    "scale_distortion": 4,
+    "spatial_chaos": 4,
+    "texture_degradation": 4,
+    "distortion_effectiveness": 4,
+    "light_color_mismatch": 4,
+    "edge_visibility": 4,
+    "alignment_sabotage": 4,
+    "editing_incompleteness": 4,
+    "total_implausibility": 4
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 4,
+      "justification": "The background appears slightly blurred, but the main subject and the added flowers are still recognizable."
+    },
+    "global_coherence_ruin": {
+      "score": 4,
+      "justification": "The overall composition remains coherent, with the added flowers blending into the scene."
+    },
+    "identity_erasure": {
+      "score": 4,
+      "justification": "The subjects' identities are not erased; they are still distinguishable."
+    },
+    "scale_distortion": {
+      "score": 4,
+      "justification": "The added flowers do not cause disproportionate size issues."
+    },
+    "spatial_chaos": {
+      "score": 4,
+      "justification": "Spatial relationships are maintained, with the flowers fitting naturally into the scene."
+    },
+    "texture_degradation": {
+      "score": 4,
+      "justification": "Textures are preserved, with the flowers seamlessly integrated into the image."
+    },
+    "distortion_effectiveness": {
+      "score": 4,
+      "justification": "No severe distortions are introduced; the flowers look natural."
+    },
+    "light_color_mismatch": {
+      "score": 4,
+      "justification": "Colors are consistent with the rest of the scene, enhancing the realism."
+    },
+    "edge_visibility": {
+      "score": 4,
+      "justification": "Edges are smooth, with no visible seams or halos."
+    },
+    "alignment_sabotage": {
+      "score": 4,
+      "justification": "The image aligns well with the original instruction, with the flowers added as intended."
+    },
+    "editing_incompleteness": {
+      "score": 4,
+      "justification": "The edit is complete; all parts of the instruction are followed."
+    },
+    "total_implausibility": {
+      "score": 4,
+      "justification": "The final result is realistic and plausible, with the flowers fitting the scene naturally."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 4, \"justification\": \"The background appears slightly blurred, but the main subject and the added flowers are still recognizable.\"},\n  \"global_coherence_ruin\": {\"score\": 4, \"justification\": \"The overall composition remains coherent, with the added flowers blending into the scene.\"},\n  \"identity_erasure\": {\"score\": 4, \"justification\": \"The subjects' identities are not erased; they are still distinguishable.\"},\n  \"scale_distortion\": {\"score\": 4, \"justification\": \"The added flowers do not cause disproportionate size issues.\"},\n  \"spatial_chaos\": {\"score\": 4, \"justification\": \"Spatial relationships are maintained, with the flowers fitting naturally into the scene.\"},\n  \"texture_degradation\": {\"score\": 4, \"justification\": \"Textures are preserved, with the flowers seamlessly integrated into the image.\"},\n  \"distortion_effectiveness\": {\"score\": 4, \"justification\": \"No severe distortions are introduced; the flowers look natural.\"},\n  \"light_color_mismatch\": {\"score\": 4, \"justification\": \"Colors are consistent with the rest of the scene, enhancing the realism.\"},\n  \"edge_visibility\": {\"score\": 4, \"justification\": \"Edges are smooth, with no visible seams or halos.\"},\n  \"alignment_sabotage\": {\"score\": 4, \"justification\": \"The image aligns well with the original instruction, with the flowers added as intended.\"},\n  \"editing_incompleteness\": {\"score\": 4, \"justification\": \"The edit is complete; all parts of the instruction are followed.\"},\n  \"total_implausibility\": {\"score\": 4, \"justification\": \"The final result is realistic and plausible, with the flowers fitting the scene naturally.\"}\n}"
+}

@@ -4,32 +4,34 @@ A person in a music and arts festival
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.6786
+PSNR: 30.6599
 SSIM: 0.9313
-FSIM: 0.8608
+FSIM: 0.8598
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 18.9784
-SSIM: 0.6839
-FSIM: 0.5602
-
-CLIP score (Image vs Prompt)
-Edited Original:  28.9382
-Edited Immunized: 29.6975
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.3960
-Caption orig: A woman wearing a pink shirt and a white jacket is standing in a crowd of people.
-Caption adv:  A woman in a white shirt and tan jacket is smiling at the camera.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 18.7726
+SSIM: 0.6796
+FSIM: 0.5574
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.4794
-Background SSIM   (basso=protezione ok): 0.6757
-Subject LPIPS     (basso=soggetto ok)  : 0.4913
-Editing score                          : 0.2943
-Mask coverage (% background)           : 0.7320
+Global LPIPS                           : 0.4460
+Background LPIPS                       : 0.4873
+Subject LPIPS                          : 0.4876
+Separation                             : 0.4998
+Editing score                          : 0.4873
+Mask coverage                          : 0.7320
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person is still present, but the image appears to be blurred and distorted, which does not align with the original intent of the editing prompt."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image contains multiple people but lacks clear visual elements that would indicate a specific music and arts festival setting.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image contains multiple people but lacks clear visual elements that would indicate a specific music and arts festival setting.\"\n}\n```"
+}

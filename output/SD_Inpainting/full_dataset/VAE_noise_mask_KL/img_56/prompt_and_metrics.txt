@@ -4,32 +4,34 @@ A person in a mall
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.5766
-SSIM: 0.9322
-FSIM: 0.8770
+PSNR: 30.3048
+SSIM: 0.9314
+FSIM: 0.8743
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 17.8173
-SSIM: 0.6771
-FSIM: 0.5810
-
-CLIP score (Image vs Prompt)
-Edited Original:  26.6592
-Edited Immunized: 28.3836
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6118
-Caption orig: A woman wearing a plaid skirt and a scarf is standing in a crowded mall.
-Caption adv:  A woman in a plaid skirt and a scarf walks down a crowded street.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 17.5164
+SSIM: 0.6711
+FSIM: 0.5741
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.4734
-Background SSIM   (basso=protezione ok): 0.6444
-Subject LPIPS     (basso=soggetto ok)  : 0.2732
-Editing score                          : 0.4322
-Mask coverage (% background)           : 0.6999
+Global LPIPS                           : 0.4082
+Background LPIPS                       : 0.4744
+Subject LPIPS                          : 0.2783
+Separation                             : 0.6302
+Editing score                          : 0.4744
+Mask coverage                          : 0.6999
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person is still in a mall, but there is an unusual green tint and distortion affecting the entire image, which does not align with the original intent of simply showing a person in a mall."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image contains distorted and unnatural colors, which contradicts the requirement for a person in a mall.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image contains distorted and unnatural colors, which contradicts the requirement for a person in a mall.\"\n}\n```"
+}

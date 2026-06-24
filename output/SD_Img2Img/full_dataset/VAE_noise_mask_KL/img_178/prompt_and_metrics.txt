@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a summer camp
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.3610
+PSNR: 30.3609
 SSIM: 0.9139
 FSIM: 0.9258
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 17.6079
-SSIM: 0.6644
-FSIM: 0.5996
-
-CLIP score (Image vs Prompt)
-Edited Original:  23.1288
-Edited Immunized: 24.5743
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.4668
-Caption orig: A woman wearing a black shirt and a yellow skirt is standing in front of a line of clothes hanging on a clothesline.
-Caption adv:  A woman wearing a black shirt and a skirt is walking down a path with a young boy.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 22.3039
+SSIM: 0.7459
+FSIM: 0.6908
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.4487
-Background SSIM   (basso=protezione ok): 0.6683
-Subject LPIPS     (basso=soggetto ok)  : 0.5769
-Editing score                          : 0.2790
-Mask coverage (% background)           : 0.7361
+Global LPIPS                           : 0.2364
+Background LPIPS                       : 0.1194
+Subject LPIPS                          : 0.6852
+Separation                             : 0.8516
+Editing score                          : 0.6852
+Mask coverage                          : 0.7361
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person in the adversarial image is wearing a cap, which matches the editing prompt."
+}

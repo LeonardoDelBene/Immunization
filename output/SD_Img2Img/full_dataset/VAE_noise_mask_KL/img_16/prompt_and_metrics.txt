@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a costume shop
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 32.4468
+PSNR: 32.4476
 SSIM: 0.9642
 FSIM: 0.9243
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 19.1313
-SSIM: 0.7919
-FSIM: 0.6945
-
-CLIP score (Image vs Prompt)
-Edited Original:  26.7039
-Edited Immunized: 27.7555
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6449
-Caption orig: A woman wearing a colorful striped sweater is walking through a room with a large number of shoes.
-Caption adv:  A woman wearing a colorful striped shirt and holding a feather boa walks through a room.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 25.4407
+SSIM: 0.9112
+FSIM: 0.8113
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.2853
-Background SSIM   (basso=protezione ok): 0.7513
-Subject LPIPS     (basso=soggetto ok)  : 0.0771
-Editing score                          : 0.4425
-Mask coverage (% background)           : 0.6927
+Global LPIPS                           : 0.0486
+Background LPIPS                       : 0.0499
+Subject LPIPS                          : 0.0920
+Separation                             : 0.6484
+Editing score                          : 0.0920
+Mask coverage                          : 0.6927
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The cap is still present in the adversarial image, so the semantic edit is not correctly applied."
+}

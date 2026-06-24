@@ -4,32 +4,34 @@ A person in a flower stall
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.2179
-SSIM: 0.9323
-FSIM: 0.8884
+PSNR: 30.2233
+SSIM: 0.9325
+FSIM: 0.8896
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 17.1537
-SSIM: 0.5931
-FSIM: 0.6127
-
-CLIP score (Image vs Prompt)
-Edited Original:  31.9631
-Edited Immunized: 31.0010
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.8958
-Caption orig: A woman wearing a gray sweater and a floral skirt stands in front of a vibrant flower display.
-Caption adv:  A woman in a grey shirt and blue skirt stands in front of a flower display.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.4000
-Success:   True
-Accuracy:  1.0000
+PSNR: 17.5622
+SSIM: 0.5992
+FSIM: 0.6134
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.3616
-Background SSIM   (basso=protezione ok): 0.5202
-Subject LPIPS     (basso=soggetto ok)  : 0.3433
-Editing score                          : 0.3825
-Mask coverage (% background)           : 0.6924
+Global LPIPS                           : 0.3090
+Background LPIPS                       : 0.3429
+Subject LPIPS                          : 0.3401
+Separation                             : 0.5021
+Editing score                          : 0.3429
+Mask coverage                          : 0.6924
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person is still present in the image, but the editing appears to have removed their face, which was likely the intended edit."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image does not contain a person in a flower stall as the editing prompt specifies.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image does not contain a person in a flower stall as the editing prompt specifies.\"\n}\n```"
+}

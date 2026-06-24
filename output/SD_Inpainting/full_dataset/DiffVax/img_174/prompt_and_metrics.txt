@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a high-end restaurant
+A person in a TV newsroom
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 35.42257488085065,
+  "psnr_edited_original_vs_edited_immunized": 12.460608408180708
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 35.4235
-SSIM: 0.9914
-FSIM: 0.9674
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 13.0511
-SSIM: 0.5326
-FSIM: 0.4640
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9914235657644396,
+  "ssim_edited_original_vs_edited_immunized": 0.5101871298929931
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  29.2284
-Edited Immunized: 18.9627
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.5031
-Caption orig: A woman wearing a black jacket and scarf is walking through a restaurant.
-Caption adv:  A woman wearing a black jacket and holding a frying pan.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9674252759846542,
+  "fsim_edited_original_vs_edited_immunized": 0.43243082629742263
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.8970
-Background SSIM   (basso=protezione ok): 0.3832
-Subject LPIPS     (basso=soggetto ok)  : 0.1559
-Editing score                          : 0.5503
-Mask coverage (% background)           : 0.7324
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.155912135342934
+Global LPIPS : 0.031321827322244644
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.155912135342934
+Global LPIPS : 0.5946106910705566
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as the person appears to be in a different setting with a background filled with colorful text and bubbles, which is not consistent with a TV newsroom. The image is clear and recognizable.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as the person appears to be in a different setting with a background filled with colorful text and bubbles, which is not consistent with a TV newsroom. The image is clear and recognizable.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 6.5,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 7,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 7,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been replaced with a chaotic pattern of text and bubbles."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall appearance is completely altered, losing the original newsroom setting."
+    },
+    "identity_erasure": {
+      "score": 7,
+      "justification": "The subject's identity is obscured by the chaotic background."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No significant distortion in object sizes."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "Spatial relationships are destroyed, with the subject appearing to interact with the background elements."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "The original texture is replaced by a noisy, chaotic pattern."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Severe distortions are introduced, making the image unrecognizable."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "Colors are inconsistent with the rest of the scene, dominated by the chaotic background."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Visible seams and edges are present where the background transitions into the subject."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The final image completely deviates from the intended TV newsroom setting."
+    },
+    "editing_incompleteness": {
+      "score": 7,
+      "justification": "The editing is left incomplete; the subject is not in a newsroom."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd and physically impossible, resembling a surreal painting rather than a newsroom scene."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been replaced with a chaotic pattern of text and bubbles.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall appearance is completely altered, losing the original newsroom setting.\"},\n  \"identity_erasure\": {\"score\": 7, \"justification\": \"The subject's identity is obscured by the chaotic background.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No significant distortion in object sizes.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"Spatial relationships are destroyed, with the subject appearing to interact with the background elements.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"The original texture is replaced by a noisy, chaotic pattern.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Severe distortions are introduced, making the image unrecognizable.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"Colors are inconsistent with the rest of the scene, dominated by the chaotic background.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Visible seams and edges are present where the background transitions into the subject.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The final image completely deviates from the intended TV newsroom setting.\"},\n  \"editing_incompleteness\": {\"score\": 7, \"justification\": \"The editing is left incomplete; the subject is not in a newsroom.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd and physically impossible, resembling a surreal painting rather than a newsroom scene.\"}\n}"
+}

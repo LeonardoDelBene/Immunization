@@ -4,32 +4,34 @@ A person in a rooftop lounge
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 32.8790
-SSIM: 0.9512
-FSIM: 0.9567
+PSNR: 33.1400
+SSIM: 0.9520
+FSIM: 0.9583
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 17.3128
-SSIM: 0.6224
-FSIM: 0.4953
-
-CLIP score (Image vs Prompt)
-Edited Original:  27.1476
-Edited Immunized: 28.2981
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.9767
-Caption orig: A woman wearing a red sweater and pink pants is standing on a rooftop.
-Caption adv:  A woman wearing a red sweater and red pants is standing on a rooftop.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.9000
-Success:   False
-Accuracy:  0.0000
+PSNR: 18.5892
+SSIM: 0.6362
+FSIM: 0.5083
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.5331
-Background SSIM   (basso=protezione ok): 0.5691
-Subject LPIPS     (basso=soggetto ok)  : 0.2456
-Editing score                          : 0.4952
-Mask coverage (% background)           : 0.7515
+Global LPIPS                           : 0.3922
+Background LPIPS                       : 0.4685
+Subject LPIPS                          : 0.2484
+Separation                             : 0.6535
+Editing score                          : 0.4685
+Mask coverage                          : 0.7515
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person is no longer in a rooftop lounge; instead, they appear to be in an outdoor setting with a different background."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image contains multiple faces and distorted features, which contradicts the requirement for a single person in a rooftop lounge setting.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image contains multiple faces and distorted features, which contradicts the requirement for a single person in a rooftop lounge setting.\"\n}\n```"
+}

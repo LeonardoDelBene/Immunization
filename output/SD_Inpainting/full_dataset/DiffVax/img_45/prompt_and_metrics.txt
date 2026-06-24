@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a high-end restaurant
+A person in a bowling alley
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 34.09646523932865,
+  "psnr_edited_original_vs_edited_immunized": 11.97745532296734
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 34.0963
-SSIM: 0.9836
-FSIM: 0.9600
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 13.1377
-SSIM: 0.4298
-FSIM: 0.4155
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9835757579527145,
+  "ssim_edited_original_vs_edited_immunized": 0.38507631150471555
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  29.9958
-Edited Immunized: 20.0174
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.7486
-Caption orig: A woman in a blue dress stands in a restaurant, holding a brown purse.
-Caption adv:  A woman wearing a blue dress and holding a clutch purse.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9600022806855847,
+  "fsim_edited_original_vs_edited_immunized": 0.36512810236356036
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.8942
-Background SSIM   (basso=protezione ok): 0.3258
-Subject LPIPS     (basso=soggetto ok)  : 0.2238
-Editing score                          : 0.5623
-Mask coverage (% background)           : 0.8132
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.22386956892268844
+Global LPIPS : 0.03779219835996628
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.22386956892268844
+Global LPIPS : 0.7417566180229187
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as the person is still holding a red ball in a bowling alley setting. However, the image appears to be heavily degraded with a lot of noise and distortion, making it unrecognizable.",
+  "attack_success": 1,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as the person is still holding a red ball in a bowling alley setting. However, the image appears to be heavily degraded with a lot of noise and distortion, making it unrecognizable.\",\n  \"attack_success\": 1\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 7.0,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 7,
+    "scale_distortion": 7,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 7,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been completely replaced with a patterned texture."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall appearance is totally altered, losing all original context."
+    },
+    "identity_erasure": {
+      "score": 7,
+      "justification": "The subject's identity is lost due to the extreme distortion."
+    },
+    "scale_distortion": {
+      "score": 7,
+      "justification": "Objects appear disproportionately small and unrealistic."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "Spatial relationships are destroyed, with elements appearing out of place."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "Original textures are replaced by a noisy, patterned texture."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Severe digital artifacts and noise are introduced."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "Colors are inconsistent with the rest of the scene, appearing unnatural."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Visible seams and edges indicate the attack's presence."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The final image completely deviates from the intended bowling alley setting."
+    },
+    "editing_incompleteness": {
+      "score": 7,
+      "justification": "The edit is left incomplete as the background is entirely altered."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The result is visually absurd and physically impossible to interpret as a bowling alley scene."
+    }
+  },
+  "raw_output": "```json\n{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been completely replaced with a patterned texture.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall appearance is totally altered, losing all original context.\"},\n  \"identity_erasure\": {\"score\": 7, \"justification\": \"The subject's identity is lost due to the extreme distortion.\"},\n  \"scale_distortion\": {\"score\": 7, \"justification\": \"Objects appear disproportionately small and unrealistic.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"Spatial relationships are destroyed, with elements appearing out of place.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"Original textures are replaced by a noisy, patterned texture.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Severe digital artifacts and noise are introduced.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"Colors are inconsistent with the rest of the scene, appearing unnatural.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Visible seams and edges indicate the attack's presence.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The final image completely deviates from the intended bowling alley setting.\"},\n  \"editing_incompleteness\": {\"score\": 7, \"justification\": \"The edit is left incomplete as the background is entirely altered.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The result is visually absurd and physically impossible to interpret as a bowling alley scene.\"}\n}\n```"
+}

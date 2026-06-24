@@ -4,32 +4,34 @@ A person in a high-end restaurant
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 33.7948
-SSIM: 0.9547
-FSIM: 0.9113
+PSNR: 33.1316
+SSIM: 0.9502
+FSIM: 0.9050
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 14.2788
-SSIM: 0.4472
-FSIM: 0.4343
-
-CLIP score (Image vs Prompt)
-Edited Original:  29.9958
-Edited Immunized: 28.0359
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.7773
-Caption orig: A woman in a blue dress stands in a restaurant, holding a brown purse.
-Caption adv:  A woman in a blue dress is standing at a table in a restaurant.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
+PSNR: 14.3273
+SSIM: 0.4456
+FSIM: 0.4271
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.6489
-Background SSIM   (basso=protezione ok): 0.3855
-Subject LPIPS     (basso=soggetto ok)  : 0.3715
-Editing score                          : 0.5211
-Mask coverage (% background)           : 0.8132
+Global LPIPS                           : 0.5920
+Background LPIPS                       : 0.6535
+Subject LPIPS                          : 0.3946
+Separation                             : 0.6235
+Editing score                          : 0.6535
+Mask coverage                          : 0.8132
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person is still in a restaurant setting, but the background appears to be altered with a patterned overlay, which does not align with the high-end restaurant theme."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image contains a person but the setting appears to be an outdoor scene rather than a high-end restaurant, which contradicts the editing prompt.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image contains a person but the setting appears to be an outdoor scene rather than a high-end restaurant, which contradicts the editing prompt.\"\n}\n```"
+}

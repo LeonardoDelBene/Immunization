@@ -1,35 +1,138 @@
---- Prompt ---
-Put a red hat on the person in the image.
+add a backpack to the person
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 35.765515777272114,
+  "psnr_edited_original_vs_edited_immunized": 18.836424218286744
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 34.1081
-SSIM: 0.9886
-FSIM: 0.9516
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 20.3576
-SSIM: 0.8413
-FSIM: 0.7475
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9903809016427418,
+  "ssim_edited_original_vs_edited_immunized": 0.8176435188091385
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  23.4984
-Edited Immunized: 26.3781
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        1.0000
-Caption orig: A woman wearing a red hat and carrying a red purse walks down the street.
-Caption adv:  A woman wearing a red hat and carrying a red purse walks down the street.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9720154849129483,
+  "fsim_edited_original_vs_edited_immunized": 0.7072125814349697
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 1.0000
-Success:   False
-Accuracy:  0.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.4734
-Background SSIM   (basso=protezione ok): 0.5059
-Subject LPIPS     (basso=soggetto ok)  : 0.1025
-Editing score                          : 0.5761
-Mask coverage (% background)           : 0.2179
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.20261699352305565
+Global LPIPS : 0.0283859521150589
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.6357766654631346
+Global LPIPS : 0.15840652585029602
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The backpack appears to be added to the person's back, but the image is slightly blurry and less sharp compared to the reference image.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The backpack appears to be added to the person's back, but the image is slightly blurry and less sharp compared to the reference image.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "raw_output": "0"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 4.0,
+  "factor_scores": {
+    "background_infiltration": 4,
+    "global_coherence_ruin": 4,
+    "identity_erasure": 4,
+    "scale_distortion": 4,
+    "spatial_chaos": 4,
+    "texture_degradation": 4,
+    "distortion_effectiveness": 4,
+    "light_color_mismatch": 4,
+    "edge_visibility": 4,
+    "alignment_sabotage": 4,
+    "editing_incompleteness": 4,
+    "total_implausibility": 4
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 4,
+      "justification": "The background remains largely unchanged."
+    },
+    "global_coherence_ruin": {
+      "score": 4,
+      "justification": "The overall layout is slightly altered but still coherent."
+    },
+    "identity_erasure": {
+      "score": 4,
+      "justification": "The subject's identity is recognizable but slightly distorted."
+    },
+    "scale_distortion": {
+      "score": 4,
+      "justification": "The subject's proportions are slightly off but not drastically distorted."
+    },
+    "spatial_chaos": {
+      "score": 4,
+      "justification": "Spatial relationships are slightly disrupted but still logical."
+    },
+    "texture_degradation": {
+      "score": 4,
+      "justification": "Textures are slightly altered but not completely corrupted."
+    },
+    "distortion_effectiveness": {
+      "score": 4,
+      "justification": "There is some visible distortion but not severe."
+    },
+    "light_color_mismatch": {
+      "score": 4,
+      "justification": "Colors are consistent with the scene but slightly muted."
+    },
+    "edge_visibility": {
+      "score": 4,
+      "justification": "Edges are slightly blurred but not overly visible."
+    },
+    "alignment_sabotage": {
+      "score": 4,
+      "justification": "The alignment is slightly off but still follows the original intent."
+    },
+    "editing_incompleteness": {
+      "score": 4,
+      "justification": "The backpack is added but the image is slightly blurry."
+    },
+    "total_implausibility": {
+      "score": 4,
+      "justification": "The result is slightly implausible due to the blurriness but still coherent."
+    }
+  },
+  "raw_output": "```json\n{\n  \"background_infiltration\": {\"score\": 4, \"justification\": \"The background remains largely unchanged.\"},\n  \"global_coherence_ruin\": {\"score\": 4, \"justification\": \"The overall layout is slightly altered but still coherent.\"},\n  \"identity_erasure\": {\"score\": 4, \"justification\": \"The subject's identity is recognizable but slightly distorted.\"},\n  \"scale_distortion\": {\"score\": 4, \"justification\": \"The subject's proportions are slightly off but not drastically distorted.\"},\n  \"spatial_chaos\": {\"score\": 4, \"justification\": \"Spatial relationships are slightly disrupted but still logical.\"},\n  \"texture_degradation\": {\"score\": 4, \"justification\": \"Textures are slightly altered but not completely corrupted.\"},\n  \"distortion_effectiveness\": {\"score\": 4, \"justification\": \"There is some visible distortion but not severe.\"},\n  \"light_color_mismatch\": {\"score\": 4, \"justification\": \"Colors are consistent with the scene but slightly muted.\"},\n  \"edge_visibility\": {\"score\": 4, \"justification\": \"Edges are slightly blurred but not overly visible.\"},\n  \"alignment_sabotage\": {\"score\": 4, \"justification\": \"The alignment is slightly off but still follows the original intent.\"},\n  \"editing_incompleteness\": {\"score\": 4, \"justification\": \"The backpack is added but the image is slightly blurry.\"},\n  \"total_implausibility\": {\"score\": 4, \"justification\": \"The result is slightly implausible due to the blurriness but still coherent.\"}\n}\n```"
+}

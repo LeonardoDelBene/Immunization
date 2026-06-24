@@ -4,32 +4,34 @@ A person in a beach resort
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 29.5169
-SSIM: 0.9378
-FSIM: 0.8534
+PSNR: 29.4822
+SSIM: 0.9384
+FSIM: 0.8542
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 14.9703
-SSIM: 0.6205
-FSIM: 0.5530
-
-CLIP score (Image vs Prompt)
-Edited Original:  26.0667
-Edited Immunized: 26.4444
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.9521
-Caption orig: A woman in a black jacket and a purple dress stands on a beach.
-Caption adv:  A woman in a black dress and black jacket stands on a beach.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 14.4071
+SSIM: 0.6138
+FSIM: 0.5497
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.6105
-Background SSIM   (basso=protezione ok): 0.5652
-Subject LPIPS     (basso=soggetto ok)  : 0.3724
-Editing score                          : 0.4512
-Mask coverage (% background)           : 0.7079
+Global LPIPS                           : 0.5021
+Background LPIPS                       : 0.6154
+Subject LPIPS                          : 0.3705
+Separation                             : 0.6242
+Editing score                          : 0.6154
+Mask coverage                          : 0.7079
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person is still in a beach setting with palm trees, but the image appears to be heavily distorted and pixelated, which is not aligned with the original intent of the editing prompt."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image contains a person but the background appears distorted and not consistent with a beach resort setting.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image contains a person but the background appears distorted and not consistent with a beach resort setting.\"\n}\n```"
+}

@@ -1,35 +1,138 @@
---- Prompt ---
-Put a red hat on the person in the image.
+change the person's expression to surprised
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 35.16658238304593,
+  "psnr_edited_original_vs_edited_immunized": 31.264728996312957
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 34.5482
-SSIM: 0.9849
-FSIM: 0.9517
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 17.5473
-SSIM: 0.8829
-FSIM: 0.7684
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9898296734722809,
+  "ssim_edited_original_vs_edited_immunized": 0.9578381532382836
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  26.4735
-Edited Immunized: 27.2973
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.9074
-Caption orig: A man wearing a grey jacket and a red hat is walking down the street.
-Caption adv:  A man wearing a red hat and a red jacket is walking down the street.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9632125518641295,
+  "fsim_edited_original_vs_edited_immunized": 0.8425362124437014
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.3355
-Background SSIM   (basso=protezione ok): 0.7351
-Subject LPIPS     (basso=soggetto ok)  : 0.1669
-Editing score                          : 0.4135
-Mask coverage (% background)           : 0.2862
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.1421613263233447
+Global LPIPS : 0.028555890545248985
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.15267279301576742
+Global LPIPS : 0.04290616512298584
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as the person's expression remains neutral. The image appears clear and recognizable.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as the person's expression remains neutral. The image appears clear and recognizable.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 3.0,
+  "factor_scores": {
+    "background_infiltration": 3,
+    "global_coherence_ruin": 3,
+    "identity_erasure": 3,
+    "scale_distortion": 3,
+    "spatial_chaos": 3,
+    "texture_degradation": 3,
+    "distortion_effectiveness": 3,
+    "light_color_mismatch": 3,
+    "edge_visibility": 3,
+    "alignment_sabotage": 3,
+    "editing_incompleteness": 3,
+    "total_implausibility": 3
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 3,
+      "justification": "Some small, unwanted changes in the background."
+    },
+    "global_coherence_ruin": {
+      "score": 3,
+      "justification": "The overall appearance is slightly altered but still recognizable."
+    },
+    "identity_erasure": {
+      "score": 3,
+      "justification": "The subject's identity is not lost but slightly distorted."
+    },
+    "scale_distortion": {
+      "score": 3,
+      "justification": "No significant distortion in object sizes."
+    },
+    "spatial_chaos": {
+      "score": 3,
+      "justification": "Spatial relationships are slightly disrupted but coherent."
+    },
+    "texture_degradation": {
+      "score": 3,
+      "justification": "Textures are slightly corrupted but still discernible."
+    },
+    "distortion_effectiveness": {
+      "score": 3,
+      "justification": "Visible noise and blurring present."
+    },
+    "light_color_mismatch": {
+      "score": 3,
+      "justification": "Colors are consistent but slightly muted."
+    },
+    "edge_visibility": {
+      "score": 3,
+      "justification": "Edges are slightly blurred but still visible."
+    },
+    "alignment_sabotage": {
+      "score": 3,
+      "justification": "The instruction is partially ignored."
+    },
+    "editing_incompleteness": {
+      "score": 3,
+      "justification": "Fundamental parts of the edit are slightly altered."
+    },
+    "total_implausibility": {
+      "score": 3,
+      "justification": "The result is slightly absurd but still logical."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 3, \"justification\": \"Some small, unwanted changes in the background.\"},\n  \"global_coherence_ruin\": {\"score\": 3, \"justification\": \"The overall appearance is slightly altered but still recognizable.\"},\n  \"identity_erasure\": {\"score\": 3, \"justification\": \"The subject's identity is not lost but slightly distorted.\"},\n  \"scale_distortion\": {\"score\": 3, \"justification\": \"No significant distortion in object sizes.\"},\n  \"spatial_chaos\": {\"score\": 3, \"justification\": \"Spatial relationships are slightly disrupted but coherent.\"},\n  \"texture_degradation\": {\"score\": 3, \"justification\": \"Textures are slightly corrupted but still discernible.\"},\n  \"distortion_effectiveness\": {\"score\": 3, \"justification\": \"Visible noise and blurring present.\"},\n  \"light_color_mismatch\": {\"score\": 3, \"justification\": \"Colors are consistent but slightly muted.\"},\n  \"edge_visibility\": {\"score\": 3, \"justification\": \"Edges are slightly blurred but still visible.\"},\n  \"alignment_sabotage\": {\"score\": 3, \"justification\": \"The instruction is partially ignored.\"},\n  \"editing_incompleteness\": {\"score\": 3, \"justification\": \"Fundamental parts of the edit are slightly altered.\"},\n  \"total_implausibility\": {\"score\": 3, \"justification\": \"The result is slightly absurd but still logical.\"}\n}"
+}

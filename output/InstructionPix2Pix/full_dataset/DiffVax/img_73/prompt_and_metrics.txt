@@ -1,35 +1,138 @@
---- Prompt ---
-Put a red hat on the person in the image.
+make the person wear a hoodie
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 34.654060121778144,
+  "psnr_edited_original_vs_edited_immunized": 14.984688372612613
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 31.7326
-SSIM: 0.9803
-FSIM: 0.9313
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 17.3008
-SSIM: 0.8370
-FSIM: 0.6685
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9889321843597751,
+  "ssim_edited_original_vs_edited_immunized": 0.7150344655601666
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  24.4102
-Edited Immunized: 22.8418
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.9115
-Caption orig: A woman wearing a red hat and scarf stands in front of a brick wall.
-Caption adv:  A woman wearing a red hat and a red coat is standing in front of a brick wall.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9412372817063174,
+  "fsim_edited_original_vs_edited_immunized": 0.5241438354225249
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.4216
-Background SSIM   (basso=protezione ok): 0.6008
-Subject LPIPS     (basso=soggetto ok)  : 0.1427
-Editing score                          : 0.5028
-Mask coverage (% background)           : 0.2628
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.17673244217137538
+Global LPIPS : 0.0294460691511631
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.6838164246296696
+Global LPIPS : 0.22156602144241333
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is visible as the person now wears a hoodie. The image appears clear and recognizable with no noticeable degradation.",
+  "attack_success": 1,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is visible as the person now wears a hoodie. The image appears clear and recognizable with no noticeable degradation.\",\n  \"attack_success\": 1\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "raw_output": "0"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "raw_output": "0"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 1.0,
+  "factor_scores": {
+    "background_infiltration": 1,
+    "global_coherence_ruin": 1,
+    "identity_erasure": 1,
+    "scale_distortion": 1,
+    "spatial_chaos": 1,
+    "texture_degradation": 1,
+    "distortion_effectiveness": 1,
+    "light_color_mismatch": 1,
+    "edge_visibility": 1,
+    "alignment_sabotage": 1,
+    "editing_incompleteness": 1,
+    "total_implausibility": 1
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 1,
+      "justification": "No significant changes in background."
+    },
+    "global_coherence_ruin": {
+      "score": 1,
+      "justification": "The overall appearance remains coherent."
+    },
+    "identity_erasure": {
+      "score": 1,
+      "justification": "Subjects are still recognizable."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No objects are rendered disproportionately."
+    },
+    "spatial_chaos": {
+      "score": 1,
+      "justification": "Spatial relationships are maintained."
+    },
+    "texture_degradation": {
+      "score": 1,
+      "justification": "Textures are consistent with the original."
+    },
+    "distortion_effectiveness": {
+      "score": 1,
+      "justification": "No visible noise or artifacts."
+    },
+    "light_color_mismatch": {
+      "score": 1,
+      "justification": "Colors match the original scene."
+    },
+    "edge_visibility": {
+      "score": 1,
+      "justification": "No sharp edges or seams."
+    },
+    "alignment_sabotage": {
+      "score": 1,
+      "justification": "The image aligns with the original instruction."
+    },
+    "editing_incompleteness": {
+      "score": 1,
+      "justification": "The edit is complete and visible."
+    },
+    "total_implausibility": {
+      "score": 1,
+      "justification": "The result is logically consistent with the original image."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 1, \"justification\": \"No significant changes in background.\"},\n  \"global_coherence_ruin\": {\"score\": 1, \"justification\": \"The overall appearance remains coherent.\"},\n  \"identity_erasure\": {\"score\": 1, \"justification\": \"Subjects are still recognizable.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No objects are rendered disproportionately.\"},\n  \"spatial_chaos\": {\"score\": 1, \"justification\": \"Spatial relationships are maintained.\"},\n  \"texture_degradation\": {\"score\": 1, \"justification\": \"Textures are consistent with the original.\"},\n  \"distortion_effectiveness\": {\"score\": 1, \"justification\": \"No visible noise or artifacts.\"},\n  \"light_color_mismatch\": {\"score\": 1, \"justification\": \"Colors match the original scene.\"},\n  \"edge_visibility\": {\"score\": 1, \"justification\": \"No sharp edges or seams.\"},\n  \"alignment_sabotage\": {\"score\": 1, \"justification\": \"The image aligns with the original instruction.\"},\n  \"editing_incompleteness\": {\"score\": 1, \"justification\": \"The edit is complete and visible.\"},\n  \"total_implausibility\": {\"score\": 1, \"justification\": \"The result is logically consistent with the original image.\"}\n}"
+}

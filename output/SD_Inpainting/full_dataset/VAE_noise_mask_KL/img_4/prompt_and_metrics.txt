@@ -4,32 +4,34 @@ A person in a drive-in theater
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 31.1325
-SSIM: 0.9260
-FSIM: 0.8648
+PSNR: 31.0942
+SSIM: 0.9269
+FSIM: 0.8646
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 16.8138
-SSIM: 0.4609
-FSIM: 0.4499
-
-CLIP score (Image vs Prompt)
-Edited Original:  21.5072
-Edited Immunized: 23.5817
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.4911
-Caption orig: A woman wearing a green dress and sunglasses stands in a field.
-Caption adv:  A woman wearing a black dress and sunglasses is walking down the street.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 17.2690
+SSIM: 0.4820
+FSIM: 0.4534
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.7821
-Background SSIM   (basso=protezione ok): 0.4212
-Subject LPIPS     (basso=soggetto ok)  : 0.5365
-Editing score                          : 0.4865
-Mask coverage (% background)           : 0.7862
+Global LPIPS                           : 0.6414
+Background LPIPS                       : 0.7209
+Subject LPIPS                          : 0.5355
+Separation                             : 0.5738
+Editing score                          : 0.7209
+Mask coverage                          : 0.7862
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person is not in a drive-in theater; instead, they appear to be in an open field with trees and mountains in the background."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image does not depict a person in a drive-in theater as per the editing prompt. Instead, it shows a person standing outdoors in a grassy field.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image does not depict a person in a drive-in theater as per the editing prompt. Instead, it shows a person standing outdoors in a grassy field.\"\n}\n```"
+}

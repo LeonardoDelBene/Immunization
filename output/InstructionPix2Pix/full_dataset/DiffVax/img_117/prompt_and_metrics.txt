@@ -1,35 +1,138 @@
---- Prompt ---
-Put a red hat on the person in the image.
+add a backpack to the person
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 35.051299769120554,
+  "psnr_edited_original_vs_edited_immunized": 13.721613066917813
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 32.7153
-SSIM: 0.9826
-FSIM: 0.9473
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 11.0514
-SSIM: 0.5997
-FSIM: 0.5402
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.985454866054385,
+  "ssim_edited_original_vs_edited_immunized": 0.6447661013987963
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  26.9630
-Edited Immunized: 29.4781
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.5982
-Caption orig: A woman wearing a red hat and a black coat is standing in front of a red brick building.
-Caption adv:  A woman wearing a red hat with a black brim and a red bow.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9614384324116848,
+  "fsim_edited_original_vs_edited_immunized": 0.5411741253686694
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.4000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.7936
-Background SSIM   (basso=protezione ok): 0.2551
-Subject LPIPS     (basso=soggetto ok)  : 0.2474
-Editing score                          : 0.6925
-Mask coverage (% background)           : 0.3965
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.0615096792971852
+Global LPIPS : 0.02169305831193924
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.6692739236005905
+Global LPIPS : 0.3084132671356201
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The backpack appears to be added to the person, but there is some distortion around the edges of the backpack, making it less clear and slightly blurry compared to the reference image.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The backpack appears to be added to the person, but there is some distortion around the edges of the backpack, making it less clear and slightly blurry compared to the reference image.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 4.0,
+  "factor_scores": {
+    "background_infiltration": 4,
+    "global_coherence_ruin": 4,
+    "identity_erasure": 4,
+    "scale_distortion": 4,
+    "spatial_chaos": 4,
+    "texture_degradation": 4,
+    "distortion_effectiveness": 4,
+    "light_color_mismatch": 4,
+    "edge_visibility": 4,
+    "alignment_sabotage": 4,
+    "editing_incompleteness": 4,
+    "total_implausibility": 4
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 4,
+      "justification": "The background remains largely unchanged."
+    },
+    "global_coherence_ruin": {
+      "score": 4,
+      "justification": "The overall layout is slightly altered but still coherent."
+    },
+    "identity_erasure": {
+      "score": 4,
+      "justification": "The person's identity is recognizable but slightly distorted."
+    },
+    "scale_distortion": {
+      "score": 4,
+      "justification": "The backpack appears slightly larger than expected."
+    },
+    "spatial_chaos": {
+      "score": 4,
+      "justification": "Spatial relationships are slightly off but still logical."
+    },
+    "texture_degradation": {
+      "score": 4,
+      "justification": "Textures are slightly altered but still identifiable."
+    },
+    "distortion_effectiveness": {
+      "score": 4,
+      "justification": "There is some visible noise and blurring around the backpack."
+    },
+    "light_color_mismatch": {
+      "score": 4,
+      "justification": "Colors are consistent but there is a slight shift in lighting."
+    },
+    "edge_visibility": {
+      "score": 4,
+      "justification": "There are subtle visible edges around the backpack."
+    },
+    "alignment_sabotage": {
+      "score": 4,
+      "justification": "The backpack is added but the alignment is slightly off."
+    },
+    "editing_incompleteness": {
+      "score": 4,
+      "justification": "The backpack is added but the details are slightly distorted."
+    },
+    "total_implausibility": {
+      "score": 4,
+      "justification": "The overall result is slightly implausible due to the distortion and size change."
+    }
+  },
+  "raw_output": "```json\n{\n  \"background_infiltration\": {\"score\": 4, \"justification\": \"The background remains largely unchanged.\"},\n  \"global_coherence_ruin\": {\"score\": 4, \"justification\": \"The overall layout is slightly altered but still coherent.\"},\n  \"identity_erasure\": {\"score\": 4, \"justification\": \"The person's identity is recognizable but slightly distorted.\"},\n  \"scale_distortion\": {\"score\": 4, \"justification\": \"The backpack appears slightly larger than expected.\"},\n  \"spatial_chaos\": {\"score\": 4, \"justification\": \"Spatial relationships are slightly off but still logical.\"},\n  \"texture_degradation\": {\"score\": 4, \"justification\": \"Textures are slightly altered but still identifiable.\"},\n  \"distortion_effectiveness\": {\"score\": 4, \"justification\": \"There is some visible noise and blurring around the backpack.\"},\n  \"light_color_mismatch\": {\"score\": 4, \"justification\": \"Colors are consistent but there is a slight shift in lighting.\"},\n  \"edge_visibility\": {\"score\": 4, \"justification\": \"There are subtle visible edges around the backpack.\"},\n  \"alignment_sabotage\": {\"score\": 4, \"justification\": \"The backpack is added but the alignment is slightly off.\"},\n  \"editing_incompleteness\": {\"score\": 4, \"justification\": \"The backpack is added but the details are slightly distorted.\"},\n  \"total_implausibility\": {\"score\": 4, \"justification\": \"The overall result is slightly implausible due to the distortion and size change.\"}\n}\n```"
+}

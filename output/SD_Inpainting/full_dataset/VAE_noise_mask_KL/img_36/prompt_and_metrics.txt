@@ -4,32 +4,34 @@ A person in a slum
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.2882
-SSIM: 0.9280
-FSIM: 0.9180
+PSNR: 30.2824
+SSIM: 0.9284
+FSIM: 0.9185
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 15.0542
-SSIM: 0.4908
-FSIM: 0.4752
-
-CLIP score (Image vs Prompt)
-Edited Original:  28.2799
-Edited Immunized: 30.1513
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6475
-Caption orig: A woman wearing a white shirt and black skirt stands in front of a pile of clothes.
-Caption adv:  A woman wearing a white shirt and black skirt is walking down a street.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 15.1294
+SSIM: 0.4929
+FSIM: 0.4786
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.6136
-Background SSIM   (basso=protezione ok): 0.4224
-Subject LPIPS     (basso=soggetto ok)  : 0.3944
-Editing score                          : 0.4821
-Mask coverage (% background)           : 0.7377
+Global LPIPS                           : 0.5568
+Background LPIPS                       : 0.6323
+Subject LPIPS                          : 0.3841
+Separation                             : 0.6221
+Editing score                          : 0.6323
+Mask coverage                          : 0.7377
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person is still wearing a white blouse and black skirt, which does not match the slum environment."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The image contains a person but the background appears to be a street scene rather than a slum, which contradicts the editing prompt.",
+  "raw_output": "```json\n{\n  \"attack_success\": 0,\n  \"reason\": \"The image contains a person but the background appears to be a street scene rather than a slum, which contradicts the editing prompt.\"\n}\n```"
+}

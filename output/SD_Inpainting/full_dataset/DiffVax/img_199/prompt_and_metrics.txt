@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a glass factory
+A person in a tech store
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 33.74333047861518,
+  "psnr_edited_original_vs_edited_immunized": 13.494039598647232
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 33.7427
-SSIM: 0.9886
-FSIM: 0.9558
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 15.7330
-SSIM: 0.4221
-FSIM: 0.4829
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9886368368308173,
+  "ssim_edited_original_vs_edited_immunized": 0.46033412179570704
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  28.2983
-Edited Immunized: 23.8115
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6299
-Caption orig: A woman wearing a blue jacket and a blue dress is standing in a room with a glass wall.
-Caption adv:  A woman wearing a blue jacket and a blue skirt stands in front of a green background.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9557427749775327,
+  "fsim_edited_original_vs_edited_immunized": 0.4428772947646273
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.7723
-Background SSIM   (basso=protezione ok): 0.2746
-Subject LPIPS     (basso=soggetto ok)  : 0.1830
-Editing score                          : 0.5685
-Mask coverage (% background)           : 0.7680
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.1830654546546376
+Global LPIPS : 0.024278275668621063
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.1830654546546376
+Global LPIPS : 0.5301351547241211
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as the person appears to be in a tech store, but there is a noticeable distortion and noise in the background, making the image less clear and recognizable.",
+  "attack_success": 1,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as the person appears to be in a tech store, but there is a noticeable distortion and noise in the background, making the image less clear and recognizable.\",\n  \"attack_success\": 1\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 7.0,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 7,
+    "scale_distortion": 7,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 7,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been heavily distorted with random patterns."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall appearance is completely altered with no recognizable elements."
+    },
+    "identity_erasure": {
+      "score": 7,
+      "justification": "The subject's face and surroundings have been significantly distorted."
+    },
+    "scale_distortion": {
+      "score": 7,
+      "justification": "Objects appear disproportionately large and small."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "Spatial relationships are completely disrupted, with objects in illogical positions."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "Textures are replaced by noise and adversarial patterns."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Visible noise and blurring are introduced throughout the image."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "Colors are inconsistent and unnatural."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Sharp edges and visible seams are present in the attacked areas."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The image completely deviates from the intended tech store setting."
+    },
+    "editing_incompleteness": {
+      "score": 7,
+      "justification": "Fundamental parts of the requested edit are removed."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd and physically impossible."
+    }
+  },
+  "raw_output": "```json\n{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been heavily distorted with random patterns.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall appearance is completely altered with no recognizable elements.\"},\n  \"identity_erasure\": {\"score\": 7, \"justification\": \"The subject's face and surroundings have been significantly distorted.\"},\n  \"scale_distortion\": {\"score\": 7, \"justification\": \"Objects appear disproportionately large and small.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"Spatial relationships are completely disrupted, with objects in illogical positions.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"Textures are replaced by noise and adversarial patterns.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Visible noise and blurring are introduced throughout the image.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"Colors are inconsistent and unnatural.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Sharp edges and visible seams are present in the attacked areas.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The image completely deviates from the intended tech store setting.\"},\n  \"editing_incompleteness\": {\"score\": 7, \"justification\": \"Fundamental parts of the requested edit are removed.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd and physically impossible.\"}\n}\n```"
+}

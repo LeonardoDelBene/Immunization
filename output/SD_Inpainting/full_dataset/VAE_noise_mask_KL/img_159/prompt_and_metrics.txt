@@ -4,32 +4,34 @@ A person in a TV newsroom
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.8126
-SSIM: 0.9274
-FSIM: 0.9241
+PSNR: 30.7340
+SSIM: 0.9265
+FSIM: 0.9236
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 12.0592
-SSIM: 0.4253
-FSIM: 0.4214
-
-CLIP score (Image vs Prompt)
-Edited Original:  28.3771
-Edited Immunized: 27.3804
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.8297
-Caption orig: A woman wearing a black jacket and a scarf stands in front of a wall of televisions.
-Caption adv:  A woman wearing a black jacket and a white scarf stands in front of a wall of monitors.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 12.2321
+SSIM: 0.4158
+FSIM: 0.4272
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.6990
-Background SSIM   (basso=protezione ok): 0.3568
-Subject LPIPS     (basso=soggetto ok)  : 0.4288
-Editing score                          : 0.5153
-Mask coverage (% background)           : 0.7729
+Global LPIPS                           : 0.6350
+Background LPIPS                       : 0.7183
+Subject LPIPS                          : 0.4269
+Separation                             : 0.6272
+Editing score                          : 0.7183
+Mask coverage                          : 0.7729
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person is still in a TV newsroom, but the monitors appear distorted and pixelated, which does not contradict the editing instruction."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image does not contain any semantic elements related to a TV newsroom, such as monitors displaying news content or a news desk.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image does not contain any semantic elements related to a TV newsroom, such as monitors displaying news content or a news desk.\"\n}\n```"
+}

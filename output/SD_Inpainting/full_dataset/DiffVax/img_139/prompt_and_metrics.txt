@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a community arts and crafts market
+A person in a shelter
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 34.24640880099249,
+  "psnr_edited_original_vs_edited_immunized": 21.126215526351473
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 34.2471
-SSIM: 0.9877
-FSIM: 0.9676
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 12.9758
-SSIM: 0.4389
-FSIM: 0.4781
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9876669684516554,
+  "ssim_edited_original_vs_edited_immunized": 0.6726676659980013
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  28.6175
-Edited Immunized: 25.7542
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.5474
-Caption orig: A woman wearing a white shirt and a black bow tie stands in front of a table with colorful pencils.
-Caption adv:  A woman wearing a white shirt and a plaid skirt stands in front of a display.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9675762706859375,
+  "fsim_edited_original_vs_edited_immunized": 0.5894419514416064
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.7200
-Background SSIM   (basso=protezione ok): 0.2917
-Subject LPIPS     (basso=soggetto ok)  : 0.1289
-Editing score                          : 0.5622
-Mask coverage (% background)           : 0.7660
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.12884435854467524
+Global LPIPS : 0.028651393949985504
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.12884435854467524
+Global LPIPS : 0.6440401077270508
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as there is no change in the person's appearance or background. The image remains clear and recognizable with no degradation.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as there is no change in the person's appearance or background. The image remains clear and recognizable with no degradation.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 5.5,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 1,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 1,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been completely replaced with pink dots."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall appearance of the image is significantly altered."
+    },
+    "identity_erasure": {
+      "score": 1,
+      "justification": "The subject remains recognizable."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No objects are rendered disproportionate."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "Spatial relationships are disrupted with the background change."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "The original texture is replaced with a pattern of pink dots."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Visible noise and digital artifacts are introduced."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "Colors are inconsistent with the rest of the scene."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Edges are very visible due to the abrupt change."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The image completely deviates from the intended edit."
+    },
+    "editing_incompleteness": {
+      "score": 1,
+      "justification": "No fundamental parts of the requested edit are removed."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd with the background change."
+    }
+  },
+  "raw_output": "```json\n{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been completely replaced with pink dots.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall appearance of the image is significantly altered.\"},\n  \"identity_erasure\": {\"score\": 1, \"justification\": \"The subject remains recognizable.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No objects are rendered disproportionate.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"Spatial relationships are disrupted with the background change.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"The original texture is replaced with a pattern of pink dots.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Visible noise and digital artifacts are introduced.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"Colors are inconsistent with the rest of the scene.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Edges are very visible due to the abrupt change.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The image completely deviates from the intended edit.\"},\n  \"editing_incompleteness\": {\"score\": 1, \"justification\": \"No fundamental parts of the requested edit are removed.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd with the background change.\"}\n}\n```"
+}

@@ -4,32 +4,34 @@ A person in a butcher’s shop
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.8672
+PSNR: 30.8830
 SSIM: 0.9525
-FSIM: 0.8760
+FSIM: 0.8764
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 15.3583
-SSIM: 0.5504
-FSIM: 0.5074
-
-CLIP score (Image vs Prompt)
-Edited Original:  28.4838
-Edited Immunized: 29.8702
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.7653
-Caption orig: A woman wearing a grey jacket stands in front of a meat counter.
-Caption adv:  A woman in a grey coat stands in front of a deli counter.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 15.5274
+SSIM: 0.5477
+FSIM: 0.5009
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.5523
-Background SSIM   (basso=protezione ok): 0.4629
-Subject LPIPS     (basso=soggetto ok)  : 0.3360
-Editing score                          : 0.4805
-Mask coverage (% background)           : 0.7342
+Global LPIPS                           : 0.4495
+Background LPIPS                       : 0.5366
+Subject LPIPS                          : 0.3344
+Separation                             : 0.6161
+Editing score                          : 0.5366
+Mask coverage                          : 0.7342
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person is still in a butcher's shop, but the image appears to be heavily distorted with artifacts and noise, which are not relevant to the semantic edit."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image shows a person standing in a butcher's shop, but the person appears to be a mannequin rather than a real person, which contradicts the requirement for a real person in the editing instruction.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image shows a person standing in a butcher's shop, but the person appears to be a mannequin rather than a real person, which contradicts the requirement for a real person in the editing instruction.\"\n}\n```"
+}

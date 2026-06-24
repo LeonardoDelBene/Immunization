@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a basement
+A person in a movie set
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 34.77169298549454,
+  "psnr_edited_original_vs_edited_immunized": 14.639964448179896
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 34.7715
-SSIM: 0.9878
-FSIM: 0.9568
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 16.1958
-SSIM: 0.6160
-FSIM: 0.4756
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.987839115700807,
+  "ssim_edited_original_vs_edited_immunized": 0.57520759278999
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  24.3508
-Edited Immunized: 21.6673
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.5266
-Caption orig: A woman wearing a red dress and holding a yellow purse.
-Caption adv:  A woman wearing a red dress and a pink shirt stands in front of a wall with pink flowers on it.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9567584427325405,
+  "fsim_edited_original_vs_edited_immunized": 0.47838887536337693
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.8133
-Background SSIM   (basso=protezione ok): 0.5069
-Subject LPIPS     (basso=soggetto ok)  : 0.1254
-Editing score                          : 0.5071
-Mask coverage (% background)           : 0.7392
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.12544606095545024
+Global LPIPS : 0.026079345494508743
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.12544606095545024
+Global LPIPS : 0.6088131070137024
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as the background has been changed from a movie set to a patterned wall with pink spots. The image remains clear and recognizable.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as the background has been changed from a movie set to a patterned wall with pink spots. The image remains clear and recognizable.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 4.5,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 1,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 1,
+    "edge_visibility": 1,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 1,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been completely replaced with a patterned wall."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall scene is altered, losing the original setting."
+    },
+    "identity_erasure": {
+      "score": 1,
+      "justification": "The subject's identity is preserved; she is still recognizable."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No significant distortion in object sizes."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "Spatial relationships are disrupted due to the new background."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "The original texture is replaced with a patterned wall."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Visible changes in texture and background."
+    },
+    "light_color_mismatch": {
+      "score": 1,
+      "justification": "Colors remain consistent with the subject."
+    },
+    "edge_visibility": {
+      "score": 1,
+      "justification": "No visible seams or edges."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The entire scene is altered, ignoring the original instruction."
+    },
+    "editing_incompleteness": {
+      "score": 1,
+      "justification": "The edit is complete; the background is changed."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd with a patterned wall background."
+    }
+  },
+  "raw_output": "```json\n{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been completely replaced with a patterned wall.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall scene is altered, losing the original setting.\"},\n  \"identity_erasure\": {\"score\": 1, \"justification\": \"The subject's identity is preserved; she is still recognizable.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No significant distortion in object sizes.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"Spatial relationships are disrupted due to the new background.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"The original texture is replaced with a patterned wall.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Visible changes in texture and background.\"},\n  \"light_color_mismatch\": {\"score\": 1, \"justification\": \"Colors remain consistent with the subject.\"},\n  \"edge_visibility\": {\"score\": 1, \"justification\": \"No visible seams or edges.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The entire scene is altered, ignoring the original instruction.\"},\n  \"editing_incompleteness\": {\"score\": 1, \"justification\": \"The edit is complete; the background is changed.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd with a patterned wall background.\"}\n}\n```"
+}

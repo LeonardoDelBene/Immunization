@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a street food court
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.9341
+PSNR: 30.9340
 SSIM: 0.9150
 FSIM: 0.9022
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 20.9007
-SSIM: 0.7519
-FSIM: 0.6716
-
-CLIP score (Image vs Prompt)
-Edited Original:  25.1001
-Edited Immunized: 25.5216
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.9892
-Caption orig: A woman wearing sunglasses and a grey shirt stands in front of a restaurant.
-Caption adv:  A woman wearing sunglasses and a gray shirt is standing in front of a restaurant.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.9000
-Success:   False
-Accuracy:  0.0000
+PSNR: 21.1324
+SSIM: 0.7404
+FSIM: 0.6553
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.1484
-Background SSIM   (basso=protezione ok): 0.7843
-Subject LPIPS     (basso=soggetto ok)  : 0.5011
-Editing score                          : 0.1241
-Mask coverage (% background)           : 0.7527
+Global LPIPS                           : 0.2701
+Background LPIPS                       : 0.1404
+Subject LPIPS                          : 0.7953
+Separation                             : 0.8499
+Editing score                          : 0.7953
+Mask coverage                          : 0.7527
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person in the adversarial image is wearing a cap, which matches the editing prompt."
+}

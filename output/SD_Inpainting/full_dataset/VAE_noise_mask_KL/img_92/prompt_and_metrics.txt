@@ -4,32 +4,34 @@ A person in a digital art gallery
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.5482
-SSIM: 0.9230
-FSIM: 0.8811
+PSNR: 30.5654
+SSIM: 0.9226
+FSIM: 0.8805
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 14.2114
-SSIM: 0.3588
-FSIM: 0.3965
-
-CLIP score (Image vs Prompt)
-Edited Original:  29.8861
-Edited Immunized: 27.5407
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.7998
-Caption orig: A woman wearing a black jacket and a striped skirt stands in front of a colorful art display.
-Caption adv:  A woman wearing a black jacket and a striped skirt is standing in front of a gray background.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 14.0843
+SSIM: 0.3616
+FSIM: 0.4016
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.8462
-Background SSIM   (basso=protezione ok): 0.2347
-Subject LPIPS     (basso=soggetto ok)  : 0.3550
-Editing score                          : 0.6551
-Mask coverage (% background)           : 0.7300
+Global LPIPS                           : 0.6743
+Background LPIPS                       : 0.8311
+Subject LPIPS                          : 0.3559
+Separation                             : 0.7002
+Editing score                          : 0.8311
+Mask coverage                          : 0.7300
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person is no longer in a digital art gallery; they appear against a plain background."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image lacks any indication of a digital art gallery setting, as there are no paintings or artwork visible in the background.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image lacks any indication of a digital art gallery setting, as there are no paintings or artwork visible in the background.\"\n}\n```"
+}

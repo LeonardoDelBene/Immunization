@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a music studio
+A person in a sushi bar
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 34.78075446586835,
+  "psnr_edited_original_vs_edited_immunized": 12.31441457340865
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 34.7813
-SSIM: 0.9864
-FSIM: 0.9673
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 11.9773
-SSIM: 0.4309
-FSIM: 0.4443
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9863619345987301,
+  "ssim_edited_original_vs_edited_immunized": 0.46891530206415993
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  26.2198
-Edited Immunized: 17.5611
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6048
-Caption orig: A woman wearing a green dress and a blue scarf stands in front of a soundboard.
-Caption adv:  A woman wearing a green dress and a blue and green fur around her neck.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9673002223825327,
+  "fsim_edited_original_vs_edited_immunized": 0.4606330578580144
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.8112
-Background SSIM   (basso=protezione ok): 0.2098
-Subject LPIPS     (basso=soggetto ok)  : 0.1194
-Editing score                          : 0.5965
-Mask coverage (% background)           : 0.6950
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.11941288656829649
+Global LPIPS : 0.027763308957219124
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.11941288656829649
+Global LPIPS : 0.5462436676025391
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as the person is still in a sushi bar setting with people in the background. The image appears clear and recognizable.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as the person is still in a sushi bar setting with people in the background. The image appears clear and recognizable.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 6.5,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 7,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 7,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been completely changed to a textured pattern."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall scene is altered, losing the original setting."
+    },
+    "identity_erasure": {
+      "score": 7,
+      "justification": "The subject's surroundings have been replaced, making the environment unrecognizable."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "The image retains its proportions and size."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "The spatial relationships are disrupted, with the subject placed in an unnatural setting."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "The original texture of the background has been replaced with a new, artificial pattern."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Visible noise and distortion are introduced into the background."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "The lighting and colors are inconsistent with the original scene."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Sharp edges and seams are visible where the background has been altered."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The final image completely deviates from the intended setting of a sushi bar."
+    },
+    "editing_incompleteness": {
+      "score": 7,
+      "justification": "The background has been entirely removed, leaving the subject isolated."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd, as the subject is placed in a completely different environment."
+    }
+  },
+  "raw_output": "```json\n{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been completely changed to a textured pattern.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall scene is altered, losing the original setting.\"},\n  \"identity_erasure\": {\"score\": 7, \"justification\": \"The subject's surroundings have been replaced, making the environment unrecognizable.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"The image retains its proportions and size.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"The spatial relationships are disrupted, with the subject placed in an unnatural setting.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"The original texture of the background has been replaced with a new, artificial pattern.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Visible noise and distortion are introduced into the background.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"The lighting and colors are inconsistent with the original scene.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Sharp edges and seams are visible where the background has been altered.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The final image completely deviates from the intended setting of a sushi bar.\"},\n  \"editing_incompleteness\": {\"score\": 7, \"justification\": \"The background has been entirely removed, leaving the subject isolated.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd, as the subject is placed in a completely different environment.\"}\n}\n```"
+}

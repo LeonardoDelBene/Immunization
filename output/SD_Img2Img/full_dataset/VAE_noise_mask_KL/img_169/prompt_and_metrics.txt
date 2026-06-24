@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a strip club
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.8179
+PSNR: 30.8181
 SSIM: 0.9214
 FSIM: 0.8742
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 5.6304
-SSIM: 0.1771
-FSIM: 0.3815
-
-CLIP score (Image vs Prompt)
-Edited Original:  19.6976
-Edited Immunized: 20.9944
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.1825
-Caption orig: A man wearing a tan jacket and carrying a brown bag.
-Caption adv:  A man and a woman are standing next to each other.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 23.3347
+SSIM: 0.7938
+FSIM: 0.6510
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.9509
-Background SSIM   (basso=protezione ok): 0.0000
-Subject LPIPS     (basso=soggetto ok)  : 0.4254
-Editing score                          : 0.7251
-Mask coverage (% background)           : 0.7502
+Global LPIPS                           : 0.2303
+Background LPIPS                       : 0.1542
+Subject LPIPS                          : 0.5582
+Separation                             : 0.7836
+Editing score                          : 0.5582
+Mask coverage                          : 0.7502
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person in the adversarial image is wearing a cap, which matches the editing prompt."
+}

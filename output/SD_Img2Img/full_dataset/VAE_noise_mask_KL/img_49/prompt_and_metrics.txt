@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a science museum exhibit
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.9024
+PSNR: 30.9029
 SSIM: 0.9255
 FSIM: 0.8860
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 18.8444
-SSIM: 0.6975
-FSIM: 0.5431
-
-CLIP score (Image vs Prompt)
-Edited Original:  28.6164
-Edited Immunized: 28.4299
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.5592
-Caption orig: A woman wearing a brown dress stands in front of a skeleton statue.
-Caption adv:  A woman wearing a black and white dress stands in front of a mirror.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 22.0280
+SSIM: 0.7706
+FSIM: 0.6628
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.3502
-Background SSIM   (basso=protezione ok): 0.7028
-Subject LPIPS     (basso=soggetto ok)  : 0.5371
-Editing score                          : 0.2292
-Mask coverage (% background)           : 0.7607
+Global LPIPS                           : 0.2757
+Background LPIPS                       : 0.1871
+Subject LPIPS                          : 0.6696
+Separation                             : 0.7816
+Editing score                          : 0.6696
+Mask coverage                          : 0.7607
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person in the image is wearing a cap, which matches the editing prompt."
+}

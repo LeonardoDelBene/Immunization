@@ -4,32 +4,34 @@ A person in a bridal fitting room
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 28.2991
-SSIM: 0.8801
-FSIM: 0.8854
+PSNR: 28.3037
+SSIM: 0.8810
+FSIM: 0.8864
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 13.3252
-SSIM: 0.4833
-FSIM: 0.4572
-
-CLIP score (Image vs Prompt)
-Edited Original:  22.5963
-Edited Immunized: 28.0737
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.3731
-Caption orig: A woman wearing a green jacket and blue pants stands in a doorway.
-Caption adv:  A woman wearing a brown jacket and holding a purse is standing in front of a mirror.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 13.7017
+SSIM: 0.5368
+FSIM: 0.4788
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.7333
-Background SSIM   (basso=protezione ok): 0.3920
-Subject LPIPS     (basso=soggetto ok)  : 0.4259
-Editing score                          : 0.5202
-Mask coverage (% background)           : 0.6491
+Global LPIPS                           : 0.5600
+Background LPIPS                       : 0.6756
+Subject LPIPS                          : 0.4178
+Separation                             : 0.6179
+Editing score                          : 0.6756
+Mask coverage                          : 0.6491
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person is not in a bridal fitting room; the background and setting do not match the editing prompt."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The image shows a person in a fitting room, but it appears to be a dressing room rather than a bridal fitting room. There are no visible bridal elements such as wedding dresses or decorations that would indicate a bridal setting.",
+  "raw_output": "```json\n{\n  \"attack_success\": 0,\n  \"reason\": \"The image shows a person in a fitting room, but it appears to be a dressing room rather than a bridal fitting room. There are no visible bridal elements such as wedding dresses or decorations that would indicate a bridal setting.\"\n}\n```"
+}

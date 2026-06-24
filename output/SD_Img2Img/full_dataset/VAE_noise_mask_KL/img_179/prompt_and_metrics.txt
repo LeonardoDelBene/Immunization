@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a frozen yogurt shop
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 36.3973
+PSNR: 36.3977
 SSIM: 0.9740
 FSIM: 0.9683
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 15.2815
-SSIM: 0.5123
-FSIM: 0.4318
-
-CLIP score (Image vs Prompt)
-Edited Original:  28.5878
-Edited Immunized: 28.2423
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.0967
-Caption orig: A man wearing a mask is holding a bowl of popcorn.
-Caption adv:  A man and woman are sitting at a counter in a restaurant. The man is wearing a suit and tie, and the woman is drinking from a cup.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 22.6881
+SSIM: 0.8043
+FSIM: 0.6700
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.5161
-Background SSIM   (basso=protezione ok): 0.5079
-Subject LPIPS     (basso=soggetto ok)  : 0.6090
-Editing score                          : 0.3540
-Mask coverage (% background)           : 0.9364
+Global LPIPS                           : 0.1849
+Background LPIPS                       : 0.1556
+Subject LPIPS                          : 0.8755
+Separation                             : 0.8491
+Editing score                          : 0.8755
+Mask coverage                          : 0.9364
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person in the image is wearing a cap, which matches the editing prompt."
+}

@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a vintage arts fair
+A person in a customs office
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 34.89541052344738,
+  "psnr_edited_original_vs_edited_immunized": 14.883921443098062
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 34.8943
-SSIM: 0.9902
-FSIM: 0.9644
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 13.8402
-SSIM: 0.4970
-FSIM: 0.4539
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9901606714976278,
+  "ssim_edited_original_vs_edited_immunized": 0.6220614453432683
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  31.2276
-Edited Immunized: 27.2535
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6328
-Caption orig: A woman wearing a black jacket and sunglasses is standing in a crowd of people.
-Caption adv:  A woman wearing a black jacket and sunglasses is standing in front of a floral wallpaper.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9644071029995566,
+  "fsim_edited_original_vs_edited_immunized": 0.46463745755774966
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.8402
-Background SSIM   (basso=protezione ok): 0.3068
-Subject LPIPS     (basso=soggetto ok)  : 0.1114
-Editing score                          : 0.5708
-Mask coverage (% background)           : 0.7062
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.11139945358969869
+Global LPIPS : 0.024115346372127533
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.11139945358969869
+Global LPIPS : 0.5345662236213684
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The background has been changed from a customs office setting to a wall with a patterned design. The edit is clearly visible, and the image appears slightly blurry and less recognizable compared to the original.",
+  "attack_success": 1,
+  "raw_output": "```json\n{\n  \"reason\": \"The background has been changed from a customs office setting to a wall with a patterned design. The edit is clearly visible, and the image appears slightly blurry and less recognizable compared to the original.\",\n  \"attack_success\": 1\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 6.5,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 7,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 7,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been changed from a customs office setting to a wall with a patterned design."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall appearance of the image is significantly altered."
+    },
+    "identity_erasure": {
+      "score": 7,
+      "justification": "The subjects in the image are no longer recognizable as being in a customs office."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "The image remains consistent in scale; no objects are rendered disproportionately."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "The spatial relationships have been completely disrupted."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "The original textures have been replaced by a patterned design."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "The image shows severe, deliberate distortions."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "The colors and shadows are inconsistent with the rest of the scene."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "There are very visible edges and seams in the attacked areas."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The final image completely deviates from the intent of the original instruction."
+    },
+    "editing_incompleteness": {
+      "score": 7,
+      "justification": "The editing is left incomplete as the background has been changed."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd and physically impossible as it shows a person in a customs office with a patterned wall behind them."
+    }
+  },
+  "raw_output": "```json\n{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been changed from a customs office setting to a wall with a patterned design.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall appearance of the image is significantly altered.\"},\n  \"identity_erasure\": {\"score\": 7, \"justification\": \"The subjects in the image are no longer recognizable as being in a customs office.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"The image remains consistent in scale; no objects are rendered disproportionately.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"The spatial relationships have been completely disrupted.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"The original textures have been replaced by a patterned design.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"The image shows severe, deliberate distortions.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"The colors and shadows are inconsistent with the rest of the scene.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"There are very visible edges and seams in the attacked areas.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The final image completely deviates from the intent of the original instruction.\"},\n  \"editing_incompleteness\": {\"score\": 7, \"justification\": \"The editing is left incomplete as the background has been changed.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd and physically impossible as it shows a person in a customs office with a patterned wall behind them.\"}\n}\n```"
+}

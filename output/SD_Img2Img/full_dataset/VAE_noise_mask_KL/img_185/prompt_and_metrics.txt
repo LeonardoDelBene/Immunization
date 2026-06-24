@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a dog agility course
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.8926
+PSNR: 30.8927
 SSIM: 0.9215
 FSIM: 0.9156
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 18.8765
-SSIM: 0.6906
-FSIM: 0.5472
-
-CLIP score (Image vs Prompt)
-Edited Original:  26.3850
-Edited Immunized: 27.4373
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        1.0000
-Caption orig: A woman wearing a black dress is standing on a green surface.
-Caption adv:  A woman wearing a black dress is standing on a green surface.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 1.0000
-Success:   False
-Accuracy:  0.0000
+PSNR: 23.3385
+SSIM: 0.8026
+FSIM: 0.6810
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.3739
-Background SSIM   (basso=protezione ok): 0.6971
-Subject LPIPS     (basso=soggetto ok)  : 0.5026
-Editing score                          : 0.2404
-Mask coverage (% background)           : 0.7551
+Global LPIPS                           : 0.2060
+Background LPIPS                       : 0.1240
+Subject LPIPS                          : 0.6142
+Separation                             : 0.8320
+Editing score                          : 0.6142
+Mask coverage                          : 0.7551
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person in the image now appears to be wearing a cap, which fulfills the editing instruction."
+}

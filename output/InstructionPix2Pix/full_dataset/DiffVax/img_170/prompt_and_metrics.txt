@@ -1,35 +1,138 @@
---- Prompt ---
-Put a red hat on the person in the image.
+change the person's expression to surprised
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 34.83561296634591,
+  "psnr_edited_original_vs_edited_immunized": 24.35076106140915
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 31.2159
-SSIM: 0.9712
-FSIM: 0.9236
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 17.7915
-SSIM: 0.8565
-FSIM: 0.7104
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9901268051144002,
+  "ssim_edited_original_vs_edited_immunized": 0.9324995173016122
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  27.0282
-Edited Immunized: 28.5009
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.7165
-Caption orig: A man wearing a red hat and a black jacket is walking down the street.
-Caption adv:  A man wearing a red hat and a red jacket is standing on a sidewalk.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9656213462567341,
+  "fsim_edited_original_vs_edited_immunized": 0.7884820349506375
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.4221
-Background SSIM   (basso=protezione ok): 0.6998
-Subject LPIPS     (basso=soggetto ok)  : 0.2235
-Editing score                          : 0.4248
-Mask coverage (% background)           : 0.2975
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.12204992186466568
+Global LPIPS : 0.024899214506149292
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.19725104224906365
+Global LPIPS : 0.06413406133651733
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The person's expression has been changed to surprised, but the image appears slightly blurry and less clear compared to the original.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The person's expression has been changed to surprised, but the image appears slightly blurry and less clear compared to the original.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 5.916666666666667,
+  "factor_scores": {
+    "background_infiltration": 4,
+    "global_coherence_ruin": 6,
+    "identity_erasure": 6,
+    "scale_distortion": 5,
+    "spatial_chaos": 6,
+    "texture_degradation": 6,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 5,
+    "edge_visibility": 6,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 6,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 4,
+      "justification": "The background remains largely unchanged."
+    },
+    "global_coherence_ruin": {
+      "score": 6,
+      "justification": "The overall appearance is significantly altered."
+    },
+    "identity_erasure": {
+      "score": 6,
+      "justification": "The subject's face is unrecognizable due to the distortion."
+    },
+    "scale_distortion": {
+      "score": 5,
+      "justification": "The subject's face appears disproportionately large."
+    },
+    "spatial_chaos": {
+      "score": 6,
+      "justification": "The spatial relationship between the subject and the background is disrupted."
+    },
+    "texture_degradation": {
+      "score": 6,
+      "justification": "The texture around the subject's face is corrupted."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Visible noise and blurring are introduced."
+    },
+    "light_color_mismatch": {
+      "score": 5,
+      "justification": "The colors around the subject's face appear inconsistent."
+    },
+    "edge_visibility": {
+      "score": 6,
+      "justification": "Sharp edges and visible seams are present."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The instruction to change the expression to surprised is completely ignored."
+    },
+    "editing_incompleteness": {
+      "score": 6,
+      "justification": "The editing is incomplete as the face is unrecognizable."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd and physically impossible."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 4, \"justification\": \"The background remains largely unchanged.\"},\n  \"global_coherence_ruin\": {\"score\": 6, \"justification\": \"The overall appearance is significantly altered.\"},\n  \"identity_erasure\": {\"score\": 6, \"justification\": \"The subject's face is unrecognizable due to the distortion.\"},\n  \"scale_distortion\": {\"score\": 5, \"justification\": \"The subject's face appears disproportionately large.\"},\n  \"spatial_chaos\": {\"score\": 6, \"justification\": \"The spatial relationship between the subject and the background is disrupted.\"},\n  \"texture_degradation\": {\"score\": 6, \"justification\": \"The texture around the subject's face is corrupted.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Visible noise and blurring are introduced.\"},\n  \"light_color_mismatch\": {\"score\": 5, \"justification\": \"The colors around the subject's face appear inconsistent.\"},\n  \"edge_visibility\": {\"score\": 6, \"justification\": \"Sharp edges and visible seams are present.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The instruction to change the expression to surprised is completely ignored.\"},\n  \"editing_incompleteness\": {\"score\": 6, \"justification\": \"The editing is incomplete as the face is unrecognizable.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd and physically impossible.\"}\n}"
+}

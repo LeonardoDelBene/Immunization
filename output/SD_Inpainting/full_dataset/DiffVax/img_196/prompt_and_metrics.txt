@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a dance festival
+A person in a dog park picnic
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 36.111496618560665,
+  "psnr_edited_original_vs_edited_immunized": 16.892112767156455
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 36.1100
-SSIM: 0.9918
-FSIM: 0.9660
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 13.5758
-SSIM: 0.5491
-FSIM: 0.4951
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9917604976671245,
+  "ssim_edited_original_vs_edited_immunized": 0.6653472631224869
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  29.7314
-Edited Immunized: 21.7065
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.8125
-Caption orig: A woman wearing a blue dress and an orange hat stands on the street.
-Caption adv:  A woman wearing a blue dress and an orange hat stands in front of a colorful background.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.965975211171994,
+  "fsim_edited_original_vs_edited_immunized": 0.5850031606141819
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.8549
-Background SSIM   (basso=protezione ok): 0.3937
-Subject LPIPS     (basso=soggetto ok)  : 0.0808
-Editing score                          : 0.5484
-Mask coverage (% background)           : 0.7135
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.08079728497644714
+Global LPIPS : 0.016255835071206093
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.08079728497644714
+Global LPIPS : 0.38280752301216125
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as there is no picnic scene or people in the image. The image appears to be clear and recognizable with no noticeable degradation.",
+  "attack_success": 1,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as there is no picnic scene or people in the image. The image appears to be clear and recognizable with no noticeable degradation.\",\n  \"attack_success\": 1\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 3.8333333333333335,
+  "factor_scores": {
+    "background_infiltration": 4,
+    "global_coherence_ruin": 4,
+    "identity_erasure": 3,
+    "scale_distortion": 2,
+    "spatial_chaos": 3,
+    "texture_degradation": 4,
+    "distortion_effectiveness": 5,
+    "light_color_mismatch": 3,
+    "edge_visibility": 2,
+    "alignment_sabotage": 5,
+    "editing_incompleteness": 5,
+    "total_implausibility": 6
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 4,
+      "justification": "The background has some noise, but the main elements remain recognizable."
+    },
+    "global_coherence_ruin": {
+      "score": 4,
+      "justification": "The overall layout is slightly disrupted, but the image remains coherent."
+    },
+    "identity_erasure": {
+      "score": 3,
+      "justification": "The subject's identity is not entirely erased, but some details are obscured."
+    },
+    "scale_distortion": {
+      "score": 2,
+      "justification": "There is no significant distortion in object sizes."
+    },
+    "spatial_chaos": {
+      "score": 3,
+      "justification": "Spatial relationships are slightly altered but still logical."
+    },
+    "texture_degradation": {
+      "score": 4,
+      "justification": "Textures have been replaced with a pattern, affecting the original look."
+    },
+    "distortion_effectiveness": {
+      "score": 5,
+      "justification": "Visible noise and blurring are introduced, making the image less clear."
+    },
+    "light_color_mismatch": {
+      "score": 3,
+      "justification": "Colors are consistent, but the pattern introduces some mismatch."
+    },
+    "edge_visibility": {
+      "score": 2,
+      "justification": "No sharp edges or visible seams are present."
+    },
+    "alignment_sabotage": {
+      "score": 5,
+      "justification": "The image deviates significantly from the picnic scene instruction."
+    },
+    "editing_incompleteness": {
+      "score": 5,
+      "justification": "The picnic scene and people are removed, leaving the image incomplete."
+    },
+    "total_implausibility": {
+      "score": 6,
+      "justification": "The final result is visually absurd, resembling a kite rather than a picnic scene."
+    }
+  },
+  "raw_output": "```json\n{\n  \"background_infiltration\": {\"score\": 4, \"justification\": \"The background has some noise, but the main elements remain recognizable.\"},\n  \"global_coherence_ruin\": {\"score\": 4, \"justification\": \"The overall layout is slightly disrupted, but the image remains coherent.\"},\n  \"identity_erasure\": {\"score\": 3, \"justification\": \"The subject's identity is not entirely erased, but some details are obscured.\"},\n  \"scale_distortion\": {\"score\": 2, \"justification\": \"There is no significant distortion in object sizes.\"},\n  \"spatial_chaos\": {\"score\": 3, \"justification\": \"Spatial relationships are slightly altered but still logical.\"},\n  \"texture_degradation\": {\"score\": 4, \"justification\": \"Textures have been replaced with a pattern, affecting the original look.\"},\n  \"distortion_effectiveness\": {\"score\": 5, \"justification\": \"Visible noise and blurring are introduced, making the image less clear.\"},\n  \"light_color_mismatch\": {\"score\": 3, \"justification\": \"Colors are consistent, but the pattern introduces some mismatch.\"},\n  \"edge_visibility\": {\"score\": 2, \"justification\": \"No sharp edges or visible seams are present.\"},\n  \"alignment_sabotage\": {\"score\": 5, \"justification\": \"The image deviates significantly from the picnic scene instruction.\"},\n  \"editing_incompleteness\": {\"score\": 5, \"justification\": \"The picnic scene and people are removed, leaving the image incomplete.\"},\n  \"total_implausibility\": {\"score\": 6, \"justification\": \"The final result is visually absurd, resembling a kite rather than a picnic scene.\"}\n}\n```"
+}

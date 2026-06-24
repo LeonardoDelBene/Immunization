@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a kite festival
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 31.1999
+PSNR: 31.2001
 SSIM: 0.9131
 FSIM: 0.8721
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 16.4573
-SSIM: 0.6226
-FSIM: 0.5030
-
-CLIP score (Image vs Prompt)
-Edited Original:  26.9108
-Edited Immunized: 27.9044
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.4911
-Caption orig: A woman wearing a fur coat and scarf, holding a drink, and smiling.
-Caption adv:  A woman wearing a white coat and a scarf is standing on a platform.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 22.7763
+SSIM: 0.7886
+FSIM: 0.6763
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.4590
-Background SSIM   (basso=protezione ok): 0.5902
-Subject LPIPS     (basso=soggetto ok)  : 0.5788
-Editing score                          : 0.3065
-Mask coverage (% background)           : 0.7030
+Global LPIPS                           : 0.2441
+Background LPIPS                       : 0.1238
+Subject LPIPS                          : 0.6071
+Separation                             : 0.8307
+Editing score                          : 0.6071
+Mask coverage                          : 0.7030
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person in the adversarial image is wearing a hat, which is consistent with the editing prompt."
+}

@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a news van
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 32.4582
+PSNR: 32.4577
 SSIM: 0.9558
 FSIM: 0.9266
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 17.9286
-SSIM: 0.6773
-FSIM: 0.5664
-
-CLIP score (Image vs Prompt)
-Edited Original:  31.0525
-Edited Immunized: 29.1467
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.5362
-Caption orig: A woman wearing a grey coat and an orange shirt stands in front of a bus.
-Caption adv:  A woman in a grey coat stands next to a truck, while another woman in a grey coat sits in the truck.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 25.2385
+SSIM: 0.8756
+FSIM: 0.7432
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.3911
-Background SSIM   (basso=protezione ok): 0.6365
-Subject LPIPS     (basso=soggetto ok)  : 0.3662
-Editing score                          : 0.3458
-Mask coverage (% background)           : 0.7597
+Global LPIPS                           : 0.1412
+Background LPIPS                       : 0.0776
+Subject LPIPS                          : 0.4449
+Separation                             : 0.8515
+Editing score                          : 0.4449
+Mask coverage                          : 0.7597
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person in the image now appears as a mannequin, which does not satisfy the editing instruction of having a person with a cap."
+}

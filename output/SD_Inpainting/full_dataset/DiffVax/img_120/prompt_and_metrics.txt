@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a flower stall
+A person in a lighthouse
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 34.174908907758194,
+  "psnr_edited_original_vs_edited_immunized": 12.45922976979987
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 34.1747
-SSIM: 0.9925
-FSIM: 0.9577
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 14.1489
-SSIM: 0.5106
-FSIM: 0.5820
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9924642684196444,
+  "ssim_edited_original_vs_edited_immunized": 0.45722273234659155
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  32.1636
-Edited Immunized: 32.4173
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.8893
-Caption orig: A man wearing a green hat and sunglasses stands in front of a flower stand.
-Caption adv:  A man wearing a green hat and sunglasses stands in front of a colorful flower wall.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9576870701695356,
+  "fsim_edited_original_vs_edited_immunized": 0.5254917688943409
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.4960
-Background SSIM   (basso=protezione ok): 0.3969
-Subject LPIPS     (basso=soggetto ok)  : 0.1407
-Editing score                          : 0.5082
-Mask coverage (% background)           : 0.7962
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.1407584880755385
+Global LPIPS : 0.01752718724310398
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.1407584880755385
+Global LPIPS : 0.679526150226593
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as there is no lighthouse present in the image. The image appears to be heavily distorted with pink and white speckles, making it unrecognizable.",
+  "attack_success": 1,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as there is no lighthouse present in the image. The image appears to be heavily distorted with pink and white speckles, making it unrecognizable.\",\n  \"attack_success\": 1\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 7.0,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 7,
+    "scale_distortion": 7,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 7,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been heavily altered with pink and white speckles."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall appearance is completely altered, losing coherence."
+    },
+    "identity_erasure": {
+      "score": 7,
+      "justification": "The subject's identity is unrecognizable due to the distortion."
+    },
+    "scale_distortion": {
+      "score": 7,
+      "justification": "Objects appear disproportionately large and unrealistic."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "Spatial relationships are destroyed, with elements appearing out of place."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "Textures are replaced by noise and adversarial patterns."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Severe distortions are introduced, including blurring and digital artifacts."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "Colors are inconsistent with the rest of the scene, appearing unnatural."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Visible edges and seams are present, indicating poor alignment."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The final image completely deviates from the intended edit."
+    },
+    "editing_incompleteness": {
+      "score": 7,
+      "justification": "The edit is left incomplete, with key elements removed."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The result is visually absurd and physically impossible."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been heavily altered with pink and white speckles.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall appearance is completely altered, losing coherence.\"},\n  \"identity_erasure\": {\"score\": 7, \"justification\": \"The subject's identity is unrecognizable due to the distortion.\"},\n  \"scale_distortion\": {\"score\": 7, \"justification\": \"Objects appear disproportionately large and unrealistic.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"Spatial relationships are destroyed, with elements appearing out of place.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"Textures are replaced by noise and adversarial patterns.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Severe distortions are introduced, including blurring and digital artifacts.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"Colors are inconsistent with the rest of the scene, appearing unnatural.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Visible edges and seams are present, indicating poor alignment.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The final image completely deviates from the intended edit.\"},\n  \"editing_incompleteness\": {\"score\": 7, \"justification\": \"The edit is left incomplete, with key elements removed.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The result is visually absurd and physically impossible.\"}\n}"
+}

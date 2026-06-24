@@ -4,32 +4,34 @@ A person in a sports field
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 32.1901
-SSIM: 0.9376
-FSIM: 0.9032
+PSNR: 32.0435
+SSIM: 0.9364
+FSIM: 0.9034
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 16.8517
-SSIM: 0.6747
-FSIM: 0.4947
-
-CLIP score (Image vs Prompt)
-Edited Original:  27.7392
-Edited Immunized: 28.1069
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        1.0000
-Caption orig: A woman wearing a black and white striped shirt stands on a field.
-Caption adv:  A woman wearing a black and white striped shirt stands on a field.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 1.0000
-Success:   False
-Accuracy:  0.0000
+PSNR: 17.1425
+SSIM: 0.6749
+FSIM: 0.4954
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.5132
-Background SSIM   (basso=protezione ok): 0.6688
-Subject LPIPS     (basso=soggetto ok)  : 0.4109
-Editing score                          : 0.3581
-Mask coverage (% background)           : 0.7786
+Global LPIPS                           : 0.4418
+Background LPIPS                       : 0.5036
+Subject LPIPS                          : 0.4173
+Separation                             : 0.5469
+Editing score                          : 0.5036
+Mask coverage                          : 0.7786
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person is still in a sports field, but there are additional elements like a tennis net and a different background that do not align with the original reference image."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The adversarial image still shows a person standing in a sports field, which aligns with the editing prompt.",
+  "raw_output": "```json\n{\n  \"attack_success\": 0,\n  \"reason\": \"The adversarial image still shows a person standing in a sports field, which aligns with the editing prompt.\"\n}\n```"
+}

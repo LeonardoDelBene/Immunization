@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a mall
+A person in a tram stop
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 34.8834607304767,
+  "psnr_edited_original_vs_edited_immunized": 14.499811284771695
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 34.8821
-SSIM: 0.9909
-FSIM: 0.9608
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 12.5472
-SSIM: 0.4797
-FSIM: 0.4640
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.990886450496141,
+  "ssim_edited_original_vs_edited_immunized": 0.5610106703392762
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  26.6592
-Edited Immunized: 23.2555
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.5390
-Caption orig: A woman wearing a plaid skirt and a scarf is standing in a crowded mall.
-Caption adv:  A woman wearing a black jacket and a red and blue plaid skirt stands in front of a pink and purple background.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9608274858601838,
+  "fsim_edited_original_vs_edited_immunized": 0.5098756733423756
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.9175
-Background SSIM   (basso=protezione ok): 0.2796
-Subject LPIPS     (basso=soggetto ok)  : 0.0915
-Editing score                          : 0.5881
-Mask coverage (% background)           : 0.6999
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.09143755027982571
+Global LPIPS : 0.019649654626846313
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.09143755027982571
+Global LPIPS : 0.514435887336731
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as there is no tram stop in the background. The image appears clear and recognizable with no noticeable degradation.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as there is no tram stop in the background. The image appears clear and recognizable with no noticeable degradation.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 6.5,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 7,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 7,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been completely replaced with a patterned texture."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall scene is altered, losing its original context."
+    },
+    "identity_erasure": {
+      "score": 7,
+      "justification": "The subject's surroundings have been changed, making the setting unrecognizable."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No significant distortion in object sizes."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "The spatial relationships are disrupted, with the background elements appearing out of place."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "The original textures have been replaced with a noisy pattern."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Visible noise and blurring are introduced throughout the image."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "The lighting and color scheme are inconsistent with the original scene."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Sharp edges and seams are visible where the background transitions."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The final image is completely unrelated to the original editing prompt."
+    },
+    "editing_incompleteness": {
+      "score": 7,
+      "justification": "The original edit is entirely undone, leaving the image incoherent."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd and physically impossible to be part of the original scene."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been completely replaced with a patterned texture.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall scene is altered, losing its original context.\"},\n  \"identity_erasure\": {\"score\": 7, \"justification\": \"The subject's surroundings have been changed, making the setting unrecognizable.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No significant distortion in object sizes.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"The spatial relationships are disrupted, with the background elements appearing out of place.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"The original textures have been replaced with a noisy pattern.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Visible noise and blurring are introduced throughout the image.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"The lighting and color scheme are inconsistent with the original scene.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Sharp edges and seams are visible where the background transitions.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The final image is completely unrelated to the original editing prompt.\"},\n  \"editing_incompleteness\": {\"score\": 7, \"justification\": \"The original edit is entirely undone, leaving the image incoherent.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd and physically impossible to be part of the original scene.\"}\n}"
+}

@@ -6,10 +6,9 @@ from itertools import cycle
 # ── CONFIG ────────────────────────────────────────────────────────────────────
 CSV_PATHS = [
     "./unet_best_uz0247gg/sweep_lambda_noise.csv",
-    #"./unet_best_d6msfhlm/sweep_eps.csv",
     "./unet_best_nv5dqvvb/sweep_lambda_noise.csv",
     "./unet_best_2k9g9dob/sweep_lambda_noise.csv",
-    #"./targeted/sweep_eps.csv",
+    "./targeted/sweep_eps.csv",
 ]
 
 # Optional: set to None to use filenames as labels

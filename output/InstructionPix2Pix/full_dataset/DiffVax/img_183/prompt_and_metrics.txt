@@ -1,35 +1,138 @@
---- Prompt ---
-Put a red hat on the person in the image.
+add a beard to the person
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 33.597381976332514,
+  "psnr_edited_original_vs_edited_immunized": 14.999336520594442
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 32.2029
-SSIM: 0.9851
-FSIM: 0.9542
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 18.6181
-SSIM: 0.8085
-FSIM: 0.7244
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9920140764452589,
+  "ssim_edited_original_vs_edited_immunized": 0.7366231403928638
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  29.2946
-Edited Immunized: 28.9088
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.8977
-Caption orig: A person wearing a red hat and a red coat is walking down the street.
-Caption adv:  A woman wearing a red hat and a red coat walks down a street.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9552542633559385,
+  "fsim_edited_original_vs_edited_immunized": 0.6257990739155502
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.2959
-Background SSIM   (basso=protezione ok): 0.5247
-Subject LPIPS     (basso=soggetto ok)  : 0.1222
-Editing score                          : 0.4877
-Mask coverage (% background)           : 0.2623
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.07765674867820929
+Global LPIPS : 0.013968954794108868
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.7714771590281841
+Global LPIPS : 0.21234296262264252
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The beard appears to be added to the person's face, but it looks unnatural and overly large, making the image less recognizable and slightly distorted.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The beard appears to be added to the person's face, but it looks unnatural and overly large, making the image less recognizable and slightly distorted.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 7.0,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 7,
+    "scale_distortion": 7,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 7,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been significantly altered with new elements."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall composition is completely disrupted."
+    },
+    "identity_erasure": {
+      "score": 7,
+      "justification": "The subjects' identities are unrecognizable due to the beard and clothing changes."
+    },
+    "scale_distortion": {
+      "score": 7,
+      "justification": "The beard appears disproportionately large and unnatural."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "Spatial relationships are destroyed as the beard appears to grow out of the person's head."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "The texture of the beard is unnatural and noisy."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "The beard introduces severe distortions and noise."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "Colors and shadows are inconsistent with the rest of the scene."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Visible seams and edges are present around the beard."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The final image completely deviates from the original instruction."
+    },
+    "editing_incompleteness": {
+      "score": 7,
+      "justification": "The editing is left incomplete as the beard is not natural."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd and physically impossible."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been significantly altered with new elements.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall composition is completely disrupted.\"},\n  \"identity_erasure\": {\"score\": 7, \"justification\": \"The subjects' identities are unrecognizable due to the beard and clothing changes.\"},\n  \"scale_distortion\": {\"score\": 7, \"justification\": \"The beard appears disproportionately large and unnatural.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"Spatial relationships are destroyed as the beard appears to grow out of the person's head.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"The texture of the beard is unnatural and noisy.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"The beard introduces severe distortions and noise.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"Colors and shadows are inconsistent with the rest of the scene.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Visible seams and edges are present around the beard.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The final image completely deviates from the original instruction.\"},\n  \"editing_incompleteness\": {\"score\": 7, \"justification\": \"The editing is left incomplete as the beard is not natural.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd and physically impossible.\"}\n}"
+}

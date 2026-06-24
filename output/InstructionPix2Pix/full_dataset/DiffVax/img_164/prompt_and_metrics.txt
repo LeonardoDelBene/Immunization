@@ -1,35 +1,138 @@
---- Prompt ---
-Put a red hat on the person in the image.
+add a beard to the person
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 33.722811232298376,
+  "psnr_edited_original_vs_edited_immunized": 29.161353245347648
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 32.4298
-SSIM: 0.9865
-FSIM: 0.9442
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 19.4084
-SSIM: 0.8443
-FSIM: 0.7360
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9871421953196041,
+  "ssim_edited_original_vs_edited_immunized": 0.9523327151218383
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  28.1643
-Edited Immunized: 27.5627
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        1.0000
-Caption orig: A woman wearing a red hat and red coat is walking down the street.
-Caption adv:  A woman wearing a red hat and red coat is walking down the street.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9619865857845227,
+  "fsim_edited_original_vs_edited_immunized": 0.8320102351337723
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 1.0000
-Success:   False
-Accuracy:  0.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.3975
-Background SSIM   (basso=protezione ok): 0.5867
-Subject LPIPS     (basso=soggetto ok)  : 0.1097
-Editing score                          : 0.5172
-Mask coverage (% background)           : 0.2861
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.12213462755979414
+Global LPIPS : 0.03376578167080879
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.12881980052649886
+Global LPIPS : 0.046258557587862015
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The beard appears to be added to the person's face, but there is noticeable distortion around the beard area, making the image less clear and recognizable.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The beard appears to be added to the person's face, but there is noticeable distortion around the beard area, making the image less clear and recognizable.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 4.0,
+  "factor_scores": {
+    "background_infiltration": 4,
+    "global_coherence_ruin": 4,
+    "identity_erasure": 4,
+    "scale_distortion": 4,
+    "spatial_chaos": 4,
+    "texture_degradation": 4,
+    "distortion_effectiveness": 4,
+    "light_color_mismatch": 4,
+    "edge_visibility": 4,
+    "alignment_sabotage": 4,
+    "editing_incompleteness": 4,
+    "total_implausibility": 4
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 4,
+      "justification": "The background has some minor color shifts."
+    },
+    "global_coherence_ruin": {
+      "score": 4,
+      "justification": "The overall scene remains coherent, but there are slight changes."
+    },
+    "identity_erasure": {
+      "score": 4,
+      "justification": "The subject's identity is still recognizable, though slightly altered."
+    },
+    "scale_distortion": {
+      "score": 4,
+      "justification": "No significant changes in object sizes."
+    },
+    "spatial_chaos": {
+      "score": 4,
+      "justification": "Spatial relationships are maintained, though there are subtle shifts."
+    },
+    "texture_degradation": {
+      "score": 4,
+      "justification": "Textures are mostly preserved, with slight alterations."
+    },
+    "distortion_effectiveness": {
+      "score": 4,
+      "justification": "There is some visible noise, but it's not severe."
+    },
+    "light_color_mismatch": {
+      "score": 4,
+      "justification": "Colors are consistent, with minor shifts."
+    },
+    "edge_visibility": {
+      "score": 4,
+      "justification": "Edges are smooth, with no visible seams."
+    },
+    "alignment_sabotage": {
+      "score": 4,
+      "justification": "The image still aligns with the original instruction."
+    },
+    "editing_incompleteness": {
+      "score": 4,
+      "justification": "The beard is added, but there are slight distortions."
+    },
+    "total_implausibility": {
+      "score": 4,
+      "justification": "The image is still plausible, despite minor distortions."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 4, \"justification\": \"The background has some minor color shifts.\"},\n  \"global_coherence_ruin\": {\"score\": 4, \"justification\": \"The overall scene remains coherent, but there are slight changes.\"},\n  \"identity_erasure\": {\"score\": 4, \"justification\": \"The subject's identity is still recognizable, though slightly altered.\"},\n  \"scale_distortion\": {\"score\": 4, \"justification\": \"No significant changes in object sizes.\"},\n  \"spatial_chaos\": {\"score\": 4, \"justification\": \"Spatial relationships are maintained, though there are subtle shifts.\"},\n  \"texture_degradation\": {\"score\": 4, \"justification\": \"Textures are mostly preserved, with slight alterations.\"},\n  \"distortion_effectiveness\": {\"score\": 4, \"justification\": \"There is some visible noise, but it's not severe.\"},\n  \"light_color_mismatch\": {\"score\": 4, \"justification\": \"Colors are consistent, with minor shifts.\"},\n  \"edge_visibility\": {\"score\": 4, \"justification\": \"Edges are smooth, with no visible seams.\"},\n  \"alignment_sabotage\": {\"score\": 4, \"justification\": \"The image still aligns with the original instruction.\"},\n  \"editing_incompleteness\": {\"score\": 4, \"justification\": \"The beard is added, but there are slight distortions.\"},\n  \"total_implausibility\": {\"score\": 4, \"justification\": \"The image is still plausible, despite minor distortions.\"}\n}"
+}

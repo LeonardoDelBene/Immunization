@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a shopping center
+A person in a beachside boardwalk
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 35.02876352239073,
+  "psnr_edited_original_vs_edited_immunized": 13.294308956879961
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 35.0278
-SSIM: 0.9887
-FSIM: 0.9606
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 13.0533
-SSIM: 0.5383
-FSIM: 0.4951
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9886698117186442,
+  "ssim_edited_original_vs_edited_immunized": 0.5951634198522097
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  27.1941
-Edited Immunized: 23.6899
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.5011
-Caption orig: A woman wearing sunglasses and a black and blue dress is holding a shopping bag.
-Caption adv:  A woman wearing a blue and white dress and sunglasses stands in front of a pink polka dot wall.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9606117388686378,
+  "fsim_edited_original_vs_edited_immunized": 0.5180080152892916
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.9372
-Background SSIM   (basso=protezione ok): 0.3750
-Subject LPIPS     (basso=soggetto ok)  : 0.1121
-Editing score                          : 0.5599
-Mask coverage (% background)           : 0.7111
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.11206718599376324
+Global LPIPS : 0.020472606644034386
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.11206718599376324
+Global LPIPS : 0.6197346448898315
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as the background has been changed from a beachside boardwalk to a textured wall with pink dots. The image remains clear and recognizable.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as the background has been changed from a beachside boardwalk to a textured wall with pink dots. The image remains clear and recognizable.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 5.5,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 1,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 1,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been completely replaced with a textured wall, altering the original setting."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall appearance of the image is significantly altered, losing the original beachside boardwalk context."
+    },
+    "identity_erasure": {
+      "score": 1,
+      "justification": "The subject's identity is not erased; she remains recognizable."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "The subject's proportions are maintained, no distortion observed."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "Spatial relationships are disrupted as the subject is placed against an unrelated background."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "The original texture of the background is completely replaced with a new pattern."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Visible noise and digital artifacts are introduced, making the image look artificial."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "Colors are inconsistent with the rest of the scene due to the new background."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Sharp edges and visible seams are present where the new background meets the subject."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The final image completely deviates from the intended beachside boardwalk setting."
+    },
+    "editing_incompleteness": {
+      "score": 1,
+      "justification": "No fundamental parts of the requested edit have been removed."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd as it shows a person on a beachside boardwalk with a textured wall background."
+    }
+  },
+  "raw_output": "```json\n{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been completely replaced with a textured wall, altering the original setting.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall appearance of the image is significantly altered, losing the original beachside boardwalk context.\"},\n  \"identity_erasure\": {\"score\": 1, \"justification\": \"The subject's identity is not erased; she remains recognizable.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"The subject's proportions are maintained, no distortion observed.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"Spatial relationships are disrupted as the subject is placed against an unrelated background.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"The original texture of the background is completely replaced with a new pattern.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Visible noise and digital artifacts are introduced, making the image look artificial.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"Colors are inconsistent with the rest of the scene due to the new background.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Sharp edges and visible seams are present where the new background meets the subject.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The final image completely deviates from the intended beachside boardwalk setting.\"},\n  \"editing_incompleteness\": {\"score\": 1, \"justification\": \"No fundamental parts of the requested edit have been removed.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd as it shows a person on a beachside boardwalk with a textured wall background.\"}\n}\n```"
+}

@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a science museum exhibit
+A person in a woodworking shop
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 36.015575584794625,
+  "psnr_edited_original_vs_edited_immunized": 14.702187488925574
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 36.0159
-SSIM: 0.9880
-FSIM: 0.9738
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 19.1130
-SSIM: 0.6628
-FSIM: 0.4981
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9879740965072062,
+  "ssim_edited_original_vs_edited_immunized": 0.5525396661568017
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  28.7754
-Edited Immunized: 29.0282
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6522
-Caption orig: A woman wearing sunglasses and a brown dress stands in front of a display of animal sculptures.
-Caption adv:  A woman wearing a brown dress and sunglasses stands in front of a pink and green wall.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9738809840988304,
+  "fsim_edited_original_vs_edited_immunized": 0.4686943999888065
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.6868
-Background SSIM   (basso=protezione ok): 0.5805
-Subject LPIPS     (basso=soggetto ok)  : 0.1767
-Editing score                          : 0.4688
-Mask coverage (% background)           : 0.7607
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.17673812501700537
+Global LPIPS : 0.02807362750172615
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.17673812501700537
+Global LPIPS : 0.5768367052078247
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as the person is still in a woodworking shop, but the background has been heavily distorted with a pattern of pink dots, making the image unrecognizable and blurry.",
+  "attack_success": 1,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as the person is still in a woodworking shop, but the background has been heavily distorted with a pattern of pink dots, making the image unrecognizable and blurry.\",\n  \"attack_success\": 1\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 7.0,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 7,
+    "scale_distortion": 7,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 7,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background is heavily distorted with a pattern of pink dots."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall appearance is totally altered due to the background distortion."
+    },
+    "identity_erasure": {
+      "score": 7,
+      "justification": "The background is so distorted that the workshop setting is unrecognizable."
+    },
+    "scale_distortion": {
+      "score": 7,
+      "justification": "The background elements are rendered disproportionately large and small."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "Spatial relationships are destroyed; the background appears illogical."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "Textures are completely corrupted by the pink dot pattern."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Severe distortions are introduced, making the image unrecognizable."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "Colors are inconsistent with the rest of the scene due to the background pattern."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Visible seams and edges are present where the background meets the subject."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The final image completely deviates from the woodworking shop setting."
+    },
+    "editing_incompleteness": {
+      "score": 7,
+      "justification": "The editing is left incomplete as the background is unrecognizable."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd with a pattern of pink dots covering the background."
+    }
+  },
+  "raw_output": "```json\n{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background is heavily distorted with a pattern of pink dots.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall appearance is totally altered due to the background distortion.\"},\n  \"identity_erasure\": {\"score\": 7, \"justification\": \"The background is so distorted that the workshop setting is unrecognizable.\"},\n  \"scale_distortion\": {\"score\": 7, \"justification\": \"The background elements are rendered disproportionately large and small.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"Spatial relationships are destroyed; the background appears illogical.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"Textures are completely corrupted by the pink dot pattern.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Severe distortions are introduced, making the image unrecognizable.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"Colors are inconsistent with the rest of the scene due to the background pattern.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Visible seams and edges are present where the background meets the subject.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The final image completely deviates from the woodworking shop setting.\"},\n  \"editing_incompleteness\": {\"score\": 7, \"justification\": \"The editing is left incomplete as the background is unrecognizable.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd with a pattern of pink dots covering the background.\"}\n}\n```"
+}

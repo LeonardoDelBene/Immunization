@@ -1,35 +1,138 @@
---- Prompt ---
-Put a red hat on the person in the image.
+add earrings to the person
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 36.333175828425084,
+  "psnr_edited_original_vs_edited_immunized": 31.38187168391122
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 35.6861
-SSIM: 0.9858
-FSIM: 0.9473
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 17.2191
-SSIM: 0.8761
-FSIM: 0.7808
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9876119064039891,
+  "ssim_edited_original_vs_edited_immunized": 0.9601404172352375
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  25.5808
-Edited Immunized: 26.6740
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.9737
-Caption orig: A woman wearing a red hat and a grey coat stands on a staircase.
-Caption adv:  A woman wearing a red hat and a red coat stands on a staircase.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9682286645510226,
+  "fsim_edited_original_vs_edited_immunized": 0.8500520079365841
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.8000
-Success:   False
-Accuracy:  0.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.4719
-Background SSIM   (basso=protezione ok): 0.6640
-Subject LPIPS     (basso=soggetto ok)  : 0.1705
-Editing score                          : 0.4872
-Mask coverage (% background)           : 0.2403
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.20363848554022967
+Global LPIPS : 0.03361506015062332
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.204788739365444
+Global LPIPS : 0.049845196306705475
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is visible as there are additional colorful dots on the coat. The image appears slightly blurry and less clear compared to the reference image.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is visible as there are additional colorful dots on the coat. The image appears slightly blurry and less clear compared to the reference image.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 4.0,
+  "factor_scores": {
+    "background_infiltration": 4,
+    "global_coherence_ruin": 4,
+    "identity_erasure": 4,
+    "scale_distortion": 4,
+    "spatial_chaos": 4,
+    "texture_degradation": 4,
+    "distortion_effectiveness": 4,
+    "light_color_mismatch": 4,
+    "edge_visibility": 4,
+    "alignment_sabotage": 4,
+    "editing_incompleteness": 4,
+    "total_implausibility": 4
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 4,
+      "justification": "The background remains largely unchanged."
+    },
+    "global_coherence_ruin": {
+      "score": 4,
+      "justification": "The overall style and layout appear slightly altered."
+    },
+    "identity_erasure": {
+      "score": 4,
+      "justification": "The subject's identity is not significantly erased."
+    },
+    "scale_distortion": {
+      "score": 4,
+      "justification": "No objects are rendered disproportionately large or small."
+    },
+    "spatial_chaos": {
+      "score": 4,
+      "justification": "Spatial relationships seem intact."
+    },
+    "texture_degradation": {
+      "score": 4,
+      "justification": "Textures appear mostly intact."
+    },
+    "distortion_effectiveness": {
+      "score": 4,
+      "justification": "Some noise and blurring are present."
+    },
+    "light_color_mismatch": {
+      "score": 4,
+      "justification": "Colors are consistent with the scene."
+    },
+    "edge_visibility": {
+      "score": 4,
+      "justification": "No visible seams or edges."
+    },
+    "alignment_sabotage": {
+      "score": 4,
+      "justification": "The image aligns with the original instruction."
+    },
+    "editing_incompleteness": {
+      "score": 4,
+      "justification": "The edit is mostly complete."
+    },
+    "total_implausibility": {
+      "score": 4,
+      "justification": "The result is somewhat plausible but altered."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 4, \"justification\": \"The background remains largely unchanged.\"},\n  \"global_coherence_ruin\": {\"score\": 4, \"justification\": \"The overall style and layout appear slightly altered.\"},\n  \"identity_erasure\": {\"score\": 4, \"justification\": \"The subject's identity is not significantly erased.\"},\n  \"scale_distortion\": {\"score\": 4, \"justification\": \"No objects are rendered disproportionately large or small.\"},\n  \"spatial_chaos\": {\"score\": 4, \"justification\": \"Spatial relationships seem intact.\"},\n  \"texture_degradation\": {\"score\": 4, \"justification\": \"Textures appear mostly intact.\"},\n  \"distortion_effectiveness\": {\"score\": 4, \"justification\": \"Some noise and blurring are present.\"},\n  \"light_color_mismatch\": {\"score\": 4, \"justification\": \"Colors are consistent with the scene.\"},\n  \"edge_visibility\": {\"score\": 4, \"justification\": \"No visible seams or edges.\"},\n  \"alignment_sabotage\": {\"score\": 4, \"justification\": \"The image aligns with the original instruction.\"},\n  \"editing_incompleteness\": {\"score\": 4, \"justification\": \"The edit is mostly complete.\"},\n  \"total_implausibility\": {\"score\": 4, \"justification\": \"The result is somewhat plausible but altered.\"}\n}"
+}

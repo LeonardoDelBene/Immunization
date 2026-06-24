@@ -4,32 +4,34 @@ A person in a car dealership
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.6708
-SSIM: 0.9185
-FSIM: 0.8276
+PSNR: 30.6184
+SSIM: 0.9195
+FSIM: 0.8301
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 11.7642
-SSIM: 0.4861
-FSIM: 0.4632
-
-CLIP score (Image vs Prompt)
-Edited Original:  26.1956
-Edited Immunized: 27.8229
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.9218
-Caption orig: A woman wearing a leopard print jacket and a green shirt is standing next to a car.
-Caption adv:  A woman wearing a leopard print jacket and a leopard print scarf is standing next to a white car.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
+PSNR: 11.8847
+SSIM: 0.4744
+FSIM: 0.4701
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.6419
-Background SSIM   (basso=protezione ok): 0.3945
-Subject LPIPS     (basso=soggetto ok)  : 0.3594
-Editing score                          : 0.5228
-Mask coverage (% background)           : 0.7064
+Global LPIPS                           : 0.5787
+Background LPIPS                       : 0.7080
+Subject LPIPS                          : 0.3642
+Separation                             : 0.6603
+Editing score                          : 0.7080
+Mask coverage                          : 0.7064
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person is still standing in front of a car, but the background appears to be a showroom interior with bright lights and reflections, which aligns with the editing prompt."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person is still standing in front of a car, but the background has been altered to appear as if it were inside a car dealership. This change in the environment satisfies the editing instruction.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The person is still standing in front of a car, but the background has been altered to appear as if it were inside a car dealership. This change in the environment satisfies the editing instruction.\"\n}\n```"
+}

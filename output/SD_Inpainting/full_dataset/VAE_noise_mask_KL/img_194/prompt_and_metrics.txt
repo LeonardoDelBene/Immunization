@@ -4,32 +4,34 @@ A person in a hotel lobby
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.6260
-SSIM: 0.9352
-FSIM: 0.8938
+PSNR: 30.4684
+SSIM: 0.9344
+FSIM: 0.8934
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 14.5039
-SSIM: 0.4882
-FSIM: 0.4409
-
-CLIP score (Image vs Prompt)
-Edited Original:  25.6405
-Edited Immunized: 29.5974
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        1.0000
-Caption orig: A woman wearing a dress with a face on it stands in a room.
-Caption adv:  A woman wearing a dress with a face on it stands in a room.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.9000
-Success:   False
-Accuracy:  0.0000
+PSNR: 14.3162
+SSIM: 0.4791
+FSIM: 0.4330
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.7206
-Background SSIM   (basso=protezione ok): 0.4061
-Subject LPIPS     (basso=soggetto ok)  : 0.3490
-Editing score                          : 0.5570
-Mask coverage (% background)           : 0.7431
+Global LPIPS                           : 0.6029
+Background LPIPS                       : 0.7362
+Subject LPIPS                          : 0.3520
+Separation                             : 0.6765
+Editing score                          : 0.7362
+Mask coverage                          : 0.7431
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person is still in a hotel lobby, but the background has been altered to include a different setting with tables and chairs, which does not contradict the original instruction."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image shows a person in a room that appears to be a lounge or waiting area, not a hotel lobby as specified in the editing prompt.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image shows a person in a room that appears to be a lounge or waiting area, not a hotel lobby as specified in the editing prompt.\"\n}\n```"
+}

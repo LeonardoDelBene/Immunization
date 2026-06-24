@@ -4,32 +4,34 @@ A person in a frozen yogurt shop
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 36.6024
-SSIM: 0.9744
-FSIM: 0.9687
+PSNR: 36.3973
+SSIM: 0.9740
+FSIM: 0.9683
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 13.9330
-SSIM: 0.5047
-FSIM: 0.3791
-
-CLIP score (Image vs Prompt)
-Edited Original:  33.0347
-Edited Immunized: 31.3919
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.5778
-Caption orig: A man is standing in front of a counter with two large cups of frozen yogurt.
-Caption adv:  A woman is smiling while holding a cup of frozen yogurt.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
+PSNR: 13.6880
+SSIM: 0.4812
+FSIM: 0.3647
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.5401
-Background SSIM   (basso=protezione ok): 0.5039
-Subject LPIPS     (basso=soggetto ok)  : 0.5953
-Editing score                          : 0.3649
-Mask coverage (% background)           : 0.9364
+Global LPIPS                           : 0.6204
+Background LPIPS                       : 0.6236
+Subject LPIPS                          : 0.6090
+Separation                             : 0.5059
+Editing score                          : 0.6236
+Mask coverage                          : 0.9364
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person in the frozen yogurt shop is no longer present."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image shows a hand holding an ice cream cup, which contradicts the requirement for a person in a frozen yogurt shop.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image shows a hand holding an ice cream cup, which contradicts the requirement for a person in a frozen yogurt shop.\"\n}\n```"
+}

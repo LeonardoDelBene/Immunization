@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a pastry shop
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.5001
+PSNR: 30.5007
 SSIM: 0.9386
 FSIM: 0.8707
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 19.5565
-SSIM: 0.7415
-FSIM: 0.6509
-
-CLIP score (Image vs Prompt)
-Edited Original:  24.7361
-Edited Immunized: 27.1463
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.7341
-Caption orig: A woman in a blue jacket and black pants is standing in front of a bakery display.
-Caption adv:  A woman wearing a blue jacket and a white shirt is walking in a bakery.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 22.6699
+SSIM: 0.8158
+FSIM: 0.6759
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.3298
-Background SSIM   (basso=protezione ok): 0.7273
-Subject LPIPS     (basso=soggetto ok)  : 0.3314
-Editing score                          : 0.3149
-Mask coverage (% background)           : 0.7248
+Global LPIPS                           : 0.1874
+Background LPIPS                       : 0.1031
+Subject LPIPS                          : 0.4431
+Separation                             : 0.8112
+Editing score                          : 0.4431
+Mask coverage                          : 0.7248
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person in the adversarial image is wearing a cap, which matches the editing prompt."
+}

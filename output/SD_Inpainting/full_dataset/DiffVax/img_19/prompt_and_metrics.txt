@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a locker room
+A person in a street market
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 34.47279224651625,
+  "psnr_edited_original_vs_edited_immunized": 12.192095867014817
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 34.4712
-SSIM: 0.9872
-FSIM: 0.9661
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 12.5559
-SSIM: 0.5269
-FSIM: 0.4234
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9872268668379779,
+  "ssim_edited_original_vs_edited_immunized": 0.4390814555396005
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  24.1956
-Edited Immunized: 21.8038
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6633
-Caption orig: A woman wearing a brown coat and holding a coat stand in front of a blue door.
-Caption adv:  A woman wearing a brown coat and holding her arm out.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9661039607303262,
+  "fsim_edited_original_vs_edited_immunized": 0.43690546333711305
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.8274
-Background SSIM   (basso=protezione ok): 0.3907
-Subject LPIPS     (basso=soggetto ok)  : 0.1281
-Editing score                          : 0.5432
-Mask coverage (% background)           : 0.7547
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.12803429282286874
+Global LPIPS : 0.022273851558566093
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.12803429282286874
+Global LPIPS : 0.5653534531593323
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as the background has changed from a street market with fruits and vegetables to a wall covered with fabric. The image remains clear and recognizable.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as the background has changed from a street market with fruits and vegetables to a wall covered with fabric. The image remains clear and recognizable.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 5.5,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 1,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 1,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been completely replaced with a wall covered in fabric."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall scene is altered, losing the original street market context."
+    },
+    "identity_erasure": {
+      "score": 1,
+      "justification": "The subject remains recognizable, despite the background change."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "The subject's size and proportions are consistent with the original."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "The spatial relationships are disrupted, with the subject now in front of a wall instead of a market."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "The original textures have been replaced with a patterned fabric texture."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Visible changes in texture and background create a distorted effect."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "The lighting and color scheme are inconsistent with the original market setting."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Sharp edges and seams are visible where the background changes abruptly."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The final image completely deviates from the original street market scene."
+    },
+    "editing_incompleteness": {
+      "score": 1,
+      "justification": "The editing is not incomplete; the entire background has been altered."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd, as the subject is now in front of a wall instead of a market."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been completely replaced with a wall covered in fabric.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall scene is altered, losing the original street market context.\"},\n  \"identity_erasure\": {\"score\": 1, \"justification\": \"The subject remains recognizable, despite the background change.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"The subject's size and proportions are consistent with the original.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"The spatial relationships are disrupted, with the subject now in front of a wall instead of a market.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"The original textures have been replaced with a patterned fabric texture.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Visible changes in texture and background create a distorted effect.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"The lighting and color scheme are inconsistent with the original market setting.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Sharp edges and seams are visible where the background changes abruptly.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The final image completely deviates from the original street market scene.\"},\n  \"editing_incompleteness\": {\"score\": 1, \"justification\": \"The editing is not incomplete; the entire background has been altered.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd, as the subject is now in front of a wall instead of a market.\"}\n}"
+}

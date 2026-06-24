@@ -4,32 +4,34 @@ A person in a church hall
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 31.0013
+PSNR: 30.9541
 SSIM: 0.9233
-FSIM: 0.8935
+FSIM: 0.8940
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 13.2998
-SSIM: 0.4558
-FSIM: 0.4338
-
-CLIP score (Image vs Prompt)
-Edited Original:  24.3386
-Edited Immunized: 26.4748
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.8992
-Caption orig: A man wearing glasses and a gray sweater stands in front of a church.
-Caption adv:  A man wearing glasses and a white shirt stands in front of a church.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
+PSNR: 13.3124
+SSIM: 0.4528
+FSIM: 0.4284
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.6691
-Background SSIM   (basso=protezione ok): 0.3322
-Subject LPIPS     (basso=soggetto ok)  : 0.3845
-Editing score                          : 0.5373
-Mask coverage (% background)           : 0.6848
+Global LPIPS                           : 0.5460
+Background LPIPS                       : 0.6518
+Subject LPIPS                          : 0.3828
+Separation                             : 0.6300
+Editing score                          : 0.6518
+Mask coverage                          : 0.6848
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person is still in a church hall, but the background appears to be altered with different architectural elements and colors, which does not contradict the original instruction."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image contains a person but the background appears to be altered and no longer resembles a church hall.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image contains a person but the background appears to be altered and no longer resembles a church hall.\"\n}\n```"
+}

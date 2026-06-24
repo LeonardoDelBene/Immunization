@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a rooftop bar
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 29.7210
+PSNR: 29.7215
 SSIM: 0.9258
 FSIM: 0.9137
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 18.0868
-SSIM: 0.6772
-FSIM: 0.6302
-
-CLIP score (Image vs Prompt)
-Edited Original:  25.2487
-Edited Immunized: 25.0163
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.7766
-Caption orig: A woman wearing a white and blue dress stands on a balcony in a city.
-Caption adv:  A woman in a white dress stands on a balcony, looking down at a woman in a white dress who is sitting down.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
+PSNR: 18.3974
+SSIM: 0.6155
+FSIM: 0.5956
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.3539
-Background SSIM   (basso=protezione ok): 0.6480
-Subject LPIPS     (basso=soggetto ok)  : 0.3884
-Editing score                          : 0.3141
-Mask coverage (% background)           : 0.7046
+Global LPIPS                           : 0.4123
+Background LPIPS                       : 0.3927
+Subject LPIPS                          : 0.6207
+Separation                             : 0.6125
+Editing score                          : 0.6207
+Mask coverage                          : 0.7046
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person in the adversarial image is wearing a hat, but the hat appears to be a cartoonish, distorted version rather than a realistic cap."
+}

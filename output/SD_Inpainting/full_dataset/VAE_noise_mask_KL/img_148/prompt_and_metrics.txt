@@ -4,32 +4,34 @@ A person in a refugee camp
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 29.5195
-SSIM: 0.9211
-FSIM: 0.8625
+PSNR: 29.5418
+SSIM: 0.9215
+FSIM: 0.8632
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 16.7381
-SSIM: 0.6615
-FSIM: 0.5649
-
-CLIP score (Image vs Prompt)
-Edited Original:  32.9732
-Edited Immunized: 30.7954
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.9564
-Caption orig: A woman wearing a white jacket and a black hat is walking on a dirt road.
-Caption adv:  A woman wearing a white jacket and a white hat is walking down a dirt road.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 17.3003
+SSIM: 0.6782
+FSIM: 0.5760
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.5696
-Background SSIM   (basso=protezione ok): 0.6347
-Subject LPIPS     (basso=soggetto ok)  : 0.3401
-Editing score                          : 0.4333
-Mask coverage (% background)           : 0.6851
+Global LPIPS                           : 0.4384
+Background LPIPS                       : 0.5409
+Subject LPIPS                          : 0.3363
+Separation                             : 0.6166
+Editing score                          : 0.5409
+Mask coverage                          : 0.6851
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person is still wearing a jacket and appears to be in a similar setting, but the image is heavily distorted with artifacts, making it difficult to determine if the semantic edit was correctly applied."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image contains distorted and unnatural elements that do not align with the semantic requirement of a person in a refugee camp.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image contains distorted and unnatural elements that do not align with the semantic requirement of a person in a refugee camp.\"\n}\n```"
+}

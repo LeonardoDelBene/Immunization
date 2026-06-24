@@ -4,32 +4,34 @@ A person in a gym sauna
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 31.5050
-SSIM: 0.9132
-FSIM: 0.8466
+PSNR: 31.3393
+SSIM: 0.9125
+FSIM: 0.8448
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 16.0130
-SSIM: 0.4507
-FSIM: 0.4262
-
-CLIP score (Image vs Prompt)
-Edited Original:  23.3877
-Edited Immunized: 21.7658
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.5923
-Caption orig: A man wearing a leopard print shirt and a black jacket stands in front of a mirror.
-Caption adv:  A man wearing a black jacket and a leopard print shirt stands in a room.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
+PSNR: 15.6246
+SSIM: 0.4375
+FSIM: 0.4292
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.7134
-Background SSIM   (basso=protezione ok): 0.3813
-Subject LPIPS     (basso=soggetto ok)  : 0.5081
-Editing score                          : 0.4709
-Mask coverage (% background)           : 0.7327
+Global LPIPS                           : 0.5916
+Background LPIPS                       : 0.6523
+Subject LPIPS                          : 0.5126
+Separation                             : 0.5600
+Editing score                          : 0.6523
+Mask coverage                          : 0.7327
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person is still in a gym setting, but the environment appears to be a sauna, which does not contradict the editing instruction."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The image contains a person in a gym setting, but there is no sauna visible. The editing instruction specifies 'gym sauna', which requires both a gym and a sauna. Since the sauna is not present, the image fails to meet the semantic requirements of the prompt.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The image contains a person in a gym setting, but there is no sauna visible. The editing instruction specifies 'gym sauna', which requires both a gym and a sauna. Since the sauna is not present, the image fails to meet the semantic requirements of the prompt.\"\n}\n```"
+}

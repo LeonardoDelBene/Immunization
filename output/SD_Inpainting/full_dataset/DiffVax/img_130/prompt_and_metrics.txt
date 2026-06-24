@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a travel agency
+A person in a fashion show
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 34.14197696441918,
+  "psnr_edited_original_vs_edited_immunized": 14.032932426609392
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 34.1415
-SSIM: 0.9900
-FSIM: 0.9705
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 15.1594
-SSIM: 0.5719
-FSIM: 0.5258
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9900474299513236,
+  "ssim_edited_original_vs_edited_immunized": 0.6146239805195347
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  21.8369
-Edited Immunized: 18.4630
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6828
-Caption orig: A woman wearing a fur coat and carrying a purse walks down a street.
-Caption adv:  A woman wearing a fur coat and holding a purse stands in front of a wall with pink writing on it.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9704564171668424,
+  "fsim_edited_original_vs_edited_immunized": 0.4867326325910373
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.9029
-Background SSIM   (basso=protezione ok): 0.4093
-Subject LPIPS     (basso=soggetto ok)  : 0.0748
-Editing score                          : 0.5489
-Mask coverage (% background)           : 0.6978
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.07478152698023065
+Global LPIPS : 0.015576111152768135
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.07478152698023065
+Global LPIPS : 0.5163766741752625
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as there is no change in the person's attire or pose. The background has been altered with a pattern of pink flowers, but this does not align with the 'person in a fashion show' prompt. The image remains clear and recognizable.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as there is no change in the person's attire or pose. The background has been altered with a pattern of pink flowers, but this does not align with the 'person in a fashion show' prompt. The image remains clear and recognizable.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 5.5,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 1,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 1,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "Pink flower pattern covers most of the background."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "Original style and layout are completely disrupted."
+    },
+    "identity_erasure": {
+      "score": 1,
+      "justification": "Subjects remain recognizable."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No objects are rendered disproportionate."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "Spatial relationships and perspective are destroyed."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "Textures are replaced by a pink flower pattern."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Severe, deliberate distortions are introduced."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "Colors are inconsistent with the rest of the scene."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Visible seams and edges are present."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The instruction is now ignored."
+    },
+    "editing_incompleteness": {
+      "score": 1,
+      "justification": "Fundamental parts of the requested edit are not removed."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "Result is visually absurd and physically impossible."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"Pink flower pattern covers most of the background.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"Original style and layout are completely disrupted.\"},\n  \"identity_erasure\": {\"score\": 1, \"justification\": \"Subjects remain recognizable.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No objects are rendered disproportionate.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"Spatial relationships and perspective are destroyed.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"Textures are replaced by a pink flower pattern.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Severe, deliberate distortions are introduced.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"Colors are inconsistent with the rest of the scene.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Visible seams and edges are present.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The instruction is now ignored.\"},\n  \"editing_incompleteness\": {\"score\": 1, \"justification\": \"Fundamental parts of the requested edit are not removed.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"Result is visually absurd and physically impossible.\"}\n}"
+}

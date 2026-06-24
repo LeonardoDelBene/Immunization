@@ -4,32 +4,34 @@ A person in a summer camp
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.5769
-SSIM: 0.9225
-FSIM: 0.9032
+PSNR: 30.6709
+SSIM: 0.9246
+FSIM: 0.9045
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 21.1668
-SSIM: 0.7605
-FSIM: 0.6440
-
-CLIP score (Image vs Prompt)
-Edited Original:  27.2669
-Edited Immunized: 26.3699
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.7954
-Caption orig: A woman wearing a black and white shirt and carrying a blue backpack.
-Caption adv:  A woman wearing a checkered shirt and carrying a backpack.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 21.1870
+SSIM: 0.7618
+FSIM: 0.6392
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.3347
-Background SSIM   (basso=protezione ok): 0.7789
-Subject LPIPS     (basso=soggetto ok)  : 0.3339
-Editing score                          : 0.2999
-Mask coverage (% background)           : 0.7279
+Global LPIPS                           : 0.2961
+Background LPIPS                       : 0.3302
+Subject LPIPS                          : 0.3161
+Separation                             : 0.5109
+Editing score                          : 0.3302
+Mask coverage                          : 0.7279
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person is still wearing a backpack, which suggests they are still in a camping scenario."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image contains a person carrying a backpack, which aligns with the prompt. However, the image appears heavily distorted and pixelated, making it difficult to discern specific details that would confirm a summer camp setting. The semantic elements required by the prompt are not clearly present due to the distortion.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image contains a person carrying a backpack, which aligns with the prompt. However, the image appears heavily distorted and pixelated, making it difficult to discern specific details that would confirm a summer camp setting. The semantic elements required by the prompt are not clearly present due to the distortion.\"\n}\n```"
+}

@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a music and arts festival
+A person in a costume party
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 35.20246355628124,
+  "psnr_edited_original_vs_edited_immunized": 13.74641484690998
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 35.2016
-SSIM: 0.9839
-FSIM: 0.9621
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 14.9870
-SSIM: 0.5461
-FSIM: 0.4880
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9838727767546572,
+  "ssim_edited_original_vs_edited_immunized": 0.49493029651316833
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  29.1659
-Edited Immunized: 24.9942
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6451
-Caption orig: A woman wearing a white hat and a white shirt is standing in a crowd.
-Caption adv:  A woman wearing a white shirt and glasses stands in front of a colorful background.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9621167214721703,
+  "fsim_edited_original_vs_edited_immunized": 0.46446859743664604
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.8891
-Background SSIM   (basso=protezione ok): 0.4214
-Subject LPIPS     (basso=soggetto ok)  : 0.1662
-Editing score                          : 0.5373
-Mask coverage (% background)           : 0.7485
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.1662273716151897
+Global LPIPS : 0.039278700947761536
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.1662273716151897
+Global LPIPS : 0.6186826825141907
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as the person is still wearing a white shirt and jeans, and there is no indication of a costume party. The image appears blurry and the background is indistinct, making it unrecognizable.",
+  "attack_success": 1,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as the person is still wearing a white shirt and jeans, and there is no indication of a costume party. The image appears blurry and the background is indistinct, making it unrecognizable.\",\n  \"attack_success\": 1\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 6.5,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 7,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 7,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been completely replaced with a patterned texture."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall appearance is altered significantly, losing coherence."
+    },
+    "identity_erasure": {
+      "score": 7,
+      "justification": "The subject's identity is obscured by the new background texture."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No noticeable distortion in object sizes."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "Spatial relationships are disrupted due to the new background."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "Original textures are replaced with a noisy pattern."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Visible noise and blurring are introduced."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "Colors are inconsistent with the rest of the scene."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Edges are blurred and not clearly defined."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The image completely deviates from the original instruction."
+    },
+    "editing_incompleteness": {
+      "score": 7,
+      "justification": "The edit is removed entirely, leaving the image unrecognizable."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd and physically impossible."
+    }
+  },
+  "raw_output": "```json\n{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been completely replaced with a patterned texture.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall appearance is altered significantly, losing coherence.\"},\n  \"identity_erasure\": {\"score\": 7, \"justification\": \"The subject's identity is obscured by the new background texture.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No noticeable distortion in object sizes.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"Spatial relationships are disrupted due to the new background.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"Original textures are replaced with a noisy pattern.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Visible noise and blurring are introduced.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"Colors are inconsistent with the rest of the scene.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Edges are blurred and not clearly defined.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The image completely deviates from the original instruction.\"},\n  \"editing_incompleteness\": {\"score\": 7, \"justification\": \"The edit is removed entirely, leaving the image unrecognizable.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd and physically impossible.\"}\n}\n```"
+}

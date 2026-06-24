@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a computer lab
+A person in a lobby
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 33.917623677654824,
+  "psnr_edited_original_vs_edited_immunized": 16.806559067686017
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 33.9166
-SSIM: 0.9893
-FSIM: 0.9539
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 15.2329
-SSIM: 0.6956
-FSIM: 0.5721
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9893182563914827,
+  "ssim_edited_original_vs_edited_immunized": 0.7369792264317593
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  28.2139
-Edited Immunized: 21.3076
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.3668
-Caption orig: A woman with red hair and a blue jacket is smiling for the camera.
-Caption adv:  A woman wearing a blue jacket and a striped dress stands in front of a wall with pink dots.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9538814139359469,
+  "fsim_edited_original_vs_edited_immunized": 0.5986297577105743
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.7622
-Background SSIM   (basso=protezione ok): 0.5779
-Subject LPIPS     (basso=soggetto ok)  : 0.0825
-Editing score                          : 0.4838
-Mask coverage (% background)           : 0.6867
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.0824820439797823
+Global LPIPS : 0.020482312887907028
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.0824820439797823
+Global LPIPS : 0.5108069181442261
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as the person is still in a lobby setting with no significant changes to the background or environment. The image remains clear and recognizable.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as the person is still in a lobby setting with no significant changes to the background or environment. The image remains clear and recognizable.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 7.0,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 7,
+    "scale_distortion": 7,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 7,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been completely replaced with a chaotic pattern."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall appearance is totally altered, losing all coherence."
+    },
+    "identity_erasure": {
+      "score": 7,
+      "justification": "The subject's identity is lost due to the chaotic background."
+    },
+    "scale_distortion": {
+      "score": 7,
+      "justification": "The background elements are rendered disproportionately large."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "Spatial relationships are destroyed, with elements appearing out of place."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "The original textures have been replaced with a noisy pattern."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Severe distortions are introduced, making the image unrecognizable."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "Colors are inconsistent with the rest of the scene, creating a mismatch."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Visible seams and edges are present in the attacked areas."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The final image completely deviates from the intended edit."
+    },
+    "editing_incompleteness": {
+      "score": 7,
+      "justification": "The fundamental parts of the requested edit are removed."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd and physically impossible."
+    }
+  },
+  "raw_output": "```json\n{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been completely replaced with a chaotic pattern.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall appearance is totally altered, losing all coherence.\"},\n  \"identity_erasure\": {\"score\": 7, \"justification\": \"The subject's identity is lost due to the chaotic background.\"},\n  \"scale_distortion\": {\"score\": 7, \"justification\": \"The background elements are rendered disproportionately large.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"Spatial relationships are destroyed, with elements appearing out of place.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"The original textures have been replaced with a noisy pattern.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Severe distortions are introduced, making the image unrecognizable.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"Colors are inconsistent with the rest of the scene, creating a mismatch.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Visible seams and edges are present in the attacked areas.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The final image completely deviates from the intended edit.\"},\n  \"editing_incompleteness\": {\"score\": 7, \"justification\": \"The fundamental parts of the requested edit are removed.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd and physically impossible.\"}\n}\n```"
+}

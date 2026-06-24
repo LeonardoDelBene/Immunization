@@ -4,32 +4,34 @@ A person in a laundry room
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.4768
-SSIM: 0.9587
-FSIM: 0.8653
+PSNR: 30.9938
+SSIM: 0.9597
+FSIM: 0.8674
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 14.3870
-SSIM: 0.5547
-FSIM: 0.5304
-
-CLIP score (Image vs Prompt)
-Edited Original:  29.9629
-Edited Immunized: 27.4434
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.7086
-Caption orig: A woman wearing a green and white dress stands in front of a washer and dryer.
-Caption adv:  A woman wearing a green and white dress stands in front of a refrigerator.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 14.5358
+SSIM: 0.5923
+FSIM: 0.5533
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.6711
-Background SSIM   (basso=protezione ok): 0.4467
-Subject LPIPS     (basso=soggetto ok)  : 0.2194
-Editing score                          : 0.6028
-Mask coverage (% background)           : 0.7121
+Global LPIPS                           : 0.5241
+Background LPIPS                       : 0.7080
+Subject LPIPS                          : 0.2120
+Separation                             : 0.7695
+Editing score                          : 0.7080
+Mask coverage                          : 0.7121
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person is still in a laundry room, but the background appears to be altered, possibly indicating a different setting. The edit goal of having a person in a laundry room is not fully satisfied as the background does not match the reference."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image lacks the presence of a laundry room, as indicated by the absence of washing machines and typical laundry room elements.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image lacks the presence of a laundry room, as indicated by the absence of washing machines and typical laundry room elements.\"\n}\n```"
+}

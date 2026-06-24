@@ -1,5 +1,5 @@
 --- Prompt ---
-A person in a car dealership
+A person with a cap
 
 --- Metrics ---
 
@@ -9,27 +9,21 @@ SSIM: 0.9195
 FSIM: 0.8301
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 17.8132
-SSIM: 0.6690
-FSIM: 0.5765
-
-CLIP score (Image vs Prompt)
-Edited Original:  29.5945
-Edited Immunized: 29.0716
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.8673
-Caption orig: A woman wearing a leopard print jacket and a green shirt is standing in front of a row of cars.
-Caption adv:  A woman wearing a leopard print scarf and a green shirt is standing in front of a car.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 21.9922
+SSIM: 0.7602
+FSIM: 0.6121
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.4056
-Background SSIM   (basso=protezione ok): 0.6455
-Subject LPIPS     (basso=soggetto ok)  : 0.3642
-Editing score                          : 0.3501
-Mask coverage (% background)           : 0.7064
+Global LPIPS                           : 0.2349
+Background LPIPS                       : 0.1293
+Subject LPIPS                          : 0.5266
+Separation                             : 0.8029
+Editing score                          : 0.5266
+Mask coverage                          : 0.7064
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The cap color has been changed from gray to teal, but the overall edit goal of having a person with a cap is still satisfied."
+}

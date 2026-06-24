@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a dance school
+A person in a vegetable stand
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 34.08744261591571,
+  "psnr_edited_original_vs_edited_immunized": 11.982089085209616
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 34.0879
-SSIM: 0.9880
-FSIM: 0.9623
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 12.9109
-SSIM: 0.5318
-FSIM: 0.4124
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9879597500093867,
+  "ssim_edited_original_vs_edited_immunized": 0.4608941033460847
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  27.2043
-Edited Immunized: 22.8974
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.3677
-Caption orig: A young woman wearing a red shirt and a flower crown is standing on a stage, surrounded by other dancers.
-Caption adv:  A woman wearing a red shirt and white pants is smiling and posing for a picture.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9622731749135328,
+  "fsim_edited_original_vs_edited_immunized": 0.4391488082591233
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.8238
-Background SSIM   (basso=protezione ok): 0.3771
-Subject LPIPS     (basso=soggetto ok)  : 0.1112
-Editing score                          : 0.5481
-Mask coverage (% background)           : 0.7229
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.1113154165285079
+Global LPIPS : 0.02096567302942276
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.1113154165285079
+Global LPIPS : 0.4929471015930176
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as there is no change in the content of the image. The image appears clear and recognizable with no noticeable degradation.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as there is no change in the content of the image. The image appears clear and recognizable with no noticeable degradation.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 5.0,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 1,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 1,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 1,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been heavily altered with grid lines."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall scene is completely disrupted with grid lines."
+    },
+    "identity_erasure": {
+      "score": 1,
+      "justification": "The subject remains recognizable."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No objects are rendered disproportionate."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "Spatial relationships are destroyed with grid lines."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "Textures are replaced by grid lines."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Severe distortions are introduced with grid lines."
+    },
+    "light_color_mismatch": {
+      "score": 1,
+      "justification": "Colors remain consistent with the scene."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Visible edges and seams are present due to grid lines."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The image completely deviates from the original instruction."
+    },
+    "editing_incompleteness": {
+      "score": 1,
+      "justification": "The editing is not removed or undone."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd with grid lines over the scene."
+    }
+  },
+  "raw_output": "```json\n{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been heavily altered with grid lines.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall scene is completely disrupted with grid lines.\"},\n  \"identity_erasure\": {\"score\": 1, \"justification\": \"The subject remains recognizable.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No objects are rendered disproportionate.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"Spatial relationships are destroyed with grid lines.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"Textures are replaced by grid lines.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Severe distortions are introduced with grid lines.\"},\n  \"light_color_mismatch\": {\"score\": 1, \"justification\": \"Colors remain consistent with the scene.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Visible edges and seams are present due to grid lines.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The image completely deviates from the original instruction.\"},\n  \"editing_incompleteness\": {\"score\": 1, \"justification\": \"The editing is not removed or undone.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd with grid lines over the scene.\"}\n}\n```"
+}

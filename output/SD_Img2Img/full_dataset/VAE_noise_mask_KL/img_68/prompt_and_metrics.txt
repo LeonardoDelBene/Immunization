@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a prison shower
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.0688
+PSNR: 30.0686
 SSIM: 0.9050
 FSIM: 0.8677
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 17.0042
-SSIM: 0.5449
-FSIM: 0.5272
-
-CLIP score (Image vs Prompt)
-Edited Original:  27.8165
-Edited Immunized: 29.0905
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.5016
-Caption orig: A man wearing a gray shirt and pants stands in a bathroom.
-Caption adv:  A man is standing in a shower, and his reflection is visible on the shower door.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 20.2417
+SSIM: 0.7274
+FSIM: 0.6631
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.4385
-Background SSIM   (basso=protezione ok): 0.4840
-Subject LPIPS     (basso=soggetto ok)  : 0.4370
-Editing score                          : 0.3680
-Mask coverage (% background)           : 0.6936
+Global LPIPS                           : 0.2485
+Background LPIPS                       : 0.1442
+Subject LPIPS                          : 0.5626
+Separation                             : 0.7960
+Editing score                          : 0.5626
+Mask coverage                          : 0.6936
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person in the adversarial image is not wearing a cap."
+}

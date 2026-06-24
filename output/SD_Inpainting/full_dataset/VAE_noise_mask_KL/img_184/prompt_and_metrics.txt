@@ -4,32 +4,34 @@ A person in a farmers' cooperative
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 29.9950
-SSIM: 0.9532
-FSIM: 0.8463
+PSNR: 29.9340
+SSIM: 0.9527
+FSIM: 0.8452
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 15.2394
-SSIM: 0.4493
-FSIM: 0.4827
-
-CLIP score (Image vs Prompt)
-Edited Original:  20.8449
-Edited Immunized: 25.1160
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.5679
-Caption orig: A woman wearing a flowered jacket and sunglasses stands in a field of plants.
-Caption adv:  A woman wearing a white dress and sunglasses is standing in a vegetable market.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 15.7758
+SSIM: 0.4725
+FSIM: 0.5018
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.6691
-Background SSIM   (basso=protezione ok): 0.2943
-Subject LPIPS     (basso=soggetto ok)  : 0.2272
-Editing score                          : 0.6431
-Mask coverage (% background)           : 0.7052
+Global LPIPS                           : 0.4769
+Background LPIPS                       : 0.6191
+Subject LPIPS                          : 0.2290
+Separation                             : 0.7300
+Editing score                          : 0.6191
+Mask coverage                          : 0.7052
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person is not in a farmers' cooperative; instead, they are in an indoor setting with artificial lighting and greenery that does not resemble a farm."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image shows a person in an indoor setting with vegetables, which contradicts the requirement of being in a farmers' cooperative.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image shows a person in an indoor setting with vegetables, which contradicts the requirement of being in a farmers' cooperative.\"\n}\n```"
+}

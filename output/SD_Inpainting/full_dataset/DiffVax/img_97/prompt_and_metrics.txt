@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a car dealership
+A person in a convenience store
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 34.21280145734704,
+  "psnr_edited_original_vs_edited_immunized": 12.323755082423428
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 34.2126
-SSIM: 0.9869
-FSIM: 0.9513
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 12.5649
-SSIM: 0.5933
-FSIM: 0.5079
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9868728188659283,
+  "ssim_edited_original_vs_edited_immunized": 0.4002317743829667
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  26.1956
-Edited Immunized: 21.9192
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6443
-Caption orig: A woman wearing a leopard print jacket and a green shirt is standing next to a car.
-Caption adv:  A woman wearing a leopard print jacket and a green shirt is smiling for the camera.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9514160930635714,
+  "fsim_edited_original_vs_edited_immunized": 0.4422026814269587
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.9022
-Background SSIM   (basso=protezione ok): 0.4475
-Subject LPIPS     (basso=soggetto ok)  : 0.1070
-Editing score                          : 0.5351
-Mask coverage (% background)           : 0.7064
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.10697626395862321
+Global LPIPS : 0.032190628349781036
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.10697626395862321
+Global LPIPS : 0.4596186578273773
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as the background has changed from a convenience store aisle to a wall with pink text. The image remains clear and recognizable.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as the background has changed from a convenience store aisle to a wall with pink text. The image remains clear and recognizable.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 5.5,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 1,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 1,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been replaced with a wall featuring pink text, significantly altering the setting."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall scene is completely altered, losing the original store environment."
+    },
+    "identity_erasure": {
+      "score": 1,
+      "justification": "The subject's identity is not erased; she remains recognizable."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No objects are rendered disproportionately or unrealistically."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "Spatial relationships are destroyed as the background is completely changed."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "The original textures have been replaced with a patterned wall texture."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Visible changes in texture and background indicate severe distortion."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "Colors are inconsistent with the original scene due to the new background."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Sharp edges and seams are visible where the background changes abruptly."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The final image completely ignores the original instruction about the convenience store setting."
+    },
+    "editing_incompleteness": {
+      "score": 1,
+      "justification": "The editing is not incomplete; the entire image has been altered."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd with a completely different background setting."
+    }
+  },
+  "raw_output": "```json\n{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been replaced with a wall featuring pink text, significantly altering the setting.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall scene is completely altered, losing the original store environment.\"},\n  \"identity_erasure\": {\"score\": 1, \"justification\": \"The subject's identity is not erased; she remains recognizable.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No objects are rendered disproportionately or unrealistically.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"Spatial relationships are destroyed as the background is completely changed.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"The original textures have been replaced with a patterned wall texture.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Visible changes in texture and background indicate severe distortion.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"Colors are inconsistent with the original scene due to the new background.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Sharp edges and seams are visible where the background changes abruptly.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The final image completely ignores the original instruction about the convenience store setting.\"},\n  \"editing_incompleteness\": {\"score\": 1, \"justification\": \"The editing is not incomplete; the entire image has been altered.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd with a completely different background setting.\"}\n}\n```"
+}

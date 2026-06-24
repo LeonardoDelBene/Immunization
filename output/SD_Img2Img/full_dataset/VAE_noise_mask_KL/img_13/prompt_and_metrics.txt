@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a music and arts festival
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 29.8729
+PSNR: 29.8734
 SSIM: 0.9023
 FSIM: 0.8693
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 16.8317
-SSIM: 0.6405
-FSIM: 0.5485
-
-CLIP score (Image vs Prompt)
-Edited Original:  24.6509
-Edited Immunized: 27.3111
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6807
-Caption orig: A man wearing a brown jacket and carrying a bag stands in front of a crowd of people.
-Caption adv:  A woman wearing a brown coat stands in front of a crowd of people.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 24.2552
+SSIM: 0.8108
+FSIM: 0.6968
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.4769
-Background SSIM   (basso=protezione ok): 0.6257
-Subject LPIPS     (basso=soggetto ok)  : 0.5038
-Editing score                          : 0.3030
-Mask coverage (% background)           : 0.6906
+Global LPIPS                           : 0.2097
+Background LPIPS                       : 0.1384
+Subject LPIPS                          : 0.4569
+Separation                             : 0.7675
+Editing score                          : 0.4569
+Mask coverage                          : 0.6906
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person in the adversarial image is wearing a cap, which matches the editing prompt."
+}

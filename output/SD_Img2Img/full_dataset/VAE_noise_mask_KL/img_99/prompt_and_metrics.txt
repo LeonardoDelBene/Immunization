@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a creative writing event
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.2763
+PSNR: 30.2764
 SSIM: 0.9254
 FSIM: 0.8829
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 17.0891
-SSIM: 0.6095
-FSIM: 0.5101
-
-CLIP score (Image vs Prompt)
-Edited Original:  23.8910
-Edited Immunized: 25.6087
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.2360
-Caption orig: A woman wearing a brown coat and glasses is standing in front of a mirror.
-Caption adv:  A cardboard cutout of a person wearing a coat and hat is sitting at a table.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 22.0876
+SSIM: 0.7977
+FSIM: 0.6838
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.5823
-Background SSIM   (basso=protezione ok): 0.5625
-Subject LPIPS     (basso=soggetto ok)  : 0.3672
-Editing score                          : 0.4438
-Mask coverage (% background)           : 0.7213
+Global LPIPS                           : 0.2229
+Background LPIPS                       : 0.1056
+Subject LPIPS                          : 0.5972
+Separation                             : 0.8498
+Editing score                          : 0.5972
+Mask coverage                          : 0.7213
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person in the image now has a mask instead of a cap, which does not satisfy the editing instruction."
+}

@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a local wine festival
+A person in a movie set
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 35.46801063379115,
+  "psnr_edited_original_vs_edited_immunized": 15.90844831299605
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 35.4668
-SSIM: 0.9922
-FSIM: 0.9680
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 16.4727
-SSIM: 0.5901
-FSIM: 0.4729
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9922419676546584,
+  "ssim_edited_original_vs_edited_immunized": 0.6163787286518526
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  28.5636
-Edited Immunized: 20.9286
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6094
-Caption orig: A man wearing a hat and a blue jacket stands in a crowd of people.
-Caption adv:  A man wearing a blue jacket and a hat stands in front of a wall with a pattern of red dots.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9680320939665917,
+  "fsim_edited_original_vs_edited_immunized": 0.4690128852153923
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.7908
-Background SSIM   (basso=protezione ok): 0.4089
-Subject LPIPS     (basso=soggetto ok)  : 0.0917
-Editing score                          : 0.5367
-Mask coverage (% background)           : 0.6662
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.09168121215637696
+Global LPIPS : 0.023051351308822632
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.09168121215637696
+Global LPIPS : 0.5039373636245728
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The background has been changed to a patterned texture with pink spots, which is a significant change from the original scene. The image remains clear and recognizable, but the edit is clearly visible.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The background has been changed to a patterned texture with pink spots, which is a significant change from the original scene. The image remains clear and recognizable, but the edit is clearly visible.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 6.0,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 1,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 7,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been replaced with a patterned texture, significantly altering the original scene."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall appearance of the image is completely altered due to the background change."
+    },
+    "identity_erasure": {
+      "score": 1,
+      "justification": "The subject remains recognizable despite the background change."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "The subject's size and proportions remain consistent."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "The spatial relationships have been disrupted as the background is no longer coherent with the foreground."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "The original textures have been replaced with a patterned texture, completely corrupting the image."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Visible noise and a patterned texture introduce severe distortions."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "The colors and shadows are inconsistent with the rest of the scene due to the background change."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Sharp edges and visible seams are present in the attacked area."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The final image completely deviates from the intended movie set scene."
+    },
+    "editing_incompleteness": {
+      "score": 7,
+      "justification": "The editing has been removed, leaving the subject in an altered background."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd with a patterned background and no logical sense."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been replaced with a patterned texture, significantly altering the original scene.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall appearance of the image is completely altered due to the background change.\"},\n  \"identity_erasure\": {\"score\": 1, \"justification\": \"The subject remains recognizable despite the background change.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"The subject's size and proportions remain consistent.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"The spatial relationships have been disrupted as the background is no longer coherent with the foreground.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"The original textures have been replaced with a patterned texture, completely corrupting the image.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Visible noise and a patterned texture introduce severe distortions.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"The colors and shadows are inconsistent with the rest of the scene due to the background change.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Sharp edges and visible seams are present in the attacked area.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The final image completely deviates from the intended movie set scene.\"},\n  \"editing_incompleteness\": {\"score\": 7, \"justification\": \"The editing has been removed, leaving the subject in an altered background.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd with a patterned background and no logical sense.\"}\n}"
+}

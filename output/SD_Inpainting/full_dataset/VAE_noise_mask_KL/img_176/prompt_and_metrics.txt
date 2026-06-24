@@ -4,32 +4,34 @@ A person in a church sanctuary
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 29.3387
-SSIM: 0.9028
-FSIM: 0.8898
+PSNR: 29.1242
+SSIM: 0.9020
+FSIM: 0.8895
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 14.2473
-SSIM: 0.3933
-FSIM: 0.4274
-
-CLIP score (Image vs Prompt)
-Edited Original:  25.6009
-Edited Immunized: 26.5315
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.7178
-Caption orig: A woman wearing a black coat and a scarf is standing in front of a stained glass window.
-Caption adv:  A woman wearing a black coat and scarf stands in front of a church.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
+PSNR: 15.2388
+SSIM: 0.4762
+FSIM: 0.4784
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.7161
-Background SSIM   (basso=protezione ok): 0.2507
-Subject LPIPS     (basso=soggetto ok)  : 0.4192
-Editing score                          : 0.5597
-Mask coverage (% background)           : 0.6704
+Global LPIPS                           : 0.4593
+Background LPIPS                       : 0.5110
+Subject LPIPS                          : 0.4241
+Separation                             : 0.5465
+Editing score                          : 0.5110
+Mask coverage                          : 0.6704
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person is still in a church sanctuary, but the image appears to be blurred and distorted, which does not satisfy the editing instruction."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image contains a person but lacks the context of a church sanctuary, as indicated by the absence of pews and the overall setting.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image contains a person but lacks the context of a church sanctuary, as indicated by the absence of pews and the overall setting.\"\n}\n```"
+}

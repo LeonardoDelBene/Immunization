@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a drive-thru
+A person in a tech launch event
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 34.94886543058821,
+  "psnr_edited_original_vs_edited_immunized": 11.976485434378963
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 34.9482
-SSIM: 0.9887
-FSIM: 0.9665
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 11.5258
-SSIM: 0.5204
-FSIM: 0.4425
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9887138066492965,
+  "ssim_edited_original_vs_edited_immunized": 0.49177107556619876
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  23.6818
-Edited Immunized: 19.4744
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.4168
-Caption orig: A woman with long blonde hair is leaning out of a car window, wearing sunglasses and a black jacket.
-Caption adv:  A woman wearing a black jacket and sunglasses stands in front of a wall covered in pink dots.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9665088077406007,
+  "fsim_edited_original_vs_edited_immunized": 0.4400552068290162
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.8513
-Background SSIM   (basso=protezione ok): 0.3750
-Subject LPIPS     (basso=soggetto ok)  : 0.1563
-Editing score                          : 0.5482
-Mask coverage (% background)           : 0.7459
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.15619343997155893
+Global LPIPS : 0.029302610084414482
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.15619343997155893
+Global LPIPS : 0.5934262871742249
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as the person appears to be in the same setting with no significant changes. The image is clear and recognizable.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as the person appears to be in the same setting with no significant changes. The image is clear and recognizable.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 6.5,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 7,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 7,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been completely replaced with a patterned texture."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall appearance is altered significantly, losing the original context."
+    },
+    "identity_erasure": {
+      "score": 7,
+      "justification": "The subject's identity is obscured by the new background texture."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "The subject remains in proportion, no distortion observed."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "The spatial relationships are disrupted, with the subject seemingly floating."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "The original textures have been replaced with a noisy, artificial pattern."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Visible noise and artifacts are introduced throughout the image."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "The lighting and colors are inconsistent with the original scene."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Sharp edges and seams are visible where the background transitions."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The image completely deviates from the intended tech launch event setting."
+    },
+    "editing_incompleteness": {
+      "score": 7,
+      "justification": "The editing is left incomplete; the background is entirely altered."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd and physically impossible."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been completely replaced with a patterned texture.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall appearance is altered significantly, losing the original context.\"},\n  \"identity_erasure\": {\"score\": 7, \"justification\": \"The subject's identity is obscured by the new background texture.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"The subject remains in proportion, no distortion observed.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"The spatial relationships are disrupted, with the subject seemingly floating.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"The original textures have been replaced with a noisy, artificial pattern.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Visible noise and artifacts are introduced throughout the image.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"The lighting and colors are inconsistent with the original scene.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Sharp edges and seams are visible where the background transitions.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The image completely deviates from the intended tech launch event setting.\"},\n  \"editing_incompleteness\": {\"score\": 7, \"justification\": \"The editing is left incomplete; the background is entirely altered.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd and physically impossible.\"}\n}"
+}

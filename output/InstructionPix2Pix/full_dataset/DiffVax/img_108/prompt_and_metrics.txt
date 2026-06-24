@@ -1,35 +1,138 @@
---- Prompt ---
-Put a red hat on the person in the image.
+change the person's hairstyle to curly hair
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 35.43401338799571,
+  "psnr_edited_original_vs_edited_immunized": 19.777632576693797
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 32.8753
-SSIM: 0.9853
-FSIM: 0.9328
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 21.7898
-SSIM: 0.8491
-FSIM: 0.7547
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9907171520445344,
+  "ssim_edited_original_vs_edited_immunized": 0.7976815241674605
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  27.3252
-Edited Immunized: 25.9200
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.9238
-Caption orig: A man wearing a red hat and a red shirt stands on a sidewalk.
-Caption adv:  A man wearing a red hat and jacket stands on a sidewalk.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9678500558853523,
+  "fsim_edited_original_vs_edited_immunized": 0.6857776830663799
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.2424
-Background SSIM   (basso=protezione ok): 0.6258
-Subject LPIPS     (basso=soggetto ok)  : 0.1286
-Editing score                          : 0.4321
-Mask coverage (% background)           : 0.2979
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.09301417356587646
+Global LPIPS : 0.02009759284555912
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.513049945081703
+Global LPIPS : 0.20527169108390808
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit to change the person's hairstyle to curly hair is clearly visible. The hair appears significantly longer and more voluminous, indicating a successful edit. The image remains clear and recognizable.",
+  "attack_success": 1,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit to change the person's hairstyle to curly hair is clearly visible. The hair appears significantly longer and more voluminous, indicating a successful edit. The image remains clear and recognizable.\",\n  \"attack_success\": 1\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "raw_output": "0"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 4.0,
+  "factor_scores": {
+    "background_infiltration": 4,
+    "global_coherence_ruin": 4,
+    "identity_erasure": 4,
+    "scale_distortion": 4,
+    "spatial_chaos": 4,
+    "texture_degradation": 4,
+    "distortion_effectiveness": 4,
+    "light_color_mismatch": 4,
+    "edge_visibility": 4,
+    "alignment_sabotage": 4,
+    "editing_incompleteness": 4,
+    "total_implausibility": 4
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 4,
+      "justification": "The background remains largely unchanged."
+    },
+    "global_coherence_ruin": {
+      "score": 4,
+      "justification": "The overall layout and style are preserved."
+    },
+    "identity_erasure": {
+      "score": 4,
+      "justification": "The subject's identity is recognizable."
+    },
+    "scale_distortion": {
+      "score": 4,
+      "justification": "No significant distortion in object sizes."
+    },
+    "spatial_chaos": {
+      "score": 4,
+      "justification": "Spatial relationships are maintained."
+    },
+    "texture_degradation": {
+      "score": 4,
+      "justification": "Textures are not replaced by noise."
+    },
+    "distortion_effectiveness": {
+      "score": 4,
+      "justification": "No severe distortions introduced."
+    },
+    "light_color_mismatch": {
+      "score": 4,
+      "justification": "Colors and shadows are consistent."
+    },
+    "edge_visibility": {
+      "score": 4,
+      "justification": "No visible edges or seams."
+    },
+    "alignment_sabotage": {
+      "score": 4,
+      "justification": "The image aligns with the original instruction."
+    },
+    "editing_incompleteness": {
+      "score": 4,
+      "justification": "The edit is complete."
+    },
+    "total_implausibility": {
+      "score": 4,
+      "justification": "The result is logical and plausible."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 4, \"justification\": \"The background remains largely unchanged.\"},\n  \"global_coherence_ruin\": {\"score\": 4, \"justification\": \"The overall layout and style are preserved.\"},\n  \"identity_erasure\": {\"score\": 4, \"justification\": \"The subject's identity is recognizable.\"},\n  \"scale_distortion\": {\"score\": 4, \"justification\": \"No significant distortion in object sizes.\"},\n  \"spatial_chaos\": {\"score\": 4, \"justification\": \"Spatial relationships are maintained.\"},\n  \"texture_degradation\": {\"score\": 4, \"justification\": \"Textures are not replaced by noise.\"},\n  \"distortion_effectiveness\": {\"score\": 4, \"justification\": \"No severe distortions introduced.\"},\n  \"light_color_mismatch\": {\"score\": 4, \"justification\": \"Colors and shadows are consistent.\"},\n  \"edge_visibility\": {\"score\": 4, \"justification\": \"No visible edges or seams.\"},\n  \"alignment_sabotage\": {\"score\": 4, \"justification\": \"The image aligns with the original instruction.\"},\n  \"editing_incompleteness\": {\"score\": 4, \"justification\": \"The edit is complete.\"},\n  \"total_implausibility\": {\"score\": 4, \"justification\": \"The result is logical and plausible.\"}\n}"
+}

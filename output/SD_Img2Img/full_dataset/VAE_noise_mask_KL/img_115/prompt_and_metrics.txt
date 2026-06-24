@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a charity art auction
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 32.4786
+PSNR: 32.4789
 SSIM: 0.9625
 FSIM: 0.8757
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 19.4315
-SSIM: 0.7605
-FSIM: 0.5779
-
-CLIP score (Image vs Prompt)
-Edited Original:  27.6667
-Edited Immunized: 27.4055
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.8077
-Caption orig: A woman wearing a colorful jacket and sunglasses stands in front of a painting.
-Caption adv:  A woman wearing a colorful shirt stands in front of a painting.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 25.5829
+SSIM: 0.9201
+FSIM: 0.7524
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.3146
-Background SSIM   (basso=protezione ok): 0.7560
-Subject LPIPS     (basso=soggetto ok)  : 0.2521
-Editing score                          : 0.3478
-Mask coverage (% background)           : 0.8058
+Global LPIPS                           : 0.0957
+Background LPIPS                       : 0.0676
+Subject LPIPS                          : 0.2311
+Separation                             : 0.7737
+Editing score                          : 0.2311
+Mask coverage                          : 0.8058
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person in the image is wearing a cap, which matches the editing prompt."
+}

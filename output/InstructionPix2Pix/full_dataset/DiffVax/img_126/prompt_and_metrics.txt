@@ -1,35 +1,138 @@
---- Prompt ---
-Put a red hat on the person in the image.
+add a beard to the person
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 35.89293426395752,
+  "psnr_edited_original_vs_edited_immunized": 30.15626064187574
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 33.1173
-SSIM: 0.9844
-FSIM: 0.9509
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 24.4588
-SSIM: 0.9074
-FSIM: 0.7977
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9892237794737828,
+  "ssim_edited_original_vs_edited_immunized": 0.9468551813524826
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  28.8847
-Edited Immunized: 27.5136
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.8229
-Caption orig: A woman wearing a red hat and a red shirt stands on a street.
-Caption adv:  A woman wearing a red hat and a red shirt is walking down the street.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9741544170950944,
+  "fsim_edited_original_vs_edited_immunized": 0.836417174843045
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.1327
-Background SSIM   (basso=protezione ok): 0.8303
-Subject LPIPS     (basso=soggetto ok)  : 0.1485
-Editing score                          : 0.3149
-Mask coverage (% background)           : 0.2648
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.11303592690635003
+Global LPIPS : 0.024362213909626007
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.11514997636139197
+Global LPIPS : 0.04075112193822861
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The beard appears to be added to the person's face, but the image is slightly blurry and less sharp compared to the reference image.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The beard appears to be added to the person's face, but the image is slightly blurry and less sharp compared to the reference image.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "raw_output": "0"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 4.0,
+  "factor_scores": {
+    "background_infiltration": 4,
+    "global_coherence_ruin": 4,
+    "identity_erasure": 4,
+    "scale_distortion": 4,
+    "spatial_chaos": 4,
+    "texture_degradation": 4,
+    "distortion_effectiveness": 4,
+    "light_color_mismatch": 4,
+    "edge_visibility": 4,
+    "alignment_sabotage": 4,
+    "editing_incompleteness": 4,
+    "total_implausibility": 4
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 4,
+      "justification": "The background remains largely unchanged."
+    },
+    "global_coherence_ruin": {
+      "score": 4,
+      "justification": "The overall scene is still coherent."
+    },
+    "identity_erasure": {
+      "score": 4,
+      "justification": "The subjects' identities are recognizable."
+    },
+    "scale_distortion": {
+      "score": 4,
+      "justification": "Objects maintain their proportions."
+    },
+    "spatial_chaos": {
+      "score": 4,
+      "justification": "Spatial relationships are preserved."
+    },
+    "texture_degradation": {
+      "score": 4,
+      "justification": "Textures are not significantly corrupted."
+    },
+    "distortion_effectiveness": {
+      "score": 4,
+      "justification": "No severe distortions are introduced."
+    },
+    "light_color_mismatch": {
+      "score": 4,
+      "justification": "Colors and shadows are consistent."
+    },
+    "edge_visibility": {
+      "score": 4,
+      "justification": "No visible edges or seams."
+    },
+    "alignment_sabotage": {
+      "score": 4,
+      "justification": "The image aligns with the original instruction."
+    },
+    "editing_incompleteness": {
+      "score": 4,
+      "justification": "The beard is added as requested."
+    },
+    "total_implausibility": {
+      "score": 4,
+      "justification": "The result is plausible and realistic."
+    }
+  },
+  "raw_output": "```json\n{\n  \"background_infiltration\": {\"score\": 4, \"justification\": \"The background remains largely unchanged.\"},\n  \"global_coherence_ruin\": {\"score\": 4, \"justification\": \"The overall scene is still coherent.\"},\n  \"identity_erasure\": {\"score\": 4, \"justification\": \"The subjects' identities are recognizable.\"},\n  \"scale_distortion\": {\"score\": 4, \"justification\": \"Objects maintain their proportions.\"},\n  \"spatial_chaos\": {\"score\": 4, \"justification\": \"Spatial relationships are preserved.\"},\n  \"texture_degradation\": {\"score\": 4, \"justification\": \"Textures are not significantly corrupted.\"},\n  \"distortion_effectiveness\": {\"score\": 4, \"justification\": \"No severe distortions are introduced.\"},\n  \"light_color_mismatch\": {\"score\": 4, \"justification\": \"Colors and shadows are consistent.\"},\n  \"edge_visibility\": {\"score\": 4, \"justification\": \"No visible edges or seams.\"},\n  \"alignment_sabotage\": {\"score\": 4, \"justification\": \"The image aligns with the original instruction.\"},\n  \"editing_incompleteness\": {\"score\": 4, \"justification\": \"The beard is added as requested.\"},\n  \"total_implausibility\": {\"score\": 4, \"justification\": \"The result is plausible and realistic.\"}\n}\n```"
+}

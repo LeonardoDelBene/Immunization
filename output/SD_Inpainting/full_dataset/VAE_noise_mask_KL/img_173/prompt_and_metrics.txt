@@ -4,32 +4,34 @@ A person in a vintage arts fair
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 31.0093
-SSIM: 0.9282
-FSIM: 0.8970
+PSNR: 30.6278
+SSIM: 0.9270
+FSIM: 0.8950
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 15.3874
-SSIM: 0.5077
-FSIM: 0.4701
-
-CLIP score (Image vs Prompt)
-Edited Original:  29.2873
-Edited Immunized: 28.5969
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.3133
-Caption orig: A woman wearing a gray vest and a short skirt is standing in a field.
-Caption adv:  A woman wearing a black and white shirt and a black belt is talking on her cell phone.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 14.8567
+SSIM: 0.4931
+FSIM: 0.4618
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.6332
-Background SSIM   (basso=protezione ok): 0.4527
-Subject LPIPS     (basso=soggetto ok)  : 0.4246
-Editing score                          : 0.4627
-Mask coverage (% background)           : 0.7547
+Global LPIPS                           : 0.5645
+Background LPIPS                       : 0.6341
+Subject LPIPS                          : 0.4379
+Separation                             : 0.5915
+Editing score                          : 0.6341
+Mask coverage                          : 0.7547
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person is still present and the setting appears to be an arts fair, but the image is heavily distorted with artifacts, making it difficult to discern specific details."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image does not depict a person in a vintage arts fair as specified in the editing prompt. Instead, it shows a person in a modern setting with no clear indication of an arts fair.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image does not depict a person in a vintage arts fair as specified in the editing prompt. Instead, it shows a person in a modern setting with no clear indication of an arts fair.\"\n}\n```"
+}

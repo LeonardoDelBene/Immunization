@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a ceramic art exhibit
+A person in a kite festival
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 35.088896144192894,
+  "psnr_edited_original_vs_edited_immunized": 16.580541394504603
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 35.0874
-SSIM: 0.9892
-FSIM: 0.9631
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 14.1462
-SSIM: 0.5452
-FSIM: 0.4906
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9892501160288035,
+  "ssim_edited_original_vs_edited_immunized": 0.6706895770520193
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  30.3773
-Edited Immunized: 28.1127
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.8569
-Caption orig: A man wearing a leather jacket and a vest stands in front of a wall filled with various sculptures and carvings.
-Caption adv:  A man wearing a leather jacket and a vest stands in front of a colorful wall.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9631420315932919,
+  "fsim_edited_original_vs_edited_immunized": 0.5634216711007259
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.7870
-Background SSIM   (basso=protezione ok): 0.3532
-Subject LPIPS     (basso=soggetto ok)  : 0.1053
-Editing score                          : 0.5521
-Mask coverage (% background)           : 0.6780
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.10531204089999174
+Global LPIPS : 0.02596207708120346
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.10531204089999174
+Global LPIPS : 0.46593937277793884
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as there are no kites in the background. The image appears clear and recognizable.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as there are no kites in the background. The image appears clear and recognizable.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 7.0,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 7,
+    "scale_distortion": 7,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 7,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background is filled with colorful, chaotic patterns, obscuring the original elements."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall appearance is completely altered, losing the original style and layout."
+    },
+    "identity_erasure": {
+      "score": 7,
+      "justification": "The subject's identity is lost due to the overwhelming presence of the adversarial patterns."
+    },
+    "scale_distortion": {
+      "score": 7,
+      "justification": "Objects are rendered unrealistic in size, with the background elements being disproportionately large."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "Spatial relationships are destroyed, with elements appearing in illogical positions."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "Textures are completely corrupted by the adversarial patterns, replacing the original ones."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Severe, deliberate distortions are introduced, making the image unrecognizable."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "Colors are completely off, with unnatural hues and lighting."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Very visible edges and seams are present, disrupting the coherence of the image."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The final image completely deviates from the intent of the original instruction."
+    },
+    "editing_incompleteness": {
+      "score": 7,
+      "justification": "Fundamental parts of the requested edit are removed, leaving the image incomplete."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd and physically impossible, devoid of logical sense."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background is filled with colorful, chaotic patterns, obscuring the original elements.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall appearance is completely altered, losing the original style and layout.\"},\n  \"identity_erasure\": {\"score\": 7, \"justification\": \"The subject's identity is lost due to the overwhelming presence of the adversarial patterns.\"},\n  \"scale_distortion\": {\"score\": 7, \"justification\": \"Objects are rendered unrealistic in size, with the background elements being disproportionately large.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"Spatial relationships are destroyed, with elements appearing in illogical positions.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"Textures are completely corrupted by the adversarial patterns, replacing the original ones.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Severe, deliberate distortions are introduced, making the image unrecognizable.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"Colors are completely off, with unnatural hues and lighting.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Very visible edges and seams are present, disrupting the coherence of the image.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The final image completely deviates from the intent of the original instruction.\"},\n  \"editing_incompleteness\": {\"score\": 7, \"justification\": \"Fundamental parts of the requested edit are removed, leaving the image incomplete.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd and physically impossible, devoid of logical sense.\"}\n}"
+}

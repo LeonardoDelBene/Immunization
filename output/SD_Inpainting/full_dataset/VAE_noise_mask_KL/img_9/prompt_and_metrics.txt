@@ -4,32 +4,34 @@ A person in a local art market
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.5817
-SSIM: 0.9424
-FSIM: 0.9078
+PSNR: 30.5776
+SSIM: 0.9422
+FSIM: 0.9072
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 14.9571
-SSIM: 0.4696
-FSIM: 0.4867
-
-CLIP score (Image vs Prompt)
-Edited Original:  28.3164
-Edited Immunized: 22.9233
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6652
-Caption orig: A woman wearing sunglasses and a necklace stands in front of a wall filled with colorful paintings.
-Caption adv:  A woman wearing sunglasses and a white shirt stands in front of a colorful display of scarves.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 15.0378
+SSIM: 0.4818
+FSIM: 0.4852
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.6125
-Background SSIM   (basso=protezione ok): 0.3885
-Subject LPIPS     (basso=soggetto ok)  : 0.3772
-Editing score                          : 0.5022
-Mask coverage (% background)           : 0.7595
+Global LPIPS                           : 0.5126
+Background LPIPS                       : 0.6097
+Subject LPIPS                          : 0.3750
+Separation                             : 0.6192
+Editing score                          : 0.6097
+Mask coverage                          : 0.7595
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person is still in an art market, but the background has been changed from paintings to hanging wind chimes, which does not align with the original instruction."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image lacks the context of a local art market, as there are no visible paintings or artwork in the background.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image lacks the context of a local art market, as there are no visible paintings or artwork in the background.\"\n}\n```"
+}

@@ -4,32 +4,34 @@ A person in a slum
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 29.2648
-SSIM: 0.9178
-FSIM: 0.9166
+PSNR: 29.6206
+SSIM: 0.9218
+FSIM: 0.9182
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 17.1731
-SSIM: 0.5933
-FSIM: 0.5409
-
-CLIP score (Image vs Prompt)
-Edited Original:  26.6016
-Edited Immunized: 27.7439
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6973
-Caption orig: A man wearing a white shirt and a brown tie stands in front of a shack.
-Caption adv:  A man wearing a white shirt and black tie stands in front of a run down building.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 16.8176
+SSIM: 0.5787
+FSIM: 0.5233
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.4567
-Background SSIM   (basso=protezione ok): 0.5602
-Subject LPIPS     (basso=soggetto ok)  : 0.4211
-Editing score                          : 0.3620
-Mask coverage (% background)           : 0.7261
+Global LPIPS                           : 0.4480
+Background LPIPS                       : 0.4856
+Subject LPIPS                          : 0.4076
+Separation                             : 0.5437
+Editing score                          : 0.4856
+Mask coverage                          : 0.7261
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person is still wearing a white shirt and dark pants, which does not align with the editing prompt 'A person in a slum'. The semantic edit is not correctly applied."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image does not depict a person in a slum as per the editing instruction. The background appears to be a market or bazaar rather than a slum.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image does not depict a person in a slum as per the editing instruction. The background appears to be a market or bazaar rather than a slum.\"\n}\n```"
+}

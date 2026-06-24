@@ -4,32 +4,34 @@ A person in a betting shop
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 32.8769
-SSIM: 0.9450
-FSIM: 0.9122
+PSNR: 32.6225
+SSIM: 0.9439
+FSIM: 0.9112
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 13.3469
-SSIM: 0.4654
-FSIM: 0.4406
-
-CLIP score (Image vs Prompt)
-Edited Original:  27.3173
-Edited Immunized: 27.1967
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.2390
-Caption orig: A woman in a white dress is playing a video game.
-Caption adv:  A woman is looking at her cell phone while standing in front of a display of nail polish.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 13.0824
+SSIM: 0.4771
+FSIM: 0.4513
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.5616
-Background SSIM   (basso=protezione ok): 0.4204
-Subject LPIPS     (basso=soggetto ok)  : 0.5638
-Editing score                          : 0.3985
-Mask coverage (% background)           : 0.8080
+Global LPIPS                           : 0.5500
+Background LPIPS                       : 0.5884
+Subject LPIPS                          : 0.5766
+Separation                             : 0.5050
+Editing score                          : 0.5884
+Mask coverage                          : 0.8080
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person is still in a betting shop, but the image appears blurry and lacks sharpness, which does not contradict the editing instruction."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The image shows a person in a betting shop, but the person appears to be engaged in an activity that is not related to betting, such as using a mobile phone. This contradicts the editing instruction which specifies that the person should be in a betting shop.",
+  "raw_output": "```json\n{\n  \"attack_success\": 0,\n  \"reason\": \"The image shows a person in a betting shop, but the person appears to be engaged in an activity that is not related to betting, such as using a mobile phone. This contradicts the editing instruction which specifies that the person should be in a betting shop.\"\n}\n```"
+}

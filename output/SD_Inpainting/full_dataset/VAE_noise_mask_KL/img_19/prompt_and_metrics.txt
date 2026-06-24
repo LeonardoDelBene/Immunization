@@ -4,32 +4,34 @@ A person in a locker room
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 29.8645
-SSIM: 0.9162
-FSIM: 0.8969
+PSNR: 29.9132
+SSIM: 0.9171
+FSIM: 0.8982
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 14.1184
-SSIM: 0.4164
-FSIM: 0.3899
-
-CLIP score (Image vs Prompt)
-Edited Original:  24.1956
-Edited Immunized: 25.3062
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6091
-Caption orig: A woman wearing a brown coat and holding a coat stand in front of a blue door.
-Caption adv:  A woman wearing a black coat and holding a handbag is standing in front of a green background.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 13.7535
+SSIM: 0.3957
+FSIM: 0.3951
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.6712
-Background SSIM   (basso=protezione ok): 0.3434
-Subject LPIPS     (basso=soggetto ok)  : 0.4546
-Editing score                          : 0.4927
-Mask coverage (% background)           : 0.7547
+Global LPIPS                           : 0.6210
+Background LPIPS                       : 0.7025
+Subject LPIPS                          : 0.4530
+Separation                             : 0.6079
+Editing score                          : 0.7025
+Mask coverage                          : 0.7547
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person is still in a locker room, but the background has been changed to an outdoor scene with buildings and greenery, which does not align with the original editing prompt."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image shows a person in a locker room, but the background has been altered to include a building facade, which contradicts the original prompt.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image shows a person in a locker room, but the background has been altered to include a building facade, which contradicts the original prompt.\"\n}\n```"
+}

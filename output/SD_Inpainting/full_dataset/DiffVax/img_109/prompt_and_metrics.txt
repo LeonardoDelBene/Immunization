@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a motel room
+A person in a local wine festival
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 34.23898250743245,
+  "psnr_edited_original_vs_edited_immunized": 14.795242361150123
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 34.2385
-SSIM: 0.9862
-FSIM: 0.9547
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 11.2452
-SSIM: 0.5477
-FSIM: 0.4157
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9861775573080163,
+  "ssim_edited_original_vs_edited_immunized": 0.47949010903521455
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  27.7484
-Edited Immunized: 20.2081
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.7215
-Caption orig: A woman wearing a blue shirt and yellow skirt stands in a bedroom.
-Caption adv:  A woman wearing a blue shirt and yellow skirt stands in front of a pink and purple wall.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9547466730608717,
+  "fsim_edited_original_vs_edited_immunized": 0.4317392030019769
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 1.0258
-Background SSIM   (basso=protezione ok): 0.4368
-Subject LPIPS     (basso=soggetto ok)  : 0.1396
-Editing score                          : 0.5483
-Mask coverage (% background)           : 0.7718
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.1395667437315562
+Global LPIPS : 0.020452318713068962
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.1395667437315562
+Global LPIPS : 0.600082516670227
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as there is no significant change in the scene. The image remains clear and recognizable with a background of grape clusters and a wine glass, which aligns with the theme of a wine festival.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as there is no significant change in the scene. The image remains clear and recognizable with a background of grape clusters and a wine glass, which aligns with the theme of a wine festival.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 5.5,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 1,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 1,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been replaced with a wall of grapes and a wine glass, significantly altering the setting."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall scene is completely altered, losing the original festival atmosphere."
+    },
+    "identity_erasure": {
+      "score": 1,
+      "justification": "The subject's identity is not erased; she remains recognizable."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No objects are rendered disproportionately large or small."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "The spatial relationships are disrupted with the addition of a wall and hanging grapes."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "The original texture of the background is replaced with a patterned wall and grapes."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Visible noise and digital artifacts are introduced with the new background elements."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "The lighting and color scheme are inconsistent with the original scene."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Sharp edges and seams are visible where the new background meets the subject."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The final image completely deviates from the intent of the original instruction."
+    },
+    "editing_incompleteness": {
+      "score": 1,
+      "justification": "The editing is not incomplete; the entire scene is altered."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd and physically impossible in the context of a wine festival."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been replaced with a wall of grapes and a wine glass, significantly altering the setting.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall scene is completely altered, losing the original festival atmosphere.\"},\n  \"identity_erasure\": {\"score\": 1, \"justification\": \"The subject's identity is not erased; she remains recognizable.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No objects are rendered disproportionately large or small.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"The spatial relationships are disrupted with the addition of a wall and hanging grapes.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"The original texture of the background is replaced with a patterned wall and grapes.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Visible noise and digital artifacts are introduced with the new background elements.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"The lighting and color scheme are inconsistent with the original scene.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Sharp edges and seams are visible where the new background meets the subject.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The final image completely deviates from the intent of the original instruction.\"},\n  \"editing_incompleteness\": {\"score\": 1, \"justification\": \"The editing is not incomplete; the entire scene is altered.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd and physically impossible in the context of a wine festival.\"}\n}"
+}

@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a vintage arcade
+A person in a movie set
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 33.39234299486884,
+  "psnr_edited_original_vs_edited_immunized": 14.12385796903402
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 33.3927
-SSIM: 0.9870
-FSIM: 0.9492
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 11.0665
-SSIM: 0.3878
-FSIM: 0.4368
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9869511864017412,
+  "ssim_edited_original_vs_edited_immunized": 0.512141477151648
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  30.5407
-Edited Immunized: 21.6757
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.4594
-Caption orig: A woman wearing a striped sweater and carrying a brown purse stands in front of a colorful arcade game.
-Caption adv:  A woman wearing a striped shirt and holding a bottle.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9493231523307856,
+  "fsim_edited_original_vs_edited_immunized": 0.4964428413165618
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.8503
-Background SSIM   (basso=protezione ok): 0.1993
-Subject LPIPS     (basso=soggetto ok)  : 0.1713
-Editing score                          : 0.5997
-Mask coverage (% background)           : 0.7348
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.1712979045153577
+Global LPIPS : 0.031990379095077515
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.1712979045153577
+Global LPIPS : 0.5713505148887634
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as the person remains in the same position and attire. The background has been changed to a patterned wall with red dots, but the overall clarity and recognizability of the image remain high.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as the person remains in the same position and attire. The background has been changed to a patterned wall with red dots, but the overall clarity and recognizability of the image remain high.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 5.5,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 1,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 1,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been replaced with a patterned wall, significantly altering the setting."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall appearance of the image is drastically changed, losing coherence with the original scene."
+    },
+    "identity_erasure": {
+      "score": 1,
+      "justification": "The subject's identity is not erased; she remains recognizable."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "The subject's size and proportions are consistent with the original image."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "The spatial relationships have been disrupted, with the subject standing in front of a patterned wall instead of the movie set."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "The original textures have been replaced with a patterned wall texture, significantly degrading the image."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Visible noise and digital artifacts are introduced, making the image appear distorted."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "The lighting and color scheme are inconsistent with the original movie set scene."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Sharp edges and visible seams are present around the subject and the new background."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The final image completely deviates from the intended movie set scene."
+    },
+    "editing_incompleteness": {
+      "score": 1,
+      "justification": "The editing is not incomplete; the subject is still recognizable."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd, as the subject appears in a completely different setting without logical sense."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been replaced with a patterned wall, significantly altering the setting.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall appearance of the image is drastically changed, losing coherence with the original scene.\"},\n  \"identity_erasure\": {\"score\": 1, \"justification\": \"The subject's identity is not erased; she remains recognizable.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"The subject's size and proportions are consistent with the original image.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"The spatial relationships have been disrupted, with the subject standing in front of a patterned wall instead of the movie set.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"The original textures have been replaced with a patterned wall texture, significantly degrading the image.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Visible noise and digital artifacts are introduced, making the image appear distorted.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"The lighting and color scheme are inconsistent with the original movie set scene.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Sharp edges and visible seams are present around the subject and the new background.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The final image completely deviates from the intended movie set scene.\"},\n  \"editing_incompleteness\": {\"score\": 1, \"justification\": \"The editing is not incomplete; the subject is still recognizable.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd, as the subject appears in a completely different setting without logical sense.\"}\n}"
+}

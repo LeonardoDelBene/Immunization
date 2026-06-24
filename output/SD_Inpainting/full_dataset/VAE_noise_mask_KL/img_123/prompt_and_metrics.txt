@@ -4,32 +4,34 @@ A person in a vintage arts fair
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 29.7628
-SSIM: 0.8812
-FSIM: 0.8522
+PSNR: 29.5293
+SSIM: 0.8808
+FSIM: 0.8520
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 14.4002
-SSIM: 0.3998
-FSIM: 0.4345
-
-CLIP score (Image vs Prompt)
-Edited Original:  31.2276
-Edited Immunized: 29.5705
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.5887
-Caption orig: A woman wearing a black jacket and sunglasses is standing in a crowd of people.
-Caption adv:  A woman wearing a black jacket and sunglasses is walking down the street.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 14.5028
+SSIM: 0.3823
+FSIM: 0.4366
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.7294
-Background SSIM   (basso=protezione ok): 0.3268
-Subject LPIPS     (basso=soggetto ok)  : 0.6007
-Editing score                          : 0.4937
-Mask coverage (% background)           : 0.7062
+Global LPIPS                           : 0.6883
+Background LPIPS                       : 0.7375
+Subject LPIPS                          : 0.5964
+Separation                             : 0.5529
+Editing score                          : 0.7375
+Mask coverage                          : 0.7062
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person is still present and appears to be at an outdoor event, but there is no clear indication that it is a vintage arts fair."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image does not depict a vintage arts fair setting. The background appears to be an indoor event with modern lighting and decor, which contradicts the editing prompt.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image does not depict a vintage arts fair setting. The background appears to be an indoor event with modern lighting and decor, which contradicts the editing prompt.\"\n}\n```"
+}

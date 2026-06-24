@@ -4,32 +4,34 @@ A person in a customs checkpoint
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.3087
-SSIM: 0.9355
-FSIM: 0.8625
+PSNR: 30.3077
+SSIM: 0.9359
+FSIM: 0.8642
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 16.6043
-SSIM: 0.6350
-FSIM: 0.5258
-
-CLIP score (Image vs Prompt)
-Edited Original:  24.7080
-Edited Immunized: 25.8501
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.9918
-Caption orig: A woman wearing a pink coat and black shorts is standing in an airport.
-Caption adv:  A woman wearing a pink coat and shorts is standing in an airport.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.9000
-Success:   False
-Accuracy:  0.0000
+PSNR: 15.1302
+SSIM: 0.5941
+FSIM: 0.5069
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.5076
-Background SSIM   (basso=protezione ok): 0.5429
-Subject LPIPS     (basso=soggetto ok)  : 0.1600
-Editing score                          : 0.5442
-Mask coverage (% background)           : 0.6436
+Global LPIPS                           : 0.4012
+Background LPIPS                       : 0.5666
+Subject LPIPS                          : 0.1563
+Separation                             : 0.7838
+Editing score                          : 0.5666
+Mask coverage                          : 0.6436
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person is not in a customs checkpoint; instead, they appear to be in an airport terminal."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The image contains a person but lacks the context of a customs checkpoint, as indicated by the absence of any visible customs officers, security equipment, or signage typically associated with such a location.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The image contains a person but lacks the context of a customs checkpoint, as indicated by the absence of any visible customs officers, security equipment, or signage typically associated with such a location.\"\n}\n```"
+}

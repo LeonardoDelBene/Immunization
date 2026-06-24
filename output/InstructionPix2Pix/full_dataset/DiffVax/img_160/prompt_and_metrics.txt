@@ -1,35 +1,138 @@
---- Prompt ---
-Put a red hat on the person in the image.
+change the person's hair color to red
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 33.658627909492274,
+  "psnr_edited_original_vs_edited_immunized": 25.444291503671508
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 32.3062
-SSIM: 0.9834
-FSIM: 0.9427
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 16.8761
-SSIM: 0.8964
-FSIM: 0.7937
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9882357698560765,
+  "ssim_edited_original_vs_edited_immunized": 0.9160305172308923
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  27.2909
-Edited Immunized: 27.8995
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6791
-Caption orig: A man wearing a red mask and a white shirt is walking down the street.
-Caption adv:  A man wearing a red hat and carrying a bag walks down a street.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9677526671341763,
+  "fsim_edited_original_vs_edited_immunized": 0.8312810969588541
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.3747
-Background SSIM   (basso=protezione ok): 0.7486
-Subject LPIPS     (basso=soggetto ok)  : 0.1150
-Editing score                          : 0.4563
-Mask coverage (% background)           : 0.2739
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.11477830440082104
+Global LPIPS : 0.02396836318075657
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.15570201566232222
+Global LPIPS : 0.05774401128292084
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The person's hair color has been changed to red, but there appears to be some distortion around the edges of the hair, making it less clear and recognizable compared to the reference image.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The person's hair color has been changed to red, but there appears to be some distortion around the edges of the hair, making it less clear and recognizable compared to the reference image.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 4.0,
+  "factor_scores": {
+    "background_infiltration": 4,
+    "global_coherence_ruin": 4,
+    "identity_erasure": 4,
+    "scale_distortion": 4,
+    "spatial_chaos": 4,
+    "texture_degradation": 4,
+    "distortion_effectiveness": 4,
+    "light_color_mismatch": 4,
+    "edge_visibility": 4,
+    "alignment_sabotage": 4,
+    "editing_incompleteness": 4,
+    "total_implausibility": 4
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 4,
+      "justification": "Some background elements have been slightly altered."
+    },
+    "global_coherence_ruin": {
+      "score": 4,
+      "justification": "The overall scene remains coherent but with minor distortions."
+    },
+    "identity_erasure": {
+      "score": 4,
+      "justification": "The subject's identity is recognizable but with some distortion."
+    },
+    "scale_distortion": {
+      "score": 4,
+      "justification": "No significant object size changes are observed."
+    },
+    "spatial_chaos": {
+      "score": 4,
+      "justification": "Spatial relationships are mostly preserved but with slight anomalies."
+    },
+    "texture_degradation": {
+      "score": 4,
+      "justification": "Textures appear slightly altered but not completely corrupted."
+    },
+    "distortion_effectiveness": {
+      "score": 4,
+      "justification": "There are visible distortions but they are not severe."
+    },
+    "light_color_mismatch": {
+      "score": 4,
+      "justification": "Colors are consistent with the scene but with some subtle shifts."
+    },
+    "edge_visibility": {
+      "score": 4,
+      "justification": "Edges are somewhat blurred but not overly prominent."
+    },
+    "alignment_sabotage": {
+      "score": 4,
+      "justification": "The overall alignment is maintained but with minor deviations."
+    },
+    "editing_incompleteness": {
+      "score": 4,
+      "justification": "The core edit (hair color change) is intact but with some distortions."
+    },
+    "total_implausibility": {
+      "score": 4,
+      "justification": "The result is plausible but with some unnatural elements."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 4, \"justification\": \"Some background elements have been slightly altered.\"},\n  \"global_coherence_ruin\": {\"score\": 4, \"justification\": \"The overall scene remains coherent but with minor distortions.\"},\n  \"identity_erasure\": {\"score\": 4, \"justification\": \"The subject's identity is recognizable but with some distortion.\"},\n  \"scale_distortion\": {\"score\": 4, \"justification\": \"No significant object size changes are observed.\"},\n  \"spatial_chaos\": {\"score\": 4, \"justification\": \"Spatial relationships are mostly preserved but with slight anomalies.\"},\n  \"texture_degradation\": {\"score\": 4, \"justification\": \"Textures appear slightly altered but not completely corrupted.\"},\n  \"distortion_effectiveness\": {\"score\": 4, \"justification\": \"There are visible distortions but they are not severe.\"},\n  \"light_color_mismatch\": {\"score\": 4, \"justification\": \"Colors are consistent with the scene but with some subtle shifts.\"},\n  \"edge_visibility\": {\"score\": 4, \"justification\": \"Edges are somewhat blurred but not overly prominent.\"},\n  \"alignment_sabotage\": {\"score\": 4, \"justification\": \"The overall alignment is maintained but with minor deviations.\"},\n  \"editing_incompleteness\": {\"score\": 4, \"justification\": \"The core edit (hair color change) is intact but with some distortions.\"},\n  \"total_implausibility\": {\"score\": 4, \"justification\": \"The result is plausible but with some unnatural elements.\"}\n}"
+}

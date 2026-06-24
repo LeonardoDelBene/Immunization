@@ -4,32 +4,34 @@ A person in a festival ground
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 32.1433
-SSIM: 0.9432
-FSIM: 0.8921
+PSNR: 31.8799
+SSIM: 0.9420
+FSIM: 0.8904
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 21.6605
-SSIM: 0.7392
-FSIM: 0.5980
-
-CLIP score (Image vs Prompt)
-Edited Original:  30.7217
-Edited Immunized: 31.1205
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.4429
-Caption orig: A woman wearing a black dress and a leopard print belt is standing in a field.
-Caption adv:  A woman in a black and white dress is holding a donut.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 20.9244
+SSIM: 0.7169
+FSIM: 0.5779
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.3156
-Background SSIM   (basso=protezione ok): 0.7474
-Subject LPIPS     (basso=soggetto ok)  : 0.4466
-Editing score                          : 0.2341
-Mask coverage (% background)           : 0.7764
+Global LPIPS                           : 0.3443
+Background LPIPS                       : 0.3442
+Subject LPIPS                          : 0.4524
+Separation                             : 0.4321
+Editing score                          : 0.3442
+Mask coverage                          : 0.7764
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person is still present in the festival ground, but the image appears to be heavily distorted with artifacts and noise, which does not align with the editing instruction."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image lacks clear semantic elements of a person in a festival ground. The image appears heavily distorted and lacks recognizable features of a person or a festival setting.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image lacks clear semantic elements of a person in a festival ground. The image appears heavily distorted and lacks recognizable features of a person or a festival setting.\"\n}\n```"
+}

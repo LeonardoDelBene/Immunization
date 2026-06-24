@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a gymnasium
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 29.9121
+PSNR: 29.9119
 SSIM: 0.9117
-FSIM: 0.8451
+FSIM: 0.8452
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 17.1910
-SSIM: 0.6859
-FSIM: 0.4983
-
-CLIP score (Image vs Prompt)
-Edited Original:  24.4138
-Edited Immunized: 25.6435
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6559
-Caption orig: A woman wearing a purple jacket and a white scarf stands next to a man.
-Caption adv:  A woman wearing a suit and tie is standing next to a man who is wearing a shirt and tie.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 22.7119
+SSIM: 0.7959
+FSIM: 0.6299
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.4587
-Background SSIM   (basso=protezione ok): 0.6992
-Subject LPIPS     (basso=soggetto ok)  : 0.5036
-Editing score                          : 0.2737
-Mask coverage (% background)           : 0.7410
+Global LPIPS                           : 0.2040
+Background LPIPS                       : 0.0773
+Subject LPIPS                          : 0.6660
+Separation                             : 0.8960
+Editing score                          : 0.6660
+Mask coverage                          : 0.7410
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person in the image is wearing a cap, which matches the editing prompt."
+}

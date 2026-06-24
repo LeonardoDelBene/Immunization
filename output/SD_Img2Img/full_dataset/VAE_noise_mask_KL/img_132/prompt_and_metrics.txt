@@ -1,5 +1,5 @@
 --- Prompt ---
-A person in a shopping center
+A person with a cap
 
 --- Metrics ---
 
@@ -9,27 +9,21 @@ SSIM: 0.9044
 FSIM: 0.8914
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 18.3508
-SSIM: 0.6612
-FSIM: 0.6313
-
-CLIP score (Image vs Prompt)
-Edited Original:  22.9507
-Edited Immunized: 25.2215
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.5353
-Caption orig: A man wearing a gray jacket with white designs on the back is walking down the street.
-Caption adv:  A man wearing a suit with a white jacket and a white tie is walking down a hallway.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 21.7044
+SSIM: 0.7081
+FSIM: 0.6327
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.3732
-Background SSIM   (basso=protezione ok): 0.6618
-Subject LPIPS     (basso=soggetto ok)  : 0.4458
-Editing score                          : 0.2833
-Mask coverage (% background)           : 0.7138
+Global LPIPS                           : 0.3095
+Background LPIPS                       : 0.2248
+Subject LPIPS                          : 0.6752
+Separation                             : 0.7502
+Editing score                          : 0.6752
+Mask coverage                          : 0.7138
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person in the adversarial image is wearing a cap, which matches the editing prompt."
+}

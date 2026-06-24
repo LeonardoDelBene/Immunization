@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a parking garage
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 29.3437
+PSNR: 29.3438
 SSIM: 0.8610
 FSIM: 0.7927
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 20.2238
-SSIM: 0.6943
-FSIM: 0.5851
-
-CLIP score (Image vs Prompt)
-Edited Original:  20.3617
-Edited Immunized: 24.5537
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.5804
-Caption orig: A woman wearing a headset and a scarf is dancing on the street.
-Caption adv:  A woman wearing a black dress and a scarf is walking down the street.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 22.0156
+SSIM: 0.7128
+FSIM: 0.5860
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.3444
-Background SSIM   (basso=protezione ok): 0.7605
-Subject LPIPS     (basso=soggetto ok)  : 0.6429
-Editing score                          : 0.2096
-Mask coverage (% background)           : 0.6923
+Global LPIPS                           : 0.3321
+Background LPIPS                       : 0.1863
+Subject LPIPS                          : 0.7746
+Separation                             : 0.8062
+Editing score                          : 0.7746
+Mask coverage                          : 0.6923
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person in the adversarial image is wearing a hat, which is not consistent with the editing prompt that specifies a cap."
+}

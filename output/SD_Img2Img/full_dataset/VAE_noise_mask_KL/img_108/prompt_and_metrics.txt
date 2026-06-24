@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a refugee camp
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 28.8343
+PSNR: 28.8344
 SSIM: 0.8718
 FSIM: 0.8573
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 17.5274
-SSIM: 0.5949
-FSIM: 0.5316
-
-CLIP score (Image vs Prompt)
-Edited Original:  30.2869
-Edited Immunized: 31.2154
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.4691
-Caption orig: A man wearing a blue jacket and a brown hat stands in front of a black and white photo of a man wearing a blue jacket and a brown hat.
-Caption adv:  A man wearing a black jacket and sunglasses stands in front of a tent.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 20.9689
+SSIM: 0.6635
+FSIM: 0.5854
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.5368
-Background SSIM   (basso=protezione ok): 0.6073
-Subject LPIPS     (basso=soggetto ok)  : 0.6103
-Editing score                          : 0.3325
-Mask coverage (% background)           : 0.7021
+Global LPIPS                           : 0.3148
+Background LPIPS                       : 0.1755
+Subject LPIPS                          : 0.7063
+Separation                             : 0.8009
+Editing score                          : 0.7063
+Mask coverage                          : 0.7021
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person in the image now has a cap, which fulfills the editing instruction."
+}

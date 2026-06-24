@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a summer camp
+A person in a TV studio
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 34.31040180076069,
+  "psnr_edited_original_vs_edited_immunized": 15.160525990913014
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 34.3108
-SSIM: 0.9876
-FSIM: 0.9689
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 16.6653
-SSIM: 0.5949
-FSIM: 0.5289
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9876276008815306,
+  "ssim_edited_original_vs_edited_immunized": 0.5327697703248825
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  28.5976
-Edited Immunized: 26.3486
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.7244
-Caption orig: A woman wearing a black shirt and green pants is standing in front of a red tent.
-Caption adv:  A woman wearing a black shirt and green pants is standing in front of a pink umbrella.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9689836297997156,
+  "fsim_edited_original_vs_edited_immunized": 0.4336226986204638
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.5526
-Background SSIM   (basso=protezione ok): 0.5000
-Subject LPIPS     (basso=soggetto ok)  : 0.1257
-Editing score                          : 0.4837
-Mask coverage (% background)           : 0.7733
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.12576634871116965
+Global LPIPS : 0.016271721571683884
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.12576634871116965
+Global LPIPS : 0.6230265498161316
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as the person appears to be in a TV studio setting, but the background has been replaced with a colorful, abstract pattern. The image is clear and recognizable.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as the person appears to be in a TV studio setting, but the background has been replaced with a colorful, abstract pattern. The image is clear and recognizable.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 6.0,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 1,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 7,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background is completely replaced with a colorful, abstract pattern."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall appearance is totally altered due to the background change."
+    },
+    "identity_erasure": {
+      "score": 1,
+      "justification": "The subject remains recognizable despite the background change."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "The subject's proportions are maintained."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "Spatial relationships are destroyed as the background is completely changed."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "The original texture is replaced by a noisy, abstract pattern."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Visible noise and digital artifacts are introduced."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "Colors are inconsistent with the rest of the scene."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Visible 'seams' appear around the subject."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The image completely deviates from the intended TV studio setting."
+    },
+    "editing_incompleteness": {
+      "score": 7,
+      "justification": "The background is removed, leaving the subject incomplete."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd and physically impossible due to the background change."
+    }
+  },
+  "raw_output": "```json\n{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background is completely replaced with a colorful, abstract pattern.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall appearance is totally altered due to the background change.\"},\n  \"identity_erasure\": {\"score\": 1, \"justification\": \"The subject remains recognizable despite the background change.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"The subject's proportions are maintained.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"Spatial relationships are destroyed as the background is completely changed.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"The original texture is replaced by a noisy, abstract pattern.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Visible noise and digital artifacts are introduced.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"Colors are inconsistent with the rest of the scene.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Visible 'seams' appear around the subject.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The image completely deviates from the intended TV studio setting.\"},\n  \"editing_incompleteness\": {\"score\": 7, \"justification\": \"The background is removed, leaving the subject incomplete.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd and physically impossible due to the background change.\"}\n}\n```"
+}

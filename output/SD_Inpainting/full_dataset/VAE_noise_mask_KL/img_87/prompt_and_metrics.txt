@@ -4,32 +4,34 @@ A person in a church hall
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 29.5208
-SSIM: 0.9472
-FSIM: 0.9209
+PSNR: 29.4728
+SSIM: 0.9473
+FSIM: 0.9210
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 15.6039
-SSIM: 0.5138
-FSIM: 0.5006
-
-CLIP score (Image vs Prompt)
-Edited Original:  24.3567
-Edited Immunized: 26.3490
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.9191
-Caption orig: A woman wearing a black and white jacket and a leopard print pantsuit stands in front of a church.
-Caption adv:  A woman wearing a leopard print jacket and a white shirt is standing in front of a church.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
+PSNR: 15.0259
+SSIM: 0.5225
+FSIM: 0.5215
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.6249
-Background SSIM   (basso=protezione ok): 0.3894
-Subject LPIPS     (basso=soggetto ok)  : 0.2805
-Editing score                          : 0.5649
-Mask coverage (% background)           : 0.6962
+Global LPIPS                           : 0.4668
+Background LPIPS                       : 0.6011
+Subject LPIPS                          : 0.2853
+Separation                             : 0.6781
+Editing score                          : 0.6011
+Mask coverage                          : 0.6962
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person is still in a church hall, but there are additional people in the background which does not contradict the editing instruction."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The image contains multiple people and objects that do not align with the original scene of a single person in a church hall.",
+  "raw_output": "```json\n{\n  \"attack_success\": 0,\n  \"reason\": \"The image contains multiple people and objects that do not align with the original scene of a single person in a church hall.\"\n}\n```"
+}

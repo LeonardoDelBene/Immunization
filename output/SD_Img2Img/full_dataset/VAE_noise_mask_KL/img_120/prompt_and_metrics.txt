@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a flower stall
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 31.4886
+PSNR: 31.4896
 SSIM: 0.9601
 FSIM: 0.8894
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 17.4486
-SSIM: 0.6961
-FSIM: 0.5717
-
-CLIP score (Image vs Prompt)
-Edited Original:  26.9769
-Edited Immunized: 32.2167
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.4246
-Caption orig: A man wearing a green hat and sunglasses stands in front of a store.
-Caption adv:  A man wearing a hat and sunglasses is holding a bunch of flowers.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 22.6240
+SSIM: 0.8393
+FSIM: 0.6644
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.4562
-Background SSIM   (basso=protezione ok): 0.6692
-Subject LPIPS     (basso=soggetto ok)  : 0.2453
-Editing score                          : 0.4345
-Mask coverage (% background)           : 0.7962
+Global LPIPS                           : 0.1292
+Background LPIPS                       : 0.0691
+Subject LPIPS                          : 0.4001
+Separation                             : 0.8528
+Editing score                          : 0.4001
+Mask coverage                          : 0.7962
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person in the image already has a cap, so the edit goal of adding a cap is not applicable."
+}

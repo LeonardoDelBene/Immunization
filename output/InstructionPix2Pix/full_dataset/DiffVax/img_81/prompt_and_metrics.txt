@@ -1,35 +1,138 @@
---- Prompt ---
-Put a red hat on the person in the image.
+change the person's hair color to blonde
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 34.98406454363774,
+  "psnr_edited_original_vs_edited_immunized": 29.661392669076747
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 33.9153
-SSIM: 0.9855
-FSIM: 0.9512
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 19.0205
-SSIM: 0.7885
-FSIM: 0.7378
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9867599705116831,
+  "ssim_edited_original_vs_edited_immunized": 0.9455922410359516
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  27.3136
-Edited Immunized: 29.4984
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.7163
-Caption orig: A person wearing a red shirt and a red hat is standing in front of a car.
-Caption adv:  A person wearing a red hat and a red jacket is standing in front of a building.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9680870991715834,
+  "fsim_edited_original_vs_edited_immunized": 0.8327842477934381
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.4347
-Background SSIM   (basso=protezione ok): 0.4924
-Subject LPIPS     (basso=soggetto ok)  : 0.1258
-Editing score                          : 0.5507
-Mask coverage (% background)           : 0.3509
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.08132889413862482
+Global LPIPS : 0.029339507222175598
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.08139069772372653
+Global LPIPS : 0.04991775006055832
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as the person's hair remains dark brown. The image appears clear and recognizable.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as the person's hair remains dark brown. The image appears clear and recognizable.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 1.3333333333333333,
+  "factor_scores": {
+    "background_infiltration": 3,
+    "global_coherence_ruin": 2,
+    "identity_erasure": 1,
+    "scale_distortion": 1,
+    "spatial_chaos": 1,
+    "texture_degradation": 1,
+    "distortion_effectiveness": 2,
+    "light_color_mismatch": 1,
+    "edge_visibility": 1,
+    "alignment_sabotage": 1,
+    "editing_incompleteness": 1,
+    "total_implausibility": 1
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 3,
+      "justification": "Some background elements like the car and trees have slight color shifts."
+    },
+    "global_coherence_ruin": {
+      "score": 2,
+      "justification": "The overall style and layout appear slightly altered but still recognizable."
+    },
+    "identity_erasure": {
+      "score": 1,
+      "justification": "The subject's identity is not lost; she is still identifiable."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No significant distortion in object sizes."
+    },
+    "spatial_chaos": {
+      "score": 1,
+      "justification": "Spatial relationships seem intact."
+    },
+    "texture_degradation": {
+      "score": 1,
+      "justification": "Textures appear mostly intact with minor noise."
+    },
+    "distortion_effectiveness": {
+      "score": 2,
+      "justification": "Some noise and blurring present but not severe."
+    },
+    "light_color_mismatch": {
+      "score": 1,
+      "justification": "Colors and shadows are consistent with the scene."
+    },
+    "edge_visibility": {
+      "score": 1,
+      "justification": "No visible sharp edges or seams."
+    },
+    "alignment_sabotage": {
+      "score": 1,
+      "justification": "The image aligns well with the original instruction."
+    },
+    "editing_incompleteness": {
+      "score": 1,
+      "justification": "The edit is complete; the hair color change is not visible."
+    },
+    "total_implausibility": {
+      "score": 1,
+      "justification": "The result is not absurd or physically impossible."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 3, \"justification\": \"Some background elements like the car and trees have slight color shifts.\"},\n  \"global_coherence_ruin\": {\"score\": 2, \"justification\": \"The overall style and layout appear slightly altered but still recognizable.\"},\n  \"identity_erasure\": {\"score\": 1, \"justification\": \"The subject's identity is not lost; she is still identifiable.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No significant distortion in object sizes.\"},\n  \"spatial_chaos\": {\"score\": 1, \"justification\": \"Spatial relationships seem intact.\"},\n  \"texture_degradation\": {\"score\": 1, \"justification\": \"Textures appear mostly intact with minor noise.\"},\n  \"distortion_effectiveness\": {\"score\": 2, \"justification\": \"Some noise and blurring present but not severe.\"},\n  \"light_color_mismatch\": {\"score\": 1, \"justification\": \"Colors and shadows are consistent with the scene.\"},\n  \"edge_visibility\": {\"score\": 1, \"justification\": \"No visible sharp edges or seams.\"},\n  \"alignment_sabotage\": {\"score\": 1, \"justification\": \"The image aligns well with the original instruction.\"},\n  \"editing_incompleteness\": {\"score\": 1, \"justification\": \"The edit is complete; the hair color change is not visible.\"},\n  \"total_implausibility\": {\"score\": 1, \"justification\": \"The result is not absurd or physically impossible.\"}\n}"
+}

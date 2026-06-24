@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a shopping center
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.6113
+PSNR: 30.6115
 SSIM: 0.9001
 FSIM: 0.8633
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 17.7626
-SSIM: 0.6383
-FSIM: 0.5636
-
-CLIP score (Image vs Prompt)
-Edited Original:  27.0381
-Edited Immunized: 28.0851
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.4529
-Caption orig: A woman wearing sunglasses and a black and blue dress stands in front of a man holding a shopping bag.
-Caption adv:  A woman wearing a blue and white dress stands in front of a mannequin.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 23.2171
+SSIM: 0.7672
+FSIM: 0.6683
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.4196
-Background SSIM   (basso=protezione ok): 0.6335
-Subject LPIPS     (basso=soggetto ok)  : 0.4326
-Editing score                          : 0.3182
-Mask coverage (% background)           : 0.7111
+Global LPIPS                           : 0.2419
+Background LPIPS                       : 0.1355
+Subject LPIPS                          : 0.5665
+Separation                             : 0.8070
+Editing score                          : 0.5665
+Mask coverage                          : 0.7111
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person in the image is wearing a cap, which matches the editing prompt."
+}

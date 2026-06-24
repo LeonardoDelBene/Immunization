@@ -4,32 +4,34 @@ A person in a creative writing event
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.3512
-SSIM: 0.9261
-FSIM: 0.8831
+PSNR: 30.2763
+SSIM: 0.9254
+FSIM: 0.8829
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 14.9587
-SSIM: 0.4304
-FSIM: 0.4433
-
-CLIP score (Image vs Prompt)
-Edited Original:  21.6731
-Edited Immunized: 21.6728
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6338
-Caption orig: A woman wearing a brown coat and holding a book stands in front of a colorful wall.
-Caption adv:  A woman wearing a brown coat and holding a cell phone.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 15.0676
+SSIM: 0.4257
+FSIM: 0.4438
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.6911
-Background SSIM   (basso=protezione ok): 0.3218
-Subject LPIPS     (basso=soggetto ok)  : 0.3650
-Editing score                          : 0.5609
-Mask coverage (% background)           : 0.7213
+Global LPIPS                           : 0.6362
+Background LPIPS                       : 0.7750
+Subject LPIPS                          : 0.3672
+Separation                             : 0.6785
+Editing score                          : 0.7750
+Mask coverage                          : 0.7213
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person is still wearing a coat, but there is no indication of a creative writing event."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image lacks any indication of a creative writing event, such as text or context related to writing activities.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image lacks any indication of a creative writing event, such as text or context related to writing activities.\"\n}\n```"
+}

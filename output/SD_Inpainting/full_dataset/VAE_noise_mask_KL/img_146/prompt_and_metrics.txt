@@ -4,32 +4,34 @@ A person in a prison shower
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 29.8354
-SSIM: 0.9184
-FSIM: 0.8595
+PSNR: 29.7013
+SSIM: 0.9169
+FSIM: 0.8559
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 17.6066
-SSIM: 0.3825
-FSIM: 0.4318
-
-CLIP score (Image vs Prompt)
-Edited Original:  26.4887
-Edited Immunized: 23.9725
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6857
-Caption orig: A woman in a blue shirt and orange pants stands in a shower stall.
-Caption adv:  A woman wearing a blue shirt and red pants is standing in a room with a blue and green tiled wall.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 18.0964
+SSIM: 0.4047
+FSIM: 0.4317
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.6157
-Background SSIM   (basso=protezione ok): 0.2782
-Subject LPIPS     (basso=soggetto ok)  : 0.4158
-Editing score                          : 0.5134
-Mask coverage (% background)           : 0.7348
+Global LPIPS                           : 0.5592
+Background LPIPS                       : 0.6254
+Subject LPIPS                          : 0.4210
+Separation                             : 0.5977
+Editing score                          : 0.6254
+Mask coverage                          : 0.7348
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person is not in a prison shower; they appear to be in a public shower with water flowing from above."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image shows a person in a shower, but it appears to be a public shower rather than a prison shower. The editing instruction specifies 'prison shower,' which is not reflected in the image.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image shows a person in a shower, but it appears to be a public shower rather than a prison shower. The editing instruction specifies 'prison shower,' which is not reflected in the image.\"\n}\n```"
+}

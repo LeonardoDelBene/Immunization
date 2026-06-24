@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a farmers’ co-op
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.1976
-SSIM: 0.9092
+PSNR: 30.1980
+SSIM: 0.9091
 FSIM: 0.8498
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 21.4689
-SSIM: 0.7640
-FSIM: 0.6770
-
-CLIP score (Image vs Prompt)
-Edited Original:  25.5798
-Edited Immunized: 26.6618
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.7987
-Caption orig: A woman wearing a coat and sunglasses is standing in front of a store.
-Caption adv:  A woman wearing a blue hat and a grey coat is standing in front of a store.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 22.3735
+SSIM: 0.7482
+FSIM: 0.6246
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.2282
-Background SSIM   (basso=protezione ok): 0.7793
-Subject LPIPS     (basso=soggetto ok)  : 0.3289
-Editing score                          : 0.2601
-Mask coverage (% background)           : 0.6505
+Global LPIPS                           : 0.2440
+Background LPIPS                       : 0.1621
+Subject LPIPS                          : 0.4427
+Separation                             : 0.7320
+Editing score                          : 0.4427
+Mask coverage                          : 0.6505
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The cap is not present in the adversarial image."
+}

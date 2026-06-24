@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a lighthouse
+A person in a customs checkpoint
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 34.73642168324561,
+  "psnr_edited_original_vs_edited_immunized": 13.731663069331104
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 34.7359
-SSIM: 0.9884
-FSIM: 0.9417
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 15.0640
-SSIM: 0.5779
-FSIM: 0.5245
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9884434109750787,
+  "ssim_edited_original_vs_edited_immunized": 0.6230020933636097
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  24.2302
-Edited Immunized: 17.8127
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.3780
-Caption orig: A man wearing a suit and tie stands in front of a red fire hydrant.
-Caption adv:  A man wearing a blue jacket and glasses stands in front of a wall with a pattern of pink dots.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9416417022738778,
+  "fsim_edited_original_vs_edited_immunized": 0.5525646852111373
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.9743
-Background SSIM   (basso=protezione ok): 0.3933
-Subject LPIPS     (basso=soggetto ok)  : 0.0827
-Editing score                          : 0.5603
-Mask coverage (% background)           : 0.6690
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.08275449229843067
+Global LPIPS : 0.01453648041933775
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.08275449229843067
+Global LPIPS : 0.5393807291984558
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as there is no significant change in the background or any other part of the image. The image remains clear and recognizable.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as there is no significant change in the background or any other part of the image. The image remains clear and recognizable.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 6.0,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 1,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 7,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been completely replaced with a patterned texture."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall appearance of the image is significantly altered."
+    },
+    "identity_erasure": {
+      "score": 1,
+      "justification": "The subject remains recognizable."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No objects are rendered disproportionate."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "Spatial relationships are disrupted."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "Original textures have been replaced with a noisy pattern."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Visible noise and blurring are introduced."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "Colors are inconsistent with the rest of the scene."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Visible seams and edges are present."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The image completely deviates from the original instruction."
+    },
+    "editing_incompleteness": {
+      "score": 7,
+      "justification": "Fundamental parts of the requested edit are removed."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd and physically impossible."
+    }
+  },
+  "raw_output": "```json\n{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been completely replaced with a patterned texture.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall appearance of the image is significantly altered.\"},\n  \"identity_erasure\": {\"score\": 1, \"justification\": \"The subject remains recognizable.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No objects are rendered disproportionate.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"Spatial relationships are disrupted.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"Original textures have been replaced with a noisy pattern.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Visible noise and blurring are introduced.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"Colors are inconsistent with the rest of the scene.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Visible seams and edges are present.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The image completely deviates from the original instruction.\"},\n  \"editing_incompleteness\": {\"score\": 7, \"justification\": \"Fundamental parts of the requested edit are removed.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd and physically impossible.\"}\n}\n```"
+}

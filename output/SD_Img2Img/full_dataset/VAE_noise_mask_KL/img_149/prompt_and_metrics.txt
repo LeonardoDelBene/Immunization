@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a gymnasium
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 32.6985
+PSNR: 32.6987
 SSIM: 0.9528
 FSIM: 0.8953
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 19.3033
-SSIM: 0.7327
-FSIM: 0.6214
-
-CLIP score (Image vs Prompt)
-Edited Original:  23.5324
-Edited Immunized: 23.7578
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6012
-Caption orig: A man is holding a camera while another man is holding a cell phone.
-Caption adv:  A man is hanging upside down on a machine, while another man is taking a picture of him.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 24.3558
+SSIM: 0.8508
+FSIM: 0.6759
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.2403
-Background SSIM   (basso=protezione ok): 0.7463
-Subject LPIPS     (basso=soggetto ok)  : 0.4451
-Editing score                          : 0.2052
-Mask coverage (% background)           : 0.8802
+Global LPIPS                           : 0.1573
+Background LPIPS                       : 0.0920
+Subject LPIPS                          : 0.6294
+Separation                             : 0.8725
+Editing score                          : 0.6294
+Mask coverage                          : 0.8802
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person in the image still has a cap, but the color and pattern of the cap have been changed."
+}

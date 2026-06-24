@@ -4,32 +4,34 @@ A person in a computer lab
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.4962
-SSIM: 0.9383
-FSIM: 0.8491
+PSNR: 30.3440
+SSIM: 0.9362
+FSIM: 0.8473
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 14.9693
-SSIM: 0.6261
-FSIM: 0.5242
-
-CLIP score (Image vs Prompt)
-Edited Original:  28.2139
-Edited Immunized: 27.4549
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.4330
-Caption orig: A woman with red hair and a blue jacket is smiling for the camera.
-Caption adv:  A woman wearing a blue jacket and a striped dress stands in front of a television.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 15.3044
+SSIM: 0.6486
+FSIM: 0.5327
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.5950
-Background SSIM   (basso=protezione ok): 0.5517
-Subject LPIPS     (basso=soggetto ok)  : 0.2145
-Editing score                          : 0.5438
-Mask coverage (% background)           : 0.6867
+Global LPIPS                           : 0.4230
+Background LPIPS                       : 0.5691
+Subject LPIPS                          : 0.2108
+Separation                             : 0.7297
+Editing score                          : 0.5691
+Mask coverage                          : 0.6867
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person is still in a computer lab, but the background has been altered with a pattern that does not match the original setting."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image contains a person but the background has been altered significantly, which contradicts the requirement for a computer lab setting.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image contains a person but the background has been altered significantly, which contradicts the requirement for a computer lab setting.\"\n}\n```"
+}

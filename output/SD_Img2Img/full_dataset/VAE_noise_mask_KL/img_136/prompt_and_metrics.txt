@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a tech launch event
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.8524
+PSNR: 30.8527
 SSIM: 0.9342
-FSIM: 0.8339
+FSIM: 0.8340
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 18.6244
-SSIM: 0.6991
-FSIM: 0.6077
-
-CLIP score (Image vs Prompt)
-Edited Original:  25.7775
-Edited Immunized: 29.4107
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.2054
-Caption orig: A woman wearing a brown jacket and a scarf is standing in front of a crowd of people.
-Caption adv:  A person is sitting in front of a laptop, and there is a doll sitting in front of the laptop.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 25.1945
+SSIM: 0.8669
+FSIM: 0.7049
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.4122
-Background SSIM   (basso=protezione ok): 0.6745
-Subject LPIPS     (basso=soggetto ok)  : 0.3345
-Editing score                          : 0.3618
-Mask coverage (% background)           : 0.7223
+Global LPIPS                           : 0.1309
+Background LPIPS                       : 0.0657
+Subject LPIPS                          : 0.3500
+Separation                             : 0.8420
+Editing score                          : 0.3500
+Mask coverage                          : 0.7223
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The cap color has been changed from blue to green, but the overall edit goal of having a person with a cap is still satisfied."
+}

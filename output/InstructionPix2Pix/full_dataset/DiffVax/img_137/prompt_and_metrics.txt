@@ -1,35 +1,138 @@
---- Prompt ---
-Put a red hat on the person in the image.
+make the person smile
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 33.42271492268725,
+  "psnr_edited_original_vs_edited_immunized": 27.117007119852264
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 32.4365
-SSIM: 0.9849
-FSIM: 0.9453
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 23.1366
-SSIM: 0.9024
-FSIM: 0.7530
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9886274525467046,
+  "ssim_edited_original_vs_edited_immunized": 0.9358751657362929
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  23.6446
-Edited Immunized: 24.3932
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.9692
-Caption orig: A woman wearing a red hat and a plaid jacket is standing in front of a red brick wall.
-Caption adv:  A woman wearing a red hat and a plaid shirt is standing in front of a brick wall.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9466955925505367,
+  "fsim_edited_original_vs_edited_immunized": 0.7902651961211347
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.1563
-Background SSIM   (basso=protezione ok): 0.8095
-Subject LPIPS     (basso=soggetto ok)  : 0.0676
-Editing score                          : 0.3791
-Mask coverage (% background)           : 0.2210
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.14278677997830555
+Global LPIPS : 0.018268585205078125
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.14787670305229714
+Global LPIPS : 0.0320478193461895
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit to make the person smile is clearly visible as the person's expression has changed from neutral to smiling. The image remains clear and recognizable with no noticeable degradation.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit to make the person smile is clearly visible as the person's expression has changed from neutral to smiling. The image remains clear and recognizable with no noticeable degradation.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 1.0,
+  "factor_scores": {
+    "background_infiltration": 1,
+    "global_coherence_ruin": 1,
+    "identity_erasure": 1,
+    "scale_distortion": 1,
+    "spatial_chaos": 1,
+    "texture_degradation": 1,
+    "distortion_effectiveness": 1,
+    "light_color_mismatch": 1,
+    "edge_visibility": 1,
+    "alignment_sabotage": 1,
+    "editing_incompleteness": 1,
+    "total_implausibility": 1
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 1,
+      "justification": "No unwanted changes in background."
+    },
+    "global_coherence_ruin": {
+      "score": 1,
+      "justification": "Original style and layout remain intact."
+    },
+    "identity_erasure": {
+      "score": 1,
+      "justification": "Subjects remain recognizable."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "Objects maintain realistic proportions."
+    },
+    "spatial_chaos": {
+      "score": 1,
+      "justification": "Spatial relationships are preserved."
+    },
+    "texture_degradation": {
+      "score": 1,
+      "justification": "Textures are consistent with the original."
+    },
+    "distortion_effectiveness": {
+      "score": 1,
+      "justification": "No visible noise or artifacts."
+    },
+    "light_color_mismatch": {
+      "score": 1,
+      "justification": "Colors match the scene."
+    },
+    "edge_visibility": {
+      "score": 1,
+      "justification": "No visible seams or edges."
+    },
+    "alignment_sabotage": {
+      "score": 1,
+      "justification": "Instruction followed correctly."
+    },
+    "editing_incompleteness": {
+      "score": 1,
+      "justification": "Editing completed as requested."
+    },
+    "total_implausibility": {
+      "score": 1,
+      "justification": "Result is logically coherent and plausible."
+    }
+  },
+  "raw_output": "```json\n{\n  \"background_infiltration\": {\"score\": 1, \"justification\": \"No unwanted changes in background.\"},\n  \"global_coherence_ruin\": {\"score\": 1, \"justification\": \"Original style and layout remain intact.\"},\n  \"identity_erasure\": {\"score\": 1, \"justification\": \"Subjects remain recognizable.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"Objects maintain realistic proportions.\"},\n  \"spatial_chaos\": {\"score\": 1, \"justification\": \"Spatial relationships are preserved.\"},\n  \"texture_degradation\": {\"score\": 1, \"justification\": \"Textures are consistent with the original.\"},\n  \"distortion_effectiveness\": {\"score\": 1, \"justification\": \"No visible noise or artifacts.\"},\n  \"light_color_mismatch\": {\"score\": 1, \"justification\": \"Colors match the scene.\"},\n  \"edge_visibility\": {\"score\": 1, \"justification\": \"No visible seams or edges.\"},\n  \"alignment_sabotage\": {\"score\": 1, \"justification\": \"Instruction followed correctly.\"},\n  \"editing_incompleteness\": {\"score\": 1, \"justification\": \"Editing completed as requested.\"},\n  \"total_implausibility\": {\"score\": 1, \"justification\": \"Result is logically coherent and plausible.\"}\n}\n```"
+}

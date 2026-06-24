@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a bridal fitting room
+A person in a lighthouse
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 34.98406454363774,
+  "psnr_edited_original_vs_edited_immunized": 14.241376625546987
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 34.9825
-SSIM: 0.9868
-FSIM: 0.9681
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 14.8084
-SSIM: 0.6886
-FSIM: 0.6361
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9867599705116831,
+  "ssim_edited_original_vs_edited_immunized": 0.6806481384438982
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  22.5963
-Edited Immunized: 19.6778
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.5035
-Caption orig: A woman wearing a green jacket and blue pants stands in a doorway.
-Caption adv:  A woman wearing a green jacket and holding a cell phone.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9680870991715834,
+  "fsim_edited_original_vs_edited_immunized": 0.6192984015801479
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.9251
-Background SSIM   (basso=protezione ok): 0.5389
-Subject LPIPS     (basso=soggetto ok)  : 0.0813
-Editing score                          : 0.5118
-Mask coverage (% background)           : 0.6491
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.08132889413862482
+Global LPIPS : 0.029339507222175598
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.08132889413862482
+Global LPIPS : 0.5428880453109741
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as the lighthouse is present but appears to be edited out with a pink dotted pattern around it, making the image unrecognizable and degraded.",
+  "attack_success": 1,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as the lighthouse is present but appears to be edited out with a pink dotted pattern around it, making the image unrecognizable and degraded.\",\n  \"attack_success\": 1\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 6.5,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 7,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 7,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been completely altered with a pink dotted pattern."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The entire image is altered, losing all original context."
+    },
+    "identity_erasure": {
+      "score": 7,
+      "justification": "The subject's background is completely changed, making her appear out of place."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No significant distortion in object sizes."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "Spatial relationships are disrupted with the lighthouse being placed in an unusual position."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "Textures have been replaced with a pink dotted pattern."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Severe distortions are introduced with the pink dotted pattern."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "Colors are completely off due to the pink dotted pattern."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Visible seams and edges are present due to the abrupt change in texture."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The image completely deviates from the intended edit of a person in a lighthouse."
+    },
+    "editing_incompleteness": {
+      "score": 7,
+      "justification": "The lighthouse is edited out, leaving the image incomplete."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd with a pink dotted pattern covering the background."
+    }
+  },
+  "raw_output": "```json\n{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been completely altered with a pink dotted pattern.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The entire image is altered, losing all original context.\"},\n  \"identity_erasure\": {\"score\": 7, \"justification\": \"The subject's background is completely changed, making her appear out of place.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No significant distortion in object sizes.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"Spatial relationships are disrupted with the lighthouse being placed in an unusual position.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"Textures have been replaced with a pink dotted pattern.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Severe distortions are introduced with the pink dotted pattern.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"Colors are completely off due to the pink dotted pattern.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Visible seams and edges are present due to the abrupt change in texture.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The image completely deviates from the intended edit of a person in a lighthouse.\"},\n  \"editing_incompleteness\": {\"score\": 7, \"justification\": \"The lighthouse is edited out, leaving the image incomplete.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd with a pink dotted pattern covering the background.\"}\n}\n```"
+}

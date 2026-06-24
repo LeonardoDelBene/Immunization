@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a local crafts market
+A person in a butcher shop
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 35.49972657591177,
+  "psnr_edited_original_vs_edited_immunized": 13.725026903923062
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 35.5001
-SSIM: 0.9896
-FSIM: 0.9680
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 13.7956
-SSIM: 0.3944
-FSIM: 0.4820
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9896229792929597,
+  "ssim_edited_original_vs_edited_immunized": 0.43536795736323813
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  29.0418
-Edited Immunized: 26.7927
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6858
-Caption orig: A woman wearing a floral shirt stands in front of a colorful display of scarves.
-Caption adv:  A woman wearing a floral shirt and a headband stands in front of a colorful wall.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9680292770156192,
+  "fsim_edited_original_vs_edited_immunized": 0.46589204635770537
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.7875
-Background SSIM   (basso=protezione ok): 0.2475
-Subject LPIPS     (basso=soggetto ok)  : 0.1572
-Editing score                          : 0.5801
-Mask coverage (% background)           : 0.7787
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.15715478424106824
+Global LPIPS : 0.02375936135649681
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.15715478424106824
+Global LPIPS : 0.5582824349403381
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The background has been changed from a butcher shop with meat displays to a wall with a patterned design. The edit is clearly visible, and the image appears slightly blurry and less recognizable compared to the reference.",
+  "attack_success": 1,
+  "raw_output": "```json\n{\n  \"reason\": \"The background has been changed from a butcher shop with meat displays to a wall with a patterned design. The edit is clearly visible, and the image appears slightly blurry and less recognizable compared to the reference.\",\n  \"attack_success\": 1\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 6.5,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 7,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 7,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been changed from a butcher shop with meat displays to a wall with a patterned design."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall appearance of the image is significantly altered, losing coherence."
+    },
+    "identity_erasure": {
+      "score": 7,
+      "justification": "The subject's surroundings have been completely changed, making her less recognizable."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No noticeable distortion in object sizes."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "Spatial relationships are disrupted as the background is entirely different."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "The original texture of the background has been replaced with a patterned design."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "The image appears blurry and less recognizable due to the attack."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "Colors and shadows are inconsistent with the rest of the scene."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Visible seams and edges indicate the attack area."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The final image completely deviates from the intent of the original instruction."
+    },
+    "editing_incompleteness": {
+      "score": 7,
+      "justification": "The background has been completely removed, leaving the subject without context."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd and physically impossible as the background is completely altered."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been changed from a butcher shop with meat displays to a wall with a patterned design.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall appearance of the image is significantly altered, losing coherence.\"},\n  \"identity_erasure\": {\"score\": 7, \"justification\": \"The subject's surroundings have been completely changed, making her less recognizable.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No noticeable distortion in object sizes.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"Spatial relationships are disrupted as the background is entirely different.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"The original texture of the background has been replaced with a patterned design.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"The image appears blurry and less recognizable due to the attack.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"Colors and shadows are inconsistent with the rest of the scene.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Visible seams and edges indicate the attack area.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The final image completely deviates from the intent of the original instruction.\"},\n  \"editing_incompleteness\": {\"score\": 7, \"justification\": \"The background has been completely removed, leaving the subject without context.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd and physically impossible as the background is completely altered.\"}\n}"
+}

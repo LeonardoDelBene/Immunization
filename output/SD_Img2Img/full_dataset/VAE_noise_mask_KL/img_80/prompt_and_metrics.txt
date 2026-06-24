@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a gym class
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 29.5175
+PSNR: 29.5178
 SSIM: 0.8856
-FSIM: 0.8315
+FSIM: 0.8316
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 18.5192
-SSIM: 0.6450
-FSIM: 0.5315
-
-CLIP score (Image vs Prompt)
-Edited Original:  26.5399
-Edited Immunized: 26.0867
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.8612
-Caption orig: A man wearing glasses and a blue jacket is standing in a gym, smiling and posing for a picture.
-Caption adv:  A man wearing glasses and a jacket is standing in a gym.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
+PSNR: 22.0501
+SSIM: 0.7542
+FSIM: 0.6699
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.4418
-Background SSIM   (basso=protezione ok): 0.6517
-Subject LPIPS     (basso=soggetto ok)  : 0.3766
-Editing score                          : 0.3553
-Mask coverage (% background)           : 0.6851
+Global LPIPS                           : 0.2399
+Background LPIPS                       : 0.1402
+Subject LPIPS                          : 0.5545
+Separation                             : 0.7982
+Editing score                          : 0.5545
+Mask coverage                          : 0.6851
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person is still wearing a cap, but the cap appears to be different in color and pattern compared to the reference image."
+}

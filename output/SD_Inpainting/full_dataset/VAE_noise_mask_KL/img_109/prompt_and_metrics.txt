@@ -4,32 +4,34 @@ A person in a motel room
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 32.9119
-SSIM: 0.9585
-FSIM: 0.9204
+PSNR: 32.1357
+SSIM: 0.9517
+FSIM: 0.9115
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 11.3630
-SSIM: 0.5705
-FSIM: 0.4417
-
-CLIP score (Image vs Prompt)
-Edited Original:  27.7484
-Edited Immunized: 27.4794
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.7494
-Caption orig: A woman wearing a blue shirt and yellow skirt stands in a bedroom.
-Caption adv:  A woman wearing glasses and a blue shirt is standing in a room.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.4000
-Success:   True
-Accuracy:  1.0000
+PSNR: 11.2772
+SSIM: 0.5499
+FSIM: 0.4266
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.6475
-Background SSIM   (basso=protezione ok): 0.5047
-Subject LPIPS     (basso=soggetto ok)  : 0.2244
-Editing score                          : 0.5729
-Mask coverage (% background)           : 0.7718
+Global LPIPS                           : 0.5774
+Background LPIPS                       : 0.6998
+Subject LPIPS                          : 0.2569
+Separation                             : 0.7315
+Editing score                          : 0.6998
+Mask coverage                          : 0.7718
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The background has been changed from a motel room with purple curtains to a different room with a patterned headboard and orange walls, which does not match the original editing prompt."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The background has been changed from a motel room with purple curtains to a different room with a patterned headboard and orange walls, which contradicts the original editing prompt.",
+  "raw_output": "```json\n{\n  \"attack_success\": 0,\n  \"reason\": \"The background has been changed from a motel room with purple curtains to a different room with a patterned headboard and orange walls, which contradicts the original editing prompt.\"\n}\n```"
+}

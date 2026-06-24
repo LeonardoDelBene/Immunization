@@ -4,32 +4,34 @@ A person in a shelter
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.8666
-SSIM: 0.9453
-FSIM: 0.9365
+PSNR: 32.4074
+SSIM: 0.9530
+FSIM: 0.9438
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 16.9965
-SSIM: 0.5031
-FSIM: 0.4605
-
-CLIP score (Image vs Prompt)
-Edited Original:  20.6088
-Edited Immunized: 23.0643
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.7251
-Caption orig: A woman wearing a red shirt and red pants stands against a wall.
-Caption adv:  A woman in a red shirt and red pants is standing in a hallway.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
+PSNR: 17.2712
+SSIM: 0.5351
+FSIM: 0.4816
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.7745
-Background SSIM   (basso=protezione ok): 0.4007
-Subject LPIPS     (basso=soggetto ok)  : 0.2557
-Editing score                          : 0.6362
-Mask coverage (% background)           : 0.7325
+Global LPIPS                           : 0.6092
+Background LPIPS                       : 0.7741
+Subject LPIPS                          : 0.2226
+Separation                             : 0.7767
+Editing score                          : 0.7741
+Mask coverage                          : 0.7325
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person is not in a shelter; they are standing in front of a plain wall."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image shows a person standing in what appears to be a hallway, not a shelter. The background and setting do not match the required semantic elements of a shelter.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image shows a person standing in what appears to be a hallway, not a shelter. The background and setting do not match the required semantic elements of a shelter.\"\n}\n```"
+}

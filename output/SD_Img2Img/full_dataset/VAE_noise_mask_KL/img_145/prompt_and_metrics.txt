@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a jail
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.5796
+PSNR: 30.5797
 SSIM: 0.9253
 FSIM: 0.9213
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 14.0951
-SSIM: 0.5941
-FSIM: 0.5444
-
-CLIP score (Image vs Prompt)
-Edited Original:  20.6114
-Edited Immunized: 22.8198
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.7723
-Caption orig: A young man wearing a black shirt with a picture of a dog on it stands in front of a wall with a tattooed man on it.
-Caption adv:  A man wearing a black shirt with a picture of a dog on it stands in front of a green background.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 20.7788
+SSIM: 0.7806
+FSIM: 0.7061
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.4479
-Background SSIM   (basso=protezione ok): 0.5233
-Subject LPIPS     (basso=soggetto ok)  : 0.2818
-Editing score                          : 0.4531
-Mask coverage (% background)           : 0.7003
+Global LPIPS                           : 0.1915
+Background LPIPS                       : 0.1248
+Subject LPIPS                          : 0.4727
+Separation                             : 0.7911
+Editing score                          : 0.4727
+Mask coverage                          : 0.7003
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The cap is still present in the adversarial image, so the semantic edit is not correctly applied."
+}

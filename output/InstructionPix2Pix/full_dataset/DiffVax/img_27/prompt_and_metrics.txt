@@ -1,35 +1,138 @@
---- Prompt ---
-Put a red hat on the person in the image.
+change the person's hair color to red
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 34.65403036207847,
+  "psnr_edited_original_vs_edited_immunized": 28.105916011717515
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 33.4895
-SSIM: 0.9861
-FSIM: 0.9453
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 11.5699
-SSIM: 0.6637
-FSIM: 0.5864
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9884625405868107,
+  "ssim_edited_original_vs_edited_immunized": 0.9430024153523812
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  28.1437
-Edited Immunized: 30.9341
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.5985
-Caption orig: A woman wearing a red hat and white shirt is walking down the street.
-Caption adv:  A woman wearing a red hat and lipstick is standing on the sidewalk.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9610311757562062,
+  "fsim_edited_original_vs_edited_immunized": 0.8354907281304156
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.9286
-Background SSIM   (basso=protezione ok): 0.2069
-Subject LPIPS     (basso=soggetto ok)  : 0.2909
-Editing score                          : 0.7348
-Mask coverage (% background)           : 0.2707
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.1361878746520144
+Global LPIPS : 0.030713722109794617
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.13007556622723915
+Global LPIPS : 0.05008154362440109
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit to change the person's hair color to red is visible. The hair appears to be a mix of red and green, indicating an unsuccessful attempt at changing the hair color. The image remains clear and recognizable.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit to change the person's hair color to red is visible. The hair appears to be a mix of red and green, indicating an unsuccessful attempt at changing the hair color. The image remains clear and recognizable.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 1.25,
+  "factor_scores": {
+    "background_infiltration": 3,
+    "global_coherence_ruin": 2,
+    "identity_erasure": 1,
+    "scale_distortion": 1,
+    "spatial_chaos": 1,
+    "texture_degradation": 1,
+    "distortion_effectiveness": 1,
+    "light_color_mismatch": 1,
+    "edge_visibility": 1,
+    "alignment_sabotage": 1,
+    "editing_incompleteness": 1,
+    "total_implausibility": 1
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 3,
+      "justification": "There are some minor changes in the background, but they do not significantly alter the overall scene."
+    },
+    "global_coherence_ruin": {
+      "score": 2,
+      "justification": "The global coherence is slightly disrupted, but the overall layout remains recognizable."
+    },
+    "identity_erasure": {
+      "score": 1,
+      "justification": "The subject's identity is not erased; she is still clearly identifiable."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No significant scale distortion is observed."
+    },
+    "spatial_chaos": {
+      "score": 1,
+      "justification": "Spatial relationships are maintained, and there is no illogical positioning."
+    },
+    "texture_degradation": {
+      "score": 1,
+      "justification": "Textures are not replaced by noise or adversarial patterns."
+    },
+    "distortion_effectiveness": {
+      "score": 1,
+      "justification": "No severe distortions are introduced."
+    },
+    "light_color_mismatch": {
+      "score": 1,
+      "justification": "Colors and shadows are consistent with the rest of the scene."
+    },
+    "edge_visibility": {
+      "score": 1,
+      "justification": "No visible edges or seams are present."
+    },
+    "alignment_sabotage": {
+      "score": 1,
+      "justification": "The alignment of the image follows the original instruction."
+    },
+    "editing_incompleteness": {
+      "score": 1,
+      "justification": "The fundamental parts of the requested edit are not removed or undone."
+    },
+    "total_implausibility": {
+      "score": 1,
+      "justification": "The result is not visually absurd or physically impossible."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 3, \"justification\": \"There are some minor changes in the background, but they do not significantly alter the overall scene.\"},\n  \"global_coherence_ruin\": {\"score\": 2, \"justification\": \"The global coherence is slightly disrupted, but the overall layout remains recognizable.\"},\n  \"identity_erasure\": {\"score\": 1, \"justification\": \"The subject's identity is not erased; she is still clearly identifiable.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No significant scale distortion is observed.\"},\n  \"spatial_chaos\": {\"score\": 1, \"justification\": \"Spatial relationships are maintained, and there is no illogical positioning.\"},\n  \"texture_degradation\": {\"score\": 1, \"justification\": \"Textures are not replaced by noise or adversarial patterns.\"},\n  \"distortion_effectiveness\": {\"score\": 1, \"justification\": \"No severe distortions are introduced.\"},\n  \"light_color_mismatch\": {\"score\": 1, \"justification\": \"Colors and shadows are consistent with the rest of the scene.\"},\n  \"edge_visibility\": {\"score\": 1, \"justification\": \"No visible edges or seams are present.\"},\n  \"alignment_sabotage\": {\"score\": 1, \"justification\": \"The alignment of the image follows the original instruction.\"},\n  \"editing_incompleteness\": {\"score\": 1, \"justification\": \"The fundamental parts of the requested edit are not removed or undone.\"},\n  \"total_implausibility\": {\"score\": 1, \"justification\": \"The result is not visually absurd or physically impossible.\"}\n}"
+}

@@ -1,35 +1,138 @@
---- Prompt ---
-Put a red hat on the person in the image.
+add a backpack to the person
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 34.73833311918921,
+  "psnr_edited_original_vs_edited_immunized": 14.511659360209359
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 35.0418
-SSIM: 0.9866
-FSIM: 0.9596
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 11.4774
-SSIM: 0.6865
-FSIM: 0.5934
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9905185767391709,
+  "ssim_edited_original_vs_edited_immunized": 0.7291304640604475
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  30.3280
-Edited Immunized: 26.9837
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.8041
-Caption orig: A woman wearing a red hat and red coat is walking down the street.
-Caption adv:  A woman wearing a red hat and a brown coat is standing on a street.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9662892093720833,
+  "fsim_edited_original_vs_edited_immunized": 0.6427722609111842
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 1.0002
-Background SSIM   (basso=protezione ok): 0.1795
-Subject LPIPS     (basso=soggetto ok)  : 0.3093
-Editing score                          : 0.7606
-Mask coverage (% background)           : 0.2513
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.14415368635169135
+Global LPIPS : 0.025815704837441444
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.7410334630554454
+Global LPIPS : 0.22328004240989685
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The backpack has been replaced with a different style and color, indicating the edit was applied. The image remains clear and recognizable.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The backpack has been replaced with a different style and color, indicating the edit was applied. The image remains clear and recognizable.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 4.0,
+  "factor_scores": {
+    "background_infiltration": 4,
+    "global_coherence_ruin": 4,
+    "identity_erasure": 4,
+    "scale_distortion": 4,
+    "spatial_chaos": 4,
+    "texture_degradation": 4,
+    "distortion_effectiveness": 4,
+    "light_color_mismatch": 4,
+    "edge_visibility": 4,
+    "alignment_sabotage": 4,
+    "editing_incompleteness": 4,
+    "total_implausibility": 4
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 4,
+      "justification": "The background appears slightly blurred, but the main subject and backpack remain clear."
+    },
+    "global_coherence_ruin": {
+      "score": 4,
+      "justification": "The overall scene retains coherence, though there's a slight change in the backpack design."
+    },
+    "identity_erasure": {
+      "score": 4,
+      "justification": "The person and backpack are still recognizable, though the backpack has changed."
+    },
+    "scale_distortion": {
+      "score": 4,
+      "justification": "No significant distortion in object sizes; the backpack looks proportionate."
+    },
+    "spatial_chaos": {
+      "score": 4,
+      "justification": "Spatial relationships are maintained; the backpack is still attached to the person."
+    },
+    "texture_degradation": {
+      "score": 4,
+      "justification": "Textures are mostly preserved, though the backpack has a different material appearance."
+    },
+    "distortion_effectiveness": {
+      "score": 4,
+      "justification": "The backpack is visibly different, introducing a new texture and color."
+    },
+    "light_color_mismatch": {
+      "score": 4,
+      "justification": "Colors are consistent except for the backpack, which has a different hue."
+    },
+    "edge_visibility": {
+      "score": 4,
+      "justification": "Edges are smooth; no visible seams or halos around the backpack area."
+    },
+    "alignment_sabotage": {
+      "score": 4,
+      "justification": "The backpack is still correctly placed on the person."
+    },
+    "editing_incompleteness": {
+      "score": 4,
+      "justification": "The backpack is present, but its style has been altered."
+    },
+    "total_implausibility": {
+      "score": 4,
+      "justification": "The backpack change is noticeable but doesn't disrupt the overall scene implausibly."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 4, \"justification\": \"The background appears slightly blurred, but the main subject and backpack remain clear.\"},\n  \"global_coherence_ruin\": {\"score\": 4, \"justification\": \"The overall scene retains coherence, though there's a slight change in the backpack design.\"},\n  \"identity_erasure\": {\"score\": 4, \"justification\": \"The person and backpack are still recognizable, though the backpack has changed.\"},\n  \"scale_distortion\": {\"score\": 4, \"justification\": \"No significant distortion in object sizes; the backpack looks proportionate.\"},\n  \"spatial_chaos\": {\"score\": 4, \"justification\": \"Spatial relationships are maintained; the backpack is still attached to the person.\"},\n  \"texture_degradation\": {\"score\": 4, \"justification\": \"Textures are mostly preserved, though the backpack has a different material appearance.\"},\n  \"distortion_effectiveness\": {\"score\": 4, \"justification\": \"The backpack is visibly different, introducing a new texture and color.\"},\n  \"light_color_mismatch\": {\"score\": 4, \"justification\": \"Colors are consistent except for the backpack, which has a different hue.\"},\n  \"edge_visibility\": {\"score\": 4, \"justification\": \"Edges are smooth; no visible seams or halos around the backpack area.\"},\n  \"alignment_sabotage\": {\"score\": 4, \"justification\": \"The backpack is still correctly placed on the person.\"},\n  \"editing_incompleteness\": {\"score\": 4, \"justification\": \"The backpack is present, but its style has been altered.\"},\n  \"total_implausibility\": {\"score\": 4, \"justification\": \"The backpack change is noticeable but doesn't disrupt the overall scene implausibly.\"}\n}"
+}

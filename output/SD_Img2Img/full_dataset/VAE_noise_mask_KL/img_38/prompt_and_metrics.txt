@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a technology fair
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 31.4930
+PSNR: 31.4935
 SSIM: 0.9446
 FSIM: 0.9124
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 16.2384
-SSIM: 0.6087
-FSIM: 0.5315
-
-CLIP score (Image vs Prompt)
-Edited Original:  31.4524
-Edited Immunized: 30.3163
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.7028
-Caption orig: A woman in an orange dress stands in front of a laptop, smiling for the camera.
-Caption adv:  A woman in a pink dress stands in front of a computer screen.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 23.6690
+SSIM: 0.8367
+FSIM: 0.7244
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.4995
-Background SSIM   (basso=protezione ok): 0.5708
-Subject LPIPS     (basso=soggetto ok)  : 0.4429
-Editing score                          : 0.3629
-Mask coverage (% background)           : 0.7808
+Global LPIPS                           : 0.1644
+Background LPIPS                       : 0.0841
+Subject LPIPS                          : 0.5127
+Separation                             : 0.8591
+Editing score                          : 0.5127
+Mask coverage                          : 0.7808
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person in the image now has a hat, which fulfills the editing instruction."
+}

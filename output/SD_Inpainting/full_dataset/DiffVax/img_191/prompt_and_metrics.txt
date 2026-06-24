@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a dormitory
+A person in a local cooking class
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 33.80780893868521,
+  "psnr_edited_original_vs_edited_immunized": 14.150045002486902
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 33.8063
-SSIM: 0.9863
-FSIM: 0.9736
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 14.4474
-SSIM: 0.5879
-FSIM: 0.5201
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9862940042157792,
+  "ssim_edited_original_vs_edited_immunized": 0.5253815489377829
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  28.4166
-Edited Immunized: 23.5552
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6404
-Caption orig: A woman wearing a blue dress with polka dots is standing in a doorway.
-Caption adv:  A woman wearing a blue dress with polka dots and sunglasses.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9735934571638211,
+  "fsim_edited_original_vs_edited_immunized": 0.4769857178785853
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.8000
-Success:   False
-Accuracy:  0.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.7319
-Background SSIM   (basso=protezione ok): 0.4688
-Subject LPIPS     (basso=soggetto ok)  : 0.1342
-Editing score                          : 0.5098
-Mask coverage (% background)           : 0.7529
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.13412264871139365
+Global LPIPS : 0.033711373805999756
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.13412264871139365
+Global LPIPS : 0.5198953151702881
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as there is no person in a local cooking class. The image appears to be a different scene with two people standing in front of a wall with colorful dots. The image is clear and recognizable.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as there is no person in a local cooking class. The image appears to be a different scene with two people standing in front of a wall with colorful dots. The image is clear and recognizable.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 6.5,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 7,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 7,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been replaced with a patterned wall, altering the setting."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall scene is completely altered, losing the original context."
+    },
+    "identity_erasure": {
+      "score": 7,
+      "justification": "The subjects' identities are obscured due to the altered background and new elements."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "The subjects appear normal in size, no distortion observed."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "The spatial relationships are disrupted; the subjects are positioned differently and the background is changed."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "The original textures have been replaced with a patterned design, significantly altering the look."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Visible changes in texture and background indicate severe distortion."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "The lighting and colors are inconsistent with the original scene, especially with the new background."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Sharp edges and seams are visible where the new background meets the subjects."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The final image is completely unrelated to the original instruction, showing a different scene."
+    },
+    "editing_incompleteness": {
+      "score": 7,
+      "justification": "The editing is incomplete as the original subjects and context are entirely removed."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd, depicting a scene that is not coherent with the original instruction."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been replaced with a patterned wall, altering the setting.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall scene is completely altered, losing the original context.\"},\n  \"identity_erasure\": {\"score\": 7, \"justification\": \"The subjects' identities are obscured due to the altered background and new elements.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"The subjects appear normal in size, no distortion observed.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"The spatial relationships are disrupted; the subjects are positioned differently and the background is changed.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"The original textures have been replaced with a patterned design, significantly altering the look.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Visible changes in texture and background indicate severe distortion.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"The lighting and colors are inconsistent with the original scene, especially with the new background.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Sharp edges and seams are visible where the new background meets the subjects.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The final image is completely unrelated to the original instruction, showing a different scene.\"},\n  \"editing_incompleteness\": {\"score\": 7, \"justification\": \"The editing is incomplete as the original subjects and context are entirely removed.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd, depicting a scene that is not coherent with the original instruction.\"}\n}"
+}

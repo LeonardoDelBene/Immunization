@@ -4,32 +4,34 @@ A person in a bridal fitting room
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 29.5344
-SSIM: 0.9049
-FSIM: 0.9049
+PSNR: 29.4376
+SSIM: 0.9048
+FSIM: 0.9048
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 14.1925
-SSIM: 0.5378
-FSIM: 0.4570
-
-CLIP score (Image vs Prompt)
-Edited Original:  25.7813
-Edited Immunized: 25.8416
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        1.0000
-Caption orig: A woman in a blue dress is talking on her cell phone.
-Caption adv:  A woman in a blue dress is talking on her cell phone.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 1.0000
-Success:   False
-Accuracy:  0.0000
+PSNR: 13.6954
+SSIM: 0.5322
+FSIM: 0.4518
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.5416
-Background SSIM   (basso=protezione ok): 0.5239
-Subject LPIPS     (basso=soggetto ok)  : 0.4907
-Editing score                          : 0.3650
-Mask coverage (% background)           : 0.7569
+Global LPIPS                           : 0.5112
+Background LPIPS                       : 0.5559
+Subject LPIPS                          : 0.4874
+Separation                             : 0.5329
+Editing score                          : 0.5559
+Mask coverage                          : 0.7569
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person is still in a fitting room, but the reflection shows a different scene, which does not align with the editing instruction."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image does not depict a person in a bridal fitting room as per the editing prompt. The person is wearing a different outfit and the setting appears to be a general dressing room rather than a bridal fitting room.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image does not depict a person in a bridal fitting room as per the editing prompt. The person is wearing a different outfit and the setting appears to be a general dressing room rather than a bridal fitting room.\"\n}\n```"
+}

@@ -4,32 +4,34 @@ A person in a historic landmark event
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 31.2259
-SSIM: 0.9531
-FSIM: 0.9283
+PSNR: 31.1459
+SSIM: 0.9536
+FSIM: 0.9292
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 18.2393
-SSIM: 0.6035
-FSIM: 0.4376
-
-CLIP score (Image vs Prompt)
-Edited Original:  24.5600
-Edited Immunized: 24.7624
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.8542
-Caption orig: A woman wearing a white shirt and pink pants is standing in front of a building.
-Caption adv:  A woman in a yellow shirt and pink pants stands in front of a large building.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 18.0405
+SSIM: 0.5803
+FSIM: 0.4321
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.6249
-Background SSIM   (basso=protezione ok): 0.5382
-Subject LPIPS     (basso=soggetto ok)  : 0.3215
-Editing score                          : 0.4956
-Mask coverage (% background)           : 0.7399
+Global LPIPS                           : 0.4975
+Background LPIPS                       : 0.6196
+Subject LPIPS                          : 0.3126
+Separation                             : 0.6647
+Editing score                          : 0.6196
+Mask coverage                          : 0.7399
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person is not in a historic landmark event; instead, they appear in front of classical columns, which does not match the editing prompt."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image does not depict a person in a historic landmark event as per the editing prompt. Instead, it shows a person in an outdoor setting with no clear indication of a historic landmark.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image does not depict a person in a historic landmark event as per the editing prompt. Instead, it shows a person in an outdoor setting with no clear indication of a historic landmark.\"\n}\n```"
+}

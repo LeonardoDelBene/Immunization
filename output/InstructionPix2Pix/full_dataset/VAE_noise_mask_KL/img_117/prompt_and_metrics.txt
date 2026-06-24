@@ -1,35 +1,29 @@
 --- Prompt ---
-Put a red hat on the person in the image.
+Put a cap on the person
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 28.0773
-SSIM: 0.8262
-FSIM: 0.7355
+PSNR: 28.5408
+SSIM: 0.8521
+FSIM: 0.8666
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 10.1021
-SSIM: 0.3691
-FSIM: 0.4185
-
-CLIP score (Image vs Prompt)
-Edited Original:  26.8889
-Edited Immunized: 27.4946
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6650
-Caption orig: A woman wearing a red hat and a black coat is standing in front of a red brick building.
-Caption adv:  Two women wearing red hats and red coats are standing next to each other.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 16.8852
+SSIM: 0.6812
+FSIM: 0.6489
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.7639
-Background SSIM   (basso=protezione ok): 0.3084
-Subject LPIPS     (basso=soggetto ok)  : 0.6034
-Editing score                          : 0.5131
-Mask coverage (% background)           : 0.3965
+Global LPIPS                           : 0.3333
+Background LPIPS                       : 0.0923
+Subject LPIPS                          : 0.7575
+Separation                             : 0.8913
+Editing score                          : 0.7575
+Mask coverage                          : 0.6035
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The cap is present and correctly placed on the person's head."
+}

@@ -4,32 +4,34 @@ A person in a charity art auction
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.3084
-SSIM: 0.9698
-FSIM: 0.9343
+PSNR: 31.2722
+SSIM: 0.9731
+FSIM: 0.9403
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 12.7665
-SSIM: 0.4558
-FSIM: 0.3895
-
-CLIP score (Image vs Prompt)
-Edited Original:  27.1945
-Edited Immunized: 26.8975
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.3631
-Caption orig: A woman in an orange shirt stands in front of a painting.
-Caption adv:  A woman wearing a red shirt and red pants.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 12.9895
+SSIM: 0.4525
+FSIM: 0.4269
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.8043
-Background SSIM   (basso=protezione ok): 0.3192
-Subject LPIPS     (basso=soggetto ok)  : 0.1892
-Editing score                          : 0.7124
-Mask coverage (% background)           : 0.7544
+Global LPIPS                           : 0.5851
+Background LPIPS                       : 0.7569
+Subject LPIPS                          : 0.1687
+Separation                             : 0.8178
+Editing score                          : 0.7569
+Mask coverage                          : 0.7544
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person is still present, but the background has been changed from a colorful abstract painting to a solid purple color, which does not align with the original editing prompt."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image lacks any indication of a charity art auction setting, such as an auctioneer, auction items, or auction-related text. The background has been altered to a solid color without any auction-related context.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image lacks any indication of a charity art auction setting, such as an auctioneer, auction items, or auction-related text. The background has been altered to a solid color without any auction-related context.\"\n}\n```"
+}

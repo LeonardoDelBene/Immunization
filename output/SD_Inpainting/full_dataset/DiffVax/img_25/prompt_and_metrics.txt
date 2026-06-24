@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a gym sauna
+A person in a glass factory
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 34.76162372148612,
+  "psnr_edited_original_vs_edited_immunized": 16.728219017962928
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 34.7609
-SSIM: 0.9911
-FSIM: 0.9657
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 14.6696
-SSIM: 0.4664
-FSIM: 0.4237
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.991092218836232,
+  "ssim_edited_original_vs_edited_immunized": 0.4745151944026924
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  27.8856
-Edited Immunized: 22.8006
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.4581
-Caption orig: A woman wearing a leather jacket and black pants stands in front of a row of exercise machines.
-Caption adv:  A woman wearing a brown jacket and black pants is standing in front of a mirror.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9656718844178029,
+  "fsim_edited_original_vs_edited_immunized": 0.45028997185535746
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.7790
-Background SSIM   (basso=protezione ok): 0.2922
-Subject LPIPS     (basso=soggetto ok)  : 0.1323
-Editing score                          : 0.5676
-Mask coverage (% background)           : 0.7283
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.1323655615734702
+Global LPIPS : 0.023572981357574463
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.1323655615734702
+Global LPIPS : 0.5400453209877014
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The background has been altered with pink patterns, but the person's clothing and pose remain unchanged. The image is still clear and recognizable.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The background has been altered with pink patterns, but the person's clothing and pose remain unchanged. The image is still clear and recognizable.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 5.5,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 1,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 1,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "Pink patterns have been added to the background, significantly altering the original setting."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall appearance of the image is drastically changed due to the background alteration."
+    },
+    "identity_erasure": {
+      "score": 1,
+      "justification": "The subject remains recognizable despite the background change."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No objects are rendered disproportionately or unrealistically in size."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "Spatial relationships are disrupted as the background is altered with new patterns."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "The original textures of the background are replaced by pink patterns, completely corrupting the texture."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Visible pink patterns introduce severe distortions to the background."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "Colors in the background are inconsistent with the rest of the scene, introducing a mismatch."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Visible edges and seams are present where the background patterns meet the original image."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The final image completely deviates from the intended setting of a glass factory."
+    },
+    "editing_incompleteness": {
+      "score": 1,
+      "justification": "The editing is not incomplete; the entire background has been altered."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd with a completely altered background pattern."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"Pink patterns have been added to the background, significantly altering the original setting.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall appearance of the image is drastically changed due to the background alteration.\"},\n  \"identity_erasure\": {\"score\": 1, \"justification\": \"The subject remains recognizable despite the background change.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No objects are rendered disproportionately or unrealistically in size.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"Spatial relationships are disrupted as the background is altered with new patterns.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"The original textures of the background are replaced by pink patterns, completely corrupting the texture.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Visible pink patterns introduce severe distortions to the background.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"Colors in the background are inconsistent with the rest of the scene, introducing a mismatch.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Visible edges and seams are present where the background patterns meet the original image.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The final image completely deviates from the intended setting of a glass factory.\"},\n  \"editing_incompleteness\": {\"score\": 1, \"justification\": \"The editing is not incomplete; the entire background has been altered.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd with a completely altered background pattern.\"}\n}"
+}

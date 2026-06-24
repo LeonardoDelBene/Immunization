@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a betting shop
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 32.6225
+PSNR: 32.6228
 SSIM: 0.9439
 FSIM: 0.9112
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 17.3721
-SSIM: 0.7029
-FSIM: 0.6085
-
-CLIP score (Image vs Prompt)
-Edited Original:  29.7309
-Edited Immunized: 30.1022
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.3441
-Caption orig: A woman wearing a white shirt is playing a video game in a casino.
-Caption adv:  A man is holding a baby in a casino.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 26.6774
+SSIM: 0.8986
+FSIM: 0.7765
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.3925
-Background SSIM   (basso=protezione ok): 0.7040
-Subject LPIPS     (basso=soggetto ok)  : 0.5766
-Editing score                          : 0.2458
-Mask coverage (% background)           : 0.8080
+Global LPIPS                           : 0.1181
+Background LPIPS                       : 0.0714
+Subject LPIPS                          : 0.4597
+Separation                             : 0.8655
+Editing score                          : 0.4597
+Mask coverage                          : 0.8080
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person in the image is now a mannequin, which does not satisfy the editing instruction of having a person with a cap."
+}

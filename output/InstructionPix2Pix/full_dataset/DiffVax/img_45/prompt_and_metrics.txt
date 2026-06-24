@@ -1,35 +1,138 @@
---- Prompt ---
-Put a red hat on the person in the image.
+add earrings to the person
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 34.09646523932865,
+  "psnr_edited_original_vs_edited_immunized": 18.702719272347743
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 34.7296
-SSIM: 0.9863
-FSIM: 0.9490
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 18.8355
-SSIM: 0.8659
-FSIM: 0.7365
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9835757579527145,
+  "ssim_edited_original_vs_edited_immunized": 0.7852287348496964
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  29.5021
-Edited Immunized: 28.4935
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.5035
-Caption orig: A person wearing a red hat with a large red bow on it.
-Caption adv:  A woman wearing a red hat and carrying a red purse walks down the street.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9600022806855847,
+  "fsim_edited_original_vs_edited_immunized": 0.5971255303311397
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.3180
-Background SSIM   (basso=protezione ok): 0.6733
-Subject LPIPS     (basso=soggetto ok)  : 0.1593
-Editing score                          : 0.4296
-Mask coverage (% background)           : 0.1868
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.22386956892268844
+Global LPIPS : 0.03779219835996628
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.5573487669755129
+Global LPIPS : 0.3539219796657562
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit to add earrings is clearly visible, but the image appears slightly blurry and less recognizable compared to the reference.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit to add earrings is clearly visible, but the image appears slightly blurry and less recognizable compared to the reference.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 4.0,
+  "factor_scores": {
+    "background_infiltration": 4,
+    "global_coherence_ruin": 4,
+    "identity_erasure": 4,
+    "scale_distortion": 4,
+    "spatial_chaos": 4,
+    "texture_degradation": 4,
+    "distortion_effectiveness": 4,
+    "light_color_mismatch": 4,
+    "edge_visibility": 4,
+    "alignment_sabotage": 4,
+    "editing_incompleteness": 4,
+    "total_implausibility": 4
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 4,
+      "justification": "The background remains largely unchanged."
+    },
+    "global_coherence_ruin": {
+      "score": 4,
+      "justification": "The overall layout is still recognizable."
+    },
+    "identity_erasure": {
+      "score": 4,
+      "justification": "The subject's identity is still discernible."
+    },
+    "scale_distortion": {
+      "score": 4,
+      "justification": "The subject's features are proportionate."
+    },
+    "spatial_chaos": {
+      "score": 4,
+      "justification": "Spatial relationships are maintained."
+    },
+    "texture_degradation": {
+      "score": 4,
+      "justification": "Textures are mostly preserved."
+    },
+    "distortion_effectiveness": {
+      "score": 4,
+      "justification": "No severe distortions are present."
+    },
+    "light_color_mismatch": {
+      "score": 4,
+      "justification": "Colors are consistent with the scene."
+    },
+    "edge_visibility": {
+      "score": 4,
+      "justification": "Edges are smooth and not visible."
+    },
+    "alignment_sabotage": {
+      "score": 4,
+      "justification": "The image aligns with the original instruction."
+    },
+    "editing_incompleteness": {
+      "score": 4,
+      "justification": "The edit to add earrings is complete."
+    },
+    "total_implausibility": {
+      "score": 4,
+      "justification": "The result is logical and plausible."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 4, \"justification\": \"The background remains largely unchanged.\"},\n  \"global_coherence_ruin\": {\"score\": 4, \"justification\": \"The overall layout is still recognizable.\"},\n  \"identity_erasure\": {\"score\": 4, \"justification\": \"The subject's identity is still discernible.\"},\n  \"scale_distortion\": {\"score\": 4, \"justification\": \"The subject's features are proportionate.\"},\n  \"spatial_chaos\": {\"score\": 4, \"justification\": \"Spatial relationships are maintained.\"},\n  \"texture_degradation\": {\"score\": 4, \"justification\": \"Textures are mostly preserved.\"},\n  \"distortion_effectiveness\": {\"score\": 4, \"justification\": \"No severe distortions are present.\"},\n  \"light_color_mismatch\": {\"score\": 4, \"justification\": \"Colors are consistent with the scene.\"},\n  \"edge_visibility\": {\"score\": 4, \"justification\": \"Edges are smooth and not visible.\"},\n  \"alignment_sabotage\": {\"score\": 4, \"justification\": \"The image aligns with the original instruction.\"},\n  \"editing_incompleteness\": {\"score\": 4, \"justification\": \"The edit to add earrings is complete.\"},\n  \"total_implausibility\": {\"score\": 4, \"justification\": \"The result is logical and plausible.\"}\n}"
+}

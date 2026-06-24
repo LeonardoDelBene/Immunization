@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a local crafts market
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 31.5063
+PSNR: 31.5069
 SSIM: 0.9549
 FSIM: 0.9140
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 17.3639
-SSIM: 0.6653
-FSIM: 0.6186
-
-CLIP score (Image vs Prompt)
-Edited Original:  28.5060
-Edited Immunized: 28.9312
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.8961
-Caption orig: A woman wearing a floral shirt is standing in a marketplace, surrounded by various items.
-Caption adv:  A woman in a floral shirt stands in front of a market stand, surrounded by various items.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
+PSNR: 23.8255
+SSIM: 0.8629
+FSIM: 0.7520
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.3729
-Background SSIM   (basso=protezione ok): 0.6320
-Subject LPIPS     (basso=soggetto ok)  : 0.4000
-Editing score                          : 0.3196
-Mask coverage (% background)           : 0.7787
+Global LPIPS                           : 0.1441
+Background LPIPS                       : 0.0730
+Subject LPIPS                          : 0.4546
+Separation                             : 0.8617
+Editing score                          : 0.4546
+Mask coverage                          : 0.7787
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person in the image is wearing a cap, which matches the editing prompt."
+}

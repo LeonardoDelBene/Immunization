@@ -1,35 +1,138 @@
---- Prompt ---
-Put a red hat on the person in the image.
+add a backpack to the person
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 35.01875389979481,
+  "psnr_edited_original_vs_edited_immunized": 15.465335940843152
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 32.5446
-SSIM: 0.9855
-FSIM: 0.9564
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 17.4095
-SSIM: 0.7645
-FSIM: 0.6847
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9923196949874623,
+  "ssim_edited_original_vs_edited_immunized": 0.70456511228546
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  30.3998
-Edited Immunized: 31.4344
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.7172
-Caption orig: A person wearing a red hat and a red jacket is walking down the street.
-Caption adv:  A person wearing a red hat and a red hat with a red brim.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9616371617458417,
+  "fsim_edited_original_vs_edited_immunized": 0.6059225923754613
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.5629
-Background SSIM   (basso=protezione ok): 0.4622
-Subject LPIPS     (basso=soggetto ok)  : 0.1410
-Editing score                          : 0.6019
-Mask coverage (% background)           : 0.3495
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.09802423020282981
+Global LPIPS : 0.0232456736266613
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.6289569265316549
+Global LPIPS : 0.23281890153884888
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit to add a backpack to the person is clearly visible. The image appears slightly blurry and less sharp compared to the reference, but it is still recognizable.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit to add a backpack to the person is clearly visible. The image appears slightly blurry and less sharp compared to the reference, but it is still recognizable.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "raw_output": "0"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 3.0,
+  "factor_scores": {
+    "background_infiltration": 3,
+    "global_coherence_ruin": 3,
+    "identity_erasure": 3,
+    "scale_distortion": 3,
+    "spatial_chaos": 3,
+    "texture_degradation": 3,
+    "distortion_effectiveness": 3,
+    "light_color_mismatch": 3,
+    "edge_visibility": 3,
+    "alignment_sabotage": 3,
+    "editing_incompleteness": 3,
+    "total_implausibility": 3
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 3,
+      "justification": "The background remains largely unchanged."
+    },
+    "global_coherence_ruin": {
+      "score": 3,
+      "justification": "The overall scene is coherent but slightly distorted."
+    },
+    "identity_erasure": {
+      "score": 3,
+      "justification": "The person's identity is recognizable but slightly altered."
+    },
+    "scale_distortion": {
+      "score": 3,
+      "justification": "No significant distortion in object sizes."
+    },
+    "spatial_chaos": {
+      "score": 3,
+      "justification": "Spatial relationships are slightly disrupted."
+    },
+    "texture_degradation": {
+      "score": 3,
+      "justification": "Textures are slightly altered but still discernible."
+    },
+    "distortion_effectiveness": {
+      "score": 3,
+      "justification": "Visible noise and blurring present."
+    },
+    "light_color_mismatch": {
+      "score": 3,
+      "justification": "Colors are consistent but slightly muted."
+    },
+    "edge_visibility": {
+      "score": 3,
+      "justification": "Some visible edges and seams."
+    },
+    "alignment_sabotage": {
+      "score": 3,
+      "justification": "The overall alignment is slightly off."
+    },
+    "editing_incompleteness": {
+      "score": 3,
+      "justification": "The backpack is added but some details are altered."
+    },
+    "total_implausibility": {
+      "score": 3,
+      "justification": "The result is slightly implausible due to the altered perspective and lighting."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 3, \"justification\": \"The background remains largely unchanged.\"},\n  \"global_coherence_ruin\": {\"score\": 3, \"justification\": \"The overall scene is coherent but slightly distorted.\"},\n  \"identity_erasure\": {\"score\": 3, \"justification\": \"The person's identity is recognizable but slightly altered.\"},\n  \"scale_distortion\": {\"score\": 3, \"justification\": \"No significant distortion in object sizes.\"},\n  \"spatial_chaos\": {\"score\": 3, \"justification\": \"Spatial relationships are slightly disrupted.\"},\n  \"texture_degradation\": {\"score\": 3, \"justification\": \"Textures are slightly altered but still discernible.\"},\n  \"distortion_effectiveness\": {\"score\": 3, \"justification\": \"Visible noise and blurring present.\"},\n  \"light_color_mismatch\": {\"score\": 3, \"justification\": \"Colors are consistent but slightly muted.\"},\n  \"edge_visibility\": {\"score\": 3, \"justification\": \"Some visible edges and seams.\"},\n  \"alignment_sabotage\": {\"score\": 3, \"justification\": \"The overall alignment is slightly off.\"},\n  \"editing_incompleteness\": {\"score\": 3, \"justification\": \"The backpack is added but some details are altered.\"},\n  \"total_implausibility\": {\"score\": 3, \"justification\": \"The result is slightly implausible due to the altered perspective and lighting.\"}\n}"
+}

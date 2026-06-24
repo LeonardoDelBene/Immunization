@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a church hall
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 29.9289
+PSNR: 29.9294
 SSIM: 0.9162
 FSIM: 0.9185
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 14.1979
-SSIM: 0.5538
-FSIM: 0.4856
-
-CLIP score (Image vs Prompt)
-Edited Original:  26.6235
-Edited Immunized: 29.7089
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.9385
-Caption orig: A woman wearing a black jacket and sunglasses is standing in front of a church.
-Caption adv:  A woman wearing sunglasses and a black jacket stands in a church.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
+PSNR: 20.4133
+SSIM: 0.7266
+FSIM: 0.6791
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.5491
-Background SSIM   (basso=protezione ok): 0.5271
-Subject LPIPS     (basso=soggetto ok)  : 0.4720
-Editing score                          : 0.3783
-Mask coverage (% background)           : 0.7647
+Global LPIPS                           : 0.2756
+Background LPIPS                       : 0.1748
+Subject LPIPS                          : 0.6573
+Separation                             : 0.7899
+Editing score                          : 0.6573
+Mask coverage                          : 0.7647
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person in the adversarial image is wearing a green hooded outfit, which does not match the editing prompt of a person with a cap."
+}

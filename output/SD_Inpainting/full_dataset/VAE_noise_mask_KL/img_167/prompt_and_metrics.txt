@@ -4,32 +4,34 @@ A person in a ceramic art exhibit
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 29.4143
-SSIM: 0.8875
-FSIM: 0.8418
+PSNR: 29.3608
+SSIM: 0.8899
+FSIM: 0.8439
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 14.0418
-SSIM: 0.4679
-FSIM: 0.4329
-
-CLIP score (Image vs Prompt)
-Edited Original:  30.3773
-Edited Immunized: 28.5729
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.7441
-Caption orig: A man wearing a leather jacket and a vest stands in front of a wall filled with various sculptures and carvings.
-Caption adv:  A man wearing a black jacket and a white vest stands in front of a group of statues.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 13.8325
+SSIM: 0.4609
+FSIM: 0.4350
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.6799
-Background SSIM   (basso=protezione ok): 0.3909
-Subject LPIPS     (basso=soggetto ok)  : 0.4798
-Editing score                          : 0.4668
-Mask coverage (% background)           : 0.6780
+Global LPIPS                           : 0.5871
+Background LPIPS                       : 0.7100
+Subject LPIPS                          : 0.4680
+Separation                             : 0.6027
+Editing score                          : 0.7100
+Mask coverage                          : 0.6780
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person is no longer in a ceramic art exhibit; instead, they appear to be in front of a different type of exhibit with large, colorful sculptures."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image contains a person but the background and objects do not match a ceramic art exhibit. The background appears to be a different setting, possibly a museum or gallery, which does not align with the specified exhibit.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image contains a person but the background and objects do not match a ceramic art exhibit. The background appears to be a different setting, possibly a museum or gallery, which does not align with the specified exhibit.\"\n}\n```"
+}

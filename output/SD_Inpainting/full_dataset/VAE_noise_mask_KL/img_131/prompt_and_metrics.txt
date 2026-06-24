@@ -4,32 +4,34 @@ A person in a church hall
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 29.9083
-SSIM: 0.9161
-FSIM: 0.9182
+PSNR: 29.9289
+SSIM: 0.9162
+FSIM: 0.9185
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 14.2308
-SSIM: 0.3584
-FSIM: 0.4210
-
-CLIP score (Image vs Prompt)
-Edited Original:  24.1826
-Edited Immunized: 29.9822
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.9527
-Caption orig: A woman wearing sunglasses and a black jacket is standing in a church.
-Caption adv:  A woman wearing sunglasses and a black jacket is standing in front of a church.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.8000
-Success:   False
-Accuracy:  0.0000
+PSNR: 14.0323
+SSIM: 0.3596
+FSIM: 0.4111
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.6800
-Background SSIM   (basso=protezione ok): 0.2769
-Subject LPIPS     (basso=soggetto ok)  : 0.4753
-Editing score                          : 0.5038
-Mask coverage (% background)           : 0.7647
+Global LPIPS                           : 0.6190
+Background LPIPS                       : 0.6756
+Subject LPIPS                          : 0.4720
+Separation                             : 0.5887
+Editing score                          : 0.6756
+Mask coverage                          : 0.7647
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person is still in a church hall, but the background appears blurred and distorted, which does not contradict the editing instruction."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image contains multiple people and appears blurry, which contradicts the requirement for a single person in a church hall.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image contains multiple people and appears blurry, which contradicts the requirement for a single person in a church hall.\"\n}\n```"
+}

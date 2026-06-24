@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a game room
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.1104
+PSNR: 30.1105
 SSIM: 0.8818
 FSIM: 0.8709
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 15.3994
-SSIM: 0.5629
-FSIM: 0.5268
-
-CLIP score (Image vs Prompt)
-Edited Original:  23.8982
-Edited Immunized: 25.3188
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.4165
-Caption orig: A man wearing a black jacket and sunglasses stands in front of a pool table.
-Caption adv:  A man wearing a black jacket and sunglasses is standing next to another man who is wearing a black jacket and has a tiger on his shirt.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
+PSNR: 5.1470
+SSIM: 0.0044
+FSIM: nan
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.4548
-Background SSIM   (basso=protezione ok): 0.5496
-Subject LPIPS     (basso=soggetto ok)  : 0.5795
-Editing score                          : 0.3171
-Mask coverage (% background)           : 0.7025
+Global LPIPS                           : 1.0177
+Background LPIPS                       : 0.9664
+Subject LPIPS                          : 0.7629
+Separation                             : 0.4412
+Editing score                          : 0.7629
+Mask coverage                          : 0.7025
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person in the image is wearing a cap, which matches the editing prompt."
+}

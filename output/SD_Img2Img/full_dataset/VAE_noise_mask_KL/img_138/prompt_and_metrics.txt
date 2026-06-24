@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a dance school
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.4840
+PSNR: 30.4846
 SSIM: 0.9146
-FSIM: 0.8834
+FSIM: 0.8835
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 17.9064
-SSIM: 0.6744
-FSIM: 0.5803
-
-CLIP score (Image vs Prompt)
-Edited Original:  26.6785
-Edited Immunized: 28.2069
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.8989
-Caption orig: A woman wearing a red shirt and a flower in her hair is smiling.
-Caption adv:  A woman wearing a red dress and a flower in her hair is smiling.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.8000
-Success:   False
-Accuracy:  0.0000
+PSNR: 24.5456
+SSIM: 0.8440
+FSIM: 0.7399
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.4397
-Background SSIM   (basso=protezione ok): 0.6693
-Subject LPIPS     (basso=soggetto ok)  : 0.4112
-Editing score                          : 0.3284
-Mask coverage (% background)           : 0.7229
+Global LPIPS                           : 0.1474
+Background LPIPS                       : 0.0591
+Subject LPIPS                          : 0.4451
+Separation                             : 0.8827
+Editing score                          : 0.4451
+Mask coverage                          : 0.7229
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person in the image is wearing a cap, which matches the editing prompt."
+}

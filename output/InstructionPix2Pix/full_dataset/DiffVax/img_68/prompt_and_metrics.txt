@@ -1,35 +1,138 @@
---- Prompt ---
-Put a red hat on the person in the image.
+make the person younger
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 33.66842398302106,
+  "psnr_edited_original_vs_edited_immunized": 30.324153135338957
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 33.2976
-SSIM: 0.9842
-FSIM: 0.9502
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 14.6259
-SSIM: 0.7606
-FSIM: 0.6399
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9862150026133123,
+  "ssim_edited_original_vs_edited_immunized": 0.9620325347723213
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  28.1057
-Edited Immunized: 29.3528
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.4424
-Caption orig: A man wearing a red hat and a black jacket is walking down a hallway.
-Caption adv:  A person wearing a red hat and carrying a red umbrella.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.959762770864804,
+  "fsim_edited_original_vs_edited_immunized": 0.8466520258198763
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.7057
-Background SSIM   (basso=protezione ok): 0.4304
-Subject LPIPS     (basso=soggetto ok)  : 0.2194
-Editing score                          : 0.6215
-Mask coverage (% background)           : 0.3064
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.14263682547359266
+Global LPIPS : 0.03514162078499794
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.11808546089188746
+Global LPIPS : 0.04546322301030159
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as there is no noticeable change in the person's appearance. The image remains clear and recognizable.",
+  "attack_success": 1,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as there is no noticeable change in the person's appearance. The image remains clear and recognizable.\",\n  \"attack_success\": 1\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "raw_output": "0"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 2.5,
+  "factor_scores": {
+    "background_infiltration": 3,
+    "global_coherence_ruin": 2,
+    "identity_erasure": 3,
+    "scale_distortion": 2,
+    "spatial_chaos": 2,
+    "texture_degradation": 3,
+    "distortion_effectiveness": 3,
+    "light_color_mismatch": 2,
+    "edge_visibility": 2,
+    "alignment_sabotage": 3,
+    "editing_incompleteness": 2,
+    "total_implausibility": 3
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 3,
+      "justification": "The background shows minor color shifts."
+    },
+    "global_coherence_ruin": {
+      "score": 2,
+      "justification": "The overall style and layout appear slightly altered."
+    },
+    "identity_erasure": {
+      "score": 3,
+      "justification": "The subject's face has some distortion."
+    },
+    "scale_distortion": {
+      "score": 2,
+      "justification": "No significant object size changes."
+    },
+    "spatial_chaos": {
+      "score": 2,
+      "justification": "Spatial relationships seem slightly off."
+    },
+    "texture_degradation": {
+      "score": 3,
+      "justification": "Textures appear slightly altered."
+    },
+    "distortion_effectiveness": {
+      "score": 3,
+      "justification": "There are visible distortions in the face area."
+    },
+    "light_color_mismatch": {
+      "score": 2,
+      "justification": "Colors are consistent but there's a slight shift."
+    },
+    "edge_visibility": {
+      "score": 2,
+      "justification": "Edges are slightly blurred."
+    },
+    "alignment_sabotage": {
+      "score": 3,
+      "justification": "The overall alignment seems disrupted."
+    },
+    "editing_incompleteness": {
+      "score": 2,
+      "justification": "The edit is not fully completed."
+    },
+    "total_implausibility": {
+      "score": 3,
+      "justification": "The result looks unnatural due to the distortions."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 3, \"justification\": \"The background shows minor color shifts.\"},\n  \"global_coherence_ruin\": {\"score\": 2, \"justification\": \"The overall style and layout appear slightly altered.\"},\n  \"identity_erasure\": {\"score\": 3, \"justification\": \"The subject's face has some distortion.\"},\n  \"scale_distortion\": {\"score\": 2, \"justification\": \"No significant object size changes.\"},\n  \"spatial_chaos\": {\"score\": 2, \"justification\": \"Spatial relationships seem slightly off.\"},\n  \"texture_degradation\": {\"score\": 3, \"justification\": \"Textures appear slightly altered.\"},\n  \"distortion_effectiveness\": {\"score\": 3, \"justification\": \"There are visible distortions in the face area.\"},\n  \"light_color_mismatch\": {\"score\": 2, \"justification\": \"Colors are consistent but there's a slight shift.\"},\n  \"edge_visibility\": {\"score\": 2, \"justification\": \"Edges are slightly blurred.\"},\n  \"alignment_sabotage\": {\"score\": 3, \"justification\": \"The overall alignment seems disrupted.\"},\n  \"editing_incompleteness\": {\"score\": 2, \"justification\": \"The edit is not fully completed.\"},\n  \"total_implausibility\": {\"score\": 3, \"justification\": \"The result looks unnatural due to the distortions.\"}\n}"
+}

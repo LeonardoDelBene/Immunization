@@ -1,35 +1,138 @@
---- Prompt ---
-Put a red hat on the person in the image.
+add a wristwatch to the person
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 34.030461582484264,
+  "psnr_edited_original_vs_edited_immunized": 17.666025304770287
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 32.3382
-SSIM: 0.9848
-FSIM: 0.9440
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 10.9776
-SSIM: 0.6188
-FSIM: 0.3614
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9890893551917657,
+  "ssim_edited_original_vs_edited_immunized": 0.7986071718291651
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  28.6570
-Edited Immunized: 28.6150
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6257
-Caption orig: A woman wearing a red hat with hearts on it.
-Caption adv:  A woman wearing a red hat and a red dress is walking down a street.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9595235286079303,
+  "fsim_edited_original_vs_edited_immunized": 0.5442646125168512
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.7350
-Background SSIM   (basso=protezione ok): 0.4181
-Subject LPIPS     (basso=soggetto ok)  : 0.5710
-Editing score                          : 0.4686
-Mask coverage (% background)           : 0.2676
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.09949103382016145
+Global LPIPS : 0.02288731373846531
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.3412572155772284
+Global LPIPS : 0.2657378911972046
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The wristwatch has been added to the person's left wrist, but it appears distorted and blurry, making the image less recognizable compared to the reference.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The wristwatch has been added to the person's left wrist, but it appears distorted and blurry, making the image less recognizable compared to the reference.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 4.0,
+  "factor_scores": {
+    "background_infiltration": 4,
+    "global_coherence_ruin": 4,
+    "identity_erasure": 4,
+    "scale_distortion": 4,
+    "spatial_chaos": 4,
+    "texture_degradation": 4,
+    "distortion_effectiveness": 4,
+    "light_color_mismatch": 4,
+    "edge_visibility": 4,
+    "alignment_sabotage": 4,
+    "editing_incompleteness": 4,
+    "total_implausibility": 4
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 4,
+      "justification": "The background remains largely unchanged."
+    },
+    "global_coherence_ruin": {
+      "score": 4,
+      "justification": "The overall layout is slightly disrupted but still recognizable."
+    },
+    "identity_erasure": {
+      "score": 4,
+      "justification": "The subjects' identities are not entirely erased but appear slightly distorted."
+    },
+    "scale_distortion": {
+      "score": 4,
+      "justification": "The watch appears slightly larger than expected but not absurdly so."
+    },
+    "spatial_chaos": {
+      "score": 4,
+      "justification": "Spatial relationships are slightly altered but still coherent."
+    },
+    "texture_degradation": {
+      "score": 4,
+      "justification": "Textures around the watch area appear slightly degraded but not completely corrupted."
+    },
+    "distortion_effectiveness": {
+      "score": 4,
+      "justification": "The watch introduces visible noise and blurring around its edges."
+    },
+    "light_color_mismatch": {
+      "score": 4,
+      "justification": "Colors around the watch area appear slightly off but not drastically different."
+    },
+    "edge_visibility": {
+      "score": 4,
+      "justification": "Sharp edges and halos are visible around the watch area."
+    },
+    "alignment_sabotage": {
+      "score": 4,
+      "justification": "The final image deviates slightly from the original instruction but still recognizably follows it."
+    },
+    "editing_incompleteness": {
+      "score": 4,
+      "justification": "The watch is added but appears distorted, indicating incompleteness."
+    },
+    "total_implausibility": {
+      "score": 4,
+      "justification": "The watch appears somewhat plausible but is slightly distorted and blurry."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 4, \"justification\": \"The background remains largely unchanged.\"},\n  \"global_coherence_ruin\": {\"score\": 4, \"justification\": \"The overall layout is slightly disrupted but still recognizable.\"},\n  \"identity_erasure\": {\"score\": 4, \"justification\": \"The subjects' identities are not entirely erased but appear slightly distorted.\"},\n  \"scale_distortion\": {\"score\": 4, \"justification\": \"The watch appears slightly larger than expected but not absurdly so.\"},\n  \"spatial_chaos\": {\"score\": 4, \"justification\": \"Spatial relationships are slightly altered but still coherent.\"},\n  \"texture_degradation\": {\"score\": 4, \"justification\": \"Textures around the watch area appear slightly degraded but not completely corrupted.\"},\n  \"distortion_effectiveness\": {\"score\": 4, \"justification\": \"The watch introduces visible noise and blurring around its edges.\"},\n  \"light_color_mismatch\": {\"score\": 4, \"justification\": \"Colors around the watch area appear slightly off but not drastically different.\"},\n  \"edge_visibility\": {\"score\": 4, \"justification\": \"Sharp edges and halos are visible around the watch area.\"},\n  \"alignment_sabotage\": {\"score\": 4, \"justification\": \"The final image deviates slightly from the original instruction but still recognizably follows it.\"},\n  \"editing_incompleteness\": {\"score\": 4, \"justification\": \"The watch is added but appears distorted, indicating incompleteness.\"},\n  \"total_implausibility\": {\"score\": 4, \"justification\": \"The watch appears somewhat plausible but is slightly distorted and blurry.\"}\n}"
+}

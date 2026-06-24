@@ -4,32 +4,34 @@ A person in a dormitory
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 31.8755
-SSIM: 0.9256
-FSIM: 0.9432
+PSNR: 31.5114
+SSIM: 0.9217
+FSIM: 0.9410
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 17.9853
-SSIM: 0.5746
-FSIM: 0.4984
-
-CLIP score (Image vs Prompt)
-Edited Original:  28.4166
-Edited Immunized: 27.2478
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.8418
-Caption orig: A woman wearing a blue dress with polka dots is standing in a doorway.
-Caption adv:  A woman wearing a blue dress with white polka dots is standing in a hallway.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
+PSNR: 16.7254
+SSIM: 0.5724
+FSIM: 0.4864
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.5143
-Background SSIM   (basso=protezione ok): 0.5353
-Subject LPIPS     (basso=soggetto ok)  : 0.2964
-Editing score                          : 0.4673
-Mask coverage (% background)           : 0.7529
+Global LPIPS                           : 0.4487
+Background LPIPS                       : 0.5108
+Subject LPIPS                          : 0.3078
+Separation                             : 0.6240
+Editing score                          : 0.5108
+Mask coverage                          : 0.7529
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person is no longer in a dormitory; they appear to be in a bathroom."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image shows a person in a bathroom, which contradicts the editing prompt that specifies a dormitory setting.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image shows a person in a bathroom, which contradicts the editing prompt that specifies a dormitory setting.\"\n}\n```"
+}

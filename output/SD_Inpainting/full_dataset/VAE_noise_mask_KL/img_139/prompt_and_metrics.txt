@@ -4,32 +4,34 @@ A person in a community arts and crafts market
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.4450
-SSIM: 0.9406
-FSIM: 0.9075
+PSNR: 30.4010
+SSIM: 0.9407
+FSIM: 0.9070
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 15.8624
-SSIM: 0.5245
-FSIM: 0.5317
-
-CLIP score (Image vs Prompt)
-Edited Original:  28.6175
-Edited Immunized: 28.0514
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.7691
-Caption orig: A woman wearing a white shirt and a black bow tie stands in front of a table with colorful pencils.
-Caption adv:  A woman wearing a white shirt and a black and red plaid skirt stands in front of a table with a pink cloth on it.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 15.4687
+SSIM: 0.5113
+FSIM: 0.5252
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.4953
-Background SSIM   (basso=protezione ok): 0.4641
-Subject LPIPS     (basso=soggetto ok)  : 0.3012
-Editing score                          : 0.4781
-Mask coverage (% background)           : 0.7660
+Global LPIPS                           : 0.4486
+Background LPIPS                       : 0.5248
+Subject LPIPS                          : 0.2977
+Separation                             : 0.6381
+Editing score                          : 0.5248
+Mask coverage                          : 0.7660
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person is still present in the image, but the background appears to be altered with a distorted effect, which does not align with the original scene of a community arts and crafts market."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image contains distorted and pixelated areas that obscure the semantic elements required by the editing prompt (a person in a community arts and crafts market). The image fails to maintain the clarity and presence of a person in such an environment.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image contains distorted and pixelated areas that obscure the semantic elements required by the editing prompt (a person in a community arts and crafts market). The image fails to maintain the clarity and presence of a person in such an environment.\"\n}\n```"
+}

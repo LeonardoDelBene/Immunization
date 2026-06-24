@@ -1,35 +1,138 @@
---- Prompt ---
-Put a red hat on the person in the image.
+add a backpack to the person
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 34.53371857854217,
+  "psnr_edited_original_vs_edited_immunized": 18.58000619329794
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 33.9797
-SSIM: 0.9862
-FSIM: 0.9566
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 27.6680
-SSIM: 0.9418
-FSIM: 0.8245
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9885935988584476,
+  "ssim_edited_original_vs_edited_immunized": 0.8092644762821192
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  25.0823
-Edited Immunized: 23.7533
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        1.0000
-Caption orig: A woman wearing a red hat and sunglasses is standing in front of a stop sign.
-Caption adv:  A woman wearing a red hat and sunglasses is standing in front of a stop sign.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.965274278225507,
+  "fsim_edited_original_vs_edited_immunized": 0.7027545664149959
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 1.0000
-Success:   False
-Accuracy:  0.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.0663
-Background SSIM   (basso=protezione ok): 0.8906
-Subject LPIPS     (basso=soggetto ok)  : 0.0749
-Editing score                          : 0.3144
-Mask coverage (% background)           : 0.2323
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.16362538055916936
+Global LPIPS : 0.027303574606776237
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.5014063079616602
+Global LPIPS : 0.13469886779785156
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The backpack appears to be added to the person's back, but there is some blurring around the edges of the backpack, making it less distinct from the original image. The overall clarity and recognizability of the image remain good.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The backpack appears to be added to the person's back, but there is some blurring around the edges of the backpack, making it less distinct from the original image. The overall clarity and recognizability of the image remain good.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "raw_output": "0"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 4.0,
+  "factor_scores": {
+    "background_infiltration": 4,
+    "global_coherence_ruin": 4,
+    "identity_erasure": 4,
+    "scale_distortion": 4,
+    "spatial_chaos": 4,
+    "texture_degradation": 4,
+    "distortion_effectiveness": 4,
+    "light_color_mismatch": 4,
+    "edge_visibility": 4,
+    "alignment_sabotage": 4,
+    "editing_incompleteness": 4,
+    "total_implausibility": 4
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 4,
+      "justification": "The backpack appears more prominent, but the background remains largely unchanged."
+    },
+    "global_coherence_ruin": {
+      "score": 4,
+      "justification": "The overall layout and style of the image are preserved."
+    },
+    "identity_erasure": {
+      "score": 4,
+      "justification": "The person and their features are still recognizable."
+    },
+    "scale_distortion": {
+      "score": 4,
+      "justification": "The person and the backpack maintain realistic proportions."
+    },
+    "spatial_chaos": {
+      "score": 4,
+      "justification": "Spatial relationships between the person and the environment are consistent."
+    },
+    "texture_degradation": {
+      "score": 4,
+      "justification": "Textures of the backpack and clothing are slightly altered but still discernible."
+    },
+    "distortion_effectiveness": {
+      "score": 4,
+      "justification": "There is some blurring around the edges of the backpack, but it is not severe."
+    },
+    "light_color_mismatch": {
+      "score": 4,
+      "justification": "Colors and shadows are consistent with the rest of the scene."
+    },
+    "edge_visibility": {
+      "score": 4,
+      "justification": "There are no visible seams or edges that disrupt the image."
+    },
+    "alignment_sabotage": {
+      "score": 4,
+      "justification": "The image still aligns with the original instruction of adding a backpack."
+    },
+    "editing_incompleteness": {
+      "score": 4,
+      "justification": "The backpack has been added, but there is some blurring around its edges."
+    },
+    "total_implausibility": {
+      "score": 4,
+      "justification": "The image is coherent and plausible despite the blurring around the backpack edges."
+    }
+  },
+  "raw_output": "```json\n{\n  \"background_infiltration\": {\"score\": 4, \"justification\": \"The backpack appears more prominent, but the background remains largely unchanged.\"},\n  \"global_coherence_ruin\": {\"score\": 4, \"justification\": \"The overall layout and style of the image are preserved.\"},\n  \"identity_erasure\": {\"score\": 4, \"justification\": \"The person and their features are still recognizable.\"},\n  \"scale_distortion\": {\"score\": 4, \"justification\": \"The person and the backpack maintain realistic proportions.\"},\n  \"spatial_chaos\": {\"score\": 4, \"justification\": \"Spatial relationships between the person and the environment are consistent.\"},\n  \"texture_degradation\": {\"score\": 4, \"justification\": \"Textures of the backpack and clothing are slightly altered but still discernible.\"},\n  \"distortion_effectiveness\": {\"score\": 4, \"justification\": \"There is some blurring around the edges of the backpack, but it is not severe.\"},\n  \"light_color_mismatch\": {\"score\": 4, \"justification\": \"Colors and shadows are consistent with the rest of the scene.\"},\n  \"edge_visibility\": {\"score\": 4, \"justification\": \"There are no visible seams or edges that disrupt the image.\"},\n  \"alignment_sabotage\": {\"score\": 4, \"justification\": \"The image still aligns with the original instruction of adding a backpack.\"},\n  \"editing_incompleteness\": {\"score\": 4, \"justification\": \"The backpack has been added, but there is some blurring around its edges.\"},\n  \"total_implausibility\": {\"score\": 4, \"justification\": \"The image is coherent and plausible despite the blurring around the backpack edges.\"}\n}\n```"
+}

@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a street parade
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 29.5819
+PSNR: 29.5821
 SSIM: 0.8960
 FSIM: 0.8947
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 17.2220
-SSIM: 0.5534
-FSIM: 0.5572
-
-CLIP score (Image vs Prompt)
-Edited Original:  26.2883
-Edited Immunized: 26.3755
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.4910
-Caption orig: A woman wearing a black jacket and a white skirt is walking down the street.
-Caption adv:  A woman in a white dress stands on a street corner, surrounded by other people.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 21.8740
+SSIM: 0.7683
+FSIM: 0.6875
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.5013
-Background SSIM   (basso=protezione ok): 0.5235
-Subject LPIPS     (basso=soggetto ok)  : 0.5260
-Editing score                          : 0.3435
-Mask coverage (% background)           : 0.7280
+Global LPIPS                           : 0.2359
+Background LPIPS                       : 0.1277
+Subject LPIPS                          : 0.5517
+Separation                             : 0.8120
+Editing score                          : 0.5517
+Mask coverage                          : 0.7280
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person in the adversarial image is wearing a hat, which fulfills the editing instruction."
+}

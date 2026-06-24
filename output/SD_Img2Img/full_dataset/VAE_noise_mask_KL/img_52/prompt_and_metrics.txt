@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a refugee camp
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 31.1033
+PSNR: 31.1049
 SSIM: 0.9400
 FSIM: 0.8717
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 26.4020
-SSIM: 0.8695
-FSIM: 0.7497
-
-CLIP score (Image vs Prompt)
-Edited Original:  29.0817
-Edited Immunized: 28.6132
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6262
-Caption orig: A woman wearing a brown sweater and a plaid hat stands in front of a large stuffed animal.
-Caption adv:  A woman wearing a red sweater and a black hat is standing in front of a man.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 21.7432
+SSIM: 0.7997
+FSIM: 0.6500
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.1111
-Background SSIM   (basso=protezione ok): 0.9018
-Subject LPIPS     (basso=soggetto ok)  : 0.3276
-Editing score                          : 0.1774
-Mask coverage (% background)           : 0.7214
+Global LPIPS                           : 0.2240
+Background LPIPS                       : 0.1644
+Subject LPIPS                          : 0.4032
+Separation                             : 0.7103
+Editing score                          : 0.4032
+Mask coverage                          : 0.7214
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person in the adversarial image is wearing a cap, which matches the editing prompt."
+}

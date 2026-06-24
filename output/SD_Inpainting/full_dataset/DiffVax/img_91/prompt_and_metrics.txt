@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a summer camp
+A person in a customs checkpoint
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 34.507314657906775,
+  "psnr_edited_original_vs_edited_immunized": 14.907889025102952
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 34.5065
-SSIM: 0.9864
-FSIM: 0.9617
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 16.0408
-SSIM: 0.6559
-FSIM: 0.5733
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.986380095764547,
+  "ssim_edited_original_vs_edited_immunized": 0.6231553246626467
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  27.2669
-Edited Immunized: 21.4572
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.5587
-Caption orig: A woman wearing a black and white shirt and carrying a blue backpack.
-Caption adv:  A woman wearing a black and white shirt and black pants is standing in front of a colorful background.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9617796561994268,
+  "fsim_edited_original_vs_edited_immunized": 0.5338991296228537
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.8560
-Background SSIM   (basso=protezione ok): 0.5431
-Subject LPIPS     (basso=soggetto ok)  : 0.0970
-Editing score                          : 0.5025
-Mask coverage (% background)           : 0.7279
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.09700217411966658
+Global LPIPS : 0.017738809809088707
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.09700217411966658
+Global LPIPS : 0.56376051902771
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as the person is still holding the chair, but the background has changed from an indoor setting with yellow barriers to an outdoor setting with a green wall and pink wavy lines. The image appears clear and recognizable.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as the person is still holding the chair, but the background has changed from an indoor setting with yellow barriers to an outdoor setting with a green wall and pink wavy lines. The image appears clear and recognizable.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 5.0,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 1,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 1,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 1,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been completely replaced with a green wall and pink wavy lines."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall scene is altered, losing the original indoor setting with yellow barriers."
+    },
+    "identity_erasure": {
+      "score": 1,
+      "justification": "The subject remains recognizable, wearing the same outfit and carrying the same object."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "The subject's proportions are maintained, no distortion observed."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "The spatial relationship between the subject and the background is disrupted."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "The original texture of the background is replaced with a new pattern."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Visible changes in the background create a noticeable distortion."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "The lighting and color scheme are drastically different from the original."
+    },
+    "edge_visibility": {
+      "score": 1,
+      "justification": "No visible edges or seams are present."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The final image completely deviates from the intended indoor setting."
+    },
+    "editing_incompleteness": {
+      "score": 1,
+      "justification": "The core elements of the edit (person, chair) are preserved."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd, showing a person in a customs checkpoint with an outdoor background."
+    }
+  },
+  "raw_output": "```json\n{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been completely replaced with a green wall and pink wavy lines.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall scene is altered, losing the original indoor setting with yellow barriers.\"},\n  \"identity_erasure\": {\"score\": 1, \"justification\": \"The subject remains recognizable, wearing the same outfit and carrying the same object.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"The subject's proportions are maintained, no distortion observed.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"The spatial relationship between the subject and the background is disrupted.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"The original texture of the background is replaced with a new pattern.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Visible changes in the background create a noticeable distortion.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"The lighting and color scheme are drastically different from the original.\"},\n  \"edge_visibility\": {\"score\": 1, \"justification\": \"No visible edges or seams are present.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The final image completely deviates from the intended indoor setting.\"},\n  \"editing_incompleteness\": {\"score\": 1, \"justification\": \"The core elements of the edit (person, chair) are preserved.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd, showing a person in a customs checkpoint with an outdoor background.\"}\n}\n```"
+}

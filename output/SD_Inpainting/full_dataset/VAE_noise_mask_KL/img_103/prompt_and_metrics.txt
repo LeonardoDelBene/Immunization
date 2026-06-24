@@ -4,32 +4,34 @@ A person in a creative writing event
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 28.0066
-SSIM: 0.8898
-FSIM: 0.8283
+PSNR: 28.0562
+SSIM: 0.8914
+FSIM: 0.8298
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 13.6838
-SSIM: 0.4707
-FSIM: 0.4458
-
-CLIP score (Image vs Prompt)
-Edited Original:  23.4773
-Edited Immunized: 25.6295
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.5393
-Caption orig: A woman wearing a white coat stands in front of a crowd of people.
-Caption adv:  A woman wearing a white coat and holding a cell phone.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
+PSNR: 13.4690
+SSIM: 0.4661
+FSIM: 0.4442
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.7721
-Background SSIM   (basso=protezione ok): 0.3449
-Subject LPIPS     (basso=soggetto ok)  : 0.5059
-Editing score                          : 0.5054
-Mask coverage (% background)           : 0.6305
+Global LPIPS                           : 0.6412
+Background LPIPS                       : 0.7940
+Subject LPIPS                          : 0.4997
+Separation                             : 0.6137
+Editing score                          : 0.7940
+Mask coverage                          : 0.6305
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The text 'A Peti Cast' is present, which suggests the semantic edit was to include text related to a creative writing event."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image does not depict a person in a creative writing event as specified in the editing prompt. Instead, it shows a person in an abstract, distorted environment.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image does not depict a person in a creative writing event as specified in the editing prompt. Instead, it shows a person in an abstract, distorted environment.\"\n}\n```"
+}

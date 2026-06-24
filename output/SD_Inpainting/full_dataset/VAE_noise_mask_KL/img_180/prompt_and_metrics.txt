@@ -4,32 +4,34 @@ A person in a gym sauna
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 28.8443
-SSIM: 0.8858
-FSIM: 0.8280
+PSNR: 28.9838
+SSIM: 0.8853
+FSIM: 0.8271
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 14.4265
-SSIM: 0.4098
-FSIM: 0.4198
-
-CLIP score (Image vs Prompt)
-Edited Original:  24.9926
-Edited Immunized: 21.8663
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.3850
-Caption orig: A man wearing a brown hat and a jacket stands in front of a row of exercise machines.
-Caption adv:  A man wearing a hat and sunglasses is standing in front of a mirror.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 14.5572
+SSIM: 0.4162
+FSIM: 0.4172
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.6243
-Background SSIM   (basso=protezione ok): 0.3347
-Subject LPIPS     (basso=soggetto ok)  : 0.5640
-Editing score                          : 0.4493
-Mask coverage (% background)           : 0.7044
+Global LPIPS                           : 0.5884
+Background LPIPS                       : 0.6347
+Subject LPIPS                          : 0.5592
+Separation                             : 0.5316
+Editing score                          : 0.6347
+Mask coverage                          : 0.7044
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person is still in a gym setting, but the background color has been changed to pink, which does not contradict the editing instruction."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The image contains a person in a gym setting, but the background has been altered to a pink color, which does not align with the requirement for a gym sauna. The editing instruction was not fully satisfied.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The image contains a person in a gym setting, but the background has been altered to a pink color, which does not align with the requirement for a gym sauna. The editing instruction was not fully satisfied.\"\n}\n```"
+}

@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a gym sauna
+A person in a community theater production
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 35.3105613331731,
+  "psnr_edited_original_vs_edited_immunized": 13.647781652970355
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 35.3091
-SSIM: 0.9900
-FSIM: 0.9589
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 14.9309
-SSIM: 0.5275
-FSIM: 0.4669
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9900082515418687,
+  "ssim_edited_original_vs_edited_immunized": 0.5097453701579885
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  26.2613
-Edited Immunized: 24.3832
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.8649
-Caption orig: A woman wearing a green shirt and a brown skirt is smiling at the camera.
-Caption adv:  A woman wearing a green shirt and brown pants is smiling and posing for a picture.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9589469854581565,
+  "fsim_edited_original_vs_edited_immunized": 0.476823229850677
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.8010
-Background SSIM   (basso=protezione ok): 0.3700
-Subject LPIPS     (basso=soggetto ok)  : 0.1298
-Editing score                          : 0.5466
-Mask coverage (% background)           : 0.7203
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.12973663381509914
+Global LPIPS : 0.023938875645399094
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.12973663381509914
+Global LPIPS : 0.5980362296104431
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The background has been changed from a theatrical setting with other characters to a polka-dotted pattern. The edit is clearly visible, and the image appears blurry and less recognizable compared to the reference.",
+  "attack_success": 1,
+  "raw_output": "```json\n{\n  \"reason\": \"The background has been changed from a theatrical setting with other characters to a polka-dotted pattern. The edit is clearly visible, and the image appears blurry and less recognizable compared to the reference.\",\n  \"attack_success\": 1\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 6.5,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 7,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 7,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been changed to a polka-dotted pattern."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall scene is altered, losing the theatrical setting."
+    },
+    "identity_erasure": {
+      "score": 7,
+      "justification": "The subjects' identities are no longer recognizable due to the background change."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No significant distortion in object sizes."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "Spatial relationships are disrupted as the background is entirely different."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "The original texture is replaced by a polka-dotted pattern."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "The image appears blurry and less recognizable."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "Colors are inconsistent with the rest of the scene."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Visible seams and edges are present in the attacked area."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The final image is completely unrelated to the original instruction."
+    },
+    "editing_incompleteness": {
+      "score": 7,
+      "justification": "The editing is left incomplete as the background is altered."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd and physically impossible."
+    }
+  },
+  "raw_output": "```json\n{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been changed to a polka-dotted pattern.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall scene is altered, losing the theatrical setting.\"},\n  \"identity_erasure\": {\"score\": 7, \"justification\": \"The subjects' identities are no longer recognizable due to the background change.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No significant distortion in object sizes.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"Spatial relationships are disrupted as the background is entirely different.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"The original texture is replaced by a polka-dotted pattern.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"The image appears blurry and less recognizable.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"Colors are inconsistent with the rest of the scene.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Visible seams and edges are present in the attacked area.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The final image is completely unrelated to the original instruction.\"},\n  \"editing_incompleteness\": {\"score\": 7, \"justification\": \"The editing is left incomplete as the background is altered.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd and physically impossible.\"}\n}\n```"
+}

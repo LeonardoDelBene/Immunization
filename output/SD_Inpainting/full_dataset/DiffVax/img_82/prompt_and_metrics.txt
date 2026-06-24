@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a fire drill
+A person in a community arts and crafts market
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 34.44797761417293,
+  "psnr_edited_original_vs_edited_immunized": 12.664333301765186
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 34.4461
-SSIM: 0.9900
-FSIM: 0.9658
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 13.4393
-SSIM: 0.5264
-FSIM: 0.5572
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9900012479040031,
+  "ssim_edited_original_vs_edited_immunized": 0.469542980901905
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  24.2137
-Edited Immunized: 20.6634
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.4744
-Caption orig: A woman wearing a black and gold dress stands out in a crowd of people.
-Caption adv:  A woman wearing a black and gold shirt stands in front of a wall covered in writing.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9657467804946781,
+  "fsim_edited_original_vs_edited_immunized": 0.538665420019497
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.9699
-Background SSIM   (basso=protezione ok): 0.3526
-Subject LPIPS     (basso=soggetto ok)  : 0.0931
-Editing score                          : 0.5713
-Mask coverage (% background)           : 0.7133
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.09314017785029684
+Global LPIPS : 0.02121095173060894
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.09314017785029684
+Global LPIPS : 0.5563932657241821
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The background has been changed from a busy arts and crafts market to a plain floral patterned backdrop. The edit is clearly visible, and the image appears clean and recognizable.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The background has been changed from a busy arts and crafts market to a plain floral patterned backdrop. The edit is clearly visible, and the image appears clean and recognizable.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 6.5,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 7,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 7,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been changed from a busy arts and crafts market to a plain floral patterned backdrop."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall scene is completely altered, losing the original context."
+    },
+    "identity_erasure": {
+      "score": 7,
+      "justification": "The subject remains recognizable, but the background is entirely different."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No significant distortion in object sizes."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "Spatial relationships are disrupted as the background is completely changed."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "The original textures are replaced by a new pattern."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Visible changes in texture and background create a distorted effect."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "Colors in the background do not match the original scene."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Sharp edges are visible where the background changes abruptly."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The entire image deviates significantly from the original instruction."
+    },
+    "editing_incompleteness": {
+      "score": 7,
+      "justification": "The background is completely altered, leaving the original edit incomplete."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd as the background is completely unrelated to the original scene."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been changed from a busy arts and crafts market to a plain floral patterned backdrop.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall scene is completely altered, losing the original context.\"},\n  \"identity_erasure\": {\"score\": 7, \"justification\": \"The subject remains recognizable, but the background is entirely different.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No significant distortion in object sizes.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"Spatial relationships are disrupted as the background is completely changed.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"The original textures are replaced by a new pattern.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Visible changes in texture and background create a distorted effect.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"Colors in the background do not match the original scene.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Sharp edges are visible where the background changes abruptly.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The entire image deviates significantly from the original instruction.\"},\n  \"editing_incompleteness\": {\"score\": 7, \"justification\": \"The background is completely altered, leaving the original edit incomplete.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd as the background is completely unrelated to the original scene.\"}\n}"
+}

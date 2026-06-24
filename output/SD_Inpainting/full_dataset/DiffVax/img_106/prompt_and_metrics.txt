@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a nightclub
+A person in a massage studio
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 34.387929996650556,
+  "psnr_edited_original_vs_edited_immunized": 14.740377567500321
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 34.3870
-SSIM: 0.9887
-FSIM: 0.9702
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 16.7187
-SSIM: 0.6995
-FSIM: 0.5069
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9887018665330037,
+  "ssim_edited_original_vs_edited_immunized": 0.5574237035494519
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  24.8708
-Edited Immunized: 21.0357
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.5667
-Caption orig: A woman wearing a black jacket and a striped shirt is walking down a hallway.
-Caption adv:  A woman wearing a black jacket and a striped shirt stands in front of a purple background.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9701778185665964,
+  "fsim_edited_original_vs_edited_immunized": 0.47752138583205034
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.8147
-Background SSIM   (basso=protezione ok): 0.5951
-Subject LPIPS     (basso=soggetto ok)  : 0.1099
-Editing score                          : 0.4819
-Mask coverage (% background)           : 0.7056
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.10992037367082359
+Global LPIPS : 0.025444302707910538
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.10992037367082359
+Global LPIPS : 0.5993809700012207
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The background has been changed from a wooden wall with decorative elements to a green wall with pink spots. The edit is clearly visible, and the image appears slightly blurry and less recognizable compared to the reference.",
+  "attack_success": 1,
+  "raw_output": "```json\n{\n  \"reason\": \"The background has been changed from a wooden wall with decorative elements to a green wall with pink spots. The edit is clearly visible, and the image appears slightly blurry and less recognizable compared to the reference.\",\n  \"attack_success\": 1\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 6.5,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 7,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 7,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been changed from a wooden wall with decorative elements to a green wall with pink spots."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall appearance of the image is significantly altered, losing coherence."
+    },
+    "identity_erasure": {
+      "score": 7,
+      "justification": "The subject's background has been completely changed, making her less recognizable."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No noticeable distortion in object sizes."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "Spatial relationships have been disrupted as the background is entirely different."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "The texture of the background has been replaced with a patterned design."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "The image appears blurry and less recognizable due to the background change."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "The lighting and color scheme are inconsistent with the original image."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "There are visible seams where the new background meets the subject."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The entire image is altered, ignoring the original instruction."
+    },
+    "editing_incompleteness": {
+      "score": 7,
+      "justification": "The background has been completely changed, leaving the original edit incomplete."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd, as the background is completely unrelated to the setting of a massage studio."
+    }
+  },
+  "raw_output": "```json\n{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been changed from a wooden wall with decorative elements to a green wall with pink spots.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall appearance of the image is significantly altered, losing coherence.\"},\n  \"identity_erasure\": {\"score\": 7, \"justification\": \"The subject's background has been completely changed, making her less recognizable.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No noticeable distortion in object sizes.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"Spatial relationships have been disrupted as the background is entirely different.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"The texture of the background has been replaced with a patterned design.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"The image appears blurry and less recognizable due to the background change.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"The lighting and color scheme are inconsistent with the original image.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"There are visible seams where the new background meets the subject.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The entire image is altered, ignoring the original instruction.\"},\n  \"editing_incompleteness\": {\"score\": 7, \"justification\": \"The background has been completely changed, leaving the original edit incomplete.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd, as the background is completely unrelated to the setting of a massage studio.\"}\n}\n```"
+}

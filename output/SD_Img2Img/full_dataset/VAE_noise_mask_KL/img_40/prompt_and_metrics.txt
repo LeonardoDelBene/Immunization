@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a rooftop lounge
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 33.1400
+PSNR: 33.1412
 SSIM: 0.9520
-FSIM: 0.9583
+FSIM: 0.9582
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 19.7510
-SSIM: 0.6950
-FSIM: 0.6162
-
-CLIP score (Image vs Prompt)
-Edited Original:  28.6384
-Edited Immunized: 29.4568
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6997
-Caption orig: A woman wearing a red sweater and pink pants is standing on a deck.
-Caption adv:  A woman wearing a red sweater and pink pants is standing in front of a group of palm trees.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 23.2869
+SSIM: 0.8502
+FSIM: 0.7738
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.3241
-Background SSIM   (basso=protezione ok): 0.6586
-Subject LPIPS     (basso=soggetto ok)  : 0.2484
-Editing score                          : 0.3830
-Mask coverage (% background)           : 0.7515
+Global LPIPS                           : 0.1499
+Background LPIPS                       : 0.0400
+Subject LPIPS                          : 0.5535
+Separation                             : 0.9326
+Editing score                          : 0.5535
+Mask coverage                          : 0.7515
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person in the image is wearing a cap, which matches the editing prompt."
+}

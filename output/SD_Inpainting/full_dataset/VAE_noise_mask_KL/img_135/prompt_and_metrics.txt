@@ -4,32 +4,34 @@ A person in a public park
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.6449
-SSIM: 0.9172
+PSNR: 30.5057
+SSIM: 0.9170
 FSIM: 0.8937
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 19.7210
-SSIM: 0.6287
-FSIM: 0.5267
-
-CLIP score (Image vs Prompt)
-Edited Original:  24.0306
-Edited Immunized: 26.0998
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.3272
-Caption orig: A man wearing a black leather jacket and black pants stands in a grassy field.
-Caption adv:  A woman wearing a black jacket and holding a cell phone.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 19.3916
+SSIM: 0.6220
+FSIM: 0.5272
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.5168
-Background SSIM   (basso=protezione ok): 0.6284
-Subject LPIPS     (basso=soggetto ok)  : 0.4292
-Editing score                          : 0.3607
-Mask coverage (% background)           : 0.7572
+Global LPIPS                           : 0.4553
+Background LPIPS                       : 0.5160
+Subject LPIPS                          : 0.4231
+Separation                             : 0.5495
+Editing score                          : 0.5160
+Mask coverage                          : 0.7572
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person is still in a park, but the image appears to be blurred and distorted, which does not satisfy the editing instruction of having a clear person in a public park."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The image contains a person in a park setting, but the person appears to be blurred and distorted, which may not fully satisfy the requirement for a clear depiction of a person in a public park.",
+  "raw_output": "```json\n{\n  \"attack_success\": 0,\n  \"reason\": \"The image contains a person in a park setting, but the person appears to be blurred and distorted, which may not fully satisfy the requirement for a clear depiction of a person in a public park.\"\n}\n```"
+}

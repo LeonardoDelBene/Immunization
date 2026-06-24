@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a music studio
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 31.4181
+PSNR: 31.4185
 SSIM: 0.9239
 FSIM: 0.8863
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 18.1298
-SSIM: 0.6253
-FSIM: 0.5293
-
-CLIP score (Image vs Prompt)
-Edited Original:  28.4505
-Edited Immunized: 27.7125
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.2911
-Caption orig: A woman wearing a grey sweater and a green and white shirt is standing in front of a soundboard.
-Caption adv:  A woman is standing in a room with a man, both of them are smiling.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
+PSNR: 23.7784
+SSIM: 0.8130
+FSIM: 0.6720
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.4728
-Background SSIM   (basso=protezione ok): 0.6073
-Subject LPIPS     (basso=soggetto ok)  : 0.4727
-Editing score                          : 0.3233
-Mask coverage (% background)           : 0.7493
+Global LPIPS                           : 0.2030
+Background LPIPS                       : 0.1280
+Subject LPIPS                          : 0.5201
+Separation                             : 0.8025
+Editing score                          : 0.5201
+Mask coverage                          : 0.7493
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person in the adversarial image is wearing a cap, which matches the editing prompt."
+}

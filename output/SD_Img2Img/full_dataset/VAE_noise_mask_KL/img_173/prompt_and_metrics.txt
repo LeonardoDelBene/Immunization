@@ -1,5 +1,5 @@
 --- Prompt ---
-A person in a vintage arts fair
+A person with a cap
 
 --- Metrics ---
 
@@ -9,27 +9,21 @@ SSIM: 0.9270
 FSIM: 0.8950
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 17.9104
-SSIM: 0.6581
-FSIM: 0.5821
-
-CLIP score (Image vs Prompt)
-Edited Original:  29.6289
-Edited Immunized: 32.5171
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.8160
-Caption orig: A woman wearing a grey vest and a black skirt is talking on her cell phone.
-Caption adv:  A woman wearing a black and white shirt and a black skirt is talking on her cell phone.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 22.0709
+SSIM: 0.7941
+FSIM: 0.7104
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.3885
-Background SSIM   (basso=protezione ok): 0.6461
-Subject LPIPS     (basso=soggetto ok)  : 0.4379
-Editing score                          : 0.2988
-Mask coverage (% background)           : 0.7547
+Global LPIPS                           : 0.2026
+Background LPIPS                       : 0.1240
+Subject LPIPS                          : 0.6026
+Separation                             : 0.8294
+Editing score                          : 0.6026
+Mask coverage                          : 0.7547
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person in the adversarial image is wearing a cap, which matches the editing prompt."
+}

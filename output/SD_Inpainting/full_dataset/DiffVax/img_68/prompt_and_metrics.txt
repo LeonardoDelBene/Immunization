@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a prison shower
+A person in a refugee camp
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 33.66842398302106,
+  "psnr_edited_original_vs_edited_immunized": 13.997939651061223
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 33.6687
-SSIM: 0.9862
-FSIM: 0.9597
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 18.4215
-SSIM: 0.5548
-FSIM: 0.5370
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9862150026133123,
+  "ssim_edited_original_vs_edited_immunized": 0.5447753582906711
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  29.9054
-Edited Immunized: 28.3495
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.3864
-Caption orig: A man in a grey jacket stands in front of a shower with water pouring down on him.
-Caption adv:  A man wearing a black jacket and holding a book.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.959762770864804,
+  "fsim_edited_original_vs_edited_immunized": 0.5222456297215209
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.8006
-Background SSIM   (basso=protezione ok): 0.3845
-Subject LPIPS     (basso=soggetto ok)  : 0.1426
-Editing score                          : 0.5413
-Mask coverage (% background)           : 0.6936
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.14263682547359266
+Global LPIPS : 0.03514162078499794
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.14263682547359266
+Global LPIPS : 0.5411287546157837
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as the background has changed from a refugee camp setting with tents and people to a plain fabric backdrop. The image appears clear and recognizable.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as the background has changed from a refugee camp setting with tents and people to a plain fabric backdrop. The image appears clear and recognizable.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 5.5,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 1,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 1,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been completely replaced with a patterned fabric, altering the original setting."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall scene is altered, losing the original context of a refugee camp."
+    },
+    "identity_erasure": {
+      "score": 1,
+      "justification": "The subject remains recognizable, but the background is significantly changed."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No significant distortion in object sizes."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "Spatial relationships are disrupted as the background is entirely different."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "The original texture of the background is replaced with a new pattern."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Visible changes in the background create a distorted effect."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "The lighting and color scheme are altered due to the new background."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Edges between the subject and the new background are very visible."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The final image completely deviates from the intended refugee camp setting."
+    },
+    "editing_incompleteness": {
+      "score": 1,
+      "justification": "The editing is not incomplete; the entire background is changed."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd as it no longer represents a refugee camp setting."
+    }
+  },
+  "raw_output": "```json\n{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been completely replaced with a patterned fabric, altering the original setting.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall scene is altered, losing the original context of a refugee camp.\"},\n  \"identity_erasure\": {\"score\": 1, \"justification\": \"The subject remains recognizable, but the background is significantly changed.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No significant distortion in object sizes.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"Spatial relationships are disrupted as the background is entirely different.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"The original texture of the background is replaced with a new pattern.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Visible changes in the background create a distorted effect.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"The lighting and color scheme are altered due to the new background.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Edges between the subject and the new background are very visible.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The final image completely deviates from the intended refugee camp setting.\"},\n  \"editing_incompleteness\": {\"score\": 1, \"justification\": \"The editing is not incomplete; the entire background is changed.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd as it no longer represents a refugee camp setting.\"}\n}\n```"
+}

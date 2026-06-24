@@ -1,35 +1,138 @@
---- Prompt ---
-Put a red hat on the person in the image.
+make the person smile
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 35.942774110306715,
+  "psnr_edited_original_vs_edited_immunized": 32.76986746649604
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 33.1644
-SSIM: 0.9881
-FSIM: 0.9449
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 23.9751
-SSIM: 0.9266
-FSIM: 0.7849
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9926211783335495,
+  "ssim_edited_original_vs_edited_immunized": 0.9753201082092623
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  26.7557
-Edited Immunized: 28.1313
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.9937
-Caption orig: A woman wearing a red jacket and a red hat stands in front of a red brick wall.
-Caption adv:  A woman wearing a red jacket and a red hat stands in front of a brick wall.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9592914625966195,
+  "fsim_edited_original_vs_edited_immunized": 0.8550534279456432
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.8000
-Success:   False
-Accuracy:  0.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.1911
-Background SSIM   (basso=protezione ok): 0.8047
-Subject LPIPS     (basso=soggetto ok)  : 0.1049
-Editing score                          : 0.3721
-Mask coverage (% background)           : 0.2519
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.14372258045824632
+Global LPIPS : 0.024361776188015938
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.13960395470851858
+Global LPIPS : 0.030827505514025688
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit to make the person smile is clearly visible. The person's expression has changed from neutral to smiling, and there are additional colorful decorations in their hair. The image remains clear and recognizable.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit to make the person smile is clearly visible. The person's expression has changed from neutral to smiling, and there are additional colorful decorations in their hair. The image remains clear and recognizable.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "raw_output": "0"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 4.0,
+  "factor_scores": {
+    "background_infiltration": 4,
+    "global_coherence_ruin": 4,
+    "identity_erasure": 4,
+    "scale_distortion": 4,
+    "spatial_chaos": 4,
+    "texture_degradation": 4,
+    "distortion_effectiveness": 4,
+    "light_color_mismatch": 4,
+    "edge_visibility": 4,
+    "alignment_sabotage": 4,
+    "editing_incompleteness": 4,
+    "total_implausibility": 4
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 4,
+      "justification": "Some minor changes in the background, but overall remains consistent."
+    },
+    "global_coherence_ruin": {
+      "score": 4,
+      "justification": "The overall style and layout are slightly altered but still recognizable."
+    },
+    "identity_erasure": {
+      "score": 4,
+      "justification": "The subject's identity is not erased, but some details are altered."
+    },
+    "scale_distortion": {
+      "score": 4,
+      "justification": "No significant distortion in object sizes."
+    },
+    "spatial_chaos": {
+      "score": 4,
+      "justification": "Spatial relationships are slightly disrupted but still logical."
+    },
+    "texture_degradation": {
+      "score": 4,
+      "justification": "Textures are slightly altered but still recognizable."
+    },
+    "distortion_effectiveness": {
+      "score": 4,
+      "justification": "Visible noise and blurring present but not severe."
+    },
+    "light_color_mismatch": {
+      "score": 4,
+      "justification": "Colors are slightly off but still consistent with the scene."
+    },
+    "edge_visibility": {
+      "score": 4,
+      "justification": "Some visible edges and seams present but not prominent."
+    },
+    "alignment_sabotage": {
+      "score": 4,
+      "justification": "The instruction to make the person smile is partially followed but altered."
+    },
+    "editing_incompleteness": {
+      "score": 4,
+      "justification": "The edit to make the person smile is partially undone."
+    },
+    "total_implausibility": {
+      "score": 4,
+      "justification": "The result is slightly implausible due to the altered details but still coherent."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 4, \"justification\": \"Some minor changes in the background, but overall remains consistent.\"},\n  \"global_coherence_ruin\": {\"score\": 4, \"justification\": \"The overall style and layout are slightly altered but still recognizable.\"},\n  \"identity_erasure\": {\"score\": 4, \"justification\": \"The subject's identity is not erased, but some details are altered.\"},\n  \"scale_distortion\": {\"score\": 4, \"justification\": \"No significant distortion in object sizes.\"},\n  \"spatial_chaos\": {\"score\": 4, \"justification\": \"Spatial relationships are slightly disrupted but still logical.\"},\n  \"texture_degradation\": {\"score\": 4, \"justification\": \"Textures are slightly altered but still recognizable.\"},\n  \"distortion_effectiveness\": {\"score\": 4, \"justification\": \"Visible noise and blurring present but not severe.\"},\n  \"light_color_mismatch\": {\"score\": 4, \"justification\": \"Colors are slightly off but still consistent with the scene.\"},\n  \"edge_visibility\": {\"score\": 4, \"justification\": \"Some visible edges and seams present but not prominent.\"},\n  \"alignment_sabotage\": {\"score\": 4, \"justification\": \"The instruction to make the person smile is partially followed but altered.\"},\n  \"editing_incompleteness\": {\"score\": 4, \"justification\": \"The edit to make the person smile is partially undone.\"},\n  \"total_implausibility\": {\"score\": 4, \"justification\": \"The result is slightly implausible due to the altered details but still coherent.\"}\n}"
+}

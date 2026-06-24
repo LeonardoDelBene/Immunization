@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a weekend market
+A person in a souvenir store
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 35.765515777272114,
+  "psnr_edited_original_vs_edited_immunized": 12.963039572503948
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 35.7656
-SSIM: 0.9904
-FSIM: 0.9720
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 13.7194
-SSIM: 0.4349
-FSIM: 0.4468
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9903809016427418,
+  "ssim_edited_original_vs_edited_immunized": 0.36261067302227185
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  29.3933
-Edited Immunized: 23.7287
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.2619
-Caption orig: A woman in a marketplace, surrounded by various fruits and vegetables.
-Caption adv:  A woman wearing a gray shirt and blue jeans stands in front of a green and pink wall.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9720154849129483,
+  "fsim_edited_original_vs_edited_immunized": 0.4344343193256992
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.9822
-Background SSIM   (basso=protezione ok): 0.3032
-Subject LPIPS     (basso=soggetto ok)  : 0.2026
-Editing score                          : 0.5794
-Mask coverage (% background)           : 0.7821
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.20261699352305565
+Global LPIPS : 0.0283859521150589
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.20261699352305565
+Global LPIPS : 0.5943868160247803
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as the background has been changed to a patterned wall with tags, but the person remains recognizable and the image is clear.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as the background has been changed to a patterned wall with tags, but the person remains recognizable and the image is clear.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 5.5,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 1,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 1,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been completely replaced with a patterned wall, altering the original setting."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall appearance of the image is significantly altered, losing its original context."
+    },
+    "identity_erasure": {
+      "score": 1,
+      "justification": "The subject's identity is not erased; she remains recognizable."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "The subject's proportions are maintained, no distortion observed."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "The spatial relationships are disrupted, with the subject appearing out of place."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "The original textures have been replaced with a patterned wall texture."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Visible noise and digital artifacts are introduced, making the image look artificial."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "The lighting and colors are inconsistent with the rest of the scene, creating a mismatch."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Sharp edges and visible seams are present, indicating a poor integration."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The final image completely deviates from the intended setting of a souvenir store."
+    },
+    "editing_incompleteness": {
+      "score": 1,
+      "justification": "The editing is not incomplete; the entire background has been altered."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd, as the subject appears in a completely different environment."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been completely replaced with a patterned wall, altering the original setting.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall appearance of the image is significantly altered, losing its original context.\"},\n  \"identity_erasure\": {\"score\": 1, \"justification\": \"The subject's identity is not erased; she remains recognizable.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"The subject's proportions are maintained, no distortion observed.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"The spatial relationships are disrupted, with the subject appearing out of place.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"The original textures have been replaced with a patterned wall texture.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Visible noise and digital artifacts are introduced, making the image look artificial.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"The lighting and colors are inconsistent with the rest of the scene, creating a mismatch.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Sharp edges and visible seams are present, indicating a poor integration.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The final image completely deviates from the intended setting of a souvenir store.\"},\n  \"editing_incompleteness\": {\"score\": 1, \"justification\": \"The editing is not incomplete; the entire background has been altered.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd, as the subject appears in a completely different environment.\"}\n}"
+}

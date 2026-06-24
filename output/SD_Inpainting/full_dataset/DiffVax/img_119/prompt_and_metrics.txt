@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a kite festival
+A person in a farmer's market event
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 36.346539922834864,
+  "psnr_edited_original_vs_edited_immunized": 12.800460472128849
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 36.3466
-SSIM: 0.9900
-FSIM: 0.9659
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 17.2264
-SSIM: 0.5989
-FSIM: 0.4984
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9899552636126039,
+  "ssim_edited_original_vs_edited_immunized": 0.46358288131051956
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  30.6493
-Edited Immunized: 27.7726
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.7503
-Caption orig: A woman wearing a fur coat and holding a kite.
-Caption adv:  A woman wearing a fur coat and holding a colorful umbrella.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9659423076438136,
+  "fsim_edited_original_vs_edited_immunized": 0.43236693159083966
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.7686
-Background SSIM   (basso=protezione ok): 0.4581
-Subject LPIPS     (basso=soggetto ok)  : 0.1402
-Editing score                          : 0.5162
-Mask coverage (% background)           : 0.7030
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.14022927497315252
+Global LPIPS : 0.03032653033733368
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.14022927497315252
+Global LPIPS : 0.6567031145095825
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as there is no indication of a farmer's market setting. The image appears to be heavily distorted with a background filled with small, colorful objects that do not resemble any market scene. The image is also very blurry and unrecognizable.",
+  "attack_success": 1,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as there is no indication of a farmer's market setting. The image appears to be heavily distorted with a background filled with small, colorful objects that do not resemble any market scene. The image is also very blurry and unrecognizable.\",\n  \"attack_success\": 1\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 7.0,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 7,
+    "scale_distortion": 7,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 7,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background is filled with small, colorful objects that do not resemble a farmer's market."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall appearance is totally altered, with no recognizable market scene."
+    },
+    "identity_erasure": {
+      "score": 7,
+      "justification": "The subject is unrecognizable due to the distortion and lack of context."
+    },
+    "scale_distortion": {
+      "score": 7,
+      "justification": "Objects are rendered unrealistic in size, appearing tiny and scattered."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "Spatial relationships are destroyed; objects are randomly placed without coherence."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "Textures are completely corrupted with noise and adversarial patterns."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Severe distortions are introduced, including blurring and digital artifacts."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "Colors are inconsistent with the rest of the scene, appearing unnatural."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Visible edges and seams are present, indicating the attack's effectiveness."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The final image completely deviates from the intended farmer's market setting."
+    },
+    "editing_incompleteness": {
+      "score": 7,
+      "justification": "Fundamental parts of the requested edit are removed, leaving the image incomplete."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The result is visually absurd and physically impossible, resembling a random scattering of objects."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background is filled with small, colorful objects that do not resemble a farmer's market.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall appearance is totally altered, with no recognizable market scene.\"},\n  \"identity_erasure\": {\"score\": 7, \"justification\": \"The subject is unrecognizable due to the distortion and lack of context.\"},\n  \"scale_distortion\": {\"score\": 7, \"justification\": \"Objects are rendered unrealistic in size, appearing tiny and scattered.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"Spatial relationships are destroyed; objects are randomly placed without coherence.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"Textures are completely corrupted with noise and adversarial patterns.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Severe distortions are introduced, including blurring and digital artifacts.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"Colors are inconsistent with the rest of the scene, appearing unnatural.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Visible edges and seams are present, indicating the attack's effectiveness.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The final image completely deviates from the intended farmer's market setting.\"},\n  \"editing_incompleteness\": {\"score\": 7, \"justification\": \"Fundamental parts of the requested edit are removed, leaving the image incomplete.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The result is visually absurd and physically impossible, resembling a random scattering of objects.\"}\n}"
+}

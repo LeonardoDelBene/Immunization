@@ -4,32 +4,34 @@ A person in a bowling alley
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.4549
+PSNR: 30.4770
 SSIM: 0.9212
-FSIM: 0.8792
+FSIM: 0.8795
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 12.5401
-SSIM: 0.4634
-FSIM: 0.4560
-
-CLIP score (Image vs Prompt)
-Edited Original:  30.2693
-Edited Immunized: 31.1680
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.8814
-Caption orig: A woman wearing a fur coat and holding a red purse is standing in front of a bowling alley.
-Caption adv:  A woman wearing a fur coat and a necklace is standing in a bowling alley.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 12.6497
+SSIM: 0.4568
+FSIM: 0.4570
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.5793
-Background SSIM   (basso=protezione ok): 0.3814
-Subject LPIPS     (basso=soggetto ok)  : 0.3848
-Editing score                          : 0.4864
-Mask coverage (% background)           : 0.7234
+Global LPIPS                           : 0.4813
+Background LPIPS                       : 0.5452
+Subject LPIPS                          : 0.3788
+Separation                             : 0.5901
+Editing score                          : 0.5452
+Mask coverage                          : 0.7234
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person is still holding a bowling ball, which indicates that the semantic edit was not correctly applied."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The image contains a person holding a bowling ball and standing in a bowling alley, but the person appears to be in motion, which contradicts the static nature typically expected in a bowling alley scene.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The image contains a person holding a bowling ball and standing in a bowling alley, but the person appears to be in motion, which contradicts the static nature typically expected in a bowling alley scene.\"\n}\n```"
+}

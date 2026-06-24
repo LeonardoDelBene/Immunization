@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a weekend market
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 29.6771
+PSNR: 29.6773
 SSIM: 0.8989
 FSIM: 0.9030
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 18.2374
-SSIM: 0.6561
-FSIM: 0.6294
-
-CLIP score (Image vs Prompt)
-Edited Original:  28.9709
-Edited Immunized: 31.3486
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.7985
-Caption orig: A man wearing a gray coat and a backpack is standing in a market.
-Caption adv:  A man wearing a hat and a coat is standing in a market.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 22.1121
+SSIM: 0.7519
+FSIM: 0.6951
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.4420
-Background SSIM   (basso=protezione ok): 0.6593
-Subject LPIPS     (basso=soggetto ok)  : 0.4876
-Editing score                          : 0.2864
-Mask coverage (% background)           : 0.7122
+Global LPIPS                           : 0.2509
+Background LPIPS                       : 0.1574
+Subject LPIPS                          : 0.5574
+Separation                             : 0.7798
+Editing score                          : 0.5574
+Mask coverage                          : 0.7122
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The jacket has been changed from a solid color to camouflage pattern, which does not align with the editing instruction to keep the person wearing a cap."
+}

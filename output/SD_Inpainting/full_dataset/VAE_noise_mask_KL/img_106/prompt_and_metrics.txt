@@ -4,32 +4,34 @@ A person in a nightclub
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 29.7914
-SSIM: 0.8973
-FSIM: 0.9136
+PSNR: 29.4771
+SSIM: 0.8970
+FSIM: 0.9130
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 17.1193
-SSIM: 0.5452
-FSIM: 0.4901
-
-CLIP score (Image vs Prompt)
-Edited Original:  24.8708
-Edited Immunized: 26.2316
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.5969
-Caption orig: A woman wearing a black jacket and a striped shirt is walking down a hallway.
-Caption adv:  A woman wearing a black jacket and a blue headband is walking down a street.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 16.6413
+SSIM: 0.5245
+FSIM: 0.4856
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.6183
-Background SSIM   (basso=protezione ok): 0.5086
-Subject LPIPS     (basso=soggetto ok)  : 0.4002
-Editing score                          : 0.4546
-Mask coverage (% background)           : 0.7056
+Global LPIPS                           : 0.5515
+Background LPIPS                       : 0.6390
+Subject LPIPS                          : 0.4116
+Separation                             : 0.6082
+Editing score                          : 0.6390
+Mask coverage                          : 0.7056
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person is still in a nightclub setting, but the lighting and background have been altered, which does not contradict the original instruction."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The image contains a person, but the background appears to be a stage setting rather than a nightclub environment.",
+  "raw_output": "```json\n{\n  \"attack_success\": 0,\n  \"reason\": \"The image contains a person, but the background appears to be a stage setting rather than a nightclub environment.\"\n}\n```"
+}

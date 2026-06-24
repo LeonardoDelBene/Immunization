@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a slum
+A person in a nightclub
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 34.86481861863379,
+  "psnr_edited_original_vs_edited_immunized": 14.708488349802984
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 34.8650
-SSIM: 0.9895
-FSIM: 0.9636
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 12.8068
-SSIM: 0.4256
-FSIM: 0.3978
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9894728526515267,
+  "ssim_edited_original_vs_edited_immunized": 0.41477532586848875
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  28.2799
-Edited Immunized: 19.6663
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.7926
-Caption orig: A woman wearing a white shirt and black skirt stands in front of a pile of clothes.
-Caption adv:  A woman wearing a white shirt and black skirt stands in front of a colorful wall.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9634873502582518,
+  "fsim_edited_original_vs_edited_immunized": 0.40052512618229735
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.8110
-Background SSIM   (basso=protezione ok): 0.2464
-Subject LPIPS     (basso=soggetto ok)  : 0.1134
-Editing score                          : 0.5859
-Mask coverage (% background)           : 0.7377
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.1134983005933448
+Global LPIPS : 0.01957109570503235
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.1134983005933448
+Global LPIPS : 0.5256263017654419
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as the background has been changed from a reflective surface to a colorful, abstract pattern. The image remains clear and recognizable.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as the background has been changed from a reflective surface to a colorful, abstract pattern. The image remains clear and recognizable.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 6.5,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 7,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 7,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been completely replaced with a chaotic, abstract pattern."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall appearance is totally altered, losing the original style and layout."
+    },
+    "identity_erasure": {
+      "score": 7,
+      "justification": "The subject's identity is lost due to the chaotic background."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No objects are rendered disproportionate or unrealistic in size."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "Spatial relationships and perspective are destroyed by the chaotic background."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "The original textures have been replaced by a noisy, abstract pattern."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Severe, deliberate distortions are introduced through the chaotic background."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "Colors and shadows are inconsistent with the rest of the scene due to the chaotic background."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Visible 'seams' appear where the background transitions into the subject."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The final image completely deviates from the intent of the original instruction."
+    },
+    "editing_incompleteness": {
+      "score": 7,
+      "justification": "The editing is left incomplete as the background is entirely altered."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd and physically impossible due to the chaotic background."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been completely replaced with a chaotic, abstract pattern.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall appearance is totally altered, losing the original style and layout.\"},\n  \"identity_erasure\": {\"score\": 7, \"justification\": \"The subject's identity is lost due to the chaotic background.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No objects are rendered disproportionate or unrealistic in size.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"Spatial relationships and perspective are destroyed by the chaotic background.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"The original textures have been replaced by a noisy, abstract pattern.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Severe, deliberate distortions are introduced through the chaotic background.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"Colors and shadows are inconsistent with the rest of the scene due to the chaotic background.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Visible 'seams' appear where the background transitions into the subject.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The final image completely deviates from the intent of the original instruction.\"},\n  \"editing_incompleteness\": {\"score\": 7, \"justification\": \"The editing is left incomplete as the background is entirely altered.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd and physically impossible due to the chaotic background.\"}\n}"
+}

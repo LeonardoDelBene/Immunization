@@ -4,32 +4,34 @@ A person in a refugee camp
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 31.2049
-SSIM: 0.9398
-FSIM: 0.8730
+PSNR: 31.1033
+SSIM: 0.9400
+FSIM: 0.8717
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 16.8331
-SSIM: 0.5576
-FSIM: 0.5155
-
-CLIP score (Image vs Prompt)
-Edited Original:  27.9442
-Edited Immunized: 28.3475
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.8057
-Caption orig: A woman wearing a brown sweater and a plaid hat stands in front of a shack.
-Caption adv:  A woman wearing a brown sweater and a plaid hat stands in front of a line of clothes.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 17.6681
+SSIM: 0.6026
+FSIM: 0.5435
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.5645
-Background SSIM   (basso=protezione ok): 0.4757
-Subject LPIPS     (basso=soggetto ok)  : 0.3346
-Editing score                          : 0.4823
-Mask coverage (% background)           : 0.7214
+Global LPIPS                           : 0.4343
+Background LPIPS                       : 0.5095
+Subject LPIPS                          : 0.3276
+Separation                             : 0.6086
+Editing score                          : 0.5095
+Mask coverage                          : 0.7214
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person in the image is not in a refugee camp; they appear to be in a market setting with stalls and people selling goods."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image does not depict a person in a refugee camp as required by the editing prompt. Instead, it shows a person in an outdoor setting with tents and people in the background, but there is no clear indication that this is a refugee camp.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image does not depict a person in a refugee camp as required by the editing prompt. Instead, it shows a person in an outdoor setting with tents and people in the background, but there is no clear indication that this is a refugee camp.\"\n}\n```"
+}

@@ -4,32 +4,34 @@ A person in a charity art auction
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 29.3468
-SSIM: 0.8557
-FSIM: 0.7411
+PSNR: 29.2618
+SSIM: 0.8561
+FSIM: 0.7426
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 14.8312
-SSIM: 0.4786
-FSIM: 0.4132
-
-CLIP score (Image vs Prompt)
-Edited Original:  27.4294
-Edited Immunized: 24.5993
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.4323
-Caption orig: A woman wearing a gray coat and holding a brown purse.
-Caption adv:  A woman wearing a black coat and a white shirt is smiling for the camera.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 14.8893
+SSIM: 0.4771
+FSIM: 0.4165
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.7192
-Background SSIM   (basso=protezione ok): 0.3766
-Subject LPIPS     (basso=soggetto ok)  : 0.5063
-Editing score                          : 0.4747
-Mask coverage (% background)           : 0.5932
+Global LPIPS                           : 0.6232
+Background LPIPS                       : 0.7459
+Subject LPIPS                          : 0.5029
+Separation                             : 0.5973
+Editing score                          : 0.7459
+Mask coverage                          : 0.5932
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person is no longer in a charity art auction setting."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image lacks any indication of a charity art auction setting, such as auctioneer presence, auction items, or auction-related text. The background appears to be a plain wall without any auction-related context.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image lacks any indication of a charity art auction setting, such as auctioneer presence, auction items, or auction-related text. The background appears to be a plain wall without any auction-related context.\"\n}\n```"
+}

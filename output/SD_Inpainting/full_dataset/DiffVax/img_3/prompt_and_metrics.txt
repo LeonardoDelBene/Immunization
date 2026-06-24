@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a sports field
+A person in a waterside cafe
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 35.32083459942182,
+  "psnr_edited_original_vs_edited_immunized": 13.210428482980806
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 35.3214
-SSIM: 0.9870
-FSIM: 0.9626
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 19.3157
-SSIM: 0.6130
-FSIM: 0.4562
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9870145031192044,
+  "ssim_edited_original_vs_edited_immunized": 0.4438514952555103
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  27.7392
-Edited Immunized: 25.0269
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6166
-Caption orig: A woman wearing a black and white striped shirt stands on a field.
-Caption adv:  A woman wearing a black and white striped shirt stands in front of a purple background.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9626176236183381,
+  "fsim_edited_original_vs_edited_immunized": 0.43726783385841955
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.8548
-Background SSIM   (basso=protezione ok): 0.5263
-Subject LPIPS     (basso=soggetto ok)  : 0.1785
-Editing score                          : 0.5015
-Mask coverage (% background)           : 0.7786
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.17850187879427282
+Global LPIPS : 0.03249446302652359
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.17850187879427282
+Global LPIPS : 0.6524854898452759
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as the person is still standing by the waterside cafe. However, the background has been changed from a water scene with boats to a wall with pink spots, indicating a degradation in the image quality.",
+  "attack_success": 1,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as the person is still standing by the waterside cafe. However, the background has been changed from a water scene with boats to a wall with pink spots, indicating a degradation in the image quality.\",\n  \"attack_success\": 1\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 5.5,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 1,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 1,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been completely replaced with a wall featuring pink spots."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall scene is drastically altered, losing its original context."
+    },
+    "identity_erasure": {
+      "score": 1,
+      "justification": "The subject remains recognizable, but the background is entirely changed."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No significant distortion in object sizes."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "Spatial relationships are completely disrupted, with the subject now in front of a wall instead of a waterside cafe."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "The original texture of the background is completely replaced with a patterned wall."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Visible changes in texture and background indicate severe distortion."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "The lighting and color scheme are inconsistent with the original scene."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Sharp edges and seams are visible where the background changes abruptly."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The final image completely ignores the original instruction of a waterside cafe."
+    },
+    "editing_incompleteness": {
+      "score": 1,
+      "justification": "The editing is not incomplete; the entire background is changed."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd, as the subject is now in front of a wall with pink spots, which is not plausible in a waterside cafe setting."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been completely replaced with a wall featuring pink spots.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall scene is drastically altered, losing its original context.\"},\n  \"identity_erasure\": {\"score\": 1, \"justification\": \"The subject remains recognizable, but the background is entirely changed.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No significant distortion in object sizes.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"Spatial relationships are completely disrupted, with the subject now in front of a wall instead of a waterside cafe.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"The original texture of the background is completely replaced with a patterned wall.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Visible changes in texture and background indicate severe distortion.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"The lighting and color scheme are inconsistent with the original scene.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Sharp edges and seams are visible where the background changes abruptly.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The final image completely ignores the original instruction of a waterside cafe.\"},\n  \"editing_incompleteness\": {\"score\": 1, \"justification\": \"The editing is not incomplete; the entire background is changed.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd, as the subject is now in front of a wall with pink spots, which is not plausible in a waterside cafe setting.\"}\n}"
+}

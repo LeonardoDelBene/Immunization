@@ -4,32 +4,34 @@ A person in a gym sauna
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.0847
-SSIM: 0.9208
-FSIM: 0.8389
+PSNR: 30.0795
+SSIM: 0.9221
+FSIM: 0.8409
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 13.4830
-SSIM: 0.3431
-FSIM: 0.4105
-
-CLIP score (Image vs Prompt)
-Edited Original:  26.2613
-Edited Immunized: 24.4002
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6453
-Caption orig: A woman wearing a green shirt and a brown skirt is smiling at the camera.
-Caption adv:  A woman wearing a blue shirt and a brown skirt is smiling.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 14.1854
+SSIM: 0.3503
+FSIM: 0.4135
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.6942
-Background SSIM   (basso=protezione ok): 0.2112
-Subject LPIPS     (basso=soggetto ok)  : 0.4152
-Editing score                          : 0.5652
-Mask coverage (% background)           : 0.7203
+Global LPIPS                           : 0.5551
+Background LPIPS                       : 0.6782
+Subject LPIPS                          : 0.4032
+Separation                             : 0.6271
+Editing score                          : 0.6782
+Mask coverage                          : 0.7203
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person is still in a gym setting, but the background appears to be a sauna, which does not match the original gym environment."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The image shows a person in a sauna setting, but the person is not in a gym. This contradicts the editing instruction which specifies 'a person in a gym sauna'. Therefore, the attack is successful.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The image shows a person in a sauna setting, but the person is not in a gym. This contradicts the editing instruction which specifies 'a person in a gym sauna'. Therefore, the attack is successful.\"\n}\n```"
+}

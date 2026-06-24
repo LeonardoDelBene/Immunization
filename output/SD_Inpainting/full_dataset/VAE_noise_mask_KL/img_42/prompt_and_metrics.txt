@@ -4,32 +4,34 @@ A person in a golf course clubhouse
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 31.0385
-SSIM: 0.9116
-FSIM: 0.9323
+PSNR: 30.8762
+SSIM: 0.9111
+FSIM: 0.9319
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 16.1574
-SSIM: 0.5262
-FSIM: 0.4042
-
-CLIP score (Image vs Prompt)
-Edited Original:  27.5540
-Edited Immunized: 25.5096
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.5126
-Caption orig: A man wearing a black shirt and shorts stands on a lush green golf course.
-Caption adv:  A man wearing a black tank top and black shorts stands in front of a building.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 15.6301
+SSIM: 0.5085
+FSIM: 0.3975
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.6909
-Background SSIM   (basso=protezione ok): 0.4845
-Subject LPIPS     (basso=soggetto ok)  : 0.5614
-Editing score                          : 0.4310
-Mask coverage (% background)           : 0.7378
+Global LPIPS                           : 0.6405
+Background LPIPS                       : 0.7290
+Subject LPIPS                          : 0.5671
+Separation                             : 0.5624
+Editing score                          : 0.7290
+Mask coverage                          : 0.7378
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person is not in a golf course clubhouse; instead, they appear to be in an indoor setting with a different background."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image shows a person standing in an outdoor setting that resembles a golf course, but there are no visible clubhouse elements such as windows, doors, or interior features that would indicate the presence of a clubhouse. The editing instruction specifies a clubhouse, which is not present in the image.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image shows a person standing in an outdoor setting that resembles a golf course, but there are no visible clubhouse elements such as windows, doors, or interior features that would indicate the presence of a clubhouse. The editing instruction specifies a clubhouse, which is not present in the image.\"\n}\n```"
+}

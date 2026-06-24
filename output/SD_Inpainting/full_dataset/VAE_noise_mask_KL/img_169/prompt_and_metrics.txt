@@ -4,32 +4,34 @@ A person in a strip club
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 31.0060
-SSIM: 0.9222
-FSIM: 0.8757
+PSNR: 30.8179
+SSIM: 0.9214
+FSIM: 0.8742
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 13.9738
-SSIM: 0.3795
-FSIM: 0.4352
-
-CLIP score (Image vs Prompt)
-Edited Original:  24.0495
-Edited Immunized: 23.6622
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.4028
-Caption orig: A man wearing a tan jacket and carrying a backpack stands in front of a bar.
-Caption adv:  A man wearing a white jacket and a helmet is standing in a room with other people.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 9.1496
+SSIM: 0.1719
+FSIM: 0.3047
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.7212
-Background SSIM   (basso=protezione ok): 0.2832
-Subject LPIPS     (basso=soggetto ok)  : 0.4106
-Editing score                          : 0.5571
-Mask coverage (% background)           : 0.7502
+Global LPIPS                           : 0.7579
+Background LPIPS                       : 0.9149
+Subject LPIPS                          : 0.4254
+Separation                             : 0.6826
+Editing score                          : 0.9149
+Mask coverage                          : 0.7502
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person is no longer in a bar setting, which contradicts the editing instruction."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image lacks any visual elements that suggest a strip club setting, such as stage lighting, performers, or typical decor found in such venues.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image lacks any visual elements that suggest a strip club setting, such as stage lighting, performers, or typical decor found in such venues.\"\n}\n```"
+}

@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a street vendor stand
+A person in a dog park picnic
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 34.403564670640094,
+  "psnr_edited_original_vs_edited_immunized": 16.783663066917796
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 34.4037
-SSIM: 0.9894
-FSIM: 0.9544
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 12.0198
-SSIM: 0.4676
-FSIM: 0.4882
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9893698874125828,
+  "ssim_edited_original_vs_edited_immunized": 0.6230013993951381
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  28.3296
-Edited Immunized: 26.3301
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6096
-Caption orig: A woman in a blue shirt stands in front of a fruit stand.
-Caption adv:  A woman wearing a blue shirt and jeans stands in front of a pink and white background.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9544987334255152,
+  "fsim_edited_original_vs_edited_immunized": 0.5799658150774997
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.6894
-Background SSIM   (basso=protezione ok): 0.3018
-Subject LPIPS     (basso=soggetto ok)  : 0.1578
-Editing score                          : 0.5541
-Mask coverage (% background)           : 0.7331
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.15784186507924933
+Global LPIPS : 0.025461580604314804
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.15784186507924933
+Global LPIPS : 0.40701842308044434
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as there is no picnic scene or any picnic elements present. The image appears to be clear and recognizable with no noticeable degradation.",
+  "attack_success": 1,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as there is no picnic scene or any picnic elements present. The image appears to be clear and recognizable with no noticeable degradation.\",\n  \"attack_success\": 1\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 7.0,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 7,
+    "scale_distortion": 7,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 7,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been replaced with a patterned fabric."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall scene is completely altered with a new background and object."
+    },
+    "identity_erasure": {
+      "score": 7,
+      "justification": "The subject's face is blurred and the background is replaced."
+    },
+    "scale_distortion": {
+      "score": 7,
+      "justification": "The background object is disproportionately large compared to the subject."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "The spatial relationship between the subject and the background is disrupted."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "The original texture of the background is replaced with a patterned fabric."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Visible distortion includes blurring and replacement of the background."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "The colors of the background fabric do not match the natural lighting of the scene."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Sharp edges and seams are visible where the fabric overlaps the subject."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The final image completely deviates from the intended picnic scene."
+    },
+    "editing_incompleteness": {
+      "score": 7,
+      "justification": "The picnic elements are entirely removed and replaced with a new object."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd with a large fabric replacing the background and picnic elements."
+    }
+  },
+  "raw_output": "```json\n{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been replaced with a patterned fabric.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall scene is completely altered with a new background and object.\"},\n  \"identity_erasure\": {\"score\": 7, \"justification\": \"The subject's face is blurred and the background is replaced.\"},\n  \"scale_distortion\": {\"score\": 7, \"justification\": \"The background object is disproportionately large compared to the subject.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"The spatial relationship between the subject and the background is disrupted.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"The original texture of the background is replaced with a patterned fabric.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Visible distortion includes blurring and replacement of the background.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"The colors of the background fabric do not match the natural lighting of the scene.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Sharp edges and seams are visible where the fabric overlaps the subject.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The final image completely deviates from the intended picnic scene.\"},\n  \"editing_incompleteness\": {\"score\": 7, \"justification\": \"The picnic elements are entirely removed and replaced with a new object.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd with a large fabric replacing the background and picnic elements.\"}\n}\n```"
+}

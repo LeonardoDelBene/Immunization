@@ -4,32 +4,34 @@ A person in a beachside boardwalk
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 31.3838
-SSIM: 0.9337
-FSIM: 0.9204
+PSNR: 31.3172
+SSIM: 0.9343
+FSIM: 0.9206
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 14.4005
-SSIM: 0.6113
-FSIM: 0.4733
-
-CLIP score (Image vs Prompt)
-Edited Original:  27.5987
-Edited Immunized: 26.1368
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.8426
-Caption orig: A woman wearing a white sweater and a green and white skirt is standing on a beach.
-Caption adv:  A woman wearing a white shirt and a hat is standing on a beach.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 14.6874
+SSIM: 0.6216
+FSIM: 0.4818
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.6815
-Background SSIM   (basso=protezione ok): 0.5792
-Subject LPIPS     (basso=soggetto ok)  : 0.3640
-Editing score                          : 0.4804
-Mask coverage (% background)           : 0.7403
+Global LPIPS                           : 0.5629
+Background LPIPS                       : 0.6807
+Subject LPIPS                          : 0.3562
+Separation                             : 0.6565
+Editing score                          : 0.6807
+Mask coverage                          : 0.7403
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person is still in a beach setting with palm trees, but the sky appears darker and more overcast, which does not contradict the original instruction."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image includes a person standing on a beachside boardwalk, but the background has been altered to include palm trees and a cloudy sky, which contradicts the original scene.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image includes a person standing on a beachside boardwalk, but the background has been altered to include palm trees and a cloudy sky, which contradicts the original scene.\"\n}\n```"
+}

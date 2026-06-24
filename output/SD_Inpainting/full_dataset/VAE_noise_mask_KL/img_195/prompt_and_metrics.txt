@@ -4,32 +4,34 @@ A person in a travel kiosk
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 29.4962
-SSIM: 0.9058
+PSNR: 29.3376
+SSIM: 0.9047
 FSIM: 0.8901
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 13.2797
-SSIM: 0.4940
-FSIM: 0.4601
-
-CLIP score (Image vs Prompt)
-Edited Original:  32.3913
-Edited Immunized: 30.6290
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.7444
-Caption orig: A man wearing a plaid jacket and red pants stands in front of a large screen.
-Caption adv:  A man wearing a black jacket and a black hat stands in front of a computer screen.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 15.3090
+SSIM: 0.5528
+FSIM: 0.4819
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.6234
-Background SSIM   (basso=protezione ok): 0.4050
-Subject LPIPS     (basso=soggetto ok)  : 0.3778
-Editing score                          : 0.5012
-Mask coverage (% background)           : 0.6810
+Global LPIPS                           : 0.5013
+Background LPIPS                       : 0.5714
+Subject LPIPS                          : 0.3845
+Separation                             : 0.5977
+Editing score                          : 0.5714
+Mask coverage                          : 0.6810
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person is still present in front of the travel kiosk, but the image appears to be heavily distorted with artifacts and noise, which does not align with the original editing prompt."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image contains a person standing in front of a travel kiosk, but the image quality is severely distorted and lacks clear semantic elements required by the prompt.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image contains a person standing in front of a travel kiosk, but the image quality is severely distorted and lacks clear semantic elements required by the prompt.\"\n}\n```"
+}

@@ -1,23 +1,21 @@
 --- Prompt ---
-person in a garden
+A person in a church hall
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 23.2232
-SSIM: 0.8458
-FSIM: 0.8517
+PSNR: 25.2949
+SSIM: 0.8873
+FSIM: 0.8930
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 14.8127
-SSIM: 0.3685
-FSIM: 0.4339
+PSNR: 13.1879
+SSIM: 0.4237
+FSIM: 0.4101
 
-CLIP score (Image vs Prompt)
-Edited Original:  24.6881
-Edited Immunized: 27.3544
-
-Caption similarity (Edited Original vs Edited Immunized)
-Score: 0.5595
-Caption orig : A woman wearing a black and white shirt is standing in a field of flowers.
-Caption adv : A woman wearing a black and white shirt and a necklace stands in front of a green background.
+Masked Editing Score
+Global LPIPS                           : 0.6052
+Background LPIPS                       : 0.6913
+Subject LPIPS                          : 0.5078
+Editing score                          : 0.5765
+Mask coverage                          : 0.7179

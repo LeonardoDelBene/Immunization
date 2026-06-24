@@ -1,5 +1,5 @@
 --- Prompt ---
-A person in a public park
+A person with a cap
 
 --- Metrics ---
 
@@ -9,27 +9,21 @@ SSIM: 0.9170
 FSIM: 0.8937
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 19.2908
-SSIM: 0.7611
-FSIM: 0.6953
-
-CLIP score (Image vs Prompt)
-Edited Original:  23.6724
-Edited Immunized: 25.8058
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.1889
-Caption orig: A man wearing a black jacket and black pants stands in front of a tree.
-Caption adv:  A man and a woman are standing in a park, with the woman leaning on the man.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
+PSNR: 22.8662
+SSIM: 0.7709
+FSIM: 0.6789
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.3048
-Background SSIM   (basso=protezione ok): 0.7967
-Subject LPIPS     (basso=soggetto ok)  : 0.4231
-Editing score                          : 0.2291
-Mask coverage (% background)           : 0.7572
+Global LPIPS                           : 0.2638
+Background LPIPS                       : 0.1595
+Subject LPIPS                          : 0.6780
+Separation                             : 0.8096
+Editing score                          : 0.6780
+Mask coverage                          : 0.7572
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person in the image is wearing a cap, which matches the editing prompt."
+}

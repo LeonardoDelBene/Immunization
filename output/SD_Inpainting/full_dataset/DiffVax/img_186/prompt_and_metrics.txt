@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a garage
+A person in a surf shop
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 35.260688390562834,
+  "psnr_edited_original_vs_edited_immunized": 11.974776053224424
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 35.2603
-SSIM: 0.9910
-FSIM: 0.9700
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 13.7464
-SSIM: 0.5023
-FSIM: 0.4981
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9910056591279809,
+  "ssim_edited_original_vs_edited_immunized": 0.4463487726261321
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  26.9376
-Edited Immunized: 23.5043
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6173
-Caption orig: A man wearing a green jacket stands in front of a wall filled with various tools and equipment.
-Caption adv:  A man wearing a brown jacket and a white shirt stands in front of a pink background.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9699958846502382,
+  "fsim_edited_original_vs_edited_immunized": 0.48237983795690553
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.8653
-Background SSIM   (basso=protezione ok): 0.2505
-Subject LPIPS     (basso=soggetto ok)  : 0.1190
-Editing score                          : 0.5896
-Mask coverage (% background)           : 0.6415
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.11901714969368817
+Global LPIPS : 0.021398866549134254
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.11901714969368817
+Global LPIPS : 0.5500202178955078
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as the background has changed from a surfboard rack to a wall with colorful scribbles. The image remains clear and recognizable.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as the background has changed from a surfboard rack to a wall with colorful scribbles. The image remains clear and recognizable.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 6.5,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 7,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 7,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been completely replaced with a wall covered in colorful scribbles."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall appearance of the image is drastically altered, losing all coherence."
+    },
+    "identity_erasure": {
+      "score": 7,
+      "justification": "The subject's background has been entirely erased, making the image incoherent."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "The image retains its original scale and proportions."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "The spatial relationships have been completely disrupted, with the subject seemingly floating in a chaotic background."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "The original texture of the background has been replaced with a noisy, scribbled pattern."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Visible noise and digital artifacts are introduced throughout the image."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "The colors of the scribbles do not match the rest of the scene, creating a mismatch."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Sharp edges and visible seams are present around the subject and the new background."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The final image completely deviates from the intended edit of a surf shop background."
+    },
+    "editing_incompleteness": {
+      "score": 7,
+      "justification": "The background has been entirely removed, leaving the subject without a coherent setting."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd, with a person standing in front of a wall of scribbles that makes no sense in a surf shop context."
+    }
+  },
+  "raw_output": "```json\n{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been completely replaced with a wall covered in colorful scribbles.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall appearance of the image is drastically altered, losing all coherence.\"},\n  \"identity_erasure\": {\"score\": 7, \"justification\": \"The subject's background has been entirely erased, making the image incoherent.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"The image retains its original scale and proportions.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"The spatial relationships have been completely disrupted, with the subject seemingly floating in a chaotic background.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"The original texture of the background has been replaced with a noisy, scribbled pattern.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Visible noise and digital artifacts are introduced throughout the image.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"The colors of the scribbles do not match the rest of the scene, creating a mismatch.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Sharp edges and visible seams are present around the subject and the new background.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The final image completely deviates from the intended edit of a surf shop background.\"},\n  \"editing_incompleteness\": {\"score\": 7, \"justification\": \"The background has been entirely removed, leaving the subject without a coherent setting.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd, with a person standing in front of a wall of scribbles that makes no sense in a surf shop context.\"}\n}\n```"
+}

@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a bridal fitting room
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.5559
+PSNR: 30.5579
 SSIM: 0.9250
-FSIM: 0.8269
+FSIM: 0.8268
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 22.9972
-SSIM: 0.8024
-FSIM: 0.6405
-
-CLIP score (Image vs Prompt)
-Edited Original:  23.8343
-Edited Immunized: 26.2575
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.9433
-Caption orig: A woman wearing a brown fur coat and sunglasses is standing in front of a mirror.
-Caption adv:  A woman wearing a fur coat and sunglasses is standing in front of a mirror.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.9000
-Success:   False
-Accuracy:  0.0000
+PSNR: 25.4202
+SSIM: 0.8559
+FSIM: 0.6985
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.2405
-Background SSIM   (basso=protezione ok): 0.8344
-Subject LPIPS     (basso=soggetto ok)  : 0.3729
-Editing score                          : 0.2222
-Mask coverage (% background)           : 0.7469
+Global LPIPS                           : 0.1501
+Background LPIPS                       : 0.0742
+Subject LPIPS                          : 0.4421
+Separation                             : 0.8562
+Editing score                          : 0.4421
+Mask coverage                          : 0.7469
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person in the adversarial image is wearing a jacket, not a cap as per the editing instruction."
+}

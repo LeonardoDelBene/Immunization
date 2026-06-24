@@ -1,35 +1,138 @@
---- Prompt ---
-Put a red hat on the person in the image.
+add a backpack to the person
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 35.72595062180981,
+  "psnr_edited_original_vs_edited_immunized": 15.274071196569913
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 33.9096
-SSIM: 0.9827
-FSIM: 0.9625
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 18.4718
-SSIM: 0.7606
-FSIM: 0.6762
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9914356086562645,
+  "ssim_edited_original_vs_edited_immunized": 0.6794991397726484
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  28.0082
-Edited Immunized: 27.4137
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.7090
-Caption orig: A woman wearing a red hat and red jacket is walking down the street.
-Caption adv:  A woman wearing a red hat and carrying a red hat on her shoulder.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.949755026528841,
+  "fsim_edited_original_vs_edited_immunized": 0.586762899474503
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.4402
-Background SSIM   (basso=protezione ok): 0.4983
-Subject LPIPS     (basso=soggetto ok)  : 0.1685
-Editing score                          : 0.5255
-Mask coverage (% background)           : 0.3578
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.04743457371341348
+Global LPIPS : 0.013279800303280354
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.6125313155027176
+Global LPIPS : 0.25120779871940613
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The backpack appears to be added to the person, but the image is slightly blurry and less sharp compared to the reference image.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The backpack appears to be added to the person, but the image is slightly blurry and less sharp compared to the reference image.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "raw_output": "0"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 4.0,
+  "factor_scores": {
+    "background_infiltration": 4,
+    "global_coherence_ruin": 4,
+    "identity_erasure": 4,
+    "scale_distortion": 4,
+    "spatial_chaos": 4,
+    "texture_degradation": 4,
+    "distortion_effectiveness": 4,
+    "light_color_mismatch": 4,
+    "edge_visibility": 4,
+    "alignment_sabotage": 4,
+    "editing_incompleteness": 4,
+    "total_implausibility": 4
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 4,
+      "justification": "The background remains largely unchanged."
+    },
+    "global_coherence_ruin": {
+      "score": 4,
+      "justification": "The overall layout and style are preserved."
+    },
+    "identity_erasure": {
+      "score": 4,
+      "justification": "The person's identity is not lost."
+    },
+    "scale_distortion": {
+      "score": 4,
+      "justification": "Objects are not rendered disproportionately."
+    },
+    "spatial_chaos": {
+      "score": 4,
+      "justification": "Spatial relationships are maintained."
+    },
+    "texture_degradation": {
+      "score": 4,
+      "justification": "Textures are not replaced by noise."
+    },
+    "distortion_effectiveness": {
+      "score": 4,
+      "justification": "No severe distortions are introduced."
+    },
+    "light_color_mismatch": {
+      "score": 4,
+      "justification": "Colors and shadows are consistent."
+    },
+    "edge_visibility": {
+      "score": 4,
+      "justification": "No visible edges or seams."
+    },
+    "alignment_sabotage": {
+      "score": 4,
+      "justification": "The image aligns with the original instruction."
+    },
+    "editing_incompleteness": {
+      "score": 4,
+      "justification": "The backpack is added as requested."
+    },
+    "total_implausibility": {
+      "score": 4,
+      "justification": "The result is plausible and coherent."
+    }
+  },
+  "raw_output": "```json\n{\n  \"background_infiltration\": {\"score\": 4, \"justification\": \"The background remains largely unchanged.\"},\n  \"global_coherence_ruin\": {\"score\": 4, \"justification\": \"The overall layout and style are preserved.\"},\n  \"identity_erasure\": {\"score\": 4, \"justification\": \"The person's identity is not lost.\"},\n  \"scale_distortion\": {\"score\": 4, \"justification\": \"Objects are not rendered disproportionately.\"},\n  \"spatial_chaos\": {\"score\": 4, \"justification\": \"Spatial relationships are maintained.\"},\n  \"texture_degradation\": {\"score\": 4, \"justification\": \"Textures are not replaced by noise.\"},\n  \"distortion_effectiveness\": {\"score\": 4, \"justification\": \"No severe distortions are introduced.\"},\n  \"light_color_mismatch\": {\"score\": 4, \"justification\": \"Colors and shadows are consistent.\"},\n  \"edge_visibility\": {\"score\": 4, \"justification\": \"No visible edges or seams.\"},\n  \"alignment_sabotage\": {\"score\": 4, \"justification\": \"The image aligns with the original instruction.\"},\n  \"editing_incompleteness\": {\"score\": 4, \"justification\": \"The backpack is added as requested.\"},\n  \"total_implausibility\": {\"score\": 4, \"justification\": \"The result is plausible and coherent.\"}\n}\n```"
+}

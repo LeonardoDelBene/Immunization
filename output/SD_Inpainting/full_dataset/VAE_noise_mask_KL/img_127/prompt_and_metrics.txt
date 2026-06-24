@@ -4,32 +4,34 @@ A person in a music studio
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 29.4804
-SSIM: 0.9242
-FSIM: 0.8730
+PSNR: 29.5943
+SSIM: 0.9244
+FSIM: 0.8719
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 13.6192
-SSIM: 0.3957
-FSIM: 0.4134
-
-CLIP score (Image vs Prompt)
-Edited Original:  26.2198
-Edited Immunized: 26.4411
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.9522
-Caption orig: A woman wearing a green dress and a blue scarf stands in front of a soundboard.
-Caption adv:  A woman wearing a blue scarf and a green dress stands in front of a soundboard.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.8000
-Success:   False
-Accuracy:  0.0000
+PSNR: 13.3032
+SSIM: 0.3976
+FSIM: 0.3992
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.7041
-Background SSIM   (basso=protezione ok): 0.2507
-Subject LPIPS     (basso=soggetto ok)  : 0.3594
-Editing score                          : 0.5908
-Mask coverage (% background)           : 0.6950
+Global LPIPS                           : 0.5850
+Background LPIPS                       : 0.7254
+Subject LPIPS                          : 0.3524
+Separation                             : 0.6730
+Editing score                          : 0.7254
+Mask coverage                          : 0.6950
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person is still in a music studio, but the background has been changed to a different setting with microphones and a grid pattern, which does not align with the original editing prompt."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image does not contain any elements that resemble a music studio, such as sound equipment or recording devices.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image does not contain any elements that resemble a music studio, such as sound equipment or recording devices.\"\n}\n```"
+}

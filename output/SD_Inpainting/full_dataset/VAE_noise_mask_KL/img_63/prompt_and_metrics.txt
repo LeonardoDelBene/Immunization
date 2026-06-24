@@ -4,32 +4,34 @@ A person in a TV studio
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 28.7654
-SSIM: 0.8889
-FSIM: 0.8119
+PSNR: 28.6686
+SSIM: 0.8891
+FSIM: 0.8104
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 16.6397
-SSIM: 0.5704
-FSIM: 0.4912
-
-CLIP score (Image vs Prompt)
-Edited Original:  24.4013
-Edited Immunized: 31.3208
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6398
-Caption orig: A woman wearing a dress and a necklace is standing in front of a large screen.
-Caption adv:  A woman wearing a white dress and a headscarf is standing in front of a TV.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 16.3702
+SSIM: 0.5702
+FSIM: 0.4832
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.5001
-Background SSIM   (basso=protezione ok): 0.5625
-Subject LPIPS     (basso=soggetto ok)  : 0.5630
-Editing score                          : 0.3313
-Mask coverage (% background)           : 0.7128
+Global LPIPS                           : 0.4722
+Background LPIPS                       : 0.4921
+Subject LPIPS                          : 0.5753
+Separation                             : 0.4610
+Editing score                          : 0.4921
+Mask coverage                          : 0.7128
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person is still in a TV studio, but the background has been altered to include stage lights and a different screen display, which does not contradict the original instruction."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The adversarial image still shows a person in a TV studio setting, but the lighting and color distortion make it difficult to discern specific details that would confirm the semantic elements of a TV studio environment.",
+  "raw_output": "```json\n{\n  \"attack_success\": 0,\n  \"reason\": \"The adversarial image still shows a person in a TV studio setting, but the lighting and color distortion make it difficult to discern specific details that would confirm the semantic elements of a TV studio environment.\"\n}\n```"
+}

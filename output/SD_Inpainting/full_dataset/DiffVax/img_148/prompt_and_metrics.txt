@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a refugee camp
+A person in a tram stop
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 35.78378752708194,
+  "psnr_edited_original_vs_edited_immunized": 15.146334890050001
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 35.7839
-SSIM: 0.9916
-FSIM: 0.9640
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 15.7288
-SSIM: 0.6412
-FSIM: 0.5610
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9915776878345377,
+  "ssim_edited_original_vs_edited_immunized": 0.6137726542200866
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  32.9732
-Edited Immunized: 23.1945
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.5123
-Caption orig: A woman wearing a white jacket and a black hat is walking on a dirt road.
-Caption adv:  A woman wearing a white jacket and a hat is standing in front of a pink and white wall.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9639523163204057,
+  "fsim_edited_original_vs_edited_immunized": 0.5596038871592558
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.8452
-Background SSIM   (basso=protezione ok): 0.5007
-Subject LPIPS     (basso=soggetto ok)  : 0.0834
-Editing score                          : 0.5151
-Mask coverage (% background)           : 0.6851
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.08332752591326022
+Global LPIPS : 0.019618794322013855
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.08332752591326022
+Global LPIPS : 0.43041330575942993
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as there is no tram stop in the background. The image appears blurry and the overall quality is degraded.",
+  "attack_success": 1,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as there is no tram stop in the background. The image appears blurry and the overall quality is degraded.\",\n  \"attack_success\": 1\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 5.5,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 1,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 1,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been replaced with a pattern of pink dots."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall appearance of the image is completely altered."
+    },
+    "identity_erasure": {
+      "score": 1,
+      "justification": "The subject remains recognizable."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No objects are rendered disproportionate."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "Spatial relationships are destroyed as the background is replaced."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "The original texture is replaced with a pattern of pink dots."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Visible noise and digital artifacts are introduced."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "Colors are inconsistent with the rest of the scene."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Visible seams are present around the edges."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The image completely deviates from the original instruction."
+    },
+    "editing_incompleteness": {
+      "score": 1,
+      "justification": "The editing is not removed or undone."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd and physically impossible."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been replaced with a pattern of pink dots.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall appearance of the image is completely altered.\"},\n  \"identity_erasure\": {\"score\": 1, \"justification\": \"The subject remains recognizable.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No objects are rendered disproportionate.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"Spatial relationships are destroyed as the background is replaced.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"The original texture is replaced with a pattern of pink dots.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Visible noise and digital artifacts are introduced.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"Colors are inconsistent with the rest of the scene.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Visible seams are present around the edges.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The image completely deviates from the original instruction.\"},\n  \"editing_incompleteness\": {\"score\": 1, \"justification\": \"The editing is not removed or undone.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd and physically impossible.\"}\n}"
+}

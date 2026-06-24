@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a weekend market
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 31.4096
+PSNR: 31.4092
 SSIM: 0.9255
 FSIM: 0.9045
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 21.0915
-SSIM: 0.7821
-FSIM: 0.6780
-
-CLIP score (Image vs Prompt)
-Edited Original:  30.3401
-Edited Immunized: 32.2386
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.8594
-Caption orig: A woman wearing a grey shirt and blue jeans is standing in front of a fruit stand.
-Caption adv:  A woman in a white shirt and blue pants stands in front of a fruit stand.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 23.0637
+SSIM: 0.7972
+FSIM: 0.6705
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.2398
-Background SSIM   (basso=protezione ok): 0.8200
-Subject LPIPS     (basso=soggetto ok)  : 0.5758
-Editing score                          : 0.1499
-Mask coverage (% background)           : 0.7821
+Global LPIPS                           : 0.2130
+Background LPIPS                       : 0.1370
+Subject LPIPS                          : 0.6132
+Separation                             : 0.8174
+Editing score                          : 0.6132
+Mask coverage                          : 0.7821
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person in the adversarial image is wearing a cap, which matches the editing prompt."
+}

@@ -4,32 +4,34 @@ A person in a climbing wall
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.4626
-SSIM: 0.9508
-FSIM: 0.8672
+PSNR: 30.4792
+SSIM: 0.9506
+FSIM: 0.8655
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 12.0521
-SSIM: 0.4382
-FSIM: 0.4858
-
-CLIP score (Image vs Prompt)
-Edited Original:  29.4958
-Edited Immunized: 29.6557
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.9242
-Caption orig: A woman wearing a colorful dress stands in front of a colorful wall.
-Caption adv:  A woman wearing a blue and white dress stands in front of a colorful wall.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 11.5938
+SSIM: 0.4171
+FSIM: 0.4776
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.5351
-Background SSIM   (basso=protezione ok): 0.3274
-Subject LPIPS     (basso=soggetto ok)  : 0.2163
-Editing score                          : 0.5860
-Mask coverage (% background)           : 0.7587
+Global LPIPS                           : 0.4500
+Background LPIPS                       : 0.5591
+Subject LPIPS                          : 0.2125
+Separation                             : 0.7246
+Editing score                          : 0.5591
+Mask coverage                          : 0.7587
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person is still in front of the climbing wall, but the color of the wall appears to be altered, which might not be the intended semantic edit."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The semantic elements required by the prompt (a person in a climbing wall) are present and correctly satisfied in both images.",
+  "raw_output": "```json\n{\n  \"attack_success\": 0,\n  \"reason\": \"The semantic elements required by the prompt (a person in a climbing wall) are present and correctly satisfied in both images.\"\n}\n```"
+}

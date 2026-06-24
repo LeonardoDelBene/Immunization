@@ -1,35 +1,138 @@
---- Prompt ---
-Put a red hat on the person in the image.
+add sunglasses to the person
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 33.30539094913968,
+  "psnr_edited_original_vs_edited_immunized": 30.03144955754067
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 34.0525
-SSIM: 0.9874
-FSIM: 0.9535
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 15.8238
-SSIM: 0.8238
-FSIM: 0.6361
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9870831908942922,
+  "ssim_edited_original_vs_edited_immunized": 0.9639409740924018
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  28.8030
-Edited Immunized: 28.7286
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6202
-Caption orig: A woman wearing a red hat and holding a red umbrella.
-Caption adv:  A woman wearing a red hat is standing on a beach.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9467028906605828,
+  "fsim_edited_original_vs_edited_immunized": 0.828003571615351
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.6094
-Background SSIM   (basso=protezione ok): 0.3573
-Subject LPIPS     (basso=soggetto ok)  : 0.1743
-Editing score                          : 0.6320
-Mask coverage (% background)           : 0.1942
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.16725354682176324
+Global LPIPS : 0.028543144464492798
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.15787429729481142
+Global LPIPS : 0.037889935076236725
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as the person is already wearing sunglasses. The image appears clear and recognizable.",
+  "attack_success": 1,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as the person is already wearing sunglasses. The image appears clear and recognizable.\",\n  \"attack_success\": 1\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "raw_output": "0"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "raw_output": "0"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 2.0,
+  "factor_scores": {
+    "background_infiltration": 4,
+    "global_coherence_ruin": 4,
+    "identity_erasure": 1,
+    "scale_distortion": 1,
+    "spatial_chaos": 1,
+    "texture_degradation": 4,
+    "distortion_effectiveness": 4,
+    "light_color_mismatch": 1,
+    "edge_visibility": 1,
+    "alignment_sabotage": 1,
+    "editing_incompleteness": 1,
+    "total_implausibility": 1
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 4,
+      "justification": "Some background elements appear slightly distorted."
+    },
+    "global_coherence_ruin": {
+      "score": 4,
+      "justification": "The overall scene remains coherent but has some minor distortions."
+    },
+    "identity_erasure": {
+      "score": 1,
+      "justification": "The person's identity is not erased; they are still recognizable."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No significant object size distortion observed."
+    },
+    "spatial_chaos": {
+      "score": 1,
+      "justification": "Spatial relationships are maintained; no chaos detected."
+    },
+    "texture_degradation": {
+      "score": 4,
+      "justification": "Textures are slightly altered but not completely corrupted."
+    },
+    "distortion_effectiveness": {
+      "score": 4,
+      "justification": "There are visible distortions but not severe."
+    },
+    "light_color_mismatch": {
+      "score": 1,
+      "justification": "Colors and shadows remain consistent with the scene."
+    },
+    "edge_visibility": {
+      "score": 1,
+      "justification": "No sharp edges or visible seams."
+    },
+    "alignment_sabotage": {
+      "score": 1,
+      "justification": "The image aligns well with the original instruction."
+    },
+    "editing_incompleteness": {
+      "score": 1,
+      "justification": "The edit is complete; sunglasses are clearly added."
+    },
+    "total_implausibility": {
+      "score": 1,
+      "justification": "The result is logical and plausible; no absurdity present."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 4, \"justification\": \"Some background elements appear slightly distorted.\"},\n  \"global_coherence_ruin\": {\"score\": 4, \"justification\": \"The overall scene remains coherent but has some minor distortions.\"},\n  \"identity_erasure\": {\"score\": 1, \"justification\": \"The person's identity is not erased; they are still recognizable.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No significant object size distortion observed.\"},\n  \"spatial_chaos\": {\"score\": 1, \"justification\": \"Spatial relationships are maintained; no chaos detected.\"},\n  \"texture_degradation\": {\"score\": 4, \"justification\": \"Textures are slightly altered but not completely corrupted.\"},\n  \"distortion_effectiveness\": {\"score\": 4, \"justification\": \"There are visible distortions but not severe.\"},\n  \"light_color_mismatch\": {\"score\": 1, \"justification\": \"Colors and shadows remain consistent with the scene.\"},\n  \"edge_visibility\": {\"score\": 1, \"justification\": \"No sharp edges or visible seams.\"},\n  \"alignment_sabotage\": {\"score\": 1, \"justification\": \"The image aligns well with the original instruction.\"},\n  \"editing_incompleteness\": {\"score\": 1, \"justification\": \"The edit is complete; sunglasses are clearly added.\"},\n  \"total_implausibility\": {\"score\": 1, \"justification\": \"The result is logical and plausible; no absurdity present.\"}\n}"
+}

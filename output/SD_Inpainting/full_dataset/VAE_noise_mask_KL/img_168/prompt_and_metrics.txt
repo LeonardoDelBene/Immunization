@@ -4,32 +4,34 @@ A person in a tech startup launch
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 29.6869
-SSIM: 0.9023
-FSIM: 0.8297
+PSNR: 29.4936
+SSIM: 0.9016
+FSIM: 0.8279
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 14.9235
-SSIM: 0.5070
-FSIM: 0.3848
-
-CLIP score (Image vs Prompt)
-Edited Original:  24.4055
-Edited Immunized: 21.5124
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.4326
-Caption orig: A man wearing a blue jacket and white pants stands in front of a wall filled with various drawings and symbols.
-Caption adv:  A man in a black jacket stands in front of a group of men, all wearing suits.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 14.8275
+SSIM: 0.4944
+FSIM: 0.3795
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.6912
-Background SSIM   (basso=protezione ok): 0.4623
-Subject LPIPS     (basso=soggetto ok)  : 0.5796
-Editing score                          : 0.4378
-Mask coverage (% background)           : 0.7269
+Global LPIPS                           : 0.6289
+Background LPIPS                       : 0.7021
+Subject LPIPS                          : 0.5856
+Separation                             : 0.5452
+Editing score                          : 0.7021
+Mask coverage                          : 0.7269
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person is no longer in a tech startup launch setting; instead, they appear to be in a different environment with blurred figures and a less clear background."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image does not contain a person in a tech startup launch setting. Instead, it shows a group of people in a different environment.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image does not contain a person in a tech startup launch setting. Instead, it shows a group of people in a different environment.\"\n}\n```"
+}

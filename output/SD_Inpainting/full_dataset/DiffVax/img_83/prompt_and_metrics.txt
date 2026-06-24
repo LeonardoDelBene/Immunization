@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a strip club
+A person in a film studio
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 35.824860638624926,
+  "psnr_edited_original_vs_edited_immunized": 13.92160399725794
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 35.8240
-SSIM: 0.9913
-FSIM: 0.9699
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 15.2862
-SSIM: 0.5725
-FSIM: 0.4819
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9913012181260372,
+  "ssim_edited_original_vs_edited_immunized": 0.5398318636476027
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  22.7374
-Edited Immunized: 20.9039
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6565
-Caption orig: A man wearing a black vest and sunglasses stands in a room with a purple glow.
-Caption adv:  A man wearing a black vest and sunglasses stands in front of a pink background.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9698776151781573,
+  "fsim_edited_original_vs_edited_immunized": 0.4800850034485366
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.8167
-Background SSIM   (basso=protezione ok): 0.4305
-Subject LPIPS     (basso=soggetto ok)  : 0.1138
-Editing score                          : 0.5312
-Mask coverage (% background)           : 0.7229
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.11375708261793319
+Global LPIPS : 0.02579430863261223
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.11375708261793319
+Global LPIPS : 0.5297165513038635
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as the person is still in a film studio setting with similar equipment. However, the background has been altered to include pink scribbles, which degrades the image clarity and recognizability.",
+  "attack_success": 1,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as the person is still in a film studio setting with similar equipment. However, the background has been altered to include pink scribbles, which degrades the image clarity and recognizability.\",\n  \"attack_success\": 1\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 6.5,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 7,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 7,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "Pink scribbles cover the entire background."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall scene is altered with pink scribbles."
+    },
+    "identity_erasure": {
+      "score": 7,
+      "justification": "The subject's identity is obscured by the scribbles."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No significant distortion in object sizes."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "Spatial relationships are disrupted due to scribbles."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "Original textures are replaced by pink scribbles."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Visible pink scribbles introduce severe distortions."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "Colors are inconsistent with the rest of the scene."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Edges are blurred and visible due to scribbles."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The final image is completely unrelated to the original instruction."
+    },
+    "editing_incompleteness": {
+      "score": 7,
+      "justification": "The editing is left incomplete with scribbles."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The result is visually absurd with pink scribbles covering the background."
+    }
+  },
+  "raw_output": "```json\n{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"Pink scribbles cover the entire background.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall scene is altered with pink scribbles.\"},\n  \"identity_erasure\": {\"score\": 7, \"justification\": \"The subject's identity is obscured by the scribbles.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No significant distortion in object sizes.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"Spatial relationships are disrupted due to scribbles.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"Original textures are replaced by pink scribbles.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Visible pink scribbles introduce severe distortions.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"Colors are inconsistent with the rest of the scene.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Edges are blurred and visible due to scribbles.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The final image is completely unrelated to the original instruction.\"},\n  \"editing_incompleteness\": {\"score\": 7, \"justification\": \"The editing is left incomplete with scribbles.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The result is visually absurd with pink scribbles covering the background.\"}\n}\n```"
+}

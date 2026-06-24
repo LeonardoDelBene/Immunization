@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a music and arts festival
+A person in a bus stop shelter
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 35.020785389896,
+  "psnr_edited_original_vs_edited_immunized": 16.821746681760303
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 35.0200
-SSIM: 0.9871
-FSIM: 0.9622
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 13.6886
-SSIM: 0.5643
-FSIM: 0.5040
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9870648127813274,
+  "ssim_edited_original_vs_edited_immunized": 0.6369929005018933
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  26.5066
-Edited Immunized: 22.8188
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6828
-Caption orig: A man wearing a brown trench coat stands in front of a crowd of people.
-Caption adv:  A man wearing a brown coat and black shirt stands in front of a pink and purple background.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9623060072083917,
+  "fsim_edited_original_vs_edited_immunized": 0.5348261137293645
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.8950
-Background SSIM   (basso=protezione ok): 0.4052
-Subject LPIPS     (basso=soggetto ok)  : 0.1687
-Editing score                          : 0.5426
-Mask coverage (% background)           : 0.6906
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.16872231843295973
+Global LPIPS : 0.0333547368645668
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.16872231843295973
+Global LPIPS : 0.381347119808197
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as there is no significant change in the image content. The image remains clear and recognizable with a slight increase in noise and distortion, especially noticeable in the background.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as there is no significant change in the image content. The image remains clear and recognizable with a slight increase in noise and distortion, especially noticeable in the background.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 7.0,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 7,
+    "scale_distortion": 7,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 7,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "Pink spots cover the entire background, significantly altering the original scene."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall appearance is drastically changed, losing all coherence."
+    },
+    "identity_erasure": {
+      "score": 7,
+      "justification": "The subject's face is blurred and unrecognizable."
+    },
+    "scale_distortion": {
+      "score": 7,
+      "justification": "The pink spots are disproportionately large, distorting the scene."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "Spatial relationships are completely disrupted by the random placement of pink spots."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "The original texture is replaced by a chaotic pattern of pink spots."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Severe noise and blurring are introduced throughout the image."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "Colors are completely off due to the addition of pink spots."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Visible seams and edges are present around the pink spots."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The image is completely deviated from the original instruction."
+    },
+    "editing_incompleteness": {
+      "score": 7,
+      "justification": "The editing is left incomplete; the original scene is unrecognizable."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd and physically impossible with the addition of pink spots."
+    }
+  },
+  "raw_output": "```json\n{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"Pink spots cover the entire background, significantly altering the original scene.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall appearance is drastically changed, losing all coherence.\"},\n  \"identity_erasure\": {\"score\": 7, \"justification\": \"The subject's face is blurred and unrecognizable.\"},\n  \"scale_distortion\": {\"score\": 7, \"justification\": \"The pink spots are disproportionately large, distorting the scene.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"Spatial relationships are completely disrupted by the random placement of pink spots.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"The original texture is replaced by a chaotic pattern of pink spots.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Severe noise and blurring are introduced throughout the image.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"Colors are completely off due to the addition of pink spots.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Visible seams and edges are present around the pink spots.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The image is completely deviated from the original instruction.\"},\n  \"editing_incompleteness\": {\"score\": 7, \"justification\": \"The editing is left incomplete; the original scene is unrecognizable.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd and physically impossible with the addition of pink spots.\"}\n}\n```"
+}

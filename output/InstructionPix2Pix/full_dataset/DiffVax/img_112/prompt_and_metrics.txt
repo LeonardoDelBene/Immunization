@@ -1,35 +1,138 @@
---- Prompt ---
-Put a red hat on the person in the image.
+add freckles to the person's face
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 33.73034425339504,
+  "psnr_edited_original_vs_edited_immunized": 28.848054738170838
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 33.5505
-SSIM: 0.9850
-FSIM: 0.9550
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 26.7367
-SSIM: 0.8993
-FSIM: 0.8110
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9895135563499564,
+  "ssim_edited_original_vs_edited_immunized": 0.9584802895690117
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  27.5364
-Edited Immunized: 26.5214
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.9679
-Caption orig: A woman wearing a red hat and a striped shirt is standing in front of a red building.
-Caption adv:  A woman wearing a red hat and a striped sweater is standing in front of a red building.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9510072525205367,
+  "fsim_edited_original_vs_edited_immunized": 0.8293656332455782
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.0503
-Background SSIM   (basso=protezione ok): 0.9259
-Subject LPIPS     (basso=soggetto ok)  : 0.0838
-Editing score                          : 0.2921
-Mask coverage (% background)           : 0.2738
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.09997131266538979
+Global LPIPS : 0.02204863540828228
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.11770319777804589
+Global LPIPS : 0.03375254571437836
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as there are no freckles added to the person's face. The image appears clear and recognizable.",
+  "attack_success": 1,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as there are no freckles added to the person's face. The image appears clear and recognizable.\",\n  \"attack_success\": 1\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 3.0833333333333335,
+  "factor_scores": {
+    "background_infiltration": 3,
+    "global_coherence_ruin": 2,
+    "identity_erasure": 3,
+    "scale_distortion": 2,
+    "spatial_chaos": 2,
+    "texture_degradation": 3,
+    "distortion_effectiveness": 4,
+    "light_color_mismatch": 3,
+    "edge_visibility": 3,
+    "alignment_sabotage": 4,
+    "editing_incompleteness": 4,
+    "total_implausibility": 4
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 3,
+      "justification": "The background remains largely unchanged."
+    },
+    "global_coherence_ruin": {
+      "score": 2,
+      "justification": "The overall style and layout appear slightly disrupted."
+    },
+    "identity_erasure": {
+      "score": 3,
+      "justification": "The subject's face has some distortion."
+    },
+    "scale_distortion": {
+      "score": 2,
+      "justification": "No significant object size distortion observed."
+    },
+    "spatial_chaos": {
+      "score": 2,
+      "justification": "Spatial relationships seem slightly altered."
+    },
+    "texture_degradation": {
+      "score": 3,
+      "justification": "Textures around the face area appear somewhat corrupted."
+    },
+    "distortion_effectiveness": {
+      "score": 4,
+      "justification": "Visible noise and blurring around the face."
+    },
+    "light_color_mismatch": {
+      "score": 3,
+      "justification": "Colors around the face area are slightly off."
+    },
+    "edge_visibility": {
+      "score": 3,
+      "justification": "Sharp edges are visible around the face area."
+    },
+    "alignment_sabotage": {
+      "score": 4,
+      "justification": "The instruction to add freckles is not followed."
+    },
+    "editing_incompleteness": {
+      "score": 4,
+      "justification": "Freckles are not added to the face."
+    },
+    "total_implausibility": {
+      "score": 4,
+      "justification": "The result is visually implausible without freckles on the face."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 3, \"justification\": \"The background remains largely unchanged.\"},\n  \"global_coherence_ruin\": {\"score\": 2, \"justification\": \"The overall style and layout appear slightly disrupted.\"},\n  \"identity_erasure\": {\"score\": 3, \"justification\": \"The subject's face has some distortion.\"},\n  \"scale_distortion\": {\"score\": 2, \"justification\": \"No significant object size distortion observed.\"},\n  \"spatial_chaos\": {\"score\": 2, \"justification\": \"Spatial relationships seem slightly altered.\"},\n  \"texture_degradation\": {\"score\": 3, \"justification\": \"Textures around the face area appear somewhat corrupted.\"},\n  \"distortion_effectiveness\": {\"score\": 4, \"justification\": \"Visible noise and blurring around the face.\"},\n  \"light_color_mismatch\": {\"score\": 3, \"justification\": \"Colors around the face area are slightly off.\"},\n  \"edge_visibility\": {\"score\": 3, \"justification\": \"Sharp edges are visible around the face area.\"},\n  \"alignment_sabotage\": {\"score\": 4, \"justification\": \"The instruction to add freckles is not followed.\"},\n  \"editing_incompleteness\": {\"score\": 4, \"justification\": \"Freckles are not added to the face.\"},\n  \"total_implausibility\": {\"score\": 4, \"justification\": \"The result is visually implausible without freckles on the face.\"}\n}"
+}

@@ -1,35 +1,138 @@
---- Prompt ---
-Put a red hat on the person in the image.
+make the person smile
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 35.27112950000917,
+  "psnr_edited_original_vs_edited_immunized": 31.539182023564805
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 32.8533
-SSIM: 0.9832
-FSIM: 0.9472
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 17.4951
-SSIM: 0.8125
-FSIM: 0.6939
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9880738742296171,
+  "ssim_edited_original_vs_edited_immunized": 0.9635610292936523
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  27.6300
-Edited Immunized: 28.3519
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6059
-Caption orig: A person wearing a red hat that looks like a giant red flower.
-Caption adv:  A person wearing a red hat is standing in a crowd of people.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9671295869074773,
+  "fsim_edited_original_vs_edited_immunized": 0.8602235272291905
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.6034
-Background SSIM   (basso=protezione ok): 0.5813
-Subject LPIPS     (basso=soggetto ok)  : 0.1789
-Editing score                          : 0.5596
-Mask coverage (% background)           : 0.2787
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.13624461945944188
+Global LPIPS : 0.033743228763341904
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.12838488094660047
+Global LPIPS : 0.04390006139874458
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is visible as there are colorful dots added around the person's hair. The image remains clear and recognizable.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is visible as there are colorful dots added around the person's hair. The image remains clear and recognizable.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 4.0,
+  "factor_scores": {
+    "background_infiltration": 4,
+    "global_coherence_ruin": 4,
+    "identity_erasure": 4,
+    "scale_distortion": 4,
+    "spatial_chaos": 4,
+    "texture_degradation": 4,
+    "distortion_effectiveness": 4,
+    "light_color_mismatch": 4,
+    "edge_visibility": 4,
+    "alignment_sabotage": 4,
+    "editing_incompleteness": 4,
+    "total_implausibility": 4
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 4,
+      "justification": "Colorful dots are added around the person's hair."
+    },
+    "global_coherence_ruin": {
+      "score": 4,
+      "justification": "The overall appearance is slightly altered but still recognizable."
+    },
+    "identity_erasure": {
+      "score": 4,
+      "justification": "The person's identity is not lost, but the image is altered."
+    },
+    "scale_distortion": {
+      "score": 4,
+      "justification": "No significant distortion in object sizes."
+    },
+    "spatial_chaos": {
+      "score": 4,
+      "justification": "Spatial relationships are slightly disrupted due to the added dots."
+    },
+    "texture_degradation": {
+      "score": 4,
+      "justification": "Textures are not completely corrupted, but there are some changes."
+    },
+    "distortion_effectiveness": {
+      "score": 4,
+      "justification": "Visible noise and blurring are present."
+    },
+    "light_color_mismatch": {
+      "score": 4,
+      "justification": "Colors are consistent, but there are some unnatural elements."
+    },
+    "edge_visibility": {
+      "score": 4,
+      "justification": "Some visible edges due to the added dots."
+    },
+    "alignment_sabotage": {
+      "score": 4,
+      "justification": "The instruction is partially ignored, but the image is still recognizable."
+    },
+    "editing_incompleteness": {
+      "score": 4,
+      "justification": "The edit is not fully completed, but the image is altered."
+    },
+    "total_implausibility": {
+      "score": 4,
+      "justification": "The result is slightly implausible due to the added dots."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 4, \"justification\": \"Colorful dots are added around the person's hair.\"},\n  \"global_coherence_ruin\": {\"score\": 4, \"justification\": \"The overall appearance is slightly altered but still recognizable.\"},\n  \"identity_erasure\": {\"score\": 4, \"justification\": \"The person's identity is not lost, but the image is altered.\"},\n  \"scale_distortion\": {\"score\": 4, \"justification\": \"No significant distortion in object sizes.\"},\n  \"spatial_chaos\": {\"score\": 4, \"justification\": \"Spatial relationships are slightly disrupted due to the added dots.\"},\n  \"texture_degradation\": {\"score\": 4, \"justification\": \"Textures are not completely corrupted, but there are some changes.\"},\n  \"distortion_effectiveness\": {\"score\": 4, \"justification\": \"Visible noise and blurring are present.\"},\n  \"light_color_mismatch\": {\"score\": 4, \"justification\": \"Colors are consistent, but there are some unnatural elements.\"},\n  \"edge_visibility\": {\"score\": 4, \"justification\": \"Some visible edges due to the added dots.\"},\n  \"alignment_sabotage\": {\"score\": 4, \"justification\": \"The instruction is partially ignored, but the image is still recognizable.\"},\n  \"editing_incompleteness\": {\"score\": 4, \"justification\": \"The edit is not fully completed, but the image is altered.\"},\n  \"total_implausibility\": {\"score\": 4, \"justification\": \"The result is slightly implausible due to the added dots.\"}\n}"
+}

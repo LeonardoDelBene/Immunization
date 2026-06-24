@@ -4,32 +4,34 @@ A person in a parking structure
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 31.1681
-SSIM: 0.9307
-FSIM: 0.9101
+PSNR: 31.1539
+SSIM: 0.9309
+FSIM: 0.9105
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 13.4857
-SSIM: 0.4268
-FSIM: 0.3571
-
-CLIP score (Image vs Prompt)
-Edited Original:  24.0007
-Edited Immunized: 24.8989
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6066
-Caption orig: A woman wearing a gray vest and sunglasses is standing outside.
-Caption adv:  A woman wearing a sunglasses and a black and white dress.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 13.9513
+SSIM: 0.5058
+FSIM: 0.3621
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.7760
-Background SSIM   (basso=protezione ok): 0.3568
-Subject LPIPS     (basso=soggetto ok)  : 0.4384
-Editing score                          : 0.5403
-Mask coverage (% background)           : 0.7713
+Global LPIPS                           : 0.6661
+Background LPIPS                       : 0.7821
+Subject LPIPS                          : 0.4342
+Separation                             : 0.6430
+Editing score                          : 0.7821
+Mask coverage                          : 0.7713
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person is still present, but the background has been changed to a parking structure, which satisfies the editing instruction."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image does not depict a person in a parking structure as per the editing prompt.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image does not depict a person in a parking structure as per the editing prompt.\"\n}\n```"
+}

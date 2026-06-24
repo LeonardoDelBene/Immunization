@@ -1,35 +1,138 @@
---- Prompt ---
-Put a red hat on the person in the image.
+change the person's hairstyle to curly hair
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 34.78075446586835,
+  "psnr_edited_original_vs_edited_immunized": 21.19578727073746
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 33.5227
-SSIM: 0.9835
-FSIM: 0.9517
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 19.3256
-SSIM: 0.7945
-FSIM: 0.7078
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9863619345987301,
+  "ssim_edited_original_vs_edited_immunized": 0.8249822499112259
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  25.2424
-Edited Immunized: 27.9196
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.3575
-Caption orig: A woman wearing a red hat and a red coat is walking down the street.
-Caption adv:  A person is carrying a red object that resembles a stack of red cushions.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9673002223825327,
+  "fsim_edited_original_vs_edited_immunized": 0.7620182814008577
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.6196
-Background SSIM   (basso=protezione ok): 0.4570
-Subject LPIPS     (basso=soggetto ok)  : 0.1236
-Editing score                          : 0.6366
-Mask coverage (% background)           : 0.3050
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.11941288656829649
+Global LPIPS : 0.027763308957219124
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.43526851287529184
+Global LPIPS : 0.14080600440502167
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit to change the person's hairstyle to curly hair is clearly visible. The hair appears significantly more voluminous and curly compared to the original image. The image remains clear and recognizable.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit to change the person's hairstyle to curly hair is clearly visible. The hair appears significantly more voluminous and curly compared to the original image. The image remains clear and recognizable.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 4.0,
+  "factor_scores": {
+    "background_infiltration": 4,
+    "global_coherence_ruin": 4,
+    "identity_erasure": 4,
+    "scale_distortion": 4,
+    "spatial_chaos": 4,
+    "texture_degradation": 4,
+    "distortion_effectiveness": 4,
+    "light_color_mismatch": 4,
+    "edge_visibility": 4,
+    "alignment_sabotage": 4,
+    "editing_incompleteness": 4,
+    "total_implausibility": 4
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 4,
+      "justification": "The background remains largely unchanged."
+    },
+    "global_coherence_ruin": {
+      "score": 4,
+      "justification": "The overall layout is slightly disrupted but still recognizable."
+    },
+    "identity_erasure": {
+      "score": 4,
+      "justification": "The subject's identity is still recognizable but the hair has been altered."
+    },
+    "scale_distortion": {
+      "score": 4,
+      "justification": "The hair appears larger than normal but maintains proportions."
+    },
+    "spatial_chaos": {
+      "score": 4,
+      "justification": "Spatial relationships are slightly altered due to the hair's placement."
+    },
+    "texture_degradation": {
+      "score": 4,
+      "justification": "The texture of the hair is different but not completely corrupted."
+    },
+    "distortion_effectiveness": {
+      "score": 4,
+      "justification": "The hair appears distorted and unnatural."
+    },
+    "light_color_mismatch": {
+      "score": 4,
+      "justification": "Colors are consistent except for the hair which is a different color."
+    },
+    "edge_visibility": {
+      "score": 4,
+      "justification": "There are no visible seams or edges in the hair area."
+    },
+    "alignment_sabotage": {
+      "score": 4,
+      "justification": "The overall alignment is slightly off due to the hair's placement."
+    },
+    "editing_incompleteness": {
+      "score": 4,
+      "justification": "The hair is edited but other parts of the image remain intact."
+    },
+    "total_implausibility": {
+      "score": 4,
+      "justification": "The hair looks unnatural and out of place but the image is still coherent."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 4, \"justification\": \"The background remains largely unchanged.\"},\n  \"global_coherence_ruin\": {\"score\": 4, \"justification\": \"The overall layout is slightly disrupted but still recognizable.\"},\n  \"identity_erasure\": {\"score\": 4, \"justification\": \"The subject's identity is still recognizable but the hair has been altered.\"},\n  \"scale_distortion\": {\"score\": 4, \"justification\": \"The hair appears larger than normal but maintains proportions.\"},\n  \"spatial_chaos\": {\"score\": 4, \"justification\": \"Spatial relationships are slightly altered due to the hair's placement.\"},\n  \"texture_degradation\": {\"score\": 4, \"justification\": \"The texture of the hair is different but not completely corrupted.\"},\n  \"distortion_effectiveness\": {\"score\": 4, \"justification\": \"The hair appears distorted and unnatural.\"},\n  \"light_color_mismatch\": {\"score\": 4, \"justification\": \"Colors are consistent except for the hair which is a different color.\"},\n  \"edge_visibility\": {\"score\": 4, \"justification\": \"There are no visible seams or edges in the hair area.\"},\n  \"alignment_sabotage\": {\"score\": 4, \"justification\": \"The overall alignment is slightly off due to the hair's placement.\"},\n  \"editing_incompleteness\": {\"score\": 4, \"justification\": \"The hair is edited but other parts of the image remain intact.\"},\n  \"total_implausibility\": {\"score\": 4, \"justification\": \"The hair looks unnatural and out of place but the image is still coherent.\"}\n}"
+}

@@ -4,32 +4,34 @@ A person in a craft beer festival
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 29.6651
-SSIM: 0.9108
-FSIM: 0.8660
+PSNR: 29.8960
+SSIM: 0.9126
+FSIM: 0.8655
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 18.3252
-SSIM: 0.6780
-FSIM: 0.6121
-
-CLIP score (Image vs Prompt)
-Edited Original:  25.9742
-Edited Immunized: 29.6318
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.8588
-Caption orig: A woman wearing a blue and white striped sweater is standing in a crowd.
-Caption adv:  A woman wearing a blue and white striped shirt and sunglasses is standing in a crowd.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
+PSNR: 17.6450
+SSIM: 0.6714
+FSIM: 0.6096
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.3595
-Background SSIM   (basso=protezione ok): 0.6712
-Subject LPIPS     (basso=soggetto ok)  : 0.2923
-Editing score                          : 0.3671
-Mask coverage (% background)           : 0.6951
+Global LPIPS                           : 0.3327
+Background LPIPS                       : 0.3845
+Subject LPIPS                          : 0.2840
+Separation                             : 0.5752
+Editing score                          : 0.3845
+Mask coverage                          : 0.6951
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person is still wearing a sweater, which does not contradict the editing instruction."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image does not depict a person at a craft beer festival as the background and context have been altered significantly, making it unclear if the scene is related to a craft beer festival.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image does not depict a person at a craft beer festival as the background and context have been altered significantly, making it unclear if the scene is related to a craft beer festival.\"\n}\n```"
+}

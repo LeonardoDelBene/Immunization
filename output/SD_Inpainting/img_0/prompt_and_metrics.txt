@@ -1,35 +1,51 @@
 --- Prompt ---
-A person with a red shirt is sitting on the bench. The background should remain unchanged.
+A person in a garden
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 33.4921
-SSIM: 0.9875
-FSIM: 0.9465
+PSNR: 34.3163
+SSIM: 0.9104
+FSIM: 0.9438
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 17.0252
-SSIM: 0.7855
-FSIM: 0.7537
-
-CLIP score (Image vs Prompt)
-Edited Original:  26.4219
-Edited Immunized: 24.8169
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.3233
-Caption orig: A woman in a red shirt is sitting in a chair with a picture of a woman in a black shirt on the back of the chair.
-Caption adv:  A man is sitting on a chair in front of a statue.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 19.2330
+SSIM: 0.5393
+FSIM: 0.5500
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.9498
-Background SSIM   (basso=protezione ok): 0.3040
-Subject LPIPS     (basso=soggetto ok)  : 0.0976
-Editing score                          : 0.8302
-Mask coverage (% background)           : 0.2793
+Global LPIPS                           : 0.1208
+Subject LPIPS                          : 0.4658
+
+
+Qwen Editing Score
+Attack success score (1-7 avg): 7.0000
+Per-factor scores:
+  background_infiltration       : 7
+  global_coherence_ruin         : 7
+  identity_erasure              : 7
+  scale_distortion              : 7
+  spatial_chaos                 : 7
+  texture_degradation           : 7
+  distortion_effectiveness      : 7
+  light_color_mismatch          : 7
+  edge_visibility               : 7
+  alignment_sabotage            : 7
+  editing_incompleteness        : 7
+  total_implausibility          : 7
+Raw LLM response: ```json
+{
+  "background_infiltration": {"score": 7, "justification": "The background has been heavily distorted with noise."},
+  "global_coherence_ruin": {"score": 7, "justification": "The overall image appears blurred and lacks coherence."},
+  "identity_erasure": {"score": 7, "justification": "The subject's face is blurred and unrecognizable."},
+  "scale_distortion": {"score": 7, "justification": "Objects appear distorted and out of proportion."},
+  "spatial_chaos": {"score": 7, "justification": "Spatial relationships are completely disrupted, with elements misplaced."},
+  "texture_degradation": {"score": 7, "justification": "Textures are replaced with noise and artifacts."},
+  "distortion_effectiveness": {"score": 7, "justification": "Severe digital artifacts and blurring are present."},
+  "light_color_mismatch": {"score": 7, "justification": "Colors are inconsistent and unnatural."},
+  "edge_visibility": {"score": 7, "justification": "Visible seams and edges are present throughout the image."},
+  "alignment_sabotage": {"score": 7, "justification": "The image completely deviates from the intended garden setting."},
+  "editing_incompleteness": {"score": 7, "justification": "The original edit is entirely undone, leaving the image incoherent."},
+  "total_implausibility": {"score": 7, "justification": "The final result is visually absurd and physically impossible."}
+}
+```

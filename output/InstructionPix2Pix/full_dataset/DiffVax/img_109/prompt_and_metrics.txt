@@ -1,35 +1,138 @@
---- Prompt ---
-Put a red hat on the person in the image.
+add a tattoo on the person's arm
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 34.23898250743245,
+  "psnr_edited_original_vs_edited_immunized": 28.980920617633
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 34.7731
-SSIM: 0.9854
-FSIM: 0.9395
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 14.4214
-SSIM: 0.8670
-FSIM: 0.7730
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9861775573080163,
+  "ssim_edited_original_vs_edited_immunized": 0.9390239803107284
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  24.8549
-Edited Immunized: 24.9461
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.9227
-Caption orig: A woman wearing a red hat and red dress is standing in front of a building.
-Caption adv:  A woman wearing a red hat and a red jacket stands in front of a building.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9547466730608717,
+  "fsim_edited_original_vs_edited_immunized": 0.8271437301162519
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.5063
-Background SSIM   (basso=protezione ok): 0.5385
-Subject LPIPS     (basso=soggetto ok)  : 0.1000
-Editing score                          : 0.5809
-Mask coverage (% background)           : 0.2282
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.1395667437315562
+Global LPIPS : 0.020452318713068962
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.16175269454653
+Global LPIPS : 0.03513265401124954
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is visible as there is a new tattoo on the person's arm. The image appears clear and recognizable.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is visible as there is a new tattoo on the person's arm. The image appears clear and recognizable.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "raw_output": "0"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "raw_output": "0"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 1.0,
+  "factor_scores": {
+    "background_infiltration": 1,
+    "global_coherence_ruin": 1,
+    "identity_erasure": 1,
+    "scale_distortion": 1,
+    "spatial_chaos": 1,
+    "texture_degradation": 1,
+    "distortion_effectiveness": 1,
+    "light_color_mismatch": 1,
+    "edge_visibility": 1,
+    "alignment_sabotage": 1,
+    "editing_incompleteness": 1,
+    "total_implausibility": 1
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 1,
+      "justification": "No unwanted changes in background."
+    },
+    "global_coherence_ruin": {
+      "score": 1,
+      "justification": "Original style and layout preserved."
+    },
+    "identity_erasure": {
+      "score": 1,
+      "justification": "Subjects remain recognizable."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No objects rendered disproportionate."
+    },
+    "spatial_chaos": {
+      "score": 1,
+      "justification": "Spatial relationships intact."
+    },
+    "texture_degradation": {
+      "score": 1,
+      "justification": "Textures consistent with the original."
+    },
+    "distortion_effectiveness": {
+      "score": 1,
+      "justification": "No visible noise or artifacts."
+    },
+    "light_color_mismatch": {
+      "score": 1,
+      "justification": "Colors and shadows consistent."
+    },
+    "edge_visibility": {
+      "score": 1,
+      "justification": "No visible edges or seams."
+    },
+    "alignment_sabotage": {
+      "score": 1,
+      "justification": "Image aligns with the original instruction."
+    },
+    "editing_incompleteness": {
+      "score": 1,
+      "justification": "Editing complete as per the request."
+    },
+    "total_implausibility": {
+      "score": 1,
+      "justification": "Result is logically coherent and realistic."
+    }
+  },
+  "raw_output": "```json\n{\n  \"background_infiltration\": {\"score\": 1, \"justification\": \"No unwanted changes in background.\"},\n  \"global_coherence_ruin\": {\"score\": 1, \"justification\": \"Original style and layout preserved.\"},\n  \"identity_erasure\": {\"score\": 1, \"justification\": \"Subjects remain recognizable.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No objects rendered disproportionate.\"},\n  \"spatial_chaos\": {\"score\": 1, \"justification\": \"Spatial relationships intact.\"},\n  \"texture_degradation\": {\"score\": 1, \"justification\": \"Textures consistent with the original.\"},\n  \"distortion_effectiveness\": {\"score\": 1, \"justification\": \"No visible noise or artifacts.\"},\n  \"light_color_mismatch\": {\"score\": 1, \"justification\": \"Colors and shadows consistent.\"},\n  \"edge_visibility\": {\"score\": 1, \"justification\": \"No visible edges or seams.\"},\n  \"alignment_sabotage\": {\"score\": 1, \"justification\": \"Image aligns with the original instruction.\"},\n  \"editing_incompleteness\": {\"score\": 1, \"justification\": \"Editing complete as per the request.\"},\n  \"total_implausibility\": {\"score\": 1, \"justification\": \"Result is logically coherent and realistic.\"}\n}\n```"
+}

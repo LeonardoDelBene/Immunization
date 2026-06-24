@@ -4,32 +4,34 @@ A person in a basement
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 31.7675
-SSIM: 0.9344
-FSIM: 0.8310
+PSNR: 31.9762
+SSIM: 0.9369
+FSIM: 0.8380
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 17.2684
-SSIM: 0.5361
-FSIM: 0.4820
-
-CLIP score (Image vs Prompt)
-Edited Original:  21.2357
-Edited Immunized: 26.6863
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.7660
-Caption orig: A woman wearing a pink jacket and a blue skirt stands in front of a wall.
-Caption adv:  A woman wearing a pink jacket and a white skirt is standing in a hallway.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 16.4566
+SSIM: 0.5162
+FSIM: 0.4794
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.5095
-Background SSIM   (basso=protezione ok): 0.4527
-Subject LPIPS     (basso=soggetto ok)  : 0.2718
-Editing score                          : 0.5049
-Mask coverage (% background)           : 0.7170
+Global LPIPS                           : 0.4699
+Background LPIPS                       : 0.5847
+Subject LPIPS                          : 0.2560
+Separation                             : 0.6955
+Editing score                          : 0.5847
+Mask coverage                          : 0.7170
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person is still present, but the background has been changed from a wooden fence to an indoor setting with a ceiling and walls, which does not align with the editing instruction."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The image shows a person standing in what appears to be an indoor setting with a patterned wall, but there are no visible signs of a basement environment such as concrete floors, exposed pipes, or typical basement lighting. The semantic elements required by the prompt (a person in a basement) are not present.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The image shows a person standing in what appears to be an indoor setting with a patterned wall, but there are no visible signs of a basement environment such as concrete floors, exposed pipes, or typical basement lighting. The semantic elements required by the prompt (a person in a basement) are not present.\"\n}\n```"
+}

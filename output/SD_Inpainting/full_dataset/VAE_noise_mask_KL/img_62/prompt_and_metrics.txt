@@ -4,32 +4,34 @@ A person in a festival ground
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.8617
-SSIM: 0.9672
-FSIM: 0.8774
+PSNR: 30.3963
+SSIM: 0.9649
+FSIM: 0.8728
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 19.0537
-SSIM: 0.7270
-FSIM: 0.6495
-
-CLIP score (Image vs Prompt)
-Edited Original:  32.5543
-Edited Immunized: 31.3515
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.7127
-Caption orig: A woman in a red and white shirt is looking at her cell phone.
-Caption adv:  A woman in a flowered dress is looking at her cell phone.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 19.1582
+SSIM: 0.7283
+FSIM: 0.6510
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.3275
-Background SSIM   (basso=protezione ok): 0.6960
-Subject LPIPS     (basso=soggetto ok)  : 0.2889
-Editing score                          : 0.3489
-Mask coverage (% background)           : 0.7789
+Global LPIPS                           : 0.2932
+Background LPIPS                       : 0.3191
+Subject LPIPS                          : 0.3103
+Separation                             : 0.5070
+Editing score                          : 0.3191
+Mask coverage                          : 0.7789
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person's face is not present in the adversarial image."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image contains distorted and pixelated areas that significantly alter the original scene, making it difficult to identify any semantic elements related to a 'person in a festival ground'. This indicates that the editing instruction was not satisfied.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image contains distorted and pixelated areas that significantly alter the original scene, making it difficult to identify any semantic elements related to a 'person in a festival ground'. This indicates that the editing instruction was not satisfied.\"\n}\n```"
+}

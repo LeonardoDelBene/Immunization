@@ -4,32 +4,34 @@ A person in a drive-in theater
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 29.3246
-SSIM: 0.9398
-FSIM: 0.8715
+PSNR: 29.1309
+SSIM: 0.9419
+FSIM: 0.8729
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 17.3600
-SSIM: 0.5613
-FSIM: 0.6376
-
-CLIP score (Image vs Prompt)
-Edited Original:  22.3525
-Edited Immunized: 25.5855
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.5271
-Caption orig: A woman wearing a red sweater and sunglasses is standing in a grassy field.
-Caption adv:  A woman wearing a red sweater and a purple coat stands in front of two cars.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 15.9388
+SSIM: 0.5934
+FSIM: 0.6602
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.6671
-Background SSIM   (basso=protezione ok): 0.4177
-Subject LPIPS     (basso=soggetto ok)  : 0.2016
-Editing score                          : 0.6206
-Mask coverage (% background)           : 0.6422
+Global LPIPS                           : 0.4667
+Background LPIPS                       : 0.6679
+Subject LPIPS                          : 0.1986
+Separation                             : 0.7708
+Editing score                          : 0.6679
+Mask coverage                          : 0.6422
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person is not in a drive-in theater; there is no car or screen present."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The image contains a car and a screen, which are not typical elements of a drive-in theater setting.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The image contains a car and a screen, which are not typical elements of a drive-in theater setting.\"\n}\n```"
+}

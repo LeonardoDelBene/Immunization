@@ -4,32 +4,34 @@ A person in a mall
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 31.3978
-SSIM: 0.9669
-FSIM: 0.9454
+PSNR: 32.0927
+SSIM: 0.9674
+FSIM: 0.9457
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 15.0524
-SSIM: 0.5846
-FSIM: 0.4737
-
-CLIP score (Image vs Prompt)
-Edited Original:  25.1855
-Edited Immunized: 26.1137
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.1452
-Caption orig: A woman wearing a brown jacket and a scarf around her neck, standing in a shopping mall.
-Caption adv:  A woman is taking a picture of herself in a mirror.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 14.5566
+SSIM: 0.5808
+FSIM: 0.4797
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.6130
-Background SSIM   (basso=protezione ok): 0.5571
-Subject LPIPS     (basso=soggetto ok)  : 0.4377
-Editing score                          : 0.4155
-Mask coverage (% background)           : 0.8454
+Global LPIPS                           : 0.5618
+Background LPIPS                       : 0.6138
+Subject LPIPS                          : 0.4293
+Separation                             : 0.5884
+Editing score                          : 0.6138
+Mask coverage                          : 0.8454
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person is still present in the image, but the background appears to be blurred and distorted, which does not contradict the instruction to have a person in a mall."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image contains multiple people and appears to be in a shopping area, but it lacks clear semantic elements such as specific stores or mall signage that would confirm the presence of a mall. Additionally, the image is heavily blurred, making it difficult to discern details, which could be considered a failure to meet the prompt's requirements.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image contains multiple people and appears to be in a shopping area, but it lacks clear semantic elements such as specific stores or mall signage that would confirm the presence of a mall. Additionally, the image is heavily blurred, making it difficult to discern details, which could be considered a failure to meet the prompt's requirements.\"\n}\n```"
+}

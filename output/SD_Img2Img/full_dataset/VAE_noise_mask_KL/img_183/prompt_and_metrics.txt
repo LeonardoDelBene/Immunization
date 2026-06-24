@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a sports field
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 31.4455
-SSIM: 0.9822
-FSIM: 0.9185
+PSNR: 31.4482
+SSIM: 0.9823
+FSIM: 0.9186
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 15.6124
-SSIM: 0.6933
-FSIM: 0.6053
-
-CLIP score (Image vs Prompt)
-Edited Original:  28.5826
-Edited Immunized: 26.5628
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.5068
-Caption orig: A woman wearing a red dress with white hearts on it stands on a field.
-Caption adv:  A woman wearing a red dress with a pattern of strawberries on it stands next to a man.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.4000
-Success:   True
-Accuracy:  1.0000
+PSNR: 21.6381
+SSIM: 0.9024
+FSIM: 0.7723
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.4742
-Background SSIM   (basso=protezione ok): 0.6079
-Subject LPIPS     (basso=soggetto ok)  : 0.0904
-Editing score                          : 0.5531
-Mask coverage (% background)           : 0.7377
+Global LPIPS                           : 0.0777
+Background LPIPS                       : 0.0585
+Subject LPIPS                          : 0.1766
+Separation                             : 0.7512
+Editing score                          : 0.1766
+Mask coverage                          : 0.7377
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The cap is present in both images, so there is no semantic edit change."
+}

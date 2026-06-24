@@ -4,32 +4,34 @@ A person in a dance school
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 29.5211
-SSIM: 0.9200
-FSIM: 0.8864
+PSNR: 29.4752
+SSIM: 0.9201
+FSIM: 0.8863
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 15.4330
-SSIM: 0.6031
-FSIM: 0.4812
-
-CLIP score (Image vs Prompt)
-Edited Original:  22.6343
-Edited Immunized: 26.0375
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6665
-Caption orig: A man wearing sunglasses and a white shirt stands in front of a brick wall.
-Caption adv:  A man wearing sunglasses and a white shirt stands in front of a group of other men.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
+PSNR: 21.1758
+SSIM: 0.7165
+FSIM: 0.5354
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.7697
-Background SSIM   (basso=protezione ok): 0.5718
-Subject LPIPS     (basso=soggetto ok)  : 0.4483
-Editing score                          : 0.4674
-Mask coverage (% background)           : 0.7200
+Global LPIPS                           : 0.5238
+Background LPIPS                       : 0.6037
+Subject LPIPS                          : 0.4505
+Separation                             : 0.5727
+Editing score                          : 0.6037
+Mask coverage                          : 0.7200
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person is not in a dance school; instead, they appear to be in a different setting with a reflective surface and lights above."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image does not depict a person in a dance school. Instead, it shows a person in an urban setting with no clear indication of a dance school environment.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image does not depict a person in a dance school. Instead, it shows a person in an urban setting with no clear indication of a dance school environment.\"\n}\n```"
+}

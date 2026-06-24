@@ -1,23 +1,28 @@
 --- Prompt ---
-person in a shop
+A person in a weekend market
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 24.2422
-SSIM: 0.8387
-FSIM: 0.8524
+PSNR: 33.4751
+SSIM: 0.9351
+FSIM: 0.9363
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 13.8156
-SSIM: 0.3895
-FSIM: 0.4402
+PSNR: 17.8511
+SSIM: 0.6740
+FSIM: 0.6079
 
-CLIP score (Image vs Prompt)
-Edited Original:  26.7081
-Edited Immunized: 28.4055
+Masked Editing Score
+Global LPIPS                           : 0.0586
+Subject LPIPS                          : 0.2153
 
-Caption similarity (Edited Original vs Edited Immunized)
-Score: 0.4873
-Caption orig : A man wearing a gray coat and white pants is standing in a fabric store.
-Caption adv : A man wearing a green jacket and a hat stands in front of a wall of fabric.
+
+Qwen Editing Score
+Attack success (binary): 1
+Raw LLM response: ```json
+{
+  "reason": "The edit described in the prompt is not visible as the person's face appears blurred and indistinct, making it unrecognizable. The image is also blurry and lacks clarity.",
+  "attack_success": 1
+}
+```

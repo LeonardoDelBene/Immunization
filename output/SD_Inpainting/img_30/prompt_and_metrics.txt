@@ -4,18 +4,18 @@ A person in a slum
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 28.7304
-SSIM: 0.8776
-FSIM: 0.7911
+PSNR: 27.2836
+SSIM: 0.8903
+FSIM: 0.8334
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 16.6172
-SSIM: 0.5523
-FSIM: 0.5423
+PSNR: 14.9497
+SSIM: 0.4438
+FSIM: 0.4801
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.4784
-Background SSIM   (basso=protezione ok): 0.5313
-Subject LPIPS     (basso=soggetto ok)  : 0.5586
-Editing score                          : 0.3320
-Mask coverage (% background)           : 0.6896
+Background LPIPS  (alto=protezione ok) : 0.6999
+Background SSIM   (basso=protezione ok): 0.4090
+Subject LPIPS     (basso=soggetto ok)  : 0.5840
+Editing score                          : 0.4572
+Mask coverage (% background)           : 0.7493

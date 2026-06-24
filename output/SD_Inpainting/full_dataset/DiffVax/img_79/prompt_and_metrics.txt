@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a beach shack
+A person in a slum
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 34.960854941894425,
+  "psnr_edited_original_vs_edited_immunized": 12.41344180124826
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 34.9608
-SSIM: 0.9895
-FSIM: 0.9551
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 11.7527
-SSIM: 0.4608
-FSIM: 0.5228
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9895040184291374,
+  "ssim_edited_original_vs_edited_immunized": 0.46023795438868514
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  28.9013
-Edited Immunized: 25.9648
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.5989
-Caption orig: A man wearing a black jacket and a hat is standing in front of a hut.
-Caption adv:  A man wearing a black jacket and a white shirt is standing in front of a pink and white curtain.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9551131434566479,
+  "fsim_edited_original_vs_edited_immunized": 0.5016915497057038
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.7695
-Background SSIM   (basso=protezione ok): 0.2754
-Subject LPIPS     (basso=soggetto ok)  : 0.1272
-Editing score                          : 0.5721
-Mask coverage (% background)           : 0.7277
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.12727828996889676
+Global LPIPS : 0.029654420912265778
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.12727828996889676
+Global LPIPS : 0.5955251455307007
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The background has been changed from a slum setting to a wall with colorful spots, indicating the edit was applied. The image remains clear and recognizable.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The background has been changed from a slum setting to a wall with colorful spots, indicating the edit was applied. The image remains clear and recognizable.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 5.5,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 1,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 1,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been changed from a slum setting to a wall with colorful spots."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall scene is completely altered, losing the original slum environment."
+    },
+    "identity_erasure": {
+      "score": 1,
+      "justification": "The subject's identity is not erased; he remains recognizable."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No objects are rendered disproportionate or unrealistic in size."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "Spatial relationships are destroyed as the background is completely changed."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "The original textures are replaced by a patterned wall with colorful spots."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Visible noise and digital artifacts are introduced due to the change in background."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "Colors and shadows are inconsistent with the new background."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Sharp edges and visible seams appear where the background changes abruptly."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The final image completely deviates from the intent of the original instruction."
+    },
+    "editing_incompleteness": {
+      "score": 1,
+      "justification": "The editing is not incomplete; the entire image is altered."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd as it shows a person in a suit standing in front of a wall with colorful spots, which is implausible in a slum setting."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been changed from a slum setting to a wall with colorful spots.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall scene is completely altered, losing the original slum environment.\"},\n  \"identity_erasure\": {\"score\": 1, \"justification\": \"The subject's identity is not erased; he remains recognizable.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No objects are rendered disproportionate or unrealistic in size.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"Spatial relationships are destroyed as the background is completely changed.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"The original textures are replaced by a patterned wall with colorful spots.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Visible noise and digital artifacts are introduced due to the change in background.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"Colors and shadows are inconsistent with the new background.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Sharp edges and visible seams appear where the background changes abruptly.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The final image completely deviates from the intent of the original instruction.\"},\n  \"editing_incompleteness\": {\"score\": 1, \"justification\": \"The editing is not incomplete; the entire image is altered.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd as it shows a person in a suit standing in front of a wall with colorful spots, which is implausible in a slum setting.\"}\n}"
+}

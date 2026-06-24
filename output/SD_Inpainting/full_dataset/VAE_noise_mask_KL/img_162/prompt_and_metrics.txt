@@ -4,32 +4,34 @@ A person in a swimming pool
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 29.2782
-SSIM: 0.8963
-FSIM: 0.8460
+PSNR: 29.4869
+SSIM: 0.8961
+FSIM: 0.8453
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 15.9533
-SSIM: 0.5552
-FSIM: 0.4293
-
-CLIP score (Image vs Prompt)
-Edited Original:  30.1524
-Edited Immunized: 31.7774
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.7152
-Caption orig: A man wearing a green shirt and a backpack is standing next to a pool.
-Caption adv:  A man wearing a brown shirt and a black belt is standing in a pool.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 16.6529
+SSIM: 0.5891
+FSIM: 0.4411
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.6632
-Background SSIM   (basso=protezione ok): 0.5414
-Subject LPIPS     (basso=soggetto ok)  : 0.5193
-Editing score                          : 0.4029
-Mask coverage (% background)           : 0.7294
+Global LPIPS                           : 0.5487
+Background LPIPS                       : 0.6334
+Subject LPIPS                          : 0.5213
+Separation                             : 0.5485
+Editing score                          : 0.6334
+Mask coverage                          : 0.7294
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person is still standing in front of the pool, but the background appears to be altered with a striped pattern, which does not match the original scene."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person is not in a swimming pool; they are standing in front of one.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The person is not in a swimming pool; they are standing in front of one.\"\n}\n```"
+}

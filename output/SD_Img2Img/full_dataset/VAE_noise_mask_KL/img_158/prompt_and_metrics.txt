@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a ice cream parlor
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 29.4309
+PSNR: 29.4307
 SSIM: 0.8833
 FSIM: 0.8587
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 16.6635
-SSIM: 0.5975
-FSIM: 0.5616
-
-CLIP score (Image vs Prompt)
-Edited Original:  23.7201
-Edited Immunized: 26.8165
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.4866
-Caption orig: A woman wearing a black jacket and a black skirt is standing in front of a man.
-Caption adv:  A young girl wearing a black coat and holding a blue umbrella stands next to an older woman.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 20.1369
+SSIM: 0.6941
+FSIM: 0.6308
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.4849
-Background SSIM   (basso=protezione ok): 0.5958
-Subject LPIPS     (basso=soggetto ok)  : 0.5792
-Editing score                          : 0.3152
-Mask coverage (% background)           : 0.6974
+Global LPIPS                           : 0.3188
+Background LPIPS                       : 0.1777
+Subject LPIPS                          : 0.7740
+Separation                             : 0.8133
+Editing score                          : 0.7740
+Mask coverage                          : 0.6974
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person in the adversarial image is not wearing a cap."
+}

@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a community arts and crafts market
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.4010
+PSNR: 30.4008
 SSIM: 0.9407
 FSIM: 0.9070
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 16.0480
-SSIM: 0.5923
-FSIM: 0.5467
-
-CLIP score (Image vs Prompt)
-Edited Original:  24.5457
-Edited Immunized: 30.6781
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.8463
-Caption orig: A woman wearing a white shirt and a black and red plaid skirt is standing in front of a painting.
-Caption adv:  A woman is sitting in front of a painting, and she is wearing a white shirt and a plaid skirt.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
+PSNR: 22.8701
+SSIM: 0.8309
+FSIM: 0.7201
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.5691
-Background SSIM   (basso=protezione ok): 0.5499
-Subject LPIPS     (basso=soggetto ok)  : 0.2977
-Editing score                          : 0.4841
-Mask coverage (% background)           : 0.7660
+Global LPIPS                           : 0.1802
+Background LPIPS                       : 0.1042
+Subject LPIPS                          : 0.4940
+Separation                             : 0.8258
+Editing score                          : 0.4940
+Mask coverage                          : 0.7660
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person in the adversarial image is wearing a hat, which satisfies the editing instruction."
+}

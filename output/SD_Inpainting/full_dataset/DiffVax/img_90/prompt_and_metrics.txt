@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a dance school
+A person in a church hall
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 36.49493447822295,
+  "psnr_edited_original_vs_edited_immunized": 12.224289776380179
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 36.4947
-SSIM: 0.9914
-FSIM: 0.9724
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 17.6552
-SSIM: 0.7042
-FSIM: 0.6004
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9914204000083733,
+  "ssim_edited_original_vs_edited_immunized": 0.492591054309806
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  22.6343
-Edited Immunized: 21.6444
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.9327
-Caption orig: A man wearing sunglasses and a white shirt stands in front of a brick wall.
-Caption adv:  A man wearing sunglasses and a white shirt stands in front of a colorful wall.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.972395248338549,
+  "fsim_edited_original_vs_edited_immunized": 0.4969727767851708
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.8466
-Background SSIM   (basso=protezione ok): 0.6098
-Subject LPIPS     (basso=soggetto ok)  : 0.0923
-Editing score                          : 0.4819
-Mask coverage (% background)           : 0.7200
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.09226376278927417
+Global LPIPS : 0.019423402845859528
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.09226376278927417
+Global LPIPS : 0.632926344871521
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The background has been changed from a church interior to a colorful, patterned wall, which is a significant edit. The image remains clear and recognizable.",
+  "attack_success": 1,
+  "raw_output": "```json\n{\n  \"reason\": \"The background has been changed from a church interior to a colorful, patterned wall, which is a significant edit. The image remains clear and recognizable.\",\n  \"attack_success\": 1\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 5.0,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 1,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 1,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 1,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been changed from a church interior to a colorful, patterned wall."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall appearance of the image is significantly altered."
+    },
+    "identity_erasure": {
+      "score": 1,
+      "justification": "The subject remains recognizable."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No noticeable distortion in object sizes."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "Spatial relationships are disrupted as the background is entirely changed."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "The original texture of the church interior is replaced with a patterned wall."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Visible changes in the background introduce severe distortions."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "Colors in the new background are inconsistent with the church interior."
+    },
+    "edge_visibility": {
+      "score": 1,
+      "justification": "No visible edges or seams."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The image completely deviates from the intended church setting."
+    },
+    "editing_incompleteness": {
+      "score": 1,
+      "justification": "The editing is not undone; the background is changed."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd as the background is completely different from the original setting."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been changed from a church interior to a colorful, patterned wall.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall appearance of the image is significantly altered.\"},\n  \"identity_erasure\": {\"score\": 1, \"justification\": \"The subject remains recognizable.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No noticeable distortion in object sizes.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"Spatial relationships are disrupted as the background is entirely changed.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"The original texture of the church interior is replaced with a patterned wall.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Visible changes in the background introduce severe distortions.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"Colors in the new background are inconsistent with the church interior.\"},\n  \"edge_visibility\": {\"score\": 1, \"justification\": \"No visible edges or seams.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The image completely deviates from the intended church setting.\"},\n  \"editing_incompleteness\": {\"score\": 1, \"justification\": \"The editing is not undone; the background is changed.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd as the background is completely different from the original setting.\"}\n}"
+}

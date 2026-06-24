@@ -4,32 +4,34 @@ A person in a prison shower
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.2234
-SSIM: 0.9058
-FSIM: 0.8684
+PSNR: 30.0688
+SSIM: 0.9050
+FSIM: 0.8677
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 17.9476
-SSIM: 0.4402
-FSIM: 0.4938
-
-CLIP score (Image vs Prompt)
-Edited Original:  29.9054
-Edited Immunized: 28.2560
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.3201
-Caption orig: A man in a grey jacket stands in front of a shower with water pouring down on him.
-Caption adv:  A man wearing a black shirt and black pants stands in a room.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 17.6592
+SSIM: 0.4383
+FSIM: 0.4801
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.6665
-Background SSIM   (basso=protezione ok): 0.3385
-Subject LPIPS     (basso=soggetto ok)  : 0.4389
-Editing score                          : 0.5017
-Mask coverage (% background)           : 0.6936
+Global LPIPS                           : 0.5847
+Background LPIPS                       : 0.6728
+Subject LPIPS                          : 0.4370
+Separation                             : 0.6062
+Editing score                          : 0.6728
+Mask coverage                          : 0.6936
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person is not in a prison shower; instead, they appear to be in a modern, well-lit shower with a different setting and lighting."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image does not depict a person in a prison shower as per the editing prompt. The scene appears to be a modern, possibly luxurious shower setting rather than a prison environment.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image does not depict a person in a prison shower as per the editing prompt. The scene appears to be a modern, possibly luxurious shower setting rather than a prison environment.\"\n}\n```"
+}

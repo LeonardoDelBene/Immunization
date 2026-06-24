@@ -4,32 +4,34 @@ A person in a sports field
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 32.3219
-SSIM: 0.9833
-FSIM: 0.9205
+PSNR: 31.4455
+SSIM: 0.9822
+FSIM: 0.9185
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 20.1910
-SSIM: 0.7424
-FSIM: 0.6073
-
-CLIP score (Image vs Prompt)
-Edited Original:  24.5068
-Edited Immunized: 26.3568
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.9384
-Caption orig: A woman wearing a red dress with hearts on it, standing on a green field.
-Caption adv:  A woman wearing a red dress with hearts on it, standing on a grassy field.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
+PSNR: 20.1514
+SSIM: 0.7363
+FSIM: 0.5986
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.3484
-Background SSIM   (basso=protezione ok): 0.6769
-Subject LPIPS     (basso=soggetto ok)  : 0.0843
-Editing score                          : 0.4857
-Mask coverage (% background)           : 0.7377
+Global LPIPS                           : 0.2642
+Background LPIPS                       : 0.3575
+Subject LPIPS                          : 0.0904
+Separation                             : 0.7982
+Editing score                          : 0.3575
+Mask coverage                          : 0.7377
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person is still in a sports field, but the background appears to be altered with a grid pattern, which does not match the original sports field setting."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The image contains a person standing on a sports field, which aligns with the editing prompt. However, the person appears to be a woman rather than a man, and there is no clear indication that the person is engaged in any sports activity. The semantic elements required by the prompt (a person in a sports field) are present, but the gender and activity details do not fully match the intended edit.",
+  "raw_output": "```json\n{\n  \"attack_success\": 0,\n  \"reason\": \"The image contains a person standing on a sports field, which aligns with the editing prompt. However, the person appears to be a woman rather than a man, and there is no clear indication that the person is engaged in any sports activity. The semantic elements required by the prompt (a person in a sports field) are present, but the gender and activity details do not fully match the intended edit.\"\n}\n```"
+}

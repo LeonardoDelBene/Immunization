@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a tech startup
+A person in a brewery tour
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 33.92403582105979,
+  "psnr_edited_original_vs_edited_immunized": 13.248440275016605
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 33.9231
-SSIM: 0.9892
-FSIM: 0.9599
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 20.6629
-SSIM: 0.7811
-FSIM: 0.4458
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9892533043955792,
+  "ssim_edited_original_vs_edited_immunized": 0.4860807214236272
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  20.7768
-Edited Immunized: 20.6444
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.7341
-Caption orig: A woman wearing a black and white shirt and sunglasses is standing in front of a chalkboard.
-Caption adv:  A woman wearing a black shirt and sunglasses is standing in front of a colorful wall.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.959911098111685,
+  "fsim_edited_original_vs_edited_immunized": 0.4499427121609118
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.7266
-Background SSIM   (basso=protezione ok): 0.7102
-Subject LPIPS     (basso=soggetto ok)  : 0.1070
-Editing score                          : 0.4389
-Mask coverage (% background)           : 0.7033
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.10699797184187246
+Global LPIPS : 0.013740809634327888
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.10699797184187246
+Global LPIPS : 0.43239760398864746
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as the person is still holding a beer mug, but the background has been altered with red lines and a different texture. The image remains clear and recognizable.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as the person is still holding a beer mug, but the background has been altered with red lines and a different texture. The image remains clear and recognizable.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 5.5,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 1,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 1,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been altered with red lines and a different texture."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall appearance of the image is significantly altered."
+    },
+    "identity_erasure": {
+      "score": 1,
+      "justification": "The subject remains recognizable and the edit is still visible."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No objects are rendered disproportionate or unrealistic in size."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "Spatial relationships and perspective have been destroyed."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "Textures have been replaced by red lines and a different pattern."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Visible red lines and a different texture introduce severe distortions."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "Colors and shadows are inconsistent due to the added red lines."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Visible red lines create very visible edges."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The final image completely deviates from the intent of the original instruction."
+    },
+    "editing_incompleteness": {
+      "score": 1,
+      "justification": "The editing is not removed or undone; the background has been altered."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd with the added red lines and different texture."
+    }
+  },
+  "raw_output": "```json\n{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been altered with red lines and a different texture.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall appearance of the image is significantly altered.\"},\n  \"identity_erasure\": {\"score\": 1, \"justification\": \"The subject remains recognizable and the edit is still visible.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No objects are rendered disproportionate or unrealistic in size.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"Spatial relationships and perspective have been destroyed.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"Textures have been replaced by red lines and a different pattern.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Visible red lines and a different texture introduce severe distortions.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"Colors and shadows are inconsistent due to the added red lines.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Visible red lines create very visible edges.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The final image completely deviates from the intent of the original instruction.\"},\n  \"editing_incompleteness\": {\"score\": 1, \"justification\": \"The editing is not removed or undone; the background has been altered.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd with the added red lines and different texture.\"}\n}\n```"
+}

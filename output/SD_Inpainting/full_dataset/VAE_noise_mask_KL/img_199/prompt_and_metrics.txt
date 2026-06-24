@@ -4,32 +4,34 @@ A person in a glass factory
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 31.2163
-SSIM: 0.9383
-FSIM: 0.8835
+PSNR: 30.8136
+SSIM: 0.9366
+FSIM: 0.8817
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 17.0747
-SSIM: 0.4808
-FSIM: 0.5219
-
-CLIP score (Image vs Prompt)
-Edited Original:  28.2983
-Edited Immunized: 29.8600
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.5552
-Caption orig: A woman wearing a blue jacket and a blue dress is standing in a room with a glass wall.
-Caption adv:  A woman wearing a blue jacket and a white shirt is standing in front of a factory.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 17.0580
+SSIM: 0.4800
+FSIM: 0.5142
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.5258
-Background SSIM   (basso=protezione ok): 0.4183
-Subject LPIPS     (basso=soggetto ok)  : 0.3434
-Editing score                          : 0.4788
-Mask coverage (% background)           : 0.7680
+Global LPIPS                           : 0.4518
+Background LPIPS                       : 0.5171
+Subject LPIPS                          : 0.3508
+Separation                             : 0.5958
+Editing score                          : 0.5171
+Mask coverage                          : 0.7680
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person is still present, but the environment appears to be altered with a grid pattern overlay, which does not align with the original scene of a glass factory."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image does not depict a person in a glass factory as the editing prompt suggests. Instead, it shows a person in an industrial setting with no clear indication of a glass factory environment.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image does not depict a person in a glass factory as the editing prompt suggests. Instead, it shows a person in an industrial setting with no clear indication of a glass factory environment.\"\n}\n```"
+}

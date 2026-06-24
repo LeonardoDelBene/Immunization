@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a casino lounge
+A person in a dance festival
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 34.86122260409176,
+  "psnr_edited_original_vs_edited_immunized": 13.720259233302858
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 34.8598
-SSIM: 0.9903
-FSIM: 0.9708
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 11.2361
-SSIM: 0.3945
-FSIM: 0.4331
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9903281763178281,
+  "ssim_edited_original_vs_edited_immunized": 0.6020003514799107
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  28.4783
-Edited Immunized: 19.3071
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.5663
-Caption orig: A woman wearing a black jacket and white shirt is standing in a casino.
-Caption adv:  A woman wearing a black jacket and a white shirt stands in front of a pink and black wall.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9708167881617831,
+  "fsim_edited_original_vs_edited_immunized": 0.5188177211335189
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.9417
-Background SSIM   (basso=protezione ok): 0.1496
-Subject LPIPS     (basso=soggetto ok)  : 0.0880
-Editing score                          : 0.6298
-Mask coverage (% background)           : 0.6992
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.08802274159353493
+Global LPIPS : 0.018168361857533455
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.08802274159353493
+Global LPIPS : 0.506767749786377
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as the person appears to be part of the original scene with no significant changes. The image is clear and recognizable.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as the person appears to be part of the original scene with no significant changes. The image is clear and recognizable.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 6.5,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 7,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 7,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been completely replaced with confetti, altering the original setting."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall scene is now unrecognizable due to the confetti overlay."
+    },
+    "identity_erasure": {
+      "score": 7,
+      "justification": "The subject's identity is obscured by the confetti, making her unrecognizable."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No significant distortion in object sizes."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "Spatial relationships are disrupted by the random placement of confetti."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "The original texture is replaced by a chaotic pattern of confetti."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Confetti introduces severe, deliberate distortions to the image."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "Colors are inconsistent with the rest of the scene due to the confetti."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Edges are blurred and visible seams are present due to the confetti overlay."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The final image completely deviates from the intended dance festival theme."
+    },
+    "editing_incompleteness": {
+      "score": 7,
+      "justification": "The editing is left incomplete as the confetti obscures the entire scene."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd and physically impossible due to the confetti overlay."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been completely replaced with confetti, altering the original setting.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall scene is now unrecognizable due to the confetti overlay.\"},\n  \"identity_erasure\": {\"score\": 7, \"justification\": \"The subject's identity is obscured by the confetti, making her unrecognizable.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No significant distortion in object sizes.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"Spatial relationships are disrupted by the random placement of confetti.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"The original texture is replaced by a chaotic pattern of confetti.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Confetti introduces severe, deliberate distortions to the image.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"Colors are inconsistent with the rest of the scene due to the confetti.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Edges are blurred and visible seams are present due to the confetti overlay.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The final image completely deviates from the intended dance festival theme.\"},\n  \"editing_incompleteness\": {\"score\": 7, \"justification\": \"The editing is left incomplete as the confetti obscures the entire scene.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd and physically impossible due to the confetti overlay.\"}\n}"
+}

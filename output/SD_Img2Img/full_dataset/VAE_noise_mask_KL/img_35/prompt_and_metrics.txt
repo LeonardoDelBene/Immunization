@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a flower garden
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 31.9412
+PSNR: 31.9424
 SSIM: 0.9443
 FSIM: 0.8995
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 18.0115
-SSIM: 0.6145
-FSIM: 0.6000
-
-CLIP score (Image vs Prompt)
-Edited Original:  27.5237
-Edited Immunized: 32.1900
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.7050
-Caption orig: A woman wearing a red jacket and sunglasses is talking on her cell phone.
-Caption adv:  A woman in a red jacket is talking on her cell phone while surrounded by a garden of flowers.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.4000
-Success:   True
-Accuracy:  1.0000
+PSNR: 23.4724
+SSIM: 0.7998
+FSIM: 0.6980
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.4197
-Background SSIM   (basso=protezione ok): 0.5475
-Subject LPIPS     (basso=soggetto ok)  : 0.2209
-Editing score                          : 0.4711
-Mask coverage (% background)           : 0.7318
+Global LPIPS                           : 0.1921
+Background LPIPS                       : 0.1281
+Subject LPIPS                          : 0.4077
+Separation                             : 0.7609
+Editing score                          : 0.4077
+Mask coverage                          : 0.7318
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The cap is still present in the adversarial image."
+}

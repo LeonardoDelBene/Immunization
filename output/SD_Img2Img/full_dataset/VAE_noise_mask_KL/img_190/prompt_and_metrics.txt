@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a sandwich shop
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.3104
+PSNR: 30.3105
 SSIM: 0.8848
 FSIM: 0.8705
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 17.5931
-SSIM: 0.5561
-FSIM: 0.5130
-
-CLIP score (Image vs Prompt)
-Edited Original:  26.5395
-Edited Immunized: 28.1655
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.4778
-Caption orig: A woman wearing a hat and a pink sweater is standing in front of a deli counter.
-Caption adv:  A man wearing a red sweater and a hat is leaning on a counter.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 23.2484
+SSIM: 0.7773
+FSIM: 0.6893
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.5467
-Background SSIM   (basso=protezione ok): 0.5248
-Subject LPIPS     (basso=soggetto ok)  : 0.4421
-Editing score                          : 0.3959
-Mask coverage (% background)           : 0.6845
+Global LPIPS                           : 0.2237
+Background LPIPS                       : 0.1320
+Subject LPIPS                          : 0.4944
+Separation                             : 0.7893
+Editing score                          : 0.4944
+Mask coverage                          : 0.6845
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person in the adversarial image is wearing a cap, which matches the editing prompt."
+}

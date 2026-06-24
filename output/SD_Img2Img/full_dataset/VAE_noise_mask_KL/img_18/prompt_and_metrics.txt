@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a butcher’s shop
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.8830
+PSNR: 30.8827
 SSIM: 0.9525
 FSIM: 0.8764
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 18.3515
-SSIM: 0.6746
-FSIM: 0.5914
-
-CLIP score (Image vs Prompt)
-Edited Original:  25.4838
-Edited Immunized: 30.7451
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.8247
-Caption orig: A woman wearing a grey coat and a belt is standing in front of a bakery.
-Caption adv:  A woman wearing a coat and a scarf is standing in front of a bakery.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 24.3837
+SSIM: 0.8796
+FSIM: 0.7139
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.4588
-Background SSIM   (basso=protezione ok): 0.6254
-Subject LPIPS     (basso=soggetto ok)  : 0.3344
-Editing score                          : 0.3953
-Mask coverage (% background)           : 0.7342
+Global LPIPS                           : 0.1500
+Background LPIPS                       : 0.0967
+Subject LPIPS                          : 0.3424
+Separation                             : 0.7798
+Editing score                          : 0.3424
+Mask coverage                          : 0.7342
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person in the adversarial image is wearing a hooded jacket instead of a cap."
+}

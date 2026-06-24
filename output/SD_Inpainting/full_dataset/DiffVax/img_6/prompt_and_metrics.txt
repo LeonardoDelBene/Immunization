@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a betting shop
+A person in a charity art auction
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 34.37370733720731,
+  "psnr_edited_original_vs_edited_immunized": 12.898003734944524
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 34.3732
-SSIM: 0.9841
-FSIM: 0.9623
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 11.9489
-SSIM: 0.3896
-FSIM: 0.3692
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9841380082002914,
+  "ssim_edited_original_vs_edited_immunized": 0.5069690329729446
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  27.3173
-Edited Immunized: 22.0426
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.4505
-Caption orig: A woman in a white dress is playing a video game.
-Caption adv:  A woman wearing a white shirt and holding a cell phone.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9623450197715359,
+  "fsim_edited_original_vs_edited_immunized": 0.4038484355502898
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.8499
-Background SSIM   (basso=protezione ok): 0.2777
-Subject LPIPS     (basso=soggetto ok)  : 0.2863
-Editing score                          : 0.5677
-Mask coverage (% background)           : 0.8080
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.2863863390536041
+Global LPIPS : 0.036827828735113144
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.2863863390536041
+Global LPIPS : 0.634537935256958
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as the person is still holding a phone and standing in front of a table. The image appears to be clear and recognizable with no noticeable degradation.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as the person is still holding a phone and standing in front of a table. The image appears to be clear and recognizable with no noticeable degradation.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 6.5,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 7,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 7,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been completely replaced with abstract patterns."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall scene is altered with no recognizable elements."
+    },
+    "identity_erasure": {
+      "score": 7,
+      "justification": "The subject's identity is lost due to the abstract background."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No significant distortion in object sizes."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "Spatial relationships are destroyed with abstract patterns."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "Original textures are replaced with abstract patterns."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Severe distortions are introduced with abstract patterns."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "Colors are inconsistent with the rest of the scene."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Visible seams and edges are present in the attacked areas."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The final image completely deviates from the original instruction."
+    },
+    "editing_incompleteness": {
+      "score": 7,
+      "justification": "Fundamental parts of the requested edit are removed."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd and physically impossible."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been completely replaced with abstract patterns.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall scene is altered with no recognizable elements.\"},\n  \"identity_erasure\": {\"score\": 7, \"justification\": \"The subject's identity is lost due to the abstract background.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No significant distortion in object sizes.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"Spatial relationships are destroyed with abstract patterns.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"Original textures are replaced with abstract patterns.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Severe distortions are introduced with abstract patterns.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"Colors are inconsistent with the rest of the scene.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Visible seams and edges are present in the attacked areas.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The final image completely deviates from the original instruction.\"},\n  \"editing_incompleteness\": {\"score\": 7, \"justification\": \"Fundamental parts of the requested edit are removed.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd and physically impossible.\"}\n}"
+}

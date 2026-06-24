@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a tram stop
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 28.8353
+PSNR: 28.8361
 SSIM: 0.8787
 FSIM: 0.9103
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 15.0196
-SSIM: 0.5155
-FSIM: 0.5158
-
-CLIP score (Image vs Prompt)
-Edited Original:  26.5083
-Edited Immunized: 30.7509
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.9361
-Caption orig: A woman wearing a brown coat and sunglasses is standing next to a train.
-Caption adv:  A woman wearing a brown jacket and glasses is standing next to a train.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
+PSNR: 21.5570
+SSIM: 0.7463
+FSIM: 0.6977
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.4867
-Background SSIM   (basso=protezione ok): 0.4588
-Subject LPIPS     (basso=soggetto ok)  : 0.4389
-Editing score                          : 0.3937
-Mask coverage (% background)           : 0.6730
+Global LPIPS                           : 0.2612
+Background LPIPS                       : 0.1366
+Subject LPIPS                          : 0.6149
+Separation                             : 0.8182
+Editing score                          : 0.6149
+Mask coverage                          : 0.6730
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person in the adversarial image is wearing a hat, which fulfills the editing instruction."
+}

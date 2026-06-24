@@ -4,32 +4,34 @@ A person in a kite festival
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 31.4291
-SSIM: 0.9140
-FSIM: 0.8739
+PSNR: 31.1999
+SSIM: 0.9131
+FSIM: 0.8721
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 16.4756
-SSIM: 0.6225
-FSIM: 0.4668
-
-CLIP score (Image vs Prompt)
-Edited Original:  30.6493
-Edited Immunized: 31.0460
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.7882
-Caption orig: A woman wearing a fur coat and holding a kite.
-Caption adv:  A woman wearing a scarf and holding a colorful kite.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 16.7972
+SSIM: 0.6151
+FSIM: 0.4709
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.6399
-Background SSIM   (basso=protezione ok): 0.5988
-Subject LPIPS     (basso=soggetto ok)  : 0.5793
-Editing score                          : 0.3763
-Mask coverage (% background)           : 0.7030
+Global LPIPS                           : 0.5485
+Background LPIPS                       : 0.6127
+Subject LPIPS                          : 0.5788
+Separation                             : 0.5142
+Editing score                          : 0.6127
+Mask coverage                          : 0.7030
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The kite is present, but the image appears to be heavily distorted and lacks clarity, which does not satisfy the semantic edit."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image lacks a person and there are no kites visible, which contradicts the editing prompt.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image lacks a person and there are no kites visible, which contradicts the editing prompt.\"\n}\n```"
+}

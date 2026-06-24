@@ -4,32 +4,34 @@ A person in a charity art auction
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 32.6783
-SSIM: 0.9632
-FSIM: 0.8765
+PSNR: 32.4786
+SSIM: 0.9625
+FSIM: 0.8757
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 15.7383
-SSIM: 0.6544
-FSIM: 0.5249
-
-CLIP score (Image vs Prompt)
-Edited Original:  26.2576
-Edited Immunized: 26.4924
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.9452
-Caption orig: A woman wearing sunglasses and a colorful jacket stands in front of two colorful paintings.
-Caption adv:  A woman wearing sunglasses and a colorful jacket stands in front of a painting.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
+PSNR: 15.6060
+SSIM: 0.6611
+FSIM: 0.5261
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.5438
-Background SSIM   (basso=protezione ok): 0.6254
-Subject LPIPS     (basso=soggetto ok)  : 0.2482
-Editing score                          : 0.4810
-Mask coverage (% background)           : 0.8058
+Global LPIPS                           : 0.4627
+Background LPIPS                       : 0.5465
+Subject LPIPS                          : 0.2521
+Separation                             : 0.6843
+Editing score                          : 0.5465
+Mask coverage                          : 0.8058
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person is still present, but the background has been altered with additional elements that do not align with the original scene."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image contains a person wearing sunglasses and a colorful outfit, but there is no clear indication that this person is participating in a charity art auction. The background appears to be an abstract painting, which does not align with the context of a charity art auction.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image contains a person wearing sunglasses and a colorful outfit, but there is no clear indication that this person is participating in a charity art auction. The background appears to be an abstract painting, which does not align with the context of a charity art auction.\"\n}\n```"
+}

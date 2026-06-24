@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a butcher shop
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
 PSNR: 32.5674
 SSIM: 0.9452
-FSIM: 0.9042
+FSIM: 0.9043
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 18.1489
-SSIM: 0.6048
-FSIM: 0.4933
-
-CLIP score (Image vs Prompt)
-Edited Original:  31.1866
-Edited Immunized: 28.5216
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6028
-Caption orig: A man wearing sunglasses and a blue shirt is standing in front of a counter with a variety of meats on display.
-Caption adv:  A man wearing sunglasses and a black shirt is standing in a kitchen, possibly in a restaurant.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 22.6004
+SSIM: 0.7755
+FSIM: 0.6305
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.5249
-Background SSIM   (basso=protezione ok): 0.6005
-Subject LPIPS     (basso=soggetto ok)  : 0.5449
-Editing score                          : 0.3298
-Mask coverage (% background)           : 0.8426
+Global LPIPS                           : 0.2754
+Background LPIPS                       : 0.2202
+Subject LPIPS                          : 0.8009
+Separation                             : 0.7843
+Editing score                          : 0.8009
+Mask coverage                          : 0.8426
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person in the adversarial image is wearing a cap, which matches the editing prompt."
+}

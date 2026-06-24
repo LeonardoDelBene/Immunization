@@ -4,32 +4,34 @@ A person in a church sanctuary
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 29.5196
-SSIM: 0.9312
-FSIM: 0.8835
+PSNR: 29.9789
+SSIM: 0.9338
+FSIM: 0.8884
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 13.0202
-SSIM: 0.4169
-FSIM: 0.4203
-
-CLIP score (Image vs Prompt)
-Edited Original:  27.2293
-Edited Immunized: 26.9274
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6578
-Caption orig: A woman wearing a white fur coat and sunglasses is sitting in a church pew.
-Caption adv:  A woman wearing sunglasses and a white shirt is standing in front of a church.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 8.6619
+SSIM: 0.2414
+FSIM: 0.3407
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.8040
-Background SSIM   (basso=protezione ok): 0.3066
-Subject LPIPS     (basso=soggetto ok)  : 0.4308
-Editing score                          : 0.5711
-Mask coverage (% background)           : 0.7320
+Global LPIPS                           : 0.7525
+Background LPIPS                       : 0.9158
+Subject LPIPS                          : 0.4110
+Separation                             : 0.6902
+Editing score                          : 0.9158
+Mask coverage                          : 0.7320
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person is no longer in a church sanctuary; they appear to be isolated against a black background."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image lacks the church sanctuary background and the person, which contradicts the editing instruction.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image lacks the church sanctuary background and the person, which contradicts the editing instruction.\"\n}\n```"
+}

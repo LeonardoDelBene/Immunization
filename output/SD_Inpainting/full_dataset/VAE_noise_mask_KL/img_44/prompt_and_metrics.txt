@@ -4,32 +4,34 @@ A person in a vintage arts fair
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.0601
-SSIM: 0.9400
-FSIM: 0.9064
+PSNR: 30.1288
+SSIM: 0.9418
+FSIM: 0.9076
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 13.6890
-SSIM: 0.5084
-FSIM: 0.5027
-
-CLIP score (Image vs Prompt)
-Edited Original:  29.8335
-Edited Immunized: 32.5361
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.7155
-Caption orig: A woman wearing a gray shirt with a butterfly design on it stands in front of a crowd of people.
-Caption adv:  A woman wearing a black skirt and a white shirt with a floral pattern stands in front of a crowd of people.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 14.6224
+SSIM: 0.5346
+FSIM: 0.5241
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.5720
-Background SSIM   (basso=protezione ok): 0.4308
-Subject LPIPS     (basso=soggetto ok)  : 0.2692
-Editing score                          : 0.5380
-Mask coverage (% background)           : 0.7475
+Global LPIPS                           : 0.4164
+Background LPIPS                       : 0.5098
+Subject LPIPS                          : 0.2601
+Separation                             : 0.6622
+Editing score                          : 0.5098
+Mask coverage                          : 0.7475
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person is still present and the setting appears to be an arts fair, but there are significant texture artifacts and noise that obscure the details."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image contains distorted and pixelated areas that significantly alter the visual content, making it difficult to identify the person as being in a vintage arts fair setting. This contradicts the requirement for a clear depiction of a person in such an environment.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image contains distorted and pixelated areas that significantly alter the visual content, making it difficult to identify the person as being in a vintage arts fair setting. This contradicts the requirement for a clear depiction of a person in such an environment.\"\n}\n```"
+}

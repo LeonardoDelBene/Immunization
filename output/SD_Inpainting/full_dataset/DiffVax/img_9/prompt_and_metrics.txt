@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a local art market
+A person in a pet festival
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 34.66042420402347,
+  "psnr_edited_original_vs_edited_immunized": 13.559951236449749
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 34.6612
-SSIM: 0.9885
-FSIM: 0.9686
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 14.7421
-SSIM: 0.4484
-FSIM: 0.4833
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9885096750748401,
+  "ssim_edited_original_vs_edited_immunized": 0.469303778005219
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  28.3164
-Edited Immunized: 19.8889
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.7966
-Caption orig: A woman wearing sunglasses and a necklace stands in front of a wall filled with colorful paintings.
-Caption adv:  A woman wearing sunglasses and a grey shirt stands in front of a colorful wall.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9686063053997381,
+  "fsim_edited_original_vs_edited_immunized": 0.49979309685494755
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.8230
-Background SSIM   (basso=protezione ok): 0.2985
-Subject LPIPS     (basso=soggetto ok)  : 0.1573
-Editing score                          : 0.5683
-Mask coverage (% background)           : 0.7595
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.15733998510107808
+Global LPIPS : 0.022367354482412338
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.15733998510107808
+Global LPIPS : 0.589966893196106
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as there is no person in a pet festival scene. The image appears blurry and the background is heavily distorted with a pattern of pink flowers and animals, making it unrecognizable.",
+  "attack_success": 1,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as there is no person in a pet festival scene. The image appears blurry and the background is heavily distorted with a pattern of pink flowers and animals, making it unrecognizable.\",\n  \"attack_success\": 1\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 7.0,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 7,
+    "scale_distortion": 7,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 7,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background is heavily distorted with a pattern of pink flowers and animals."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall appearance is totally altered due to the distortion."
+    },
+    "identity_erasure": {
+      "score": 7,
+      "justification": "The subjects and objects are unrecognizable due to the distortion."
+    },
+    "scale_distortion": {
+      "score": 7,
+      "justification": "Objects are rendered unrealistic in size, especially the background elements."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "Spatial relationships and perspective are destroyed, making the scene illogical."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "Textures are completely corrupted with a pattern of pink flowers and animals."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Severe, deliberate distortions are introduced throughout the image."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "Colors are completely off due to the distortion and the presence of the pattern."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Very visible edges and seams appear in the attacked areas."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The final image completely deviates from the intent of the original instruction."
+    },
+    "editing_incompleteness": {
+      "score": 7,
+      "justification": "Editing is left incomplete as the original scene is unrecognizable."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd and physically impossible due to the distortion."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background is heavily distorted with a pattern of pink flowers and animals.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall appearance is totally altered due to the distortion.\"},\n  \"identity_erasure\": {\"score\": 7, \"justification\": \"The subjects and objects are unrecognizable due to the distortion.\"},\n  \"scale_distortion\": {\"score\": 7, \"justification\": \"Objects are rendered unrealistic in size, especially the background elements.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"Spatial relationships and perspective are destroyed, making the scene illogical.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"Textures are completely corrupted with a pattern of pink flowers and animals.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Severe, deliberate distortions are introduced throughout the image.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"Colors are completely off due to the distortion and the presence of the pattern.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Very visible edges and seams appear in the attacked areas.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The final image completely deviates from the intent of the original instruction.\"},\n  \"editing_incompleteness\": {\"score\": 7, \"justification\": \"Editing is left incomplete as the original scene is unrecognizable.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd and physically impossible due to the distortion.\"}\n}"
+}

@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a science lab
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 29.8283
+PSNR: 29.8288
 SSIM: 0.9327
 FSIM: 0.8680
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 19.7043
-SSIM: 0.7387
-FSIM: 0.6681
-
-CLIP score (Image vs Prompt)
-Edited Original:  27.1859
-Edited Immunized: 29.0670
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.4711
-Caption orig: A woman wearing a colorful scarf and a jacket is standing in a room with a table full of various items.
-Caption adv:  A woman wearing a white and blue jacket is standing in a lab, holding a bag.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 22.0744
+SSIM: 0.8050
+FSIM: 0.6771
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.3125
-Background SSIM   (basso=protezione ok): 0.7000
-Subject LPIPS     (basso=soggetto ok)  : 0.2744
-Editing score                          : 0.3503
-Mask coverage (% background)           : 0.6520
+Global LPIPS                           : 0.2186
+Background LPIPS                       : 0.1377
+Subject LPIPS                          : 0.3749
+Separation                             : 0.7314
+Editing score                          : 0.3749
+Mask coverage                          : 0.6520
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The cap is present in both images, so there is no semantic edit change."
+}

@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a rooftop lounge
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 31.7892
+PSNR: 31.7899
 SSIM: 0.9498
-FSIM: 0.9206
+FSIM: 0.9205
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 17.9655
-SSIM: 0.7084
-FSIM: 0.6325
-
-CLIP score (Image vs Prompt)
-Edited Original:  26.4389
-Edited Immunized: 27.2064
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.8229
-Caption orig: A woman wearing a polka dot shirt stands on a balcony.
-Caption adv:  A woman wearing a black and white shirt stands on a balcony.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 22.5052
+SSIM: 0.8318
+FSIM: 0.7412
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.3843
-Background SSIM   (basso=protezione ok): 0.6835
-Subject LPIPS     (basso=soggetto ok)  : 0.2697
-Editing score                          : 0.3869
-Mask coverage (% background)           : 0.7603
+Global LPIPS                           : 0.1459
+Background LPIPS                       : 0.1193
+Subject LPIPS                          : 0.3432
+Separation                             : 0.7420
+Editing score                          : 0.3432
+Mask coverage                          : 0.7603
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person in the image is wearing a hat, but it appears to be a different style and color than a cap."
+}

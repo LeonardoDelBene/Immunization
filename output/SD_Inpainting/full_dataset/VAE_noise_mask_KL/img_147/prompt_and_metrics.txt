@@ -4,32 +4,34 @@ A person in a sandwich shop
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 32.7491
-SSIM: 0.9380
-FSIM: 0.9434
+PSNR: 33.0001
+SSIM: 0.9440
+FSIM: 0.9452
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 16.1674
-SSIM: 0.5253
-FSIM: 0.4804
-
-CLIP score (Image vs Prompt)
-Edited Original:  26.7911
-Edited Immunized: 26.7940
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6896
-Caption orig: A woman wearing a red sweater and black skirt stands in front of a display case filled with pastries.
-Caption adv:  A woman wearing a red sweater and black skirt is standing in front of a counter.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
+PSNR: 16.2830
+SSIM: 0.5418
+FSIM: 0.4883
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.5732
-Background SSIM   (basso=protezione ok): 0.4471
-Subject LPIPS     (basso=soggetto ok)  : 0.2435
-Editing score                          : 0.5491
-Mask coverage (% background)           : 0.7397
+Global LPIPS                           : 0.4506
+Background LPIPS                       : 0.5455
+Subject LPIPS                          : 0.2054
+Separation                             : 0.7265
+Editing score                          : 0.5455
+Mask coverage                          : 0.7397
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person is no longer in a sandwich shop; instead, they appear to be in a bakery with pastries displayed behind them."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image shows a person standing in front of a bakery display, but there are no visible sandwiches or sandwich-related items in the background. This contradicts the editing prompt which specifies a person in a sandwich shop.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image shows a person standing in front of a bakery display, but there are no visible sandwiches or sandwich-related items in the background. This contradicts the editing prompt which specifies a person in a sandwich shop.\"\n}\n```"
+}

@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a festival ground
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.3963
+PSNR: 30.3982
 SSIM: 0.9649
-FSIM: 0.8728
+FSIM: 0.8727
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 19.4198
-SSIM: 0.7884
-FSIM: 0.6894
-
-CLIP score (Image vs Prompt)
-Edited Original:  30.4498
-Edited Immunized: 30.9874
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.7908
-Caption orig: A woman wearing a red and white shirt and sunglasses is looking at her cell phone.
-Caption adv:  A woman wearing a floral dress and sunglasses is looking at her cell phone.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 22.8232
+SSIM: 0.8779
+FSIM: 0.7129
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.2653
-Background SSIM   (basso=protezione ok): 0.7724
-Subject LPIPS     (basso=soggetto ok)  : 0.3103
-Editing score                          : 0.2882
-Mask coverage (% background)           : 0.7789
+Global LPIPS                           : 0.1073
+Background LPIPS                       : 0.0548
+Subject LPIPS                          : 0.3250
+Separation                             : 0.8557
+Editing score                          : 0.3250
+Mask coverage                          : 0.7789
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The cap appears to be present in both images, so there is no semantic edit change."
+}

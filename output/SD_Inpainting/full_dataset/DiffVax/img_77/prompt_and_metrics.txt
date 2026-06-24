@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a bridal fitting room
+A person in a customs office
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 34.95669911840291,
+  "psnr_edited_original_vs_edited_immunized": 16.916424873577377
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 34.9564
-SSIM: 0.9904
-FSIM: 0.9679
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 12.5467
-SSIM: 0.5708
-FSIM: 0.4858
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.990427806301618,
+  "ssim_edited_original_vs_edited_immunized": 0.6642558996654209
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  25.7813
-Edited Immunized: 23.7942
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.8848
-Caption orig: A woman in a blue dress is talking on her cell phone.
-Caption adv:  A woman wearing a blue dress and holding a cell phone.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9678852308590202,
+  "fsim_edited_original_vs_edited_immunized": 0.4955123719229091
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.7129
-Background SSIM   (basso=protezione ok): 0.4515
-Subject LPIPS     (basso=soggetto ok)  : 0.1101
-Editing score                          : 0.5149
-Mask coverage (% background)           : 0.7569
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.11013884138551311
+Global LPIPS : 0.013489879667758942
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.11013884138551311
+Global LPIPS : 0.558578372001648
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The background has been changed from a corridor with a 'PELOUTE' sign to a wall covered in pink text. The edit is clearly visible, and the image remains clear and recognizable.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The background has been changed from a corridor with a 'PELOUTE' sign to a wall covered in pink text. The edit is clearly visible, and the image remains clear and recognizable.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 6.0,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 1,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 7,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been changed from a corridor with a 'PELOUTE' sign to a wall covered in pink text."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall appearance of the image is significantly altered."
+    },
+    "identity_erasure": {
+      "score": 1,
+      "justification": "The subject remains recognizable."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No objects are rendered disproportionate."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "Spatial relationships are destroyed as the background is completely changed."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "The original textures have been replaced by pink text."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Visible noise and digital artifacts are introduced."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "Colors are inconsistent with the rest of the scene."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Visible seams are present around the background change."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The image completely deviates from the original instruction."
+    },
+    "editing_incompleteness": {
+      "score": 7,
+      "justification": "The editing is left incomplete as the background is altered."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd and physically impossible."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been changed from a corridor with a 'PELOUTE' sign to a wall covered in pink text.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall appearance of the image is significantly altered.\"},\n  \"identity_erasure\": {\"score\": 1, \"justification\": \"The subject remains recognizable.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No objects are rendered disproportionate.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"Spatial relationships are destroyed as the background is completely changed.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"The original textures have been replaced by pink text.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Visible noise and digital artifacts are introduced.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"Colors are inconsistent with the rest of the scene.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Visible seams are present around the background change.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The image completely deviates from the original instruction.\"},\n  \"editing_incompleteness\": {\"score\": 7, \"justification\": \"The editing is left incomplete as the background is altered.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd and physically impossible.\"}\n}"
+}

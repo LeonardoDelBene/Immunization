@@ -4,32 +4,34 @@ A person in a local wine festival
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 29.3181
-SSIM: 0.8546
+PSNR: 29.3413
+SSIM: 0.8564
 FSIM: 0.8301
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 16.5316
-SSIM: 0.5722
-FSIM: 0.5190
-
-CLIP score (Image vs Prompt)
-Edited Original:  28.5636
-Edited Immunized: 27.2596
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.5606
-Caption orig: A man wearing a hat and a blue jacket stands in a crowd of people.
-Caption adv:  A man wearing a hat and a black jacket is standing in a field.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 16.4111
+SSIM: 0.5634
+FSIM: 0.5155
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.3967
-Background SSIM   (basso=protezione ok): 0.5879
-Subject LPIPS     (basso=soggetto ok)  : 0.6604
-Editing score                          : 0.2823
-Mask coverage (% background)           : 0.6662
+Global LPIPS                           : 0.4713
+Background LPIPS                       : 0.4042
+Subject LPIPS                          : 0.6581
+Separation                             : 0.3805
+Editing score                          : 0.4042
+Mask coverage                          : 0.6662
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person's face is blurred, which could be interpreted as a semantic edit to obscure their identity."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image contains distorted and pixelated areas that obscure the person's features and details, making it impossible to identify them as part of a local wine festival scene.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image contains distorted and pixelated areas that obscure the person's features and details, making it impossible to identify them as part of a local wine festival scene.\"\n}\n```"
+}

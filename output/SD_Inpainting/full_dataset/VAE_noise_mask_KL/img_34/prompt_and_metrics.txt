@@ -4,32 +4,34 @@ A person in a city food tour
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 29.6807
-SSIM: 0.8929
-FSIM: 0.8848
+PSNR: 29.8813
+SSIM: 0.8942
+FSIM: 0.8864
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 13.8272
-SSIM: 0.4825
-FSIM: 0.4814
-
-CLIP score (Image vs Prompt)
-Edited Original:  28.2783
-Edited Immunized: 22.5156
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.5888
-Caption orig: A woman in a black dress and a gold belt is standing in front of a table filled with food.
-Caption adv:  A woman wearing a black dress and a gold belt is walking down a street.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 13.8413
+SSIM: 0.4732
+FSIM: 0.4713
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.6182
-Background SSIM   (basso=protezione ok): 0.4404
-Subject LPIPS     (basso=soggetto ok)  : 0.4531
-Editing score                          : 0.4433
-Mask coverage (% background)           : 0.7304
+Global LPIPS                           : 0.5614
+Background LPIPS                       : 0.6395
+Subject LPIPS                          : 0.4460
+Separation                             : 0.5892
+Editing score                          : 0.6395
+Mask coverage                          : 0.7304
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person is still in a city setting, but there is no clear indication that they are on a food tour."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image lacks the specific semantic element of a 'city food tour', as it does not depict any food or market scene.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image lacks the specific semantic element of a 'city food tour', as it does not depict any food or market scene.\"\n}\n```"
+}

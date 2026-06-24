@@ -1,35 +1,138 @@
---- Prompt ---
-Put a red hat on the person in the image.
+add a beard to the person
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 35.304873281016434,
+  "psnr_edited_original_vs_edited_immunized": 30.851753794950362
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 33.0549
-SSIM: 0.9851
-FSIM: 0.9501
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 16.5933
-SSIM: 0.8493
-FSIM: 0.7559
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9879088296331155,
+  "ssim_edited_original_vs_edited_immunized": 0.9484242057907464
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  29.6459
-Edited Immunized: 29.0038
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.7451
-Caption orig: A woman wearing a red mask walks down the street.
-Caption adv:  A woman wearing a red hat and a black shirt is walking down the street.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9728522900985771,
+  "fsim_edited_original_vs_edited_immunized": 0.8380113793891235
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.5992
-Background SSIM   (basso=protezione ok): 0.5755
-Subject LPIPS     (basso=soggetto ok)  : 0.1395
-Editing score                          : 0.5833
-Mask coverage (% background)           : 0.2621
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.1364680635778629
+Global LPIPS : 0.030834315344691277
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.1460301305179903
+Global LPIPS : 0.04409530758857727
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The beard appears to be added to the person's face, but there are noticeable artifacts and distortions around the beard area, making the image less clear and recognizable.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The beard appears to be added to the person's face, but there are noticeable artifacts and distortions around the beard area, making the image less clear and recognizable.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 3.0,
+  "factor_scores": {
+    "background_infiltration": 3,
+    "global_coherence_ruin": 3,
+    "identity_erasure": 3,
+    "scale_distortion": 3,
+    "spatial_chaos": 3,
+    "texture_degradation": 3,
+    "distortion_effectiveness": 3,
+    "light_color_mismatch": 3,
+    "edge_visibility": 3,
+    "alignment_sabotage": 3,
+    "editing_incompleteness": 3,
+    "total_implausibility": 3
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 3,
+      "justification": "There are some minor artifacts around the beard area."
+    },
+    "global_coherence_ruin": {
+      "score": 3,
+      "justification": "The overall appearance remains coherent, but there are slight distortions."
+    },
+    "identity_erasure": {
+      "score": 3,
+      "justification": "The subject's identity is recognizable, though the beard is distorted."
+    },
+    "scale_distortion": {
+      "score": 3,
+      "justification": "The beard appears slightly larger than expected."
+    },
+    "spatial_chaos": {
+      "score": 3,
+      "justification": "Spatial relationships are maintained, but there are slight distortions."
+    },
+    "texture_degradation": {
+      "score": 3,
+      "justification": "Textures are slightly altered around the beard area."
+    },
+    "distortion_effectiveness": {
+      "score": 3,
+      "justification": "There are visible distortions around the beard area."
+    },
+    "light_color_mismatch": {
+      "score": 3,
+      "justification": "Colors are consistent, but there are slight shifts around the beard."
+    },
+    "edge_visibility": {
+      "score": 3,
+      "justification": "There are subtle visible edges around the beard area."
+    },
+    "alignment_sabotage": {
+      "score": 3,
+      "justification": "The overall alignment is maintained, but there are slight deviations."
+    },
+    "editing_incompleteness": {
+      "score": 3,
+      "justification": "The beard is added, but there are distortions around it."
+    },
+    "total_implausibility": {
+      "score": 3,
+      "justification": "The image is still plausible, despite the distortions around the beard."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 3, \"justification\": \"There are some minor artifacts around the beard area.\"},\n  \"global_coherence_ruin\": {\"score\": 3, \"justification\": \"The overall appearance remains coherent, but there are slight distortions.\"},\n  \"identity_erasure\": {\"score\": 3, \"justification\": \"The subject's identity is recognizable, though the beard is distorted.\"},\n  \"scale_distortion\": {\"score\": 3, \"justification\": \"The beard appears slightly larger than expected.\"},\n  \"spatial_chaos\": {\"score\": 3, \"justification\": \"Spatial relationships are maintained, but there are slight distortions.\"},\n  \"texture_degradation\": {\"score\": 3, \"justification\": \"Textures are slightly altered around the beard area.\"},\n  \"distortion_effectiveness\": {\"score\": 3, \"justification\": \"There are visible distortions around the beard area.\"},\n  \"light_color_mismatch\": {\"score\": 3, \"justification\": \"Colors are consistent, but there are slight shifts around the beard.\"},\n  \"edge_visibility\": {\"score\": 3, \"justification\": \"There are subtle visible edges around the beard area.\"},\n  \"alignment_sabotage\": {\"score\": 3, \"justification\": \"The overall alignment is maintained, but there are slight deviations.\"},\n  \"editing_incompleteness\": {\"score\": 3, \"justification\": \"The beard is added, but there are distortions around it.\"},\n  \"total_implausibility\": {\"score\": 3, \"justification\": \"The image is still plausible, despite the distortions around the beard.\"}\n}"
+}

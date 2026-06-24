@@ -4,32 +4,34 @@ A person in a probation office
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.7136
-SSIM: 0.9062
-FSIM: 0.8663
+PSNR: 30.2933
+SSIM: 0.9040
+FSIM: 0.8629
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 14.9774
-SSIM: 0.5904
-FSIM: 0.4502
-
-CLIP score (Image vs Prompt)
-Edited Original:  27.8003
-Edited Immunized: 27.2329
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.8214
-Caption orig: A woman wearing a white shirt with an "ARM" logo stands in front of a sign.
-Caption adv:  A woman wearing a white shirt with an ARM logo on it.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
+PSNR: 15.0686
+SSIM: 0.5713
+FSIM: 0.4366
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.4882
-Background SSIM   (basso=protezione ok): 0.5716
-Subject LPIPS     (basso=soggetto ok)  : 0.4662
-Editing score                          : 0.3441
-Mask coverage (% background)           : 0.7271
+Global LPIPS                           : 0.4986
+Background LPIPS                       : 0.5326
+Subject LPIPS                          : 0.4809
+Separation                             : 0.5255
+Editing score                          : 0.5326
+Mask coverage                          : 0.7271
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person is no longer in a probation office as indicated by the background text being altered and the overall setting changed."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image does not contain any semantic elements related to a 'probation office'. Instead, it appears to be an image of a person standing in front of a wall with some text and a sign that does not match the context of a probation office.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image does not contain any semantic elements related to a 'probation office'. Instead, it appears to be an image of a person standing in front of a wall with some text and a sign that does not match the context of a probation office.\"\n}\n```"
+}

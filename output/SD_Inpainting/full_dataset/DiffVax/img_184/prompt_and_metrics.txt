@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a farmers' cooperative
+A person in a burger stand
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 34.0134079814129,
+  "psnr_edited_original_vs_edited_immunized": 13.233653588752333
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 34.0141
-SSIM: 0.9900
-FSIM: 0.9471
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 14.1070
-SSIM: 0.4565
-FSIM: 0.5696
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.990004140962553,
+  "ssim_edited_original_vs_edited_immunized": 0.4910913815331639
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  20.8449
-Edited Immunized: 18.1262
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.7103
-Caption orig: A woman wearing a flowered jacket and sunglasses stands in a field of plants.
-Caption adv:  A woman wearing a floral jacket and sunglasses.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9471235170451923,
+  "fsim_edited_original_vs_edited_immunized": 0.48922551664174857
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.7289
-Background SSIM   (basso=protezione ok): 0.2495
-Subject LPIPS     (basso=soggetto ok)  : 0.1223
-Editing score                          : 0.5762
-Mask coverage (% background)           : 0.7052
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.12230264631878819
+Global LPIPS : 0.02891159988939762
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.12230264631878819
+Global LPIPS : 0.5388020277023315
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as there is no burger stand present. The image appears to be blurry and the background has been altered with colorful, abstract shapes, making it unrecognizable.",
+  "attack_success": 1,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as there is no burger stand present. The image appears to be blurry and the background has been altered with colorful, abstract shapes, making it unrecognizable.\",\n  \"attack_success\": 1\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 7.0,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 7,
+    "scale_distortion": 7,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 7,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background is completely altered with colorful, abstract shapes."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall appearance is totally altered and no longer resembles a burger stand."
+    },
+    "identity_erasure": {
+      "score": 7,
+      "justification": "The subject's identity is lost due to the abstract background and distorted features."
+    },
+    "scale_distortion": {
+      "score": 7,
+      "justification": "Objects appear distorted and unrealistic in size."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "Spatial relationships and perspective are destroyed."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "Textures are completely corrupted with noise and abstract patterns."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Severe, deliberate distortions are introduced."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "Colors and shadows are inconsistent with the rest of the scene."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Very visible edges and seams appear in the attacked areas."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The final image completely deviates from the intent of the original instruction."
+    },
+    "editing_incompleteness": {
+      "score": 7,
+      "justification": "Fundamental parts of the requested edit are removed."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd and physically impossible."
+    }
+  },
+  "raw_output": "```json\n{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background is completely altered with colorful, abstract shapes.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall appearance is totally altered and no longer resembles a burger stand.\"},\n  \"identity_erasure\": {\"score\": 7, \"justification\": \"The subject's identity is lost due to the abstract background and distorted features.\"},\n  \"scale_distortion\": {\"score\": 7, \"justification\": \"Objects appear distorted and unrealistic in size.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"Spatial relationships and perspective are destroyed.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"Textures are completely corrupted with noise and abstract patterns.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Severe, deliberate distortions are introduced.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"Colors and shadows are inconsistent with the rest of the scene.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Very visible edges and seams appear in the attacked areas.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The final image completely deviates from the intent of the original instruction.\"},\n  \"editing_incompleteness\": {\"score\": 7, \"justification\": \"Fundamental parts of the requested edit are removed.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd and physically impossible.\"}\n}\n```"
+}

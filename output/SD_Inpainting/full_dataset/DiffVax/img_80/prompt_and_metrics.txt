@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a gym class
+A person in a farmyard
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 34.14076331050027,
+  "psnr_edited_original_vs_edited_immunized": 14.00965594844422
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 34.1392
-SSIM: 0.9896
-FSIM: 0.9577
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 14.1163
-SSIM: 0.6481
-FSIM: 0.5007
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9895912606667743,
+  "ssim_edited_original_vs_edited_immunized": 0.5256517031997116
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  24.5607
-Edited Immunized: 19.4316
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.5916
-Caption orig: A man wearing glasses and a blue jacket is standing in a gym.
-Caption adv:  A man wearing a blue jacket and glasses is standing in front of a pink and purple wall.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9576354676083199,
+  "fsim_edited_original_vs_edited_immunized": 0.4994754348781128
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.8976
-Background SSIM   (basso=protezione ok): 0.5113
-Subject LPIPS     (basso=soggetto ok)  : 0.1056
-Editing score                          : 0.5156
-Mask coverage (% background)           : 0.6851
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.10560239820106902
+Global LPIPS : 0.026090843603014946
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.10560239820106902
+Global LPIPS : 0.5844981670379639
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as the person is still in a farmyard setting. The image appears clear and recognizable with no noticeable degradation.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as the person is still in a farmyard setting. The image appears clear and recognizable with no noticeable degradation.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 5.5,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 1,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 1,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been completely changed to a patterned wall."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall scene is altered, losing the original farmyard setting."
+    },
+    "identity_erasure": {
+      "score": 1,
+      "justification": "The subject remains recognizable, despite the background change."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No significant distortion in object sizes."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "Spatial relationships are disrupted, with the subject now against a wall."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "The original texture of the background is replaced by a patterned design."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Visible noise and digital artifacts are introduced in the new background."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "Colors are inconsistent with the original scene, especially the background."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Sharp edges and seams are visible where the new background meets the subject."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The final image completely ignores the original instruction of being in a farmyard."
+    },
+    "editing_incompleteness": {
+      "score": 1,
+      "justification": "The editing is not incomplete; the entire background is changed."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd, as the subject is now in a completely different setting."
+    }
+  },
+  "raw_output": "```json\n{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been completely changed to a patterned wall.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall scene is altered, losing the original farmyard setting.\"},\n  \"identity_erasure\": {\"score\": 1, \"justification\": \"The subject remains recognizable, despite the background change.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No significant distortion in object sizes.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"Spatial relationships are disrupted, with the subject now against a wall.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"The original texture of the background is replaced by a patterned design.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Visible noise and digital artifacts are introduced in the new background.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"Colors are inconsistent with the original scene, especially the background.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Sharp edges and seams are visible where the new background meets the subject.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The final image completely ignores the original instruction of being in a farmyard.\"},\n  \"editing_incompleteness\": {\"score\": 1, \"justification\": \"The editing is not incomplete; the entire background is changed.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd, as the subject is now in a completely different setting.\"}\n}\n```"
+}

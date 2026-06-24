@@ -1,8 +1,13 @@
 """FSIM metric for evaluating the quality of an image."""
 
+import json
+import os
+
 import numpy as np
 import cv2
 import phasepack.phasecong as pc
+from PIL import Image
+from tqdm import tqdm
 from .base import Metric
 
 class FSIM(Metric):
@@ -22,6 +27,79 @@ class FSIM(Metric):
         img_adv = np.array(img_adv)
         value = calculate_fsim(img_orig, img_adv)
         return value
+
+    def evaluate_folder(self, root_dir):
+        """Evaluate FSIM across a dataset organized in image folders."""
+        results_summary = {}
+
+        total = 0
+        fsim_orig_sum = 0.0
+        fsim_edited_sum = 0.0
+        folders = [
+            f for f in sorted(os.listdir(root_dir))
+            if f.startswith("img_")
+        ]
+
+        for folder in tqdm(folders, desc="Evaluating FSIM", unit="folder"):
+            img_dir = os.path.join(root_dir, folder)
+
+            orig_path = os.path.join(img_dir, "original_image.png")
+            immunized_path = os.path.join(img_dir, "immunized_image.png")
+            edited_orig_path = os.path.join(img_dir, "edited_original.png")
+            edited_immunized_path = os.path.join(img_dir, "edited_immunized.png")
+            txt_path = os.path.join(img_dir, "prompt_and_metrics.txt")
+
+            if not (os.path.exists(orig_path) and os.path.exists(immunized_path) and
+                    os.path.exists(edited_orig_path) and os.path.exists(edited_immunized_path) and
+                    os.path.exists(txt_path)):
+                continue
+
+            with open(txt_path, "r", encoding="utf-8") as f:
+                prompt = f.read().strip()
+
+            if not prompt:
+                print(f"[WARN] No prompt found in {folder}")
+                continue
+
+            original = Image.open(orig_path).convert("RGB")
+            immunized = Image.open(immunized_path).convert("RGB")
+            edited_original = Image.open(edited_orig_path).convert("RGB")
+            edited_immunized = Image.open(edited_immunized_path).convert("RGB")
+
+            fsim_orig = self.calculate_metric_between_images(original, immunized)
+            fsim_edited = self.calculate_metric_between_images(edited_original, edited_immunized)
+
+            result = {
+                "fsim_original_vs_immunized": float(fsim_orig),
+                "fsim_edited_original_vs_edited_immunized": float(fsim_edited),
+            }
+
+            results_summary[folder] = result
+            total += 1
+            fsim_orig_sum += fsim_orig
+            fsim_edited_sum += fsim_edited
+
+            with open(txt_path, "a", encoding="utf-8") as f:
+                f.write("\n\n--- FSIM Evaluation ---\n")
+                f.write(json.dumps(result, indent=2))
+                f.write("\n")
+
+        avg_fsim_orig = fsim_orig_sum / total if total > 0 else 0.0
+        avg_fsim_edited = fsim_edited_sum / total if total > 0 else 0.0
+
+        summary_path = os.path.join(root_dir, "global_summary.txt")
+        with open(summary_path, "a", encoding="utf-8") as f:
+            f.write("=== FSIM Evaluation Summary ===\n\n")
+            f.write(f"Total samples evaluated: {total}\n")
+            f.write(f"Average original vs immunized FSIM: {avg_fsim_orig:.4f}\n")
+            f.write(f"Average edited_original vs edited_immunized FSIM: {avg_fsim_edited:.4f}\n")
+
+        return {
+            "total": total,
+            "avg_fsim_original_vs_immunized": avg_fsim_orig,
+            "avg_fsim_edited_original_vs_edited_immunized": avg_fsim_edited,
+            "details": results_summary,
+        }
 
 # https://github.com/nekhtiari/image-similarity-measures/blob/master/image_similarity_measures/quality_metrics.py
 def calculate_fsim(

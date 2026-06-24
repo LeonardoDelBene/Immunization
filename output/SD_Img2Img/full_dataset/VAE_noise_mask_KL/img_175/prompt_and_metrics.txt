@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a butcher’s shop
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 31.6536
+PSNR: 31.6540
 SSIM: 0.9427
 FSIM: 0.8979
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 20.2719
-SSIM: 0.7518
-FSIM: 0.6407
-
-CLIP score (Image vs Prompt)
-Edited Original:  24.7566
-Edited Immunized: 27.0419
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.5467
-Caption orig: A woman in a white jacket and a red shirt is smiling and walking down the street.
-Caption adv:  A woman in a white coat and red shirt is walking through a market.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
+PSNR: 24.9222
+SSIM: 0.8681
+FSIM: 0.7277
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.2935
-Background SSIM   (basso=protezione ok): 0.7442
-Subject LPIPS     (basso=soggetto ok)  : 0.3591
-Editing score                          : 0.2787
-Mask coverage (% background)           : 0.7390
+Global LPIPS                           : 0.1617
+Background LPIPS                       : 0.1106
+Subject LPIPS                          : 0.3528
+Separation                             : 0.7614
+Editing score                          : 0.3528
+Mask coverage                          : 0.7390
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person in the image now appears to be wearing a cap, which fulfills the editing instruction."
+}

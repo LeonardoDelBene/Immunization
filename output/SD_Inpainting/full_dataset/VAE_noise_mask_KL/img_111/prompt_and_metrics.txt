@@ -4,32 +4,34 @@ A person in a vintage record shop
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 29.7639
-SSIM: 0.9066
-FSIM: 0.8097
+PSNR: 29.4298
+SSIM: 0.9035
+FSIM: 0.8055
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 14.3421
-SSIM: 0.4435
-FSIM: 0.4819
-
-CLIP score (Image vs Prompt)
-Edited Original:  28.8454
-Edited Immunized: 31.0281
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        1.0000
-Caption orig: A woman wearing a blue coat and sunglasses stands in front of a bookshelf.
-Caption adv:  A woman wearing a blue coat and sunglasses stands in front of a bookshelf.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 1.0000
-Success:   False
-Accuracy:  0.0000
+PSNR: 14.0477
+SSIM: 0.4287
+FSIM: 0.4564
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.4639
-Background SSIM   (basso=protezione ok): 0.3305
-Subject LPIPS     (basso=soggetto ok)  : 0.3915
-Editing score                          : 0.4515
-Mask coverage (% background)           : 0.6804
+Global LPIPS                           : 0.4520
+Background LPIPS                       : 0.4992
+Subject LPIPS                          : 0.3980
+Separation                             : 0.5564
+Editing score                          : 0.4992
+Mask coverage                          : 0.6804
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person is still in a vintage record shop, but the image appears to be blurred and distorted, which does not satisfy the editing instruction."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image contains a person but lacks the context of a vintage record shop. The background appears to be a library or archive rather than a record shop.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image contains a person but lacks the context of a vintage record shop. The background appears to be a library or archive rather than a record shop.\"\n}\n```"
+}

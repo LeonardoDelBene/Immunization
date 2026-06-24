@@ -4,32 +4,34 @@ A person in a pet festival
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.0996
-SSIM: 0.9085
-FSIM: 0.8599
+PSNR: 30.0759
+SSIM: 0.9112
+FSIM: 0.8622
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 16.2325
-SSIM: 0.5458
-FSIM: 0.5123
-
-CLIP score (Image vs Prompt)
-Edited Original:  29.9114
-Edited Immunized: 32.4843
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.7591
-Caption orig: A woman is walking her dog in a park, surrounded by other people.
-Caption adv:  A woman wearing a black jacket and a white dog on a leash are walking through a park.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
+PSNR: 15.8428
+SSIM: 0.5165
+FSIM: 0.5054
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.4809
-Background SSIM   (basso=protezione ok): 0.5335
-Subject LPIPS     (basso=soggetto ok)  : 0.4598
-Editing score                          : 0.3564
-Mask coverage (% background)           : 0.7722
+Global LPIPS                           : 0.4779
+Background LPIPS                       : 0.5046
+Subject LPIPS                          : 0.4506
+Separation                             : 0.5283
+Editing score                          : 0.5046
+Mask coverage                          : 0.7722
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person is holding two dogs instead of one cat."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image contains multiple dogs instead of a single cat as specified in the editing prompt.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image contains multiple dogs instead of a single cat as specified in the editing prompt.\"\n}\n```"
+}

@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a vintage record shop
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 29.4298
+PSNR: 29.4296
 SSIM: 0.9035
 FSIM: 0.8055
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 17.2414
-SSIM: 0.5794
-FSIM: 0.5482
-
-CLIP score (Image vs Prompt)
-Edited Original:  28.7055
-Edited Immunized: 30.7512
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.9055
-Caption orig: A woman wearing a blue coat and sunglasses is standing in front of a bookshelf.
-Caption adv:  A woman wearing a blue coat and pink skirt stands in front of a bookshelf.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 21.4709
+SSIM: 0.7027
+FSIM: 0.5539
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.5080
-Background SSIM   (basso=protezione ok): 0.5300
-Subject LPIPS     (basso=soggetto ok)  : 0.3980
-Editing score                          : 0.4054
-Mask coverage (% background)           : 0.6804
+Global LPIPS                           : 0.3785
+Background LPIPS                       : 0.3033
+Subject LPIPS                          : 0.5883
+Separation                             : 0.6598
+Editing score                          : 0.5883
+Mask coverage                          : 0.6804
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person in the image is wearing a cap, which satisfies the editing instruction."
+}

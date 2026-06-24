@@ -4,32 +4,34 @@ A person in a fire drill
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.2574
-SSIM: 0.9358
-FSIM: 0.9089
+PSNR: 30.2234
+SSIM: 0.9363
+FSIM: 0.9095
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 14.5559
-SSIM: 0.5624
-FSIM: 0.5690
-
-CLIP score (Image vs Prompt)
-Edited Original:  24.2137
-Edited Immunized: 22.6945
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.5304
-Caption orig: A woman wearing a black and gold dress stands out in a crowd of people.
-Caption adv:  A woman in a black and white dress is walking down the street.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 14.9530
+SSIM: 0.5662
+FSIM: 0.5678
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.5854
-Background SSIM   (basso=protezione ok): 0.4820
-Subject LPIPS     (basso=soggetto ok)  : 0.3153
-Editing score                          : 0.5004
-Mask coverage (% background)           : 0.7133
+Global LPIPS                           : 0.4863
+Background LPIPS                       : 0.5816
+Subject LPIPS                          : 0.3101
+Separation                             : 0.6523
+Editing score                          : 0.5816
+Mask coverage                          : 0.7133
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person is not wearing any fire-related attire or accessories that would indicate they are participating in a fire drill."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image does not depict a person in a fire drill. Instead, it shows a person in a crowd, which contradicts the editing instruction.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image does not depict a person in a fire drill. Instead, it shows a person in a crowd, which contradicts the editing instruction.\"\n}\n```"
+}

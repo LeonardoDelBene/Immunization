@@ -10,6 +10,7 @@ __pycache__/
 # Output e immagini generate
 data/
 wandb/
+output/
 
 # Pesi dei modelli (file pesanti)
 *.bin

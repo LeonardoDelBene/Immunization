@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a vintage arts fair
+A person in a bowling alley
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 32.90997611259457,
+  "psnr_edited_original_vs_edited_immunized": 10.463950829043265
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 32.9101
-SSIM: 0.9871
-FSIM: 0.9597
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 12.2062
-SSIM: 0.4337
-FSIM: 0.4697
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9871191584496785,
+  "ssim_edited_original_vs_edited_immunized": 0.3869058533975811
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  29.8335
-Edited Immunized: 21.9619
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.4795
-Caption orig: A woman wearing a gray shirt with a butterfly design on it stands in front of a crowd of people.
-Caption adv:  A woman wearing a black skirt and a gray shirt with a floral pattern.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9596927569519114,
+  "fsim_edited_original_vs_edited_immunized": 0.45500986954855965
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.8755
-Background SSIM   (basso=protezione ok): 0.2654
-Subject LPIPS     (basso=soggetto ok)  : 0.1414
-Editing score                          : 0.5845
-Mask coverage (% background)           : 0.7475
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.14149641994706302
+Global LPIPS : 0.022328294813632965
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.14149641994706302
+Global LPIPS : 0.715459942817688
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as there is no bowling alley background present. The image appears to be clear and recognizable with no noticeable degradation.",
+  "attack_success": 1,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as there is no bowling alley background present. The image appears to be clear and recognizable with no noticeable degradation.\",\n  \"attack_success\": 1\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "raw_output": "0"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 5.5,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 1,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 1,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The bowling alley background has been replaced with a patterned wall."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall scene is completely altered, losing the bowling alley context."
+    },
+    "identity_erasure": {
+      "score": 1,
+      "justification": "The subject remains recognizable, but the background is changed."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No objects are rendered disproportionately."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "The spatial relationships are disrupted, with the ball seemingly floating in mid-air."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "The original textures have been replaced with a patterned wall texture."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Visible noise and digital artifacts are introduced, especially around the ball."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "The lighting and color scheme are inconsistent with the original scene."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Visible seams and edges are present where the background changes abruptly."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The final image completely deviates from the intended bowling alley setting."
+    },
+    "editing_incompleteness": {
+      "score": 1,
+      "justification": "The editing is not incomplete; the entire scene is altered."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd, with a ball floating in a patterned wall background."
+    }
+  },
+  "raw_output": "```json\n{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The bowling alley background has been replaced with a patterned wall.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall scene is completely altered, losing the bowling alley context.\"},\n  \"identity_erasure\": {\"score\": 1, \"justification\": \"The subject remains recognizable, but the background is changed.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No objects are rendered disproportionately.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"The spatial relationships are disrupted, with the ball seemingly floating in mid-air.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"The original textures have been replaced with a patterned wall texture.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Visible noise and digital artifacts are introduced, especially around the ball.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"The lighting and color scheme are inconsistent with the original scene.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Visible seams and edges are present where the background changes abruptly.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The final image completely deviates from the intended bowling alley setting.\"},\n  \"editing_incompleteness\": {\"score\": 1, \"justification\": \"The editing is not incomplete; the entire scene is altered.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd, with a ball floating in a patterned wall background.\"}\n}\n```"
+}

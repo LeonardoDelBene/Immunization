@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a sports field
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 32.0435
+PSNR: 32.0436
 SSIM: 0.9364
 FSIM: 0.9034
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 21.4049
-SSIM: 0.8017
-FSIM: 0.6974
-
-CLIP score (Image vs Prompt)
-Edited Original:  28.0736
-Edited Immunized: 25.7254
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.4864
-Caption orig: A woman in a black and white striped shirt stands on a field.
-Caption adv:  A young girl wearing a black and white striped shirt stands in front of a row of trees.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 24.0232
+SSIM: 0.8497
+FSIM: 0.7281
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.2394
-Background SSIM   (basso=protezione ok): 0.8269
-Subject LPIPS     (basso=soggetto ok)  : 0.4173
-Editing score                          : 0.1973
-Mask coverage (% background)           : 0.7786
+Global LPIPS                           : 0.1685
+Background LPIPS                       : 0.1162
+Subject LPIPS                          : 0.4537
+Separation                             : 0.7961
+Editing score                          : 0.4537
+Mask coverage                          : 0.7786
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person in the adversarial image is wearing a different type of hat than specified in the editing prompt."
+}

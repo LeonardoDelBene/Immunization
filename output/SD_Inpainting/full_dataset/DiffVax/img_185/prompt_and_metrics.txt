@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a dog agility course
+A person in a waterside cafe
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 34.175332680700116,
+  "psnr_edited_original_vs_edited_immunized": 13.29901407146898
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 34.1760
-SSIM: 0.9872
-FSIM: 0.9661
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 13.8642
-SSIM: 0.6292
-FSIM: 0.4384
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9871927847746286,
+  "ssim_edited_original_vs_edited_immunized": 0.4928597843043436
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  33.8668
-Edited Immunized: 25.8209
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6199
-Caption orig: A woman wearing a black dress is standing on a green carpet.
-Caption adv:  A woman wearing a black dress stands in front of a pink mesh screen.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9661284111644712,
+  "fsim_edited_original_vs_edited_immunized": 0.4448472502391452
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.7178
-Background SSIM   (basso=protezione ok): 0.5386
-Subject LPIPS     (basso=soggetto ok)  : 0.1623
-Editing score                          : 0.4855
-Mask coverage (% background)           : 0.7551
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.16240800965983063
+Global LPIPS : 0.02579539641737938
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.16240800965983063
+Global LPIPS : 0.5427382588386536
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as the person is still in a waterside cafe setting. However, the image appears to be slightly blurred and has some noise, making it less clear than the original.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as the person is still in a waterside cafe setting. However, the image appears to be slightly blurred and has some noise, making it less clear than the original.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 7.0,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 7,
+    "scale_distortion": 7,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 7,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "Purple confetti covers the background, obscuring the original setting."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The entire image is altered with purple confetti, disrupting the original style and layout."
+    },
+    "identity_erasure": {
+      "score": 7,
+      "justification": "The subject's face and surroundings are heavily distorted with confetti, making them unrecognizable."
+    },
+    "scale_distortion": {
+      "score": 7,
+      "justification": "The confetti introduces absurd scale variations, making the image look unnatural."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "Spatial relationships are completely destroyed as the confetti fills the entire frame."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "The original textures are replaced by a chaotic pattern of purple confetti."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Severe digital artifacts and noise are introduced through the confetti effect."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "Colors are completely off due to the addition of purple confetti."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Very visible edges and seams are present where the confetti overlaps."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The final image is completely deviated from the intended waterside cafe setting."
+    },
+    "editing_incompleteness": {
+      "score": 7,
+      "justification": "The editing is left incomplete as the confetti covers the entire image."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd and physically impossible due to the confetti effect."
+    }
+  },
+  "raw_output": "```json\n{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"Purple confetti covers the background, obscuring the original setting.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The entire image is altered with purple confetti, disrupting the original style and layout.\"},\n  \"identity_erasure\": {\"score\": 7, \"justification\": \"The subject's face and surroundings are heavily distorted with confetti, making them unrecognizable.\"},\n  \"scale_distortion\": {\"score\": 7, \"justification\": \"The confetti introduces absurd scale variations, making the image look unnatural.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"Spatial relationships are completely destroyed as the confetti fills the entire frame.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"The original textures are replaced by a chaotic pattern of purple confetti.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Severe digital artifacts and noise are introduced through the confetti effect.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"Colors are completely off due to the addition of purple confetti.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Very visible edges and seams are present where the confetti overlaps.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The final image is completely deviated from the intended waterside cafe setting.\"},\n  \"editing_incompleteness\": {\"score\": 7, \"justification\": \"The editing is left incomplete as the confetti covers the entire image.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd and physically impossible due to the confetti effect.\"}\n}\n```"
+}

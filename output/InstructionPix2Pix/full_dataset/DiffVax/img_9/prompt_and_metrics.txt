@@ -1,35 +1,138 @@
---- Prompt ---
-Put a red hat on the person in the image.
+add a wristwatch to the person
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 34.66042420402347,
+  "psnr_edited_original_vs_edited_immunized": 27.802264601583886
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 32.8425
-SSIM: 0.9844
-FSIM: 0.9483
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 19.0151
-SSIM: 0.8172
-FSIM: 0.7178
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9885096750748401,
+  "ssim_edited_original_vs_edited_immunized": 0.9454902141527507
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  25.6127
-Edited Immunized: 27.5907
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.5944
-Caption orig: A woman wearing a red lobster costume walks down a city street.
-Caption adv:  A woman wearing a red hat and a red jacket walks down the street.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9686063053997381,
+  "fsim_edited_original_vs_edited_immunized": 0.8342057779436169
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.4172
-Background SSIM   (basso=protezione ok): 0.5022
-Subject LPIPS     (basso=soggetto ok)  : 0.1342
-Editing score                          : 0.5357
-Mask coverage (% background)           : 0.2405
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.15733998510107808
+Global LPIPS : 0.022367354482412338
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.1562242035926392
+Global LPIPS : 0.04556502774357796
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The wristwatch appears to be added to the person's wrist, but it looks slightly blurry and less defined compared to the original image. The overall clarity and recognizability of the image remain good.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The wristwatch appears to be added to the person's wrist, but it looks slightly blurry and less defined compared to the original image. The overall clarity and recognizability of the image remain good.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "raw_output": "0"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 1.0,
+  "factor_scores": {
+    "background_infiltration": 1,
+    "global_coherence_ruin": 1,
+    "identity_erasure": 1,
+    "scale_distortion": 1,
+    "spatial_chaos": 1,
+    "texture_degradation": 1,
+    "distortion_effectiveness": 1,
+    "light_color_mismatch": 1,
+    "edge_visibility": 1,
+    "alignment_sabotage": 1,
+    "editing_incompleteness": 1,
+    "total_implausibility": 1
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 1,
+      "justification": "No significant changes in background."
+    },
+    "global_coherence_ruin": {
+      "score": 1,
+      "justification": "No disruption in global coherence."
+    },
+    "identity_erasure": {
+      "score": 1,
+      "justification": "Subjects remain recognizable."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No objects rendered disproportionate."
+    },
+    "spatial_chaos": {
+      "score": 1,
+      "justification": "Spatial relationships intact."
+    },
+    "texture_degradation": {
+      "score": 1,
+      "justification": "Textures appear consistent."
+    },
+    "distortion_effectiveness": {
+      "score": 1,
+      "justification": "No visible noise or artifacts."
+    },
+    "light_color_mismatch": {
+      "score": 1,
+      "justification": "Colors and shadows consistent."
+    },
+    "edge_visibility": {
+      "score": 1,
+      "justification": "No visible edges or seams."
+    },
+    "alignment_sabotage": {
+      "score": 1,
+      "justification": "Image aligns with the original instruction."
+    },
+    "editing_incompleteness": {
+      "score": 1,
+      "justification": "Editing appears complete."
+    },
+    "total_implausibility": {
+      "score": 1,
+      "justification": "Result is logically coherent."
+    }
+  },
+  "raw_output": "```json\n{\n  \"background_infiltration\": {\"score\": 1, \"justification\": \"No significant changes in background.\"},\n  \"global_coherence_ruin\": {\"score\": 1, \"justification\": \"No disruption in global coherence.\"},\n  \"identity_erasure\": {\"score\": 1, \"justification\": \"Subjects remain recognizable.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No objects rendered disproportionate.\"},\n  \"spatial_chaos\": {\"score\": 1, \"justification\": \"Spatial relationships intact.\"},\n  \"texture_degradation\": {\"score\": 1, \"justification\": \"Textures appear consistent.\"},\n  \"distortion_effectiveness\": {\"score\": 1, \"justification\": \"No visible noise or artifacts.\"},\n  \"light_color_mismatch\": {\"score\": 1, \"justification\": \"Colors and shadows consistent.\"},\n  \"edge_visibility\": {\"score\": 1, \"justification\": \"No visible edges or seams.\"},\n  \"alignment_sabotage\": {\"score\": 1, \"justification\": \"Image aligns with the original instruction.\"},\n  \"editing_incompleteness\": {\"score\": 1, \"justification\": \"Editing appears complete.\"},\n  \"total_implausibility\": {\"score\": 1, \"justification\": \"Result is logically coherent.\"}\n}\n```"
+}

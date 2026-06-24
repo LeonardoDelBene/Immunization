@@ -4,32 +4,34 @@ A person in a game room
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.3015
-SSIM: 0.8822
-FSIM: 0.8713
+PSNR: 30.1104
+SSIM: 0.8818
+FSIM: 0.8709
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 14.3122
-SSIM: 0.3987
-FSIM: 0.4507
-
-CLIP score (Image vs Prompt)
-Edited Original:  24.2900
-Edited Immunized: 26.2295
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.9827
-Caption orig: A man wearing sunglasses and a black jacket stands in front of a bookshelf.
-Caption adv:  A man wearing a black jacket and sunglasses stands in front of a bookshelf.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.8000
-Success:   False
-Accuracy:  0.0000
+PSNR: 13.9773
+SSIM: 0.3900
+FSIM: 0.4448
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.5605
-Background SSIM   (basso=protezione ok): 0.3230
-Subject LPIPS     (basso=soggetto ok)  : 0.5756
-Editing score                          : 0.4273
-Mask coverage (% background)           : 0.7025
+Global LPIPS                           : 0.5618
+Background LPIPS                       : 0.5662
+Subject LPIPS                          : 0.5795
+Separation                             : 0.4942
+Editing score                          : 0.5662
+Mask coverage                          : 0.7025
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person is still in a game room, but the shelves appear to be more organized and less cluttered compared to the reference image."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The adversarial image still shows a person standing in front of shelves filled with books and board games, which aligns with the editing prompt 'A person in a game room'. There are no clear contradictions or missing semantic elements.",
+  "raw_output": "```json\n{\n  \"attack_success\": 0,\n  \"reason\": \"The adversarial image still shows a person standing in front of shelves filled with books and board games, which aligns with the editing prompt 'A person in a game room'. There are no clear contradictions or missing semantic elements.\"\n}\n```"
+}

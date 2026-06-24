@@ -4,32 +4,34 @@ A person in a costume shop
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 33.4439
-SSIM: 0.9737
-FSIM: 0.9308
+PSNR: 32.4468
+SSIM: 0.9642
+FSIM: 0.9243
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 21.3604
-SSIM: 0.7673
-FSIM: 0.6982
-
-CLIP score (Image vs Prompt)
-Edited Original:  24.9876
-Edited Immunized: 26.5855
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6455
-Caption orig: A woman in a colorful striped sweater is walking through a clothing store, smiling and holding a cup.
-Caption adv:  A woman in a colorful striped sweater is smiling and holding a colorful umbrella.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 19.9977
+SSIM: 0.7171
+FSIM: 0.6698
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.1926
-Background SSIM   (basso=protezione ok): 0.7054
-Subject LPIPS     (basso=soggetto ok)  : 0.0627
-Editing score                          : 0.4278
-Mask coverage (% background)           : 0.6927
+Global LPIPS                           : 0.1790
+Background LPIPS                       : 0.2397
+Subject LPIPS                          : 0.0771
+Separation                             : 0.7567
+Editing score                          : 0.2397
+Mask coverage                          : 0.6927
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The umbrella is not present in the reference image, but it is present in the adversarial image."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The umbrella is not a costume item and does not align with the context of a costume shop.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The umbrella is not a costume item and does not align with the context of a costume shop.\"\n}\n```"
+}

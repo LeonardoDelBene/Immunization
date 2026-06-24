@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a car dealership
+A person in a science lab
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 35.76803235918798,
+  "psnr_edited_original_vs_edited_immunized": 13.397210877443758
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 35.7686
-SSIM: 0.9922
-FSIM: 0.9627
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 13.0876
-SSIM: 0.5526
-FSIM: 0.4372
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9922249257758468,
+  "ssim_edited_original_vs_edited_immunized": 0.514396446807557
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  27.8894
-Edited Immunized: 20.8362
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.7180
-Caption orig: A woman wearing a grey sweater and holding a purse stands in front of a car.
-Caption adv:  A woman wearing a gray coat and holding a green purse.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9627483317061039,
+  "fsim_edited_original_vs_edited_immunized": 0.3987894380701537
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.8694
-Background SSIM   (basso=protezione ok): 0.4254
-Subject LPIPS     (basso=soggetto ok)  : 0.1870
-Editing score                          : 0.5326
-Mask coverage (% background)           : 0.7433
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.1871287759190114
+Global LPIPS : 0.024928778409957886
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.1871287759190114
+Global LPIPS : 0.6340850591659546
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as the person is still in a lab setting, but the background has been heavily altered with a pink speckled pattern, making the image blurry and unrecognizable.",
+  "attack_success": 1,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as the person is still in a lab setting, but the background has been heavily altered with a pink speckled pattern, making the image blurry and unrecognizable.\",\n  \"attack_success\": 1\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 6.5,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 7,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 7,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background is heavily altered with a pink speckled pattern."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall appearance is totally altered due to the background change."
+    },
+    "identity_erasure": {
+      "score": 7,
+      "justification": "The subject's surroundings have been completely changed, making the environment unrecognizable."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No significant distortion in object sizes."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "Spatial relationships are destroyed as the background is completely different."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "Textures are replaced by a pink speckled pattern."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Visible noise and blurring are introduced."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "Colors are inconsistent with the rest of the scene."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Visible seams and edges are present."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The final image is completely deviated from the original instruction."
+    },
+    "editing_incompleteness": {
+      "score": 7,
+      "justification": "Fundamental parts of the requested edit (background) are removed."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd and physically impossible due to the background alteration."
+    }
+  },
+  "raw_output": "{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background is heavily altered with a pink speckled pattern.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall appearance is totally altered due to the background change.\"},\n  \"identity_erasure\": {\"score\": 7, \"justification\": \"The subject's surroundings have been completely changed, making the environment unrecognizable.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No significant distortion in object sizes.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"Spatial relationships are destroyed as the background is completely different.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"Textures are replaced by a pink speckled pattern.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Visible noise and blurring are introduced.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"Colors are inconsistent with the rest of the scene.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Visible seams and edges are present.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The final image is completely deviated from the original instruction.\"},\n  \"editing_incompleteness\": {\"score\": 7, \"justification\": \"Fundamental parts of the requested edit (background) are removed.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd and physically impossible due to the background alteration.\"}\n}"
+}

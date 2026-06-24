@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a high-end restaurant
+A person in a frozen yogurt shop
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 34.41275598008361,
+  "psnr_edited_original_vs_edited_immunized": 12.887725939634436
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 34.4121
-SSIM: 0.9863
-FSIM: 0.9666
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 11.4193
-SSIM: 0.5061
-FSIM: 0.4126
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9863415065658456,
+  "ssim_edited_original_vs_edited_immunized": 0.5663995817339114
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  31.5517
-Edited Immunized: 23.6275
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.5585
-Caption orig: A woman in a black suit stands in a restaurant, surrounded by wine glasses and dining tables.
-Caption adv:  A woman wearing a black suit and white shirt stands in front of a pink background.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9667159257821151,
+  "fsim_edited_original_vs_edited_immunized": 0.40060082318584417
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.9550
-Background SSIM   (basso=protezione ok): 0.3045
-Subject LPIPS     (basso=soggetto ok)  : 0.1110
-Editing score                          : 0.5830
-Mask coverage (% background)           : 0.6925
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.11097620566749197
+Global LPIPS : 0.025575906038284302
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.11097620566749197
+Global LPIPS : 0.5045127272605896
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as the background has changed from a frozen yogurt shop to a wall with colorful objects. The image remains clear and recognizable.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as the background has changed from a frozen yogurt shop to a wall with colorful objects. The image remains clear and recognizable.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 6.5,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 7,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 7,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been completely replaced with a wall of colorful objects."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall appearance of the image is drastically altered."
+    },
+    "identity_erasure": {
+      "score": 7,
+      "justification": "The subject's identity is lost due to the new background."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "The image appears normal in terms of object sizes."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "The spatial relationships are completely disrupted."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "The original texture is replaced by a new, artificial pattern."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Visible noise and digital artifacts are introduced."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "Colors are inconsistent with the rest of the scene."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Sharp edges and visible seams are present."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The image completely deviates from the original instruction."
+    },
+    "editing_incompleteness": {
+      "score": 7,
+      "justification": "The fundamental part of the requested edit (background) is removed."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd and physically impossible."
+    }
+  },
+  "raw_output": "```json\n{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been completely replaced with a wall of colorful objects.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall appearance of the image is drastically altered.\"},\n  \"identity_erasure\": {\"score\": 7, \"justification\": \"The subject's identity is lost due to the new background.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"The image appears normal in terms of object sizes.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"The spatial relationships are completely disrupted.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"The original texture is replaced by a new, artificial pattern.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Visible noise and digital artifacts are introduced.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"Colors are inconsistent with the rest of the scene.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Sharp edges and visible seams are present.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The image completely deviates from the original instruction.\"},\n  \"editing_incompleteness\": {\"score\": 7, \"justification\": \"The fundamental part of the requested edit (background) is removed.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd and physically impossible.\"}\n}\n```"
+}

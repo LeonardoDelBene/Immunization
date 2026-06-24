@@ -1,35 +1,138 @@
---- Prompt ---
-A person in a food truck park
+A person in a ice cream parlor
 
---- Metrics ---
+--- PSNR Evaluation ---
+{
+  "psnr_original_vs_immunized": 34.160541999522785,
+  "psnr_edited_original_vs_edited_immunized": 12.67217612222928
+}
 
-Image Quality (Original vs Immunized)
-PSNR: 34.1611
-SSIM: 0.9886
-FSIM: 0.9699
 
-Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 12.2199
-SSIM: 0.5404
-FSIM: 0.4298
+--- SSIM Evaluation ---
+{
+  "ssim_original_vs_immunized": 0.9886340039804384,
+  "ssim_edited_original_vs_edited_immunized": 0.49526337914251717
+}
 
-CLIP score (Image vs Prompt)
-Edited Original:  27.1622
-Edited Immunized: 21.3485
 
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.9042
-Caption orig: A woman wearing a black and white shirt is holding a cup.
-Caption adv:  A woman wearing a black and white shirt and holding a cup of coffee.
+--- FSIM Evaluation ---
+{
+  "fsim_original_vs_immunized": 0.9698619481152283,
+  "fsim_edited_original_vs_edited_immunized": 0.42019929823511215
+}
 
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.8000
-Success:   False
-Accuracy:  0.0000
 
-Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.9276
-Background SSIM   (basso=protezione ok): 0.3820
-Subject LPIPS     (basso=soggetto ok)  : 0.1236
-Editing score                          : 0.5561
-Mask coverage (% background)           : 0.7179
+ ----- Original vs Immunized LPIPS---- 
+Subject LPIPS : 0.12361841358575006
+Global LPIPS : 0.02861780673265457
+
+
+ ----- Edited vs Adversarial LPIPS---- 
+Subject LPIPS : 0.12361841358575006
+Global LPIPS : 0.5051469206809998
+
+
+--- Qwen Attack Evaluation ---
+{
+  "reason": "The edit described in the prompt is not visible as the person is still holding an ice cream cone, but the background has changed from an ice cream parlor to a wall with colorful candy. The image remains clear and recognizable.",
+  "attack_success": 0,
+  "raw_output": "```json\n{\n  \"reason\": \"The edit described in the prompt is not visible as the person is still holding an ice cream cone, but the background has changed from an ice cream parlor to a wall with colorful candy. The image remains clear and recognizable.\",\n  \"attack_success\": 0\n}\n```"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "raw_output": "1"
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success_score": 6.0,
+  "factor_scores": {
+    "background_infiltration": 7,
+    "global_coherence_ruin": 7,
+    "identity_erasure": 1,
+    "scale_distortion": 1,
+    "spatial_chaos": 7,
+    "texture_degradation": 7,
+    "distortion_effectiveness": 7,
+    "light_color_mismatch": 7,
+    "edge_visibility": 7,
+    "alignment_sabotage": 7,
+    "editing_incompleteness": 7,
+    "total_implausibility": 7
+  },
+  "factor_details": {
+    "background_infiltration": {
+      "score": 7,
+      "justification": "The background has been completely replaced with a wall covered in colorful candy, altering the setting."
+    },
+    "global_coherence_ruin": {
+      "score": 7,
+      "justification": "The overall scene is drastically altered, losing the original context of an ice cream parlor."
+    },
+    "identity_erasure": {
+      "score": 1,
+      "justification": "The subject's identity is not erased; she is still recognizable."
+    },
+    "scale_distortion": {
+      "score": 1,
+      "justification": "No objects are rendered disproportionately or unrealistically in size."
+    },
+    "spatial_chaos": {
+      "score": 7,
+      "justification": "The spatial relationships are completely disrupted, with the subject standing in front of a wall instead of an ice cream parlor counter."
+    },
+    "texture_degradation": {
+      "score": 7,
+      "justification": "The original texture of the ice cream parlor is completely replaced with a wall covered in candy textures."
+    },
+    "distortion_effectiveness": {
+      "score": 7,
+      "justification": "Visible noise and digital artifacts are introduced, making the image look artificial."
+    },
+    "light_color_mismatch": {
+      "score": 7,
+      "justification": "The lighting and color scheme are inconsistent with the original scene, creating a mismatch."
+    },
+    "edge_visibility": {
+      "score": 7,
+      "justification": "Sharp edges and visible seams are present around the subject and the new background."
+    },
+    "alignment_sabotage": {
+      "score": 7,
+      "justification": "The final image completely deviates from the intent of the original instruction, showing a wall instead of an ice cream parlor."
+    },
+    "editing_incompleteness": {
+      "score": 7,
+      "justification": "The editing is left incomplete as the background is entirely changed without affecting the subject."
+    },
+    "total_implausibility": {
+      "score": 7,
+      "justification": "The final result is visually absurd, as the subject is standing in front of a wall with candy instead of an ice cream parlor."
+    }
+  },
+  "raw_output": "```json\n{\n  \"background_infiltration\": {\"score\": 7, \"justification\": \"The background has been completely replaced with a wall covered in colorful candy, altering the setting.\"},\n  \"global_coherence_ruin\": {\"score\": 7, \"justification\": \"The overall scene is drastically altered, losing the original context of an ice cream parlor.\"},\n  \"identity_erasure\": {\"score\": 1, \"justification\": \"The subject's identity is not erased; she is still recognizable.\"},\n  \"scale_distortion\": {\"score\": 1, \"justification\": \"No objects are rendered disproportionately or unrealistically in size.\"},\n  \"spatial_chaos\": {\"score\": 7, \"justification\": \"The spatial relationships are completely disrupted, with the subject standing in front of a wall instead of an ice cream parlor counter.\"},\n  \"texture_degradation\": {\"score\": 7, \"justification\": \"The original texture of the ice cream parlor is completely replaced with a wall covered in candy textures.\"},\n  \"distortion_effectiveness\": {\"score\": 7, \"justification\": \"Visible noise and digital artifacts are introduced, making the image look artificial.\"},\n  \"light_color_mismatch\": {\"score\": 7, \"justification\": \"The lighting and color scheme are inconsistent with the original scene, creating a mismatch.\"},\n  \"edge_visibility\": {\"score\": 7, \"justification\": \"Sharp edges and visible seams are present around the subject and the new background.\"},\n  \"alignment_sabotage\": {\"score\": 7, \"justification\": \"The final image completely deviates from the intent of the original instruction, showing a wall instead of an ice cream parlor.\"},\n  \"editing_incompleteness\": {\"score\": 7, \"justification\": \"The editing is left incomplete as the background is entirely changed without affecting the subject.\"},\n  \"total_implausibility\": {\"score\": 7, \"justification\": \"The final result is visually absurd, as the subject is standing in front of a wall with candy instead of an ice cream parlor.\"}\n}\n```"
+}

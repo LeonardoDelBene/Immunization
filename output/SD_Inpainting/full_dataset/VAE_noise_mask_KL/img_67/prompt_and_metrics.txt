@@ -4,32 +4,34 @@ A person in a shopping center
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.0690
-SSIM: 0.9126
-FSIM: 0.8891
+PSNR: 29.8848
+SSIM: 0.9117
+FSIM: 0.8875
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 6.2633
-SSIM: 0.1917
-FSIM: 0.4269
-
-CLIP score (Image vs Prompt)
-Edited Original:  26.1101
-Edited Immunized: 22.8491
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.6177
-Caption orig: A man wearing sunglasses and a scarf is smiling in a crowded mall.
-Caption adv:  A man wearing a white shirt and sunglasses is smiling.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.7000
-Success:   False
-Accuracy:  0.0000
+PSNR: 16.0849
+SSIM: 0.5953
+FSIM: 0.5044
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.8559
-Background SSIM   (basso=protezione ok): 0.0000
-Subject LPIPS     (basso=soggetto ok)  : 0.3817
-Editing score                          : 0.7133
-Mask coverage (% background)           : 0.7153
+Global LPIPS                           : 0.4768
+Background LPIPS                       : 0.5661
+Subject LPIPS                          : 0.3881
+Separation                             : 0.5933
+Editing score                          : 0.5661
+Mask coverage                          : 0.7153
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 0,
+  "reason": "The person is still in a shopping center, but the image appears to be heavily distorted with artifacts and noise, which is not relevant to the semantic edit."
+}
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The adversarial image contains distorted and unrealistic elements that do not align with the semantic requirement of a person in a shopping center.",
+  "raw_output": "```json\n{\n  \"attack_success\": 1,\n  \"reason\": \"The adversarial image contains distorted and unrealistic elements that do not align with the semantic requirement of a person in a shopping center.\"\n}\n```"
+}

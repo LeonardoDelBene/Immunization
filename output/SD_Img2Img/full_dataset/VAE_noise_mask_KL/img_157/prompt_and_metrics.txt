@@ -1,35 +1,29 @@
 --- Prompt ---
-A person in a local art market
+A person with a cap
 
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 30.5921
+PSNR: 30.5922
 SSIM: 0.9319
 FSIM: 0.8992
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 15.4518
-SSIM: 0.5013
-FSIM: 0.5107
-
-CLIP score (Image vs Prompt)
-Edited Original:  30.6590
-Edited Immunized: 30.1072
-
-Caption Similarity (Edited Original vs Edited Immunized)
-Score:        0.8079
-Caption orig: A man wearing a black jacket and blue jeans stands in front of a painting.
-Caption adv:  A woman wearing a black jacket and jeans stands in front of a painting.
-
-Accuracy Rate (Edited Original vs Edited Immunized)
-LLM score: 0.3000
-Success:   True
-Accuracy:  1.0000
+PSNR: 5.2680
+SSIM: 0.0005
+FSIM: nan
 
 Masked Editing Score
-Background LPIPS  (alto=protezione ok) : 0.4773
-Background SSIM   (basso=protezione ok): 0.4192
-Subject LPIPS     (basso=soggetto ok)  : 0.3333
-Editing score                          : 0.4652
-Mask coverage (% background)           : 0.7395
+Global LPIPS                           : 1.0355
+Background LPIPS                       : 0.9575
+Subject LPIPS                          : 0.9639
+Separation                             : 0.5016
+Editing score                          : 0.9639
+Mask coverage                          : 0.7395
+
+
+--- Qwen Attack Evaluation ---
+{
+  "attack_success": 1,
+  "reason": "The person in the adversarial image is not wearing a cap."
+}
