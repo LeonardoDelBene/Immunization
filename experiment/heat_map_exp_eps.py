@@ -34,7 +34,13 @@ EPS_LABELS = [
 ]
 
 # Scegli il valore da usare: "l_vae" o "subject_lpips".
-METRIC_NAME = "subject_lpips"
+METRIC_NAME = "editing_score_attacksd"
+
+# Imposta a True se per questa metrica un valore più basso è migliore
+# (es. LPIPS, l_vae), a False se un valore più alto è migliore
+# (es. PSNR, SSIM, editing_score). Controlla sia la colormap che il
+# testo del titolo/colorbar della heatmap.
+LOWER_IS_BETTER = False
 
 OUTPUT_FILE = os.path.join(os.path.dirname(__file__), f"heatmap_{METRIC_NAME}.csv")
 HEATMAP_IMAGE = os.path.join(os.path.dirname(__file__), f"heatmap_{METRIC_NAME}.png")
@@ -72,10 +78,15 @@ def build_heatmap_dataframe(csv_paths: List[str], row_labels: List[str], col_lab
 
 
 
-def plot_heatmap(df: pd.DataFrame, output_path: str) -> None:
+def plot_heatmap(df: pd.DataFrame, output_path: str, lower_is_better: bool) -> None:
+    # cmap "_r" (reversed): per lower_is_better i valori bassi sono
+    # chiari/migliori; altrimenti sono i valori alti a esserlo.
+    cmap = "viridis_r" if lower_is_better else "viridis"
+    direction_label = "lower is better" if lower_is_better else "higher is better"
+
     plt.figure(figsize=(10, 5))
     ax = plt.gca()
-    heatmap = ax.imshow(df.values, cmap="viridis_r", aspect="auto")
+    heatmap = ax.imshow(df.values, cmap=cmap, aspect="auto")
 
     ax.set_xticks(range(len(df.columns)))
     ax.set_xticklabels(df.columns, rotation=45, ha="right")
@@ -84,7 +95,7 @@ def plot_heatmap(df: pd.DataFrame, output_path: str) -> None:
 
     ax.set_xlabel("eps 2 stage")
     ax.set_ylabel("eps 1 stage")
-    ax.set_title(f"Heatmap {METRIC_NAME} (lower is better)")
+    ax.set_title(f"Heatmap {METRIC_NAME} ({direction_label})")
 
     cbar = plt.colorbar(heatmap, ax=ax)
     cbar.set_label(METRIC_NAME)
@@ -114,7 +125,7 @@ def main() -> None:
     heatmap_df.to_csv(OUTPUT_FILE)
     print(f"CSV generato: {OUTPUT_FILE}")
 
-    plot_heatmap(heatmap_df, HEATMAP_IMAGE)
+    plot_heatmap(heatmap_df, HEATMAP_IMAGE, LOWER_IS_BETTER)
     print(f"Heatmap generata: {HEATMAP_IMAGE}")
 
 

@@ -11,20 +11,11 @@ import torch.nn.functional as F
 from typing import Union, List, Optional, Callable
 from diffusers import StableDiffusionInstructPix2PixPipeline
 import torchvision.transforms as transforms
-from loss import vae_mse, noise_loss, vae_align_loss, vae_divergence_loss
-from transformers import CLIPTokenizer, CLIPTextModel
+from loss import vae_mse, noise_loss, vae_align_loss
 import copy
 import torch.distributions as D
 from diffusers import AutoencoderKL
 
-
-
-def load_clip_vit_l_14(device: str = "cuda:0"):
-    """Load OpenAI CLIP ViT-L/14 for text embeddings and tokenization."""
-    model_name = "openai/clip-vit-large-patch14"
-    tokenizer = CLIPTokenizer.from_pretrained(model_name)
-    model = CLIPModel.from_pretrained(model_name).to(device).eval()
-    return model, tokenizer
 
 
 class VGGBlock(nn.Module):
@@ -169,6 +160,7 @@ class Immunization:
         load_path:      str   = None,
         vae                  = None,
         molt_filter:    int = 1,
+        tg:         str = "gray",
     ):
         self.device           = device
         self.clamp_min        = clamp_min
@@ -180,13 +172,23 @@ class Immunization:
             param.requires_grad = False
         self.vae              = vae
         self.lpips_fn         = lpips.LPIPS(net="alex").to(device).eval()
-        self.nb_filters      = [x * molt_filter for x in [32, 64, 128, 256, 512]]
+        self.nb_filters       = [x * molt_filter for x in [32, 64, 128, 256, 512]]
         with torch.no_grad():
-         target = Image.open("./data/gray.png").convert("RGB").resize((512, 512))
-         target = transforms.ToTensor()(target)           # [0, 1]
-         target = (target * 2.0 - 1.0)                   # [-1, 1]
-         target = target.unsqueeze(0).to(device)
-         self.posterior_target = vae.encode(target).latent_dist
+            if tg == "gray":
+                target = Image.open("./data/gray.png").convert("RGB").resize((512, 512))
+            elif tg == "black":
+                target = Image.open("./data/black.png").convert("RGB").resize((512, 512))
+            elif tg == "white":
+                target = Image.open("./data/white.png").convert("RGB").resize((512, 512))
+            elif tg == "mean":
+                target = Image.open("./data/diffvax_mean_posterior.png").convert("RGB").resize((512, 512))
+            else:
+                target = 0
+
+            target = transforms.ToTensor()(target)           # [0, 1]
+            target = (target * 2.0 - 1.0)                    # [-1, 1]
+            target = target.unsqueeze(0).to(device)
+            self.posterior_target = vae.encode(target).latent_dist
 
         self.model = NestedUNet(num_classes=3, nb_filter=self.nb_filters).to(device)
 
@@ -204,201 +206,259 @@ class Immunization:
 
         with torch.no_grad():
             unet_out = self.model(img_f)
-            if noise =="mask":
+            if noise == "mask":
                 unet_out = unet_out * (1 - mask_f)
 
         img_adv = torch.clamp(img_f + unet_out, self.clamp_min, self.clamp_max)
         return img_adv
-    
 
     def targeted_unet_refinement(
-     self,
-     img:            torch.Tensor,   # img_adv (output stage 1)
-     img_orig:       torch.Tensor,   # img originale (per vincolo eps)
-     img_mask:       torch.Tensor,
-     noise_mode:          str   = "mask",
-     eps:            float = 16/255,
-     lr:             float = 1e-5,
-     n_steps:        int   = 100,
-     lambda_vae:     float = 1.0,
-     lambda_noise:   float = 1.0,
-     log_every:      int   = 10,
-     # --- LPAA patch-based: regolarizzazione anti-overfit locale ---
-     use_lpaa:       bool = False,
-     lpaa_n_masks:   int   = 0,      # 0 = disabilitato, comportamento originale
-     lpaa_patch_size: int  = 16,
-     lpaa_keep_frac: float = 0.5,
+        self,
+        img:            torch.Tensor,   # img_adv (output stage 1)
+        img_orig:       torch.Tensor,   # img originale (per vincolo eps)
+        img_mask:       torch.Tensor,
+        noise_mode:     str   = "mask",
+        eps:            float = 16/255,
+        lr:             float = 1e-5,
+        n_steps:        int   = 100,
+        lambda_vae:     float = 1.0,
+        lambda_noise:   float = 1.0,
+        log_every:      int   = 10,
     ) -> torch.Tensor:
 
-     assert self.vae is not None, "vae must be set in __init__"
-     assert self.posterior_target is not None, "posterior_target must be set"
+        assert self.vae is not None, "vae must be set in __init__"
+        assert self.posterior_target is not None, "posterior_target must be set"
 
-     self.vae.eval()
-     local_unet = copy.deepcopy(self.model).to(self.device)
-     local_unet.eval()
+        self.vae.eval()
+        local_unet = copy.deepcopy(self.model).to(self.device)
+        local_unet.eval()
 
-     optimizer = torch.optim.Adam(local_unet.parameters(), lr=lr)
+        optimizer = torch.optim.Adam(local_unet.parameters(), lr=lr)
 
-     img_adv  = img.float().to(self.device)
-     img_orig = img_orig.float().to(self.device)   # riferimento per eps
-     mask     = img_mask.float().to(self.device)
+        img_adv  = img.float().to(self.device)
+        img_orig = img_orig.float().to(self.device)   # riferimento per eps
+        mask     = img_mask.float().to(self.device)
 
-     
-     if use_lpaa:
-         from loss import lpaa_patch_loss
+        for step in range(n_steps):
 
-     for step in range(n_steps):
-        
-        noise    = local_unet(img_adv)
-        if noise_mode == "mask":
-            noise    = noise * (1 - mask)
+            noise = local_unet(img_adv)
+            if noise_mode == "mask":
+                noise = noise * (1 - mask)
 
-        noise    = torch.clamp(noise, -eps, eps)
+            noise = torch.clamp(noise, -eps, eps)
 
-        img_final = img_adv + noise
+            img_final = img_adv + noise
 
-        # vincolo L∞ rispetto all'originale
-        total_delta = img_final - img_orig
-        total_delta = torch.clamp(total_delta, -eps, eps)
-        img_final   = torch.clamp(img_orig + total_delta, -1.0, 1.0)
+            # vincolo L∞ rispetto all'originale
+            total_delta = img_final - img_orig
+            total_delta = torch.clamp(total_delta, -eps, eps)
+            img_final   = torch.clamp(img_orig + total_delta, -1.0, 1.0)
 
-        # ricalcoliamo il delta DOPO il clamp finale, e' quello che
-        # verra' effettivamente mascherato nel branch LPAA
-        delta_total = img_final - img_orig
+            posterior_im = self.vae.encode(img_final).latent_dist
+            cosine_dist = 1 - F.cosine_similarity(
+                posterior_im.mean, self.posterior_target.mean, dim=-1
+            ).mean().item()
 
-        posterior_im = self.vae.encode(img_final).latent_dist
-        cosine_dist =1 - F.cosine_similarity(
-            posterior_im.mean, self.posterior_target.mean, dim=-1
-        ).mean().item()
+            l_vae = vae_mse(posterior_im, self.posterior_target)
 
-        # l_vae_full: loss sull'immagine intera, SEMPRE calcolata (anche
-        # con LPAA attivo) solo per logging/confronto con run precedenti.
-        # Non viene quasi mai usata per il gradiente quando use_lpaa=True.
-        #l_vae_full = vae_align_loss(posterior_im, self.posterior_target)
-        l_vae_full = vae_mse(posterior_im, self.posterior_target)
-
-        if use_lpaa:
-            # loss "vera" per il gradiente: media su N patch-mask random
-            # del delta. Forza local_unet a produrre una perturbazione
-            # la cui efficacia non dipenda da una combinazione molto
-            # specifica di pixel/patch (vedi diagnose_local_overfit.py).
-            l_vae = lpaa_patch_loss(
-                vae=self.vae,
-                img_orig=img_orig,
-                delta_total=delta_total,
-                posterior_target=self.posterior_target,
-                n_masks=lpaa_n_masks,
-                patch_size=lpaa_patch_size,
-                keep_frac=lpaa_keep_frac,
-                clamp_min=self.clamp_min,
-                clamp_max=self.clamp_max,
-            )
-        else:
-            l_vae = l_vae_full
-
-        if noise_mode=="mask":
-            l_noise = noise_loss(img_orig, img_final, 1 - mask, noise_on_mask=True)
-        elif noise_mode =="all":
-            l_noise = noise_loss(img_orig, img_final, 1 - mask, noise_on_mask=False)
-        else:
-            raise ValueError("noise mode does not match with all or mask")
-
-        loss    = lambda_vae * l_vae + lambda_noise * l_noise 
-
-        optimizer.zero_grad()
-        loss.backward()
-        optimizer.step()
-
-        if step == 0 or (step + 1) % log_every == 0:
-            delta_abs = (img_final - img_orig).abs()
-            if use_lpaa:
-                lpaa_tag = f"l_vae_lpaa={l_vae.item():.6f}  l_vae_full={l_vae_full.item():.6f}  "
+            if noise_mode == "mask":
+                l_noise = noise_loss(img_orig, img_final, 1 - mask, noise_on_mask=True)
+            elif noise_mode == "all":
+                l_noise = noise_loss(img_orig, img_final, 1 - mask, noise_on_mask=False)
             else:
-                lpaa_tag = f"l_vae={l_vae.item():.6f}  "
-            print(
-                f"  [UNet step {step+1:3d}/{n_steps}] "
-                f"loss={loss.item():.6f}  "
-                f"{lpaa_tag}"
-                f"l_noise={l_noise.item():.6f}  "
-                f"cosine_dist={cosine_dist:.4f}  "
-                f"delta_mean={delta_abs.mean().item():.6f}  "
-                f"delta_max={delta_abs.max().item():.6f}"
-            ) 
+                raise ValueError("noise mode does not match with all or mask")
 
-     with torch.no_grad():
-        noise     = local_unet(img_adv)
-        if noise_mode=="mask":
-            noise    = noise * (1 - mask)
-        noise     = torch.clamp(noise, -eps, eps)
-        img_final = img_adv + noise
-        total_delta = torch.clamp(img_final - img_orig, -eps, eps)
-        img_final   = torch.clamp(img_orig + total_delta, -1.0, 1.0)
+            loss = lambda_vae * l_vae + lambda_noise * l_noise
 
-     print(
-        f"  [UNet refinement done] "
-        f"delta_mean={(img_final - img_orig).abs().mean().item():.6f}  "
-        f"delta_max={(img_final - img_orig).abs().max().item():.6f}"
-     )
+            optimizer.zero_grad()
+            loss.backward()
+            optimizer.step()
 
-     return img_final.detach(), l_vae, l_noise
-   
+            if step == 0 or (step + 1) % log_every == 0:
+                delta_abs = (img_final - img_orig).abs()
+                print(
+                    f"  [UNet step {step+1:3d}/{n_steps}] "
+                    f"loss={loss.item():.6f}  "
+                    f"l_vae={l_vae.item():.6f}  "
+                    f"l_noise={l_noise.item():.6f}  "
+                    f"cosine_dist={cosine_dist:.4f}  "
+                    f"delta_mean={delta_abs.mean().item():.6f}  "
+                    f"delta_max={delta_abs.max().item():.6f}"
+                )
 
-    def immunize_img_targeted(
-    self,
-    img: torch.Tensor,
-    img_mask: torch.Tensor,
-    noise_mode: str= "mask",
-    is_2_stage: bool = True,
-    pgd : bool = True,
-    eps: float = 32/255 ,
-    lr: float = 1e-4,
-    n_steps: int = 100,
-    lambda_vae: float = 1.0,
-    lambda_noise: float = 50.0,
-    # --- LPAA patch-based ---
-    use_lpaa = True,
-    lpaa_n_masks: int = 5,
-    lpaa_patch_size: int = 256,
-    lpaa_keep_frac: float = 1,
-    run_diagnostic: bool = True,
-    ) -> torch.Tensor:
+        with torch.no_grad():
+            noise = local_unet(img_adv)
+            if noise_mode == "mask":
+                noise = noise * (1 - mask)
+            noise = torch.clamp(noise, -eps, eps)
+            img_final = img_adv + noise
+            total_delta = torch.clamp(img_final - img_orig, -eps, eps)
+            img_final   = torch.clamp(img_orig + total_delta, -1.0, 1.0)
 
-     if is_2_stage:
-        img_adv = self.immunize_img(img, img_mask,noise=noise_mode)
-
-        img_final, l_vae, l_noise = self.targeted_unet_refinement(
-            img=img_adv,
-            img_orig=img,
-            img_mask=img_mask,
-            noise_mode=noise_mode,
-            eps=eps,
-            lr=lr,
-            n_steps=n_steps,
-            lambda_vae=lambda_vae,
-            lambda_noise=lambda_noise,
-            use_lpaa=use_lpaa,
-            lpaa_n_masks=lpaa_n_masks,
-            lpaa_patch_size=lpaa_patch_size,
-            lpaa_keep_frac=lpaa_keep_frac,
+        print(
+            f"  [UNet refinement done] "
+            f"delta_mean={(img_final - img_orig).abs().mean().item():.6f}  "
+            f"delta_max={(img_final - img_orig).abs().max().item():.6f}"
         )
 
-        if run_diagnostic:
-            from diagnose_local_overfit import run_full_diagnostic
+        return img_final.detach(), l_vae, l_noise
 
-            results = run_full_diagnostic(
-                vae=self.vae,
+    def untargeted_unet_refinement(
+        self,
+        img:            torch.Tensor,   # img_adv (output stage 1)
+        img_orig:       torch.Tensor,   # img originale (per vincolo eps e per il latente da allontanare)
+        img_mask:       torch.Tensor,
+        noise_mode:     str   = "mask",
+        eps:            float = 64/255,
+        lr:             float = 1e-4,
+        n_steps:        int   = 300,
+        lambda_vae:     float = 1.0,
+        lambda_noise:   float = 1.0,
+        margin:         float | None = 40.0,   # tetto alla distanza da massimizzare; None per disattivare
+        log_every:      int   = 10,
+    ) -> torch.Tensor:
+
+        assert self.vae is not None, "vae must be set in __init__"
+
+        self.vae.eval()
+        local_unet = copy.deepcopy(self.model).to(self.device)
+        local_unet.eval()
+
+        optimizer = torch.optim.Adam(local_unet.parameters(), lr=lr)
+
+        img_adv  = img.float().to(self.device)
+        img_orig = img_orig.float().to(self.device)   # riferimento per eps e per il latente originale
+        mask     = img_mask.float().to(self.device)
+
+        # Latente dell'immagine originale: target "negativo" da cui allontanarsi.
+        # Calcolato una sola volta, senza gradiente, perché non dipende dai
+        # parametri della local_unet che stiamo ottimizzando.
+        with torch.no_grad():
+            posterior_orig = self.vae.encode(img_orig).latent_dist
+
+        for step in range(n_steps):
+
+            noise = local_unet(img_adv)
+            if noise_mode == "mask":
+                noise = noise * (1 - mask)
+
+            noise = torch.clamp(noise, -eps, eps)
+
+            img_final = img_adv + noise
+
+            # vincolo L∞ rispetto all'originale
+            total_delta = img_final - img_orig
+            total_delta = torch.clamp(total_delta, -eps, eps)
+            img_final   = torch.clamp(img_orig + total_delta, -1.0, 1.0)
+
+            posterior_im = self.vae.encode(img_final).latent_dist
+            cosine_dist = 1 - F.cosine_similarity(
+                posterior_im.mean, posterior_orig.mean, dim=-1
+            ).mean().item()
+
+            # untargeted: vogliamo MASSIMIZZARE la distanza dal latente originale.
+            # Senza un tetto, questo termine cresce senza limite e schiaccia
+            # l_noise; con il margin, una volta superata la distanza desiderata
+            # il gradiente su l_vae si annulla e lambda_noise torna a contare.
+            vae_dist = vae_mse(posterior_im, posterior_orig)
+            if margin is not None:
+                l_vae = -torch.clamp(vae_dist, max=margin)
+            else:
+                l_vae = -vae_dist
+
+            if noise_mode == "mask":
+                l_noise = noise_loss(img_orig, img_final, 1 - mask, noise_on_mask=True)
+            elif noise_mode == "all":
+                l_noise = noise_loss(img_orig, img_final, 1 - mask, noise_on_mask=False)
+            else:
+                raise ValueError("noise mode does not match with all or mask")
+
+            loss = lambda_vae * l_vae + lambda_noise * l_noise
+
+            optimizer.zero_grad()
+            loss.backward()
+            optimizer.step()
+
+            if step == 0 or (step + 1) % log_every == 0:
+                delta_abs = (img_final - img_orig).abs()
+                print(
+                    f"  [UNet step {step+1:3d}/{n_steps}] "
+                    f"loss={loss.item():.6f}  "
+                    f"l_vae={l_vae.item():.6f}  "
+                    f"l_noise={l_noise.item():.6f}  "
+                    f"cosine_dist={cosine_dist:.4f}  "
+                    f"delta_mean={delta_abs.mean().item():.6f}  "
+                    f"delta_max={delta_abs.max().item():.6f}"
+                )
+
+        with torch.no_grad():
+            noise = local_unet(img_adv)
+            if noise_mode == "mask":
+                noise = noise * (1 - mask)
+            noise = torch.clamp(noise, -eps, eps)
+            img_final = img_adv + noise
+            total_delta = torch.clamp(img_final - img_orig, -eps, eps)
+            img_final   = torch.clamp(img_orig + total_delta, -1.0, 1.0)
+
+        print(
+            f"  [UNet refinement done] "
+            f"delta_mean={(img_final - img_orig).abs().mean().item():.6f}  "
+            f"delta_max={(img_final - img_orig).abs().max().item():.6f}"
+        )
+
+        return img_final.detach(), l_vae, l_noise
+
+    def immunize_img_targeted(
+        self,
+        img: torch.Tensor,
+        img_mask: torch.Tensor,
+        noise_mode: str = "mask",
+        is_2_stage: bool = True,
+        eps: float = 64/255,
+        lr: float = 1e-4,
+        n_steps: int = 300,
+        lambda_vae: float = 1.0,
+        lambda_noise: float = 150.0,
+        targeted: bool = True,
+    ) -> torch.Tensor:
+
+        if is_2_stage and targeted:
+            img_adv = self.immunize_img(img, img_mask, noise=noise_mode)
+
+            img_final, l_vae, l_noise = self.targeted_unet_refinement(
+                img=img_adv,
                 img_orig=img,
-                img_final=img_final,
-                target_mean=self.posterior_target.mean,
+                img_mask=img_mask,
+                noise_mode=noise_mode,
+                eps=eps,
+                lr=lr,
+                n_steps=n_steps,
+                lambda_vae=lambda_vae,
+                lambda_noise=lambda_noise,
             )
 
-        return img_final, l_vae.item(), l_noise.item()
+            return img_final, l_vae.item(), l_noise.item()
 
-     img_final = self.immunize_img(img, img_mask, noise=noise_mode)
-     l_vae, l_noise = 0,0
+        if is_2_stage and not targeted:
+            img_adv = self.immunize_img(img, img_mask, noise=noise_mode)
 
-     return img_final, l_vae, l_noise
+            img_final, l_vae, l_noise = self.untargeted_unet_refinement(
+                img=img_adv,
+                img_orig=img,
+                img_mask=img_mask,
+                noise_mode=noise_mode,
+                eps=eps,
+                lr=lr,
+                n_steps=n_steps,
+                lambda_vae=lambda_vae,
+                lambda_noise=lambda_noise,
+            )
+            return img_final, l_vae.item(), l_noise.item()
 
+        img_final = self.immunize_img(img, img_mask, noise=noise_mode)
+        l_vae, l_noise = 0, 0
+
+        return img_final, l_vae, l_noise
     
 
 class Attack:

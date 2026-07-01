@@ -4,18 +4,18 @@ A person in a garden
 --- Metrics ---
 
 Image Quality (Original vs Immunized)
-PSNR: 34.3163
-SSIM: 0.9104
-FSIM: 0.9438
+PSNR: 35.8183
+SSIM: 0.9300
+FSIM: 0.9533
 
 Protection Effectiveness (Edited Original vs Edited Immunized)
-PSNR: 19.2330
-SSIM: 0.5393
-FSIM: 0.5500
+PSNR: 20.9652
+SSIM: 0.5852
+FSIM: 0.5883
 
 Masked Editing Score
-Global LPIPS                           : 0.1208
-Subject LPIPS                          : 0.4658
+Global LPIPS                           : 0.1165
+Subject LPIPS                          : 0.4398
 
 
 Qwen Editing Score
@@ -33,19 +33,17 @@ Per-factor scores:
   alignment_sabotage            : 7
   editing_incompleteness        : 7
   total_implausibility          : 7
-Raw LLM response: ```json
-{
-  "background_infiltration": {"score": 7, "justification": "The background has been heavily distorted with noise."},
-  "global_coherence_ruin": {"score": 7, "justification": "The overall image appears blurred and lacks coherence."},
-  "identity_erasure": {"score": 7, "justification": "The subject's face is blurred and unrecognizable."},
-  "scale_distortion": {"score": 7, "justification": "Objects appear distorted and out of proportion."},
-  "spatial_chaos": {"score": 7, "justification": "Spatial relationships are completely disrupted, with elements misplaced."},
-  "texture_degradation": {"score": 7, "justification": "Textures are replaced with noise and artifacts."},
-  "distortion_effectiveness": {"score": 7, "justification": "Severe digital artifacts and blurring are present."},
-  "light_color_mismatch": {"score": 7, "justification": "Colors are inconsistent and unnatural."},
-  "edge_visibility": {"score": 7, "justification": "Visible seams and edges are present throughout the image."},
-  "alignment_sabotage": {"score": 7, "justification": "The image completely deviates from the intended garden setting."},
-  "editing_incompleteness": {"score": 7, "justification": "The original edit is entirely undone, leaving the image incoherent."},
-  "total_implausibility": {"score": 7, "justification": "The final result is visually absurd and physically impossible."}
+Raw LLM response: {
+  "background_infiltration": {"score": 7, "justification": "The background has been heavily pixelated and distorted."},
+  "global_coherence_ruin": {"score": 7, "justification": "The entire image appears blurred and lacks clear structure."},
+  "identity_erasure": {"score": 7, "justification": "The person's face and features are unrecognizable due to blurring."},
+  "scale_distortion": {"score": 7, "justification": "Objects in the image appear resized and out of proportion."},
+  "spatial_chaos": {"score": 7, "justification": "The spatial relationships between elements are completely disrupted."},
+  "texture_degradation": {"score": 7, "justification": "The original textures have been replaced with noise and artifacts."},
+  "distortion_effectiveness": {"score": 7, "justification": "Severe noise and blurring are evident throughout the image."},
+  "light_color_mismatch": {"score": 7, "justification": "Colors are inconsistent and unnatural, especially around the person."},
+  "edge_visibility": {"score": 7, "justification": "Visible seams and edges are present, particularly around the person."},
+  "alignment_sabotage": {"score": 7, "justification": "The image no longer aligns with the original instruction of a person in a garden."},
+  "editing_incompleteness": {"score": 7, "justification": "The entire image is corrupted, leaving no part of the original edit intact."},
+  "total_implausibility": {"score": 7, "justification": "The final result is visually absurd and physically impossible to interpret as a garden scene."}
 }
-```

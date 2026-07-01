@@ -131,6 +131,8 @@ def training_loop(
         dyn_weight_T_temp: float = 0.1,
         dyn_weight_s_clip: float = 2.0,
         target: str = "gray",
+        untargeted: bool = False,        # ← nuovo
+        margin: float | None = 10.0,     # ← nuovo, usato solo se untargeted=True
 ):
 
     surrogate_vae_models = []
@@ -149,7 +151,7 @@ def training_loop(
         param.requires_grad = False
     surrogate_vae_models.append(vae2)'''
 
-    n_surrogates =len(surrogate_vae_models) 
+    n_surrogates = len(surrogate_vae_models)
 
     # ── Ottimizzatore, weighter e normalizer ──
     optimizer       = optim.AdamW(unet.parameters(), lr=lr, weight_decay=weight_decay)
@@ -196,7 +198,9 @@ def training_loop(
             "dyn_weight_T_temp": dyn_weight_T_temp,
             "dyn_weight_s_clip": dyn_weight_s_clip,
             "early_stopping": "disabled",
-            "target": target,
+            "target": target if not untargeted else "untargeted (original image)",
+            "untargeted": untargeted,
+            "margin": margin,
         }
     )
 
@@ -213,33 +217,38 @@ def training_loop(
         dyn_weighter.reset()
         loss_normalizer.reset()
 
-    target_size = getattr(dataloader.dataset, "image_size", None)
-    if target_size is None:
-        # Fallback to the default training size if the dataset does not expose image_size
-        target_size = 224
+    # ── Target fisso, usato SOLO in modalità targeted ──
+    # In modalità untargeted il "target" è l'immagine originale di ogni
+    # batch, calcolato dinamicamente nel loop: non serve costruire I_target.
+    I_target = None
+    posterior_target_list = None
 
-    if target == "gray":
-        I_target = Image.new("RGB", (target_size, target_size), (128, 128, 128))
-    elif target == "black":
-        I_target = Image.new("RGB", (target_size, target_size), (0, 0, 0))
-    elif target == "white":
-        I_target = Image.new("RGB", (target_size, target_size), (255, 255, 255))
-    elif target == "mean":
-        I_target = Image.open("data/diffvax_mean_posterior.png").resize((target_size, target_size), Image.BICUBIC)
-    else:
-        raise ValueError(f"target '{target}' non valido. Scegli tra: gray, black, white")
-    
-    I_target = transforms.ToTensor()(I_target)   # [0, 1]
-    I_target = (I_target * 2.0 - 1.0)            # [-1, 1]
-    I_target = I_target.unsqueeze(0).to(device)  # [1, 3, target_size, target_size]
+    if not untargeted:
+        target_size = getattr(dataloader.dataset, "image_size", None)
+        if target_size is None:
+            # Fallback to the default training size if the dataset does not expose image_size
+            target_size = 224
 
-    posterior_target_list = []
-    for vae in surrogate_vae_models:
-        posterior_target = vae.encode(I_target).latent_dist
-        posterior_target_list.append(posterior_target)
+        if target == "gray":
+            I_target = Image.new("RGB", (target_size, target_size), (128, 128, 128))
+        elif target == "black":
+            I_target = Image.new("RGB", (target_size, target_size), (0, 0, 0))
+        elif target == "white":
+            I_target = Image.new("RGB", (target_size, target_size), (255, 255, 255))
+        elif target == "mean":
+            I_target = Image.open("data/diffvax_mean_posterior.png").resize((target_size, target_size), Image.BICUBIC)
+        else:
+            raise ValueError(f"target '{target}' non valido. Scegli tra: gray, black, white")
 
+        I_target = transforms.ToTensor()(I_target)   # [0, 1]
+        I_target = (I_target * 2.0 - 1.0)             # [-1, 1]
+        I_target = I_target.unsqueeze(0).to(device)   # [1, 3, target_size, target_size]
 
-    
+        posterior_target_list = []
+        for vae in surrogate_vae_models:
+            posterior_target = vae.encode(I_target).latent_dist
+            posterior_target_list.append(posterior_target)
+
     for epoch in range(start_epoch, n_epochs):
 
         train_metrics = defaultdict(float)
@@ -250,6 +259,16 @@ def training_loop(
             I = I.to(device)
             M = M.to(device)
 
+            # ── In modalità untargeted, il target di questo batch è
+            #    il posterior dell'immagine originale stessa (no_grad: è
+            #    solo un riferimento, non un parametro da ottimizzare) ──
+            if untargeted:
+                with torch.no_grad():
+                    posterior_target_list = [
+                        vae_model.encode(I).latent_dist
+                        for vae_model in surrogate_vae_models
+                    ]
+
             optimizer.zero_grad()
             unet_out = unet(I)
             unet_out = torch.clamp(unet_out, -eps, eps)
@@ -258,19 +277,18 @@ def training_loop(
 
             I_im = torch.clamp(I + unet_out, -1.0, 1.0)
 
-
             posterior_im_list = []
             for vae_model in surrogate_vae_models:
-                 posterior_im = vae_model.encode(I_im).latent_dist
-                 posterior_im_list.append(posterior_im)
-
+                posterior_im = vae_model.encode(I_im).latent_dist
+                posterior_im_list.append(posterior_im)
 
             loss, log = total_loss(
                 I_im=I_im, I=I, M=1 - M, I_target=I_target,
                 posterior_im_list=posterior_im_list, posterior_target_list=posterior_target_list,
                 dyn_weighter=dyn_weighter,
-                alpha=alpha, beta=beta, lambda_vae= lambda_vae,
+                alpha=alpha, beta=beta, lambda_vae=lambda_vae,
                 noise_on_mask=noise_on_mask,
+                untargeted=untargeted, margin=margin,
             )
 
             loss.backward()
@@ -288,16 +306,26 @@ def training_loop(
         n_train = len(dataloader)
         train_metrics = {k: v / n_train for k, v in train_metrics.items()}
 
-        n_surrogates = sum(1 for k in train_metrics if k.startswith("l_surrogate_"))
+        n_surrogates = sum(1 for k in train_metrics if k.startswith("l_surrogate_") and not k.startswith("l_surrogate_mag_"))
         surrogate_str = "  ".join(
             f"l_surrogate_{i}={train_metrics[f'l_surrogate_{i}']:.4f}"
             for i in range(n_surrogates)
         )
 
         # ── Aggiornamento DynamicWeighter ──
-        current_loss_surrogates = [
-            train_metrics[f"l_surrogate_{i}"] for i in range(n_surrogates)
-        ]
+        # Usa SEMPRE la magnitudine positiva della distanza vae (non il
+        # termine con segno che entra nella loss totale): il weighter
+        # confronta "quanto è grande la loss" rispetto alla sua baseline,
+        # e questo deve restare un concetto positivo sia in targeted che
+        # in untargeted.
+        if untargeted:
+            current_loss_surrogates = [
+                train_metrics[f"l_surrogate_mag_{i}"] for i in range(n_surrogates)
+            ]
+        else:
+            current_loss_surrogates = [
+                train_metrics[f"l_surrogate_{i}"] for i in range(n_surrogates)
+            ]
         normalized_losses = loss_normalizer.normalize(current_loss_surrogates)
         dyn_weighter.step(normalized_losses)
         weights = dyn_weighter.get_weights()
@@ -315,59 +343,67 @@ def training_loop(
 
         # ── Validation ──
         if (epoch + 1) % val_every == 0:
-          val_metrics = validation_loop(
-           unet=unet,
-           val_dataloader=val_dataloader,
-           surrogate_vae_models=surrogate_vae_models,
-           posterior_target_list= posterior_target_list,
-           dyn_weighter=dyn_weighter,
-           alpha=alpha,
-           beta=beta,
-           lambda_vae=lambda_vae,
-           noise_on_mask=noise_on_mask,
-           )
+            val_metrics = validation_loop(
+                unet=unet,
+                val_dataloader=val_dataloader,
+                surrogate_vae_models=surrogate_vae_models,
+                posterior_target_list=posterior_target_list,
+                dyn_weighter=dyn_weighter,
+                alpha=alpha,
+                beta=beta,
+                lambda_vae=lambda_vae,
+                noise_on_mask=noise_on_mask,
+                untargeted=untargeted,
+                margin=margin,
+            )
 
-          n_surrogates_val = sum(
-           1 for k in val_metrics if k.startswith("l_surrogate_")
-          )
+            n_surrogates_val = sum(
+                1 for k in val_metrics if k.startswith("l_surrogate_") and not k.startswith("l_surrogate_mag_")
+            )
 
-          # ── surrogate total losses ──
-          surrogate_str_val = "  ".join(
-           f"l_surrogate_{i}={val_metrics[f'l_surrogate_{i}']:.4f}"
-           for i in range(n_surrogates_val)
-           )
+            # ── surrogate total losses ──
+            surrogate_str_val = "  ".join(
+                f"l_surrogate_{i}={val_metrics[f'l_surrogate_{i}']:.4f}"
+                for i in range(n_surrogates_val)
+            )
 
-          # ── surrogate losses for weighting ──
-          val_surrogates = [
-           val_metrics[f"l_surrogate_{i}"]
-           for i in range(n_surrogates_val)
-          ]
+            # ── surrogate losses for weighting ──
+            if untargeted:
+                val_surrogates = [
+                    val_metrics[f"l_surrogate_mag_{i}"]
+                    for i in range(n_surrogates_val)
+                ]
+            else:
+                val_surrogates = [
+                    val_metrics[f"l_surrogate_{i}"]
+                    for i in range(n_surrogates_val)
+                ]
 
-          # normalizzazione coerente con train
-          val_normalized = loss_normalizer.normalize(val_surrogates)
+            # normalizzazione coerente con train
+            val_normalized = loss_normalizer.normalize(val_surrogates)
 
-          # usa gli stessi pesi del train (importante!)
-          weights = dyn_weighter.get_weights()
-          weights_sum = sum(weights)
+            # usa gli stessi pesi del train (importante!)
+            weights = dyn_weighter.get_weights()
+            weights_sum = sum(weights)
 
-          monitored = sum(
-           w * l for w, l in zip(weights, val_normalized)
-          ) / weights_sum
+            monitored = sum(
+                w * l for w, l in zip(weights, val_normalized)
+            ) / weights_sum
 
-          # ── print ──
-          print(
-           f"── Epoch {epoch + 1} Val ──    "
-           f"loss={val_metrics['l_tot']:.4f}  "
-           f"l_noise={val_metrics['l_noise']:.4f}  "
-           f"l_surr={val_metrics['l_surrogates']:.4f}  "
-           f"{surrogate_str_val}  "
-           f"\nmonitored={monitored:.6f}\n"
-          )
+            # ── print ──
+            print(
+                f"── Epoch {epoch + 1} Val ──    "
+                f"loss={val_metrics['l_tot']:.4f}  "
+                f"l_noise={val_metrics['l_noise']:.4f}  "
+                f"l_surr={val_metrics['l_surrogates']:.4f}  "
+                f"{surrogate_str_val}  "
+                f"\nmonitored={monitored:.6f}\n"
+            )
 
-          # ── Best model: salva il modello quando migliora `monitored`
-          #    oppure quando migliora la validation loss (val_metrics['l_tot']).
-          saved = False
-          if monitored < best_monitored:
+            # ── Best model: salva il modello quando migliora `monitored`
+            #    oppure quando migliora la validation loss (val_metrics['l_tot']).
+            saved = False
+            if monitored < best_monitored:
                 best_monitored = monitored
                 best_val_loss  = val_metrics["l_tot"]
                 Path(best_checkpoint_path).parent.mkdir(parents=True, exist_ok=True)
@@ -379,10 +415,10 @@ def training_loop(
                 )
                 saved = True
 
-          # salva anche se la validation loss migliora (caso in cui `monitored` non è usato
-          # come criterio principale ma vogliamo comunque mantenere il checkpoint migliore
-          # rispetto alla val loss)
-          if (not saved) and (val_metrics["l_tot"] < best_val_loss):
+            # salva anche se la validation loss migliora (caso in cui `monitored` non è usato
+            # come criterio principale ma vogliamo comunque mantenere il checkpoint migliore
+            # rispetto alla val loss)
+            if (not saved) and (val_metrics["l_tot"] < best_val_loss):
                 best_val_loss = val_metrics["l_tot"]
                 Path(best_checkpoint_path).parent.mkdir(parents=True, exist_ok=True)
                 torch.save(unet.state_dict(), best_checkpoint_path)
@@ -390,6 +426,7 @@ def training_loop(
                     f"  ✓ Best model saved (val_loss improved={best_val_loss:.4f}) "
                     f"→ {best_checkpoint_path}\n"
                 )
+
         wandb.log({
           "train/loss":         train_metrics["l_tot"],
           "train/l_noise":      train_metrics["l_noise"],
@@ -435,7 +472,6 @@ def training_loop(
 
 
 
-
 def validation_loop(
     unet,
     val_dataloader,
@@ -446,6 +482,8 @@ def validation_loop(
     beta:        float = 1.0,
     lambda_vae: float = 0.03,
     noise_on_mask: bool = False,
+    untargeted: bool = False,
+    margin: float | None = 10.0,
 ) -> dict:
 
     unet.eval()
@@ -453,26 +491,35 @@ def validation_loop(
 
     with torch.no_grad():
         for I, M in tqdm(val_dataloader, desc="Validation", leave=False):
-            I        = I.to(device)
-            M        = M.to(device)
+            I = I.to(device)
+            M = M.to(device)
+
+            # ── In modalità untargeted, il target di questo batch è il
+            #    posterior dell'immagine originale stessa ──
+            if untargeted:
+                posterior_target_list = [
+                    vae_model.encode(I).latent_dist
+                    for vae_model in surrogate_vae_models
+                ]
 
             # ── Forward ──
             unet_out = unet(I)
             if noise_on_mask:
                 unet_out = unet_out * (1 - M)
-            I_im     = torch.clamp(I + unet_out, -1.0, 1.0)
+            I_im = torch.clamp(I + unet_out, -1.0, 1.0)
 
             # ── VAE ──
-            posterior_im_list= []
+            posterior_im_list = []
             for vae_model in surrogate_vae_models:
                 posterior_im = vae_model.encode(I_im).latent_dist
                 posterior_im_list.append(posterior_im)
 
             # ── Loss — total_loss gestisce pesi e dyn_weighter internamente ──
-            _, log = total_loss(I_im=I_im, I=I, M=1 -M, I_target=None, 
-                                posterior_im_list=posterior_im_list,
-                                posterior_target_list=posterior_target_list, dyn_weighter=dyn_weighter, alpha=alpha, beta=beta,
-                                lambda_vae=lambda_vae, noise_on_mask=noise_on_mask)
+            _, log = total_loss(I_im=I_im, I=I, M=1 - M, I_target=None,
+                                 posterior_im_list=posterior_im_list,
+                                 posterior_target_list=posterior_target_list, dyn_weighter=dyn_weighter, alpha=alpha, beta=beta,
+                                 lambda_vae=lambda_vae, noise_on_mask=noise_on_mask,
+                                 untargeted=untargeted, margin=margin)
 
             for k, v in log.items():
                 if k == "weights":
@@ -562,16 +609,18 @@ if __name__ == "__main__":
         alpha=1.0,
         beta=1.0,
         lambda_vae=1,
-        eps= (64 / 255),
+        eps= (16 / 255),
         val_every=1,
         best_checkpoint_path="checkpoints/unet_best_o23oqvbx.pth",
         training_checkpoint_dir="checkpoints/training/",
         device=device,
-        resume_from_checkpoint=False, # Cambia a False per ricominciare da zero
-        resume_only_weights = False, # True per caricare i pesi dal checkpoint
+        resume_from_checkpoint=False,
+        resume_only_weights = False,
         noise_on_mask=False,
-        dyn_weight_window= 30,  # ← nuovo parametro
-        dyn_weight_T_temp = 0.1,  # ← nuovo parametro
+        dyn_weight_window= 30,
+        dyn_weight_T_temp = 0.1,
         dyn_weight_s_clip= 2.0,
         target=target,
+        untargeted=True,      # ← attiva la modalità untargeted
+        margin=50.0,          # ← tetto sulla distanza vae da massimizzare
     )

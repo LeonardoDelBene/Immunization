@@ -141,7 +141,7 @@ class ImmunizationDataset(Dataset):
      image = self.image_transform(image)
      mask = self.mask_transform(mask)
 
-     mask = ImageOps.invert(mask)
+     #mask = ImageOps.invert(mask)
 
      M, _, I = prepare_mask_and_masked_image(image, mask)
      I = I.squeeze(0)

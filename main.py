@@ -78,7 +78,8 @@ def load_models(config):
     immunization_mdl = Immunization(
         load_existing=config["load_existing"],
         load_path=config["checkpoint_path"],
-        molt_filter=config["molt_filter"]
+        molt_filter=config["molt_filter"],
+        tg=config["target"],
     )
     print("Done.")
     return attack_model, immunization_mdl
@@ -118,15 +119,23 @@ def load_sample(config):
 # IMMUNIZATION
 # ─────────────────────────────────────────────
 
-def immunize(image, image_mask, immunization_mdl, seed, noise_mode, is_2_stage, pgd):
+def immunize(image, image_mask, immunization_mdl, config):
     to_pil = T.ToPILImage()
     mask_torch, image_torch, _ = prepare_mask_and_masked_image(image, image_mask)
     image_torch = image_torch.half().cuda()
     mask_torch  = mask_torch.half().cuda()
 
-    set_seed_lib(seed)
-    immunized_img, l_vae, l_noise = immunization_mdl.immunize_img_targeted(image_torch, mask_torch,noise_mode= noise_mode,is_2_stage=is_2_stage, pgd=pgd)
-
+    set_seed_lib(config["seed"])
+    immunized_img, l_vae, l_noise = immunization_mdl.immunize_img_targeted(image_torch, mask_torch,
+                                                                           noise_mode= config["noise_mode"],
+                                                                           is_2_stage=config["noise_mode"], 
+                                                                           lr=config["lr"],
+                                                                           n_steps=config["n_steps"],
+                                                                           eps=config["eps"],
+                                                                           lambda_vae=config["lambda_vae"],
+                                                                           lambda_noise=config["lambda_noise"],
+                                                                           targeted=config["targeted"],
+                                                                           )
     adv_X = (immunized_img / 2 + 0.5).clamp(0, 1) # porta l'img in [0,1]
     adv_image_png = to_pil(adv_X[0]).convert("RGB")
     adv_image_png = recover_image(adv_image_png, image, image_mask, background=True)
@@ -373,7 +382,7 @@ def run_on_full_dataset(config):
             image, image_mask = load_sample_from_hf(sample, split=config["dataset_split"])
 
             # --- Immunizzazione (una sola volta) ---
-            adv_image_png = immunize(image, image_mask, immunization_mdl, config["seed"],config['noise_mode'], config["is_2_stage"], config.get("pgd", True))
+            adv_image_png = immunize(image, image_mask, immunization_mdl, config)
 
             # --- Editing con tutti e 3 i modelli ---
             for model_name, attack_model in attack_models:
@@ -430,17 +439,26 @@ def get_config():
         "sample_idx":           0,
         "model_attack":         "sd_inpainting", # "sd_pix2pix", "sd_inpainting", o "sd_img2img", "sd_xl_img2img"
         "edit_prompt":          "A person in a garden", # usato solo per sd_pix2pix, altrimenti viene preso da ogni sample
-        "noise_mode":           "all",
-        "seed":                 2043,
+
         "is_2_stage":           True,
-        "pgd":                  False,
+        "targeted":             True,
+        "target":               "white",
+        "noise_mode":           "mask",
+        "lr":                   1e-4,
+        "eps":                  64/255,
+        "n_steps":              300,
+        "lambda_vae":           1,
+        "lambda_noise":         150,
+
+        "seed":                 2043,
         "load_existing":        True,
-        "checkpoint_path":      os.path.join("checkpoints", "unet_best_nv5dqvvb.pth"), #  KL : unet_best_zpsi7srq.pth MSE: unet_best_nv5dqvvb.pth DiffVax: diffvax_trained.pth
+        "checkpoint_path":      os.path.join("checkpoints", "unet_best_21a852i4.pth"), #  KL : unet_best_zpsi7srq.pth MSE: unet_best_nv5dqvvb.pth DiffVax: diffvax_trained.pth
         "molt_filter":          2,
+
         "base_output_dir":      "output",
         "dataset_path":         "./data/DiffVaxDataset_local",
-        "run_full_dataset":     False,
-        "run_wandb":            "VAE_MSE_2_STAGE_16"
+        "run_full_dataset":     True,
+        "run_wandb":            "VAE_MSE_MEAN"
     }
 
 def main():
@@ -459,7 +477,7 @@ def main():
 
         image, image_mask, _ = load_sample(config)
 
-        adv_image_png = immunize(image, image_mask, immunization_mdl, config["seed"],config['noise_mode'], config["is_2_stage"], config['pgd'])
+        adv_image_png = immunize(image, image_mask, immunization_mdl, config)
 
         edited_orig_recovered, edited_adv_recovered = edit_images(
             attack_model, image, adv_image_png, image_mask,

@@ -19,26 +19,19 @@ if __name__ == "__main__":
     metrics_models = load_metrics_models()
 
     roots = [
-        "./output/SD_Inpainting/full_dataset/VAE_MSE_FT_2_STAGE",
-        "./output/SD_Inpainting/full_dataset/DiffVax",
-        "./output/SD_Img2Img/full_dataset/VAE_MSE_2_STAGE_16",
-        "./output/SD_Img2Img/full_dataset/VAE_MSE",
-        "./output/SD_Img2Img/full_dataset/VAE_MSE_FT",
-        "./output/SD_Img2Img/full_dataset/VAE_MSE_FT_2_STAGE",
-        "./output/SD_Img2Img/full_dataset/DiffVax",
-        "./output/InstructionPix2Pix/full_dataset/VAE_MSE_2_STAGE_16",
-        "./output/InstructionPix2Pix/full_dataset/VAE_MSE_FT_2_STAGE",
-        "./output/InstructionPix2Pix/full_dataset/VAE_MSE_FT",
-        "./output/InstructionPix2Pix/full_dataset/VAE_MSE",
-        "./output/InstructionPix2Pix/full_dataset/DiffVax",
+        "./output/SD_Inpainting/full_dataset/VAE_MSE_UNTARGET",
+        
+        "./output/SD_Img2Img/full_dataset/VAE_MSE_UNTARGET",
+        
+        "./output/InstructionPix2Pix/full_dataset/VAE_MSE_UNTARGET",
     ]
 
     for root in roots:
-        #metrics_models["psnr"].evaluate_folder(root)
-        #metrics_models["ssim"].evaluate_folder(root)
+        metrics_models["psnr"].evaluate_folder(root)
+        metrics_models["ssim"].evaluate_folder(root)
         #metrics_models["fsim"].evaluate_folder(root)
         #metrics_models["masked"].evaluate_folder(root)
-        metrics_models["editing_score"].evaluate_folder(root)
+        #metrics_models["editing_score"].evaluate_folder(root)
         print(f"Done {root}")
 
     print("Done all evaluations.")

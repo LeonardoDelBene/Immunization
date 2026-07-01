@@ -61,14 +61,19 @@ def load_experiment_sample(
     return image_t, mask_t, image_pil, mask_pil
 
 
-def load_models(config: Dict[str, Any], device: torch.device):
+def load_models(
+    config: Dict[str, Any],
+    device: torch.device,
+    checkpoint_path: Optional[str] = None,
+    molt_filter: Optional[int] = None,
+) -> Immunization:
     attack_model = Attack()
     immunization_model = Immunization(
         device=str(device),
         load_existing=config.get("load_existing", True),
-        load_path=config.get("checkpoint_path"),
+        load_path=checkpoint_path if checkpoint_path is not None else config.get("checkpoint_path"),
         vae=attack_model.model.vae,
-        molt_filter=config.get("molt_filter", 1),
+        molt_filter=molt_filter if molt_filter is not None else config.get("molt_filter", 1),
     )
     return immunization_model
 
@@ -76,6 +81,35 @@ def load_models(config: Dict[str, Any], device: torch.device):
 # ─────────────────────────────────────────────────────────────────────────────
 # Core helpers
 # ─────────────────────────────────────────────────────────────────────────────
+
+def _sanitize_filename_component(value: Any) -> str:
+    if isinstance(value, (float, np.floating)):
+        return format(float(value), ".6f").rstrip("0").rstrip(".") or "0"
+    if isinstance(value, (int, np.integer)):
+        return str(int(value))
+    if isinstance(value, bool):
+        return "true" if value else "false"
+    if value is None:
+        return "none"
+    text = str(value).strip().replace(" ", "_").replace("/", "_").replace("\\", "_")
+    return "".join(ch if ch.isalnum() or ch in "._-" else "_" for ch in text)
+
+
+def _build_image_filename(prefix: str, kwargs: Dict[str, Any], variable_name: str, param_value: float) -> str:
+    parts = [prefix, f"{variable_name}_{_sanitize_filename_component(param_value)}"]
+    for key, value in kwargs.items():
+        if key in {variable_name, "img", "img_mask"}:
+            continue
+        parts.append(f"{key}_{_sanitize_filename_component(value)}")
+    return "_".join(parts) + ".png"
+
+
+def _save_image(image: Image.Image, output_dir: str, filename: str) -> str:
+    os.makedirs(output_dir, exist_ok=True)
+    path = os.path.join(output_dir, filename)
+    image.save(path)
+    return path
+
 
 def _immunize_and_score(
     immunization_model: Immunization,
@@ -87,6 +121,7 @@ def _immunize_and_score(
     variable_name: str,
     param_value: float,
     masked_metric,
+    output_dir: str,
 ) -> Dict[str, float]:
     """Immunize a single image with the given kwargs and return all metrics."""
     img = image_tensor.to(immunization_model.device).float()
@@ -96,6 +131,11 @@ def _immunize_and_score(
 
     img_final_pil = tensor_to_pil(img_final)
     img_final_recovered = recover_image(img_final_pil, image_pil, mask_pil, background=True)
+
+    images_dir = os.path.join(output_dir, "saved_images")
+    recovered_name = _build_image_filename("immunized", immunize_kwargs, variable_name, param_value)
+    recovered_path = _save_image(img_final_recovered, images_dir, recovered_name)
+    print(f"Saved images: {recovered_path}")
 
     lpips_scores = masked_metric.compute(image_pil, img_final_recovered, mask_pil)
 
@@ -119,6 +159,7 @@ def _base_kwargs(config: Dict[str, Any]) -> Dict[str, Any]:
         "n_steps": config.get("n_steps", 50),
         "eps": config.get("eps", 8 / 255.0),
         "lambda_noise": config.get("lambda_noise", 100.0),
+        "targeted": config.get("targeted", False),
     }
 
 
@@ -130,6 +171,7 @@ def _save_csv(results: List[Dict[str, float]], output_dir: str, filename: str) -
         writer.writeheader()
         writer.writerows(results)
     print(f"Saved CSV: {csv_path}")
+
 
 def _plot_results(
     results: List[Dict[str, float]],
@@ -254,10 +296,11 @@ def experiment_n_steps(
                 "n_steps",
                 v,
                 masked_metric,
+                config["output_dir"],
             )
         )
     _save_csv(results, config["output_dir"], "sweep_n_steps.csv")
-    _plot_results(results, "n_steps", config["output_dir"],experiment_name="n_steps")
+    _plot_results(results, "n_steps", config["output_dir"], experiment_name="n_steps")
     return results
 
 
@@ -288,6 +331,7 @@ def experiment_eps(
                 "eps",
                 v,
                 masked_metric,
+                config["output_dir"],
             )
         )
     _save_csv(results, config["output_dir"], "sweep_eps.csv")
@@ -322,26 +366,40 @@ def experiment_lambda_noise(
                 "lambda_noise",
                 v,
                 masked_metric,
+                config["output_dir"],
             )
         )
     _save_csv(results, config["output_dir"], "sweep_lambda_noise.csv")
-    _plot_results(results, "lambda_noise", config["output_dir"],"lambda_noise")
+    _plot_results(results, "lambda_noise", config["output_dir"], "lambda_noise")
     return results
 
 
 # ─────────────────────────────────────────────────────────────────────────────
-# Entry point
+# Entry point — single run
 # ─────────────────────────────────────────────────────────────────────────────
 
-def run_experiments(config: Dict[str, Any]) -> None:
+def run_experiments(
+    config: Dict[str, Any],
+    checkpoint_path: Optional[str] = None,
+    molt_filter: Optional[int] = None,
+) -> Immunization:
+    """
+    Esegue gli esperimenti per UNA rete (un checkpoint).
+    Ritorna il modello Immunization caricato, cosi' il chiamante (es. il loop
+    multi-checkpoint) puo' liberare la VRAM dopo l'uso.
+    """
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
     set_seed_lib(config.get("seed", 42))
 
-    immunization_model = load_models(config, device)
+    immunization_model = load_models(config, device, checkpoint_path=checkpoint_path, molt_filter=molt_filter)
     image_tensor, mask_tensor, image_pil, mask_pil = load_experiment_sample(config)
     masked_metric = create_metric(MetricType.MASKED, lpips_net="alex")
 
     os.makedirs(config["output_dir"], exist_ok=True)
+    original_dir = os.path.join(config["output_dir"], "saved_images")
+    original_name = f"original_{config.get('sample_idx', 0)}.png"
+    original_path = _save_image(image_pil, original_dir, original_name)
+    print(f"Saved original image: {original_path}")
 
     shared = (immunization_model, image_tensor, mask_tensor, image_pil, mask_pil, masked_metric, config)
 
@@ -358,6 +416,64 @@ def run_experiments(config: Dict[str, Any]) -> None:
     #experiment_lambda_noise(*shared)
 
     print("\nAll experiments completed.")
+    return immunization_model
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Entry point — multi checkpoint loop
+# ─────────────────────────────────────────────────────────────────────────────
+
+def run_experiments_multi_checkpoint(
+    base_config: Dict[str, Any],
+    checkpoint_paths: List[str],
+    molt_filters: Optional[List[Optional[int]]] = None,
+) -> None:
+    """
+    Esegue run_experiments per ogni rete in `checkpoint_paths`.
+
+    Il nome della sottocartella di output e' derivato automaticamente dal nome
+    del file checkpoint (senza estensione), es:
+        checkpoints/unet_best_fk2utznx.pth -> experiment/unet_best_fk2utznx/
+        checkpoints/unet_best_fgh123.pth   -> experiment/unet_best_fgh123/
+
+    `molt_filters`, se fornito, deve avere la stessa lunghezza di
+    `checkpoint_paths` (un molt_filter per ogni checkpoint; usa None in una
+    posizione per usare il default presente in base_config).
+
+    A fine di ogni iterazione il modello viene eliminato e la VRAM liberata
+    prima di passare al checkpoint successivo.
+    """
+    base_output_dir = base_config["output_dir"]
+
+    if molt_filters is None:
+        molt_filters = [None] * len(checkpoint_paths)
+    elif len(molt_filters) != len(checkpoint_paths):
+        raise ValueError("molt_filters deve avere la stessa lunghezza di checkpoint_paths")
+
+    for i, (checkpoint_path, molt_filter) in enumerate(zip(checkpoint_paths, molt_filters)):
+        name = os.path.splitext(os.path.basename(checkpoint_path))[0]
+
+        print("\n" + "#" * 70)
+        print(f"# Network {i + 1}/{len(checkpoint_paths)} — {name}")
+        print(f"# checkpoint: {checkpoint_path}")
+        if molt_filter is not None:
+            print(f"# molt_filter: {molt_filter}")
+        print("#" * 70)
+
+        run_config = dict(base_config)
+        run_config["checkpoint_path"] = checkpoint_path
+        if molt_filter is not None:
+            run_config["molt_filter"] = molt_filter
+        run_config["output_dir"] = os.path.join(base_output_dir, name)
+
+        immunization_model = run_experiments(run_config, checkpoint_path=checkpoint_path, molt_filter=molt_filter)
+
+        # Libera la VRAM prima di passare alla rete successiva
+        del immunization_model
+        torch.cuda.empty_cache()
+        torch.cuda.synchronize()
+
+    print("\nAll networks completed.")
 
 
 def get_default_config() -> Dict[str, Any]:
@@ -366,28 +482,44 @@ def get_default_config() -> Dict[str, Any]:
         "dataset_split": "validation",
         "sample_idx": 0,
         "image_size": 512,
-        "noise_mode": "all",
+        "noise_mode": "mask",
         "is_2_stage": True,
         "pgd": False,
         "lr": 1e-4,
         "lambda_vae": 1.0,
+        "targeted": True,
         # fixed defaults used when a parameter is NOT being swept
-        "n_steps": 300, #valore standard 300
+        "n_steps": 300,  # valore standard 300
         "eps": 32 / 255.0,
-        "lambda_noise": 100.0, #valore standard 100
+        "lambda_noise": 100.0,  # valore standard 100
         "load_existing": True,
         "checkpoint_path": os.path.join("checkpoints", "unet_best_fk2utznx.pth"),
         "molt_filter": 2,
         "seed": 2043,
         "local_files_only": True,
-        "output_dir": os.path.join("experiment", "unet_best_fk2utznx"),
+        "output_dir": os.path.join("experiment"),
         # sweep grids
-        "sweep_n_steps": [50, 100, 200, 300,400,500,600,700,800,900,1000],
-        "sweep_eps": [8 / 255.0, 16 / 255.0, 32 / 255.0, 64 / 255.0, 128/255 ],
+        "sweep_n_steps": [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000],
+        "sweep_eps": [8 / 255.0, 16 / 255.0, 32 / 255.0, 64 / 255.0, 128 / 255],
         "sweep_lambda_noise": [1.0, 10.0, 50.0, 100.0, 150.0, 200.0],
     }
 
 
 if __name__ == "__main__":
     config = get_default_config()
-    run_experiments(config)
+
+    checkpoint_paths = [
+        os.path.join("checkpoints", "unet_best_4g2mrzt5.pth"),
+        os.path.join("checkpoints", "unet_best_fk2utznx.pth"),
+        os.path.join("checkpoints", "unet_best_2ji8vjn3.pth"),
+        os.path.join("checkpoints", "unet_best_uz0247gg.pth"),
+        os.path.join("checkpoints", "unet_best_o23oqvbx.pth"),
+
+        # aggiungi qui le altre reti...
+    ]
+
+    # opzionale: un molt_filter per ogni checkpoint (stessa lunghezza della lista sopra)
+    # molt_filters = [2, 1]
+    # run_experiments_multi_checkpoint(config, checkpoint_paths, molt_filters)
+
+    run_experiments_multi_checkpoint(config, checkpoint_paths)

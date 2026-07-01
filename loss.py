@@ -20,70 +20,6 @@ def noise_loss(I_im, I, M, noise_on_mask=False):
     return diff.abs().mean()
 
 
-# --------------------------------------------
-# 2. LOSS LPAA PATCH
-#---------------------------------------------
-
-def lpaa_patch_loss(
-    vae,
-    img_orig: torch.Tensor,
-    delta_total: torch.Tensor,
-    posterior_target,
-    n_masks: int = 5,
-    patch_size: int = 16,
-    keep_frac: float = 0.5,
-    clamp_min: float = -1.0,
-    clamp_max: float = 1.0,
-):
-    """
-    LPAA: Local Patch Anti-Overfitting Alignment loss.
-
-    Obiettivo:
-    Forzare la perturbazione delta_total a essere efficace anche quando
-    applicata solo a patch casuali dell'immagine.
-    """
-
-    B, C, H, W = img_orig.shape
-    device = img_orig.device
-
-    total_loss = 0.0
-
-    for _ in range(n_masks):
-        # ---- 1. mask patch random ----
-        mask = torch.zeros((B, 1, H, W), device=device)
-
-        ph = patch_size
-        pw = patch_size
-
-        # scegli top-left random per patch
-        if H <= ph or W <= pw:
-            # fallback: nessuna mask
-            mask[:] = 1.0
-        else:
-            y = random.randint(0, H - ph)
-            x = random.randint(0, W - pw)
-
-            mask[:, :, y:y+ph, x:x+pw] = 1.0
-
-        # opzionale: keep fraction (drop parte della patch)
-        if keep_frac < 1.0:
-            rand_keep = (torch.rand_like(mask) < keep_frac).float()
-            mask = mask * rand_keep
-
-        # ---- 2. applica perturbazione solo sulla patch ----
-        img_masked = img_orig + delta_total * mask
-        img_masked = torch.clamp(img_masked, clamp_min, clamp_max)
-
-        # ---- 3. encode VAE ----
-        posterior = vae.encode(img_masked).latent_dist
-
-        # ---- 4. loss nello spazio latente ----
-        loss = vae_mse(posterior, posterior_target)
-
-        total_loss += loss
-
-    return total_loss / n_masks
-
 # ─────────────────────────────────────────────
 # 3. LOSS VAE
 # ─────────────────────────────────────────────
@@ -120,19 +56,6 @@ def vae_mse(posterior_im, posterior_target) -> Tensor:
         posterior_target.mean.expand_as(posterior_im.mean)
     )
     return loss
-
-def vae_divergence_loss(
-    p: "DiagonalGaussianDistribution",
-    q: "DiagonalGaussianDistribution",
-) -> torch.Tensor:
-    """
-    Distanza simmetrica tra due posterior gaussiani.
-    Combina MSE sulle medie + MSE sui log-var per una metrica robusta.
-    Restituisce un valore POSITIVO → più è alto, più i posterior sono distanti.
-    """
-    mse_mean   = F.mse_loss(p.mean,    q.mean)
-    mse_logvar = F.mse_loss(p.logvar,  q.logvar)
-    return mse_mean + mse_logvar
 
 
 
@@ -259,47 +182,47 @@ class LossNormalizer:
 # ─────────────────────────────────────────────
 
 def total_loss(
-    # ── immagini ──
     I_im:      Tensor,
     I:         Tensor,
     M:         Tensor,
     I_target:  Tensor,
-    # ── VAE ──
-    posterior_im_list,  # DiagonalGaussianDistribution di I_im
+    posterior_im_list,
     posterior_target_list,
-    # ── weighter ──
     dyn_weighter: DynamicWeighter,
-    # ── iperparametri ──
     alpha: float = 1.0,
     beta:  float = 1.0,
     lambda_vae:  float = 1.0,
     noise_on_mask: bool = False,
+    untargeted: bool = False,
+    margin: float | None = 10.0,
 ) -> Tuple[Tensor, dict]:
 
-    # ── 1. Loss impercettibilità ──
     l_noise = noise_loss(I_im, I, M, noise_on_mask)
 
-    # ── 2. Loss per surrogato + raccolta per il weighter ──
-    per_surrogate_losses = []   # L_θi completa per ogni surrogato → S_i
-    per_surrogate_terms  = []   # termini da pesare nella total loss
+    per_surrogate_terms     = []   # termini effettivi nella total loss (con segno)
+    per_surrogate_magnitude = []   # |distanza| sempre positiva, per il weighter
 
     for posterior_im, posterior_target in zip(posterior_im_list, posterior_target_list):
-        #l_vae = vae_align_loss(posterior_im, posterior_target)
-        l_vae = vae_mse(posterior_im, posterior_target)
-        l_vae =  (lambda_vae *l_vae)
-        per_surrogate_losses.append(l_vae.item())
+        vae_dist = vae_mse(posterior_im, posterior_target)
+        per_surrogate_magnitude.append(vae_dist.item())
+
+        if untargeted:
+            if margin is not None:
+                l_vae = -torch.clamp(vae_dist, max=margin)
+            else:
+                l_vae = -vae_dist
+        else:
+            l_vae = vae_dist
+
+        l_vae = (lambda_vae * l_vae)
         per_surrogate_terms.append(l_vae)
 
-
-    # ── 3. Pesi dinamici calcolati sulla loss completa ──
     weights = dyn_weighter.get_weights()
 
-    # ── 4. Loss surrogati pesata ──
     l_surrogates = torch.tensor(0.0, device=I.device)
     for l_i, W_i in zip(per_surrogate_terms, weights):
         l_surrogates = l_surrogates + W_i * l_i
 
-    # ── 5. Loss totale ──
     l_tot = alpha * l_noise + beta * l_surrogates
 
     log = {
@@ -309,10 +232,16 @@ def total_loss(
         "weights": weights,
     }
 
-    # Log combined surrogate losses
+    # valori con segno (quello che entra nella loss totale) — per il logging/wandb
     log.update({
-    f"l_surrogate_{i}": l_i.item()
-    for i, l_i in enumerate(per_surrogate_terms)
+        f"l_surrogate_{i}": l_i.item()
+        for i, l_i in enumerate(per_surrogate_terms)
+    })
+
+    # magnitudine pura della distanza vae — quello che deve vedere il weighter/normalizer
+    log.update({
+        f"l_surrogate_mag_{i}": m
+        for i, m in enumerate(per_surrogate_magnitude)
     })
 
     return l_tot, log
